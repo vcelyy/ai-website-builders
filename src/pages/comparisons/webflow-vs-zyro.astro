@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Webflow vs Zyro AI',
+  description: 'Webflow vs Zyro: Which AI website builder is better? Compare visual development power vs budget-friendly simplicity.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Webflow',
+    score: 8.5,
+    ease: 6.5,
+    design: 8.5,
+    speed: 7.0,
+    flexibility: 9.5,
+    value: 7.5,
+    price: '$23-212/mo',
+    features: ['Complete control (9.5/10)', 'Code export', 'Powerful CMS', 'Visual development'],
+    bestFor: 'Designers and developers',
+    strengths: ['Unlimited control', 'Code export', 'Professional tool', 'CMS power'],
+    weaknesses: ['Steep learning curve', 'Not AI-first', 'Higher cost', 'Time-consuming']
+  },
+  {
+    name: 'Zyro',
+    score: 7.5,
+    ease: 8.5,
+    design: 7.5,
+    speed: 8.0,
+    flexibility: 6.5,
+    value: 8.0,
+    price: '$9-15/mo',
+    features: ['Affordable', 'AI tools', 'Easy templates', 'Simple builder'],
+    bestFor: 'Budget beginners',
+    strengths: ['Low pricing', 'Easy setup', 'AI content tools', 'Good for simple sites'],
+    weaknesses: ['Limited features', 'No code export', 'Template constraints', 'Basic CMS']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Webflow or Zyro better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow (8.5/10) is significantly more powerful than Zyro (7.5/10) with complete design control (9.5/10 vs 6.5/10), code export capability, and a powerful CMS. Webflow is a professional visual development tool for designers, agencies, and developers willing to invest time learning. Zyro is better for budget-conscious beginners ($9-15/mo vs $23-212/mo) who want easy setup for simple websites. Zyro offers better ease of use (8.5/10 vs 6.5/10) with AI writing tools and template-based building. Webflow has a steep learning curve but delivers unlimited power. Zyro is limited but user-friendly and affordable. Choose Webflow if you're a designer or developer wanting complete control and code export. Choose Zyro if you're a beginner on a budget who needs a simple site quickly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Webflow and Zyro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro is significantly more affordable than Webflow. Zyro starts at $9/month for basic plans, $15/month for premium features. Over 3 years, Zyro costs $324-540 total. Webflow starts at $23/month for Basic, $28/month for CMS, $49/month for Business, up to $212/month for enterprise. Over 3 years, Webflow costs $828-7632 depending on plan level. Zyro offers better value for simple websites and budget-conscious users. Webflow's higher pricing includes powerful features (CMS, code export, Logic, team collaboration) that justify the cost for professionals. For most personal and small business sites, Zyro provides everything needed at a fraction of Webflow's cost. If budget is your main concern, Zyro is the clear winner."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Webflow or Zyro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow offers code export (HTML, CSS, JS) on paid plans starting at $28/month (CMS plan) and higher. You can export clean, semantic code to host elsewhere or continue development manually. Zyro does not offer code export - your website stays on Zyro's servers permanently. This is a major difference for developers, agencies, and anyone wanting platform independence. With Webflow, you own the code and can migrate if needed. With Zyro, you're locked into their platform. If code export and portability matter, Webflow is the only choice. If you don't care about code export and just want an affordable hosted solution, Zyro works fine but you'll be platform-dependent."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow wins for power.</strong> Complete control (9.5/10), code export, powerful CMS.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro wins for budget and ease.</strong> Affordable ($9/mo), easier to use, simple sites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Webflow if:</strong> You're a designer/developer wanting complete control.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Zyro if:</strong> You're a beginner on a budget who needs a simple site.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Webflow</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Zyro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Control Level</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited (6.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep (6.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CMS Power</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extremely powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">AI writer, generator</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Gentle</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Target User</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Professionals</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Beginners</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Unlimited (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Template-based (6.5/10)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Power vs. Simplicity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow is visual development.</strong> Complete control like coding but visually. Very powerful.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro is template-based.</strong> Choose templates, customize within constraints. Simpler approach.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow targets professionals.</strong> Designers, agencies, developers willing to invest time.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro targets beginners.</strong> Budget users, personal sites, simple business needs.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Approach</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow added AI features.</strong> Traditional builder with some AI capabilities.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro is AI-assisted.</strong> AI writer, content generator, heatmap tools built-in.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow: Professional power.</strong> Higher cost but unlimited capability and code export.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro: Budget simplicity.</strong> Lower cost with easier learning curve and AI content tools.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Experience</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Webflow (8.5/10) if:</strong> You're a designer/developer, you need complete control, code export matters, powerful CMS required, willing to learn.</li>
+        <li><strong>Choose Zyro (7.5/10) if:</strong> You're a beginner, budget is $9-15/mo, you need a simple site, ease of use matters, AI content helps.</li>
+        <li><strong>Webflow is better for:</strong> Agencies, designers, complex sites, custom development, portfolios requiring unique design.</li>
+        <li><strong>Zyro is better for:</strong> Personal sites, simple business, budget projects, beginners, quick basic sites with AI content.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro for beginners and budgets.</strong> If you want a simple site without technical complexity.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow for professionals.</strong> If you're willing to learn for unlimited power and code export.
+      </p>
+      <p class="text-gray-700">
+        These serve very different users. Know your skills and goals before choosing.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Webflow for power, Zyro for simplicity. Choose based on your skills and needs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/webflow-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Webflow Review →
+        </a>
+        <a href="/reviews/zyro-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Zyro Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI prototyping vs design platform</p>
+        </a>
+        <a href="/comparisons/zyro-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Zyro vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget AI vs speed AI</p>
+        </a>
+        <a href="/comparisons/webflow-vs-wix" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Webflow vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Design power vs ease of use</p>
+        </a>
+        <a href="/comparisons/zyro-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Zyro vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs design quality</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

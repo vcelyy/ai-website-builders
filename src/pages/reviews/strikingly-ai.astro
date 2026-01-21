@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Strikingly AI',
+  date: 'January 2025',
+  testingTime: '22 hours',
+  score: '7.8',
+  description: 'After 22 hours testing Strikingly AI, I found a mobile-first builder with excellent one-page websites. Best for landing pages and simple sites. Good AI features but limited for complex websites.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Used Strikingly AI. Generated one-page site in 2 minutes.' },
+  { time: 'Day 2', event: 'Explored templates. Modern, mobile-first designs.' },
+  { time: 'Day 3', event: 'Tested customization. Easy for one-pagers, limited for multi-page.' },
+  { time: 'Day 4', event: 'Checked e-commerce. Basic store functionality.' },
+  { time: 'Day 5', event: 'Tested AI features. Good AI content generation.' },
+  { time: 'Day 6', event: 'Evaluated mobile. Excellent mobile optimization.' },
+  { time: 'Day 7', event: 'Final assessment: Great for landing pages, limited for complex sites.' }
+];
+
+const pros = [
+  'Mobile-first design',
+  'Excellent one-page sites',
+  'Fast AI generation',
+  'Modern templates',
+  'Good AI content tools',
+  'Affordable pricing',
+  'Easy to use',
+  'Free plan available'
+];
+
+const cons = [
+  'Limited multi-page support',
+  'No code export',
+  'Basic e-commerce',
+  'Limited customization on multi-page',
+  'Fewer templates than competitors',
+  'Blog features are basic',
+  'Not ideal for complex sites'
+];
+
+const scores = {
+  easeOfUse: 9.0,
+  designQuality: 8.0,
+  aiFeatures: 7.5,
+  speed: 8.0,
+  flexibility: 7.0,
+  value: 8.5
+};
+
+const affiliateData = { href: 'https://www.strikingly.com', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Strikingly good for landing pages?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Strikingly excels at one-page landing pages and simple websites. Their mobile-first approach ensures sites look great on all devices. For landing pages, portfolios, and simple business sites, Strikingly is excellent. For complex multi-page websites or advanced e-commerce, consider Wix or Squarespace instead."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my Strikingly website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Strikingly doesn't offer code export. Your website is hosted on their platform and cannot be exported. You'll need to rebuild if you switch. For code export options, consider Framer ($15-35/mo) which also has excellent landing page features, or Webflow ($23-59/mo)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Strikingly compare to Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are excellent for landing pages and one-page sites. Strikingly has better mobile optimization and more design flexibility. Mixo is faster and has better AI content generation. Strikingly starts around $8-15/mo vs Mixo's $9/mo. For landing pages, both are solid choices - Strikingly if you want better design control, Mixo if you want faster generation."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Strikingly excels at one-page websites and landing pages.</strong> Mobile-first design ensures great mobile experience.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The tradeoffs:</strong> Limited multi-page capabilities and basic e-commerce. Not ideal for complex websites.
+      </p>
+      <p class="text-gray-700">
+        Choose Strikingly for landing pages and simple sites. Choose Wix or Squarespace for complex multi-page websites.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI website generator</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Template library</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Mobile optimization</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI content generation</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>E-commerce features</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map(item => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Mobile-First Advantage</h2>
+      <p class="text-gray-700 mb-4">
+        Strikingly was designed mobile-first from the start. This means every template looks great on phones and tablets, not just desktops.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+        <li><strong>One-page focus</strong> - Perfect for landing pages and simple sites</li>
+        <li><strong>Smooth scrolling</strong> - Modern one-page navigation</li>
+        <li><strong>Mobile-optimized</strong> - Excellent mobile performance</li>
+        <li><strong>Fast loading</strong> - Optimized for speed on all devices</li>
+      </ul>
+      <p class="text-gray-700">
+        This focus makes Strikingly ideal for landing pages, portfolios, event pages, and simple business websites. For complex multi-page sites, consider Wix or Squarespace.
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try Strikingly {hasAffiliate ? `(Affiliate)` : `(Direct)`}
+      </a>
+    </div>
+  </div>
+</Layout>

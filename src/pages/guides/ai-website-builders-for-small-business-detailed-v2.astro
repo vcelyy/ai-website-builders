@@ -1,0 +1,451 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Small Business',
+  description: 'Top AI website builders for small businesses, local businesses, and entrepreneurs. Compare affordable pricing, ease of use, and professional results.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    businessType: 'Local Service Businesses',
+    topPick: 'Mixo',
+    reason: 'Affordable ($9/mo), professional results, easy to maintain, phone-optimized',
+    alternatives: ['Wix', 'Squarespace']
+  },
+  {
+    businessType: 'E-commerce / Retail',
+    topPick: 'Wix',
+    reason: 'Built-in store, app marketplace, inventory management, payment processing',
+    alternatives: ['Squarespace', '10Web + WooCommerce']
+  },
+  {
+    businessType: 'Professional Services',
+    topPick: 'Framer',
+    reason: 'Modern design (9.5/10), fast loading, impressive portfolio, value ($5/mo)',
+    alternatives: ['Webflow', 'Squarespace']
+  },
+  {
+    businessType: 'Restaurants / Food Service',
+    topPick: 'Squarespace',
+    reason: 'Beautiful menus, reservations integration, polished presentation',
+    alternatives: ['Wix', 'Mixo']
+  }
+];
+
+const essentialPages = [
+  {
+    page: 'Home Page',
+    elements: ['Clear business name and what you do', 'Contact info prominent', 'Key services/products', 'Location/map', 'Call-to-action (contact, visit, call)'],
+    priority: 'Essential'
+  },
+  {
+    page: 'About / Story',
+    elements: ['Business history', 'Team introductions', 'Values and mission', 'Photos of people/locations', 'Community involvement'],
+    priority: 'Important for trust'
+  },
+  {
+    page: 'Products / Services',
+    elements: ['Clear descriptions', 'Pricing information', 'Photos/images', 'Benefits and features', 'Call-to-action'],
+    priority: 'Essential'
+  },
+  {
+    page: 'Contact / Location',
+    elements: ['Phone number prominent', 'Email address', 'Physical address with map', 'Business hours', 'Contact form', 'Directions link'],
+    priority: 'Essential for local business'
+  },
+  {
+    page: 'Testimonials / Reviews',
+    elements: ['Customer quotes', 'Star ratings if available', 'Photos with permission', 'Specific results', 'Before/after if applicable'],
+    priority: 'Important for conversions'
+  },
+  {
+    page: 'FAQ',
+    elements: ['Common questions answered', 'Policies (returns, hours, etc.)', 'Payment methods accepted', 'Service area covered'],
+    priority: 'Nice to have'
+  }
+];
+
+const features = [
+  {
+    feature: 'Mobile Optimization',
+    description: 'Perfect experience on smartphones - critical for local searches',
+    importance: 'Essential',
+    why: '60%+ of local searches happen on mobile devices'
+  },
+  {
+    feature: 'Fast Loading',
+    description: 'Site loads in under 3 seconds',
+    importance: 'Essential',
+    why: '53% of mobile visitors leave if loading takes longer than 3 seconds'
+  },
+  {
+    feature: 'Contact Information Accessible',
+    description: 'Phone, email, address visible on every page',
+    importance: 'Essential',
+    why: 'Make it effortless for customers to reach you'
+  },
+  {
+    feature: 'Local SEO',
+    description: 'Optimized for local search queries',
+    importance: 'Essential',
+    why: 'Local customers search for "business near me" - you need to appear'
+  },
+  {
+    feature: 'Clear Calls-to-Action',
+    description: 'Obvious next steps (call, visit, email, book)',
+    importance: 'Important',
+    why: 'Remove friction from customer journey'
+  },
+  {
+    feature: 'Social Proof',
+    description: 'Testimonials, reviews, ratings displayed',
+    importance: 'Important',
+    why: 'Trust drives conversions for local businesses'
+  },
+  {
+    feature: 'Business Hours',
+    description: 'Current operating hours clearly posted',
+    importance: 'Essential for local',
+    why: 'Customers need to know when you\'re open'
+  },
+  {
+    feature: 'Payment Methods',
+    description: 'What payment types you accept',
+    importance: 'Important',
+    why: 'Sets expectations before customer visit'
+  }
+];
+
+const tips = [
+  {
+    tip: 'Keep it simple and focused',
+    explanation: 'Small business websites don\'t need complexity. Focus on clear information: who you are, what you do, how to contact you. Everything else is secondary.'
+  },
+  {
+    tip: 'Mobile-first is mandatory',
+    explanation: 'Most customers will find you on mobile. Design for phones first, ensure everything works perfectly on small screens.'
+  },
+  {
+    tip: 'Contact info on every page',
+    explanation: 'Phone number, email, address in header or footer. Make it effortless to reach you. Every click required is a lost customer.'
+  },
+  {
+    tip: 'Real photos build trust',
+    explanation: 'Show your actual business, team, products. Stock photos feel fake. Real photos build authentic connections.'
+  },
+  {
+    tip: 'Focus on benefits, not features',
+    explanation: 'Customers care about outcomes. "Save 2 hours daily" beats "Enterprise-grade productivity system."'
+  },
+  {
+    tip: 'Test everything on mobile',
+    explanation: 'Open your site on your phone. Try to call, find address, contact. Fix any friction immediately.'
+  },
+  {
+    tip: 'Keep information current',
+    explanation: 'Outdated hours, old prices, wrong phone numbers lose customers and credibility. Update regularly or remove outdated info.'
+  },
+  {
+    tip: 'Local SEO matters enormously',
+    explanation: 'Google Business Profile, local keywords, NAP consistency (name, address, phone). Local search drives real customers.'
+  },
+  {
+    tip: 'Fast loading = more customers',
+    explanation: 'Optimize images, minimize scripts. Every second of load time loses visitors and potential customers.'
+  },
+  {
+    tip: 'Measure what matters',
+    explanation: 'Track calls, form submissions, direction requests. These are the conversions that actually matter for local business.'
+  }
+];
+
+const localSEO = [
+  {
+    tactic: 'Google Business Profile',
+    description: 'Claim and optimize your free Google listing',
+    priority: 'Essential',
+    steps: ['Claim your business', 'Verify ownership', 'Complete all information', 'Add photos', 'Collect reviews']
+  },
+  {
+    tactic: 'Consistent NAP',
+    description: 'Name, Address, Phone identical everywhere online',
+    priority: 'Essential',
+    steps: ['Check website, directories, social media', 'Ensure exact match', 'Update any inconsistencies']
+  },
+  {
+    tactic: 'Local Keywords',
+    description: 'Include location in page titles and content',
+    priority: 'Important',
+    steps: ['"Service in City"', 'Include neighborhood names', 'Mention service areas']
+  },
+  {
+    tactic: 'Customer Reviews',
+    description: 'Collect and respond to reviews actively',
+    priority: 'Important',
+    steps: ['Ask happy customers', 'Respond to all reviews', 'Address negative feedback professionally']
+  },
+  {
+    tactic: 'Local Directories',
+    description: 'List in relevant local directories',
+    priority: 'Nice to have',
+    steps: ['Yelp, Yellow Pages', 'Industry-specific directories', 'Chamber of commerce']
+  }
+];
+
+const budgeting = [
+  {
+    tier: 'DIY Budget (Under $20/mo)',
+    builders: ['Mixo ($9/mo)', 'Carrd ($19/mo)', 'Durable ($12/mo)'],
+    includes: ['Website builder', 'Hosting', 'Basic features', 'Templates'],
+    bestFor: 'Very small businesses, startups, testing'
+  },
+  {
+    tier: 'Professional ($20-50/mo)',
+    builders: ['Framer ($15-30/mo)', 'Wix ($18-29/mo)', 'Squarespace ($23-33/mo)'],
+    includes: ['More features', 'Custom domain', 'Better templates', 'Support'],
+    bestFor: 'Established small businesses, growth-focused'
+  },
+  {
+    tier: 'Premium ($50+/mo)',
+    builders: ['Webflow ($29-59/mo)', '10Web + custom ($40+/mo)'],
+    includes: ['Advanced features', 'Priority support', 'More storage', 'Customization'],
+    bestFor: 'E-commerce, multiple locations, complex needs'
+  }
+];
+
+const mistakes = [
+  {
+    mistake: 'No contact information visible',
+    solution: 'Put phone, email, address in header. Make it effortless to reach you.'
+  },
+  {
+    mistake: 'Outdated information',
+    solution: 'Update hours, prices, services regularly. Remove outdated pages entirely.'
+  },
+  {
+    mistake: 'Poor mobile experience',
+    solution: 'Design mobile-first. Test on real phones. Fix any friction immediately.'
+  },
+  {
+    mistake: 'Slow loading',
+    solution: 'Optimize images, use fast hosting. Every second loses customers.'
+  },
+  {
+    mistake: 'No clear call-to-action',
+    solution: 'Tell customers exactly what to do: call, visit, email, book now.'
+  },
+  {
+    mistake: 'No social proof',
+    solution: 'Add testimonials, reviews, ratings. Build trust with real customer feedback.'
+  },
+  {
+    mistake: 'Complicated navigation',
+    solution: 'Simple menu, clear pages. Don\'t make customers think.'
+  },
+  {
+    mistake: 'Missing business hours',
+    solution: 'Post current hours prominently. Update when they change.'
+  },
+  {
+    mistake: 'No location information',
+    solution: 'Add address, map, directions. Make it easy to find you.'
+  },
+  {
+    mistake: 'Stock photos only',
+    solution: 'Show your actual business, team, products. Authenticity builds trust.'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for small business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most small businesses, Mixo ($9/month) is the best choice with unbeatable value, professional results, phone optimization critical for local customers, and ease of maintenance for busy business owners. Wix excels for e-commerce and retail businesses with built-in store capabilities, massive app marketplace (5000+ apps) for extending functionality, inventory management, and payment processing all-in-one. Framer serves professional services with modern design quality (9.5/10), fast loading that impresses potential clients, portfolio capabilities for showcasing work, and exceptional value at $5/month. Squarespace is ideal for restaurants and food service businesses with beautiful menu presentation, reservations integration, and consistently polished design that elevates brand perception. Choose based on your business type: Mixo for general local business, Wix for e-commerce, Framer for professional services, Squarespace for hospitality and food service."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should small business websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Small business websites need: (1) Home page with clear business name, what you do, and contact info prominent, (2) About page telling your business story, team introductions, and community involvement, (3) Products/services pages with clear descriptions, pricing, and images, (4) Contact page with phone number, email, address, map, business hours, and contact form, (5) Testimonials or reviews with specific customer results, (6) FAQ answering common questions about policies, payments, service areas. Essential for local businesses: mobile optimization (60%+ local searches on mobile), contact information visible on every page, business hours clearly posted, loading speed under 3 seconds. Focus on making it effortless for customers to contact you, visit your location, or purchase from you. Remove all friction from the customer journey."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can small businesses improve local SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Improve local SEO by: (1) Claim and optimize Google Business Profile - it\'s free and essential for local search visibility, (2) Ensure consistent NAP (name, address, phone) across all online platforms - website, directories, social media must match exactly, (3) Include local keywords in page titles and content - \"plumber in Chicago\" or \"Dallas auto repair\", (4) Collect and actively respond to customer reviews - more reviews with higher ratings improve local rankings, (5) List business in relevant local directories - Yelp, Yellow Pages, industry-specific directories, chamber of commerce, (6) Add location pages if serving multiple areas, (7) Ensure website is mobile-optimized since local searches are mobile-first, (8) Use local business schema markup for search engines, (9) Get backlinks from local businesses and organizations, (10) Create local content relevant to your community. Focus on Google Business Profile optimization first - it\'s the highest ROI local SEO activity."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Business Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Local Services:</strong> Mixo ($9/mo)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>E-commerce:</strong> Wix</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Professional:</strong> Framer (9.5/10)</p>
+          <p class="text-gray-700 text-lg"><strong>Restaurants:</strong> Squarespace</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Budget:</strong> Mixo</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Design:</strong> Framer</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Features:</strong> Wix</p>
+          <p class="text-gray-700 text-lg"><strong>Easiest:</strong> Mixo or Wix</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Business Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Business Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.businessType}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Pages -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Small Business Pages</h2>
+
+      <div class="space-y-4">
+        {essentialPages.map(page => (
+          <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{page.page}</h3>
+            <p class="text-gray-700 mb-2"><strong>Key Elements:</strong> {page.elements.join(', ')}</p>
+            <p class="text-sm text-blue-700"><strong>Priority:</strong> {page.priority}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Small Business Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                !
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-2">{feature.description}</p>
+            <p class="text-sm text-orange-700"><strong>Why:</strong> {feature.why}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Local SEO -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Local SEO for Small Business</h2>
+
+      <div class="space-y-4">
+        {localSEO.map(tactic => (
+          <div class="border border-green-200 bg-green-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{tactic.tactic}</h3>
+            <p class="text-gray-700 mb-2">{tactic.description}</p>
+            <div class="grid grid-cols-2 gap-2">
+              <p class="text-sm text-green-700"><strong>Priority:</strong> {tactic.priority}</p>
+              <p class="text-sm text-green-700"><strong>Action:</strong> {tactic.steps.join(' → ')}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Budgeting -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Budget Guide for Small Business</h2>
+
+      <div class="space-y-4">
+        {budgeting.map(tier => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{tier.tier}</h3>
+            <p class="text-gray-700 mb-2"><strong>Options:</strong> {tier.builders.join(', ')}</p>
+            <p class="text-gray-700 mb-2"><strong>Includes:</strong> {tier.includes.join(', ')}</p>
+            <p class="text-sm text-orange-700"><strong>Best For:</strong> {tier.bestFor}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Common Small Business Website Mistakes</h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {mistakes.map(mistake => (
+          <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+            <h3 class="text-lg font-bold text-red-900 mb-2">{mistake.mistake}</h3>
+            <p class="text-sm text-red-700">{mistake.solution}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Small Business Website Tips</h2>
+      <div class="space-y-3 text-gray-700">
+        {tips.map(tip => (
+          <div>
+            <p class="font-semibold mb-1">{tip.tip}</p>
+            <p class="text-sm">{tip.explanation}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Small business websites should be simple, mobile-optimized, and make contact effortless. Focus on what drives real customers.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

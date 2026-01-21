@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
 
 const reviewData = {
@@ -38,6 +39,37 @@ const scores = {
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is GoDaddy AI good if I already use GoDaddy hosting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, GoDaddy AI is a solid choice if you already use GoDaddy for domains or hosting. The integration is seamless, and you can manage everything from one dashboard. However, if you don't use GoDaddy, there are better AI builders available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my website from GoDaddy AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, GoDaddy doesn't offer code export. Your website is tied to their hosting platform. If you leave GoDaddy, you'll need to rebuild your site from scratch elsewhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does GoDaddy AI compare to Wix or Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GoDaddy AI is more basic than Wix or Squarespace. It lacks the design polish, template variety, and advanced features. GoDaddy's main advantage is price and integration with their ecosystem. For design-focused sites, Wix or Squarespace are better choices."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">REVIEW</p>

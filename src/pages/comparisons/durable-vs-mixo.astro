@@ -1,0 +1,289 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Durable vs Mixo AI',
+  description: 'Durable vs Mixo: Which AI website builder is better? Compare fastest setup vs best free tier for quick websites.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 9.0,
+    price: '$9/mo (or free)',
+    features: ['Best free tier', 'Easy to use', 'Good designs', 'Fast setup'],
+    bestFor: 'Best budget pick',
+    strengths: ['Best ease (9.0/10)', 'Excellent value (9.0/10)', 'Generous free tier', 'Fast AI setup'],
+    weaknesses: ['No code export', 'Limited customization', 'Basic CMS', 'Newer platform']
+  },
+  {
+    name: 'Durable',
+    score: 8.1,
+    ease: 8.0,
+    design: 8.0,
+    speed: 9.0,
+    flexibility: 7.5,
+    value: 7.5,
+    price: '$15/mo (first month discount)',
+    features: ['Fastest setup (30 sec)', 'CRM included', 'Business tools', 'AI generation'],
+    bestFor: 'Fastest for business',
+    strengths: ['Fastest setup (9.0/10)', 'Built-in CRM', 'Business-focused', 'Invoice tools'],
+    weaknesses: ['Over $10 base price', 'Newer platform', 'Fewer templates', 'Higher cost']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Durable or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (8.5/10) edges out Durable (8.1/10) for most users with superior ease of use (9.0/10 vs 8.0/10), excellent value (9.0/10 vs 7.5/10), and a generous free tier with affordable $9/month pricing. Mixo is the best budget pick for quick websites with good designs and simple setup. Durable is better for business users wanting the fastest setup (30 seconds or less) with built-in CRM for lead tracking, invoice generation, and business-focused features. Both are AI-first builders that generate complete websites quickly. Choose Mixo if budget is $9/month and you want the easiest experience. Choose Durable if you're a business needing CRM tools and fastest possible setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Durable and Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is more affordable than Durable with a better free tier and lower ongoing pricing. Mixo offers a generous free tier and paid plans start at just $9/month. Over 3 years, Mixo costs as little as $324 total. Durable starts at $15/month with first-month discounts available, but base pricing is higher. Over 3 years, Durable costs approximately $540+ for basic plans. Mixo's free tier is one of the best available - enough to fully test and even launch basic sites. Durable offers trials but requires payment sooner. For budget-conscious users, Mixo is clearly the better value. For business users who need CRM tools and fastest setup, Durable's higher pricing may be justified by the included business features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is faster: Durable or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durable is faster than Mixo with the fastest setup in the industry (9.0/10 speed vs 8.5/10). Durable can generate complete websites in under 30 seconds from a single prompt - literally the fastest available. Mixo is also very fast (8.5/10) and generates complete websites in under 2 minutes typically. Both are incredibly fast compared to traditional website building which takes hours or days. For most users, the speed difference between Durable and Mixo is negligible - both are virtually instant. However, if absolute speed is your priority, Durable's 30-second setup is unmatched. For users wanting a balance of speed, ease, and value, Mixo offers excellent setup speed with better pricing."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for value and ease.</strong> Best free tier, $9/mo, ease 9.0/10.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable wins for speed and business tools.</strong> 30-second setup, built-in CRM.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> Budget matters and you want the easiest experience.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Durable if:</strong> You're a business needing CRM and fastest setup.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Durable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very fast (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fastest (9.0/10, 30 sec)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Generous</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Trial available</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Value for Money</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (7.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Business Tools</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">CRM, invoices</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very good (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Minimal</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Budget users</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Business users</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Speed vs. Value</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable is the absolute fastest.</strong> 30-second setup, fastest in the industry.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo offers better value.</strong> $9/mo with excellent free tier and best ease score.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable targets businesses.</strong> CRM tools, invoicing, business-focused features.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo targets everyone.</strong> Budget users, simple sites, maximum accessibility.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Business Tools</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable includes CRM.</strong> Lead tracking, invoice generation, business management.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo focuses on websites.</strong> Core website features without business complexity.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Free Tier</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo has the best free tier.</strong> Generous, great for testing and launching.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable offers trials.</strong> Test before committing, but less generous free use.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> Budget is $9/mo, you want the best free tier, ease matters most, you need simple sites.</li>
+        <li><strong>Choose Durable (8.1/10) if:</strong> You're a business, you need CRM tools, fastest setup is critical, business features matter.</li>
+        <li><strong>Mixo is better for:</strong> Landing pages, portfolios, personal sites, budget projects, testing ideas.</li>
+        <li><strong>Durable is better for:</strong> Small business, service businesses, consultants, CRM needs.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most users.</strong> Best free tier, $9/mo, excellent ease and value.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable for businesses.</strong> If you need CRM tools and fastest 30-second setup.
+      </p>
+      <p class="text-gray-700">
+        Both are excellent AI-first builders. Mixo wins on price and ease. Durable wins on speed and business tools.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo for value and ease. Durable for speed and business tools.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/durable-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

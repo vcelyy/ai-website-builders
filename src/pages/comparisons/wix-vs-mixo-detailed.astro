@@ -1,0 +1,304 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Wix vs Mixo AI',
+  description: 'Wix vs Mixo: Which AI website builder offers better value? Compare feature-rich platform with app ecosystem vs affordable simplicity.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 7.5,
+    value: 7.5,
+    price: '$10-46/mo',
+    features: ['App marketplace (5000+)', 'Easy drag-drop', 'E-commerce built-in', 'Established brand'],
+    bestFor: 'Features & apps',
+    strengths: ['Huge app ecosystem', 'Easy to use', 'All-in-one platform', 'Established'],
+    weaknesses: ['Template lock-in', 'No code export', 'Loading speed', 'Limited flexibility']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.0,
+    speed: 9.0,
+    flexibility: 8.0,
+    value: 9.0,
+    price: '$9-39/mo',
+    features: ['Best value ($9/mo)', 'Fastest AI generation', 'Clean designs', 'Easy setup'],
+    bestFor: 'Budget & ease',
+    strengths: ['Unbeatable price', 'Very easy (9.0/10)', 'Fast setup', 'Clean modern design'],
+    weaknesses: ['Limited features', 'No app marketplace', 'Newer platform', 'Less mature']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Wix or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo wins overall (8.5/10 vs 8.2/10) with superior ease of use (9.0/10 vs 8.5/10), faster setup speed (9.0/10 vs 8.0/10), better value for money (9.0/10 vs 7.5/10), and more affordable pricing at $9/month vs $10/month. Wix offers more features with its massive app marketplace (5000+ apps), more mature and established platform, better e-commerce capabilities, and greater flexibility for complex websites. Mixo is better for: beginners wanting easiest experience, budget-conscious users, simple professional websites, blogs and portfolios, and users who don't need lots of features. Wix is better for: users needing specific features from app marketplace, e-commerce businesses, complex websites requiring flexibility, and those wanting established platform. Choose Mixo for unbeatable value and simplicity. Choose Wix for maximum features and flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Wix and Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix and Mixo have similar pricing at entry levels with Mixo offering slightly better value. Mixo starts at $9/month for all features, $19/month for premium plans, up to $39/month for advanced features. Over 3 years, Mixo costs $324-1404 depending on plan level. Wix starts at $10/month for basic sites, $18/month for unlimited plans, up to $46/month for e-commerce and business features. Over 3 years, Wix costs $360-1656 depending on plan level. For basic websites, pricing is nearly identical ($9 vs $10/month base pricing). For premium features, Mixo is more affordable ($19 vs $18/month similar, but Mixo includes more). For e-commerce, Wix costs more but offers more advanced features. Mixo's consistent pricing and included features make it better value for most users. Wix's higher tiers reflect its expanded capabilities and app ecosystem. For most users starting out, both offer similar entry-level pricing with Mixo providing slightly better value."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Wix or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither Wix nor Mixo offer code export - both platforms lock you into their hosting permanently. Your website stays on their servers and you're committed to their platform. This is different from competitors like Framer and Webflow which do offer code export on paid plans. With both Wix and Mixo, you don't own your code and can't migrate to custom development or other hosting. If code export matters for your long-term strategy, consider Framer or Webflow instead. If you don't care about code export, both Wix and Mixo are fine choices - just understand you're committing to their platforms. Platform lock-in is the trade-off for the convenience, features, and affordable pricing these builders provide. For most users who just want a working website without technical complexity, this trade-off is acceptable."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for value.</strong> Best pricing ($9/mo) and easiest to use.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for features.</strong> 5000+ app marketplace for anything you need.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want affordable, simple, professional websites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You need specific features and maximum flexibility.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very easy (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Good (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">5000+ apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Built-in features</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic features</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$10/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">800+ templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Growing library</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Average</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2006)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Newer (2020s)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Features & apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Budget & ease</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features vs. Simplicity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix maximizes features.</strong> App marketplace lets you add anything.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo maximizes simplicity.</strong> Everything you need, nothing you don't.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Maturity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is established.</strong> Proven platform with millions of users since 2006.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is newer.</strong> Modern approach but less proven track record.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">E-Commerce Focus</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix prioritizes e-commerce.</strong> Powerful online store capabilities.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is simpler.</strong> Basic e-commerce but not the focus.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo offers best value.</strong> $9/mo includes all features.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix costs more.</strong> But you get app marketplace and advanced features.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want the easiest experience, you're on a budget, you need simple professional site, you're a beginner, you don't need many features.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You need specific features, you want app marketplace, you're building e-commerce, you need maximum flexibility.</li>
+        <li><strong>Mixo is better for:</strong> Portfolios, blogs, simple business sites, beginners, budget-conscious users.</li>
+        <li><strong>Wix is better for:</strong> E-commerce, feature-heavy sites, users wanting apps, complex needs.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most users.</strong> Easiest, most affordable, great for simple sites.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for features.</strong> If you need app marketplace and advanced capabilities.
+      </p>
+      <p class="text-gray-700">
+        Choose Mixo for value and simplicity. Choose Wix for features and flexibility.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo for budget and ease. Wix for features and app marketplace.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

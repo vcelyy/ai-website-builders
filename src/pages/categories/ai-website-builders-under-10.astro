@@ -1,113 +1,121 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AffiliateCTA from '../../components/AffiliateCTA.astro';
-import Card from '../../components/Card.astro';
-import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
-
-const title = 'AI Website Builders Under $10/Month (2025)';
-const description = 'Budget AI website builders compared. Hostinger is cheapest at $2.99. Durable is $15 but has free trial. Here is the breakdown.';
+import StructuredData from '../../components/StructuredData.astro';
+import { getAffiliateCTA } from '../../config/affiliate-links';
 ---
 
-<Layout title={title} description={description}>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-      <p class="text-orange-600 font-semibold mb-4">CATEGORY</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">AI Website Builders Under $10/Month</h1>
-      <p class="text-xl text-gray-600 mb-6">
-        Building on a budget? Here are your options.
-      </p>
+<Layout title="AI Website Builders Under $10/Month (2025): Budget Options">
+  <StructuredData type="WebPage" data={{ name: 'AI Website Builders Under $10/Month', description: 'Budget AI website builders compared. Hostinger is cheapest at $2.99. Free tiers vs paid. When to spend more vs stay cheap.', url: 'https://aiwebsitebuilders.com/categories/ai-website-builders-under-10' }} />
+
+  <section class="bg-[#FFF8F0] py-16">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h1 class="text-4xl md:text-6xl font-black">AI Builders Under $10:<span class="block text-[#F5521A]">Budget Options</span></h1>
+      <p class="text-xl text-gray-700 mt-6">Cheapest AI builders compared. Free tiers, budget options, value analysis.</p>
     </div>
+  </section>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
-      <p class="text-gray-700 text-lg">
-        <strong>Hostinger at $2.99/month</strong> is the cheapest AI builder with actual features.
-      </p>
-      <p class="text-gray-700">
-        <strong>Reality:</strong> Most "under $10" options are limited. Consider spending $15-20 for significantly better tools.
-      </p>
-    </div>
+  <main class="max-w-5xl mx-auto px-4 py-16">
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">Quick Answer</h2>
+      <div class="bg-orange-50 border-[3px] border-orange-400 rounded-xl p-6">
+        <p class="font-bold text-gray-800 mb-2">💰 Cheapest with Features: Hostinger at $2.99/month</p>
+        <p class="text-sm mb-4">Includes hosting, decent templates, AI generation.</p>
+        <p class="text-xs text-orange-600"><strong>Reality:</strong> Most "under $10" options are limited. Consider spending $15-20 for significantly better tools.</p>
+      </div>
+    </section>
 
-    <div class="grid md:grid-cols-2 gap-6 mb-12">
-      <Card title="Hostinger" subtitle="$2.99/mo - Cheapest Option">
-        <p class="text-gray-700 mb-4">
-          Hostinger is by far the cheapest AI builder. Includes hosting, decent templates, and AI generation.
-        </p>
-        <p class="text-gray-700 mb-4">
-          <strong>Pros:</strong> Unbeatable price, includes hosting, fast setup</p>
-        <p class="text-gray-700">
-          <strong>Cons:</strong> Basic AI, limited templates, support can be slow
-        </p>
-      </Card>
-
-      <Card title="Consider Spending More" subtitle="$15-20 Gets You Much More">
-        <p class="text-gray-700 mb-4">
-          For $15-20/month, you get Durable, Framer, or Dorik - significantly better AI and features.
-        </p>
-        <p class="text-gray-700 mb-4">
-          <strong>Better options:</strong> Durable ($15), Framer ($15), Dorik ($15)</p>
-        </Card>
-    </div>
-
-    <div class="mt-12 mb-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Budget vs Value</h2>
-
-      <p class="text-gray-700 mb-4">
-        Saving $10/month sounds smart. But is it worth it?
-      </p>
-
-      <div class="space-y-4">
-        <div class="border-l-4 border-green-500 pl-4">
-          <p class="text-gray-700"><strong>Choose budget option if:</strong></p>
-          <ul class="list-disc list-inside text-gray-700 ml-4 mt-2">
-            <li>You genuinely can't afford $15/month</li>
-            <li>This is a hobby project, not business-critical</li>
-            <li>You just need something basic online</li>
-          </ul>
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">Under $10 Options</h2>
+      <div class="space-y-6">
+        <div class="bg-white border-[3px] border-gray-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-black">Hostinger</h3>
+            <span class="bg-[#F5521A] text-white px-4 py-2 rounded-full font-bold text-sm">$2.99/mo</span>
+          </div>
+          <p class="font-bold text-gray-800 mb-2">Cheapest AI Builder</p>
+          <p class="text-sm mb-4">Includes hosting, domain (first year), decent templates, AI generation. Best for absolute lowest cost.</p>
+          <div class="text-xs text-gray-600 mb-4">AI features are basic. Support can be slow. Limited templates.</div>
+          {getAffiliateCTA('hostinger')}
         </div>
 
-        <div class="border-l-4 border-yellow-500 pl-4">
-          <p class="text-gray-700"><strong>Spend more if:</strong></p>
-          <ul class="list-disc list-inside text-gray-700 ml-4 mt-2">
-            <li>This is for a business that makes money</li>
-            <li>You need better AI generation</li>
-            <li>You want more templates and features</li>
-            <li>You care about design quality</li>
+        <div class="bg-white border-[3px] border-gray-200 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-2xl font-black">WordPress + Elementor AI</h3>
+            <span class="bg-[#F5521A] text-white px-4 py-2 rounded-full font-bold text-sm">$5-9/mo</span>
+          </div>
+          <p class="font-bold text-gray-800 mb-2">Self-Hosted Budget Option</p>
+          <p class="text-sm mb-4">Hosting ($5-9/mo) + WordPress (free) + Elementor AI plugin. Requires tech skills. Unlimited potential.</p>
+          <div class="text-xs text-gray-600 mb-4">Manual setup. Security/updates on you. Steep learning curve.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">Free Tiers (Technically $0)</h2>
+      <div class="bg-green-50 border-[3px] border-green-400 rounded-xl p-6">
+        <p class="font-bold text-green-800 mb-3">🆓 Free Options Exist</p>
+        <ul class="text-sm space-y-2">
+          <li><strong>Relume AI:</strong> Free forever. Planning/sitemaps only, not hosting.</li>
+          <li><strong>Wix Free:</strong> Unlimited pages, 500MB storage. Wix branding, no custom domain.</li>
+          <li><strong>Framer Free:</strong> 2 pages, 1GB storage. Framer branding, no custom domain.</li>
+          <li><strong>Durable Free:</strong> 3 pages, limited features. Durable branding.</li>
+        </ul>
+        <p class="text-xs text-green-600 mt-4">All free tiers have catches: builder branding, no custom domain, feature limits. Good for testing only.</p>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">Budget vs Value Analysis</h2>
+      <div class="space-y-4">
+        <div class="bg-green-50 p-4 rounded-lg">
+          <p class="font-bold text-green-800 mb-2">✓ Choose Under $10 If...</p>
+          <ul class="text-sm space-y-1">
+            <li>• You genuinely can't afford $15/month</li>
+            <li>• This is a hobby project, not business-critical</li>
+            <li>• You just need something basic online</li>
+            <li>• You're comfortable with technical setup (WordPress option)</li>
+          </ul>
+        </div>
+        <div class="bg-yellow-50 p-4 rounded-lg">
+          <p class="font-bold text-yellow-800 mb-2">⚠️ Spend $15-20 If...</p>
+          <ul class="text-sm space-y-1">
+            <li>• This is for a business that makes money</li>
+            <li>• You need better AI generation quality</li>
+            <li>• You want more templates and better design</li>
+            <li>• You care about professional results</li>
+            <li>• You want better support and features</li>
           </ul>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="bg-gray-50 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Pricing Reality Check</h2>
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">The Value Math</h2>
+      <div class="bg-gray-900 rounded-xl p-6 text-white">
+        <p class="text-base mb-4">Saving $12/month = <strong class="text-[#F5521A]">$144/year</strong></p>
+        <p class="text-base mb-4">For a business website: <strong class="text-[#F5521A]">Not worth it.</strong> The difference in quality, AI capability, and features is worth far more than $144/year.</p>
+        <p class="text-base mb-4">For a personal project: <strong class="text-[#F5521A]">Maybe.</strong> If budget is tight, start cheap and upgrade later.</p>
+        <p class="text-base"><strong class="text-[#F5521A]">Recommendation:</strong> If this site makes money (or will), spend the extra $12/month. You'll earn it back quickly with better results.</p>
+      </div>
+    </section>
 
-      <p class="text-gray-700 mb-4">
-        <strong>The math:</strong> Saving $12/month = $144/year. Is $144 worth better AI, templates, and features?
-      </p>
-
-      <p class="text-gray-700 mb-4">
-        For a business website: <strong>No.</strong> The difference in quality and capabilities is worth far more than $12/month.
-      </p>
-
-      <p class="text-gray-700">
-        For a personal project: <strong>Maybe.</strong> If budget is tight, start cheap and upgrade later.
-      </p>
-    </div>
-
-    <div class="text-center">
-      <AffiliateCTA
-        href={affiliates.hostinger.affiliateUrl}
-        commission={affiliates.hostinger.commission}
-        label="Try Hostinger ($2.99/mo)"
-        className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-      />
-      <br class="my-4">
-      <AffiliateCTA
-        href={affiliates.durable.affiliateUrl}
-        commission={affiliates.durable.commission}
-        label="Or Try Durable ($15/mo - Better AI)"
-        className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-      />
-    </div>
-  </div>
+    <section class="mb-12">
+      <h2 class="text-3xl font-black mb-6">Price Comparison Table</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full bg-white rounded-xl border-[3px] border-gray-200">
+          <thead class="bg-gray-900 text-white">
+            <tr><th class="px-4 py-3 text-left font-bold">Builder</th><th class="px-4 py-3 text-center font-bold">Price</th><th class="px-4 py-3 text-center font-bold">Pages</th><th class="px-4 py-3 text-center font-bold">Custom Domain</th><th class="px-4 py-3 text-center font-bold">AI Quality</th></tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr><td class="px-4 py-3 font-semibold">Hostinger</td><td class="px-4 py-3 text-center font-bold text-green-600">$2.99/mo</td><td class="px-4 py-3 text-center">100</td><td class="px-4 py-3 text-center font-bold text-green-600">✓</td><td class="px-4 py-3 text-center text-yellow-600">Basic</td></tr>
+            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">WordPress + Elementor</td><td class="px-4 py-3 text-center font-bold text-green-600">$5-9/mo</td><td class="px-4 py-3 text-center font-bold text-green-600">Unlimited</td><td class="px-4 py-3 text-center font-bold text-green-600">✓</td><td class="px-4 py-3 text-center font-bold text-green-600">Good</td></tr>
+            <tr><td class="px-4 py-3 font-semibold">Relume AI (Free)</td><td class="px-4 py-3 text-center font-bold text-green-600">$0</td><td class="px-4 py-3 text-center font-bold text-green-600">Unlimited</td><td class="px-4 py-3 text-center text-yellow-600">N/A*</td><td class="px-4 py-3 text-center font-bold text-green-600">Excellent</td></tr>
+            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">Wix Free</td><td class="px-4 py-3 text-center font-bold text-green-600">$0</td><td class="px-4 py-3 text-center font-bold text-green-600">Unlimited</td><td class="px-4 py-3 text-center font-bold text-red-600">✗</td><td class="px-4 py-3 text-center text-yellow-600">Basic</td></tr>
+            <tr><td class="px-4 py-3 font-semibold">Framer Free</td><td class="px-4 py-3 text-center font-bold text-green-600">$0</td><td class="px-4 py-3 text-center">2</td><td class="px-4 py-3 text-center font-bold text-red-600">✗</td><td class="px-4 py-3 text-center font-bold text-green-600">Excellent</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-600 mt-2">* Relume is planning/wireframing, not hosting. Export code to host elsewhere.</p>
+    </section>
+  </main>
 </Layout>

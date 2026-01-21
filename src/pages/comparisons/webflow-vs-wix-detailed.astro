@@ -1,0 +1,309 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Webflow vs Wix AI',
+  description: 'Webflow vs Wix: Which AI website builder is better? Compare powerful visual CMS with code export vs feature-rich platform with app ecosystem.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Webflow',
+    score: 8.5,
+    ease: 7.0,
+    design: 9.0,
+    speed: 7.5,
+    flexibility: 9.5,
+    value: 7.5,
+    price: '$15-59/mo',
+    features: ['Powerful CMS (9.5/10)', 'Code export', 'Complete control', 'Professional hosting'],
+    bestFor: 'Power users',
+    strengths: ['Best flexibility (9.5/10)', 'Powerful CMS', 'Code export', 'Complete control'],
+    weaknesses: ['Steep learning curve', 'Higher cost', 'Complex for beginners', 'Overkill for simple']
+  },
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 7.5,
+    value: 7.5,
+    price: '$10-46/mo',
+    features: ['App marketplace (5000+)', 'Easy drag-drop', 'E-commerce built-in', 'Established brand'],
+    bestFor: 'Features & apps',
+    strengths: ['Huge app ecosystem', 'Easy to use', 'All-in-one platform', 'Established'],
+    weaknesses: ['Template lock-in', 'No code export', 'Loading speed', 'Limited flexibility']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Webflow or Wix better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow wins overall (8.5/10 vs 8.2/10) with superior design quality (9.0/10 vs 8.0/10), much better flexibility (9.5/10 vs 7.5/10), powerful CMS capabilities (9.5/10), and code export capability that Wix lacks. Wix offers much better ease of use (8.5/10 vs 7.0/10), massive app marketplace (5000+ apps) for extending functionality, more affordable pricing starting at $10/month vs $15/month, and faster setup with simpler learning curve. Webflow is better for: designers, agencies, complex content sites, power users wanting complete control and code export. Wix is better for: beginners, users needing specific features from apps, e-commerce with more options, budget-conscious users. Choose Webflow for power, flexibility, and design control if you're willing to learn. Choose Wix for ease, features, and affordability with app marketplace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Webflow and Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow and Wix have similar pricing structures with Wix being slightly more affordable at entry levels. Webflow starts at $15/month for basic sites, $29/month for CMS features, up to $59/month for advanced plans. Over 3 years, Webflow costs $540-2124 depending on plan level. Wix starts at $10/month for basic sites, $18/month for unlimited plans, up to $46/month for e-commerce and business features. Over 3 years, Wix costs $360-1656 depending on plan level. For basic websites, Wix is more affordable ($10 vs $15/month base pricing). For CMS/e-commerce features, pricing is comparable ($18 vs $29/month). Both platforms offer similar value at different tiers - Wix has slight price advantage at entry, Webflow justifies higher cost with powerful CMS and flexibility. Choose based on features needed rather than price alone as the difference is minimal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Webflow or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow offers code export on paid plans (CMS tiers and above), allowing you to export clean HTML, CSS, and JS to host elsewhere or continue development manually. Wix does NOT offer code export - your website stays on Wix's servers permanently and you're locked into their platform. This is a major difference if you care about owning your code or having flexibility to migrate platforms. With Webflow, you can export your code and move to custom development when ready. With Wix, you're committed to their platform but get ease of use and app marketplace. If code export matters for your long-term strategy, Webflow is the clear winner. If you don't care about code export and want the easiest experience with maximum features, Wix is the better choice. Platform lock-in is the trade-off for Wix's convenience and app ecosystem."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow wins for power.</strong> Best flexibility (9.5/10) and CMS.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for ease.</strong> More apps (5000+) and simpler to use.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Webflow if:</strong> You want maximum power and code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You want maximum features and simplicity.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Webflow</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (7.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CMS Power</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Powerful (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic CMS</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Integrations only</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">5000+ apps</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$10/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Growing library</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">800+ templates</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Average</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2012)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2006)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Power users</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Features & apps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Power vs. Convenience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow maximizes power.</strong> Complete control (9.5/10 flexibility).
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix maximizes convenience.</strong> Easy for anyone (8.5/10).
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">CMS Capabilities</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow has powerful CMS.</strong> Complex content models (9.5/10).
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix has basic CMS.</strong> Blog and simple content management.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Apps vs. Native Power</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix has app marketplace.</strong> 5000+ apps for any feature.
+        </p>
+        <p class="text-gray-700">
+          <strong>Webflow has native power.</strong> Built-in capabilities without apps.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Lock-in vs. Freedom</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix locks you in.</strong> No code export, committed to platform.
+        </p>
+        <p class="text-gray-700">
+          <strong>Webflow offers freedom.</strong> Code export when you need to leave.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Webflow (8.5/10) if:</strong> You want maximum control, you need powerful CMS, code export matters, you're design-focused, you're willing to learn.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You want maximum features, you need app marketplace, you're a beginner, you're on a budget, you want simplicity.</li>
+        <li><strong>Webflow is better for:</strong> Agencies, designers, complex content sites, client work, power users, developers.</li>
+        <li><strong>Wix is better for:</strong> Small businesses, e-commerce, beginners, feature-heavy sites, budget-conscious users.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow for power users.</strong> If you need maximum control and are willing to learn.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for most users.</strong> Easier with more features through apps.
+      </p>
+      <p class="text-gray-700">
+        Choose Webflow for power and flexibility. Choose Wix for ease and features.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Webflow for power and code export. Wix for ease and app marketplace. Different tools for different needs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/webflow-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Webflow Review →
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

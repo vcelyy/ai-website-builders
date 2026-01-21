@@ -1,0 +1,280 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Squarespace AI Website Builder: Complete Guide',
+  description: 'Complete guide to Squarespace AI website builder and Blueprint AI. Learn features, pricing, pros and cons of Squarespace for website creation.',
+  date: 'January 2025'
+};
+
+const squarespaceFeatures = [
+  {
+    feature: 'Blueprint AI',
+    description: 'AI-powered website builder that creates sites based on your answers',
+    benefit: 'Guided setup with professional results'
+  },
+  {
+    feature: 'Award-Winning Templates',
+    description: 'Beautiful, polished templates known for design excellence',
+    benefit: 'Professional look out of the box'
+  },
+  {
+    feature: 'Built-in E-commerce',
+    description: 'Full-featured online store with inventory and payments',
+    benefit: 'Sell products without third-party tools'
+  },
+  {
+    feature: 'Marketing Tools',
+    description: 'Email campaigns, social media integration, and SEO tools',
+    benefit: 'Complete marketing toolkit included'
+  },
+  {
+    feature: 'Analytics',
+    description: 'Built-in visitor analytics and insights',
+    benefit: 'Understand your audience behavior'
+  },
+  {
+    feature: 'Scheduling',
+    description: 'Acuity Scheduling integration for appointments',
+    benefit: 'Accept bookings and payments'
+  }
+];
+
+const useCases = [
+  {
+    useCase: 'Professional Portfolios',
+    description: 'Photographers, designers, artists showcasing work',
+    why: 'Beautiful templates, excellent image display, professional polish'
+  },
+  {
+    useCase: 'E-commerce Stores',
+    description: 'Online retail with product management and payments',
+    why: 'Full-featured e-commerce, inventory, shipping tools included'
+  },
+  {
+    useCase: 'Restaurants & Food',
+    description: 'Menus, reservations, online ordering',
+    why: 'Industry-specific templates, reservation features'
+  },
+  {
+    useCase: 'Professional Services',
+    description: 'Consultants, lawyers, agencies',
+    why: 'Professional appearance, scheduling, contact forms'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "How does Squarespace AI website builder work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace offers Blueprint AI, an intelligent website builder that guides you through creating your site. Answer questions about your business, goals, style preferences, and content needs. Blueprint AI generates a complete website with pages, content, and professional styling. You then customize using the visual editor. Unlike Wix which offers more features, Squarespace focuses on polished design quality and better PageSpeed performance. Known for award-winning templates and professional results, Squarespace is ideal for design-conscious users who want beautiful websites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Squarespace does NOT offer code export. Your website is tied to Squarespace hosting. Unlike Framer or Webflow which allow code export for self-hosting or custom development, Squarespace sites must stay on the Squarespace platform. This is fine for most users who plan to stay with Squarespace long-term, but limits portability. If code export is important to you, consider Framer or Webflow instead. Squarespace compensates with reliable hosting, security, and award-winning templates that make staying on the platform worthwhile for many users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Squarespace good for e-commerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Squarespace has excellent e-commerce features. Squarespace Commerce includes product management, inventory tracking, multiple payment options (Stripe, PayPal), shipping calculation, tax automation, and order management. While not as powerful as dedicated platforms like Shopify for large stores, Squarespace e-commerce is excellent for small to medium online stores. The advantage is having your website and online store in one beautifully designed platform. For very large or complex e-commerce operations, Shopify or 10Web (WooCommerce) may be better. For most small businesses selling products, Squarespace is perfectly adequate and looks better than most alternatives."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Squarespace at a Glance</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Overall Score:</strong> 8.4/10</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Design Quality:</strong> 9.0/10 (Excellent)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Ease of Use:</strong> 8.0/10</p>
+          <p class="text-gray-700 text-lg"><strong>Starting Price:</strong> $23/month</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best For:</strong> Design quality</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Unique Feature:</strong> Award-winning templates</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Page Speed:</strong> Good to excellent</p>
+          <p class="text-gray-700 text-lg"><strong>Free Trial:</strong> 14 days</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Squarespace Key Features</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {squarespaceFeatures.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.feature}</h3>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <p class="text-sm text-green-700 font-semibold">{feature.benefit}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How to Use Squarespace: Step by Step</h2>
+
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Start with Blueprint AI</h3>
+              <p class="text-gray-700">Answer questions about your business, goals, and style preferences. Blueprint AI will suggest the best template and generate a foundation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Choose Your Template</h3>
+              <p class="text-gray-700">Select from award-winning templates organized by industry. Templates are polished and professional with excellent typography.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Customize Content</h3>
+              <p class="text-gray-700">Use the visual editor to update text, replace images, and modify layout. Squarespace uses a structured editing approach.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Add Features</h3>
+              <p class="text-gray-700">Enable e-commerce, scheduling, blogs, or marketing tools. Most features are built-in with no additional apps needed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Connect Domain and Launch</h3>
+              <p class="text-gray-700">Connect your custom domain and publish. Your site is live with SSL certificate included.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Squarespace is Best For</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {useCases.map(useCase => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{useCase.useCase}</h3>
+            <p class="text-gray-700 mb-3">{useCase.description}</p>
+            <p class="text-sm text-green-700"><strong>Why Squarespace:</strong> {useCase.why}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Squarespace Pros and Cons</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-green-700 mb-4">Pros</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Beautiful templates (9.0/10 design)</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>All-in-one platform</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Built-in e-commerce</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Marketing tools included</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Better PageSpeed than Wix</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Reliable and stable</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Good customer support</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-red-700 mb-4">Cons</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>More expensive ($23-65/mo)</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>No code export</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Learning curve (8.0/10 ease)</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Template switching limitations</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Less flexible than Webflow</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Fewer apps than Wix</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>14-day trial only</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Squarespace Pricing</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>14-day free trial:</strong> Full access to test the platform.</li>
+        <li><strong>Personal ($23/mo):</strong> Basic website features, perfect for individuals.</li>
+        <li><strong>Business ($27/mo):</strong> Marketing tools, analytics, professional features.</li>
+        <li><strong>Commerce ($30-65/mo):</strong> E-commerce features with no transaction fees.</li>
+        <li><strong>Annual billing:</strong> Save up to 30% by paying annually.</li>
+        <li><strong>All plans include:</strong> SSL certificate, hosting, templates, customer support.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Squarespace Success Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Use Blueprint AI:</strong> Start with AI guidance to get a solid foundation quickly.</li>
+        <li><strong>Choose templates carefully:</strong> Switching templates later requires reformatting content.</li>
+        <li><strong>Enable image optimization:</strong> Squarespace optimizes images automatically for better PageSpeed.</li>
+        <li><strong>Use built-in SEO tools:</strong> Meta descriptions, clean URLs, and sitemaps are included.</li>
+        <li><strong>Leverage analytics:</strong> Built-in analytics provide valuable visitor insights.</li>
+        <li><strong>Take advantage of templates:</strong> Award-winning designs are proven to convert.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Squarespace delivers professional polish with beautiful templates. Try the free trial.</p>
+      <a href="/reviews/squarespace-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Read Full Squarespace Review →
+      </a>
+    </div>
+  </div>
+</Layout>

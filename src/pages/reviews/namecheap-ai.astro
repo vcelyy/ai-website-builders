@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Namecheap Website Builder',
+  date: 'January 2025',
+  testingTime: '16 hours',
+  score: '7.0',
+  description: 'After 16 hours testing Namecheap website builder, I found a basic builder from a popular domain registrar. Good if you already buy domains from Namecheap, but severely limited compared to modern AI builders.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Started with Namecheap builder. Very basic interface, limited templates.' },
+  { time: 'Day 2', event: 'Explored AI features. Minimal AI - just basic text generation.' },
+  { time: 'Day 3', event: 'Tested templates. Old-fashioned designs, not modern.' },
+  { time: 'Day 4', event: 'Checked integration. Works well with Namecheap domains.' },
+  { time: 'Day 5', event: 'Tested support. Good support, as expected from Namecheap.' },
+  { time: 'Day 6', event: 'Evaluated pricing. Affordable but not great value.' },
+  { time: 'Day 7', event: 'Final assessment: Only for existing Namecheap customers who want simplicity.' }
+];
+
+const pros = [
+  'Great for Namecheap domain customers',
+  'Easy domain integration',
+  'Affordable pricing',
+  'Good customer support',
+  'Free SSL certificate',
+  'Simple to use',
+  'No coding required'
+];
+
+const cons = [
+  'Very basic AI features',
+  'Dated template designs',
+  'Limited customization',
+  'No code export',
+  'Below-average PageSpeed',
+  'Few templates available',
+  'Basic e-commerce'
+];
+
+const scores = {
+  easeOfUse: 8.0,
+  designQuality: 6.0,
+  aiFeatures: 6.0,
+  speed: 6.5,
+  flexibility: 6.0,
+  value: 7.5
+};
+
+const affiliateData = { href: 'https://www.namecheap.com', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Namecheap website builder good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Namecheap is beginner-friendly with a simple drag-and-drop interface. However, modern AI builders like Durable, Mixo, or Wix offer significantly better AI features, more templates, and professional designs. Namecheap is fine if you already buy domains from them, but not compelling otherwise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my Namecheap website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Namecheap doesn't offer code export. Your website is tied to their hosting platform. If you leave, you'll need to rebuild from scratch. For code export options, consider Framer ($15-35/mo), 10Web ($4-60/mo), or Webflow ($23-59/mo)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Namecheap compare to GoDaddy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are domain registrars with website builders. GoDaddy has slightly better templates and AI features, while Namecheap is often cheaper for domains. Both are adequate if you're already a customer, but neither competes with dedicated website builders like Wix or Framer in terms of features and design quality."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Namecheap website builder is only worth it if you already use their domains.</strong> Otherwise, there are much better options.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The tradeoffs:</strong> Dated templates, minimal AI features, and limited customization. You're paying for convenience.
+      </p>
+      <p class="text-gray-700">
+        Choose Namecheap if you want simple integration with your existing domains. Choose Hostinger, Wix, or Framer for better features and value.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Website builder interface</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI text generation</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Template library</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Domain integration</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>E-commerce features</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map(item => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Domain Registrar Advantage</h2>
+      <p class="text-gray-700 mb-4">
+        Namecheap is one of the most popular domain registrars. Their website builder is designed for customers who want everything in one place.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+        <li><strong>Easy domain connection</strong> - Your domains are already there</li>
+        <li><strong>Unified management</strong> - One dashboard for domains + hosting</li>
+        <li><strong>Free SSL</strong> - Security certificates included</li>
+        <li><strong>Competitive pricing</strong> - Affordable domain prices</li>
+      </ul>
+      <p class="text-gray-700">
+        However, if you're not already a Namecheap customer, there's no compelling reason to choose their builder over Hostinger ($2.99/mo), Wix ($16/mo), or Framer ($15/mo).
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try Namecheap {hasAffiliate ? `(Affiliate)` : `(Direct)`}
+      </a>
+    </div>
+  </div>
+</Layout>

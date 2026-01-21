@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
@@ -42,6 +43,37 @@ const hasAffiliate = false;
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is B12 AI good for service businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, B12 AI is designed specifically for service businesses. It includes built-in scheduling, CRM features, and AI-generated content tailored to service-based businesses like consultants, agencies, and local service providers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from B12?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, B12 doesn't offer code export. Your website is hosted on their platform. You'll need to stay with B12 to keep your site running, which is common for AI website builders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does B12 compare to Framer or Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "B12 is more focused on service businesses with scheduling and CRM features. However, Framer offers better design quality and customization, while Durable has more advanced AI generation capabilities. B12 is a solid middle-ground choice for service businesses specifically."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">REVIEW</p>

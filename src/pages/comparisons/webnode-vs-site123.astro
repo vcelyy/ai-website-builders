@@ -1,0 +1,219 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Webnode vs Site123 AI',
+  description: 'Webnode vs Site123: Which multilingual budget AI builder is better? Compare features, pricing, language support, and design quality.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Webnode',
+    score: 7.3,
+    ease: 8.0,
+    design: 6.0,
+    ai: 6.5,
+    languages: '20+',
+    price: '$4-12/mo',
+    strengths: ['20+ languages', 'EU-based hosting', 'Affordable', 'GDPR compliant'],
+    weaknesses: ['Very dated designs', 'Basic AI features', 'No code export']
+  },
+  {
+    name: 'Site123',
+    score: 7.1,
+    ease: 9.5,
+    design: 6.0,
+    ai: 6.0,
+    languages: 'Multiple',
+    price: '$7-18/mo',
+    strengths: ['Extremely easy', '5-minute setup', 'Multilingual', '24/7 support'],
+    weaknesses: ['Very limited features', 'Dated designs', 'No code export', 'Poor PageSpeed']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Webnode or Site123 better for multilingual websites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webnode has significantly better multilingual support with 20+ languages and built-in translation tools. Site123 supports multiple languages but Webnode's implementation is more comprehensive. If you need your site in 3+ languages, Webnode is the clear choice. Both are budget-friendly options for multilingual sites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Webnode or Site123?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webnode is cheaper at $4-12/month compared to Site123's $7-18/month. Both are very affordable options. Webnode offers better value for multilingual sites, while Site123 offers slightly easier setup. The price difference is small enough that you should choose based on features rather than cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are Webnode and Site123 both EU-based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "Text": "Webnode is EU-based with servers in Europe and full GDPR compliance. Site123's hosting location varies by region. For European businesses prioritizing data privacy and GDPR compliance, Webnode is the safer choice with its EU-based infrastructure."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webnode wins for multilingual sites.</strong> 20+ languages with built-in translation tools.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Site123 wins for absolute simplicity.</strong> 5-minute setup that anyone can do.
+      </p>
+      <p class="text-gray-700">
+        <strong>Our recommendation:</strong> Choose Webnode if you need multiple languages. Choose Site123 only if you want the simplest possible option.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Languages</div>
+              <div class="text-lg font-bold text-gray-900">{tool.languages}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Webnode</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Site123</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Multilingual</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">20+ languages</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Multiple</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Time</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">5-10 minutes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Under 5 minutes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">EU-Based</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Varies</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">GDPR Compliant</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Yes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Slightly better</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very dated</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">PageSpeed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">60-75</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">55-70</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$4/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$7/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Difference: Multilingual Support</h2>
+      <p class="text-gray-700 mb-4">
+        <strong>This is where Webnode wins decisively.</strong> 20+ languages with built-in translation tools and automatic language detection.
+      </p>
+      <p class="text-gray-700 mb-4">
+        Site123 also supports multiple languages, but the implementation isn't as comprehensive. For businesses serving customers across Europe or globally, Webnode's multilingual features are superior.
+      </p>
+      <p class="text-gray-700">
+        If you only need your site in one language, Site123's simplicity might appeal to you. But for multilingual needs, Webnode is the clear winner.
+      </p>
+    </div>
+
+    <!-- Better Alternative -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Consider Better Alternatives</h2>
+      <p class="text-gray-700 mb-4">
+        <strong>Both Webnode and Site123 have dated designs.</strong> For a few dollars more, you can get significantly better templates and features:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li><strong>Mixo ($9/mo, 8.5/10):</strong> Modern templates, fast generation, AI content, built-in SEO</li>
+        <li><strong>Durable ($15/mo, 8.5/10):</strong> Built-in CRM, AI copywriting, excellent for small businesses</li>
+        <li><strong>Wix ($16/mo, 8.2/10):</strong> 500+ templates, most features, multilingual apps</li>
+      </ul>
+      <p class="text-gray-700 mt-4">
+        Unless budget is extremely tight, these options deliver much better value for a small price increase.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Test both builders with free trials to see which works better for you.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/webnode-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Webnode Review →
+        </a>
+        <a href="/reviews/site123-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Site123 Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

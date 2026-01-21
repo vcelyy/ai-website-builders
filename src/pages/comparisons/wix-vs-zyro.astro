@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Wix vs Zyro AI',
+  description: 'Wix vs Zyro: Which AI website builder is better? Compare feature-rich platform vs budget-friendly AI assistant.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 7.5,
+    flexibility: 9.0,
+    value: 7.5,
+    price: '$17-159/mo',
+    features: ['Feature-rich', 'App market', 'Established platform', 'More flexibility'],
+    bestFor: 'Users wanting features',
+    strengths: ['Huge feature set', 'App ecosystem', 'Established brand', 'More flexibility'],
+    weaknesses: ['Can feel overwhelming', 'AI features limited', 'Premium pricing', 'Performance varies']
+  },
+  {
+    name: 'Zyro',
+    score: 7.5,
+    ease: 8.5,
+    design: 7.5,
+    speed: 8.0,
+    flexibility: 6.5,
+    value: 8.0,
+    price: '$9-15/mo',
+    features: ['Affordable', 'AI writer', 'AI heatmap', 'Simple builder'],
+    bestFor: 'Budget beginners',
+    strengths: ['Low pricing', 'AI content tools', 'Easy setup', 'Good for simple sites'],
+    weaknesses: ['Limited features', 'No code export', 'Template constraints', 'Basic CMS']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Wix or Zyro better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix (8.2/10) is better than Zyro (7.5/10) overall, particularly for users wanting extensive features and flexibility. Wix offers a huge feature set, massive app marketplace, and established platform with more options for customization (9.0/10 flexibility vs 6.5/10). Zyro is better for budget-conscious users ($9-15/mo vs $17-159/mo) who want AI assistance with content writing and a simpler website building experience. Both have equal ease of use (8.5/10 each). Zyro offers better value for money (8.0/10 vs 7.5/10) with lower pricing and AI writer tool. Choose Wix if you want maximum features and app ecosystem. Choose Zyro if budget is tight and you want AI content help with a simpler approach. For most users, Wix's superior features and flexibility make it worth the extra cost if budget allows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Wix and Zyro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro is significantly more affordable than Wix. Zyro starts at $9/month for basic plans, $15/month for premium features. Over 3 years, Zyro costs $324-540 total. Wix starts at $17/month for basic plans, $29/month for premium features, up to $159/month for enterprise-level features. Over 3 years, Wix costs $612-5724 depending on plan level. Zyro costs roughly half as much as Wix at comparable feature levels. Zyro's pricing makes it accessible for users on tight budgets or simple website needs. Wix's higher pricing includes more built-in features, extensive app marketplace, and established platform support. For budget-conscious users or simple websites, Zyro offers excellent value. For users needing advanced features and willing to pay, Wix justifies its premium pricing with superior capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which has better AI features: Wix or Zyro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro has better and more extensive AI features than Wix. Zyro is built around AI assistance with AI writer for content generation, AI heatmap tool for layout optimization, and AI-powered website generation. Zyro's AI features are central to the product experience. Wix has added AI capabilities like ADI (Artificial Design Intelligence) for website generation and some AI content tools, but AI is not Wix's primary focus - it's a traditional builder that added AI features. If AI assistance is your priority, especially for content writing and layout optimization, Zyro is the better choice. If you want a platform with AI assistance but also extensive traditional features and app ecosystem, Wix offers more overall capability at higher cost."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for features.</strong> Huge ecosystem, app marketplace, more flexibility.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro wins for budget.</strong> Affordable ($9-15/mo), AI writer, better value.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You want maximum features and app ecosystem.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Zyro if:</strong> Budget is tight and you want AI content help.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Zyro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited AI</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">AI writer, heatmap</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Feature Set</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extensive</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Huge app market</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">None</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$17/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">High (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited (6.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Huge library</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Template library</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic payment links</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Value for Money</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fair (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Feature seekers</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Budget users</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features vs. Simplicity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix offers everything.</strong> Massive feature set with app marketplace for any functionality.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro focuses on essentials.</strong> Core features with AI assistance, simpler approach.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Approach</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix added AI features.</strong> Traditional platform with AI capabilities layered on.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro is AI-assisted.</strong> AI writer, heatmap tools, content generation built-in.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Pricing Philosophy</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix charges premium prices.</strong> $17-159/month reflecting extensive features.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro is budget-friendly.</strong> $9-15/month for core features and AI tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target User</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix targets feature-focused users.</strong> People who want extensive capabilities.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro targets budget beginners.</strong> Users wanting AI help at lower prices.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Wix (8.2/10) if:</strong> You want extensive features, you need app integrations, budget allows $17+/mo, you value flexibility.</li>
+        <li><strong>Choose Zyro (7.5/10) if:</strong> Budget is $9-15/mo, you want AI content help, you need a simple site, ease matters.</li>
+        <li><strong>Wix is better for:</strong> Complex sites, e-commerce, membership sites, advanced features, app integrations.</li>
+        <li><strong>Zyro is better for:</strong> Personal sites, simple business, budget projects, beginners, AI content assistance.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro for most budget users.</strong> $9/mo with AI writer and all essentials.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for feature seekers.</strong> If you need extensive features and budget allows.
+      </p>
+      <p class="text-gray-700">
+        Zyro delivers excellent value. Wix justifies its cost with superior features and flexibility.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Wix for features and flexibility. Zyro for budget-friendly AI assistance.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+        <a href="/reviews/zyro-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Zyro Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/zyro-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Zyro vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget AI vs speed AI</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+        </a>
+        <a href="/comparisons/zyro-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Zyro vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs design quality</p>
+        </a>
+        <a href="/comparisons/wix-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs AI speed</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

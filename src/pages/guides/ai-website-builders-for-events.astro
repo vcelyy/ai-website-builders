@@ -1,0 +1,248 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Events & Conferences',
+  description: 'Top AI website builders for events, conferences, workshops, and gatherings. Compare registration, ticketing, and event management features.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    eventType: 'Conferences',
+    topPick: 'Squarespace',
+    reason: 'Professional appearance, schedule displays, speaker pages, registration integration',
+    alternatives: ['Webflow (custom)', 'Wix (features)']
+  },
+  {
+    eventType: 'Workshops',
+    topPick: 'Mixo',
+    reason: 'Affordable ($9/mo), quick setup for single events, easy registration forms',
+    alternatives: ['Durable (fast)', 'Carrd (simple)']
+  },
+  {
+    eventType: 'Webinars/Virtual',
+    topPick: 'Webflow',
+    reason: 'Custom layouts for virtual content, video integration, CMS for sessions',
+    alternatives: ['Framer (modern)', '10Web + plugins']
+  },
+  {
+    eventType: 'Community Events',
+    topPick: 'Wix',
+    reason: 'Eventbrite integration, RSVP forms, calendar features, easy updates',
+    alternatives: ['Squarespace (polished)', 'Durable (CRM)']
+  }
+];
+
+const features = [
+  {
+    feature: 'Event Registration',
+    description: 'Collect registrations, attendee information, payment processing',
+    importance: 'Essential for events',
+    builders: ['Form builders', 'Payment integration', 'Third-party tools like Eventbrite']
+  },
+  {
+    feature: 'Schedule/Agenda Display',
+    description: 'Show event schedule, sessions, speakers, times, locations',
+    importance: 'Essential',
+    builders: ['Table layouts', 'Timeline features', 'Custom pages']
+  },
+  {
+    feature: 'Speaker Profiles',
+    description: 'Showcase speakers, bios, photos, session details',
+    importance: 'Essential',
+    builders: ['Team pages', 'Profile layouts', 'CMS features']
+  },
+  {
+    feature: 'Countdown Timer',
+    description: 'Build anticipation with countdown to event date',
+    importance: 'Important',
+    builders: ['Built-in widgets', 'Third-party embeds', 'Custom code']
+  }
+];
+
+const ticketingOptions = [
+  {
+    option: 'Built-in Forms',
+    description: 'Collect registrations with contact forms, process payments separately',
+    builders: ['All builders have forms', 'Stripe/PayPal integration'],
+    bestFor: 'Simple events, free events, custom registration'
+  },
+  {
+    option: 'Eventbrite Integration',
+    description: 'Embed Eventbrite for professional ticketing and registration',
+    builders: ['Wix (native)', 'All builders (embed)'],
+    bestFor: 'Paid events, professional registration, capacity management'
+  },
+  {
+    option: 'Third-Party Tools',
+    description: 'Integrate tools like Ticket Tailor, Stripe Payments, or custom solutions',
+    builders: ['Webflow (custom)', 'WordPress + plugins', 'Code export options'],
+    bestFor: 'Custom workflows, specific requirements, advanced needs'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for events and conferences?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For conferences and professional events, Squarespace is the best choice with beautiful templates for schedule displays, speaker profiles, and professional polish that impresses attendees. Webflow works well for conferences needing custom layouts and video integration for virtual or hybrid events. Wix offers Eventbrite integration for easy ticketing and RSVP management. Mixo ($9/mo) is ideal for workshops, webinars, and single events needing quick setup with registration forms. Durable offers fastest setup (30 seconds) for simple event pages. For most events, prioritize: clear date/time/location, easy registration, agenda/schedule display, speaker information, and mobile optimization. Squarespace for professional conferences, Mixo for quick workshops, Wix for community events with ticketing needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do events need custom websites or are AI builders sufficient?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI website builders are absolutely sufficient for most events. Modern AI builders create professional event websites with registration forms, schedule displays, speaker profiles, and all essential features. Events are temporary by nature - there's rarely need for custom development when AI builders can create impressive event sites in hours vs weeks for custom development. For conferences, workshops, webinars, and community events, AI builders deliver everything needed: date/time/location prominently displayed, registration forms, speaker information, agenda details, contact for questions, and mobile optimization. Consider custom development only if you have: very complex registration workflows, need custom ticketing systems, require unique interactive features, or have substantial budget and ongoing events. For 95% of events, AI builders create professional, effective event websites at a fraction of the cost and time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What features should event and conference websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Event websites need: (1) Clear event name and date prominently displayed, (2) Location/address with map integration, (3) Registration or ticket purchase CTA above fold, (4) Event schedule or agenda with session details, (5) Speaker profiles with photos and bios, (6) What attendees will learn/key takeaways, (7) Pricing tiers (early bird, general, VIP), (8) Sponsor logos and partners, (9) FAQ section addressing common questions, (10) Contact information for questions, (11) Countdown timer to build anticipation, (12) Mobile optimization (many view on phones), (13) Social sharing buttons, (14) Past event photos or testimonials for recurring events. Essential: date, location, registration, agenda, speakers. Make it incredibly easy to understand what the event is, when/where it is, and how to attend. Clear calls-to-action for registration. Mobile-optimized since many potential attendees browse on phones."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Event Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Conferences:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Workshops:</strong> Mixo ($9/mo)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Webinars/Virtual:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg"><strong>Community Events:</strong> Wix</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Professional:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Fastest Setup:</strong> Durable (30 sec)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Budget:</strong> Mixo</p>
+          <p class="text-gray-700 text-lg"><strong>Best Ticketing:</strong> Wix (Eventbrite)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Event Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Event Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.eventType}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Ticketing Options -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Registration & Ticketing Options</h2>
+
+      <div class="space-y-4">
+        {ticketingOptions.map(option => (
+          <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{option.option}</h3>
+            <p class="text-gray-700 mb-3">{option.description}</p>
+            <div class="mb-2">
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {option.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+            <p class="text-sm text-green-700"><strong>Best for:</strong> {option.bestFor}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Event Website Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                !
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {feature.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Event Website Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Date prominent:</strong> Event date should be visible above fold. Don't make visitors search.</li>
+        <li><strong>Clear CTA:</strong> Register or Buy Tickets button should be obvious. Above fold.</li>
+        <li><strong>Mobile optimize:</strong> Many attendees browse on phones. Perfect mobile experience.</li>
+        <li><strong>Countdown timer:</strong> Builds urgency and anticipation for the event.</li>
+        <li><strong>Speaker photos:</strong> Professional photos build credibility. People connect with faces.</li>
+        <li><strong>Clear location:</strong> Address, map link, parking info, virtual meeting link.</li>
+        <li><strong>Early bird pricing:</strong> Incentivize early registration with tiered pricing.</li>
+        <li><strong>Social proof:</strong> Past event photos, attendee testimonials, sponsor logos.</li>
+        <li><strong>FAQ section:</strong> Address common questions. Reduce email inquiries.</li>
+        <li><strong>Simple registration:</strong> Minimize form fields. Name, email, payment. That's it.</li>
+        <li><strong>Share buttons:</strong> Make it easy to share on social media. Word of mouth matters.</li>
+        <li><strong>Contact visible:</strong> Questions? Email or phone should be easy to find.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Events need clear information and easy registration. AI builders deliver both quickly and affordably.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

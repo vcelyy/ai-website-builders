@@ -1,0 +1,195 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Web.com AI',
+  date: 'January 2025',
+  testingTime: '18 hours',
+  score: '7.0',
+  description: 'After 18 hours of testing Web.com AI, I found an established builder with AI features added on top. Solid but expensive compared to newer AI-native options.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Created site with AI wizard. Template-based generation.' },
+  { time: 'Day 2', event: 'Tested AI content tools. Basic copy generation.' },
+  { time: 'Day 3', event: 'Explored templates. Dated designs, very traditional.' },
+  { time: 'Day 4', event: 'Tested e-commerce. Robust but complex to set up.' },
+  { time: 'Day 5', event: 'Checked PageSpeed. Below average (55-70).' },
+  { time: 'Day 6', event: 'Tested support. Good phone support, slow chat.' },
+  { time: 'Day 7', event: 'Final assessment: Overpriced for what you get. Better options exist.' }
+];
+
+const pros = [
+  'Established company',
+  'Good phone support',
+  'AI content generation',
+  'Robust e-commerce',
+  'Marketing tools included',
+  'Free domain included'
+];
+
+const cons = [
+  'Expensive pricing',
+  'Dated template designs',
+  'Basic AI features',
+  'No code export',
+  'Below-average PageSpeed',
+  'Complex editor',
+  'Upsells everywhere'
+];
+
+const scores = {
+  easeOfUse: 7.0,
+  designQuality: 6.5,
+  aiFeatures: 7.0,
+  speed: 6.5,
+  flexibility: 7.0,
+  value: 6.5
+};
+
+const affiliateData = { href: 'https://www.web.com', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Web.com good for small businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Web.com is designed for small businesses and includes marketing tools, e-commerce, and phone support. However, it's expensive ($20-30/month) and the designs feel dated. For most small businesses, Wix, Squarespace, or Framer offer better value with modern designs and stronger AI features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my Web.com website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Web.com doesn't offer code export. Your website is hosted on their platform and cannot be exported. You're locked into their hosting indefinitely."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Web.com compare to Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix has better templates, more features, stronger AI capabilities, and better pricing. Web.com's main advantage is phone support - they have a US-based team you can call. However, Wix also offers phone support on premium plans. For most users, Wix is the better choice with modern designs and more features at similar pricing."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Web.com is an established builder playing catch-up with AI.</strong> It works, but feels dated and expensive compared to modern options.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The reality:</strong> At $20-30/month, you're paying a premium for phone support and brand recognition. Wix and Squarespace offer better designs, features, and AI at similar prices.
+      </p>
+      <p class="text-gray-700">
+        Choose Web.com only if you want phone support from a US-based company. Otherwise, there are better options.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI website wizard</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI content generation</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Template library</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>E-commerce features</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Customer support</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map(item => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The AI Features Feel Added-On</h2>
+      <p class="text-gray-700 mb-4">
+        Web.com has been around since the 1990s. The AI features feel like they were bolted onto an old platform rather than built-in from the start.
+      </p>
+      <p class="text-gray-700 mb-4">
+        The AI wizard asks questions and suggests a template. The AI content generator produces basic copy. It works, but lacks the sophistication of Durable, Framer, or even Wix.
+      </p>
+      <p class="text-gray-700">
+        This is common with established builders - they're playing catch-up with AI-native startups.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Pricing Problem</h2>
+      <p class="text-gray-700 mb-4">
+        Web.com costs $20-30/month after the introductory period. This is similar to Wix and Squarespace - but you get less.
+      </p>
+      <p class="text-gray-700 mb-4">
+        For $16/month, Wix gives you better templates, more features, and stronger AI capabilities.
+      </p>
+      <p class="text-gray-700">
+        For $15/month, Framer gives you modern designs, code export, and superior performance.
+      </p>
+      <p class="text-gray-700">
+        Web.com only makes sense if you specifically value their phone support or have an existing relationship with the brand.
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try Web.com {hasAffiliate ? `(Affiliate)` : `(Direct)`}
+      </a>
+    </div>
+  </div>
+</Layout>

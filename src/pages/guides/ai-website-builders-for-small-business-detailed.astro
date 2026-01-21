@@ -1,0 +1,250 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Small Business',
+  description: 'Top AI website builders for small businesses. Compare ease of use, pricing, e-commerce, and booking features for local businesses.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    business: 'Restaurants & Cafes',
+    topPick: 'Wix',
+    reason: 'Restaurant templates, online ordering, reservations, Wix Restaurants app',
+    alternatives: ['Squarespace (menus)', 'Durable (fast setup)']
+  },
+  {
+    business: 'Retail & E-commerce',
+    topPick: '10Web/WordPress',
+    reason: 'WooCommerce power, plugin flexibility, scales with growth',
+    alternatives: ['Squarespace Commerce', 'Shopify integration']
+  },
+  {
+    business: 'Professional Services',
+    topPick: 'Squarespace',
+    reason: 'Professional templates, scheduling, polished appearance',
+    alternatives: ['Wix', 'Durable (with CRM)']
+  },
+  {
+    business: 'Local Services',
+    topPick: 'Durable',
+    reason: 'Fastest setup, built-in CRM, business-focused, inquiry forms',
+    alternatives: ['Mixo (easy)', 'Wix (features)']
+  }
+];
+
+const byBudget = [
+  {
+    budget: 'Free Tier',
+    description: 'No monthly cost, branded subdomain',
+    options: ['Mixo (best free tier)', 'Wix (available)', '10Web (up to 10 sites)'],
+    limitations: ['Builder branding', 'No custom domain', 'Limited storage']
+  },
+  {
+    budget: 'Budget ($10-20/mo)',
+    description: 'Affordable plans with core features',
+    options: ['Mixo ($9/mo)', 'Durable ($15/mo)', '10Web ($10/mo)', 'Framer ($15/mo)'],
+    bestFor: 'Most small businesses'
+  },
+  {
+    budget: 'Premium ($20-50/mo)',
+    description: 'More features and support',
+    options: ['Squarespace ($23/mo)', 'Wix ($27/mo)', 'Webflow ($23/mo)'],
+    bestFor: 'Growing businesses'
+  }
+];
+
+const features = [
+  {
+    feature: 'Appointment Booking',
+    description: 'Accept customer bookings and payments online',
+    importantFor: 'Service businesses',
+    builders: ['Wix Bookings', 'Squarespace + Acuity', 'Durable CRM']
+  },
+  {
+    feature: 'Online Ordering',
+    description: 'Sell products or accept payments directly',
+    importantFor: 'Retail, restaurants',
+    builders: ['Wix Stores', 'Squarespace Commerce', '10Web + WooCommerce']
+  },
+  {
+    feature: 'Contact Forms',
+    description: 'Capture leads and inquiries',
+    importantFor: 'All businesses',
+    builders: ['All builders include this']
+  },
+  {
+    feature: 'Google Maps Integration',
+    description: 'Show your location and help customers find you',
+    importantFor: 'Local businesses',
+    builders: ['Wix', 'Squarespace', 'WordPress plugins']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for small businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best AI builder depends on your business type. Restaurants and cafés should choose Wix for restaurant-specific templates, online ordering, and reservations. Retail and e-commerce businesses benefit most from 10Web/WordPress with WooCommerce power and flexibility. Professional services (consultants, lawyers, agencies) should use Squarespace for professional templates and polished appearance. Local services (plumbers, contractors, cleaners) should use Durable for fastest setup with built-in CRM. For general small business needs, Mixo ($9/mo) offers the best value with generous free tier."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do small businesses need custom websites or are AI builders enough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI builders are sufficient for most small businesses. Modern AI builders create professional websites that look custom-made at a fraction of the cost ($9-50/month vs $2000-10000+ for custom development). The benefits: fast launch (minutes vs months), easy updates (no developer needed), professional designs, and included hosting. Consider custom development only if you have complex requirements, unique functionality, or specific branding needs that builders can't meet. For 90% of small businesses, AI builders are the smarter choice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can small businesses afford AI website builders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, AI builders are very affordable for small businesses. Options exist for every budget: Free tiers from Mixo and Wix for testing, budget plans from $9-15/month (Mixo, Durable, 10Web), and premium plans from $23-50/month (Squarespace, Wix, Webflow). Compared to traditional options (custom development at $2000-10000+ upfront, or hiring employees), AI builders save significant money. Many builders also offer non-profit discounts or first-year promotions. The ROI is clear: professional web presence for $10-50/month versus thousands upfront."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Business Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Restaurants:</strong> Wix</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Retail:</strong> 10Web/WordPress</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Professional Services:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg"><strong>Local Services:</strong> Durable</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Budget:</strong> Mixo ($9/mo)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Fastest Setup:</strong> Durable (30 sec)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Professional:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg"><strong>Most Features:</strong> Wix</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Business Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Business Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.business}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- By Budget -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Options by Budget</h2>
+
+      <div class="space-y-4">
+        {byBudget.map(budget => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{budget.budget}</h3>
+            <p class="text-gray-700 mb-3">{budget.description}</p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              {budget.options.map(opt => (
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{opt}</span>
+              ))}
+            </div>
+            <p class="text-green-700 text-sm"><strong>Best for:</strong> {budget.bestFor}</p>
+            {budget.limitations && (
+              <div class="mt-3">
+                <p class="text-sm text-gray-600 mb-1"><strong>Limitations:</strong></p>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  {budget.limitations.map(limit => (
+                    <li>• {limit}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Small Business Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                {feature.importantFor === 'All businesses' ? '✓' : '!'}
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">Important for: {feature.importantFor}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {feature.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Small Business Website Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Start simple:</strong> AI builders get you online fast. Add features as you grow.</li>
+        <li><strong>Mobile is mandatory:</strong> Most customers search on phones. Ensure mobile experience is excellent.</li>
+        <li><strong>Show location clearly:</strong> Address, hours, phone number, and map on every page.</li>
+        <li><strong>Make contact easy:</strong> Click-to-call phone numbers, contact forms, email visible.</li>
+        <li><strong>Include photos:</strong> Real photos of your business, products, or team build trust.</li>
+        <li><strong>Collect reviews:</strong> Display customer testimonials to build credibility.</li>
+        <li><strong>Keep it updated:</strong> Fresh content, current hours, accurate information matters.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Small businesses have excellent affordable options. Choose based on your business type.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

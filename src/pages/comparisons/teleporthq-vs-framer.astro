@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'TeleportHQ vs Framer AI',
+  description: 'TeleportHQ vs Framer: Which AI website builder is better? Compare code export quality and design capabilities for developers.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Framer',
+    score: 8.8,
+    ease: 7.5,
+    design: 9.5,
+    price: '$15-35/mo',
+    features: ['Best designs (9.5/10)', 'React/HTML/CSS export', 'Fast performance', 'Modern templates'],
+    bestFor: 'Design quality',
+    strengths: ['Stunning designs', 'Code export', 'Smooth animations', 'Fast PageSpeed'],
+    weaknesses: ['Learning curve', 'No native e-commerce', 'Design skills help', 'Limited CMS']
+  },
+  {
+    name: 'TeleportHQ',
+    score: 7.5,
+    ease: 7.0,
+    design: 8.0,
+    price: '$9-29/mo',
+    features: ['Multiple code exports', 'AI generation', 'Collaboration tools', 'Developer-focused'],
+    bestFor: 'Code variety',
+    strengths: ['Multiple frameworks', 'Clean code export', 'Team collaboration', 'Handoff to developers'],
+    weaknesses: ['Less polished designs', 'Steeper learning', 'Fewer templates', 'Less mature']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is TeleportHQ or Framer better for AI website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer (8.8/10) offers superior design quality (9.5/10 vs 8.0/10), easier to use (7.5/10 vs 7.0/10), and more polished templates. TeleportHQ (7.5/10) provides more code export options (React, Vue, HTML, Angular) and better developer collaboration features. Framer is better for design-focused projects where visual quality matters most. TeleportHQ is better for developers who need specific framework exports and team collaboration. Choose Framer for beautiful designs, TeleportHQ for code flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What code can I export from TeleportHQ vs Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TeleportHQ exports to multiple frameworks: React, Vue, Angular, HTML/CSS, and more. This variety makes it ideal for developers working with different tech stacks. Framer exports primarily React, HTML, and CSS with a focus on modern React-based workflows. If you need Vue or Angular exports, TeleportHQ wins. For React development, both are excellent. Framer's exported code is more designer-focused, while TeleportHQ's code is more developer-focused."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which has better templates, TeleportHQ or Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer has significantly better templates (9.5/10 design quality). Modern, trendy, visually stunning designs that impress visitors. TeleportHQ templates are functional but less polished (8.0/10 design quality). If design quality is your priority, Framer is the clear winner. If you need a starting point for custom development and plan to heavily customize, TeleportHQ's templates are adequate. For designer portfolios, marketing sites, and startups, Framer templates deliver better results."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins on design quality.</strong> Best designs (9.5/10), polished results, easier workflow.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>TeleportHQ wins on code variety.</strong> Multiple frameworks, collaboration tools, developer-focused.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> Design quality is your top priority and you want React export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose TeleportHQ if:</strong> You need Vue/Angular exports or team collaboration features.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Key Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.features.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">TeleportHQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Moderate (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">React, HTML, CSS</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">React, Vue, Angular, HTML</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Collaboration</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Advanced team features</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Modern, trendy</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Functional</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Animations</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Smooth built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Custom code</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$15/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$9/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design vs. Developer Focus</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer is design-focused.</strong> Stunning visual results with minimal code knowledge.
+        </p>
+        <p class="text-gray-700">
+          <strong>TeleportHQ is developer-focused.</strong> Technical flexibility with multiple frameworks.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">React vs. Multiple Frameworks</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer specializes in React.</strong> Optimized for modern React development.
+        </p>
+        <p class="text-gray-700">
+          <strong>TeleportHQ supports many frameworks.</strong> React, Vue, Angular, HTML/CSS exports.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Collaboration Approach</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer has basic collaboration.</strong> Share and edit with team members.
+        </p>
+        <p class="text-gray-700">
+          <strong>TeleportHQ has advanced team features.</strong> Better for design-developer handoff.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (8.8/10) if:</strong> Design quality is your priority and you use React.</li>
+        <li><strong>Choose TeleportHQ (7.5/10) if:</strong> You need Vue/Angular exports or advanced team collaboration.</li>
+        <li><strong>Framer is better for:</strong> Portfolios, marketing sites, SaaS startups, designers.</li>
+        <li><strong>TeleportHQ is better for:</strong> Developers, teams, multi-framework projects, handoff workflows.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Best designs with React export for modern development.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>TeleportHQ for developers.</strong> If you need Vue/Angular or advanced team features.
+      </p>
+      <p class="text-gray-700">
+        TeleportHQ is cheaper ($9 vs $15/mo). Choose based on your framework and collaboration needs.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer code export. Framer for design, TeleportHQ for framework variety.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/teleporthq-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read TeleportHQ Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI prototyping vs design platform</p>
+        </a>
+        <a href="/comparisons/dorik-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs design quality</p>
+        </a>
+        <a href="/comparisons/framer-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">AI design vs templates</p>
+        </a>
+        <a href="/comparisons/wix-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Wix vs Squarespace AI',
+  description: 'Wix vs Squarespace: Which AI website builder is better? Compare feature-rich platform with app ecosystem vs polished design-focused platform.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 7.5,
+    value: 7.5,
+    price: '$10-46/mo',
+    features: ['App marketplace (5000+)', 'Easy drag-drop', 'E-commerce built-in', 'Established brand'],
+    bestFor: 'Features & apps',
+    strengths: ['Huge app ecosystem', 'Easy to use', 'All-in-one platform', 'Established'],
+    weaknesses: ['Template lock-in', 'No code export', 'Loading speed', 'Limited flexibility']
+  },
+  {
+    name: 'Squarespace',
+    score: 8.3,
+    ease: 8.5,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 7.5,
+    price: '$23-65/mo',
+    features: ['Beautiful templates', 'Built-in features', 'Reliable hosting', 'E-commerce ready'],
+    bestFor: 'Design quality',
+    strengths: ['Consistently polished', 'Easy to use', 'All-in-one', 'Established'],
+    weaknesses: ['Rigid templates', 'No code export', 'Limited flexibility', 'Higher cost']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Wix or Squarespace better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace wins slightly overall (8.3/10 vs 8.2/10) with superior design quality (8.5/10 vs 8.0/10), faster loading speed (8.5/10 vs 8.0/10), and consistently polished templates that always look professional. Wix offers more features with its massive app marketplace (5000+ apps), more flexibility (7.5/10 vs 7.0/10), more affordable pricing starting at $10/month vs $23/month, and greater template variety (800+ vs 100+). Squarespace is better for: design-focused users wanting polished results, portfolios and visual brands, restaurants and creative businesses, users who prioritize design over features. Wix is better for: users needing specific features from apps, e-commerce with more options, complex websites requiring add-ons, budget-conscious users. Choose Squarespace for consistently polished design. Choose Wix for maximum features and flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Wix and Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix and Squarespace have significantly different pricing structures with Wix being much more affordable at entry levels. Wix starts at $10/month for basic sites, $18/month for unlimited plans, up to $46/month for e-commerce and business features. Over 3 years, Wix costs $360-1656 depending on plan level. Squarespace starts at $23/month for personal websites, $33/month for business plans, up to $65/month for commerce features. Over 3 years, Squarespace costs $828-2340 depending on plan level. For basic websites, Wix is more than twice as affordable ($10 vs $23/month base pricing). For business features, the gap widens ($18 vs $33/month). Wix's more affordable pricing, combined with its extensive app marketplace, makes it better value for budget-conscious users. Squarespace's higher pricing reflects its design quality and polish - worth it for users prioritizing aesthetics. For most users, Wix provides better value while Squarespace justifies its premium with superior design."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Wix or Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither Wix nor Squarespace offer code export - both platforms lock you into their hosting permanently. Your website stays on their servers and you're committed to their platform. This is different from competitors like Framer and Webflow which do offer code export on paid plans. With both Wix and Squarespace, you don't own your code and can't migrate to custom development or other hosting. If code export matters for your long-term strategy, consider Framer or Webflow instead. If you don't care about code export, both Wix and Squarespace are fine choices - just understand you're committing to their platforms. Platform lock-in is the trade-off for the convenience, features, and professional results these builders provide. For most users who just want a working website without technical complexity, this trade-off is acceptable. Choose based on features vs. design priorities, not code export."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace wins for design.</strong> More polished (8.5/10) and faster.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for features.</strong> 5000+ apps for anything you need.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Squarespace if:</strong> You want polished design and consistent beauty.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You need maximum features and lower cost.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Squarespace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Good (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Rigid (7.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Variety</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">800+ templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">100+ templates</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">5000+ apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No app marketplace</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$10/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Average</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2006)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2004)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Features & apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design quality</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features vs. Design</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix maximizes features.</strong> App marketplace lets you add anything.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace maximizes design.</strong> Consistently polished templates.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Flexibility vs. Consistency</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is more flexible.</strong> More freedom to customize and add features.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is consistent.</strong> Rigid but harder to break, always looks good.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Price Difference</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is much cheaper.</strong> $10/mo vs $23/mo at entry level.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace costs more.</strong> But you get consistently polished design.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Both Have Same Trade-off</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Neither offers code export.</strong> Both lock you into their platforms.
+        </p>
+        <p class="text-gray-700">
+          <strong>Similar ease of use.</strong> Both are designed for beginners and non-technical users.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Squarespace (8.3/10) if:</strong> You want consistently polished design, you prioritize aesthetics, you're in creative fields, you want faster loading.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You need specific features, you want app marketplace, you're on a budget, you need more flexibility.</li>
+        <li><strong>Squarespace is better for:</strong> Portfolios, restaurants, designers, photographers, visual brands.</li>
+        <li><strong>Wix is better for:</strong> E-commerce, feature-heavy sites, budget-conscious users, specific needs.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for most users.</strong> More affordable with maximum features.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace for design.</strong> If polish and aesthetics are your priority.
+      </p>
+      <p class="text-gray-700">
+        Choose Wix for value and features. Choose Squarespace for design and polish.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Wix for features and affordability. Squarespace for polished design and consistency.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+        <a href="/reviews/squarespace-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Squarespace Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

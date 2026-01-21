@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Zyro vs Framer AI',
+  description: 'Zyro vs Framer: Which AI website builder is better? Compare budget-friendly pricing vs design quality for modern websites.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Framer',
+    score: 8.8,
+    ease: 7.5,
+    design: 9.5,
+    ai: 8.0,
+    price: '$15-35/mo',
+    features: ['Best designs (9.5/10)', 'Code export', 'Fast performance', 'React-based'],
+    bestFor: 'Design-focused websites',
+    strengths: ['Stunning templates', 'Code export', 'Fast PageSpeed', 'Modern aesthetic'],
+    weaknesses: ['Learning curve', 'Limited CMS', 'Smaller feature set', 'Less mature']
+  },
+  {
+    name: 'Zyro',
+    score: 7.5,
+    ease: 8.5,
+    design: 7.5,
+    ai: 8.0,
+    price: '$9-19/mo',
+    features: ['AI Writer', 'AI Heatmap', 'Affordable pricing', 'Business tools'],
+    bestFor: 'Budget-conscious users',
+    strengths: ['Very affordable', 'AI content tools', 'Easy to use', 'Business features'],
+    weaknesses: ['Lower design quality', 'No code export', 'Template limitations', 'Basic features']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Zyro or Framer better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer (8.8/10) is significantly better for design quality (9.5/10 vs 7.5/10) with stunning modern templates and code export capability. Zyro (7.5/10) is better for budget-conscious users needing AI content generation tools at lower price points. Framer wins for design-focused websites, portfolios, and modern brands where aesthetics matter. Zyro wins for budget websites, small businesses, and users who need AI writing assistance. If design quality and code export are priorities, choose Framer. If affordability and AI content tools are priorities, choose Zyro. Framer costs about 2x more but delivers significantly better results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Zyro and Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro is significantly more affordable than Framer. Zyro starts at $9/month for basic plans, $15/month for business features, and $19/month for e-commerce. Framer starts at $15/month for personal sites, $25/month for pro features, and $35/month for advanced features. Over 3 years, Zyro costs $324-684 while Framer costs $540-1260. Zyro offers excellent value for budget-conscious users, while Framer justifies its higher price with superior design quality and code export. If budget is a major concern, Zyro is the clear winner. If you can afford $15-35/month, Framer delivers significantly better design quality and professional results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Zyro or Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export (React, HTML, CSS) on paid plans starting at $15/month. Zyro does not offer code export - your website stays on Zyro's servers. This is a significant difference if code ownership matters to you. With Framer, you can export your site and host it elsewhere or continue development with the code. With Zyro, you're locked into their platform. If you want the option to export code and self-host, Framer is the better choice. If you don't care about code export and just want an affordable hosted solution, Zyro works fine. Code export is valuable for developers, agencies, and anyone wanting platform independence."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for design quality.</strong> Stunning templates (9.5/10), code export, modern.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro wins for affordability.</strong> Budget pricing ($9/mo), AI content tools.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want the best designs and code export option.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Zyro if:</strong> You're budget-conscious and need AI writing tools.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Zyro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (7.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Generation</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">AI site generator</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">AI Writer + AI Heatmap</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (React)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Via integration</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Content Tools</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">AI Writer, AI Heatmap</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Performance</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent PageSpeed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Quality</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer has the best designs.</strong> 9.5/10 design quality with stunning, modern templates that look professional immediately.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro has decent designs.</strong> 7.5/10 design quality. Functional but not exceptional. Better for basic business sites.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer focuses on design AI.</strong> Generates complete websites with professional layouts and styling.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro includes content AI.</strong> AI Writer generates text, AI Heatmap predicts user attention. Unique content-focused tools.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer: Premium design.</strong> Higher cost ($15-35/mo) but superior results and code export option.
+        </p>
+        <p class="text-gray-700">
+          <strong>Zyro: Budget value.</strong> Lower cost ($9-19/mo) with AI content tools. Good for basic sites.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (8.8/10) if:</strong> Design quality is your top priority, you want code export option, you need a professional modern look, budget allows $15-35/mo.</li>
+        <li><strong>Choose Zyro (7.5/10) if:</strong> Budget is a major concern, you need AI content writing tools, you want simple e-commerce, ease of use matters most.</li>
+        <li><strong>Framer is better for:</strong> Designers, portfolios, startups, marketing sites, anyone needing stunning visuals.</li>
+        <li><strong>Zyro is better for:</strong> Small businesses, personal sites, budget projects, users needing AI writing help.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Significantly better design quality justifies the extra cost.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Zyro for tight budgets.</strong> If $9-19/mo is your limit and AI content tools help you.
+      </p>
+      <p class="text-gray-700">
+        Framer costs about 2x but delivers design quality Zyro can't match. Choose based on budget and design priorities.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for design quality, Zyro for budget. Choose based on your priorities.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/zyro-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Zyro Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI prototyping vs design platform</p>
+        </a>
+        <a href="/comparisons/zyro-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Zyro vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget AI vs speed AI</p>
+        </a>
+        <a href="/comparisons/wix-vs-zyro" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Zyro</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs budget</p>
+        </a>
+        <a href="/comparisons/framer-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">AI design vs templates</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

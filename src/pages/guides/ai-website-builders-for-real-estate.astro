@@ -1,0 +1,251 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Real Estate Agents',
+  description: 'Top AI website builders for real estate professionals. Compare property listings, MLS integration, and lead capture features.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    builder: 'Squarespace',
+    score: 8.8/10,
+    why: 'Beautiful property showcases, excellent image galleries, professional polish',
+    pricing: '$23-65/mo',
+    bestFor: 'Image-focused realtors'
+  },
+  {
+    builder: 'Wix',
+    score: 8.5/10,
+    why: 'Property listing templates, booking system, lead capture forms',
+    pricing: '$16-36/mo',
+    bestFor: 'Full-featured agent sites'
+  },
+  {
+    builder: 'Framer',
+    score: 8.3/10,
+    why: 'Stunning property presentations, smooth animations, modern aesthetic',
+    pricing: '$15-35/mo',
+    bestFor: 'Design-conscious agents'
+  },
+  {
+    builder: 'Durable',
+    score: 8.0/10,
+    why: 'Fastest setup, built-in CRM for lead management',
+    pricing: '$15/mo',
+    bestFor: 'Quick launch with CRM'
+  }
+];
+
+const features = [
+  {
+    feature: 'Property Listings',
+    description: 'Display properties with photos, details, and virtual tours',
+    importance: 'Essential',
+    builders: ['Wix (Properties widget)', 'Squarespace (Gallery pages)', 'WordPress (Listing plugins)']
+  },
+  {
+    feature: 'Lead Capture',
+    description: 'Contact forms, inquiry forms, newsletter signup',
+    importance: 'Critical',
+    builders: ['Durable (Built-in CRM)', 'Wix (Wix Forms)', 'All builders']
+  },
+  {
+    feature: 'Scheduling System',
+    description: 'Property viewing appointments and consultations',
+    importance: 'Important',
+    builders: ['Wix (Wix Bookings)', 'Squarespace (Acuity Scheduling)', 'Durable (CRM)']
+  },
+  {
+    feature: 'MLS Integration',
+    description: 'Import listings from MLS databases',
+    importance: 'Advanced',
+    builders: ['WordPress (MLS plugins)', 'Webflow (Custom integration)', 'Wix (Third-party apps)']
+  }
+];
+
+const prosByBuilder = [
+  {
+    builder: 'Squarespace',
+    pros: ['Stunning image galleries', 'Professional templates', 'Excellent mobile', 'Fast PageSpeed'],
+    cons: ['No built-in MLS integration', 'Learning curve', 'More expensive']
+  },
+  {
+    builder: 'Wix',
+    pros: ['Property listing templates', 'Booking for viewings', 'Lead capture tools', 'App marketplace'],
+    cons: ['Can get expensive', 'PageSpeed issues', 'Interface complexity']
+  },
+  {
+    builder: 'Framer',
+    pros: ['Beautiful property showcases', 'Code export available', 'Fast performance', 'Modern design'],
+    cons: ['No real estate templates', 'No booking system', 'Learning curve']
+  },
+  {
+    builder: 'Durable',
+    pros: ['Fastest setup', 'Built-in CRM', 'Lead management', 'Affordable'],
+    cons: ['Limited templates', 'No property-specific features', 'No MLS integration']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for real estate agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace (8.8/10) is best for image-focused realtors with beautiful property showcases and excellent image galleries. Wix (8.5/10) offers property listing templates, booking systems for viewings, and lead capture forms. Framer (8.3/10) delivers stunning property presentations with smooth animations for design-conscious agents. Durable (8.0/10) provides fastest setup with built-in CRM for lead management. Choose Squarespace for property photography, Wix for full-featured sites, Framer for modern aesthetics, or Durable for quick launch with CRM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI website builders integrate with MLS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI website builders do NOT have native MLS integration. For MLS integration, WordPress with plugins like MLS Import or IDX is the best option. Some workarounds exist: Wix has third-party apps through their marketplace, Webflow allows custom integrations via API, and some dedicated real estate website builders offer native MLS. For most agents using AI builders, manually adding featured properties is common practice. If MLS integration is essential, consider WordPress over AI builders, or use a dedicated real estate platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do real estate agents capture leads with AI builders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All AI builders offer lead capture through contact forms and inquiry buttons. For advanced lead management: Durable includes built-in CRM for tracking and following up with leads. Wix offers Wix Forms with email automation. Squarespace integrates with email marketing tools. Best practices include: place inquiry buttons on every property listing, offer property alerts by email, provide home valuation tools, capture buyer information before revealing full details, and use scheduling tools for viewing appointments. For sophisticated lead nurturing, consider connecting to CRM tools like HubSpot or using Durable's built-in CRM."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best for Real Estate: Quick Picks</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best for Photos:</strong> Squarespace (8.8/10)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Features:</strong> Wix (8.5/10)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Modern Design:</strong> Framer (8.3/10)</p>
+          <p class="text-gray-700 text-lg"><strong>With CRM:</strong> Durable (8.0/10)</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Galleries:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Property Templates:</strong> Wix</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Code Export:</strong> Framer</p>
+          <p class="text-gray-700 text-lg"><strong>Lead Management:</strong> Durable</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Recommendations -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Top AI Builders for Real Estate</h2>
+
+      <div class="space-y-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-bold text-gray-900">{rec.builder}</h3>
+              <div class="text-3xl font-black text-orange-600">{rec.score}/10</div>
+            </div>
+            <p class="text-gray-700 mb-3"><strong>Why for real estate:</strong> {rec.why}</p>
+            <p class="text-gray-700 mb-2"><strong>Pricing:</strong> {rec.pricing}</p>
+            <p class="text-green-700 text-sm"><strong>Best for:</strong> {rec.bestFor}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Real Estate Website Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                {feature.importance === 'Essential' ? '!' : feature.importance === 'Critical' ? '!!' : '?'}
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance} for agents</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {feature.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pros and Cons by Builder -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Builder Comparison for Real Estate</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {prosByBuilder.map(b => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{b.builder}</h3>
+            <div class="mb-4">
+              <p class="text-sm text-green-700 font-semibold mb-2">Pros</p>
+              <ul class="space-y-1 text-sm text-gray-700">
+                {b.pros.map(pro => (
+                  <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>{pro}</span></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p class="text-sm text-red-700 font-semibold mb-2">Cons</p>
+              <ul class="space-y-1 text-sm text-gray-700">
+                {b.cons.map(con => (
+                  <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>{con}</span></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Real Estate Website Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Quality photos are essential:</strong> Hire professional photographers. Great photos sell properties.</li>
+        <li><strong>Mobile optimization is critical:</strong> Most clients search on phones. Ensure mobile experience is perfect.</li>
+        <li><strong>Feature sold properties:</strong> Show past success to build credibility with potential clients.</li>
+        <li><strong>Include neighborhood info:</strong> Schools, amenities, and local insights add value.</li>
+        <li><strong>Video tours matter:</strong> Include virtual walkthroughs for out-of-area buyers.</li>
+        <li><strong>Contact on every page:</strong> Make it easy for clients to reach you from anywhere on the site.</li>
+        <li><strong>Load speed is important:</strong> Heavy image galleries can slow sites. Optimize for performance.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Real estate agents have excellent options. Squarespace for photos, Wix for features.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

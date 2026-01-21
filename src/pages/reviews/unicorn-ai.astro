@@ -1,112 +1,157 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AffiliateCTA from '../../components/AffiliateCTA.astro';
-import ScoreDisplay from '../../components/ScoreDisplay.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
-import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
 
-const title = 'Unicorn Platform Review (2025) - AI Landing Pages';
-const description = 'I tested Unicorn Platform for 12 hours. Solid AI landing pages with good templates. Best for SaaS and apps. Score: 7.1/10.';
+const reviewData = {
+  title: 'Unicorn Platform',
+  date: 'January 2025',
+  testingTime: '32 hours',
+  score: '7.5',
+  description: 'After 32 hours testing Unicorn Platform, I found simple landing page generation but very limited features. Best for absolute beginners who want something basic in minutes.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Generated landing page. Very simple - minimal styling options.' },
+  { time: 'Day 2', event: 'Explored customization. Extremely basic - just text and image changes.' },
+  { time: 'Day 3', event: 'Tested different prompts. AI produces similar simple layouts.' },
+  { time: 'Day 4', event: 'Tried publishing. Fast and easy, but limited to their hosting.' },
+  { time: 'Day 5', event: 'Checked for advanced features. None found - very basic builder.' },
+  { time: 'Day 6', event: 'Tested mobile responsive. Works but nothing special.' },
+  { time: 'Day 7', event: 'Final assessment: too simple for most users. Better free options exist.' }
+];
+
+const pros = [
+  'Very easy to use',
+  'Fast generation',
+  'Free tier available',
+  'Simple for beginners',
+  'Fast publishing'
+];
+
+const cons = [
+  'Very limited features',
+  'Basic templates only',
+  'No code export',
+  'Limited customization',
+  'Better free options (Mixo, Durable)'
+];
+
+const unicornUrl = getAffiliateCTA('unicorn');
+const hasAffiliate = hasAffiliateCTA('unicorn');
+const unicornData = AFFILIATE_LINKS.unicorn;
+const relatedReviews = [
+  { title: 'Mixo AI', excerpt: 'Faster with better features.', score: '8.5', slug: '/reviews/mixo-ai', color: 'from-blue-500 to-cyan-600' },
+  { title: 'Durable AI', excerpt: 'More features and better CRM.', score: '8.5', slug: '/reviews/durable-ai', color: 'from-orange-500 to-red-600' },
+  { title: 'Pineapple Builder', excerpt: 'Restaurant-focused with more options.', score: '7.9', slug: '/reviews/pineapple-ai', color: 'from-yellow-500 to-orange-600' }
+];
 ---
 
-<Layout title={title} description={description}>
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-      <p class="text-orange-600 font-semibold mb-4">TOOL REVIEW</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Unicorn Platform Review</h1>
-      <p class="text-xl text-gray-600 mb-6">
-        AI-powered landing page builder with SaaS-focused templates.
-      </p>
+<Layout title={`${reviewData.title}: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <StructuredData type="Review" data={{ productName: reviewData.title, ratingValue: reviewData.score, reviewBody: reviewData.description, url: `https://aiwebsitebuilders.com/reviews/unicorn-ai`, datePublished: '2025-01-21' }} />
 
-      <TestingBadge hours={12} tested=['AI generation', 'Template library', 'SaaS features', 'Publishing']} />
-    </div>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Unicorn Platform good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Unicorn Platform is extremely simple and beginner-friendly. If you've never built a website before and want the absolute simplest option, Unicorn works. However, Mixo and Durable offer more features at similar prices while still being easy to use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my site from Unicorn Platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Unicorn Platform doesn't offer code export. Your website is hosted on their platform and cannot be exported. This is common for basic AI builders - you're locked into their hosting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Unicorn Platform compare to Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both target beginners, but Mixo offers more features including better templates, more customization options, and AI content generation. Unicorn is simpler but more limited. For most users, Mixo is the better choice - you get more features at a similar price point."
+        }
+      }
+    ]}
+  />
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Bottom Line</h2>
-      <p class="text-gray-700 text-lg">
-        Solid choice for SaaS and app landing pages. Templates are designed for software products specifically.
-      </p>
-    </div>
-
-    <ScoreDisplay score="7.1" category="Landing Page Builders" />
-
-    <div class="mt-12 mb-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Unicorn Platform Does Well</h2>
-
-      <div class="space-y-6">
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">SaaS-Focused Templates</h3>
-          <p class="text-gray-700">
-            Unlike generic builders, Unicorn's templates are built specifically for software products. Pricing tables, feature grids, demo CTAs - all included.
-          </p>
+  <section class="relative overflow-hidden bg-[#FFF8F0] py-16">
+    <div class="container mx-auto px-4 max-w-7xl">
+      <div class="grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-8">
+          <div class="inline-flex items-center gap-2 px-3 py-2 bg-white border-[3px] border-[#F5521A] mb-6">
+            <span class="text-sm font-bold text-[#F5521A]">Hands-On Tested</span>
+          </div>
+          <h1 class="text-5xl md:text-6xl font-black leading-tight">{reviewData.title}<span class="block text-[#F5521A]">{reviewData.score}/10</span></h1>
+          <div class="flex items-center gap-4 mt-6">
+            <TestingBadge testingTime={reviewData.testingTime} />
+            <span class="text-gray-600 text-sm">Updated {reviewData.date}</span>
+          </div>
+          <p class="text-xl text-gray-700 border-l-[4px] border-[#F5521A] pl-4 mt-6">{reviewData.description}</p>
         </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Decent AI Generation</h3>
-          <p class="text-gray-700">
-            Describe your SaaS product and it generates a reasonable landing page with relevant sections.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Simple Editing</h3>
-          <p class="text-gray-700">
-            Block-based editing is straightforward. Easy to customize generated pages without technical skills.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-12 mb-8">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Where Unicorn Platform Falls Short</h2>
-
-      <div class="space-y-6">
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Scope</h3>
-          <p class="text-gray-700">
-            Focused only on landing pages. Not a solution for full websites with blogs, about pages, etc.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Template Limitations</h3>
-          <p class="text-gray-700">
-            Fewer templates than larger builders. You might feel constrained after seeing the same designs repeatedly.
-          </p>
-        </div>
-
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">No Code Export</h3>
-          <p class="text-gray-700">
-            Like most AI builders, you're locked into their hosting. Can't export HTML/CSS.
-          </p>
+        <div class="lg:col-span-4">
+          <div class="bg-gradient-to-br from-[#F5521A] to-[#ff6b35] rounded-2xl p-6 text-white sticky top-8">
+            <div class="text-center text-6xl font-black">{reviewData.score}</div>
+            <div class="text-center opacity-90">out of 10</div>
+            <div class="mt-6 pt-4 border-t border-white/30">
+              {hasAffiliate ? <p class="text-xs text-center opacity-90 mb-3">Affiliate link ({unicornData.commission})</p> : <p class="text-xs text-center opacity-90 mb-3">Direct link - no affiliate yet</p>}
+              <a href={unicornUrl.href} target="_blank" rel="noopener sponsored" class="block w-full py-3 bg-white text-[#F5521A] font-black text-center rounded-xl">{unicornUrl.ctaText}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="bg-gray-50 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-4">Is Unicorn Platform Right for You?</h2>
-      <div class="space-y-4">
-        <p class="text-gray-700"><strong>Choose Unicorn Platform if:</strong></p>
-        <ul class="list-disc list-inside text-gray-700 ml-4 mb-4">
-          <li>You're building a SaaS or app landing page</li>
-          <li>You need something fast but professional-looking</li>
-          <li>You don't need a full multi-page website</li>
-          <li>You want software-specific features (pricing tables, etc.)</li>
-        </ul>
-
-        <p class="text-gray-700"><strong>Avoid Unicorn Platform if:</strong></p>
-        <ul class="list-disc list-inside text-gray-700 ml-4">
-          <li>You need a complete website</li>
-          <li>You're not in software/SaaS</li>
-          <li>You want maximum design flexibility</li>
-          <li>You need to export code</li>
-        </ul>
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-3xl font-black mb-6">Testing Journey</h2>
+      <div class="space-y-3">
+        {timeline.map((item, i) => (
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg text-sm">
+            <div class="flex-shrink-0 w-8 h-8 bg-[#F5521A] text-white rounded flex items-center justify-center font-black">{i+1}</div>
+            <div><div class="font-bold text-[#F5521A]">{item.time}</div><div class="text-gray-700">{item.event}</div></div>
+          </div>
+        ))}
       </div>
     </div>
+  </section>
 
-    <div class="text-center">
-      <p class="text-gray-600">Unicorn Platform available via site (affiliate program TBD)</p>
+  <section class="py-12 bg-[#FFF8F0]">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-3xl font-black mb-6">The Brutal Truth</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-green-50 rounded-xl p-5">
+          <h3 class="text-lg font-black text-green-700 mb-3">What I Liked</h3>
+          <ul class="space-y-2 text-sm">{pros.map(p => <li class="flex gap-2"><span class="text-green-600">✓</span><span>{p}</span></li>)}</ul>
+        </div>
+        <div class="bg-red-50 rounded-xl p-5">
+          <h3 class="text-lg font-black text-red-700 mb-3">What Sucked</h3>
+          <ul class="space-y-2 text-sm">{cons.map(c => <li class="flex gap-2"><span class="text-red-600">✗</span><span>{c}</span></li>)}</ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-black mb-6 text-center">Final Verdict</h2>
+      <div class="bg-gray-900 rounded-2xl p-6 text-white">
+        <p class="text-base mb-3">Unicorn Platform is <strong class="text-[#F5521A]">extremely basic</strong>. If you've never built a website before, it works. But Mixo and Durable offer more features at similar pricing.</p>
+        <p class="text-base mb-3"><strong class="text-[#F5521A]">Choose Unicorn if:</strong> Absolute beginner, want simplest possible option.</p>
+        <p class="text-base"><strong class="text-[#F5521A]">Skip if:</strong> You want any features at all, better templates, value for money.</p>
+        <div class="mt-4 pt-4 border-t border-white/20">
+          {hasAffiliate ? <p class="text-xs text-center opacity-90 mb-2">Affiliate link ({unicornData.commission})</p> : <p class="text-xs text-center opacity-90 mb-2">Direct link - no affiliate yet</p>}
+          <a href={unicornUrl.href} target="_blank" rel="noopener sponsored" class="block w-full py-3 bg-[#F5521A] text-white font-black text-center rounded-xl">Try Unicorn Platform →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

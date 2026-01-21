@@ -1,0 +1,304 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Framer vs Wix AI',
+  description: 'Framer vs Wix: Which AI website builder has better design? Compare modern design powerhouse vs feature-rich platform with app ecosystem.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Framer',
+    score: 9.0,
+    ease: 8.0,
+    design: 9.5,
+    speed: 8.5,
+    flexibility: 9.0,
+    value: 8.5,
+    price: '$5-30/mo',
+    features: ['Best designs (9.5/10)', 'Code export', 'Modern aesthetic', 'Free tier'],
+    bestFor: 'Design quality',
+    strengths: ['Stunning designs', 'Code export', 'High flexibility', 'Affordable'],
+    weaknesses: ['Steeper learning', 'No app marketplace', 'Less mature', 'Limited features']
+  },
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 7.5,
+    value: 7.5,
+    price: '$10-46/mo',
+    features: ['App marketplace (5000+)', 'Easy drag-drop', 'E-commerce built-in', 'Established brand'],
+    bestFor: 'Features & apps',
+    strengths: ['Huge app ecosystem', 'Easy to use', 'All-in-one platform', 'Established'],
+    weaknesses: ['Template lock-in', 'No code export', 'Loading speed', 'Limited flexibility']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Framer or Wix better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer wins overall (9.0/10 vs 8.2/10) with superior design quality (9.5/10 vs 8.0/10), better flexibility (9.0/10 vs 7.5/10), code export capability, and more affordable pricing starting at $5/month vs $10/month. Wix offers easier usability (8.5/10 vs 8.0/10), massive app marketplace with 5000+ apps for unlimited features, more mature platform with proven reliability, and built-in e-commerce capabilities. Framer is better for: designers wanting stunning modern designs, startups and tech companies, portfolios requiring visual impact, users who want code export option. Wix is better for: users needing specific features from app marketplace, e-commerce businesses, complex websites requiring add-ons, those wanting established platform with maximum features. Choose Framer for beautiful design and flexibility. Choose Wix for maximum features and ease of use."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Framer and Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer and Wix have different pricing structures with Framer being significantly more affordable at entry levels. Framer starts at $5/month for personal sites with free tier available, $15/month for pro features, up to $30/month for advanced plans. Over 3 years, Framer costs $180-1080 depending on plan level (or free for basic sites). Wix starts at $10/month for basic sites, $18/month for unlimited plans, up to $46/month for e-commerce and business features. Over 3 years, Wix costs $360-1656 depending on plan level. For basic websites, Framer is half the price ($5 vs $10/month base pricing). For premium features, Framer remains more affordable ($15 vs $18/month). For e-commerce, Wix costs more but offers more advanced features. Framer's aggressive pricing with free tier makes it exceptional value. Wix's pricing reflects its app ecosystem and mature platform. For most users, Framer provides better value with superior design quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Framer or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export on paid plans ($15/month and above), allowing you to export clean HTML, CSS, and React code to host elsewhere or continue development manually. Wix does NOT offer code export - your website stays on Wix's servers permanently and you're locked into their platform. This is a major difference if you care about owning your code or having flexibility to migrate platforms. With Framer, you can export your code and move to custom development or React hosting when ready. With Wix, you're committed to their platform but get access to a massive app marketplace with 5000+ integrations. If code export matters for your long-term strategy, Framer is the clear winner. If you don't care about code export and want maximum features through apps, Wix is the better choice. Platform lock-in is the trade-off for Wix's convenience and feature richness."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for design.</strong> Best visuals (9.5/10) and flexibility.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for features.</strong> 5000+ apps for anything you need.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want stunning modern design and code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You need maximum features and app marketplace.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Flexible (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Integrations</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">5000+ apps</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$5/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$10/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Free forever</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Trial available</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Modern designs</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">800+ templates</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Average</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Newer (2020s)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2006)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Features & apps</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design vs. Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer prioritizes design.</strong> Best modern aesthetic (9.5/10).
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix prioritizes features.</strong> App marketplace adds anything.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Maturity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is established.</strong> Proven platform since 2006 with millions of users.
+        </p>
+        <p class="text-gray-700">
+          <strong>Framer is newer.</strong> Modern approach but less track record.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer offers better value.</strong> $5/mo vs $10/mo with superior design.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix costs more.</strong> But you get app marketplace and features.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Freedom vs. Lock-in</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer offers freedom.</strong> Code export available on paid plans.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix locks you in.</strong> No code export, committed to their platform.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (9.0/10) if:</strong> You want stunning modern design, you need code export option, you're design-focused, you want better value.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You need specific features, you want app marketplace, you're building e-commerce, you prefer established platform.</li>
+        <li><strong>Framer is better for:</strong> Designers, startups, portfolios, tech companies, visual brands.</li>
+        <li><strong>Wix is better for:</strong> E-commerce, feature-heavy sites, users wanting apps, complex needs.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Stunning designs at unbeatable price.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for features.</strong> If you need app marketplace and specific tools.
+      </p>
+      <p class="text-gray-700">
+        Choose Framer for maximum design value. Choose Wix for maximum features.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for stunning design and code export. Wix for maximum features and app marketplace.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

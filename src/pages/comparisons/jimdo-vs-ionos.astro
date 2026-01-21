@@ -1,0 +1,229 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Jimdo vs IONOS AI',
+  description: 'Jimdo vs IONOS: Which European AI website builder is better? Compare features, pricing, GDPR compliance, and overall value for EU businesses.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Jimdo',
+    score: 7.4,
+    ease: 8.5,
+    design: 6.5,
+    ai: 7.5,
+    price: '$9-15/mo',
+    aiFeatures: ['Jimdo Dolphin AI', 'AI content suggestions'],
+    bestFor: 'GDPR compliance + ease of use',
+    strengths: ['EU-based servers', 'Jimdo Dolphin AI', 'GDPR compliant', 'Multilingual support', 'Clean interface'],
+    weaknesses: ['Dated templates', 'Limited AI features', 'No code export', 'Average PageSpeed']
+  },
+  {
+    name: 'IONOS',
+    score: 7.4,
+    ease: 7.5,
+    design: 7.0,
+    ai: 7.5,
+    price: '$1-15/mo',
+    aiFeatures: ['AI Website Generator', 'AI text generator', 'AI image suggestions'],
+    bestFor: 'Budget EU hosting',
+    strengths: ['Very cheap ($1/mo)', 'AI features included', 'EU-based', 'Established company', 'Good support'],
+    weaknesses: ['Generic templates', 'Limited customization', 'No code export', 'Below-average PageSpeed']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Jimdo or IONOS better for European businesses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are excellent for European businesses with EU-based servers and GDPR compliance. Jimdo is easier to use with Jimdo Dolphin AI (8.5/10 vs 7.5/10). IONOS is significantly cheaper starting at $1/month vs Jimdo's $9/month. Choose Jimdo for better UX and ease. Choose IONOS if budget is your top priority."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Jimdo or IONOS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IONOS is significantly cheaper at $1-15/month compared to Jimdo's $9-15/month. IONOS has one of the lowest starting prices in the industry. However, Jimdo's pricing is still reasonable and includes better ease of use. Both offer good value for EU businesses prioritizing GDPR compliance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Jimdo and IONOS both offer code export?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, neither Jimdo nor IONOS offer code export. Both are hosted platforms - your website is tied to their service. If you leave either platform, you'll need to rebuild your site. For code export options with EU hosting, consider Webnode ($4/mo) or look at 10Web ($4-60/mo) for WordPress-based solutions."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Jimdo wins on ease of use.</strong> Jimdo Dolphin AI makes it simpler for beginners.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Jimdo if:</strong> You want the easiest experience and don't mind paying $9+/month.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose IONOS if:</strong> Budget is your top priority ($1/month starting price).
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">AI Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.aiFeatures.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Jimdo</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">IONOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Dolphin AI + content</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">AI wizard + text + images</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">8.5/10</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">7.5/10</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">EU-Based</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes (Germany)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes (Germany)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">GDPR Compliant</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Clean but dated</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Generic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$9/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$1/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- AI Feature Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">AI Features Comparison</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Jimdo AI Features</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong>Jimdo Dolphin AI:</strong> Smart website generator that asks questions and builds a custom site</li>
+          <li><strong>AI Content Suggestions:</strong> Generates text for your pages based on your industry</li>
+          <li><strong>Industry-Specific Layouts:</strong> Chooses appropriate templates for your business type</li>
+        </ul>
+        <p class="text-gray-700 mt-4">
+          Jimdo Dolphin is particularly good at understanding your business and selecting appropriate layouts. The interface is clean and beginner-friendly.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">IONOS AI Features</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong>AI Website Generator:</strong> Creates a site from your business description</li>
+          <li><strong>AI Text Generator:</strong> Writes content for your pages</li>
+          <li><strong>AI Image Suggestions:</strong> Recommends stock photos based on your content</li>
+        </ul>
+        <p class="text-gray-700 mt-4">
+          IONOS offers solid AI features at an unbeatable price. While not as polished as Jimdo Dolphin, the AI gets the job done for basic sites.
+        </p>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Jimdo for ease of use.</strong> Jimdo Dolphin AI is simpler and more polished. Great if you want a hassle-free experience.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose IONOS for budget.</strong> At $1/month, IONOS is incredibly cheap. The AI features work well enough for the price.
+      </p>
+      <p class="text-gray-700">
+        Both are solid choices for European businesses. Your decision comes down to: ease (Jimdo) vs price (IONOS).
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test each to see which interface you prefer.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/jimdo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Jimdo Review →
+        </a>
+        <a href="/reviews/ionos-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read IONOS Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

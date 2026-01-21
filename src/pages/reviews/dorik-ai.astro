@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
@@ -45,6 +46,37 @@ const hasAffiliate = hasAffiliateCTA('dorik' as any);
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Can Dorik AI regenerate entire layouts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Dorik AI can regenerate full page layouts with a single click. You can also regenerate individual sections (hero, features, testimonials) while keeping the rest of the page intact."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dorik have code export?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Dorik allows HTML/CSS/JS code export on paid plans ($15+/month). The exported code is clean and can be hosted anywhere, giving you freedom from vendor lock-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dorik good for e-commerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dorik has basic e-commerce functionality but it's limited compared to dedicated e-commerce builders. For simple online stores, it works. For serious e-commerce, consider 10Web + WooCommerce or Shopify."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">REVIEW</p>

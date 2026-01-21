@@ -3,240 +3,292 @@ import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 
 const comparisonData = {
-  date: 'January 20, 2025',
-  tool1: {
+  title: 'Webflow vs Squarespace AI',
+  description: 'Webflow vs Squarespace: Which AI website builder is better? Compare design power, ease of use, pricing, and overall value for professional websites.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
     name: 'Webflow',
-    slug: '/comparisons/framer-vs-webflow'
+    score: 8.5,
+    ease: 7.0,
+    design: 9.5,
+    features: 9.5,
+    price: '$23-59/mo',
+    aiFeatures: ['Basic AI tools', 'No native AI generation'],
+    bestFor: 'Complete design control',
+    strengths: ['Full customization', 'Powerful CMS', 'Code export', 'Professional results'],
+    weaknesses: ['Steep learning curve', 'Expensive', 'No native AI generator']
   },
-  tool2: {
+  {
     name: 'Squarespace',
-    slug: '/comparisons/framer-vs-squarespace'
+    score: 8.4,
+    ease: 8.0,
+    design: 9.0,
+    features: 8.5,
+    price: '$23-65/mo',
+    aiFeatures: ['Blueprint AI', 'AI content generation'],
+    bestFor: 'Beautiful designs, easier',
+    strengths: ['Beautiful templates', 'Blueprint AI', 'Easier than Webflow', 'All-in-one'],
+    weaknesses: ['No code export', 'Less customization', 'Expensive']
   }
-};
-
-const quickVerdict = {
-    webflow: 'Best for pixel-perfect custom design',
-    squarespace: 'Best for easy templates with support',
-    winner: 'Webflow for design control, Squarespace for ease'
-};
-
+];
 ---
 
-<Layout title="Webflow vs Squarespace: Visual Design vs Template Ease">
-
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
   <StructuredData
-    type="WebPage"
-    data={{
-      name: 'Webflow vs Squarespace: Visual Design vs Template Ease',
-      description: 'Webflow is a visual design platform for pixel-perfect control. Squarespace is the template leader for easy websites. Both target designers but with different philosophies. Here\'s the breakdown.',
-      url: 'https://aiwebsitebuilders.com/comparisons/webflow-vs-squarespace'
-    }}
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Webflow or Squarespace better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow (8.5/10) offers complete design control and powerful CMS but has a steep learning curve (7.0/10 ease). Squarespace (8.4/10) provides beautiful templates with Blueprint AI and is easier to use (8.0/10 ease). Webflow is better for custom designs and developers. Squarespace is better for most users wanting professional sites without the complexity. Choose Webflow for full control, Squarespace for ease with professional results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Webflow or Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow offers code export on paid plans ($23+/mo). You can export clean HTML, CSS, and JS to host elsewhere. Squarespace does NOT offer code export - your site is tied to their platform. If you care about portability, Webflow is the clear choice. For most users who plan to stay on one platform, this doesn't matter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is more expensive, Webflow or Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing is similar starting at $23/month. Webflow: $23-59/month depending on features. Squarespace: $23-65/month. Both get expensive quickly for advanced features. Webflow can cost more for CMS plans and custom domains. Squarespace gets expensive for e-commerce. For basic sites, pricing is comparable. Consider features more than price when choosing."
+        }
+      }
+    ]}
   />
 
-  <section class="relative overflow-hidden bg-[#FFF8F0]">
-    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
 
-    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
-      <div class="py-12 md:py-16 lg:py-20">
-        <div class="max-w-4xl mx-auto space-y-6">
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow wins on design power and code export.</strong> Complete control, powerful CMS.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace wins on ease and AI generation.</strong> Blueprint AI, easier learning curve.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Webflow if:</strong> You want complete control or need code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Squarespace if:</strong> You want professional results with less effort.
+      </p>
+    </div>
 
-          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
-            <div class="flex gap-2">
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Features</span>
+                <span class="font-semibold">{tool.features}/10</span>
+              </div>
             </div>
-            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
-              {comparisonData.date} · COMPARISON
-            </span>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">AI Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.aiFeatures.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
           </div>
-
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
-            <span class="block">Webflow vs Squarespace:</span>
-            <span class="block text-[#F5521A] mt-2">Control vs Convenience</span>
-          </h1>
-
-          <div class="max-w-2xl">
-            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
-              Webflow gives designers pixel-perfect visual control—build anything without code. Squarespace offers polished templates with zero learning curve—pick a theme, customize, launch. Both target designers but with completely different approaches.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
-  </section>
 
-  <main class="max-w-3xl mx-auto">
-    <article class="px-6 py-16 lg:py-24">
-      <div class="prose prose-lg max-w-none">
-        <div class="bg-[#F5521A]/5 border-l-4 border-[#F5521A] p-6 my-8">
-          <p class="text-gray-900">
-            <strong>The one-sentence answer:</strong><br />
-            Use Webflow if you want complete design control and custom interactions.<br />
-            Use Squarespace if you want polished templates with a simpler workflow.<br /><br />
-            Webflow wins on flexibility. Squarespace wins on speed and support.
-          </p>
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>The fundamental difference
-        </h2>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Webflow is a visual design platform. Design in the browser with pixel-perfect control. Create custom layouts, animations, interactions—all visually. The code is generated automatically. It's powerful but has a steep learning curve.
-        </p>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Squarespace is a template-based platform. Pick from hundreds of professional templates, customize with a visual editor, launch. The templates constrain what you can do, but the learning curve is gentle. It's for designers who want speed over total control.
-        </p>
-
-        <div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300">
-          <div class="grid md:grid-cols-2 gap-6 text-sm">
-            <div>
-              <div class="text-gray-600 mb-2">Webflow:</div>
-              <p class="text-gray-900">{quickVerdict.webflow}</p>
-            </div>
-            <div>
-              <div class="text-gray-600 mb-2">Squarespace:</div>
-              <p class="text-gray-900">{quickVerdict.squarespace}</p>
-            </div>
-          </div>
-          <p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
-            <strong>Verdict:</strong> {quickVerdict.winner}
-          </p>
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>Quick comparison
-        </h2>
-        <div class="overflow-x-auto my-8">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="border-b border-gray-300">
-                <th class="py-3 px-4 text-gray-600 font-medium">Metric</th>
-                <th class="py-3 px-4 text-gray-900 font-black">Webflow</th>
-                <th class="py-3 px-4 text-gray-900 font-black">Squarespace</th>
-                <th class="py-3 px-4 text-gray-600 font-medium">Winner</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b border-gray-300">
-                <td class="py-3 px-4 text-gray-600">Design control</td>
-                <td class="py-3 px-4 text-gray-900">Pixel-perfect custom</td>
-                <td class="py-3 px-4 text-gray-900">Template-based</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Webflow</td>
-              </tr>
-              <tr class="border-b border-gray-300">
-                <td class="py-3 px-4 text-gray-600">Learning curve</td>
-                <td class="py-3 px-4 text-gray-900">Steep</td>
-                <td class="py-3 px-4 text-gray-900">Gentle</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Squarespace</td>
-              </tr>
-              <tr class="border-b border-gray-300">
-                <td class="py-3 px-4 text-gray-600">Build speed</td>
-                <td class="py-3 px-4 text-gray-900">Slow (custom)</td>
-                <td class="py-3 px-4 text-gray-900">Fast (templates)</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Squarespace</td>
-              </tr>
-              <tr class="border-b border-gray-300">
-                <td class="py-3 px-4 text-gray-600">Animations</td>
-                <td class="py-3 px-4 text-gray-900">Unlimited custom</td>
-                <td class="py-3 px-4 text-gray-900">Template-dependent</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Webflow</td>
-              </tr>
-              <tr class="border-b border-gray-300">
-                <td class="py-3 px-4 text-gray-600">E-commerce</td>
-                <td class="py-3 px-4 text-gray-900">Advanced</td>
-                <td class="py-3 px-4 text-gray-900">Strong</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Tie</td>
-              </tr>
-              <tr>
-                <td class="py-3 px-4 text-gray-600">Monthly cost</td>
-                <td class="py-3 px-4 text-gray-900">$23-212</td>
-                <td class="py-3 px-4 text-gray-900">$16-65</td>
-                <td class="py-3 px-4 text-green-600 font-medium">Squarespace</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>Where Webflow wins
-        </h2>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Complete design freedom</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Webflow lets you build anything. Custom layouts, unique interactions, complex animations—no constraints. Squarespace templates are beautiful but limit what you can customize. If your design vision is unique, Webflow is the only choice.
-        </p>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Advanced interactions</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Scroll-triggered animations, complex hover states, micro-interactions—Webflow's interaction designer is unmatched. Squarespace has animations but they're built into templates. For premium interactive experiences, Webflow wins.
-        </p>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">CMS capabilities</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Webflow's CMS is powerful—custom content types, dynamic collections, filtering, referencing. Build complex content structures visually. Squarespace has blogging and simple collections but can't match Webflow's CMS depth.
-        </p>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>Where Squarespace wins
-        </h2>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Speed to launch</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Pick a Squarespace template, replace images and text, launch in hours. Webflow requires building from scratch—design, structure, interactions. For tight deadlines, Squarespace is significantly faster.
-        </p>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Customer support</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          24/7 support with phone, chat, and email. Squarespace has supported millions of websites for 20 years. Webflow has support but it's not as comprehensive. If you need hand-holding, Squarespace wins.
-        </p>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Template quality</h3>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Hundreds of professionally designed templates tested on real sites. They're polished, conversion-optimized, and beautiful out of the box. Webflow has templates too but they're less curated than Squarespace's.
-        </p>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>So which should you use?
-        </h2>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Choose Webflow if:</h3>
-        <ul class="text-gray-600 leading-relaxed mb-6">
-          <li>You want complete design control</li>
-          <li>You need custom animations and interactions</li>
-          <li>You're building complex content structures</li>
-          <li>You're willing to invest time in learning</li>
-          <li>Client work requires pixel-perfect output</li>
-        </ul>
-
-        <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Choose Squarespace if:</h3>
-        <ul class="text-gray-600 leading-relaxed mb-6">
-          <li>You need to launch quickly</li>
-          <li>You want professional templates out of the box</li>
-          <li>You value 24/7 customer support</li>
-          <li>You're newer to web design</li>
-          <li>Your budget is under $50/month</li>
-        </ul>
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>Bottom line
-        </h2>
-        <p class="text-gray-600 leading-relaxed mb-6">
-          Webflow and Squarespace both target designers but with different philosophies. Webflow gives you total control—build anything, but invest time learning. Squarespace gives you speed—beautiful templates, but work within constraints.<br /><br />
-          For custom portfolios, agency sites, complex brands—Webflow's flexibility shines. For local businesses, restaurants, quick client work—Squarespace's template approach wins.
-        </p>
-
-        <div class="flex flex-wrap gap-4 my-12">
-          <a href="/comparisons/framer-vs-webflow" class="inline-flex items-center gap-2 px-6 py-3 bg-white border-[3px] border-gray-300 text-gray-900 font-medium hover:border-[#F5521A] hover:text-[#F5521A] transition-colors">
-            Compare Framer vs Webflow
-          </a>
-          <a href="/comparisons/framer-vs-squarespace" class="inline-flex items-center gap-2 px-6 py-3 bg-white border-[3px] border-gray-300 text-gray-900 font-medium hover:border-[#F5521A] hover:text-[#F5521A] transition-colors">
-            Compare Framer vs Squarespace
-          </a>
-        </div>
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Webflow</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Squarespace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Generation</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic tools</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Blueprint AI</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Moderate</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Control</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Template-based</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CMS Power</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Add-on</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Built-in</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good variety</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Beautiful</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/mo</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </article>
-  </main>
+    </div>
 
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Approach</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow is complete freedom.</strong> Build anything pixel-perfect. Full control over every element.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is guided beauty.</strong> Blueprint AI generates sites. Templates are gorgeous but structured.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Learning Curve</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow requires commitment.</strong> 1-3 months to master. Design thinking helps. Technical mindset useful.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is approachable.</strong> 1-2 weeks to be comfortable. Anyone can create professional sites.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">CMS & Content</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow has powerful CMS.</strong> Custom content models, relational data, complex structures possible.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace has good CMS.</strong> Blogging, portfolios, products. Sufficient for most needs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Portability</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow lets you leave.</strong> Export code and host anywhere. Future-proof your investment.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is a walled garden.</strong> Your site lives on their servers. No exit strategy.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Webflow (8.5/10) if:</strong> You're a designer/developer, want complete control, need code export, or require complex CMS.</li>
+        <li><strong>Choose Squarespace (8.4/10) if:</strong> You want professional results with less effort, need beautiful templates, or prefer AI-assisted creation.</li>
+        <li><strong>Webflow is better for:</strong> Agencies, complex sites, custom designs, developers who want control.</li>
+        <li><strong>Squarespace is better for:</strong> Small businesses, portfolios, restaurants, anyone wanting professional sites easily.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace for most users.</strong> Easier to learn, faster results, professional templates.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow for professionals.</strong> If you have technical skills or design background, the power is unmatched.
+      </p>
+      <p class="text-gray-700">
+        Start with Squarespace unless you know you need Webflow's power. You can always migrate later if needed.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Experience the difference before committing.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/webflow-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Webflow Review →
+        </a>
+        <a href="/reviews/squarespace-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Squarespace Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/framer-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">AI generation vs templates</p>
+        </a>
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Modern vs established design tools</p>
+        </a>
+        <a href="/comparisons/squarespace-vs-wix" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Squarespace vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Design quality vs features</p>
+        </a>
+        <a href="/comparisons/wix-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Convenience vs control</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </Layout>

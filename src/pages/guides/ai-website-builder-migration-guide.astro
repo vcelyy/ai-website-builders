@@ -1,0 +1,243 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'How to Switch Website Builders: Migration Guide',
+  description: 'Complete guide to switching website builders. Learn how to migrate from Wix, Squarespace, or WordPress to new AI builders.',
+  date: 'January 2025'
+};
+
+const migrations = [
+  {
+    from: 'Wix',
+    challenges: ['No code export', 'Locked templates', 'Manual rebuild needed'],
+    process: 'AI builders can\'t directly import Wix sites. Use AI generation to rebuild, then manually migrate content and images.',
+    tips: ['Download all images first', 'Copy all text content', 'Note your domain settings', 'Plan URL redirects']
+  },
+  {
+    from: 'Squarespace',
+    challenges: ['No code export', 'Template limitations', 'Content structure'],
+    process: 'AI builders can\'t directly import Squarespace. Generate new site with AI, then migrate content manually.',
+    tips: ['Export blog posts if possible', 'Download product data', 'Save customer information', 'Document page structure']
+  },
+  {
+    from: 'WordPress',
+    challenges: ['Complex structure', 'Plugins', 'Database dependencies'],
+    process: 'Use AI generation for fresh start, or migrate to 10Web which keeps WordPress foundation.',
+    tips: ['Export database backup', 'List active plugins', 'Save theme customizations', 'Consider 10Web for WordPress AI']
+  },
+  {
+    from: 'HTML/Custom',
+    challenges: ['Manual rebuild', 'Design recreation', 'Content transfer'],
+    process: 'AI builders can\'t import custom sites. Describe your current site to AI for best matching template.',
+    tips: ['Take screenshots of pages', 'Organize all assets', 'Document custom functionality', 'Plan sitemap structure']
+  }
+];
+
+const steps = [
+  {
+    step: 1,
+    title: 'Audit Current Site',
+    tasks: ['List all pages and content', 'Identify essential features', 'Note custom functionality', 'Collect all images and assets', 'Document analytics data']
+  },
+  {
+    step: 2,
+    title: 'Choose New Builder',
+    tasks: ['Compare features vs. needs', 'Check code export if important', 'Verify required features available', 'Consider migration tools', 'Test with free trial']
+  },
+  {
+    step: 3,
+    title: 'Plan Your Migration',
+    tasks: ['Map old pages to new structure', 'Plan content migration strategy', 'Schedule downtime', 'Prepare domain transfer', 'Set up redirects']
+  },
+  {
+    step: 4,
+    title: 'Build New Site',
+    tasks: ['Use AI generation for foundation', 'Customize design with brand elements', 'Migrate core content', 'Set up essential features', 'Test functionality']
+  },
+  {
+    step: 5,
+    title: 'Launch and Verify',
+    tasks: ['Connect custom domain', 'Set up URL redirects', 'Test all functionality', 'Monitor analytics', 'Update business listings']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Can I switch website builders without losing my content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, you can switch builders but direct migration is rarely possible. Most builders (Wix, Squarespace) don't allow code export, so you'll need to rebuild. The process: (1) Download all content and images from current site, (2) Use AI generation on new builder to create foundation, (3) Manually migrate content and customize design, (4) Transfer domain, (5) Set up redirects from old URLs. While it requires work, AI builders significantly speed up rebuilding (minutes vs months). Plan your migration carefully to minimize downtime and content loss."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I migrate from Wix to another builder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Migrating from Wix requires manual rebuild since Wix doesn't offer code export. Process: Download all images and copy text content from Wix. Choose new builder and use AI generation to create similar structure. Re-upload images and paste content, customizing design to match your brand. Connect your custom domain (transfer from Wix or update DNS). Set up 301 redirects from old Wix URLs to new URLs if possible. While Wix to WordPress is complex, Wix to other AI builders is simpler. Allow 2-4 hours for basic sites, more for complex e-commerce."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will switching website builders hurt my SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Switching builders can impact SEO temporarily if not done carefully. Best practices: (1) Keep same URL structure if possible, (2) Set up 301 redirects from old URLs to new, (3) Transfer domain properly to avoid new domain penalty, (4) Ensure all meta titles and descriptions are recreated, (5) Submit new sitemap to Google Search Console, (6) Monitor analytics for drops. Temporary ranking fluctuations are normal during migration. Most sites recover within 2-4 weeks if redirects are properly set up. Choose AI builders with good SEO features (Squarespace, Webflow, 10Web)."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Migration Overview</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Direct migration is rarely possible.</strong> Most builders don't import from each other.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>AI builders speed up rebuilding.</strong> Generate new site in minutes, then migrate content manually.
+      </p>
+      <p class="text-gray-700">
+        <strong>Code export simplifies migration.</strong> Builders with export (Webflow, Framer, 10Web) make switching easier.
+      </p>
+    </div>
+
+    <!-- Migration by Platform -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Migrating From Popular Builders</h2>
+
+      <div class="space-y-6">
+        {migrations.map(migration => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">From {migration.from}</h3>
+
+            <div class="mb-4">
+              <p class="text-sm text-red-700 font-semibold mb-2">Challenges</p>
+              <ul class="space-y-1 text-sm text-gray-700">
+                {migration.challenges.map(challenge => (
+                  <li>• {challenge}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mb-4">
+              <p class="text-sm text-blue-700 font-semibold mb-2">Process</p>
+              <p class="text-gray-700">{migration.process}</p>
+            </div>
+
+            <div>
+              <p class="text-sm text-green-700 font-semibold mb-2">Tips</p>
+              <ul class="space-y-1 text-sm text-gray-700">
+                {migration.tips.map(tip => (
+                  <li>• {tip}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Migration Steps -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">5-Step Migration Process</h2>
+
+      <div class="space-y-4">
+        {steps.map(step => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">{step.step}</div>
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                <ul class="space-y-1 text-gray-700">
+                  {step.tasks.map(task => (
+                    <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span>{task}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- SEO Considerations -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">SEO Preservation Tips</h2>
+
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+        <ul class="space-y-3 text-gray-700">
+          <li><strong>Keep URLs if possible:</strong> Same page URLs prevent ranking loss.</li>
+          <li><strong>Set up 301 redirects:</strong> Redirect old URLs to new to preserve link equity.</li>
+          <li><strong>Transfer domain properly:</strong> Update DNS, don't buy new domain if possible.</li>
+          <li><strong>Recreate meta data:</strong> Copy all titles, descriptions, alt text to new site.</li>
+          <li><strong>Submit new sitemap:</strong> Google Search Console helps Google reindex your site.</li>
+          <li><strong>Monitor analytics:</strong> Watch for traffic drops after migration.</li>
+          <li><strong>Expect temporary fluctuation:</strong> Rankings usually recover within 2-4 weeks.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Platform Recommendations -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Best Builders for Easy Migration</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-green-200 bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-green-800 mb-4">Easiest to Migrate To</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span><span><strong>Mixo:</strong> Fastest rebuild, easy to use</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span><span><strong>Durable:</strong> Under 30 seconds setup</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-600">✓</span><span><strong>Squarespace:</strong> Good templates, polished</span></li>
+          </ul>
+        </div>
+
+        <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-blue-800 mb-4">Best Code Export</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-blue-600">✓</span><span><strong>Webflow:</strong> Clean HTML/CSS/JS export</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-600">✓</span><span><strong>Framer:</strong> React export for modern dev</span></li>
+            <li class="flex items-start gap-2"><span class="text-blue-600">✓</span><span><strong>10Web:</strong> WordPress export, portability</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Migration Success Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Plan before you start:</strong> Map old pages to new structure before building.</li>
+        <li><strong>Keep similar structure:</strong> Same navigation and page organization helps users and Google.</li>
+        <li><strong>Download all assets:</strong> Save all images, files, and content before canceling old site.</li>
+        <li><strong>Run parallel temporarily:</strong> Build new site while old site remains live.</li>
+        <li><strong>Test thoroughly:</strong> Check all forms, links, and features before pointing domain.</li>
+        <li><strong>Monitor for 30 days:</strong> Watch analytics, rankings, and user feedback after migration.</li>
+        <li><strong>Communicate changes:</strong> Tell users about migration if it affects them.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Switching builders requires work but AI builders make rebuilding faster. Plan carefully.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

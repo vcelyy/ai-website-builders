@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
@@ -42,6 +43,37 @@ const hasAffiliate = false;
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "How does IONOS AI compare to Hostinger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "IONOS and Hostinger are owned by the same parent company (Hostinger Group) and offer similar pricing. However, Hostinger has better templates, more features, and a more polished interface. IONOS is cheaper but feels more basic. Choose Hostinger if you want better quality, IONOS if budget is the priority."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my site from IONOS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, IONOS doesn't offer code export. Your website is hosted on their infrastructure and cannot be exported. This is common for budget AI builders that include hosting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is IONOS AI good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, IONOS AI is beginner-friendly with AI-powered site generation. The editor is simple though somewhat clunky. For absolute beginners on a tight budget, it works. For a few dollars more, Hostinger offers a significantly better experience."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">REVIEW</p>

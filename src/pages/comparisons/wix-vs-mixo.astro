@@ -1,0 +1,294 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Wix vs Mixo AI',
+  description: 'Wix vs Mixo: Which AI website builder is better? Compare features, pricing, templates, and overall value for website creation.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    ai: 7.5,
+    features: 9.5,
+    price: '$16-45/mo',
+    aiFeatures: ['Wix ADI', 'AI Text Generator', 'AI Section Creator'],
+    bestFor: 'Most features',
+    strengths: ['Mature platform', 'Many features', 'Good templates', 'App marketplace', 'SEO tools'],
+    weaknesses: ['Can get expensive', 'PageSpeed issues', 'No code export', 'Learning curve']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.5,
+    ai: 8.5,
+    features: 8.0,
+    price: '$9/mo',
+    aiFeatures: ['AI Website Generator', 'AI Content Engine', 'Built-in SEO'],
+    bestFor: 'Speed + simplicity',
+    strengths: ['Incredibly fast', 'Quality templates', 'Built-in SEO', 'Affordable', 'Easy to use'],
+    weaknesses: ['Limited customization', 'No code export', 'Basic e-commerce', 'Fewer features']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Wix or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (8.5/10) is faster, easier, and more affordable at $9/month vs Wix's $16-45/month. Mixo generates sites in under 60 seconds. Wix (8.2/10) offers more features and maturity but takes longer and costs more. Mixo is better for quick launches and simple sites. Wix is better for complex sites needing many features. Choose Mixo for speed and value, Wix for features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Wix or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is significantly cheaper at $9/month flat compared to Wix's $16-45/month. Mixo's single plan includes all features. Wix has multiple tiers with increasing costs. For most users, Mixo saves 40-80% on monthly costs. Mixo also has a free plan with no time limit. Wix has a free plan but with more limitations. For budget-conscious users, Mixo is the clear winner."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my site from Wix or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, neither Wix nor Mixo offer code export. Both are hosted platforms - your website is tied to their service. If you leave either platform, you'll need to rebuild. For AI builders with code export, consider Framer ($15-35/mo) which also has good features and design, or Webflow ($23-59/mo) for complete control."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins on speed, ease, and price.</strong> Under 60 seconds, $9/month.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins on features and maturity.</strong> More options, apps, and flexibility.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want fast, affordable, and simple.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You need advanced features and don't mind paying more.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Features</span>
+                <span class="font-semibold">{tool.features}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">AI Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.aiFeatures.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Generation Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">2-5 minutes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Under 60 seconds</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Content Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Excellent</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Very Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">800+ templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good variety</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Marketplace</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">500+ apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">None</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Full-featured</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$16/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/mo</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Speed & Setup</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is lightning fast.</strong> Generate complete sites in under 60 seconds with AI content ready to publish.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix takes more time.</strong> ADI generates a site in 2-5 minutes, plus time for customization. More powerful but slower.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features & Flexibility</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is feature-rich.</strong> 500+ apps, advanced e-commerce, booking systems, memberships. You can build almost anything.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is focused.</strong> Does websites well but lacks advanced features. No app marketplace, simpler e-commerce.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Pricing Reality</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is budget-friendly.</strong> $9/month flat with all features included. Simple, predictable pricing.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix gets expensive.</strong> $16-45/month depending on features. Premium tiers add up quickly for e-commerce.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Maturity vs. Innovation</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is established.</strong> 20+ years of development. Reliable, well-documented, huge community.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is newer.</strong> AI-focused from the start. Modern approach but fewer features and less maturity.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want the fastest setup, lowest price, and don't need advanced features.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You need e-commerce, apps, or advanced features and don't mind paying more.</li>
+        <li><strong>Mixo is better for:</strong> Landing pages, simple sites, portfolios, startups on a budget.</li>
+        <li><strong>Wix is better for:</strong> Online stores, restaurants, complex sites, businesses needing apps.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most users.</strong> Faster, easier, and much more affordable. 80% of sites don't need Wix's features.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for complex needs.</strong> If you need advanced features like e-commerce, booking, or apps.
+      </p>
+      <p class="text-gray-700">
+        Start with Mixo for speed and value. Upgrade to Wix only if you outgrow Mixo's capabilities.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test each to see which workflow you prefer.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+        <a href="/reviews/mixo-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/mixo-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs CRM features</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs design power</p>
+        </a>
+        <a href="/comparisons/wix-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Ease vs power</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

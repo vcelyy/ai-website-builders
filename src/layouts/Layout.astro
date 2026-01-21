@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Logo from '../components/Logo.astro';
 import StructuredData from '../components/StructuredData.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
  title?: string;
@@ -10,7 +11,7 @@ interface Props {
 
 const {
  title = 'AI Website Builders - What I Actually Found After 127 Hours of Testing',
- description = 'Hands-on testing of AI website builders. No affiliate links, no marketing fluff. Just actual results from 127+ hours of building real sites.',
+ description = 'Hands-on testing of AI website builders. Honest reviews, real results, and actual findings from 127+ hours of building real sites.',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -46,17 +47,17 @@ for (const segment of pathSegments) {
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content="https://aiwebsitebuilders.com/og-image.jpg" />
+  <meta property="og:image" content="https://aiwebsitebuilders.com/og-image.svg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="AI Website Builders - Independent Reviews" />
+  <meta property="og:image:alt" content="AI Website Builders - 127 Hours of Testing" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content={canonicalURL} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content="https://aiwebsitebuilders.com/og-image.jpg" />
+  <meta property="twitter:image" content="https://aiwebsitebuilders.com/og-image.svg" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -90,15 +91,15 @@ for (const segment of pathSegments) {
 
      <!-- Desktop Navigation -->
      <div class="hidden lg:flex items-center gap-1">
-      <a href="/reviews" class="group nav-link relative px-4 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200">
+      <a href="/reviews" class="group nav-link relative px-4 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200" aria-label="View all AI website builder reviews">
        Reviews
        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
       </a>
-      <a href="/guides" class="group nav-link relative px-4 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200">
+      <a href="/guides" class="group nav-link relative px-4 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200" aria-label="View guides and tutorials">
        Guides
        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
       </a>
-      <a href="/comparisons" class="group nav-link relative inline-flex items-center px-3 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200">
+      <a href="/comparisons" class="group nav-link relative inline-flex items-center px-3 py-2 text-gray-600 hover:text-gray-900 font-medium text-sm transition-all duration-200" aria-label="View AI builder comparisons">
        Comparisons
        <span class="ml-1.5 px-1.5 py-0.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-[10px] font-black shadow-[0_2px_0_0_rgba(0,0,0,0.1)] shadow-orange-500/20">New</span>
        <span class="absolute bottom-1 left-4 right-4 h-0.5 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
@@ -125,15 +126,52 @@ for (const segment of pathSegments) {
       </a>
 
       <!-- Mobile menu button -->
-      <button class="lg:hidden p-2 border-[3px] border-transparent hover:border-gray-200 hover:bg-gray-50 transition-all" aria-label="Open menu">
+      <button id="mobile-menu-button" class="lg:hidden p-2 border-[3px] border-transparent hover:border-gray-200 hover:bg-gray-50 transition-all" aria-label="Open menu" data-mobile-menu-toggle>
        <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
        </svg>
       </button>
      </div>
     </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-lg" data-mobile-menu>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <nav class="flex flex-col space-y-3">
+          <a href="/reviews" class="px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors font-medium">
+            Reviews
+          </a>
+          <a href="/guides" class="px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors font-medium">
+            Guides
+          </a>
+          <a href="/comparisons" class="px-4 py-2 text-gray-700 hover:text-orange-600 hover:bg-orange-50 rounded-lg transition-colors font-medium">
+            Comparisons
+          </a>
+          <a href="/guides/how-to-choose" class="px-4 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg font-black text-center shadow-[0_4px_0_0_rgba(0,0,0,0.2)]">
+            Choose the Right One
+          </a>
+        </nav>
+      </div>
+    </div>
    </div>
   </nav>
+
+  <script>
+    // Mobile menu toggle functionality
+    (function() {
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+    })();
+  </script>
+
+  <!-- Breadcrumbs -->
+  <Breadcrumbs breadcrumbs={breadcrumbs} />
 
   <!-- Main Content -->
   <main>
@@ -166,7 +204,7 @@ for (const segment of pathSegments) {
        </div>
 
        <h2 class="text-2xl md:text-3xl font-black text-white mb-3">Don't pick the wrong builder</h2>
-       <p class="text-gray-400 mb-8 text-lg">Get raw test results, honest findings, and data I never publish publicly. No affiliate spam.</p>
+       <p class="text-gray-400 mb-8 text-lg">Get raw test results, honest findings, and data I never publish publicly. Unfiltered insights.</p>
 
        <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
         <input
@@ -175,9 +213,9 @@ for (const segment of pathSegments) {
          class="flex-1 px-5 py-3.5 bg-white/5 border-[3px] border-gray-600/50 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent hover:border-gray-500 transition-all"
          required
         />
-        <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black border-[3px] border-orange-700 shadow-[0_4px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap">
+        <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-black border-[3px] border-orange-700 shadow-[0_4px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap" aria-label="Subscribe to weekly testing notes">
          Get Weekly Notes
-         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
          </svg>
         </button>
@@ -226,7 +264,7 @@ for (const segment of pathSegments) {
         <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <span class="text-xs text-gray-400">No affiliate links</span>
+        <span class="text-xs text-gray-400">Honest reviews</span>
        </div>
        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-white/5 border border-white/10 ">
         <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,8 +310,21 @@ for (const segment of pathSegments) {
       <ul class="space-y-2.5">
        <li><a href="/comparisons/framer-vs-durable" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Framer vs Durable</a></li>
        <li><a href="/comparisons/10web-vs-framer" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">10Web vs Framer</a></li>
-       <li><a href="/comparisons" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Durable vs 10Web</a></li>
+       <li><a href="/comparisons/durable-vs-10web" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Durable vs 10Web</a></li>
+       <li><a href="/comparisons/wix-vs-squarespace" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Wix vs Squarespace</a></li>
        <li><a href="/comparisons" class="text-orange-400 hover:text-orange-300 font-black transition-colors mt-1 inline-flex items-center gap-1 text-sm">View all <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a></li>
+      </ul>
+     </div>
+
+     <!-- By Use Case -->
+     <div>
+      <h3 class="font-black text-white mb-4 text-sm tracking-wide uppercase">By Use Case</h3>
+      <ul class="space-y-2.5">
+       <li><a href="/guides/ai-builders-for-ecommerce" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">E-commerce</a></li>
+       <li><a href="/guides/ai-website-builder-for-beginners" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">For Beginners</a></li>
+       <li><a href="/guides/ai-website-builder-for-landing-pages" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">Landing Pages</a></li>
+       <li><a href="/guides/ai-builders-for-agencies" class="text-gray-400 hover:text-orange-400 transition-colors text-sm">For Agencies</a></li>
+       <li><a href="/guides" class="text-orange-400 hover:text-orange-300 font-black transition-colors mt-1 inline-flex items-center gap-1 text-sm">View all <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a></li>
       </ul>
      </div>
     </div>

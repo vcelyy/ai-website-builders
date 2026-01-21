@@ -1,0 +1,260 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Wix vs Durable AI',
+  description: 'Wix vs Durable: Which AI website builder is better? Compare features, pricing, templates, and overall value for small businesses.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    ai: 8.0,
+    value: 7.5,
+    price: '$16-45/mo',
+    strengths: ['Most features', '500+ templates', 'Mature platform', 'App market', 'Good AI'],
+    weaknesses: ['Can get expensive', 'No code export', 'PageSpeed issues', 'Learning curve']
+  },
+  {
+    name: 'Durable',
+    score: 8.5,
+    ease: 8.5,
+    design: 8.0,
+    ai: 8.5,
+    value: 9.0,
+    price: '$15/mo',
+    strengths: ['Built-in CRM', 'AI Copywriter', 'Fast generation', 'Affordable', 'Simple pricing'],
+    weaknesses: ['Newer platform', 'Limited templates', 'No code export', 'Fewer features']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Wix or Durable better for small business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durable wins on value at $15/month with built-in CRM. Wix offers more features and templates starting at $16/month, but costs can add up quickly. For most small businesses, Durable delivers better value. Choose Wix if you need advanced features from their app market. Choose Durable if you want simplicity, CRM, and predictable pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Durable have as many features as Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Durable has fewer features than Wix. Wix has 500+ apps and extensions. Durable focuses on essential features: AI content generation, CRM, invoicing, and lead management. This simplicity is actually an advantage for many users - Durable does fewer things but does them well. Wix can feel overwhelming with options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my website from Wix or Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, neither Wix nor Durable offer code export. Both are hosted platforms - your website is tied to their service. If you leave, you'll need to rebuild from scratch. For code export options at similar prices, consider Framer ($15-35/mo) which has excellent AI features and modern designs."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable wins on value.</strong> Built-in CRM, excellent AI copy, and simple $15/month pricing.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Wix if:</strong> You need advanced features from their extensive app marketplace.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Durable if:</strong> You want simplicity, great AI content, and customer management included.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Starting Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Durable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Wix AI Text, ADI</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">AI Copywriter, Generator</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">500+ templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited but modern</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CRM Included</td>
+              <td class="border border-gray-200 px-4 py-3 text-center text-red-600">No (3rd party apps)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes (built-in)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Market</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">500+ apps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No apps needed</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Pricing</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$16-45/mo (complex)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$15/mo (simple)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2006)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Newer platform</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable includes CRM at $15/month.</strong> You get customer management, lead tracking, and invoice generation built-in.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix charges extra for CRM.</strong> With Wix, you'd need third-party apps from their marketplace which adds to the monthly cost. Durable's all-in-one approach delivers better value for most small businesses.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Feature Depth vs. Breadth</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix offers maximum features.</strong> 500+ apps mean you can add almost any functionality: bookings, memberships, advanced e-commerce, restaurant reservations, and more.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable focuses on essentials.</strong> AI content, CRM, invoicing, and lead management. For most users, this is enough. Durable trades feature breadth for focus and simplicity.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Content Quality</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable has better AI copywriting.</strong> The AI Copywriter creates landing pages, blog posts, emails, and social media content that feels natural and professional.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix AI is solid but less specialized.</strong> Wix AI Text and ADI can generate content, but Durable's focus on AI copywriting gives it the edge for content quality.
+        </p>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Durable (8.5/10) for most small businesses.</strong> Better value with built-in CRM, excellent AI copy, and simple pricing.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Wix (8.2/10) if:</strong> You need specific features from their app marketplace (bookings, memberships, advanced e-commerce tools).
+      </p>
+      <p class="text-gray-700">
+        For 80% of small businesses, Durable is the better choice. Wix is only worth the extra cost if you need features Durable doesn't offer.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test each to see which workflow you prefer.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+        <a href="/reviews/durable-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/durable-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Durable vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs design quality</p>
+        </a>
+        <a href="/comparisons/durable-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Durable vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs templates</p>
+        </a>
+        <a href="/comparisons/squarespace-vs-wix" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Squarespace vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Design quality vs features</p>
+        </a>
+        <a href="/comparisons/framer-vs-wix" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Modern AI vs established builder</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Squarespace vs Framer AI',
+  description: 'Squarespace vs Framer: Which AI website builder has better design? Compare established polished platform vs modern design powerhouse.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Squarespace',
+    score: 8.3,
+    ease: 8.5,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 7.5,
+    price: '$23-65/mo',
+    features: ['Beautiful templates', 'Built-in features', 'Reliable hosting', 'E-commerce ready'],
+    bestFor: 'Design simplicity',
+    strengths: ['Consistently polished', 'Easy to use', 'All-in-one', 'Established'],
+    weaknesses: ['Rigid templates', 'No code export', 'Limited flexibility', 'Higher cost']
+  },
+  {
+    name: 'Framer',
+    score: 9.0,
+    ease: 8.0,
+    design: 9.5,
+    speed: 8.5,
+    flexibility: 9.0,
+    value: 8.5,
+    price: '$5-30/mo',
+    features: ['Best designs (9.5/10)', 'Code export', 'Modern aesthetic', 'Free tier'],
+    bestFor: 'Design quality',
+    strengths: ['Best design quality', 'Code export available', 'More flexible', 'Affordable'],
+    weaknesses: ['Newer platform', 'Smaller ecosystem', 'Learning curve', 'Less mature']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Squarespace or Framer better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer wins overall (9.0/10 vs 8.3/10) with superior design quality (9.5/10 vs 8.5/10), better flexibility (9.0/10 vs 7.0/10), code export capability, and more affordable pricing starting at $5/month vs $23/month. Squarespace offers easier usability (8.5/10 vs 8.0/10), more mature platform with established reliability, all-in-one features without need for integrations, and consistently polished templates. Squarespace is better for: users wanting polished results with minimal effort, small businesses needing reliability, e-commerce with built-in features, and those preferring established platforms. Framer is better for: designers wanting maximum visual quality, modern tech companies and startups, those who may want code export, and users prioritizing design aesthetics. Choose Squarespace for easy, polished, reliable websites. Choose Framer for stunning modern designs with more flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Squarespace and Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer and Squarespace have significantly different pricing structures with Framer being much more affordable. Framer starts at $5/month for personal sites, $15/month for pro features, up to $30/month for advanced plans. Over 3 years, Framer costs $180-1080 depending on plan level. Squarespace starts at $23/month for personal websites, $33/month for business plans, up to $65/month for commerce features. Over 3 years, Squarespace costs $828-2340 depending on plan level. For all website types, Framer is more affordable ($5 vs $23/month base pricing, nearly 5x cheaper at entry level). Framer's aggressive pricing, combined with superior design quality, makes it exceptional value. Squarespace's higher pricing reflects its maturity, all-in-one features, and established brand - worth it for users prioritizing reliability and ease over design. For most users, Framer provides better value with stunning designs at a fraction of the cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Squarespace or Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export on paid plans ($15/month and above), allowing you to export clean HTML, CSS, and React code to host elsewhere or continue development manually. Squarespace does NOT offer code export - your website stays on Squarespace's servers permanently and you're locked into their platform. This is a major difference if you care about owning your code or having flexibility to migrate platforms. With Framer, you can export your code and move to custom development or React hosting when ready. With Squarespace, you're committed to their platform but get an easier experience with mature features and reliability. If code export matters for your long-term strategy, Framer is the clear winner. If you don't care about code export and want the easiest polished experience, Squarespace is the better choice. Platform lock-in is the trade-off for Squarespace's convenience and maturity."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for design.</strong> Best visuals (9.5/10) and value.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace wins for ease.</strong> Polished, reliable, all-in-one.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want stunning modern design on a budget.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Squarespace if:</strong> You want polished results without thinking.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Squarespace</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Excellent (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Rigid (7.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Flexible (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Variety</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">100+ templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Growing library</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic features</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$5/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">14-day trial</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Free forever</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2004)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Newer (2020s)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design simplicity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design quality</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Quality</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer has the best designs.</strong> Modern aesthetic (9.5/10) that wins awards.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is consistently good.</strong> Polished but more traditional look.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Flexibility vs. Structure</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer is more flexible.</strong> Break templates when needed.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace is structured.</strong> Rigid but harder to break.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value for Money</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer is much cheaper.</strong> $5/mo vs $23/mo at entry level.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace costs more.</strong> But you get mature, all-in-one platform.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Maturity vs. Innovation</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Squarespace is established.</strong> Reliable, proven, stable since 2004.
+        </p>
+        <p class="text-gray-700">
+          <strong>Framer is innovative.</strong> Newer features, modern approach, evolving rapidly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (9.0/10) if:</strong> You want the best design quality, you're on a budget, you want modern aesthetic, code export matters.</li>
+        <li><strong>Choose Squarespace (8.3/10) if:</strong> You want polished results without effort, you need established reliability, you prefer all-in-one, e-commerce focus.</li>
+        <li><strong>Framer is better for:</strong> Designers, startups, portfolios, tech companies, visual brands.</li>
+        <li><strong>Squarespace is better for:</strong> Small businesses, restaurants, e-commerce, non-technical users, reliability-focused.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Stunning designs at unbeatable price ($5/mo).
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace for reliability.</strong> If you want proven platform without thinking.
+      </p>
+      <p class="text-gray-700">
+        Choose Framer for maximum design value. Choose Squarespace for easy, polished results.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for stunning design and value. Squarespace for polished simplicity and reliability.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/squarespace-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Squarespace Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

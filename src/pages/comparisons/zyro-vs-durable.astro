@@ -1,0 +1,229 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Zyro vs Durable AI',
+  description: 'Zyro vs Durable: Which AI website builder has better features? Compare AI Writer vs AI Copywriter, pricing, templates, and overall value.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Zyro',
+    score: 7.6,
+    ease: 8.5,
+    design: 6.5,
+    ai: 8.0,
+    price: '$3-15/mo',
+    aiFeatures: ['AI Writer', 'AI Heatmap'],
+    bestFor: 'Marketing copy + heatmap',
+    strengths: ['AI Writer', 'AI Heatmap', 'Affordable', 'Easy to use'],
+    weaknesses: ['Limited templates', 'No code export', 'Average design']
+  },
+  {
+    name: 'Durable',
+    score: 8.5,
+    ease: 8.5,
+    design: 8.0,
+    ai: 8.5,
+    price: '$15/mo',
+    aiFeatures: ['AI Copywriter', 'AI Website Generator', 'Built-in CRM'],
+    bestFor: 'Complete business platform',
+    strengths: ['Built-in CRM', 'AI Copywriter', 'Invoice generation', 'Lead management'],
+    weaknesses: ['Newer platform', 'Limited templates', 'No code export']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Zyro or Durable better for AI features?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durable has more comprehensive AI features including AI Copywriter for landing pages, blogs, emails, and social media, plus a built-in CRM for customer management. Zyro has excellent AI tools too - AI Writer for content and unique AI Heatmap for layout optimization. For pure content generation, Durable wins. For layout optimization insights, Zyro's Heatmap is unique and useful."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Zyro or Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro is significantly cheaper at $3-15/month compared to Durable's flat $15/month. However, Durable includes built-in CRM which would cost extra with other builders. If you need customer relationship management, Durable delivers better value at $15/month. If budget is tight and you just need a website, Zyro at $3/month is unbeatable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Zyro and Durable both offer code export?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, neither Zyro nor Durable offer code export. Both are hosted platforms - your website is tied to their service. If you leave either platform, you'll need to rebuild your site from scratch. For code export options, consider Framer ($15-35/mo), 10Web ($4-60/mo), or Webflow ($23-59/mo) instead."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable wins for most users.</strong> Better AI content, built-in CRM, and more professional designs.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Zyro if:</strong> You're on a tight budget ($3-15/mo) or want AI Heatmap for layout optimization.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Durable if:</strong> You want AI content generation plus built-in CRM for customer management.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">AI Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.aiFeatures.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Zyro</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Durable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Content Types</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Web copy, ads, emails</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Landing, blog, email, social</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Unique AI Feature</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">AI Heatmap</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Built-in CRM</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CRM Included</td>
+              <td class="border border-gray-200 px-4 py-3 text-center text-red-600">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes (built-in)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Better & modern</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">8.5/10</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">8.5/10</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$3/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- AI Feature Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">AI Features Comparison</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Zyro AI Features</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong>AI Writer:</strong> Generates website copy, product descriptions, Facebook ads, and emails</li>
+          <li><strong>AI Heatmap:</strong> Unique feature that predicts where visitors will look on your page</li>
+          <li><strong>AI Website Generator:</strong> Creates a site from a description (similar to others)</li>
+        </ul>
+        <p class="text-gray-700 mt-4">
+          The AI Heatmap is genuinely useful for optimizing layouts. It shows hot and cold zones on your pages so you can place important elements where they'll actually be seen.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Durable AI Features</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li><strong>AI Copywriter:</strong> Creates landing pages, blog posts, emails, and social media content</li>
+          <li><strong>AI Website Generator:</strong> Fast site generation from description</li>
+          <li><strong>Built-in CRM:</strong> Manage leads, track customers, send invoices - all included</li>
+        </ul>
+        <p class="text-gray-700 mt-4">
+          The built-in CRM is Durable's killer feature. You get a full business management system, not just a website builder. This is huge for small businesses.
+        </p>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Spend the extra on Durable ($15/mo).</strong> You get significantly better AI features, a built-in CRM, and more professional templates.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Only choose Zyro if:</strong> Budget is your absolute top priority ($3/month vs $15/month) OR you specifically need AI Heatmap for layout optimization.
+      </p>
+      <p class="text-gray-700">
+        For most users, Durable delivers 5x the value for a few dollars more. The built-in CRM alone is worth the price difference.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test AI features to see which works better for you.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/zyro-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Zyro Review →
+        </a>
+        <a href="/reviews/durable-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

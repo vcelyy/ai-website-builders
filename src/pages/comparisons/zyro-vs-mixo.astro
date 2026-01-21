@@ -1,0 +1,247 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Zyro vs Mixo AI',
+  description: 'Zyro vs Mixo: Which AI website builder is better for beginners? Compare features, pricing, templates, AI capabilities, and real-world performance.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Zyro',
+    score: 7.6,
+    ease: 8.5,
+    design: 6.5,
+    ai: 8.0,
+    value: 8.5,
+    price: '$3-15/mo',
+    strengths: ['AI Writer', 'AI Heatmap', 'Affordable', 'Easy to use'],
+    weaknesses: ['Limited templates', 'Basic designs', 'No code export']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.5,
+    ai: 8.5,
+    value: 8.5,
+    price: '$9-39/mo',
+    strengths: ['Fast generation', 'Great templates', 'AI content', 'SEO features'],
+    weaknesses: ['No code export', 'Limited customization', 'Basic e-commerce']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Zyro or Mixo better for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is better for most beginners. It generates complete websites in under 60 seconds with better templates and built-in SEO. Zyro is also easy but has more dated designs. Mixo's templates look modern and professional from the start, while Zyro's feel more basic."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Zyro or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Zyro is cheaper at $3-15/month compared to Mixo's $9-39/month. However, Mixo's base plan includes more features. If budget is your top priority, Zyro wins. If you want better templates and AI features, Mixo is worth the extra cost."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do Zyro or Mixo allow code export?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither Zyro nor Mixo offer code export. Both are hosted platforms - your website is tied to their service. If you leave either platform, you'll need to rebuild your site from scratch. For code export, consider Framer, 10Web, or Webflow instead."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for most users.</strong> Better templates, faster generation, and more professional results.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Zyro if:</strong> You're on a tight budget ($3-15/mo) and want unique AI tools (AI Heatmap).
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want better designs, faster site generation, and built-in SEO features.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Starting Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Zyro</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Site Generation Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">2 minutes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Under 60 seconds</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Modern & Professional</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Content Generation</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">AI Writer</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Built-in AI Copy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Unique AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">AI Heatmap</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Smart SEO</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center text-red-600">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center text-red-600">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Plan</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$3/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$9/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Strengths & Weaknesses -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      {tools.map(tool => (
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+          <div class="mb-4">
+            <h4 class="font-semibold text-green-700 mb-2">Strengths</h4>
+            <ul class="space-y-1">
+              {tool.strengths.map(s => <li class="flex items-start gap-2 text-sm"><span class="text-green-500">✓</span><span>{s}</span></li>)}
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-red-700 mb-2">Weaknesses</h4>
+            <ul class="space-y-1">
+              {tool.weaknesses.map(w => <li class="flex items-start gap-2 text-sm"><span class="text-red-500">✗</span><span>{w}</span></li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Template Quality</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo wins here.</strong> Mixo's templates look modern, professional, and designed for 2025. They come with good typography, spacing, and visual hierarchy.
+        </p>
+        <p class="text-gray-700">
+          Zyro's templates feel dated - like something from 2018. They're functional but not inspiring. If design matters, Mixo is the clear choice.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">AI Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Zyro has unique tools:</strong> AI Writer for content generation and AI Heatmap for layout optimization. The Heatmap is genuinely useful - it predicts where visitors will look.
+        </p>
+        <p class="text-gray-700">
+          Mixo has AI content generation too, plus smart SEO features that optimize your site as you build it. Both have solid AI, just different approaches.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Pricing</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Zyro is significantly cheaper:</strong> Starting at $3/month vs Mixo's $9/month.
+        </p>
+        <p class="text-gray-700">
+          However, Mixo's base plan includes more features. If you're on a tight budget, Zyro wins. If you can afford $9/month, Mixo delivers more value.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test each with your content.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/zyro-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Zyro Review →
+        </a>
+        <a href="/reviews/mixo-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

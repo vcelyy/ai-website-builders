@@ -3,278 +3,265 @@ import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 
 const guideData = {
-  title: 'Best AI Website Builder for Beginners in 2025',
-  date: 'January 2025',
-  description: 'New to website building? Here are the easiest AI website builders for complete beginners. No tech skills, no design experience, no coding required.'
+  title: 'Best AI Website Builders for Beginners',
+  description: 'Top AI website builders for beginners and non-technical users. Compare Mixo, Unicorn, Durable, and Wix for ease of use and learning curve.',
+  date: 'January 2025'
 };
 
-const tools = [
+const beginnerBuilders = [
   {
-    name: 'Durable AI',
-    rating: '9.8/10',
-    ease: '5/5 - Easiest',
-    speed: '30 seconds',
-    price: '$15-20/month',
-    bestFor: 'Total beginners, non-technical users',
-    why: 'Literally enter your business name, get a complete site. No learning curve.',
-    link: '/reviews/durable-ai'
+    name: 'Mixo',
+    score: 8.5,
+    easeScore: 9.5,
+    learningCurve: '5 minutes',
+    bestFor: 'Absolute beginners',
+    price: '$9/mo',
+    features: ['AI generation', 'Built-in SEO', 'Simple editor', 'Fast setup'],
+    pros: ['Easiest to use', 'Very fast', 'Quality results', 'Affordable'],
+    cons: ['Limited customization', 'No code export', 'Basic e-commerce']
   },
   {
-    name: 'Framer AI',
-    rating: '8.5/10',
-    ease: '4/5 - Easy',
-    speed: '2-5 minutes',
-    price: '$15-25/month',
-    bestFor: 'Beginners who care about design',
-    why: 'More control than Durable, still easy. Better for portfolios and visual sites.',
-    link: '/reviews/framer-ai'
+    name: 'Unicorn Platform',
+    score: 7.5,
+    easeScore: 9.5,
+    learningCurve: '10 minutes',
+    bestFor: 'Simple landing pages',
+    price: '$10/mo',
+    features: ['AI generation', 'Beginner-friendly', 'Fast publishing'],
+    pros: ['Very simple', 'Fast generation', 'Easy editor'],
+    cons: ['Very limited', 'Basic templates', 'No code export']
   },
   {
-    name: '10Web AI',
-    rating: '7.0/10',
-    ease: '3/5 - Moderate',
-    speed: '30-60 seconds',
-    price: '$10-60/month',
-    bestFor: 'Beginners who want WordPress',
-    why: 'If you know you want WordPress, this is the AI path. But WordPress adds complexity.',
-    link: '/reviews/10web-ai'
-  }
-];
-
-const beginnerFeatures = [
-  {
-    feature: 'No-Code Editor',
-    description: 'Drag and drop, click to edit. No HTML, CSS, or technical knowledge needed.',
-    importance: 'Essential'
+    name: 'Durable',
+    score: 8.5,
+    easeScore: 9.0,
+    learningCurve: '15 minutes',
+    bestFor: 'Service businesses',
+    price: '$15/mo',
+    features: ['AI generation', 'Built-in CRM', 'AI copywriter'],
+    pros: ['Easy to use', 'Fast generation', 'Business tools'],
+    cons: ['Newer platform', 'Limited templates', 'No code export']
   },
   {
-    feature: 'AI Generation',
-    description: 'Describe your business, AI builds the entire site automatically.',
-    importance: 'Essential'
+    name: 'Wix',
+    score: 8.2,
+    easeScore: 8.5,
+    learningCurve: '30 minutes',
+    bestFor: 'Feature flexibility',
+    price: '$16-45/mo',
+    features: ['Wix ADI', 'Many templates', 'App marketplace', 'Support'],
+    pros: ['Mature platform', 'Good support', 'Many features'],
+    cons: ['Can get complex', 'PageSpeed issues', 'No code export']
   },
   {
-    feature: 'Templates',
-    description: 'Pre-designed layouts you can customize. Faster than starting from blank.',
-    importance: 'Important'
-  },
-  {
-    feature: 'Support',
-    description: 'Help when you get stuck. Chat, email, or phone support.',
-    importance: 'Important'
-  },
-  {
-    feature: 'Free Trial',
-    description: 'Test before you pay. Make sure you like the builder before committing.',
-    importance: 'Nice to have'
-  }
-];
-
-const comparison = [
-  { criteria: 'Ease of Use', durable: '★★★★★', framer: '★★★★☆', tenweb: '★★★☆☆' },
-  { criteria: 'Design Quality', durable: '★★★☆☆', framer: '★★★★★', tenweb: '★★★☆☆' },
-  { criteria: 'Speed to Launch', durable: '★★★★★', framer: '★★★★☆', tenweb: '★★★☆☆' },
-  { criteria: 'Customization', durable: '★★☆☆☆', framer: '★★★★☆', tenweb: '★★★★★' },
-  { criteria: 'Value for Money', durable: '★★★★☆', framer: '★★★★☆', tenweb: '★★★☆☆' }
-];
-
-const tips = [
-  {
-    title: 'Start with a clear goal',
-    content: 'Know what you want before you start. Portfolio? Business site? Blog? This helps the AI generate better results.'
-  },
-  {
-    title: 'Be specific in your prompt',
-    content: '"Coffee shop" is vague. "Artisan coffee shop in Portland with pastries and cozy atmosphere" generates better results.'
-  },
-  {
-    title: 'Customize everything',
-    content: 'AI-generated content is generic. Replace stock photos, rewrite text in your voice, make it yours.'
-  },
-  {
-    title: 'Test on mobile',
-    content: 'Most traffic is mobile. Check your site on phone before publishing. Responsive design is non-negotiable.'
-  },
-  {
-    title: 'Don\'t overthink it',
-    content: 'Your first site won\'t be perfect. Launch, iterate, improve. Done is better than perfect.'
+    name: 'Strikingly',
+    score: 7.8,
+    easeScore: 9.0,
+    learningCurve: '20 minutes',
+    bestFor: 'One-page sites',
+    price: '$8-15/mo',
+    features: ['Mobile-first', 'One-page focus', 'Simple editing'],
+    pros: ['Mobile-optimized', 'Great for landing pages', 'Easy'],
+    cons: ['Limited multi-page', 'No code export', 'Basic blog']
   }
 ];
 ---
 
 <Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Which AI builder is easiest for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (9.5/10 ease) is the easiest AI website builder for beginners. Generates complete sites in under 60 seconds with a 5-minute learning curve. Unicorn Platform (9.5/10) is also very easy but more limited. Durable (9.0/10) adds CRM features while staying simple. Wix (8.5/10) offers more features but has a steeper learning curve. For absolute beginners with no technical skills, Mixo is the best starting point."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need any technical skills to use AI builders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No technical skills required. AI website builders are designed specifically for beginners. You don't need to know: HTML, CSS, JavaScript, or any programming. Everything is done through visual interfaces with drag-and-drop editing. If you can use a word processor, you can build a website with AI builders. More advanced builders like Framer and Webflow have learning curves but are still usable by beginners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to learn AI website builders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI builders can be learned in 5-30 minutes. Mixo and Unicorn are fastest at 5-10 minutes. Durable takes about 15 minutes. Wix takes 30 minutes due to more features. Advanced builders like Framer (1-2 weeks) and Webflow (1-3 months) require more time but deliver more power. For most beginners, expect to be comfortable with your chosen builder within the first hour of use."
+        }
+      }
+    ]}
+  />
 
-  <StructuredData type="Article" data={{
-    headline: guideData.title,
-    description: guideData.description,
-    url: 'https://aiwebsitebuilders.com/guides/best-ai-website-builder-for-beginners',
-    datePublished: '2025-01-20',
-    image: []
-  }} />
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
 
-  <section class="relative overflow-hidden bg-[#FFF8F0]">
-    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Top Beginner Picks</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo (9.5/10) - Easiest Overall:</strong> 5-minute learning curve. Under 60-second generation.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Unicorn (9.5/10) - Simplest:</strong> 10-minute learning curve. Best for landing pages.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable (9.0/10) - Business-Friendly:</strong> 15-minute learning curve. Includes CRM.
+      </p>
+      <p class="text-gray-700">
+        <strong>Wix (8.5/10) - Most Flexible:</strong> 30-minute learning curve. More features but still beginner-friendly.
+      </p>
+    </div>
 
-    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
-      <div class="py-12 md:py-16 lg:py-20">
-        <div class="max-w-4xl mx-auto space-y-6">
-          <div class="inline-flex items-center gap-3 px-4 py-3 bg-[#F5521A] text-white font-black text-sm uppercase tracking-wider">
-            <span>★</span>
-            <span>Beginner Guide</span>
-          </div>
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Beginner-Friendly Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Builder</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Ease Score</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Learning Curve</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Help & Support</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Starting Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {beginnerBuilders.map(builder => (
+              <tr>
+                <td class="border border-gray-200 px-4 py-3 font-semibold">{builder.name}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">{builder.easeScore}/10</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.learningCurve}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Good</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
-            <span class="block">Best AI Website Builder</span>
-            <span class="block text-[#F5521A] mt-2">for Beginners in 2025</span>
-          </h1>
+    <!-- What Makes a Builder Beginner-Friendly -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Makes a Builder Beginner-Friendly?</h2>
 
-          <p class="text-xl text-gray-700 max-w-2xl">
-            {guideData.description}
-          </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Essential Features</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Simple interface:</strong> Intuitive, clutter-free design</span></li>
+            <li class="flex items-start gap-3"><span class="texttext-orange-600 mt-1">●</span><span><strong>AI generation:</strong> Creates complete sites automatically</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Templates:</strong> Pre-made designs to customize</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Drag-and-drop:</strong> Easy content editing</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Help resources:</strong> Tutorials, support, documentation</span></li>
+          </ul>
+        </div>
 
-          <div class="flex flex-col sm:flex-row gap-3">
-            <a href="#top-picks" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all border-b-4 border-[#D44A1A]">
-              See Top Beginner Picks
-            </a>
-            <span class="text-xs text-gray-500 self-center">Updated: {guideData.date}</span>
-          </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Red Flags for Beginners</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">●</span><span><strong>Steep learning curve:</strong> Complex interfaces</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">●</span><span><strong>Technical jargon:</strong> Confusing terminology</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">●</span><span><strong>No AI features:</strong> Manual setup required</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">●</span><span><strong>Poor support:</strong> Limited help resources</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">●</span><span><strong>Code required:</strong> Needs HTML/CSS knowledge</span></li>
+          </ul>
         </div>
       </div>
     </div>
-  </section>
 
-  <main class="max-w-4xl mx-auto">
-    <article class="px-6 py-12 lg:py-16 bg-white">
-      <div class="prose prose-lg max-w-none">
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8 flex items-center gap-3">
-          <div class="w-1 h-8 bg-[#F5521A]"></div>
-          Quick Answer: Durable AI for Total Beginners
-        </h2>
+    <!-- Beginner Tips -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Tips for Beginner Success</h2>
 
-        <div class="bg-[#F5521A]/5 border-l-4 border-[#F5521A] p-6 my-8">
-          <p class="text-gray-900 font-black text-lg mb-2">If you're a complete beginner:</p>
-          <p class="text-gray-700">
-            <strong>Durable AI</strong> is the easiest. Enter your business name, get a complete website in 30 seconds. No learning curve, no tech skills needed.<br /><br />
-            <strong>Framer AI</strong> if you care about design quality. Slightly more control, still beginner-friendly.<br /><br />
-            <strong>10Web AI</strong> only if you specifically want WordPress. WordPress adds complexity.
-          </p>
-        </div>
+      <div class="bg-blue-50 border-l-4 border-blue-500 p-6">
+        <ul class="space-y-3 text-gray-700">
+          <li><strong>Start simple:</strong> Don't try to build everything at once. Start with basic pages and expand.</li>
+          <li><strong>Use templates:</strong> Pre-made templates are designed to work well. Customize rather than building from scratch.</li>
+          <li><strong>Watch tutorials:</strong> Most builders have video tutorials. Watch a few before starting.</li>
+          <li><strong>Take your time:</strong> There's no rush. Build at your own pace.</li>
+          <li><strong>Ask for help:</strong> Support teams are there to help. Use them.</li>
+          <li><strong>Test thoroughly:</strong> Preview your site before publishing. Check mobile view too.</li>
+          <li><strong>Keep backups:</strong> Most builders save automatically, but duplicate your site before major changes.</li>
+          <li><strong>Learn gradually:</strong> Start with basics, learn advanced features as you gain confidence.</li>
+        </ul>
+      </div>
+    </div>
 
-        <h2 id="top-picks" class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6">Top 3 AI Builders for Beginners</h2>
+    <!-- Detailed Reviews -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Beginner-Friendly Builder Reviews</h2>
 
-        {tools.map(tool => (
-          <div class="bg-white border-[3px] border-[#F5521A]/20 p-8 my-8 hover:shadow-[0_8px_0_0_rgba(245,82,26,0.15)] transition-all">
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#F5521A] text-white font-black text-xs uppercase mb-2">
-                  <span>★</span>
-                  <span>Beginner Pick</span>
-                </div>
-                <h3 class="text-2xl font-black text-gray-900">{tool.name}</h3>
-                <p class="text-sm text-[#F5521A] font-medium mt-1">{tool.rating}</p>
+      {beginnerBuilders.map(builder => (
+        <div class="border border-gray-200 rounded-lg p-6 mb-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-2xl font-bold text-gray-900">{builder.name}</h3>
+                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-semibold">Ease: {builder.easeScore}/10</span>
               </div>
+              <p class="text-gray-600">{builder.score}/10 • {builder.price}</p>
+              <p class="text-sm text-gray-500">Learning curve: {builder.learningCurve}</p>
+              <p class="text-orange-600 mt-1 font-semibold">{builder.bestFor}</p>
             </div>
-
-            <p class="text-gray-700 my-4">{tool.why}</p>
-
-            <div class="grid md:grid-cols-2 gap-4 my-6">
-              <div>
-                <p class="text-xs font-bold text-gray-900 uppercase mb-2">Details</p>
-                <ul class="text-sm text-gray-700 space-y-1">
-                  <li><strong>Ease:</strong> {tool.ease}</li>
-                  <li><strong>Speed:</strong> {tool.speed}</li>
-                  <li><strong>Price:</strong> {tool.price}</li>
-                  <li><strong>Best For:</strong> {tool.bestFor}</li>
-                </ul>
-              </div>
-            </div>
-
-            <a href={tool.link} class="inline-flex items-center gap-2 text-[#F5521A] font-black hover:underline">
-              Try {tool.name.split(' ')[0]} →
+            <a href={`/reviews/${builder.name.toLowerCase().replace(' ', '')}-ai`}
+               class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+              Read Review →
             </a>
           </div>
-        ))}
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6">What Makes a Builder Beginner-Friendly?</h2>
-
-        {beginnerFeatures.map(feature => (
-          <div class="flex items-start gap-4 my-6 p-4 bg-gray-50 border-[3px] border-gray-200">
-            <div class="flex-shrink-0">
-              {feature.importance === 'Essential' && <span class="text-2xl">🔥</span>}
-              {feature.importance === 'Important' && <span class="text-2xl">✓</span>}
-              {feature.importance === 'Nice to have' && <span class="text-2xl">○</span>}
+          <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">Features:</p>
+            <p class="text-gray-700">{builder.features.join(', ')}</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold text-green-700 mb-2">Pros</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.pros.map(pro => <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>{pro}</span></li>)}
+              </ul>
             </div>
             <div>
-              <h3 class="font-black text-gray-900">{feature.feature}</h3>
-              <p class="text-sm text-gray-600 mt-1">{feature.description}</p>
-              <p class="text-xs text-[#F5521A] font-medium mt-1">{feature.importance}</p>
+              <h4 class="font-semibold text-red-700 mb-2">Cons</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.cons.map(con => <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>{con}</span></li>)}
+              </ul>
             </div>
           </div>
-        ))}
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6">Beginner-Friendly Comparison</h2>
-
-        <div class="overflow-x-auto my-8">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="border-b border-gray-300">
-                <th class="py-3 px-4 text-gray-600 font-medium">Criteria</th>
-                <th class="py-3 px-4 text-gray-900 font-black">Durable AI</th>
-                <th class="py-3 px-4 text-gray-900 font-black">Framer AI</th>
-                <th class="py-3 px-4 text-gray-900 font-black">10Web AI</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparison.map(row => (
-                <tr class="border-b border-gray-300">
-                  <td class="py-3 px-4 text-gray-900 font-medium">{row.criteria}</td>
-                  <td class="py-3 px-4 text-gray-900">{row.durable}</td>
-                  <td class="py-3 px-4 text-gray-900">{row.framer}</td>
-                  <td class="py-3 px-4 text-gray-900">{row.tenweb}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
+      ))}
+    </div>
 
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6">5 Beginner Tips for Success</h2>
+    <!-- What to Avoid -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Builders to Avoid as a Beginner</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Webflow:</strong> Powerful but very steep learning curve. Save for later.</li>
+        <li><strong>Framer:</strong> Easier than Webflow but still requires design skills.</li>
+        <li><strong>WordPress:</strong> Requires plugins and technical setup. Not beginner-friendly.</li>
+        <li><strong>Code-based builders:</strong> Any builder requiring HTML/CSS knowledge.</li>
+      </ul>
+      <p class="text-gray-700 mt-4">
+        <strong>Note:</strong> These are excellent builders, but not recommended for your first website. Start with easier options, then graduate to these once comfortable.
+      </p>
+    </div>
 
-        {tips.map((tip, i) => (
-          <div class="my-6 p-6 bg-white border-[3px] border-[#F5521A]/20">
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-10 h-10 bg-[#F5521A] text-white font-black flex items-center justify-center">
-                {i + 1}
-              </div>
-              <div>
-                <h3 class="font-black text-gray-900 text-lg">{tip.title}</h3>
-                <p class="text-gray-700 mt-2">{tip.content}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6">Bottom Line for Beginners</h2>
-
-        <p class="text-gray-600 leading-relaxed mb-6">
-          <strong>Start with Durable AI.</strong> It's the easiest, fastest, most beginner-friendly option. Generate your site in 30 seconds, customize the text and images, launch.<br /><br />
-          If you care about design and don't mind a slight learning curve, <strong>Framer AI</strong> creates better-looking sites.<br /><br />
-          Only choose <strong>10Web AI</strong> if you specifically want WordPress. WordPress is powerful but adds complexity.
-        </p>
-
-        <div class="bg-gray-900 p-8 mt-12 text-center">
-          <h2 class="text-2xl font-black text-white mb-4">The Beginner Verdict</h2>
-          <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-            Durable AI is the easiest choice for complete beginners. 30 seconds to a complete website, no tech skills required. Start with Durable, upgrade to Framer if you want more design control later.
-          </p>
-          <a href="/reviews/durable-ai" class="inline-flex items-center gap-2 px-6 py-3 bg-[#F5521A] text-white font-black border-[3px] hover:shadow-[0_6px_0_0_rgba(0,0,0,0.3)] transition-all">
-            Try Durable AI Free
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </article>
-  </main>
-
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Everyone starts somewhere. Choose a beginner-friendly builder and learn by doing.</p>
+      <a href="/reviews" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        See All Reviews →
+      </a>
+    </div>
+  </div>
 </Layout>

@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Dorik vs Mixo AI',
+  description: 'Dorik vs Mixo: Which AI website builder is better? Compare budget-friendly AI builders for fast website generation.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.5,
+    speed: 'Under 60 seconds',
+    price: '$9/mo',
+    features: ['Fastest AI generation', 'Generous free tier', 'Built-in blogging', 'SEO tools'],
+    bestFor: 'Speed and budget',
+    strengths: ['Easiest to use (9.5/10)', 'Affordable ($9/mo)', 'Free tier', 'Fast generation'],
+    weaknesses: ['Limited customization', 'No code export', 'Basic e-commerce', 'Template limits']
+  },
+  {
+    name: 'Dorik',
+    score: 7.8,
+    ease: 8.5,
+    speed: 'Under 2 minutes',
+    price: '$4-15/mo',
+    features: ['AI generation', 'White label', 'Unlimited websites', 'Cheaper pricing'],
+    bestFor: 'Budget multi-site',
+    strengths: ['Lowest price ($4/mo)', 'Unlimited sites', 'White label', 'Good templates'],
+    weaknesses: ['Fewer features', 'Basic blogging', 'Less mature', 'Limited support']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Dorik or Mixo better for AI website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (8.5/10) is easier to use (9.5/10 vs 8.5/10), faster (under 60 seconds), and has better features including blogging and SEO tools. Dorik (7.8/10) is cheaper ($4-15/mo vs $9/mo) and offers unlimited websites on premium plans. Mixo is better for users who want the easiest experience with generous free tier. Dorik is better for users managing multiple websites or needing white-label options. Both offer AI generation, but Mixo has more mature features while Dorik offers better value for multi-site projects."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Dorik or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither Dorik nor Mixo offer code export. Both are hosted-only platforms - your websites are tied to their hosting. If code export is important to you, consider Framer, Webflow, or 10Web instead. For users happy with hosted platforms who don't plan to move, the lack of code export is less significant. Both Dorik and Mixo provide reliable hosting with SSL certificates included."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Dorik or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dorik is cheaper starting at $4/month for the annual plan. Mixo starts at $9/month. However, Mixo has a more generous free tier with no time limit. Dorik offers unlimited websites on their premium plans ($15/mo), making it better value if you need multiple sites. Mixo becomes more expensive for multiple sites ($9 per site). For a single website, Mixo's free tier is excellent. For multiple websites, Dorik's unlimited plan is more cost-effective."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins on features and ease.</strong> Easiest to use (9.5/10), faster, generous free tier.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Dorik wins on price for multiple sites.</strong> Cheapest ($4/mo), unlimited websites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want the easiest experience with best free tier.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Dorik if:</strong> You need multiple websites or white-label options.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Speed</span>
+                <span class="font-semibold">{tool.speed}</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Key Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.features.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Dorik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easiest (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Under 60 seconds</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Under 2 minutes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Generous (no limit)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Available (limited)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Blogging</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Multiple Sites</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Per site pricing</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Unlimited (premium)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$9/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$4/mo (annual)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features vs. Price</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo has better features.</strong> Blogging, SEO tools, more mature platform.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik has better pricing.</strong> Cheapest plans, unlimited sites on premium.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Single Site vs. Multi-Site</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is priced per site.</strong> $9/month per website adds up for multiple sites.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik offers unlimited sites.</strong> $15/month for unlimited websites is better value.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Maturity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is more mature.</strong> More features, better support, refined experience.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik is newer.</strong> Fewer features but improving rapidly.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want the easiest experience with best free tier and features.</li>
+        <li><strong>Choose Dorik (7.8/10) if:</strong> You need multiple websites or want the lowest price.</li>
+        <li><strong>Mixo is better for:</strong> Single sites, beginners, MVP testing, blogs.</li>
+        <li><strong>Dorik is better for:</strong> Multi-site projects, white-label needs, budget constraints.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for single sites.</strong> Best free tier, easiest experience, more features.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Dorik for multiple sites.</strong> Unlimited plan at $15/mo is unbeatable value.
+      </p>
+      <p class="text-gray-700">
+        Both have free tiers. Test each to see which interface you prefer.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer budget-friendly AI generation. Mixo for features, Dorik for price.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/dorik-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Dorik Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/mixo-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs CRM features</p>
+        </a>
+        <a href="/comparisons/dorik-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs design power</p>
+        </a>
+        <a href="/comparisons/dorik-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Dorik vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs power</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

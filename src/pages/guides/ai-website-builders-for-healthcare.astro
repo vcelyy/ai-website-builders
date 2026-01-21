@@ -1,0 +1,251 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Healthcare & Medical Practices',
+  description: 'Top AI website builders for healthcare providers, doctors, dentists, and medical practices. Compare HIPAA compliance, booking features, and patient communication tools.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    provider: 'Doctors & Medical Practices',
+    topPick: 'Squarespace',
+    reason: 'Professional appearance, Acuity scheduling integration, patient forms, secure hosting',
+    alternatives: ['Wix (more features)', 'Webflow (custom design)']
+  },
+  {
+    provider: 'Dentists & Orthodontists',
+    topPick: 'Wix',
+    reason: 'Before/after galleries, appointment booking, treatment showcase, map integration',
+    alternatives: ['Squarespace (simpler)', 'Durable (fastest)']
+  },
+  {
+    provider: 'Therapists & Counselors',
+    topPick: 'Squarespace',
+    reason: 'Calm professional design, secure contact forms, intake forms, telehealth links',
+    alternatives: ['Wix Bookings', 'Mixo (simple)']
+  },
+  {
+    provider: 'Wellness & Fitness',
+    topPick: 'Durable',
+    reason: 'Fast setup, built-in CRM for client management, inquiry forms, business-focused',
+    alternatives: ['Wix (more features)', 'Squarespace (design)']
+  }
+];
+
+const features = [
+  {
+    feature: 'HIPAA Compliance',
+    description: 'Required for handling protected health information',
+    importance: 'Critical for healthcare',
+    note: 'Most builders require BAA for HIPAA. Contact builders directly for healthcare-specific solutions.',
+    builders: ['Custom solutions recommended', 'Specialized healthcare platforms']
+  },
+  {
+    feature: 'Appointment Booking',
+    description: 'Online scheduling and patient self-service',
+    importance: 'Essential',
+    builders: ['Wix Bookings', 'Squarespace + Acuity', 'Durable CRM']
+  },
+  {
+    feature: 'Patient Forms',
+    description: 'Intake forms, medical history, new patient paperwork',
+    importance: 'Important',
+    builders: ['Squarespace Forms', 'Wix Forms', 'JotForm integration']
+  },
+  {
+    feature: 'Secure Contact',
+    description: 'Encrypted communication for patient inquiries',
+    importance: 'Important',
+    builders: ['All offer SSL', 'Contact forms available', 'Email integration']
+  }
+];
+
+const considerations = [
+  {
+    area: 'HIPAA Compliance',
+    details: 'Most AI builders are NOT HIPAA-compliant out of the box. You need a Business Associate Agreement (BAA) for handling protected health information. Consider specialized healthcare platforms ( Kareo, DrChrono) or custom solutions for full compliance.'
+  },
+  {
+    area: 'Patient Privacy',
+    details: 'Avoid collecting detailed medical information through standard forms. Use secure patient portals for health data. Keep website content to general information, contact, and scheduling.'
+  },
+  {
+    area: 'Professional Design',
+    details: 'Healthcare websites need to project trust and professionalism. Clean, modern designs with calming colors work best. Avoid trendy or overly casual aesthetics.'
+  },
+  {
+    area: 'Mobile Experience',
+    details: 'Patients often search healthcare on mobile devices. Ensure your site is mobile-optimized with click-to-call for appointments and easy access to directions.'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for healthcare providers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace is best for most healthcare providers due to professional templates, Acuity scheduling integration, and polished appearance. Doctors, therapists, and medical practices benefit from the trustworthy design and patient-friendly features. Wix offers more features including Wix Bookings for appointment scheduling, which works well for dentists and specialists needing more functionality. For HIPAA compliance, you'll need specialized solutions - most AI builders can handle general information and scheduling, but protected health information requires healthcare-specific platforms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are AI website builders HIPAA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most AI website builders (Squarespace, Wix, Framer) are NOT HIPAA-compliant by default. HIPAA requires a Business Associate Agreement (BAA) for handling protected health information. Standard contact forms and booking systems on these platforms are not suitable for collecting medical data. For HIPAA compliance, you need: (1) BAA from your platform provider, (2) Encrypted data storage and transmission, (3) Audit controls, (4) Access controls. Many healthcare providers use AI builders for general information, scheduling, and marketing, then use secure patient portals (SimplePractice, DrChrono, Kareo) for actual health data and patient communication."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What features should healthcare websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Healthcare websites need: (1) Clear contact information with click-to-call phone, (2) Online appointment booking or request forms, (3) Provider bios and credentials, (4) Service descriptions and treatments, (5) Patient resources and forms, (6) Insurance information accepted, (7) Location and hours with maps, (8) Emergency information, (9) Patient testimonials (with permission), (10) Telehealth portal links. For HIPAA compliance, avoid collecting detailed medical information through standard website forms. Use secure patient portals for protected health information."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Important Notice -->
+    <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">⚠️ Important: HIPAA Compliance</h2>
+      <p class="text-gray-700 mb-3">
+        <strong>Most AI builders are NOT HIPAA-compliant by default.</strong>
+      </p>
+      <p class="text-gray-700 mb-3">
+        AI website builders are excellent for general information, appointment scheduling, and patient marketing. However, collecting or storing protected health information (PHI) requires HIPAA compliance.
+      </p>
+      <p class="text-gray-700">
+        <strong>Recommendation:</strong> Use AI builders for your public-facing website (services, providers, contact, scheduling). Use specialized healthcare platforms (SimplePractice, DrChrono, Kareo) for patient portals, medical records, and secure communication.
+      </p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Healthcare Provider Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Doctors/Medical:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Dentists:</strong> Wix</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Therapists:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg"><strong>Wellness:</strong> Durable</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Professional:</strong> Squarespace</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Features:</strong> Wix</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Fastest Setup:</strong> Durable</p>
+          <p class="text-gray-700 text-lg"><strong>Best Custom:</strong> Webflow</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Provider Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Provider Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.provider}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Healthcare Website Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                {feature.importance === 'Critical for healthcare' ? '!' : feature.importance === 'Essential' ? '✓' : '?'}
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            {feature.note && (
+              <p class="text-sm text-orange-700 mb-3"><strong>Note:</strong> {feature.note}</p>
+            )}
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {feature.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Important Considerations -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Important Healthcare Considerations</h2>
+
+      <div class="space-y-4">
+        {considerations.map(consideration => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{consideration.area}</h3>
+            <p class="text-gray-700">{consideration.details}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Healthcare Website Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Project professionalism:</strong> Healthcare requires trust-building design. Clean, modern, calming.</li>
+        <li><strong>Make contact easy:</strong> Click-to-call phone, prominent contact forms, clear location.</li>
+        <li><strong>Show credentials:</strong> Provider bios, certifications, affiliations build patient confidence.</li>
+        <li><strong>Include photos:</strong> Professional photos of facility and providers (with consent).</li>
+        <li><strong>Mobile is critical:</strong> Patients search on phones. Ensure excellent mobile experience.</li>
+        <li><strong>Secure patient data:</strong> Use standard forms for general info, secure portals for health data.</li>
+        <li><strong>Clear service descriptions:</strong> Explain treatments and services in patient-friendly language.</li>
+        <li><strong>Insurance information:</strong> Clearly list accepted insurance providers.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Healthcare providers need professional, trustworthy websites. Choose based on your specialty and needs.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

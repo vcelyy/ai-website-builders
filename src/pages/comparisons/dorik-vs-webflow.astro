@@ -1,0 +1,282 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Dorik vs Webflow AI',
+  description: 'Dorik vs Webflow: Which AI website builder is better? Compare budget-friendly simplicity vs powerful visual development.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Webflow',
+    score: 8.5,
+    ease: 6.5,
+    design: 8.5,
+    control: 9.5,
+    price: '$23-212/mo',
+    features: ['Complete control (9.5/10)', 'Code export', 'Powerful CMS', 'Visual development'],
+    bestFor: 'Designers and complex sites',
+    strengths: ['Unlimited flexibility', 'Code export', 'Professional tool', 'CMS power'],
+    weaknesses: ['Steep learning curve', 'Not AI-first', 'Higher cost', 'Time-consuming']
+  },
+  {
+    name: 'Dorik',
+    score: 7.8,
+    ease: 8.5,
+    design: 7.5,
+    control: 6.5,
+    price: '$10-25/mo',
+    features: ['Affordable', 'Easy to use', 'AI templates', 'Simple features'],
+    bestFor: 'Budget users',
+    strengths: ['Low pricing', 'Easy setup', 'Good for simple sites', 'Clean interface'],
+    weaknesses: ['Limited features', 'No code export', 'Template constraints', 'Smaller ecosystem']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Dorik or Webflow better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow (8.5/10) is significantly more powerful than Dorik (7.8/10) with complete design control (9.5/10 vs 6.5/10), code export, and a powerful CMS. Webflow is a professional tool for designers, agencies, and complex sites. Dorik is better for budget-conscious users ($10-25/mo vs $23-212/mo) who want easy setup for simple websites. Dorik offers better ease of use (8.5/10 vs 6.5/10) with templates and AI assistance. Webflow has a steep learning curve but delivers unlimited power. Dorik is limited but user-friendly. Choose Webflow if you're a designer or developer wanting complete control and code export. Choose Dorik if you're on a budget and need a simple site without technical complexity. For most beginners, Dorik is the practical choice. For professionals, Webflow is worth the investment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Dorik and Webflow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dorik is more affordable than Webflow, especially at the entry level. Dorik starts at $10/month for basic plans, $15/month for standard features, and $25/month for premium plans. Webflow starts at $23/month for Basic, $28/month for CMS, $49/month for Business, up to $212/month for enterprise. Over 3 years, Dorik costs $360-900 while Webflow costs $828-7632 depending on plan level. Dorik offers better value for simple websites and budget-conscious users. Webflow's higher pricing includes powerful features (CMS, code export, Logic, team collaboration) that justify the cost for professionals. If budget is your main concern, Dorik wins. If you need professional power and code export, Webflow justifies its premium pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Dorik or Webflow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Webflow offers code export (HTML, CSS, JS) on paid plans starting at $28/month (CMS plan) and higher. You can export clean, semantic code to host elsewhere or continue development manually. Dorik does not offer code export - your website stays on Dorik's servers permanently. This is a major difference for developers, agencies, and anyone wanting platform independence. With Webflow, you own the code and can migrate if needed. With Dorik, you're locked into their platform. If code export and portability matter, Webflow is the clear winner. If you don't care about code export and just want an affordable hosted solution, Dorik works fine but you'll be platform-dependent. For long-term flexibility and ownership, Webflow's ability to export code is very valuable."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow wins for power.</strong> Complete control (9.5/10), code export, powerful CMS.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Dorik wins for budget and ease.</strong> Affordable ($10/mo), easier to use, simple sites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Webflow if:</strong> You're a designer/developer wanting complete control.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Dorik if:</strong> You're budget-conscious and need a simple site.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Control Level</span>
+                <span class="font-semibold">{tool.control}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Webflow</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Dorik</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Control Level</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited (6.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep (6.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CMS Power</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extremely powerful</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">AI templates</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$10/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Steep</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Gentle</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Target User</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Professionals</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Beginners</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Power vs. Simplicity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow is visual development.</strong> Complete control like coding but visually. Very powerful.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik is template-based.</strong> Choose templates, customize within constraints. Simpler approach.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow targets professionals.</strong> Designers, agencies, developers willing to invest time.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik targets beginners.</strong> Budget users, personal sites, simple business needs.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Webflow: Professional power.</strong> Higher cost but unlimited capability and code export.
+        </p>
+        <p class="text-gray-700">
+          <strong>Dorik: Budget simplicity.</strong> Lower cost with easier learning curve and basic features.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Experience</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Webflow (8.5/10) if:</strong> You're a designer/developer, you need complete control, code export matters, powerful CMS required, willing to learn.</li>
+        <li><strong>Choose Dorik (7.8/10) if:</strong> You're a beginner, budget is a concern ($10-25/mo), you need a simple site, ease of use matters.</li>
+        <li><strong>Webflow is better for:</strong> Agencies, designers, complex sites, custom development, portfolios requiring unique design.</li>
+        <li><strong>Dorik is better for:</strong> Personal sites, simple business, budget projects, beginners, quick basic sites.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Dorik for beginners and budgets.</strong> If you want a simple site without technical complexity.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Webflow for professionals.</strong> If you're willing to learn for unlimited power and code export.
+      </p>
+      <p class="text-gray-700">
+        These serve very different users. Know your skills and goals before choosing.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Webflow for power, Dorik for simplicity. Choose based on your skills and needs.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/webflow-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Webflow Review →
+        </a>
+        <a href="/reviews/dorik-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Dorik Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/dorik-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs design quality</p>
+        </a>
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI prototyping vs design platform</p>
+        </a>
+        <a href="/comparisons/webflow-vs-wix" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Webflow vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Design power vs ease of use</p>
+        </a>
+        <a href="/comparisons/webflow-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Webflow vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Custom design vs templates</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,403 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Online Courses',
+  description: 'Top AI website builders for online course creators, digital product sellers, and educators. Compare course platforms, payment processing, and student management.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    type: 'Course Creators Starting Out',
+    topPick: 'Mixo',
+    reason: 'Affordable ($9/mo), landing pages, waitlist, simple payment integration',
+    alternatives: ['Carrd (minimal)', 'Durable (fast)']
+  },
+  {
+    type: 'Established Course Creators',
+    topPick: 'Webflow',
+    reason: 'Custom course area, student login, CMS for lessons, complete control',
+    alternatives: ['Framer', '10Web + WordPress']
+  },
+  {
+    type: 'Digital Product Sellers',
+    topPick: 'Framer',
+    reason: 'Modern aesthetic, product showcase, payment integration, fast',
+    alternatives: ['Webflow', 'Squarespace']
+  },
+  {
+    type: 'Membership Sites',
+    topPick: 'Webflow + MemberStack',
+    reason: 'Powerful CMS + membership management, recurring payments, content gating',
+    alternatives: ['Squarespace + MemberSpace', 'Custom']
+  }
+];
+
+const coursePages = [
+  {
+    pageType: 'Sales Landing Page',
+    elements: ['Compelling headline', 'Course outcome/benefits', 'Curriculum overview', 'Instructor bio', 'Social proof (testimonials)', 'Pricing/enrollment CTA', 'FAQ section', 'Money-back guarantee'],
+    priority: 'Critical - Primary conversion page'
+  },
+  {
+    pageType: 'Course Curriculum/Modules',
+    elements: ['Module structure', 'Lesson breakdown', 'Duration estimates', 'Downloadable resources', 'Progress tracking', 'Next lesson CTA'],
+    priority: 'Essential - Student experience'
+  },
+  {
+    pageType: 'Instructor/About Page',
+    elements: ['Professional bio', 'Credentials/expertise', 'Photo', 'Teaching philosophy', 'Personal story', 'Social proof'],
+    priority: 'Essential - Trust building'
+  },
+  {
+    pageType: 'Pricing/Enrollment',
+    elements: ['Clear pricing tiers', 'Payment options', 'What\'s included', 'Money-back guarantee', 'Enrollment deadline/scarcity', 'Secure payment badges'],
+    priority: 'Essential - Conversion driver'
+  },
+  {
+    pageType: 'Student Dashboard (if platform supports)',
+    elements: ['Course access', 'Progress tracking', 'Resources/Downloads', 'Community access', 'Support contact'],
+    priority: 'Important for student retention'
+  },
+  {
+    pageType: 'Free Mini-Course/Lead Magnet',
+    elements: ['Value upfront', 'Quick wins', 'Upgrade to full course CTA', 'Email capture', 'Testimonials'],
+    priority: 'Important for list building'
+  }
+];
+
+const features = [
+  {
+    feature: 'Video Hosting',
+    description: 'Upload and embed course videos, control access, track completion',
+    importance: 'Essential for courses',
+    builders: ['Video embeds', 'Vimeo/Wistia integration', 'Loom integration']
+  },
+  {
+    feature: 'Payment Processing',
+    description: 'Accept one-time and recurring payments, multiple currencies',
+    importance: 'Essential for revenue',
+    builders: ['Stripe integration', 'PayPal integration', 'Payment buttons']
+  },
+  {
+    feature: 'Student Management',
+    description: 'Track enrollments, progress, and engagement',
+    importance: 'Important for scaling',
+    builders: ['MemberStack', 'MemberSpace', 'Custom integration']
+  },
+  {
+    feature: 'Content Gating',
+    description: 'Restrict content to enrolled students only',
+    importance: 'Essential for paid content',
+    builders: ['Membership tools', 'Password protection', 'Custom login']
+  },
+  {
+    feature: 'Drip Content',
+    description: 'Release content over time, keep students engaged',
+    importance: 'Important for retention',
+    builders: ['Scheduling features', 'Custom development']
+  },
+  {
+    feature: 'Certificate Generation',
+    description: 'Automated certificates upon course completion',
+    importance: 'Nice to have',
+    builders: ['Custom integration', 'Third-party tools']
+  }
+];
+
+const tips = [
+  {
+    tip: 'Start with presell',
+    explanation: 'Don\'t build the full course first. Create landing page, presell to validate demand, build based on feedback.'
+  },
+  {
+    tip: 'Free value builds trust',
+    explanation: 'Offer free mini-course or valuable content. Demonstrates teaching style, builds email list, converts better.'
+  },
+  {
+    tip: 'Clear outcomes over content volume',
+    explanation: 'Sell transformation, not hours of video. What will students achieve? Focus on results.'
+  },
+  {
+    tip: 'Social proof is critical',
+    explanation: 'Testimonials, case studies, before/after results. If you\'re new, offer free beta in exchange for testimonials.'
+  },
+  {
+    tip: 'Scarcity drives enrollments',
+    explanation: 'Limited spots, enrollment deadline, bonus for early action. Create urgency without being manipulative.'
+  },
+  {
+    tip: 'Money-back guarantee reduces friction',
+    explanation: '30-day guarantee or first module risk-free. Reverses risk from buyer to seller, increases conversions.'
+  },
+  {
+    tip: 'Mobile optimization matters',
+    explanation: 'Many students access on phones. Course video, materials, and navigation must work perfectly on mobile.'
+  },
+  {
+    tip: 'Community increases completion',
+    explanation: 'Private community (Discord, Slack, Circle) boosts engagement and completion rates. Adds value.'
+  },
+  {
+    tip: 'Platform lock-in is real',
+    explanation: 'AI builders are great for starting. Consider migration path for course delivery (Teachable, Thinkific) as you scale.'
+  },
+  {
+    tip: 'Analytics from day one',
+    explanation: 'Track landing page visits, conversion rate, video completion, drop-off points. Data drives optimization.'
+  }
+];
+
+const pricingStrategies = [
+  {
+    strategy: 'One-Time Payment',
+    description: 'Single payment for lifetime access',
+    pros: ['Simple', 'Immediate cash flow', 'Perceived value'],
+    cons: ['No recurring revenue', 'Customer lifetime value limited'],
+    bestFor: 'Signature courses, high-ticket programs'
+  },
+  {
+    strategy: 'Payment Plan',
+    description: 'Break into monthly payments',
+    pros: ['More affordable', 'Higher conversion', 'Same total revenue'],
+    cons: ['Admin complexity', 'Some customers default'],
+    bestFor: 'Mid-tier courses ($200-1000)'
+  },
+  {
+    strategy: 'Subscription/Membership',
+    description: 'Recurring monthly access',
+    pros: ['Recurring revenue', 'Higher LTV', 'Predictable income'],
+    cons: ['Churn management', 'Ongoing content creation needed'],
+    bestFor: 'Continuously updated content, community access'
+  },
+  {
+    strategy: 'Tiered Pricing',
+    description: 'Self-study vs premium with support',
+    pros: ['Captures different budgets', 'Upsell path', 'Clear value differentiation'],
+    cons: ['More complex', 'Need meaningful differences'],
+    bestFor: 'Established courses with audience at different commitment levels'
+  }
+];
+
+const techStack = [
+  {
+    category: 'Video Hosting',
+    options: ['Vimeo (professional, paid)', 'YouTube (unlisted, free)', 'Wistia (marketing features)', 'Loom (casual, quick)', 'Self-hosted (VdoCipher)'],
+    recommendation: 'Vimeo for professional courses, YouTube for MVP'
+  },
+  {
+    category: 'Email Marketing',
+    options: ['ConvertKit (course creators)', 'Mailchimp (general)', 'Beehiiv (newsletter focus)', 'Systeme.io (all-in-one)'],
+    recommendation: 'ConvertKit for segmentation and automation'
+  },
+  {
+    category: 'Payment Processing',
+    options: ['Stripe (best for international)', 'PayPal (familiarity)', 'Gumroad (simple digital products)', 'ThriveCart (advanced features)'],
+    recommendation: 'Stripe for flexibility and low fees'
+  },
+  {
+    category: 'Course Platform (when ready to migrate)',
+    options: ['Teachable (popular)', 'Thinkific (powerful)', 'Kajabi (all-in-one)', 'Podia (simple)', 'Systeme.io (affordable)'],
+    recommendation: 'Start with AI builder, migrate when course generates $5k+/month'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for online courses?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For course creators starting out, Mixo ($9/month) is the best choice with affordable pricing, landing pages, waitlist functionality, and simple payment integration perfect for preselling and validating course ideas. Framer excels for digital product sellers wanting modern aesthetic (9.5/10), product showcases, payment integration, and fast loading. Webflow serves established course creators needing custom course areas, student login functionality, powerful CMS for lessons, and complete control for membership sites. For membership sites specifically, Webflow + MemberStack provides powerful CMS with membership management, recurring payments, and content gating. Many successful course creators start with AI builders for preselling and migrate to dedicated course platforms (Teachable, Thinkific) when generating consistent revenue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should course creators migrate from AI builders to course platforms?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Consider migrating to dedicated course platforms when: (1) Course generates $5,000+ monthly revenue, (2) Have 100+ active students managing becomes difficult, (3) Need advanced features like drip content, certificates, community, (4) Want affiliate program for your course, (5) Require detailed analytics and student tracking, (6) Multiple courses to manage, (7) Team members need access to manage students. Many successful course creators start with AI builder landing pages to presell and validate, then migrate to Teachable, Thinkific, or Kajabi when revenue justifies the platform cost. Don't migrate prematurely - AI builders can handle significant volume. Focus on validating your course and generating first sales before investing in dedicated platforms. Migration is smoother when you already have students and revenue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should online course websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Online course websites need: (1) Sales landing page with compelling headline and clear outcome - what students will achieve, (2) Course curriculum overview showing modules and lessons, (3) Instructor bio establishing credentials and expertise, (4) Social proof - testimonials, case studies, student results, (5) Clear pricing page with payment options and money-back guarantee, (6) Enrollment CTA with deadline or scarcity, (7) FAQ addressing objections, (8) Course delivery area if hosting on own platform, (9) Free mini-course or lead magnet to build email list, (10) Payment integration (Stripe, PayPal) for processing, (11) Mobile-optimized experience for on-the-go learning, (12) Contact/support access for students. Essential: clear outcome, social proof visible, money-back guarantee, simple enrollment. Everything should drive enrollments."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Course Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Starting Out:</strong> Mixo ($9/mo)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Established:</strong> Webflow + MemberStack</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Digital Products:</strong> Framer (9.5/10)</p>
+          <p class="text-gray-700 text-lg"><strong>Memberships:</strong> Webflow</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Budget:</strong> Mixo</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Design:</strong> Framer</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Powerful:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg"><strong>Best Value:</strong> Start simple, scale when needed</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Course Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.type}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Course Pages -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Course Website Pages</h2>
+
+      <div class="space-y-4">
+        {coursePages.map(page => (
+          <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{page.pageType}</h3>
+            <p class="text-gray-700 mb-3"><strong>Key Elements:</strong> {page.elements.join(', ')}</p>
+            <p class="text-sm text-blue-700"><strong>Priority:</strong> {page.priority}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pricing Strategies -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Pricing Strategies for Courses</h2>
+
+      <div class="space-y-4">
+        {pricingStrategies.map(strategy => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{strategy.strategy}</h3>
+            <p class="text-gray-700 mb-3">{strategy.description}</p>
+            <div class="grid md:grid-cols-2 gap-4 mb-3">
+              <div>
+                <p class="text-sm font-semibold text-green-700">Pros:</p>
+                <ul class="text-sm text-gray-700">
+                  {strategy.pros.map(pro => (
+                    <li>• {pro}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-red-700">Cons:</p>
+                <ul class="text-sm text-gray-700">
+                  {strategy.cons.map(con => (
+                    <li>• {con}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p class="text-sm text-orange-700"><strong>Best For:</strong> {strategy.bestFor}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Course Tech Stack</h2>
+
+      <div class="space-y-4">
+        {techStack.map(category => (
+          <div class="border border-purple-200 bg-purple-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{category.category}</h3>
+            <p class="text-gray-700 mb-3"><strong>Options:</strong> {category.options.join(', ')}</p>
+            <p class="text-sm text-purple-700"><strong>Recommendation:</strong> {category.recommendation}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Essential Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Essential Course Platform Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                !
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Available in:</p>
+              <div class="flex flex-wrap gap-2">
+                {feature.builders.map(b => (
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">{b}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Course Creation Tips</h2>
+      <div class="space-y-3 text-gray-700">
+        {tips.map(tip => (
+          <div>
+            <p class="font-semibold mb-1">{tip.tip}</p>
+            <p class="text-sm">{tip.explanation}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Course websites should communicate clear outcomes, build trust through social proof, and make enrollment simple. Start with presell, build based on demand.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>

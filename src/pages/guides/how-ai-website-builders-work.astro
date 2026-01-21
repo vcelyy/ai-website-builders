@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'How AI Website Builders Work: Under the Hood',
+  description: 'Learn how AI website builders work behind the scenes. Understand AI algorithms, natural language processing, and automated design generation.',
+  date: 'January 2025'
+};
+
+const steps = [
+  {
+    step: 1,
+    title: 'User Input',
+    description: 'You provide information about your website needs through a chat interface or form.',
+    details: ['Business name and industry', 'Website purpose and goals', 'Target audience', 'Design preferences', 'Content requirements'],
+    tech: ['Natural language processing', 'Intent recognition', 'Context extraction']
+  },
+  {
+    step: 2,
+    title: 'AI Analysis',
+    description: 'The AI analyzes your input to understand your requirements and preferences.',
+    details: ['Industry keyword identification', 'Competitor pattern analysis', 'Design preference detection', 'Content structure planning', 'User intent classification'],
+    tech: ['Machine learning models', 'Pattern recognition', 'Sentiment analysis']
+  },
+  {
+    step: 3,
+    title: 'Template Selection',
+    description: 'AI selects the most appropriate template based on your industry and preferences.',
+    details: ['Template database matching', 'Industry-specific layouts', 'Design style alignment', 'Feature requirement mapping', 'Mobile responsiveness check'],
+    tech: ['Template classification', 'Similarity algorithms', 'Recommendation engines']
+  },
+  {
+    step: 4,
+    title: 'Content Generation',
+    description: 'AI generates website content including text, images, and layout.',
+    details: ['Copywriting from AI models', 'Image selection and placement', 'Page structure creation', 'Navigation generation', 'Contact form setup'],
+    tech: ['Large language models (LLM)', 'Image recognition', 'Content generation']
+  },
+  {
+    step: 5,
+    title: 'Design Assembly',
+    description: 'The builder assembles the website with proper styling and responsive design.',
+    details: ['Layout application', 'Color scheme application', 'Typography selection', 'Mobile optimization', 'Animation and interaction setup'],
+    tech: ['CSS generation', 'Responsive design algorithms', 'Style transfer']
+  },
+  {
+    step: 6,
+    title: 'Review and Edit',
+    description: 'You review the generated site and make adjustments using visual editing tools.',
+    details: ['Visual drag-and-drop editor', 'Content editing interface', 'Design customization', 'Page management', 'SEO configuration'],
+    tech: ['WYSIWYG editors', 'Real-time preview', 'Change management']
+  },
+  {
+    step: 7,
+    title: 'Publishing',
+    description: 'Your website goes live with hosting, SSL, and domain configuration.',
+    details: ['Instant deployment', 'SSL certificate installation', 'Domain connection', 'CDN setup', 'Performance optimization'],
+    tech: ['Cloud hosting', 'Auto SSL', 'CDN distribution']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "How do AI website builders create sites automatically?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI website builders use a multi-step process: (1) User input through chat or forms, (2) AI analysis using natural language processing to understand requirements, (3) Template selection from a database using pattern matching, (4) Content generation using large language models for copy and image recognition for visuals, (5) Design assembly with CSS generation and responsive design algorithms, (6) User review with visual editing tools, (7) Instant publishing with hosting and SSL. The entire process takes seconds to minutes, compared to hours or days of manual work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AI technologies do website builders use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI website builders use multiple AI technologies: Natural Language Processing (NLP) to understand user requirements, Large Language Models (LLM) like GPT for content generation, Machine Learning for template matching and recommendations, Computer Vision for image selection and optimization, Pattern Recognition for industry-specific design, and Predictive Analytics for user experience optimization. These technologies work together to transform simple text input into complete, professional websites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are AI-generated websites unique or do they look the same?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI-generated websites are unique based on your input. While they may start from templates, the AI customizes content, layout, colors, images, and styling based on your specific requirements. Different inputs produce different results. Additionally, visual editing tools allow you to further customize and differentiate your site. Modern AI builders have massive template databases and sophisticated customization algorithms that ensure variety. However, heavy customization using the editor is recommended for maximum uniqueness."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">How AI Builders Work: Overview</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>AI website builders use advanced machine learning</strong> to transform simple text input into complete, professional websites in seconds.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The process involves 7 key steps:</strong> User input → AI analysis → Template selection → Content generation → Design assembly → Review → Publish.
+      </p>
+      <p class="text-gray-700">
+        <strong>Result:</strong> A complete website with pages, content, images, and styling ready for customization.
+      </p>
+    </div>
+
+    <!-- Step by Step -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The 7-Step AI Website Building Process</h2>
+
+      <div class="space-y-8">
+        {steps.map(step => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">
+                {step.step}
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">{step.title}</h3>
+                <p class="text-gray-700">{step.description}</p>
+              </div>
+            </div>
+
+            <div class="ml-14 space-y-4">
+              <div>
+                <p class="text-sm text-gray-600 mb-2">What Happens:</p>
+                <ul class="space-y-1">
+                  {step.details.map(detail => (
+                    <li class="text-sm text-gray-700">• {detail}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 mb-2">Technologies Used:</p>
+                <div class="flex flex-wrap gap-2">
+                  {step.tech.map(tech => (
+                    <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs font-semibold">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- AI Technologies -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">AI Technologies Explained</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Natural Language Processing</h3>
+          <p class="text-gray-700 mb-3">
+            <strong>What it does:</strong> Understands your text input and extracts meaning.
+          </p>
+          <p class="text-gray-700 mb-3">
+            <strong>How it works:</strong> Analyzes sentence structure, keywords, and context to identify your requirements.
+          </p>
+          <p class="text-gray-700">
+            <strong>Example:</strong> "I need a portfolio for my photography business" → AI understands: portfolio template, photography industry, visual focus.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Large Language Models</h3>
+          <p class="text-gray-700 mb-3">
+            <strong>What it does:</strong> Generates human-like website content.
+          </p>
+          <p class="text-gray-700 mb-3">
+            <strong>How it works:</strong> Predicts and generates text based on training from millions of websites.
+          </p>
+          <p class="text-gray-700">
+            <strong>Example:</strong> Generates homepage headline, about page bio, service descriptions based on your industry.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Pattern Recognition</h3>
+          <p class="text-gray-700 mb-3">
+            <strong>What it does:</strong> Identifies patterns in successful websites.
+          </p>
+          <p class="text-gray-700 mb-3">
+            <strong>How it works:</strong> Analyzes thousands of websites to understand what works for each industry.
+          </p>
+          <p class="text-gray-700">
+            <strong>Example:</strong> Knows that restaurants need menu pages, photographers need galleries, consultants need service descriptions.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Computer Vision</h3>
+          <p class="text-gray-700 mb-3">
+            <strong>What it does:</strong> Analyzes and selects appropriate images.
+          </p>
+          <p class="text-gray-700 mb-3">
+            <strong>How it works:</strong> Understands image content, style, and quality to match your design.
+          </p>
+          <p class="text-gray-700">
+            <strong>Example:</strong> Selects professional photos for a business site, artistic images for a creative portfolio.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Why AI Builders Are Faster</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Traditional Building</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span>Manual template selection: 1-2 hours</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span>Content writing: 2-4 hours</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span>Image sourcing: 1-2 hours</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span>Layout customization: 2-4 hours</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Total: 6-12+ hours</strong></span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">AI-Powered Building</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span>AI template selection: Instant</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span>AI content generation: Instant</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span>AI image selection: Instant</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span>AI layout assembly: Instant</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>Total: 30-60 seconds</strong></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customization -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">AI Generation is Just the Start</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>AI provides a foundation:</strong> The generated site is a starting point, not a finished product.</li>
+        <li><strong>Visual editing makes it yours:</strong> Drag-and-drop editors let you customize everything.</li>
+        <li><strong>Add your personality:</strong> Replace AI content with your unique voice and brand.</li>
+        <li><strong>Refine the design:</strong> Adjust colors, fonts, images, and layout to match your vision.</li>
+        <li><strong>Build on the structure:</strong> Add pages, features, and functionality as needed.</li>
+        <li><strong>The result:</strong> A professional website in a fraction of the time, with your personal touch.</li>
+      </ul>
+    </div>
+
+    <!-- Future -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Future of AI Website Building</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Coming Soon</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Voice input:</strong> Describe your site verbally</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Real-time personalization:</strong> Sites that adapt to visitors</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Advanced animations:</strong> AI-generated micro-interactions</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Intelligent SEO:</strong> Auto-optimization for search</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Predictive design:</strong> Anticipates user needs</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Already Here</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">●</span><span><strong>Instant generation:</strong> Complete sites in seconds</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">●</span><span><strong>Smart content:</strong> Industry-specific copywriting</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">●</span><span><strong>Image matching:</strong> Relevant photo selection</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">●</span><span><strong>Mobile optimization:</strong> Automatic responsive design</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">●</span><span><strong>Instant publishing:</strong> One-click deployment</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Understanding how AI builders work helps you use them more effectively. Ready to try?</p>
+      <a href="/reviews" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Compare AI Builders →
+      </a>
+    </div>
+  </div>
+</Layout>

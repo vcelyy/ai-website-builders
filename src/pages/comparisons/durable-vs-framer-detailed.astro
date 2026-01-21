@@ -1,0 +1,304 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Durable vs Framer AI',
+  description: 'Durable vs Framer: Which AI website builder is faster? Compare 30-second AI generation with stunning design quality.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Durable',
+    score: 8.2,
+    ease: 9.0,
+    design: 7.5,
+    speed: 9.5,
+    flexibility: 7.5,
+    value: 8.5,
+    price: '$12-20/mo',
+    features: ['30-second AI generation', 'Built-in CRM', 'Lead generation', 'Fastest setup'],
+    bestFor: 'Speed & leads',
+    strengths: ['Fastest setup (30 sec)', 'Built-in CRM', 'Lead-focused', 'Easy to use'],
+    weaknesses: ['Lower design quality', 'Limited templates', 'Less flexible', 'Newer platform']
+  },
+  {
+    name: 'Framer',
+    score: 9.0,
+    ease: 8.0,
+    design: 9.5,
+    speed: 8.5,
+    flexibility: 9.0,
+    value: 8.5,
+    price: '$5-30/mo',
+    features: ['Best designs (9.5/10)', 'Code export', 'Modern aesthetic', 'Free tier'],
+    bestFor: 'Design quality',
+    strengths: ['Stunning designs', 'Code export', 'High flexibility', 'Affordable'],
+    weaknesses: ['Steeper learning', 'Longer setup', 'No built-in CRM', 'Less lead-focused']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Durable or Framer better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer wins overall (9.0/10 vs 8.2/10) with superior design quality (9.5/10 vs 7.5/10), better flexibility (9.0/10 vs 7.5/10), code export capability, and more affordable pricing starting at $5/month vs $12/month. Durable offers faster setup (9.5/10 speed vs 8.5/10), easier usability (9.0/10 vs 8.0/10), built-in CRM features for lead management, and fastest AI generation at 30 seconds. Durable is better for: consultants wanting instant website with CRM, service businesses needing lead generation, users prioritizing speed over design, and those wanting built-in customer management. Framer is better for: designers and creative professionals, startups wanting modern aesthetic, portfolios requiring visual impact, and users who may want code export. Choose Durable for fastest setup with built-in lead management. Choose Framer for stunning designs with maximum flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Durable and Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer and Durable have different pricing structures with Framer being more affordable at entry levels. Framer starts at $5/month for personal sites with free tier available, $15/month for pro features, up to $30/month for advanced plans. Over 3 years, Framer costs $180-1080 depending on plan level (or free for basic sites). Durable starts at $12/month for starter plans, $15/month for business features, up to $20/month for premium features. Over 3 years, Durable costs $432-720 depending on plan level. For basic websites, Framer is more affordable ($5 vs $12/month base pricing, less than half the cost). For business features, Framer remains competitive ($15 vs $15/month). Framer's aggressive pricing with free tier makes it exceptional value for budget-conscious users. Durable's pricing reflects its built-in CRM and lead generation features - worth it for service businesses. For most users, Framer provides better value while Durable justifies its cost with business-focused features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Durable or Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export on paid plans ($15/month and above), allowing you to export clean HTML, CSS, and React code to host elsewhere or continue development manually. Durable does NOT offer code export - your website stays on Durable's servers permanently and you're locked into their platform. This is a major difference if you care about owning your code or having flexibility to migrate platforms. With Framer, you can export your code and move to custom development or React hosting when ready. With Durable, you're committed to their platform but get built-in CRM and lead generation features that Framer lacks. If code export matters for your long-term strategy, Framer is the clear winner. If you don't care about code export and want the fastest setup with built-in business tools, Durable is the better choice. Platform lock-in is the trade-off for Durable's convenience and business features."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for design.</strong> Stunning visuals (9.5/10) and flexibility.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable wins for speed.</strong> 30-second setup with built-in CRM.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want beautiful design and code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Durable if:</strong> You want instant setup with lead management.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Durable</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy (8.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fastest (30 sec)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast (minutes)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Flexible (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Built-in CRM</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Lead Generation</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Requires setup</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$12/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$5/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Trial available</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Free forever</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Business-focused</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design-focused</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Speed & leads</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design quality</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design vs. Speed</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer prioritizes design.</strong> Stunning results (9.5/10) worth the setup time.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable prioritizes speed.</strong> Live in 30 seconds with good enough design.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">CRM Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable includes CRM.</strong> Lead capture and management built-in.
+        </p>
+        <p class="text-gray-700">
+          <strong>Framer needs integrations.</strong> Add your own CRM tools.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Lock-in</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable locks you in.</strong> No code export, committed to their platform.
+        </p>
+        <p class="text-gray-700">
+          <strong>Framer offers freedom.</strong> Code export when you need to leave.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Use Case Focus</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable targets service businesses.</strong> Consultants, agencies, B2B.
+        </p>
+        <p class="text-gray-700">
+          <strong>Framer targets designers.</strong> Portfolios, startups, visual brands.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Durable (8.2/10) if:</strong> You want fastest possible setup, you need built-in CRM, you're a consultant/service business, lead generation is priority.</li>
+        <li><strong>Choose Framer (9.0/10) if:</strong> You want stunning design quality, you need code export option, you're design-focused, flexibility matters.</li>
+        <li><strong>Durable is better for:</strong> Consultants, service businesses, lead generation, speed-focused users, non-designers.</li>
+        <li><strong>Framer is better for:</strong> Designers, portfolios, startups, visual brands, tech companies.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Stunning designs at unbeatable value.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable for consultants.</strong> If you need instant site with built-in CRM.
+      </p>
+      <p class="text-gray-700">
+        Choose Framer for beautiful, flexible websites. Choose Durable for speed and leads.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for design quality and flexibility. Durable for speed and built-in lead management.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/durable-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+        <a href="/reviews/framer-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

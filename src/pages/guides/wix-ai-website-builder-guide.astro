@@ -1,0 +1,260 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Wix AI Website Builder: Complete Guide',
+  description: 'Complete guide to Wix AI website builder and Wix ADI. Learn features, pricing, pros and cons of Wix for website creation.',
+  date: 'January 2025'
+};
+
+const wixFeatures = [
+  {
+    feature: 'Wix ADI (Artificial Design Intelligence)',
+    description: 'AI-powered website builder that creates sites based on your answers',
+    benefit: 'Guided setup process for beginners'
+  },
+  {
+    feature: '500+ Templates',
+    description: 'Massive template library for every industry and use case',
+    benefit: 'Find the perfect starting point for any project'
+  },
+  {
+    feature: 'App Marketplace',
+    description: '500+ apps for extending functionality',
+    benefit: 'Add virtually any feature you can imagine'
+  },
+  {
+    feature: 'Wix Editor',
+    description: 'Powerful drag-and-drop editor with complete design freedom',
+    benefit: 'Full customization without code'
+  },
+  {
+    feature: 'E-commerce Ready',
+    description: 'Built-in online store with payments and inventory',
+    benefit: 'Sell products without third-party tools'
+  },
+  {
+    feature: 'Booking System',
+    description: 'Integrated appointment scheduling for service businesses',
+    benefit: 'Accept bookings and manage calendar'
+  }
+];
+
+const wixPros = [
+  'Most features of any builder',
+  'Mature and reliable platform',
+  '500+ app marketplace',
+  'Good for beginners',
+  'All-in-one solution',
+  'Strong customer support',
+  'Constant feature updates'
+];
+
+const wixCons = [
+  'PageSpeed can be slow',
+  'Templates are not portable',
+  'Can get expensive',
+  'No code export',
+  'Template switching limitations',
+  'Ads on free plan',
+  'Interface can be overwhelming'
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "How does Wix AI website builder work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix offers two AI-powered options: Wix ADI (Artificial Design Intelligence) for guided website creation, and Wix Editor with AI assistance. ADI asks questions about your business, industry, and goals, then generates a complete website with pages, content, and images. The Wix Editor provides more control with AI-powered content generation and design suggestions. With 500+ templates, 500+ apps in the marketplace, and features for every use case, Wix is one of the most comprehensive website builders available. Best for users who want maximum features and flexibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Wix does NOT offer code export. Your website is tied to Wix hosting. Unlike Framer or Webflow which allow code export for self-hosting or custom development, Wix sites must stay on the Wix platform. This is fine for most users who plan to stay with Wix long-term, but limits portability. If code export is important to you, consider Framer or Webflow instead. Wix compensates with extensive features, app integrations, and reliability that make staying on the platform worthwhile for many users."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Wix good for e-commerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Wix has capable e-commerce features built-in. Wix Stores includes product management, inventory tracking, multiple payment options (Square, Stripe, PayPal), shipping calculation, and order management. While not as powerful as dedicated platforms like Shopify for large stores, Wix e-commerce is excellent for small to medium online stores. The advantage is having your website and online store in one platform. For very large or complex e-commerce operations, Shopify or 10Web (WooCommerce) may be better. For most small businesses selling products, Wix is perfectly adequate."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Wix at a Glance</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Overall Score:</strong> 8.2/10</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Features:</strong> 9.5/10 (Most)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Ease of Use:</strong> 8.5/10</p>
+          <p class="text-gray-700 text-lg"><strong>Starting Price:</strong> $16/month</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best For:</strong> Feature flexibility</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Unique Feature:</strong> 500+ apps</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Maturity:</strong> Very mature</p>
+          <p class="text-gray-700 text-lg"><strong>Free Plan:</strong> Available</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Wix Key Features</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {wixFeatures.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.feature}</h3>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <p class="text-sm text-green-700 font-semibold">{feature.benefit}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Wix ADI vs Editor -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Wix ADI vs Wix Editor</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Wix ADI (Beginner-Friendly)</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Guided setup:</strong> Q&A process creates your site automatically</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Best for:</strong> Complete beginners who want fast results</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Trade-off:</strong> Less customization control</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Speed:</strong> Complete site in 5-15 minutes</span></li>
+          </ul>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Wix Editor (More Control)</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Drag-and-drop:</strong> Complete design freedom with visual editor</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Best for:</strong> Users who want more control and customization</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Trade-off:</strong> Steeper learning curve</span></li>
+            <li class="flex items-start gap-3"><span class="text-orange-600 mt-1">●</span><span><strong>Speed:</strong> Takes longer but more customized</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Wix Pros and Cons</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-green-700 mb-4">Pros</h3>
+          <ul class="space-y-2 text-gray-700">
+            {wixPros.map(pro => (
+              <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>{pro}</span></li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-red-700 mb-4">Cons</h3>
+          <ul class="space-y-2 text-gray-700">
+            {wixCons.map(con => (
+              <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>{con}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Marketplace -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Wix App Marketplace</h2>
+      <p class="text-gray-700 mb-6">With 500+ apps available, Wix can extend to do almost anything:</p>
+
+      <div class="grid md:grid-cols-3 gap-4">
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h4 class="font-bold text-gray-900 mb-2">Marketing</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Email marketing</li>
+            <li>• Social media feeds</li>
+            <li>• SEO tools</li>
+            <li>• Live chat</li>
+          </ul>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h4 class="font-bold text-gray-900 mb-2">E-commerce</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Payment gateways</li>
+            <li>• Inventory management</li>
+            <li>• Shipping tools</li>
+            <li>• Product reviews</li>
+          </ul>
+        </div>
+        <div class="border border-gray-200 rounded-lg p-4">
+          <h4 class="font-bold text-gray-900 mb-2">Bookings</h4>
+          <ul class="text-sm text-gray-600 space-y-1">
+            <li>• Appointment scheduling</li>
+            <li>• Calendar management</li>
+            <li>• Payment collection</li>
+            <li>• Reminders</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Wix Pricing</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Free:</strong> Wix subdomain, 500MB storage, Wix ads. Good for testing.</li>
+        <li><strong>Combo ($16/mo):</strong> Custom domain, removed ads, 2GB storage. Best for personal sites.</li>
+        <li><strong>Unlimited ($22/mo):</strong> Unlimited pages, 10GB storage, more features. Best for professionals.</li>
+        <li><strong>Business ($36/mo):</strong> 35GB storage, visitor analytics, logo maker. Best for small businesses.</li>
+        <li><strong>E-commerce ($27-50/mo):</strong> Online store features, no transaction fees. Best for selling products.</li>
+        <li><strong>Enterprise:</strong> Custom pricing for large organizations with advanced needs.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Wix Success Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Start with Wix ADI:</strong> Get a foundation quickly, then switch to Editor for more control.</li>
+        <li><strong>Be selective with apps:</strong> Too many apps can slow down your site. Only install what you need.</li>
+        <li><strong>Optimize images:</strong> Compress images before uploading to improve PageSpeed scores.</li>
+        <li><strong>Use Wix Ascend:</strong> Free SEO tool from Wix to improve search rankings.</li>
+        <li><strong>Enable mobile editing:</strong> Customize the mobile view separately for better mobile experience.</li>
+        <li><strong>Take advantage of templates:</strong> 500+ templates mean there is a perfect starting point for you.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Wix offers the most features with the flexibility to match. Try the free plan to explore.</p>
+      <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Read Full Wix Review →
+      </a>
+    </div>
+  </div>
+</Layout>

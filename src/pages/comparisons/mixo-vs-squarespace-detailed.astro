@@ -1,0 +1,304 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Mixo vs Squarespace AI',
+  description: 'Mixo vs Squarespace: Which AI website builder offers better value? Compare budget-friendly simplicity vs polished professional platform.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.0,
+    speed: 9.0,
+    flexibility: 8.0,
+    value: 9.0,
+    price: '$9-39/mo',
+    features: ['Best value ($9/mo)', 'Fastest AI generation', 'Clean designs', 'All features included'],
+    bestFor: 'Budget & ease',
+    strengths: ['Unbeatable price', 'Very easy (9.0/10)', 'Fast setup', 'Great value'],
+    weaknesses: ['Limited features', 'No app marketplace', 'Newer platform', 'Less mature']
+  },
+  {
+    name: 'Squarespace',
+    score: 8.3,
+    ease: 8.5,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 7.5,
+    price: '$23-65/mo',
+    features: ['Beautiful templates', 'Built-in features', 'Reliable hosting', 'E-commerce ready'],
+    bestFor: 'Design quality',
+    strengths: ['Consistently polished', 'Easy to use', 'All-in-one', 'Established'],
+    weaknesses: ['Rigid templates', 'No code export', 'Limited flexibility', 'Higher cost']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Mixo or Squarespace better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo wins overall (8.5/10 vs 8.3/10) with superior ease of use (9.0/10 vs 8.5/10), faster setup speed (9.0/10 vs 8.5/10), much better value for money (9.0/10 vs 7.5/10), and significantly more affordable pricing at $9/month vs $23/month. Squarespace offers better design quality (8.5/10 vs 8.0/10), more mature and established platform, consistently polished templates, and better for design-focused users who prioritize aesthetics. Mixo is better for: beginners, bloggers, portfolios, small businesses, budget-conscious users wanting professional results at minimal cost. Squarespace is better for: design-focused users, restaurants, portfolios, creative businesses, users wanting consistently polished results. Choose Mixo for unbeatable value and simplicity. Choose Squarespace for polished design and professional presentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Mixo and Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo and Squarespace have dramatically different pricing structures with Mixo being much more affordable. Mixo starts at $9/month for all features, $19/month for premium plans, up to $39/month for advanced features. Over 3 years, Mixo costs $324-1404 depending on plan level. Squarespace starts at $23/month for personal websites, $33/month for business plans, up to $65/month for commerce features. Over 3 years, Squarespace costs $828-2340 depending on plan level. For all website types, Mixo is significantly more affordable ($9 vs $23/month base pricing, nearly 3x cheaper). For premium features, the gap widens further ($19 vs $33/month). Mixo's aggressive pricing, combined with solid design quality and ease of use, makes it exceptional value for budget-conscious users. Squarespace's higher pricing reflects its polished design quality, established platform, and all-in-one convenience. For most users, Mixo provides significantly better value while Squarespace justifies its premium with superior design polish."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Mixo or Squarespace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither Mixo nor Squarespace offer code export - both platforms lock you into their hosting permanently. Your website stays on their servers and you're committed to their platform. This is different from competitors like Framer and Webflow which do offer code export on paid plans. With both Mixo and Squarespace, you don't own your code and can't migrate to custom development or other hosting. If code export matters for your long-term strategy, consider Framer or Webflow instead. If you don't care about code export, both Mixo and Squarespace are fine choices - just understand you're committing to their platforms. Platform lock-in is the trade-off for the convenience, professional results, and affordable pricing these builders provide. For most users who just want a working website without technical complexity or long-term platform concerns, this trade-off is acceptable."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for value.</strong> Best price ($9/mo) and easier to use.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace wins for design.</strong> More polished and professional.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want the best value on a budget.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Squarespace if:</strong> You want polished professional design.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Squarespace</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very easy (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very easy (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Rigid (7.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Growing library</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">100+ templates</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-Commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in, powerful</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$23/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Free tier available</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">14-day trial</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Easy</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Loading Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform Maturity</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Newer (2020s)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Established (2004)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Budget & ease</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design quality</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo offers best value.</strong> $9/mo vs $23/mo - nearly 3x cheaper.
+        </p>
+        <p class="text-gray-700">
+          <strong>Squarespace costs more.</strong> But you get polished, professional design.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Polish</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Squarespace is more polished.</strong> Consistently professional templates.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is clean but simple.</strong> Good design but less sophisticated.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Maturity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Squarespace is established.</strong> Proven platform since 2004.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is newer.</strong> Modern approach but less track record.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Both Have Same Trade-off</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Neither offers code export.</strong> Both lock you into their platforms.
+        </p>
+        <p class="text-gray-700">
+          <strong>Both are easy to use.</strong> Both designed for beginners and non-technical users.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want the best value, you're on a budget, you need simple professional site, you're a beginner.</li>
+        <li><strong>Choose Squarespace (8.3/10) if:</strong> You want polished design, you're design-focused, you need established platform, e-commerce features.</li>
+        <li><strong>Mixo is better for:</strong> Portfolios, blogs, small businesses, personal sites, budget-conscious users.</li>
+        <li><strong>Squarespace is better for:</strong> Restaurants, portfolios, creative businesses, design-focused users, professionals.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most users.</strong> Unbeatable value at $9/mo with solid quality.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace for design.</strong> If polish and aesthetics are worth the premium.
+      </p>
+      <p class="text-gray-700">
+        Choose Mixo for value and simplicity. Choose Squarespace for polish and professionalism.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo for unbeatable value and ease. Squarespace for polished professional design.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/squarespace-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Squarespace Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

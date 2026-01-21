@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
@@ -55,6 +56,37 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Hostinger AI really $2.99/month?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Hostinger AI website builder starts at $2.99/month with a 48-month commitment. Shorter terms cost more ($3.99-$7.99/month). This includes hosting, free SSL, and a domain (first year). It's the cheapest AI builder available."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my site from Hostinger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Hostinger doesn't offer code export. Your site is tied to their hosting. However, since hosting is included and inexpensive, this is less of an issue than with expensive builders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Hostinger AI good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Hostinger AI is excellent for beginners. The AI generates a complete site in 45 seconds after answering 3 questions. The editor is simple, and hosting/setup are handled automatically. Perfect for personal projects or testing business ideas."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
@@ -148,6 +180,64 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
       <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
         Try Hostinger from $2.99/mo {hasAffiliate ? `(Affiliate)` : `(Direct)`}
       </a>
+    </div>
+
+    <!-- Related Guides -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Guides</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/comparisons/best-ai-website-builders-budget" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Best Budget AI Website Builders</h3>
+          <p class="text-gray-600 text-sm mb-3">Hostinger is the cheapest at $2.99/mo. See how it compares to Framer and Durable on value.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+        <a href="/guides/ai-website-builder-pricing-comparison-detailed" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">AI Builder Pricing: Full Breakdown</h3>
+          <p class="text-gray-600 text-sm mb-3">Detailed pricing comparison including hidden costs and 3-year total cost.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Guide →</span>
+        </a>
+        <a href="/comparisons/best-ai-website-builders-beginners" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Best AI Website Builders for Beginners</h3>
+          <p class="text-gray-600 text-sm mb-3">Hostinger is beginner-friendly but dated. See better options for first-time users.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+        <a href="/guides/free-ai-website-builders-whats-the-catch" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Free AI Website Builders: What's the Catch?</h3>
+          <p class="text-gray-600 text-sm mb-3">Hostinger has no free plan. See which builders offer free tiers and the limitations.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Guide →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Reviews -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/reviews/framer-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Framer AI</h3>
+          <p class="text-gray-600 text-sm mb-3">5x more expensive but 10x better design quality. Best overall value.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">9.3/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+        <a href="/reviews/durable-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Durable AI</h3>
+          <p class="text-gray-600 text-sm mb-3">Fast AI generation, business-focused, better templates than Hostinger.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">8.9/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+        <a href="/reviews/ionos-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">IONOS AI</h3>
+          <p class="text-gray-600 text-sm mb-3">Another budget option with German quality. Similar price point.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">7.8/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </Layout>

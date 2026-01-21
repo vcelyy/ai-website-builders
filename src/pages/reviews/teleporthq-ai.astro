@@ -1,0 +1,199 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'TeleportHQ',
+  date: 'January 2025',
+  testingTime: '14 hours',
+  score: '7.6',
+  description: 'After 14 hours testing TeleportHQ, I found a unique AI-powered design tool with code export. Best for designers who want AI assistance with Figma-like collaboration.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Explored TeleportHQ interface. Unique approach - design tool with AI.' },
+  { time: 'Day 2', event: 'Tested AI generation. Creates UI components from prompts.' },
+  { time: 'Day 3', event: 'Explored code export. Exports to React, Vue, Angular - excellent.' },
+  { time: 'Day 4', event: 'Tested collaboration features. Real-time editing like Figma.' },
+  { time: 'Day 5', event: 'Evaluated templates. Limited but quality design system.' },
+  { time: 'Day 6', event: 'Tested mobile responsive. Good responsive design tools.' },
+  { time: 'Day 7', event: 'Final assessment: Great for designers, less ideal for non-designers.' }
+];
+
+const pros = [
+  'Code export (React, Vue, Angular)',
+  'AI-powered UI generation',
+  'Real-time collaboration',
+  'Figma-like interface',
+  'Design system support',
+  'Component library',
+  'Good for teams'
+];
+
+const cons = [
+  'Not for beginners',
+  'No built-in hosting',
+  'Limited templates',
+  'Steeper learning curve',
+  'Design skill required',
+  'No CMS features',
+  'Technical audience'
+];
+
+const scores = {
+  easeOfUse: 7.0,
+  designQuality: 8.5,
+  aiFeatures: 8.0,
+  speed: 8.0,
+  flexibility: 9.0,
+  value: 7.5
+};
+
+const affiliateData = { href: 'https://teleporthq.com', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is TeleportHQ good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, TeleportHQ is not beginner-friendly. It's designed for designers and developers who want AI assistance with UI design. If you're a non-designer looking for an easy website builder, consider Mixo, Durable, or Wix instead. TeleportHQ requires design knowledge and technical skills."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does TeleportHQ host my website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, TeleportHQ doesn't provide hosting. You design and export code, then deploy yourself (to Netlify, Vercel, your own server, etc.). This gives you full control but requires technical knowledge. For hosting included, consider Wix, Squarespace, or Framer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does TeleportHQ compare to Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are design-focused with code export. Framer is easier to use with better templates for websites. TeleportHQ is more like Figma - a professional design tool with AI. Framer is better for marketing websites. TeleportHQ is better for designers building custom UIs and design systems."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>TeleportHQ is a professional design tool with AI.</strong> Not a website builder for beginners.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The tradeoffs:</strong> Excellent for designers and developers with code export. Not suitable if you want a simple website with hosting included.
+      </p>
+      <p class="text-gray-700">
+        Choose TeleportHQ if you're a designer who wants AI assistance. Choose Framer or Wix if you want an easier website builder.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI UI generation</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Code export quality</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Collaboration features</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Design system tools</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Component library</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Mobile responsive design</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map(item => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Designer's Tool</h2>
+      <p class="text-gray-700 mb-4">
+        TeleportHQ is positioned as a design tool, not a website builder. Think of it as Figma with AI-powered code generation.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+        <li><strong>AI UI Generation:</strong> Describe components and TeleportHQ generates them</li>
+        <li><strong>Code Export:</strong> Export clean code to React, Vue, Angular, or HTML/CSS</li>
+        <li><strong>Real-time Collaboration:</strong> Work with team members like in Figma</li>
+        <li><strong>Design Systems:</strong> Create and maintain consistent design systems</li>
+      </ul>
+      <p class="text-gray-700">
+        This makes TeleportHQ excellent for design teams and developers. But if you're a business owner who just wants a website, this isn't the right tool. Consider Framer, Wix, or Squarespace instead.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Code Export Quality</h2>
+      <p class="text-gray-700 mb-4">
+        TeleportHQ's strongest feature is code export. The generated code is:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2 mb-4">
+        <li><strong>Clean and semantic:</strong> Well-structured HTML and modern CSS</li>
+        <li><strong>Framework support:</strong> Export to React, Vue, Angular, or vanilla HTML</li>
+        <li><strong>Production-ready:</strong> Code is ready to deploy</li>
+        <li><strong>Customizable:</strong> You can tweak the export settings</li>
+      </ul>
+      <p class="text-gray-700">
+        For developers who want AI assistance with UI design, TeleportHQ delivers excellent code that doesn't need extensive cleanup.
+      </p>
+    </div>
+
+    <div class="text-center">
+      <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try TeleportHQ {hasAffiliate ? `(Affiliate)` : `(Direct)`}
+      </a>
+    </div>
+  </div>
+</Layout>

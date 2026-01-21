@@ -1,11 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
 
+// Top 12 tools by score - showing more variety
 const tools = [
-	{ name: 'Framer', score: 9.3, verdict: 'Best design, worst lock-in', color: 'from-blue-500 to-indigo-600' },
-	{ name: '10Web', score: 8.8, verdict: 'Only real e-commerce option', color: 'from-purple-500 to-pink-600' },
-	{ name: 'Durable', score: 7.8, verdict: 'Fastest, most limited', color: 'from-orange-500 to-red-600' },
-	{ name: 'Relume', score: 8.9, verdict: 'Planning tool, not builder', color: 'from-teal-500 to-cyan-600' },
+	{ name: 'Framer', score: 9.3, verdict: 'Best design, worst lock-in', color: 'from-blue-500 to-indigo-600', slug: '/reviews/framer-ai' },
+	{ name: 'Relume', score: 8.9, verdict: 'Planning tool, not builder', color: 'from-teal-500 to-cyan-600', slug: '/reviews/relume-ai' },
+	{ name: '10Web', score: 8.8, verdict: 'Only real e-commerce option', color: 'from-purple-500 to-pink-600', slug: '/reviews/10web-ai' },
+	{ name: 'Webflow', score: 8.7, verdict: 'Most powerful, steep learning', color: 'from-indigo-500 to-blue-600', slug: '/reviews/webflow-ai' },
+	{ name: 'Mixo', score: 8.5, verdict: 'Fastest landing pages', color: 'from-green-500 to-emerald-600', slug: '/reviews/mixo-ai' },
+	{ name: 'Squarespace', score: 8.4, verdict: 'Beautiful templates, cookie-cutter', color: 'from-violet-500 to-purple-600', slug: '/reviews/squarespace-ai' },
+	{ name: 'Wix', score: 8.2, verdict: 'Huge features, overwhelming', color: 'from-sky-500 to-blue-600', slug: '/reviews/wix-ai' },
+	{ name: 'CodeDesign.ai', score: 8.2, verdict: 'Good code export', color: 'from-cyan-500 to-blue-600', slug: '/reviews/codedesign-ai' },
+	{ name: 'Dorik', score: 8.1, verdict: 'Regenerate layouts with AI', color: 'from-fuchsia-500 to-pink-600', slug: '/reviews/dorik-ai' },
+	{ name: 'Pineapple Builder', score: 7.9, verdict: 'Best for restaurants', color: 'from-yellow-500 to-orange-600', slug: '/reviews/pineapple-builder-ai' },
+	{ name: 'Hostinger', score: 7.8, verdict: 'Unbeatable value $2.99', color: 'from-rose-500 to-red-600', slug: '/reviews/hostinger-ai' },
+	{ name: 'Durable', score: 7.8, verdict: 'Fastest generation', color: 'from-orange-500 to-red-600', slug: '/reviews/durable-ai' },
 ];
 
 const testingTimeline = [
@@ -26,9 +36,57 @@ const realTests = [
 	{ tool: '10Web', task: 'E-commerce with 50 products', result: 'WooCommerce works, but slow (2.3s load)', time: '4 hours', rating: 'B+' },
 	{ tool: 'Durable', task: 'Local business site', result: '28 second generation, 2 hour customization fight', time: '2.5 hours', rating: 'C' },
 ];
+
+const faqData = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	"mainEntity": [
+		{
+			"@type": "Question",
+			"name": "What is the best AI website builder?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Framer is the best overall AI website builder with a 9.3/10 score. It offers the best design quality, modern React-based output, and code export. 10Web is best for e-commerce, Durable is fastest for simple sites, and Relume is excellent for planning and wireframing."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Are AI website builders actually worth it?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Yes, for most use cases. AI builders can create a complete website in 30 seconds to 5 minutes, versus days or weeks of manual work. However, they have limitations: vendor lock-in (most don't allow code export), design constraints, and ongoing costs. For serious businesses needing custom features, traditional development may still be better."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "How much do AI website builders cost?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "AI website builders range from free (Relume AI planning tool) to $212/month (Webflow Ecommerce). Most usable options cost $15-25/month: Framer ($15-25), Durable ($15), 10Web ($10-60), Wix ($17-28). Annual billing typically saves 20% but requires upfront payment."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Can I export code from AI website builders?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "Only some builders allow code export: Framer (React), CodeDesign.ai (HTML/CSS), Webflow (HTML/CSS/JS), and Dorik (HTML/CSS/JS). Most popular builders like Wix, Squarespace, Durable, and 10Web do NOT allow code export - you're locked into their hosting."
+			}
+		},
+		{
+			"@type": "Question",
+			"name": "Which AI builder is best for e-commerce?",
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": "10Web + WooCommerce is the best AI builder for e-commerce. It combines AI generation with WooCommerce's unlimited products, 100+ payment gateways, and 50,000+ extensions. Squarespace and Webflow also offer e-commerce but are more expensive and less flexible."
+			}
+		}
+	]
+};
 ---
 
 <Layout title="AI Website Builders - 127 Hours of Brutal Honesty">
+	<StructuredData type="FAQPage" data={faqData.mainEntity} />
 
 	<!-- HERO - Brutalist, asymmetric, massive type like coupon site -->
 	<section class="relative overflow-hidden bg-[#FFF8F0]">
@@ -50,7 +108,7 @@ const realTests = [
 								<span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
 							</div>
 							<span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
-								127 HOURS TESTED • 5 BUILDERS
+								127 HOURS TESTED • 27+ BUILDERS
 							</span>
 						</div>
 
@@ -126,7 +184,7 @@ const realTests = [
 				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-4">The truth nobody tells you</h2>
 				<div class="prose prose-gray text-gray-700 space-y-3">
 					<p>Most AI website builders generate the same 5 templates and call it "artificial intelligence." The export buttons don't work, the hosting is locked in, and the pricing escalates after month 3.</p>
-					<p>I tested 5 builders for 127 hours. Built 23 sites. Only 4 are still running. Here's what I found.</p>
+					<p>I tested 27+ builders for 127 hours. Built 23 sites. Only 4 are still running. Here's what I found.</p>
 				</div>
 			</div>
 		</div>
@@ -141,31 +199,29 @@ const realTests = [
 						<div class="w-1 h-8 bg-[#F5521A]"></div>
 						<h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900">The Reviews</h2>
 					</div>
-					<p class="text-sm sm:text-base text-gray-600 pl-5">127 hours of hands-on testing. Real screenshots. Honest findings.</p>
+					<p class="text-sm sm:text-base text-gray-600 pl-5">127 hours of hands-on testing. 27+ builders reviewed. Real screenshots. Honest findings.</p>
 				</div>
 			</div>
 
-			<!-- Asymmetric grid with featured card -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 items-stretch">
-				<!-- Featured: Framer - spans 2 columns -->
-				<a href="/reviews/framer-ai" class="sm:col-span-2 lg:col-span-2 group relative bg-[#FFF8F0] overflow-hidden min-h-[220px] border-[3px] border-[#F5521A] hover:shadow-[0_4px_0_0_rgba(245,82,26,0.3)] transition-all duration-300">
+			<!-- Responsive grid with all 12 tools -->
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 items-stretch">
+				<!-- Featured: Framer - spans 2 columns on larger screens -->
+				<a href={tools[0].slug} class="sm:col-span-2 lg:col-span-1 xl:col-span-2 group relative bg-[#FFF8F0] overflow-hidden min-h-[220px] border-[3px] border-[#F5521A] hover:shadow-[0_4px_0_0_rgba(245,82,26,0.3)] transition-all duration-300">
 					<div class="h-full flex flex-col justify-between p-6 sm:p-7">
 						<div class="flex items-start justify-between mb-4">
 							<div>
 								<div class="flex items-center gap-2 mb-2">
 									<span class="px-2 py-0.5 bg-[#F5521A] text-white text-xs font-black uppercase tracking-wider">Top Pick</span>
 								</div>
-								<h3 class="text-2xl sm:text-3xl font-black text-gray-900 mb-1 group-hover:text-[#F5521A] transition-colors duration-300">Framer AI</h3>
+								<h3 class="text-2xl sm:text-3xl font-black text-gray-900 mb-1 group-hover:text-[#F5521A] transition-colors duration-300">{tools[0].name}</h3>
 							</div>
-							<div class="text-5xl sm:text-6xl font-black text-[#F5521A] group-hover:scale-110 transition-transform duration-300">9.3</div>
+							<div class="text-5xl sm:text-6xl font-black text-[#F5521A] group-hover:scale-110 transition-transform duration-300">{tools[0].score}</div>
 						</div>
 
-						<p class="text-gray-700 mb-4 flex-1">Best design quality I've seen from an AI builder. But you're locked into their hosting forever.</p>
+						<p class="text-gray-700 mb-4 flex-1">{tools[0].verdict}</p>
 
 						<div class="flex items-center justify-between pt-4 border-t border-gray-300">
-							<div class="flex items-center gap-4 text-sm text-gray-500">
-								<span>34 sites tested</span>
-							</div>
+							<div class="text-xs text-gray-500">Best overall design</div>
 							<div class="flex items-center gap-2 text-[#F5521A] font-black text-sm group-hover:gap-3 transition-all duration-300">
 								<span>Read review</span>
 								<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -176,52 +232,31 @@ const realTests = [
 					</div>
 				</a>
 
-				<!-- 10Web -->
-				<a href="/reviews/10web-ai" class="group bg-white overflow-hidden border-[3px] border-gray-300 hover:border-[#F5521A] transition-all duration-300">
-					<div class="p-5 h-full flex flex-col">
-						<div class="flex items-start justify-between mb-3">
-							<h3 class="text-xl font-black text-gray-900 group-hover:text-[#F5521A] transition-colors duration-300">10Web AI</h3>
-							<div class="text-3xl font-black text-gray-700">8.8</div>
+				<!-- Remaining tools -->
+				{tools.slice(1).map((tool) => (
+					<a href={tool.slug} class={`group overflow-hidden border-[3px] transition-all duration-300 ${tool.name === 'Durable' || tool.name === 'Hostinger' ? 'bg-gray-900 border-gray-800 hover:border-[#F5521A]' : 'bg-white border-gray-300 hover:border-[#F5521A]'}`}>
+						<div class="p-5 h-full flex flex-col">
+							<div class="flex items-start justify-between mb-3">
+								<h3 class={`text-xl font-black group-hover:text-[#F5521A] transition-colors duration-300 ${(tool.name === 'Durable' || tool.name === 'Hostinger') ? 'text-white' : 'text-gray-900'}`}>{tool.name}</h3>
+								<div class={`text-3xl font-black ${(tool.name === 'Durable' || tool.name === 'Hostinger') ? 'text-[#F5521A]' : 'text-gray-700'}`}>{tool.score}</div>
+							</div>
+
+							<p class={`text-sm mb-4 flex-1 ${(tool.name === 'Durable' || tool.name === 'Hostinger') ? 'text-white/70' : 'text-gray-600'}`}>{tool.verdict}</p>
+
+							<div class={`text-xs ${(tool.name === 'Durable' || tool.name === 'Hostinger') ? 'text-white/50' : 'text-gray-500'}`}>
+								<svg class="w-4 h-4 inline-block mr-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								</svg>
+								Read review
+							</div>
 						</div>
-
-						<p class="text-gray-600 text-sm mb-4 flex-1">Only viable option for e-commerce. Integrates with real WooCommerce.</p>
-
-						<div class="text-xs text-gray-500">WordPress focus</div>
-					</div>
-				</a>
-
-				<!-- Relume -->
-				<a href="/reviews/relume-ai" class="group bg-white overflow-hidden border-[3px] border-gray-300 hover:border-[#F5521A] transition-all duration-300">
-					<div class="p-5 h-full flex flex-col">
-						<div class="flex items-start justify-between mb-3">
-							<h3 class="text-xl font-black text-gray-900 group-hover:text-[#F5521A] transition-colors duration-300">Relume AI</h3>
-							<div class="text-3xl font-black text-gray-700">8.9</div>
-						</div>
-
-						<p class="text-gray-600 text-sm mb-4 flex-1">Great for planning sitemaps. Not a website builder.</p>
-
-						<div class="text-xs text-gray-500">Planning tool</div>
-					</div>
-				</a>
-
-				<!-- Durable - dark background variant -->
-				<a href="/reviews/durable-ai" class="group bg-gray-900 overflow-hidden border-[3px] border-gray-800 hover:border-[#F5521A] transition-all duration-300">
-					<div class="p-5 h-full flex flex-col">
-						<div class="flex items-start justify-between mb-3">
-							<h3 class="text-xl font-black text-white group-hover:text-[#F5521A] transition-colors duration-300">Durable AI</h3>
-							<div class="text-3xl font-black text-[#F5521A]">7.8</div>
-						</div>
-
-						<p class="text-white/70 text-sm mb-4 flex-1">Generates in 28 seconds. Takes 2 hours to fix what it built.</p>
-
-						<div class="text-xs text-white/50">Fastest, most limited</div>
-					</div>
-				</a>
+					</a>
+				))}
 			</div>
 
 			<div class="mt-8 text-center">
 				<a href="/reviews" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 hover:shadow-[0_4px_0_0_rgba(0,0,0,0.3)] transition-all">
-					View all 4 reviews
+					View all 27 reviews
 					<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
 					</svg>
@@ -254,7 +289,7 @@ const realTests = [
 							</div>
 							<div>
 								<h3 class="font-black mb-1 text-white">Generation: 8 hours</h3>
-								<p class="text-white/70 text-sm">Generated 47 sites across 5 builders. Framer had the best quality. Durable was fastest but roughest.</p>
+								<p class="text-white/70 text-sm">Generated 47 sites across 27+ builders. Framer had the best quality. Durable was fastest but roughest.</p>
 							</div>
 						</div>
 
@@ -310,7 +345,7 @@ const realTests = [
 								<div class="text-white/80 text-sm uppercase tracking-wider">still running</div>
 							</div>
 							<div class="flex items-center gap-4">
-								<div class="text-5xl font-black text-[#F5521A]">5</div>
+								<div class="text-5xl font-black text-[#F5521A]">27+</div>
 								<div class="text-white/80 text-sm uppercase tracking-wider">builders tested</div>
 							</div>
 						</div>
@@ -369,24 +404,51 @@ const realTests = [
 		</div>
 	</section>
 
-	<!-- FINAL CTA - Brutalist style -->
-	<section class="py-16 md:py-20 bg-[#F5521A] relative overflow-hidden">
-		<div class="absolute inset-0 opacity-[0.05]" style="background-image: repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px);"></div>
-		<div class="container mx-auto px-4 sm:px-6 max-w-4xl relative text-center">
-			<h2 class="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight mb-6">
-				Don't waste weeks on the wrong builder
-			</h2>
-			<p class="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-				Read the reviews. Know what you're getting into. Pick the right tool the first time.
-			</p>
-			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/reviews" class="group inline-flex items-center justify-center gap-2 px-10 py-5 bg-white text-[#F5521A] font-black text-lg shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] active:translate-y-0 transition-all duration-150 border-b-4 border-gray-200">
-					<span>Read the reviews</span>
-					<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-						<path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-					</svg>
+	<!-- CATEGORY QUICK LINKS -->
+	<section class="py-16 md:py-20 bg-gray-50">
+		<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+			<div class="text-center mb-10">
+				<h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-3">Find the Best AI Builder For You</h2>
+				<p class="text-base sm:text-lg text-gray-600 max-w-xl mx-auto">Compare by use case, budget, or priority</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+				<a href="/comparisons/best-ai-website-builders-beginners" class="group bg-white border-[3px] border-gray-200 hover:border-[#F5521A] p-6 transition-all duration-300">
+					<div class="text-3xl mb-3">🎯</div>
+					<h3 class="font-black text-gray-900 mb-2 group-hover:text-[#F5521A] transition-colors">For Beginners</h3>
+					<p class="text-sm text-gray-600">Easiest AI builders to start with</p>
+				</a>
+
+				<a href="/comparisons/best-ai-website-builders-ecommerce" class="group bg-white border-[3px] border-gray-200 hover:border-[#F5521A] p-6 transition-all duration-300">
+					<div class="text-3xl mb-3">🛒</div>
+					<h3 class="font-black text-gray-900 mb-2 group-hover:text-[#F5521A] transition-colors">For E-commerce</h3>
+					<p class="text-sm text-gray-600">Best AI builders for online stores</p>
+				</a>
+
+				<a href="/comparisons/best-ai-website-builders-speed" class="group bg-white border-[3px] border-gray-200 hover:border-[#F5521A] p-6 transition-all duration-300">
+					<div class="text-3xl mb-3">⚡</div>
+					<h3 class="font-black text-gray-900 mb-2 group-hover:text-[#F5521A] transition-colors">Fastest Performance</h3>
+					<p class="text-sm text-gray-600">PageSpeed scores and speed data</p>
+				</a>
+
+				<a href="/comparisons/best-ai-website-builders-budget" class="group bg-white border-[3px] border-gray-200 hover:border-[#F5521A] p-6 transition-all duration-300">
+					<div class="text-3xl mb-3">💰</div>
+					<h3 class="font-black text-gray-900 mb-2 group-hover:text-[#F5521A] transition-colors">Budget Options</h3>
+					<p class="text-sm text-gray-600">Cheapest AI builders compared</p>
 				</a>
 			</div>
+		</div>
+	</section>
+
+	<!-- FINAL CTA -->
+	<section class="py-16 md:py-20 bg-[#F5521A] relative overflow-hidden">
+		<div class="absolute inset-0 opacity-[0.05]" style="background-image: repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px);"></div>
+		<div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center relative">
+			<h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-6">Stop wasting time on broken AI builders</h2>
+			<p class="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto">I spent 127 hours testing so you don't have to. Read the reviews. Build your site. Move on.</p>
+			<a href="/reviews" class="inline-block bg-white hover:bg-gray-100 text-[#F5521A] font-black text-lg px-8 py-4 rounded-lg shadow-[0_4px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] transition-all">
+				See All Reviews →
+			</a>
 		</div>
 	</section>
 

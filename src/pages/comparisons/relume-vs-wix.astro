@@ -1,0 +1,330 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Relume vs Wix AI',
+  description: 'Relume vs Wix: Which AI website builder is better? Compare Figma-powered design vs feature-rich all-in-one platform.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 7.5,
+    flexibility: 9.0,
+    value: 7.5,
+    price: '$17-159/mo',
+    features: ['Feature-rich', 'App market', 'Complete solution', 'More flexibility'],
+    bestFor: 'Users wanting features',
+    strengths: ['Huge feature set', 'App ecosystem', 'All-in-one', 'Easy drag-and-drop'],
+    weaknesses: ['Can feel overwhelming', 'AI features limited', 'Premium pricing', 'No code export']
+  },
+  {
+    name: 'Relume',
+    score: 8.2,
+    ease: 7.5,
+    design: 9.0,
+    speed: 7.5,
+    flexibility: 8.5,
+    value: 7.5,
+    price: '$20-190/mo (or free)',
+    features: ['Figma integration', 'Sitemap builder', 'Wireframe library', 'Webflow export'],
+    bestFor: 'Designers and agencies',
+    strengths: ['Best for Figma users', 'Sitemap AI', 'Wireframe components', 'Webflow ready'],
+    weaknesses: ['Requires Figma knowledge', 'Not standalone', 'Learning curve', 'Indirect workflow']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Relume or Wix better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Relume (8.2/10) and Wix (8.2/10) are tied overall but serve completely different purposes. Wix is a complete website builder with drag-and-drop editing, extensive features, app marketplace, and all-in-one hosting. Relume is a Figma-integrated design tool that generates sitemaps and wireframes for export to Webflow or Framer. Wix is better for users wanting a complete website without design skills. Relume is better for designers using Figma and Webflow who want AI-assisted sitemap generation and wireframe components. These are not direct competitors - they serve different stages of the website creation process. Wix handles everything from design to hosting. Relume handles design planning for professional workflows. Choose Wix for complete websites. Choose Relume if you're a designer wanting AI assistance within Figma/Webflow workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Relume and Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix and Relume have similar pricing at the entry level but serve different purposes. Wix starts at $17/month for basic plans, $29/month for premium features, up to $159/month for enterprise. Over 3 years, Wix costs $612-5724 depending on plan level. Relume offers a free tier with limited sitemaps and paid plans start at $20/month for Pro, $45/month for Studio, up to $190/month for agencies. Over 3 years, Relume costs $720-6840 depending on plan level. However, they're not directly comparable - Wix is a complete website solution with hosting. Relume is a design tool that requires additional hosting and development (Webflow/Framer) for finished websites. Total cost using Relume includes Relume + Webflow/Framer + hosting. For complete websites, Wix includes everything in one price. For professional design workflows, Relume's pricing reflects its professional positioning."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Relume and Wix work differently?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Relume and Wix work completely differently. Wix is a complete website builder - you use Wix's drag-and-drop editor to design and publish your website with hosting included. It's an all-in-one solution for creating finished websites. Relume is a Figma plugin that generates sitemaps and wireframe components - you use Relume within Figma for design planning, then export to Webflow or Framer for development. Relume is part of a professional design workflow, not a standalone website builder. Wix requires no design tools or technical skills. Relume requires Figma knowledge and design experience. Wix outputs complete hosted websites. Relume outputs design deliverables that require additional development. Choose Wix if you want a complete website without design complexity. Choose Relume if you're a designer wanting AI assistance within professional Figma/Webflow workflow."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>These serve different purposes.</strong> Not direct competitors.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix is a complete builder.</strong> Design, host, publish - all in one.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume is a design tool.</strong> Figma plugin for sitemaps and wireframes.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You want a complete website without design skills.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Relume if:</strong> You're a designer using Figma/Webflow.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Relume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Product Type</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete builder</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design tool</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Figma Integration</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">None</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Native plugin</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Output</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete websites</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Sitemaps, wireframes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Hosting Included</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Feature Set</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extensive built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Component library</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">App Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Wix App Market</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">None</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Target User</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Everyone</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Designers</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Additional Tools Needed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">None</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Figma + Webflow/Framer</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Workflow</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Direct to publish</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Professional design</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Complete Builder vs. Design Tool</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is everything in one.</strong> Design, edit, host, publish - complete solution.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume is design assistance.</strong> Generates sitemaps and wireframes for professional workflows.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix targets everyone.</strong> Beginners, small business, anyone wanting a website.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume targets designers.</strong> Professionals using Figma and Webflow workflows.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Total Cost of Ownership</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix includes everything.</strong> One price covers design tools, hosting, features.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume requires more.</strong> Relume + Figma (free) + Webflow/Framer + hosting = higher total.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix: All-in-one convenience.</strong> Complete website solution without technical complexity.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume: Professional efficiency.</strong> AI-assisted design for professional workflows.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Workflow</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Wix (8.2/10) if:</strong> You want a complete website, you're not a designer, you need features, you want all-in-one solution.</li>
+        <li><strong>Choose Relume (8.2/10) if:</strong> You're a designer, you use Figma, you work with Webflow/Framer, you want AI sitemap assistance.</li>
+        <li><strong>Wix is better for:</strong> Entrepreneurs, small business, portfolios, landing pages, non-designers.</li>
+        <li><strong>Relume is better for:</strong> Design agencies, Webflow designers, Figma users, professional workflows.</li>
+      </ul>
+    </div>
+
+    <!-- Important Note -->
+    <div class="bg-red-50 border-l-4 border-red-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Important: Not Direct Competitors</h2>
+      <p class="text-gray-700">
+        Wix and Relume serve completely different purposes and are not direct competitors. Wix is a complete website builder for creating finished websites. Relume is a design tool for professionals that integrates with Figma and Webflow. Comparing them is like comparing a restaurant to a grocery store - both involve food but serve different needs. Choose based on whether you want a complete website (Wix) or design workflow assistance (Relume).
+      </p>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for complete websites.</strong> If you want a finished site without design complexity.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume for design professionals.</strong> If you're a designer using Figma/Webflow.
+      </p>
+      <p class="text-gray-700">
+        These tools serve completely different purposes. Choose based on your workflow and skills.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Wix for complete websites. Relume for professional design workflows.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/wix-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+        <a href="/reviews/relume-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Relume Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/relume-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Relume vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI wireframing vs design platform</p>
+        </a>
+        <a href="/comparisons/wix-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Ease vs power</p>
+        </a>
+        <a href="/comparisons/relume-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Relume vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Wireframing vs prototyping</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

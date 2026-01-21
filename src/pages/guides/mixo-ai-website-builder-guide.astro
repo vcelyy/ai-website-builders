@@ -1,0 +1,283 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Mixo AI Website Builder: Complete Guide',
+  description: 'Complete guide to Mixo AI website builder. Learn how to use Mixo for fast website generation, features, pricing, and tips for success.',
+  date: 'January 2025'
+};
+
+const mixoFeatures = [
+  {
+    feature: 'AI Site Generation',
+    description: 'Generate complete websites in under 60 seconds with AI assistance',
+    benefit: 'Fastest time to live website of any builder'
+  },
+  {
+    feature: 'Built-in SEO',
+    description: 'Automatic SEO optimization with meta tags and structured data',
+    benefit: 'Better search rankings without extra work'
+  },
+  {
+    feature: 'Easy Editing',
+    description: 'Intuitive visual editor for content and design customization',
+    benefit: 'Anyone can use it, no technical skills needed'
+  },
+  {
+    feature: 'Blogging Platform',
+    description: 'Built-in blog functionality for content marketing',
+    benefit: 'Content marketing and SEO capabilities included'
+  },
+  {
+    feature: 'Analytics',
+    description: 'Built-in analytics to track visitor behavior',
+    benefit: 'Understand your audience without third-party tools'
+  },
+  {
+    feature: 'Affordable Pricing',
+    description: 'Starting at $9/month with generous free tier',
+    benefit: 'Best value for budget-conscious users'
+  }
+];
+
+const useCases = [
+  {
+    useCase: 'Landing Pages',
+    description: 'Perfect for product launches, events, or marketing campaigns',
+    why: 'Fast setup, built-in SEO, lead capture forms'
+  },
+  {
+    useCase: 'Personal Portfolios',
+    description: 'Showcase your work, skills, or projects',
+    why: 'Clean templates, easy customization, professional results'
+  },
+  {
+    useCase: 'Small Business Sites',
+    description: 'Professional web presence for local businesses',
+    why: 'Affordable, includes essential features, easy to maintain'
+  },
+  {
+    useCase: 'MVP Testing',
+    description: 'Validate business ideas quickly before heavy investment',
+    why: 'Fastest route to live site, minimal cost, easy iteration'
+  },
+  {
+    useCase: 'Event Sites',
+    description: 'Weddings, conferences, or special occasions',
+    description: 'Simple setup, RSVP forms, beautiful photo galleries'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "How does Mixo AI website builder work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo uses AI to generate complete websites in under 60 seconds. Simply describe your business or project, answer a few questions about your goals and preferences, and Mixo AI creates a complete website with pages, content, images, and styling. You can then customize everything using the intuitive visual editor. No technical skills required. Mixo handles hosting, SSL certificates, and provides built-in SEO optimization, making it the fastest way to get a professional website live."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Mixo really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo offers a generous free tier with no time limit. Free plans include AI generation, hosting, SSL certificate, and core features. Limitations include Mixo branding, no custom domain (unless you upgrade), and limited storage. Paid plans start at $9/month and remove branding, allow custom domains, and provide additional features. The free tier is perfect for testing, personal projects, or budget websites. Upgrade when you need custom domains or advanced features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What can I build with Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo excels at: landing pages and marketing sites, personal portfolios and resumes, small business websites, event sites (weddings, conferences), MVP testing for startups, blogs and content sites, lead generation pages, and simple e-commerce (via integrations). Mixo is less suitable for: complex web applications, large e-commerce stores, highly custom designs, or sites requiring advanced functionality. For 90% of website needs, Mixo delivers excellent results quickly and affordably."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Mixo at a Glance</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Overall Score:</strong> 8.5/10</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Speed:</strong> Under 60 seconds</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Ease of Use:</strong> 9.5/10 (Easiest)</p>
+          <p class="text-gray-700 text-lg"><strong>Starting Price:</strong> $9/month</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best For:</strong> Speed and budget</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Unique Feature:</strong> Fastest AI generation</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Code Export:</strong> No</p>
+          <p class="text-gray-700 text-lg"><strong>Free Trial:</strong> Generous free tier</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Key Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Mixo Key Features</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {mixoFeatures.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{feature.feature}</h3>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <p class="text-sm text-green-700 font-semibold">{feature.benefit}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- How to Use -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How to Use Mixo: Step by Step</h2>
+
+      <div class="space-y-4">
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Describe Your Project</h3>
+              <p class="text-gray-700">Enter your business name, describe what you do, and answer a few questions about your goals and target audience. Be specific for better results.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">AI Generation</h3>
+              <p class="text-gray-700">Mixo AI generates your complete website in under 60 seconds. Includes homepage, about page, services/products, contact form, and blog.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Customize Your Site</h3>
+              <p class="text-gray-700">Use the visual editor to update text, replace images, change colors, and modify the layout to match your brand.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Connect Your Domain</h3>
+              <p class="text-gray-700">Connect your custom domain (paid plan) or use the free Mixo subdomain. Your site goes live instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="border border-gray-200 rounded-lg p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold">5</div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Launch and Grow</h3>
+              <p class="text-gray-700">Your site is live with SSL certificate included. Use built-in analytics to track visitors and SEO tools to improve rankings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Mixo is Best For</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {useCases.map(useCase => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{useCase.useCase}</h3>
+            <p class="text-gray-700 mb-3">{useCase.description}</p>
+            <p class="text-sm text-green-700"><strong>Why Mixo:</strong> {useCase.why}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Mixo Pros and Cons</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-green-700 mb-4">Pros</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Fastest AI generation (under 60 seconds)</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Very affordable ($9/month)</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Easiest to use (9.5/10 ease)</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Generous free tier</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Built-in SEO and analytics</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>Blogging included</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>No time limit on free plan</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-red-700 mb-4">Cons</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Limited customization options</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>No code export capability</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Basic e-commerce only</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Template variety limited</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Mixo branding on free plan</span></li>
+            <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>Less suitable for complex sites</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Mixo Pricing</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Free Tier:</strong> Generous free plan with Mixo branding, subdomain only, perfect for testing.</li>
+        <li><strong>Basic ($9/mo):</strong> Removes branding, allows custom domain, more storage. Best for individuals.</li>
+        <li><strong>Pro ($19/mo):</strong> More features, priority support, advanced analytics. Best for professionals.</li>
+        <li><strong>Annual billing:</strong> Save 20% by paying annually instead of monthly.</li>
+        <li><strong>All plans include:</strong> SSL certificate, hosting, core features, no hidden fees.</li>
+      </ul>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Mixo Success Tips</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Be specific in your description:</strong> More detail = better AI-generated results.</li>
+        <li><strong>Customize the content:</strong> AI provides a starting point, add your unique voice.</li>
+        <li><strong>Use your own images:</strong> Replace stock photos with real photos for authenticity.</li>
+        <li><strong>Enable blogging early:</strong> Start publishing content for SEO benefits.</li>
+        <li><strong>Test mobile view:</strong> Most traffic is mobile, ensure your site looks great on phones.</li>
+        <li><strong>Connect custom domain:</strong> Builds trust and professionalism for your brand.</li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo is perfect for fast, affordable websites. Try the free tier and see for yourself.</p>
+      <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Read Full Mixo Review →
+      </a>
+    </div>
+  </div>
+</Layout>

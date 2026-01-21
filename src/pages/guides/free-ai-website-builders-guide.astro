@@ -1,39 +1,280 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import AffiliateCTA from '../../components/AffiliateCTA.astro';
-import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
+import StructuredData from '../../components/StructuredData.astro';
 
-const title = 'Free AI Website Builders Guide (2025)';
-const description = 'Which AI website builders have free plans? Durable (30 days), Framer, and Webflow offer trials. Details on all free options.';
+const guideData = {
+  title: 'Free AI Website Builders: Complete Guide',
+  description: 'Complete guide to free AI website builders. Compare Mixo, Durable, Wix, Framer, and more for free plans, limitations, and when to upgrade.',
+  date: 'January 2025'
+};
+
+const freeBuilders = [
+  {
+    name: 'Mixo',
+    score: 8.5,
+    freePlan: 'Yes',
+    limitations: 'Mixo branding, limited pages',
+    bestFor: 'Fastest free launch',
+    features: ['AI generation', 'Built-in SEO', 'Modern templates'],
+    upgradeTo: '$9/mo for custom domain',
+    pros: ['No time limit', 'Quality templates', 'Fast setup'],
+    cons: ['Branding required', 'Limited features', 'No custom domain']
+  },
+  {
+    name: 'Durable',
+    score: 8.5,
+    freePlan: 'Yes (trial)',
+    limitations: '14-day trial',
+    bestFor: 'Testing with CRM',
+    features: ['AI generation', 'Built-in CRM', 'Fast setup'],
+    upgradeTo: '$15/mo to continue',
+    pros: ['Full features trial', 'CRM included', 'No credit card'],
+    cons: ['Time limited', 'Must upgrade', 'No permanent free']
+  },
+  {
+    name: 'Wix',
+    score: 8.2,
+    freePlan: 'Yes',
+    limitations: 'Wix ads, limited storage',
+    bestFor: 'Testing the platform',
+    features: ['ADI (AI)', 'Many templates', 'Full editor'],
+    upgradeTo: '$16/mo to remove ads',
+    pros: ['Mature platform', 'Many features', 'No time limit'],
+    cons: ['Wix branding', 'Storage limits', 'No custom domain']
+  },
+  {
+    name: 'Framer',
+    score: 8.8,
+    freePlan: 'Yes',
+    limitations: 'Framer branding, limited projects',
+    bestFor: 'Design testing',
+    features: ['Gorgeous templates', 'Code export on paid'],
+    upgradeTo: '$15/mo for custom domain',
+    pros: ['Beautiful designs', 'No time limit', 'Fast performance'],
+    cons: ['Framer branding', 'One project', 'No code export free']
+  },
+  {
+    name: 'Unicorn Platform',
+    score: 7.5,
+    freePlan: 'Yes',
+    limitations: 'Unicorn branding, limited pages',
+    bestFor: 'Simple landing pages',
+    features: ['Simple AI', 'Beginner-friendly'],
+    upgradeTo: '$10/mo for more',
+    pros: ['Very easy', 'No time limit', 'Free tier'],
+    cons: ['Very limited', 'Basic templates', 'Fewer features']
+  }
+];
 ---
 
-<Layout title={title} description={description}>
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Which AI builder has the best free plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo has the best free plan with no time limit, quality templates, and built-in SEO. Framer also offers an excellent free tier with beautiful designs. Wix has a mature free plan but includes ads. Durable offers a 14-day trial with full features but no permanent free option. For permanent free hosting, Mixo or Framer are best. For testing features, Durable's trial is generous."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are free AI website builders really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most 'free' plans have limitations. Common restrictions include: builder branding on your site, no custom domain (yoursite.wix.com), limited storage/bandwidth, fewer templates, and no code export. They're free forever but with tradeoffs. For a professional site, you'll eventually want to upgrade. Free plans are perfect for testing, personal projects, or temporary sites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should I upgrade from free to paid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Upgrade when: you need a custom domain (branded look), want to remove builder branding, need more storage/pages, require code export, or are running a business. Personal sites can stay free forever. Business sites should upgrade within 1-3 months. The investment ($9-15/mo) is worth it for professionalism and features."
+        }
+      }
+    ]}
+  />
+
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="mb-12">
       <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
-      <trh1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Free AI Website Builders</h1>
-      <p class="text-xl text-gray-600 mb-6">
-        What is actually free, what are the catches, and when should you just pay?
-      </p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
     </div>
 
+    <!-- Quick Answer -->
     <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Reality Check</h2>
-      <p class="text-gray-700 text-lg">
-        <strong>Nothing is truly free.</strong> Free plans have limitations, branding, or short time limits.
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Top Free Picks</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo - Best Overall Free:</strong> No time limit, quality templates, built-in SEO. Great for long-term free sites.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer - Best Design Free:</strong> Beautiful templates, no time limit, fast performance. Design-focused.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable - Best Trial:</strong> 14-day full feature test including CRM. Perfect for evaluating.
       </p>
       <p class="text-gray-700">
-        <strong>Recommendation:</strong> Use free trials to test, then pay. Free forever plans are not worth the limitations.
+        <strong>Wix - Most Mature Free:</strong> Established platform with many features. No time limit.
       </p>
     </div>
 
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Free Plan Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Builder</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Time Limit</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Branding</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Custom Domain</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Upgrade</th>
+            </tr>
+          </thead>
+          <tbody>
+            {freeBuilders.map(builder => (
+              <tr>
+                <td class="border border-gray-200 px-4 py-3 font-semibold">{builder.name}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.name === 'Durable' ? '14 days' : 'No limit'}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.name} branding</td>
+                <td class="border border-gray-200 px-4 py-3 text-center bg-red-50">No</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.upgradeTo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Free Plan Limitations -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What You Get vs. Don't Get</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Free Includes</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>AI generation:</strong> Create sites with AI</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>Templates:</strong> Access to template library</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>Hosting:</strong> Free hosting included</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>SSL certificate:</strong> HTTPS security</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>Basic editing:</strong> Customize your site</span></li>
+            <li class="flex items-start gap-3"><span class="text-green-600 mt-1">✓</span><span><strong>Subdomain:</strong> yoursite.builder.com</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Free Doesn't Include</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Custom domain:</strong> Need yoursite.com? Upgrade required</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>No branding:</strong> Builder's logo stays visible</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Code export:</strong> Can't download your site</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Unlimited storage:</strong> Limited files and bandwidth</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Advanced features:</strong> E-commerce, analytics, etc.</span></li>
+            <li class="flex items-start gap-3"><span class="text-red-600 mt-1">✗</span><span><strong>Priority support:</strong> Basic support only</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- When to Upgrade -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">When to Upgrade</h2>
+
+      <div class="space-y-6">
+        <div class="border border-green-200 bg-green-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Stay Free If:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Building a personal site or hobby project</li>
+            <li>• Testing platforms before committing</li>
+            <li>• Temporary landing page or event site</li>
+            <li>• Learning website building</li>
+            <li>• Don't mind builder branding or subdomain</li>
+          </ul>
+        </div>
+
+        <div class="border border-orange-200 bg-orange-50 rounded-lg p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Upgrade If:</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Running a business or professional brand</li>
+            <li>• Need custom domain (yourname.com)</li>
+            <li>• Want to remove builder branding</li>
+            <li>• Need e-commerce or advanced features</li>
+            <li>• Want code export or self-hosting</li>
+            <li>• Site is generating revenue</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detailed Reviews -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Free Plan Reviews</h2>
+
+      {freeBuilders.map(builder => (
+        <div class="border border-gray-200 rounded-lg p-6 mb-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-2xl font-bold text-gray-900">{builder.name}</h3>
+                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm font-semibold">{builder.freePlan}</span>
+              </div>
+              <p class="text-gray-600">{builder.score}/10 • {builder.bestFor}</p>
+              <p class="text-sm text-gray-500 mt-1">Limitations: {builder.limitations}</p>
+            </div>
+            <a href={`/reviews/${builder.name.toLowerCase().replace(' ', '')}-ai`}
+               class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+              Read Review →
+            </a>
+          </div>
+          <div class="mb-4">
+            <p class="text-sm text-gray-600 mb-2">Free Features:</p>
+            <p class="text-gray-700">{builder.features.join(', ')}</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold text-green-700 mb-2">Pros</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.pros.map(pro => <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>{pro}</span></li>)}
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-red-700 mb-2">Cons</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.cons.map(con => <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>{con}</span></li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Start with Mixo or Framer for free.</strong> Both offer generous free plans with no time limit.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Use Durable's trial to test CRM features.</strong> 14 days is enough to evaluate.
+      </p>
+      <p class="text-gray-700">
+        Free plans are perfect for testing. Upgrade when you're ready to get serious about your site. The investment is worth it for professionalism.
+      </p>
+    </div>
+
+    <!-- CTA -->
     <div class="text-center">
-      <AffiliateCTA
-        href={affiliates.durable.affiliateUrl}
-        commission={affiliates.durable.commission}
-        label="Try Free (30 Days)"
-        className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
-      />
+      <p class="text-xl text-gray-700 mb-8">All recommended builders offer free plans or trials. Test before you commit.</p>
+      <a href="/reviews" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        See All Reviews →
+      </a>
     </div>
   </div>
 </Layout>

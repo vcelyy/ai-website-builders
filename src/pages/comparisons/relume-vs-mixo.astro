@@ -1,0 +1,319 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Relume vs Mixo AI',
+  description: 'Relume vs Mixo: Which AI website builder is better? Compare Figma-powered design vs focused simplicity.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Relume',
+    score: 8.2,
+    ease: 7.5,
+    design: 9.0,
+    speed: 7.5,
+    flexibility: 8.5,
+    value: 7.5,
+    price: '$20-190/mo (or free)',
+    features: ['Figma integration', 'Sitemap builder', 'Wireframe library', 'Webflow export'],
+    bestFor: 'Designers and agencies',
+    strengths: ['Best for Figma users', 'Sitemap AI', 'Wireframe components', 'Webflow ready'],
+    weaknesses: ['Requires Figma knowledge', 'Not standalone', 'Learning curve', 'Indirect workflow']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 9.0,
+    price: '$9/mo (or free)',
+    features: ['AI-first', 'Best free tier', 'Affordable', 'Complete sites'],
+    bestFor: 'Quick, affordable sites',
+    strengths: ['Best ease (9.0/10)', 'Excellent value (9.0/10)', 'Generous free tier', 'Fast AI setup'],
+    weaknesses: ['Limited features', 'No code export', 'Basic CMS', 'Newer platform']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Relume or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (8.5/10) is better than Relume (8.2/10) for most users due to superior ease of use (9.0/10 vs 7.5/10) and value (9.0/10 vs 7.5/10). Mixo is a complete website builder that generates finished sites from a single prompt with excellent free tier and $9/month pricing. Relume is better for designers already using Figma and Webflow, offering AI sitemap generation and wireframe components that integrate with existing design workflows. Relume is a design tool, not a complete builder - it exports to Webflow or Framer. Mixo is ideal for users wanting the fastest path to a complete website. Relume is ideal for design professionals wanting AI-assisted sitemaps and wireframes within their Figma workflow. Choose Mixo for complete website generation. Choose Relume if you're a designer using Figma/Webflow workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Relume and Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is more affordable than Relume with more transparent pricing. Mixo offers a generous free tier and paid plans start at just $9/month. Over 3 years, Mixo costs as little as $324 total. Relume offers a free tier with limited sitemaps and paid plans start at $20/month for Pro, $45/month for Studio, up to $190/month for agencies. Over 3 years, Relume costs $720-6840 depending on plan level. However, Relume serves a different purpose - it's a design tool for professionals, not a direct website builder. For complete website generation, Mixo offers better value. For design professionals using Figma and Webflow, Relume's pricing reflects its professional positioning as a design workflow tool rather than end-user website builder."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do Relume and Mixo work differently?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Relume and Mixo work completely differently. Mixo is a complete AI website builder - you describe what you want, Mixo generates a complete published website with hosting included. It's an all-in-one solution for users who want a live site fast. Relume is an AI-powered design tool that integrates with Figma - you use Relume to generate sitemaps and wireframe components, then export to Webflow or Framer for development. Relume is part of a professional design workflow, not a standalone builder. Mixo requires no design skills. Relume requires Figma knowledge and design experience. Mixo outputs finished websites. Relume outputs design deliverables. Choose Mixo if you want a complete website without design work. Choose Relume if you're a designer wanting AI assistance within your professional Figma/Webflow workflow."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for complete websites.</strong> Best ease (9.0/10), $9/mo, finished sites.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume wins for designers.</strong> Figma integration, sitemap AI, Webflow export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want a complete website without design skills.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Relume if:</strong> You're a designer using Figma/Webflow workflow.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Relume</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Product Type</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Design tool</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Complete builder</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Figma Integration</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Native</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">None</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Output</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Sitemaps, wireframes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Complete websites</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very good (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Hosting Included</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$20/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Target User</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Designers</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Everyone</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Limited sitemaps</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Generous site</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Requires Figma</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Workflow</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Professional design</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Direct to publish</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Tool vs. Website Builder</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Relume is a design tool.</strong> Generates sitemaps and wireframes for Figma. Not a complete builder.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is a complete builder.</strong> Generates finished websites with hosting. All-in-one solution.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Relume targets designers.</strong> Professionals using Figma and Webflow workflows.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo targets everyone.</strong> Users wanting quick sites without design skills.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Workflow Integration</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Relume fits into workflows.</strong> Part of Figma → Webflow/Framer design process.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo replaces workflow.</strong> One tool from prompt to published site.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Relume: Professional efficiency.</strong> AI-assisted design for professional workflows.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo: Complete simplicity.</strong> Fastest path to live website for non-designers.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Skills</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want a complete website, you're not a designer, you need something live fast, you want all-in-one solution.</li>
+        <li><strong>Choose Relume (8.2/10) if:</strong> You're a designer, you use Figma, you work with Webflow/Framer, you want AI sitemap assistance.</li>
+        <li><strong>Mixo is better for:</strong> Entrepreneurs, small business, landing pages, MVP testing, non-designers.</li>
+        <li><strong>Relume is better for:</strong> Design agencies, Webflow designers, Figma users, professional workflows.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for complete websites.</strong> If you want a finished site without design complexity.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume for design professionals.</strong> If you're a designer using Figma/Webflow.
+      </p>
+      <p class="text-gray-700">
+        These serve completely different purposes. Choose based on whether you want a finished site or design assistance.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo for complete websites. Relume for design workflow assistance.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/relume-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Relume Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/relume-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Relume vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">AI wireframing vs design platform</p>
+        </a>
+        <a href="/comparisons/mixo-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs design power</p>
+        </a>
+        <a href="/comparisons/relume-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Relume vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Wireframing vs prototyping</p>
+        </a>
+        <a href="/comparisons/mixo-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs CRM features</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

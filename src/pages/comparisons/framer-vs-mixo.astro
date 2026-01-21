@@ -1,0 +1,289 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Framer vs Mixo AI',
+  description: 'Framer vs Mixo: Which AI website builder is better? Compare best design quality vs best value for quick websites.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Framer',
+    score: 8.8,
+    ease: 8.0,
+    design: 9.5,
+    speed: 8.5,
+    flexibility: 8.5,
+    value: 7.5,
+    price: '$15/mo (often has discounts)',
+    features: ['Best designs (9.5/10)', 'Code export', 'Fast performance', 'Modern aesthetic'],
+    bestFor: 'Best designs under $20',
+    strengths: ['Best designs (9.5/10)', 'Code export', 'Fast performance', 'Modern look'],
+    weaknesses: ['Over $10 base price', 'Learning curve', 'Limited CMS', 'Newer platform']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 9.0,
+    price: '$9/mo (or free)',
+    features: ['Best free tier', 'Easy to use', 'Good designs', 'Fast setup'],
+    bestFor: 'Best budget pick',
+    strengths: ['Best ease (9.0/10)', 'Excellent value (9.0/10)', 'Generous free tier', 'Fast AI setup'],
+    weaknesses: ['No code export', 'Limited customization', 'Basic CMS', 'Newer platform']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Framer or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer (8.8/10) is better than Mixo (8.5/10) overall, particularly for design quality with the best designs in the industry (9.5/10 vs 8.5/10). Framer offers code export, faster performance, and a modern aesthetic that's perfect for designers and tech-focused sites. Mixo is better for budget-conscious users ($9/mo vs $15/mo) and those wanting the easiest experience (9.0/10 ease vs 8.0/10). Mixo also has an excellent free tier and superior value for money (9.0/10 vs 7.5/10). Choose Framer if you want the best designs, code export option, and modern performance. Choose Mixo if budget is $9/month and you want maximum simplicity. For most users, Framer's superior design quality makes it worth the extra cost if aesthetics matter. Mixo is perfect for quick, affordable sites."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between Framer and Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is more affordable than Framer with a better free tier and lower ongoing pricing. Mixo offers a generous free tier and paid plans start at just $9/month. Over 3 years, Mixo costs as little as $324 total. Framer starts at $15/month for basic plans but frequently offers first-year discounts bringing effective pricing closer to $10/month. Over 3 years, Framer costs approximately $540+ depending on whether you secure promotional pricing. Mixo's free tier is one of the best available. Framer requires payment sooner but offers code export and superior design quality. For budget-conscious users, Mixo offers better value. For users wanting the best designs and code export, Framer justifies its premium pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Framer or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export on paid plans, allowing you to export clean HTML, CSS, and JS to host elsewhere or continue development manually. This is a significant advantage for developers, agencies, and anyone wanting platform independence. Mixo does not offer code export - your website stays on Mixo's servers permanently. This is a major difference if you care about owning your code or having the flexibility to migrate platforms. With Framer, you can export your code and move to custom development when ready. With Mixo, you're locked into their platform but get a much simpler experience. If code export matters, Framer is the clear winner. If you don't care about code export and want maximum simplicity, Mixo is the better choice."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for design.</strong> Best designs (9.5/10), code export, modern aesthetic.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for value.</strong> Best free tier, $9/mo, ease 9.0/10.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want the best designs and code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> Budget is $9/mo and you want the easiest experience.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very good (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Good (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (paid plans)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Trial available</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Generous</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Performance</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very fast</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Value for Money</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fair (7.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Aesthetic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Modern, tech-focused</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Clean, accessible</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Target User</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Designers, startups</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Everyone, beginners</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design Philosophy</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer prioritizes design.</strong> Industry-leading aesthetics with modern tech focus.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo prioritizes accessibility.</strong> Good designs that are easy for everyone.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Target Audience</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer targets designers.</strong> Startups, portfolios, tech-focused brands.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo targets everyone.</strong> Small business, personal sites, beginners.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Code Export</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer offers portability.</strong> Export code for hosting elsewhere or custom development.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is hosted-only.</strong> Your site stays on Mixo servers permanently.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Value Proposition</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer: Design excellence.</strong> Premium aesthetics and performance worth paying for.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo: Smart value.</strong> Professional results at budget prices with maximum ease.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Priorities</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (8.8/10) if:</strong> You want the best designs, code export matters, you're design-focused, budget allows $15+/mo.</li>
+        <li><strong>Choose Mixo (8.5/10) if:</strong> Budget is $9/mo, you want maximum ease, you need a simple site, free tier matters.</li>
+        <li><strong>Framer is better for:</strong> Designers, startups, portfolios, tech companies, modern brands.</li>
+        <li><strong>Mixo is better for:</strong> Small business, personal sites, beginners, budget projects, quick launches.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for design excellence.</strong> If you want the best designs and can afford $15+/mo.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for smart value.</strong> If you want professional results at $9/mo with zero learning curve.
+      </p>
+      <p class="text-gray-700">
+        Framer delivers the best designs in class. Mixo delivers the best value for most users.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for design excellence. Mixo for budget-friendly value.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/mixo-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

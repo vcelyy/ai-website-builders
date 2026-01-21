@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Site123 vs Unicorn Platform',
+  description: 'Site123 vs Unicorn: Which ultra-simple AI website builder is better? Compare features, pricing, ease of use, and design quality.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Site123',
+    score: 7.1,
+    ease: 9.5,
+    design: 6.0,
+    ai: 6.0,
+    value: 7.5,
+    price: '$7-18/mo',
+    strengths: ['Extremely easy', '5-minute setup', 'Multilingual', '24/7 support'],
+    weaknesses: ['Very limited features', 'Dated designs', 'No code export', 'Below-average PageSpeed']
+  },
+  {
+    name: 'Unicorn Platform',
+    score: 7.5,
+    ease: 9.0,
+    design: 6.5,
+    ai: 6.5,
+    value: 7.5,
+    price: '$5-29/mo',
+    strengths: ['Very simple', 'Fast generation', 'Free tier', 'Easy for beginners'],
+    weaknesses: ['Very limited features', 'Basic templates', 'No code export', 'Better options exist']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Site123 or Unicorn Platform easier to use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Site123 is slightly easier - you can create a website in under 5 minutes with zero technical knowledge. It's possibly the easiest website builder available. Unicorn Platform is also very simple but requires a bit more decision-making during setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Site123 or Unicorn Platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing is similar. Site123 costs $7-18/month while Unicorn Platform is $5-29/month. Both have free plans. The difference is small enough that you should choose based on features rather than price."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use Site123 or Unicorn Platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Honestly, neither is our top recommendation. For beginners, Mixo and Durable offer significantly more features at similar pricing while still being easy to use. Only choose Site123 or Unicorn if you want the absolute simplest option available and don't care about features or design quality."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Neither is our top choice.</strong> Both are ultra-simple but very limited. Mixo or Durable offer more value.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Choose Site123 if:</strong> You want absolute simplicity and multilingual support.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Unicorn if:</strong> You want fast generation and don't need many features.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Starting Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Site123</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Unicorn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Time</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Under 5 minutes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">2-3 minutes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Template Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very dated</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Basic but cleaner</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Features</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic wizard</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic wizard</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Multilingual</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">E-commerce</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very limited</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">PageSpeed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">55-70</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">60-75</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$7/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center font-bold">$5/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Better Alternatives -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Better Alternatives Exist</h2>
+      <p class="text-gray-700 mb-4">
+        <strong>We recommend considering Mixo AI or Durable AI instead:</strong>
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li><strong>Mixo AI (8.5/10):</strong> Better templates, AI content generation, built-in SEO, and still very easy to use</li>
+        <li><strong>Durable AI (8.5/10):</strong> More features including CRM, AI copywriting, and better e-commerce</li>
+      </ul>
+      <p class="text-gray-700 mt-4">
+        Both cost about the same as Site123 and Unicorn but deliver significantly more value. Only choose Site123 or Unicorn if you want the absolute simplest possible option.
+      </p>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Ease of Use</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Site123 is slightly easier.</strong> The 5-minute setup is real - you answer questions and get a site with zero decisions.
+        </p>
+        <p class="text-gray-700">
+          Unicorn Platform is also very simple but requires slightly more input. Both are excellent for complete beginners.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Both are very limited.</strong> You get basic websites with minimal customization. No advanced features, no AI content generation, no sophisticated tools.
+        </p>
+        <p class="text-gray-700">
+          Site123 has multilingual support which is a nice touch. Unicorn has slightly better templates. But both are missing features that Mixo and Durable include at similar prices.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Consider testing Mixo or Durable for better value.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/durable-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

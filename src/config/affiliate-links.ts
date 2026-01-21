@@ -275,6 +275,86 @@ export const AFFILIATE_LINKS = {
     freeTrial: true,
     ctaText: 'Try Unicorn Platform',
     programUrl: 'https://unicornplatform.com'
+  },
+
+  /**
+   * CodeDesign.ai - AI-first website builder with code export
+   * Commission: Varies (check site)
+   * Priority: LOW - Developer-focused
+   */
+  codedesign: {
+    name: 'CodeDesign.ai',
+    url: 'https://codedesign.ai',
+    affiliateUrl: '',
+    commission: 'TBD',
+    recurring: 'unknown',
+    freeTrial: true,
+    ctaText: 'Try CodeDesign.ai',
+    programUrl: 'https://codedesign.ai'
+  },
+
+  /**
+   * Godaddy AI - GoDaddy's AI website builder
+   * Commission: Varies (check site)
+   * Priority: LOW - Budget hosting
+   */
+  godaddy: {
+    name: 'GoDaddy AI',
+    url: 'https://godaddy.com/websites/website-builder',
+    affiliateUrl: '',
+    commission: 'TBD',
+    recurring: 'unknown',
+    freeTrial: true,
+    ctaText: 'Try GoDaddy AI',
+    programUrl: 'https://godaddy.com/affiliates'
+  },
+
+  /**
+   * IONOS AI - IONOS AI website builder
+   * Commission: Varies (check site)
+   * Priority: LOW - European market
+   */
+  ionos: {
+    name: 'IONOS AI',
+    url: 'https://ionos.com',
+    affiliateUrl: '',
+    commission: 'TBD',
+    recurring: 'unknown',
+    freeTrial: true,
+    ctaText: 'Try IONOS AI',
+    programUrl: 'https://ionos.com/affiliates'
+  },
+
+  /**
+   * Jimdo AI - Jimdo's AI website builder
+   * Commission: Varies (check site)
+   * Priority: LOW - Simple sites
+   */
+  jimdo: {
+    name: 'Jimdo AI',
+    url: 'https://jimdo.com',
+    affiliateUrl: '',
+    commission: 'TBD',
+    recurring: 'unknown',
+    freeTrial: true,
+    ctaText: 'Try Jimdo AI',
+    programUrl: 'https://jimdo.com/affiliate'
+  },
+
+  /**
+   * Pineapple Builder - Restaurant-focused AI website builder
+   * Commission: Varies (check site)
+   * Priority: LOW - Restaurant niche
+   */
+  'pineapple-builder': {
+    name: 'Pineapple Builder',
+    url: 'https://pineapplebuilder.com',
+    affiliateUrl: '',
+    commission: 'TBD',
+    recurring: 'unknown',
+    freeTrial: true,
+    ctaText: 'Try Pineapple Builder',
+    programUrl: 'https://pineapplebuilder.com'
   }
 } as const;
 
@@ -340,14 +420,10 @@ export function hasAffiliateCTA(tool: AffiliateTool): boolean {
 /**
  * Get all affiliate program URLs for easy access
  */
-export function getAllProgramUrls(): Record<AffiliateTool, string> {
-  return {
-    '10web': AFFILIATE_LINKS['10web'].programUrl,
-    framer: AFFILIATE_LINKS.framer.programUrl,
-    durable: AFFILIATE_LINKS.durable.programUrl,
-    relume: AFFILIATE_LINKS.relume.programUrl,
-    webflow: AFFILIATE_LINKS.webflow.programUrl
-  };
+export function getAllProgramUrls(): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(AFFILIATE_LINKS).map(([key, data]) => [key, data.programUrl])
+  );
 }
 
 /**

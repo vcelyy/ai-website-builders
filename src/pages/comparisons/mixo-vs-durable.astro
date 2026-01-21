@@ -1,0 +1,289 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Mixo vs Durable AI',
+  description: 'Mixo vs Durable: Which AI website builder is faster and better? Compare AI generation speed, features, pricing, and overall value for quick website creation.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.5,
+    ai: 8.5,
+    speed: 9.5,
+    price: '$9/mo',
+    aiFeatures: ['AI Website Generator', 'AI Content Engine', 'Built-in SEO'],
+    bestFor: 'Fastest launch',
+    strengths: ['Incredibly fast', 'Quality templates', 'Built-in SEO', 'Affordable', 'Free plan'],
+    weaknesses: ['Limited customization', 'No code export', 'Basic e-commerce']
+  },
+  {
+    name: 'Durable',
+    score: 8.5,
+    ease: 9.0,
+    ai: 8.5,
+    speed: 9.0,
+    price: '$15/mo',
+    aiFeatures: ['AI Website Builder', 'AI Copywriter', 'Built-in CRM'],
+    bestFor: 'Marketing + CRM',
+    strengths: ['Built-in CRM', 'Excellent AI copy', 'Fast generation', 'All-in-one'],
+    weaknesses: ['Newer platform', 'Limited templates', 'No code export', 'Fewer features']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Mixo or Durable better for fast website creation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both are incredibly fast. Mixo generates sites in under 60 seconds and costs $9/mo. Durable takes 1-2 minutes and costs $15/mo but includes built-in CRM. Mixo is faster and cheaper. Durable offers more business features with CRM. Choose Mixo for pure speed, Durable if you need customer management."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is cheaper, Mixo or Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo is cheaper at $9/month vs Durable's $15/month. Both offer free plans to test. Mixo has simpler pricing (one tier), while Durable's pricing includes CRM features. For basic websites, Mixo saves you $6/month. For businesses needing CRM, Durable's higher price is justified."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Mixo or Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, neither Mixo nor Durable offer code export. Both are hosted platforms - your website is tied to their service. If you leave either platform, you'll need to rebuild. For AI builders with code export, consider Framer ($15-35/mo) which also has fast generation, or Webflow ($23-59/mo)."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins on speed and price.</strong> Under 60 seconds, $9/month.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable wins on features.</strong> Built-in CRM for customer management.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want the fastest, cheapest launch.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Durable if:</strong> You need CRM and marketing tools built-in.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>AI Features</span>
+                <span class="font-semibold">{tool.ai}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">AI Features</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.aiFeatures.join(', ')}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Durable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Generation Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Under 60 seconds</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">1-2 minutes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">AI Content Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Excellent</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Excellent</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Built-in SEO</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">CRM/Marketing</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in CRM</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Templates</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Good variety</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$15/mo</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Plan</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Speed</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is faster.</strong> Generates complete websites in under 60 seconds with AI-generated content.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable is very fast too.</strong> Takes 1-2 minutes, which is still incredibly quick compared to traditional builders.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Business Features</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Durable includes built-in CRM.</strong> Customer management, invoicing, and marketing tools are integrated.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is website-focused.</strong> Excellent for websites but lacks built-in business management features.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Pricing</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo is more affordable.</strong> $9/month flat pricing with all features included.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable costs more.</strong> $15/month but includes CRM features that would cost extra elsewhere.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Templates</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Mixo has better templates.</strong> Wider variety of modern designs for different industries.
+        </p>
+        <p class="text-gray-700">
+          <strong>Durable has fewer templates.</strong> More limited selection but AI customization makes up for it.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want the fastest launch, lowest price, and don't need CRM features.</li>
+        <li><strong>Choose Durable (8.5/10) if:</strong> You need customer management, invoicing, and marketing tools built-in.</li>
+        <li><strong>Mixo is better for:</strong> Landing pages, simple sites, portfolios, blogs.</li>
+        <li><strong>Durable is better for:</strong> Service businesses, agencies, freelancers needing CRM.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most users.</strong> Faster, cheaper, and sufficient for most website needs.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Durable for service businesses.</strong> If you need CRM and don't mind paying $6 more.
+      </p>
+      <p class="text-gray-700">
+        Both are excellent choices. The decision comes down to whether you need built-in CRM (Durable) or prefer speed and price (Mixo).
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Both offer free trials. Test each to see which workflow you prefer.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/mixo-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+        <a href="/reviews/durable-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Durable Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/durable-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Durable vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs design power</p>
+        </a>
+        <a href="/comparisons/durable-vs-10web" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Durable vs 10Web</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs WordPress power</p>
+        </a>
+        <a href="/comparisons/mixo-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs templates</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

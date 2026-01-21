@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: '10Web vs Wix AI',
+  description: '10Web vs Wix: Which AI website builder is better? Compare WordPress AI generation vs feature-rich established platform.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Wix',
+    score: 8.2,
+    ease: 8.5,
+    design: 8.0,
+    speed: 7.5,
+    flexibility: 9.0,
+    value: 7.5,
+    price: '$17-159/mo',
+    features: ['Feature-rich', 'App market', 'Established platform', 'More flexibility'],
+    bestFor: 'Users wanting features',
+    strengths: ['Huge feature set', 'App ecosystem', 'Established', 'More flexibility'],
+    weaknesses: ['Can feel overwhelming', 'AI features limited', 'Premium pricing', 'Performance varies']
+  },
+  {
+    name: '10Web',
+    score: 8.3,
+    ease: 7.0,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 8.5,
+    value: 8.0,
+    price: '$10/mo (or free)',
+    features: ['WordPress-based', 'Up to 10 free sites', 'Code export', 'AI generation'],
+    bestFor: 'WordPress power users',
+    strengths: ['10 free AI sites', 'WordPress ecosystem', 'Code export', 'AI generation'],
+    weaknesses: ['WordPress complexity', 'Can feel complex', 'Support varies', 'Learning curve']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is 10Web or Wix better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10Web (8.3/10) and Wix (8.2/10) are very close overall but serve different users. 10Web is better for WordPress users or those wanting WordPress power with AI generation - offering up to 10 free AI-generated sites, code export, and the massive WordPress plugin ecosystem. Wix is better for users who want extensive features without WordPress complexity, with a huge app marketplace and more flexible template-based building. 10Web offers better value (8.0/10 vs 7.5/10) with $10/month pricing and 10 free sites. Wix offers better ease of use (8.5/10 vs 7.0/10) with its drag-and-drop editor. Choose 10Web if you want WordPress with AI or code export capability. Choose Wix if you want maximum features without WordPress learning curve."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between 10Web and Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10Web is more affordable than Wix with better free tier value. 10Web offers up to 10 free AI-generated sites and paid plans start at $10/month per site. Over 3 years, 10Web costs approximately $360 total for basic plans. Wix starts at $17/month for basic plans, $29/month for premium, up to $159/month for enterprise features. Over 3 years, Wix costs $612-5724 depending on plan level. 10Web's 10 free sites offer is exceptional value for users needing multiple sites. Wix has higher pricing but includes more built-in features without needing plugins. For single sites, both are similarly priced at the entry level. For multiple sites, 10Web is significantly better value. Both offer free tiers for testing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from 10Web or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10Web offers code export since it's WordPress-based. You can export your entire site and host it anywhere WordPress runs. This gives you platform independence and the ability to continue development manually or migrate to different hosting. Wix does not offer code export - your website stays on Wix's servers permanently. You're locked into their platform. This is a major difference if you care about owning your code or having the flexibility to move platforms. With 10Web, you get WordPress portability and can self-host if desired. With Wix, you're dependent on their hosting indefinitely. If code export and platform independence matter, 10Web is the clear winner. If you don't care about code export and want an easier all-in-one solution, Wix works fine."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>10Web wins for WordPress users.</strong> 10 free sites, code export, WordPress ecosystem.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix wins for ease and features.</strong> Easier to use, app marketplace, more built-in.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose 10Web if:</strong> You want WordPress power or code export.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Wix if:</strong> You want features without WordPress complexity.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Wix</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">10Web</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Easy (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Proprietary</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress-based</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Limited (with ads)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Up to 10 sites</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$17/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$10/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (WordPress)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Wix App Market</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress plugins</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Feature Set</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extensive built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Plugin-dependent</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Gentle</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">WordPress learning</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">High (9.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">High (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Feature seekers</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress users</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Foundation</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix is proprietary.</strong> Closed platform with everything built-in.
+        </p>
+        <p class="text-gray-700">
+          <strong>10Web is WordPress-based.</strong> Full WordPress ecosystem with plugins and themes.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Feature Philosophy</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Wix includes everything.</strong> Massive feature set built-in, app marketplace for more.
+        </p>
+        <p class="text-gray-700">
+          <strong>10Web uses plugins.</strong> WordPress features through plugin ecosystem.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Code Export</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web offers portability.</strong> Export WordPress site to host anywhere.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix is hosted-only.</strong> Your site stays on Wix servers permanently.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Free Tier Value</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web: Up to 10 free sites.</strong> Unbeatable for multiple AI-generated sites.
+        </p>
+        <p class="text-gray-700">
+          <strong>Wix: Limited free tier.</strong> Single site with Wix ads and restrictions.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose 10Web (8.3/10) if:</strong> You know WordPress, you want code export, you need multiple sites, you value plugin ecosystem.</li>
+        <li><strong>Choose Wix (8.2/10) if:</strong> You want maximum features, you prefer ease over flexibility, you don't want WordPress, you like app marketplace.</li>
+        <li><strong>10Web is better for:</strong> WordPress users, developers, multiple sites, code export, plugin power.</li>
+        <li><strong>Wix is better for:</strong> Beginners, feature seekers, users wanting simplicity, extensive built-in tools.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>10Web for WordPress users.</strong> If you know WordPress or want its ecosystem with AI.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix for feature seekers.</strong> If you want extensive features without WordPress complexity.
+      </p>
+      <p class="text-gray-700">
+        Both are excellent choices. Choose based on whether you want WordPress power or all-in-one simplicity.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">10Web for WordPress power. Wix for feature-rich simplicity.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/10web-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read 10Web Review →
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Wix Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/10web-vs-wordpress" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">10Web vs WordPress</h3>
+          <p class="text-sm text-gray-600 mt-1">AI enhancement vs traditional CMS</p>
+        </a>
+        <a href="/comparisons/wix-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Ease vs power</p>
+        </a>
+        <a href="/comparisons/10web-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">10Web vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress vs design power</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,314 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: '10Web vs Mixo AI',
+  description: '10Web vs Mixo: Which AI website builder is better? Compare WordPress power vs focused simplicity.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: '10Web',
+    score: 8.3,
+    ease: 7.0,
+    design: 8.0,
+    speed: 8.0,
+    flexibility: 8.5,
+    value: 8.0,
+    price: '$10/mo (or free)',
+    features: ['WordPress-based', 'Up to 10 free sites', 'Code export', 'AI generation'],
+    bestFor: 'WordPress power users',
+    strengths: ['10 free AI sites', 'WordPress ecosystem', 'Code export', 'AI generation'],
+    weaknesses: ['WordPress complexity', 'Can feel complex', 'Support varies', 'Learning curve']
+  },
+  {
+    name: 'Mixo',
+    score: 8.5,
+    ease: 9.0,
+    design: 8.5,
+    speed: 8.5,
+    flexibility: 7.0,
+    value: 9.0,
+    price: '$9/mo (or free)',
+    features: ['AI-first', 'Best free tier', 'Affordable', 'Fast setup'],
+    bestFor: 'Quick, affordable sites',
+    strengths: ['Best ease (9.0/10)', 'Excellent value (9.0/10)', 'Generous free tier', 'Fast AI setup'],
+    weaknesses: ['Limited features', 'No code export', 'Basic CMS', 'Newer platform']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is 10Web or Mixo better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mixo (8.5/10) edges out 10Web (8.3/10) for most users due to superior ease of use (9.0/10 vs 7.0/10) and value (9.0/10 vs 8.0/10). Mixo offers the simplest path from prompt to published website with excellent free tier and $9/month pricing. 10Web is better for WordPress users who want AI generation within the familiar WordPress ecosystem. 10Web offers up to 10 free AI-generated sites and code export capability. Mixo is the better choice for beginners and users wanting the easiest experience. 10Web is ideal for existing WordPress users or those wanting WordPress flexibility with AI assistance. Both offer excellent free tiers and similar $9-10/month starting pricing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the price difference between 10Web and Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10Web and Mixo have very similar pricing structures. Both offer generous free tiers and paid plans starting at $9-10/month. Mixo is $9/month for paid plans. 10Web is $10/month per site for premium features. Over 3 years, both cost approximately $324-360 total for basic plans. 10Web offers up to 10 free AI-generated sites, which is exceptional value if you need multiple sites. Mixo's free tier is more generous for single-site use with fewer limitations. For single sites, Mixo offers slightly better value. For multiple sites, 10Web's 10 free sites offer is unbeatable. Both are excellent budget choices compared to premium builders that cost $23+/month."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from 10Web or Mixo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "10Web offers code export since it's WordPress-based. You can export your site and host it anywhere WordPress runs. This gives you platform independence and the ability to continue development manually if needed. Mixo does not offer code export - your website stays on Mixo's servers permanently. This is a major difference if you care about owning your code or migrating platforms. With 10Web, you get the power of WordPress ecosystem and portability. With Mixo, you're locked into their platform but get a much simpler experience. If code export matters, 10Web is the clear winner. If you don't care about code export and want maximum simplicity, Mixo is the better choice."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo wins for ease and simplicity.</strong> Best ease (9.0/10), best value, simplest setup.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>10Web wins for WordPress users.</strong> Code export, WordPress ecosystem, 10 free sites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Mixo if:</strong> You want the easiest, simplest experience.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose 10Web if:</strong> You're a WordPress user or want code export.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Setup Speed</span>
+                <span class="font-semibold">{tool.speed}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Flexibility</span>
+                <span class="font-semibold">{tool.flexibility}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Value for Money</span>
+                <span class="font-semibold">{tool.value}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">10Web</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ease of Use</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Moderate (7.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Excellent (9.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Platform</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress-based</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Proprietary</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Free Tier</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Up to 10 sites</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Generous single site</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Starting Price</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$10/month</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$9/month</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Yes (WordPress)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">No</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Ecosystem</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress plugins</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Closed platform</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Setup Speed</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Fast (8.0/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Very fast (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Learning Curve</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">WordPress learning</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Minimal</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Flexibility</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">High (8.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Medium (7.0/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Best For</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">WordPress users</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Beginners, simplicity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Platform Foundation</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web is WordPress-based.</strong> Full WordPress ecosystem with plugins and themes.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is proprietary.</strong> Closed platform focused on AI-generated sites.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Complexity vs. Simplicity</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web brings WordPress power.</strong> Unlimited flexibility but WordPress learning curve.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo prioritizes simplicity.</strong> Focused experience, minimal learning, fast setup.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Code Export</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web offers portability.</strong> Export to WordPress hosting anywhere.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo is hosted-only.</strong> Your site stays on Mixo servers.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Free Tier Value</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>10Web: Up to 10 free sites.</strong> Unbeatable for multiple AI-generated sites.
+        </p>
+        <p class="text-gray-700">
+          <strong>Mixo: Generous single site.</strong> Best free tier for single-site use.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Needs</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Mixo (8.5/10) if:</strong> You want maximum simplicity, you're a beginner, you need one site fast, ease matters most.</li>
+        <li><strong>Choose 10Web (8.3/10) if:</strong> You know WordPress, you want code export, you need multiple sites, you value flexibility.</li>
+        <li><strong>Mixo is better for:</strong> Complete beginners, landing pages, single sites, minimum learning.</li>
+        <li><strong>10Web is better for:</strong> WordPress users, multiple sites, code export, plugin ecosystem.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo for most beginners.</strong> Simplest path to a live website at $9/month.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>10Web for WordPress users.</strong> If you know WordPress or want its ecosystem.
+      </p>
+      <p class="text-gray-700">
+        Both offer excellent value with free tiers and $9-10/month pricing. Choose based on WordPress familiarity.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Mixo for simplicity. 10Web for WordPress power. Both excellent budget choices.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/10web-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read 10Web Review →
+        </a>
+        <a href="/reviews/mixo-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Mixo Review →
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Comparisons -->
+    <div class="mt-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related Comparisons
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/10web-vs-wordpress" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">10Web vs WordPress</h3>
+          <p class="text-sm text-gray-600 mt-1">AI enhancement vs traditional CMS</p>
+        </a>
+        <a href="/comparisons/mixo-vs-durable" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">AI speed vs CRM features</p>
+        </a>
+        <a href="/comparisons/10web-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">10Web vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Mixo vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Simplicity vs design power</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

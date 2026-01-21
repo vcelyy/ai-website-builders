@@ -1,0 +1,221 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best Budget AI Website Builders Under $10/month',
+  description: 'Looking for affordable AI website builders? We tested the cheapest options including Hostinger ($2.99), Zyro ($3), Webnode ($4), and Site123 ($7). Find out which budget builder delivers the most value.',
+  date: 'January 2025'
+};
+
+const budgetBuilders = [
+  {
+    name: 'Hostinger',
+    price: '$2.99/mo',
+    score: 7.8,
+    bestFor: 'Absolute cheapest option',
+    pros: ['Unbeatable price', 'Fast generation', 'Hosting included'],
+    cons: ['Limited customization', 'Basic AI', 'No code export']
+  },
+  {
+    name: 'Zyro',
+    price: '$3/mo',
+    score: 7.6,
+    bestFor: 'AI content tools',
+    pros: ['AI Writer', 'AI Heatmap', 'Decent templates'],
+    cons: ['Limited templates', 'No code export', 'Average design']
+  },
+  {
+    name: 'Webnode',
+    price: '$4/mo',
+    score: 7.3,
+    bestFor: 'Multilingual sites',
+    pros: ['20+ languages', 'EU-based', 'GDPR compliant'],
+    cons: ['Very dated designs', 'Basic AI', 'Limited features']
+  },
+  {
+    name: 'Site123',
+    price: '$7/mo',
+    score: 7.1,
+    bestFor: 'Absolute beginners',
+    pros: ['5-minute setup', 'Extremely easy', 'Multilingual'],
+    cons: ['Very limited features', 'Dated designs', 'Poor PageSpeed']
+  },
+  {
+    name: 'Mixo',
+    price: '$9/mo',
+    score: 8.5,
+    bestFor: 'Best overall value',
+    pros: ['Great templates', 'Fast generation', 'AI content', 'SEO features'],
+    cons: ['No code export', 'Limited e-commerce', 'Basic customization']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the cheapest AI website builder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hostinger is the cheapest at $2.99/month (with 48-month commitment). It includes AI website builder, hosting, SSL certificate, and domain (first year). Zyro is close at $3/month. Both are excellent budget options, though Mixo ($9/month) delivers better overall value if you can spend a bit more."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are cheap AI website builders worth it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Budget AI builders can be worth it for simple sites. Hostinger ($2.99) and Zyro ($3) offer solid basic functionality. However, you sacrifice design quality, features, and customization. For $9/month, Mixo delivers significantly better value with modern templates and AI content generation. Choose budget builders if price is your top priority."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What do I get with a budget AI website builder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Budget AI builders typically include: AI-powered site generation (answer questions, get a site), basic templates, hosting, SSL certificate, and custom domain (first year). What you DON'T get: advanced features, code export, premium templates, extensive customization, and priority support. For simple personal sites or testing business ideas, budget builders work. For professional sites, spend a bit more."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Hostinger is cheapest at $2.99/month.</strong> Unbeatable price if you're on a tight budget.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Mixo ($9/mo) delivers best value.</strong> Significantly better templates and features for a few dollars more.
+      </p>
+      <p class="text-gray-700">
+        <strong>Our recommendation:</strong> Spend the extra $6-7 on Mixo. You get 10x better templates and AI content generation. If budget is absolutely critical, Hostinger works.
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Budget Builder Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Builder</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Price</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Score</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            {budgetBuilders.map(builder => (
+              <tr>
+                <td class="border border-gray-200 px-4 py-3 font-semibold">{builder.name}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center font-bold text-orange-600">{builder.price}</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.score}/10</td>
+                <td class="border border-gray-200 px-4 py-3 text-center">{builder.bestFor}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Detailed Reviews -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">In-Depth Reviews</h2>
+
+      {budgetBuilders.map(builder => (
+        <div class="border border-gray-200 rounded-lg p-6 mb-6">
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900">{builder.name}</h3>
+              <p class="text-orange-600 font-semibold">{builder.price} • {builder.score}/10</p>
+              <p class="text-gray-600 mt-1">{builder.bestFor}</p>
+            </div>
+            <a href={`/reviews/${builder.name.toLowerCase().replace(/\s/g, '-')}-ai`}
+               class="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-semibold text-sm">
+              Read Review →
+            </a>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold text-green-700 mb-2">Pros</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.pros.map(pro => <li class="flex items-start gap-2"><span class="text-green-500">✓</span><span>{pro}</span></li>)}
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-red-700 mb-2">Cons</h4>
+              <ul class="space-y-1 text-sm">
+                {builder.cons.map(con => <li class="flex items-start gap-2"><span class="text-red-500">✗</span><span>{con}</span></li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- What to Expect -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What to Expect from Budget Builders</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">You Get:</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>AI-powered site generation (basic)</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Hosting included</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Free SSL certificate</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Custom domain (usually first year free)</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Basic templates</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Customer support (often slower)</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">You Don't Get:</h3>
+        <ul class="space-y-2 text-gray-700">
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Premium or modern templates</span></li>
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Code export (vendor lock-in)</span></li>
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Advanced AI features</span></li>
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Extensive customization</span></li>
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Priority support</span></li>
+          <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✗</span><span>Advanced e-commerce features</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>If budget is your absolute priority:</strong> Hostinger at $2.99/month. You get a working site with hosting for almost nothing.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>If you can spend $9/month:</strong> Mixo is dramatically better. Modern templates, AI content generation, built-in SEO. The extra $6 delivers 10x the value.
+      </p>
+      <p class="text-gray-700">
+        <strong>For multilingual sites:</strong> Webnode at $4/month has the best multilingual support with 20+ languages.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">All budget builders offer free trials. Test before committing.</p>
+      <a href="/reviews" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        See All AI Builder Reviews →
+      </a>
+    </div>
+  </div>
+</Layout>

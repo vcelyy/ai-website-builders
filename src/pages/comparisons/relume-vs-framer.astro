@@ -1,0 +1,250 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const comparisonData = {
+  title: 'Relume vs Framer AI',
+  description: 'Relume vs Framer: Which AI website builder is better? Compare Webflow components vs React export for modern web design.',
+  date: 'January 2025'
+};
+
+const tools = [
+  {
+    name: 'Framer',
+    score: 8.8,
+    ease: 7.5,
+    design: 9.5,
+    workflow: 'Direct design',
+    price: '$15-35/mo',
+    features: ['Best designs (9.5/10)', 'Code export', 'Smooth animations', 'Fast performance'],
+    bestFor: 'Finished websites',
+    strengths: ['Beautiful templates', 'Code export', 'Fast PageSpeed', 'Modern aesthetic'],
+    weaknesses: ['Learning curve', 'Limited CMS', 'No native e-commerce', 'Less mature']
+  },
+  {
+    name: 'Relume',
+    score: 8.2,
+    ease: 8.0,
+    design: 8.5,
+    workflow: 'Webflow Figma → Webflow',
+    price: '$20/mo + Webflow costs',
+    features: ['Figma components', 'Webflow export', 'Component library', 'Design system'],
+    bestFor: 'Webflow designers',
+    strengths: ['Webflow integration', 'Component library', 'Figma workflow', 'Design system'],
+    weaknesses: ['Requires Webflow', 'Figma learning', 'Additional cost', 'Not standalone']
+  }
+];
+---
+
+<Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Relume or Framer better for website building?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer (8.8/10) offers better design quality (9.5/10 vs 8.5/10), is standalone, and includes code export. Relume (8.2/10) is a component library for Webflow that requires both Figma and Webflow subscriptions. Framer is better for quickly building finished websites with React export. Relume is better for Webflow designers who want a component-based workflow in Figma. If you use Webflow, Relume adds powerful component capabilities. If you want standalone design with code export, Framer is the better choice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need Webflow to use Relume?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Relume requires Webflow. Relume is a component library that exports to Webflow - it's not a standalone website builder. The workflow is: design in Relume's Figma kit → export to Webflow → customize and publish. You need both Relume subscription ($20/mo) AND Webflow subscription ($23+/mo). Framer is standalone at $15-35/mo with no additional requirements. If you're already invested in Webflow, Relume enhances your workflow. If you're starting fresh, Framer is simpler and cheaper."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export code from Relume or Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer offers code export (React, HTML, CSS) on paid plans starting at $15/month. Relume exports to Webflow, which then offers its own code export on Webflow paid plans ($23+/month). So both ultimately support code export, but Framer is more direct. If you want React code directly, Framer is simpler. If you want Webflow expertise and then code export, the Relume → Webflow → export workflow works but costs more (Relume $20 + Webflow $23 = $43/month minimum)."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
+      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+    </div>
+
+    <!-- Quick Answer -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Answer</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer wins for most users.</strong> Standalone, better designs (9.5/10), cheaper, code export.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume wins for Webflow teams.</strong> Component library, Figma workflow, design system.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Framer if:</strong> You want a standalone builder with beautiful templates.
+      </p>
+      <p class="text-gray-700">
+        <strong>Choose Relume if:</strong> You use Webflow and want component-based design.
+      </p>
+    </div>
+
+    <!-- Score Comparison -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Score Comparison</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.map(tool => (
+          <div class="border-2 border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{tool.name}</h3>
+            <div class="text-4xl font-black text-orange-600 mb-4">{tool.score}/10</div>
+            <div class="space-y-2 text-sm">
+              <div class="flex justify-between">
+                <span>Ease of Use</span>
+                <span class="font-semibold">{tool.ease}/10</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Design Quality</span>
+                <span class="font-semibold">{tool.design}/10</span>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-gray-200">
+              <div class="text-sm text-gray-600">Workflow</div>
+              <div class="text-sm font-semibold text-gray-900">{tool.workflow}</div>
+              <div class="text-sm text-gray-600 mt-2">Price</div>
+              <div class="text-lg font-bold text-gray-900">{tool.price}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Feature Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse border border-gray-200">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="border border-gray-200 px-4 py-3 text-left">Feature</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Framer</th>
+              <th class="border border-gray-200 px-4 py-3 text-center">Relume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Type</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Standalone builder</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Component library</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Design Quality</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Best (9.5/10)</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Very good (8.5/10)</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Workflow</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Direct design</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Figma → Webflow</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Code Export</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Built-in</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Via Webflow</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Requirements</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">None</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Figma + Webflow</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Component Library</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">Basic</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">Extensive</td>
+            </tr>
+            <tr>
+              <td class="border border-gray-200 px-4 py-3 font-medium">Total Cost</td>
+              <td class="border border-gray-200 px-4 py-3 text-center bg-green-50 font-bold">$15-35/mo</td>
+              <td class="border border-gray-200 px-4 py-3 text-center">$43+/mo (Relume + Webflow)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">The Key Differences</h2>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Standalone vs. Add-On</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer is standalone.</strong> Complete website builder with hosting included.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume is an add-on.</strong> Requires Webflow subscription to function.
+        </p>
+      </div>
+
+      <div class="mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Design vs. Components</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer is design-first.</strong> Beautiful templates with visual editing.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume is component-first.</strong> Build from pre-designed component library.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Cost Structure</h3>
+        <p class="text-gray-700 mb-3">
+          <strong>Framer: $15-35/month total.</strong> Everything included.
+        </p>
+        <p class="text-gray-700">
+          <strong>Relume: $20 + $23+ = $43+/month minimum.</strong> Relume + Webflow required.
+        </p>
+      </div>
+    </div>
+
+    <!-- Use Cases -->
+    <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Choose Based on Your Workflow</h2>
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Choose Framer (8.8/10) if:</strong> You want a standalone builder with beautiful designs and code export.</li>
+        <li><strong>Choose Relume (8.2/10) if:</strong> You're a Webflow user wanting component-based design in Figma.</li>
+        <li><strong>Framer is better for:</strong> Startups, portfolios, marketing sites, independent designers.</li>
+        <li><strong>Relume is better for:</strong> Webflow teams, design systems, component libraries, Figma workflows.</li>
+      </ul>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Our Recommendation</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Framer for most users.</strong> Standalone, cheaper, excellent designs with code export.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Relume for Webflow teams.</strong> If you already use Webflow and want components.
+      </p>
+      <p class="text-gray-700">
+        Framer costs about half as much. Choose based on whether you need Webflow integration.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Framer for standalone design, Relume for Webflow components. Choose your workflow.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/framer-ai" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Framer Review →
+        </a>
+        <a href="/reviews/relume-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Read Relume Review →
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
