@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const allReviews = [
+	{
+		title: 'Framer AI Review',
+		excerpt: 'Build stunning websites in minutes with AI-powered design. We tested it hands-on.',
+		badge: 'Editor\'s Choice',
+		slug: '/reviews/framer-ai',
+		score: 9.2,
+		date: 'Jan 14, 2026',
+		readTime: '8 min',
+	},
+	{
+		title: 'Durable AI Review',
+		excerpt: 'Can you really build a website in 30 seconds? We put Durable to the test.',
+		badge: 'Fastest',
+		slug: '/reviews/durable-ai',
+		score: 8.5,
+		date: 'Jan 12, 2026',
+		readTime: '6 min',
+	},
+	{
+		title: '10Web AI Review',
+		excerpt: 'WordPress meets AI. The best of both worlds or a compromise?',
+		slug: '/reviews/10web-ai',
+		score: 8.8,
+		date: 'Jan 10, 2026',
+		readTime: '7 min',
+	},
+	{
+		title: 'Relume AI Review',
+		excerpt: 'AI-powered sitemaps and wireframes. A designer\'s dream or nightmare?',
+		badge: 'Best for Designers',
+		slug: '/reviews/relume-ai',
+		score: 8.3,
+		date: 'Jan 8, 2026',
+		readTime: '5 min',
+	},
+];
+---
+
+<Layout title="All Reviews - AI Website Builders">
+
+  <!-- WebPage Structured Data -->
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: 'All Reviews - AI Website Builders',
+      description: 'Complete index of all AI website builder reviews. Hands-on testing of Framer, Durable, 10Web, Relume, and more.',
+      url: 'https://aiwebsitebuilders.com/reviews'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              4 BUILDERS TESTED • HANDS-ON REVIEWS
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900 text-center">
+            <span class="block">AI Website</span>
+            <span class="block text-[#F5521A] mt-2">Builder Reviews</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl mx-auto">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed text-center">
+              I tested every major AI website builder hands-on. Here's what actually works, what breaks, and what I'd use myself.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	<!-- Reviews Grid - brutalist style -->
+	<section class="py-16 md:py-24 bg-white">
+		<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+			<div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Framer - featured card, spans 2 columns -->
+				<a href={allReviews[0].slug} class="md:col-span-2 group relative bg-[#FFF8F0] overflow-hidden p-8 border-[3px] border-[#F5521A] hover:shadow-[0_4px_0_0_rgba(245,82,26,0.3)] transition-all duration-300">
+          {allReviews[0].badge && (
+            <span class="inline-block px-3 py-1 bg-[#F5521A] text-white text-xs font-black uppercase tracking-wider mb-4">
+              {allReviews[0].badge}
+            </span>
+          )}
+          <div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+            <div class="flex-1">
+              <h3 class="text-2xl font-black text-gray-900 leading-tight mb-3">{allReviews[0].title}</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">{allReviews[0].excerpt}</p>
+              <div class="flex items-center gap-3 text-sm text-gray-500">
+                <time>{allReviews[0].date}</time>
+                <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+                <span>{allReviews[0].readTime} read</span>
+              </div>
+            </div>
+            <div class="flex-shrink-0 text-center md:text-right">
+              <div class="text-5xl font-black text-[#F5521A] leading-none">{allReviews[0].score}</div>
+              <div class="text-xs text-gray-500 uppercase tracking-[0.15em] font-black mt-1">/ 10</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Durable -->
+				<a href={allReviews[1].slug} class="group bg-white overflow-hidden p-6 border-[3px] border-gray-300 hover:border-[#F5521A] transition-all duration-300">
+          {allReviews[1].badge && (
+            <span class="inline-block px-3 py-1 bg-gray-900 text-white text-xs font-black uppercase tracking-wider mb-4">
+              {allReviews[1].badge}
+            </span>
+          )}
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <h3 class="text-xl font-black text-gray-900 leading-tight flex-1">{allReviews[1].title}</h3>
+            <div class="flex-shrink-0">
+              <div class="text-3xl font-black text-gray-900 leading-none">{allReviews[1].score}</div>
+              <div class="text-xs text-gray-500">/10</div>
+            </div>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-4">{allReviews[1].excerpt}</p>
+          <div class="flex items-center gap-3 text-sm text-gray-500">
+            <time>{allReviews[1].date}</time>
+            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+            <span>{allReviews[1].readTime} read</span>
+          </div>
+        </a>
+
+        <!-- 10Web - dark background variant -->
+				<a href={allReviews[2].slug} class="group relative bg-gray-900 overflow-hidden p-6 border-[3px] border-gray-800 hover:border-[#F5521A] transition-all duration-300">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div class="flex-1">
+              <h3 class="text-xl font-black text-white leading-tight mb-2">{allReviews[2].title}</h3>
+              <p class="text-gray-400 leading-relaxed">{allReviews[2].excerpt}</p>
+            </div>
+            <div class="flex-shrink-0">
+              <div class="text-3xl font-black text-[#F5521A] leading-none">{allReviews[2].score}</div>
+              <div class="text-xs text-gray-500">/10</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 text-sm text-gray-400">
+            <time>{allReviews[2].date}</time>
+            <span class="w-1 h-1 rounded-full bg-gray-700"></span>
+            <span>{allReviews[2].readTime} read</span>
+          </div>
+        </a>
+
+        <!-- Relume -->
+				<a href={allReviews[3].slug} class="group bg-white overflow-hidden p-6 border-[3px] border-gray-300 hover:border-[#F5521A] transition-all duration-300">
+          {allReviews[3].badge && (
+            <span class="inline-block px-3 py-1 bg-[#F5521A]/10 text-[#F5521A] text-xs font-black uppercase tracking-wider mb-4">
+              {allReviews[3].badge}
+            </span>
+          )}
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <h3 class="text-xl font-black text-gray-900 leading-tight flex-1">{allReviews[3].title}</h3>
+            <div class="flex-shrink-0">
+              <div class="text-3xl font-black text-[#F5521A] leading-none">{allReviews[3].score}</div>
+              <div class="text-xs text-gray-500">/10</div>
+            </div>
+          </div>
+          <p class="text-gray-600 leading-relaxed mb-4">{allReviews[3].excerpt}</p>
+          <div class="flex items-center gap-3 text-sm text-gray-500">
+            <time>{allReviews[3].date}</time>
+            <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+            <span>{allReviews[3].readTime} read</span>
+          </div>
+        </a>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Brutalist CTA -->
+	<section class="py-16 md:py-20 bg-[#F5521A] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #000 0px, #000 1px, transparent 1px, transparent 12px);"></div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl relative">
+      <div class="text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-white leading-tight mb-6">
+          Don't see a builder you want reviewed?
+        </h2>
+        <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          I'm constantly testing new AI website builders. Let me know which one you'd like me to review next.
+        </p>
+        <a
+          href="mailto:hello@aiwebsitebuilders.com"
+          class="inline-block px-8 py-4 bg-white text-[#F5521A] font-black text-lg uppercase tracking-wider border-[3px] border-white shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all duration-300"
+         
+        >
+          Request a Review
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

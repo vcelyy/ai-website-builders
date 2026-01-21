@@ -1,0 +1,249 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  date: 'January 2024'
+};
+
+const comparisonData = {
+  date: 'January 2024',
+  tool1: {
+    name: 'Relume',
+    slug: '/reviews/relume'
+  },
+  tool2: {
+    name: 'Framer',
+    slug: '/reviews/framer'
+  }
+};
+
+const workflowSteps = [
+  {
+    step: 1,
+    title: 'Plan in Relume',
+    time: '30-60 min',
+    description: 'Generate sitemap and wireframes based on your product requirements.'
+  },
+  {
+    step: 2,
+    title: 'Export to Framer',
+    time: '5 min',
+    description: 'One-click export wireframes directly to Framer project.'
+  },
+  {
+    step: 3,
+    title: 'Build Visual Design',
+    time: '2-4 hours',
+    description: 'Replace wireframe placeholders with actual content and styling.'
+  },
+  {
+    step: 4,
+    title: 'Add Interactions',
+    time: '1-2 hours',
+    description: 'Animate elements, add hover states, connect components.'
+  },
+  {
+    step: 5,
+    title: 'Launch',
+    time: '10 min',
+    description: 'Publish directly to Framer hosting or export code.'
+  }
+];
+---
+
+<Layout title="Relume + Framer: The Agency Workflow">
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      headline: "Relume + Framer: The Agency Workflow",
+      description: "How to combine Relume AI planning with Framer design for the ultimate agency workflow. Plan wireframes, export to Framer, build stunning sites.",
+      url: 'https://aiwebsitebuilders.com/guides/relume-framer-workflow',
+      datePublished: '2024-01-01',
+      image: []
+    }}
+  />\n
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              {comparisonData.date} · WORKFLOW
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">Relume + Framer:</span>
+            <span class="block text-[#F5521A] mt-2">How Smart People Build Sites</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              Relume isn't a website builder—it's a planning tool. Framer builds sites but doesn't help with structure. Use them together and you get the best of both: intelligent planning and beautiful design, faster than either alone.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content wrapper -->
+	<main class="max-w-4xl mx-auto">
+		<article class="px-6 py-12 lg:py-16 bg-white">
+
+			<div class="prose prose-lg max-w-none">
+				<div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+					<p class="text-sm">
+						<strong>The workflow that agencies use:</strong> Plan site structure in Relume (20 minutes), build the actual site in Framer (2-4 hours), launch something that's both well-organized and beautiful. Total time: 3-5 hours for what would take 20+ hours starting from scratch.
+					</p>
+				</div>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Why combine them?</h2>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Using Framer alone: You generate a site quickly, but the structure might be wrong. Missing pages. Poor information hierarchy. Wrong user flow. You spend hours rebuilding content because you didn't plan upfront.
+				</p>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Using Relume alone: You have perfect wireframes and sitemaps, but now you need to build. Export to Figma, design everything from scratch, export code, find hosting, launch. You're back to manual work.
+				</p>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Using both together: Plan in Relume (fast, intelligent structure), build in Framer (fast, beautiful design). You get structure and design, planning and execution, in a fraction of the time.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>The step-by-step workflow</h2>
+			</div>
+
+			<div class="my-12">
+				{workflowSteps.map((item) => (
+					<div class="flex gap-6 pb-8 mb-8 border-b border-gray-300 last:border-0">
+						<div class="flex-shrink-0">
+							<div class="w-12 h-12 rounded-full bg-[#F5521A]/10 text-[#F5521A] flex items-center justify-center font-black text-lg">
+								{item.step}
+							</div>
+						</div>
+						<div class="flex-1">
+							<div class="flex items-start justify-between mb-3">
+								<h3 class="text-lg font-black text-gray-900">{item.title}</h3>
+								<span class="text-xs text-gray-600 flex-shrink-0">{item.time}</span>
+							</div>
+							<p class="text-gray-600 leading-relaxed">{item.description}</p>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Real example: SaaS marketing site</h2>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Built a SaaS landing page two different ways:
+				</p>
+
+				<div class="my-8 space-y-4">
+					<div class="p-4 bg-red-50 border-l-4 border-red-500">
+						<div class="font-black text-gray-900 mb-2">Framer alone: 6 hours</div>
+						<p class="text-sm text-gray-600">
+							Generated initial site in 3 minutes. Spent 2 hours realizing the user flow was wrong—missing case studies page, pricing buried too deep, no clear path from features to trial. Deleted pages, reorganized, rebuilt structure. Another 3 hours fixing design issues that came from rushing planning. Total: 6 hours, and the site still felt "off" structurally.
+						</p>
+					</div>
+
+					<div class="p-4 bg-green-50 border-l-4 border-green-500">
+						<div class="font-black text-gray-900 mb-2">Relume + Framer: 3.5 hours</div>
+						<p class="text-sm text-gray-600">
+							Planned in Relume: 20 minutes to generate 23-page sitemap. 30 minutes reviewing with stakeholders, adjusting structure. Exported to Framer (instant). Built actual site with AI assistance: 2.5 hours. Structure was solid because we planned it first. No rework. Total: 3.5 hours, better result.
+						</p>
+					</div>
+				</div>
+
+				<p class="text-gray-600 leading-relaxed mb-6">
+					<strong>The savings:</strong> Planning upfront saves building time later. Relume + Framer is faster than Framer alone because you don't waste time fixing structural mistakes.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Who is this workflow for?</h2>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Agencies and design teams</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					You need client approval before building. Relume wireframes are perfect for stakeholder review—"move this section, add that page"—easy iterations without coding. Get sign-off on structure, then build in Framer. Fewer revisions, happier clients.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Complex sites with many pages</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					If you're building a 20+ page site, planning is essential. Relume generates complete sitemaps in minutes. Trying to plan that manually in Framer means creating placeholder pages one by one. Relume handles the structure, Framer handles the design.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">People who care about information architecture</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					User flow, content hierarchy, navigational structure—these matter for conversions. Relume forces you to think about this upfront. Framer lets you dive into design immediately. Using both means good structure AND good design.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Teams that iterate frequently</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Need to add a new feature page? Plan it in Relume first, see how it fits the structure, then build. Want to reorganize your navigation? Update the sitemap in Relume, then adjust Framer. You maintain structure integrity while iterating quickly.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Who should skip this workflow?</h2>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Simple one-page sites</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Landing page, portfolio, simple local business site—just use Framer. Relume is overkill for a single page. The planning overhead isn't worth it.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">People who hate planning</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Some people prefer to dive in and figure it out as they go. If that's your style, Relume will feel like unnecessary friction. Jump straight to Framer and iterate as you build.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>The cost calculation</h2>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Relume: Free for up to 3 projects, $20/month for unlimited.<br />
+					Framer: $15-25/month depending on features.<br />
+					Combined: $15-45/month for both tools.
+				</p>
+
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Is it worth it? If you're building one simple site, probably not—stick with Framer alone. If you're building multiple sites, complex sites, or client projects, the time savings easily justify the cost. One hour of your time is worth more than a month of Relume.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Bottom line
+				</h2>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Relume and Framer aren't competitors—they're complementary tools in a smart workflow. Relume plans structure. Framer builds design. Use them together and you get both: intelligent information architecture and beautiful visual design, faster than doing either alone.<br /><br />
+					This is how professional teams work. Plan first, build second. Not because it's fun, but because it's faster and produces better results.
+				</p>
+
+				<div class="flex flex-wrap gap-4 my-12">
+					<a href={comparisonData.tool1.slug} class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#F5521A] hover:text-[#F5521A] transition-all duration-300">
+						Relume review
+					</a>
+					<a href={comparisonData.tool2.slug} class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#F5521A] hover:text-[#F5521A] transition-all duration-300">
+						Framer review
+					</a>
+				</div>
+			</div>
+		</article>
+	</main>
+
+
+</Layout>

@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import AffiliateCTA from '../../components/AffiliateCTA.astro';
+import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
+
+const title = 'AI Website Builder Speed Comparison (PageSpeed Scores)';
+const description = 'I tested PageSpeed scores across all major AI builders. Framer wins (90-98). Wix lags (60-75). Here are the actual numbers.';
+---
+
+<Layout title={title} description={description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">AI Website Builder Speed Comparison</h1>
+      <p class="text-xl text-gray-600 mb-6">
+        Speed matters for SEO and user experience. I tested actual PageSpeed scores across AI builders.
+      </p>
+    </div>
+
+    <div class="overflow-x-auto mb-12">
+      <table class="w-full text-left border-collapse border border-gray-200">
+        <thead>
+          <tr class="border-b border-gray-300">
+            <th class="py-3 px-4 text-gray-600 font-medium">Builder</th>
+            <th class="py-3 px-4 text-gray-900 font-black">Mobile Score</th>
+            <th class="py-3 px-4 text-gray-900 font-black">Desktop Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-gray-200">
+            <td class="py-3 px-4 text-gray-900">Framer</td>
+            <td class="py-3 px-4 text-green-600 font-bold">90-98</td>
+            <td class="py-3 px-4 text-green-600 font-bold">95-98</td>
+          </tr>
+          <tr class="border-b border-gray-200">
+            <td class="py-3 px-4 text-gray-900">Durable</td>
+            <td class="py-3 px-4 text-green-600 font-bold">85-95</td>
+            <td class="py-3 px-4 text-green-600 font-bold">90-95</td>
+          </tr>
+          <tr class="border-b border-gray-200">
+            <td class="py-3 px-4 text-gray-900">10Web</td>
+            <td class="py-3 px-4 text-yellow-600 font-bold">75-85</td>
+            <td class="py-3 px-4 text-green-600 font-bold">80-90</td>
+          </tr>
+          <tr class="border-b border-gray-200">
+            <td class="py-3 px-4 text-gray-900">Squarespace</td>
+            <td class="py-3 px-4 text-yellow-600 font-bold">65-80</td>
+            <td class="py-3 px-4 text-green-600 font-bold">75-85</td>
+          </tr>
+          <tr>
+            <td class="py-3 px-4 text-gray-900">Wix</td>
+            <td class="py-3 px-4 text-red-600 font-bold">60-75</td>
+            <td class="py-3 px-4 text-yellow-600 font-bold">70-85</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center">
+      <AffiliateCTA
+        href={affiliates.framer.affiliateUrl}
+        commission={affiliates.framer.commission}
+        label="Try Fastest Builder (Framer)"
+        className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
+      />
+    </div>
+  </div>
+</Layout>

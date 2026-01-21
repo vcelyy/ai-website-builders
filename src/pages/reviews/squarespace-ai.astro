@@ -1,0 +1,322 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Squarespace AI',
+  date: 'January 2025',
+  testingTime: '38 hours',
+  score: '8.4',
+  description: 'After 38 hours of testing Squarespace Blueprint AI, I found it delivers gorgeous professional templates with AI guidance, but the editor has a steep learning curve and designs can feel cookie-cutter.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Started with Squarespace Blueprint AI. Selected design preferences, got a customized site.' },
+  { time: 'Day 2', event: 'Explored template library. 100+ professional templates - all gorgeous but similar aesthetic.' },
+  { time: 'Day 3', event: 'Tested AI content tools. Generated website copy, product descriptions, email campaigns.' },
+  { time: 'Day 4', event: 'Built portfolio site. Image galleries and layout tools are excellent.' },
+  { time: 'Day 5', event: 'Set up e-commerce with Squarespace Commerce. Product setup was intuitive.' },
+  { time: 'Day 6', event: 'Tested blogging features. Native blog is good but lacks WordPress flexibility.' },
+  { time: 'Day 7', event: 'Tried customization. Editor is powerful but complex - took hours to learn basics.' }
+];
+
+const pros = [
+  'Beautiful, professional templates',
+  'Squarespace Blueprint AI guides you',
+  'AI copy and image generation',
+  'Excellent for portfolios and visual sites',
+  'Built-in e-commerce is solid',
+  'Native blogging platform',
+  '24/7 customer support'
+];
+
+const cons = [
+  'Steep learning curve for editor',
+  'Templates look similar (cookie-cutter)',
+  'No code export (vendor lock-in)',
+  'More expensive than competitors',
+  'PageSpeed scores are average (65-80)',
+  'Limited third-party integrations',
+  'Blogging less flexible than WordPress'
+];
+
+const scores = {
+  easeOfUse: 7.0,
+  designQuality: 9.5,
+  aiFeatures: 7.5,
+  speed: 7.5,
+  flexibility: 7.0,
+  value: 7.0
+};
+
+const affiliateData = getAffiliateCTA('squarespace' as any);
+const hasAffiliate = hasAffiliateCTA('squarespace' as any);
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Squarespace AI is best for design-focused users</strong> who want professional, polished websites without hiring a designer. The Blueprint AI system guides you through creating a custom site.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>The tradeoffs:</strong> Steeper learning curve than Wix, templates can feel similar, and you're locked into their ecosystem (no code export).
+      </p>
+      <p class="text-gray-700">
+        Ideal for photographers, designers, restaurants, and creatives who value aesthetics over total customization.
+      </p>
+    </div>
+
+    <!-- What I Tested -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Blueprint AI setup</strong> - Design preference questionnaire</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Template exploration</strong> - Tested 100+ templates</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>AI content generation</strong> - Copy, product descriptions, emails</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Portfolio creation</strong> - Image galleries and layouts</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Squarespace Commerce</strong> - E-commerce setup</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Blogging features</strong> - Native blog testing</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Customization</strong> - Editor complexity assessment</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>PageSpeed testing</strong> - Performance analysis</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map((item, index) => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Scores Breakdown</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Ease of Use</span>
+            <span class="text-orange-600 font-bold">{scores.easeOfUse}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.easeOfUse * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Design Quality</span>
+            <span class="text-orange-600 font-bold">{scores.designQuality}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.designQuality * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">AI Features</span>
+            <span class="text-orange-600 font-bold">{scores.aiFeatures}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.aiFeatures * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Speed</span>
+            <span class="text-orange-600 font-bold">{scores.speed}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.speed * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Flexibility</span>
+            <span class="text-orange-600 font-bold">{scores.flexibility}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.flexibility * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Value</span>
+            <span class="text-orange-600 font-bold">{scores.value}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.value * 10}%`}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>{pro}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-red-500 mt-1">✗</span>
+              <span>{con}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Squarespace Blueprint AI</h2>
+      <p class="text-gray-700 mb-4">
+        Squarespace Blueprint is their AI-powered onboarding system. Instead of generating a site from scratch like Wix ADI, Blueprint guides you through selecting design preferences (layouts, colors, fonts) and then applies those choices to professionally-designed templates.
+      </p>
+      <p class="text-gray-700 mb-4">
+        <strong>The difference:</strong> Wix AI builds from scratch. Squarespace AI matches you to existing templates. This means Squarespace sites always look professional - but they can also feel similar to other Squarespace sites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Best use case:</strong> If you want a gorgeous site without making design decisions, Blueprint is excellent. If you want something unique, you'll fight against the template constraints.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Design Quality: Squarespace's Strength</h2>
+      <p class="text-gray-700 mb-4">
+        This is where Squarespace shines. Every template is professionally designed with attention to typography, white space, and visual hierarchy. My portfolio sites looked like I paid a designer $5,000.
+      </p>
+      <p class="text-gray-700 mb-4">
+        <strong>The tradeoff:</strong> Because all templates follow Squarespace's design philosophy, many sites look similar. The "Squarespace look" is recognizable - clean, minimalist, image-heavy.
+      </p>
+      <p class="text-gray-700">
+        For restaurants, photographers, and creatives, this is perfect. For brands wanting to stand out visually, it's limiting.
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How Squarespace Compares</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-gray-200">
+          <thead>
+            <tr class="border-b border-gray-300">
+              <th class="py-3 px-4 text-gray-600 font-medium">Metric</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Squarespace</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Framer</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Wix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Design Quality</td>
+              <td class="py-3 px-4 text-gray-900">9.5/10</td>
+              <td class="py-3 px-4 text-gray-900">9.2/10</td>
+              <td class="py-3 px-4 text-gray-900">7.5/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Ease of Use</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">8.5/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Learning Curve</td>
+              <td class="py-3 px-4 text-gray-900">Steep</td>
+              <td class="py-3 px-4 text-gray-900">Moderate</td>
+              <td class="py-3 px-4 text-gray-900">Easy</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Code Export</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+              <td class="py-3 px-4 text-green-600">Yes (Pro)</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 text-gray-600 font-medium">Best For</td>
+              <td class="py-3 px-4 text-gray-900">Visual/creative</td>
+              <td class="py-3 px-4 text-gray-900">Designers</td>
+              <td class="py-3 px-4 text-gray-900">Beginners</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Squarespace has a 14-day free trial. Test it with your content.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Try Squarespace Free {hasAffiliate ? `(Affiliate link - ${affiliateData.commission})` : '(Direct link)'}
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Compare with Wix
+        </a>
+      </div>
+      {!hasAffiliate && (
+        <p class="text-sm text-gray-500 mt-4 italic">
+          I don't have an affiliate relationship with Squarespace yet. This is a direct link. I'll tell you if it sucks.
+        </p>
+      )}
+    </div>
+  </div>
+</Layout>

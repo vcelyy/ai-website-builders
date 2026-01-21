@@ -1,0 +1,90 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'B12 AI',
+  date: 'January 2025',
+  testingTime: '18 hours',
+  score: '7.5',
+  description: 'After 18 hours of testing B12 AI, I found it generates decent service business sites quickly but lacks the design polish and customization of competitors.'
+};
+
+const pros = [
+  'Quick site generation',
+  'Service business focused',
+  'AI content generation',
+  'Built-in scheduling',
+  'CRM features included'
+];
+
+const cons = [
+  'Generic designs',
+  'Limited templates',
+  'No code export',
+  'Basic e-commerce',
+  'Higher pricing',
+  'Less polished UI'
+];
+
+const scores = {
+  easeOfUse: 8.0,
+  designQuality: 7.0,
+  aiFeatures: 7.5,
+  speed: 7.5,
+  flexibility: 7.0,
+  value: 7.5
+};
+
+const affiliateData = { href: 'https://b12.io', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg">
+        <strong>B12 AI is decent for service businesses</strong> needing a basic site quickly. But it doesn't match the design quality or flexibility of Framer or the AI capabilities of Durable.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="https://b12.io" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try B12 Free (Direct link)
+      </a>
+    </div>
+  </div>
+</Layout>

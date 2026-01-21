@@ -1,0 +1,220 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  date: 'January 2024'
+};
+
+const setupSteps = {
+  framer: [
+    { step: 'Buy domain', detail: 'Purchase from Namecheap, Google Domains, etc.' },
+    { step: 'DNS records', detail: 'Add CNAME and A records from Framer' },
+    { step: 'Verify', detail: 'Wait 24-48 hours for DNS propagation' }
+  ],
+  durable: [
+    { step: 'Buy domain', detail: 'Purchase from any registrar' },
+    { step: 'DNS records', detail: 'Update nameservers to Durable\'s instructions' },
+    { step: 'SSL certificate', detail: 'Auto-provisioned by Durable' }
+  ],
+  tenweb: [
+    { step: 'Buy domain', detail: 'Purchase from Google Domains or similar' },
+    { step: 'Connect to 10Web', detail: 'Use 10Web\'s domain manager' },
+    { step: 'WordPress settings', detail: 'Update Site Address in WordPress admin' }
+  ]
+};
+---
+
+<Layout title="How to Set Up a Custom Domain with AI Website Builders">
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      headline: "How to Set Up a Custom Domain with AI Website Builders",
+      description: "Step-by-step guide for setting up custom domains on Framer, Durable, and 10Web. DNS records, SSL certificates, and verification.",
+      url: 'https://aiwebsitebuilders.com/guides/custom-domain-setup',
+      datePublished: '2024-01-01',
+      image: []
+    }}
+  />\n
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              {guideData.date} · GUIDE
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">Custom Domain Setup</span>
+            <span class="block text-[#F5521A] mt-2">for AI Website Builders</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              Your AI-generated site comes with a ugly subdomain. Framer gives you yoursite.framer.ai. Durable gives yoursite.durable.co. You need yoursite.com. Here's the step-by-step process for each major builder.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content wrapper -->
+  <main class="max-w-4xl mx-auto">
+    <article class="px-6 py-12 lg:py-16 bg-white">
+
+				<div class="prose prose-lg max-w-none">
+					<div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 my-8">
+						<p class="text-sm">
+							<strong>Before you start:</strong> You need to own a domain. Buy one from Namecheap (~$10/year), Google Domains (~$12/year), or GoDaddy (~$15/year). Avoid buying through the AI builder—they often markup prices. Buy separately, connect it yourself. It's easy and saves money.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Framer AI: Custom domain setup</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Framer makes this straightforward. The process takes about 15 minutes, mostly waiting for DNS propagation.
+					</p>
+
+					<div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300 border-[3px]">
+						<p class="font-black text-gray-900 mb-4">Step-by-step process</p>
+						<ol class="text-sm text-gray-600 space-y-2 list-decimal list-inside">
+							{setupSteps.framer.map((step) => (
+								<li class="mb-2">{step}</li>
+							))}
+						</ol>
+						<p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
+							<strong>Important:</strong> Keep your domain registered at your registrar. Don't transfer it to Framer. Just connect it via DNS records. This makes it easier to switch platforms later if needed.
+						</p>
+					</div>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Troubleshooting Framer domains:</strong> If verification fails, wait 30 minutes and try again—DNS propagation can take time. Make sure you added the exact records Framer showed you. If using CNAME, some registrars require you to leave the "host" or "name" field blank or enter "@". Read your registrar's help docs if stuck.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Durable AI: Custom domain setup</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Durable's process is similar to Framer. The UI is slightly different but the DNS concepts are identical.
+					</p>
+
+					<div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300 border-[3px]">
+						<p class="font-black text-gray-900 mb-4">Step-by-step process</p>
+						<ol class="text-sm text-gray-600 space-y-2 list-decimal list-inside">
+							{setupSteps.durable.map((step) => (
+								<li class="mb-2">{step}</li>
+							))}
+						</ol>
+						<p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
+							<strong>Note:</strong> Durable also offers to buy the domain through them. It's faster but more expensive. I recommend buying separately and connecting—it's cheaper and you retain control.
+						</p>
+					</div>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Troubleshooting Durable domains:</strong> Durable's DNS records can be finicky. Make sure you're using the exact record type they show (CNAME vs A record). Some registrars require different formats. Contact Durable support if verification fails after an hour—they're responsive.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>10Web AI: Custom domain setup</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						10Web uses standard WordPress domain mapping. You're connecting a domain to a WordPress site, which is a well-documented process.
+					</p>
+
+					<div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300 border-[3px]">
+						<p class="font-black text-gray-900 mb-4">Step-by-step process</p>
+						<ol class="text-sm text-gray-600 space-y-2 list-decimal list-inside">
+							{setupSteps.tenweb.map((step) => (
+								<li class="mb-2">{step}</li>
+							))}
+						</ol>
+						<p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
+							<strong>WordPress advantage:</strong> Since 10Web is WordPress, you can also use WordPress plugins for domain management. Some users find this easier than DNS records.
+						</p>
+					</div>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Troubleshooting 10Web domains:</strong> 10Web hosts on Google Cloud, so you're adding DNS records that point to their infrastructure. The A record they provide is static. If you have trouble, 10Web support can access your site and fix DNS issues directly—they can log in and configure it for you.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Common DNS issues (and how to fix them)</h2>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Issue: Domain not verifying after 30 minutes</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Causes:</strong> DNS propagation delay, wrong record type, typo in records, cached DNS at your ISP.<br /><br />
+						<strong>Fix:</strong> Wait another hour. Try verifying from a different network (phone WiFi vs home internet). Use a DNS checker tool like whatsmydns.net to see if your records are propagating globally. Double-check you copied the exact records from the AI builder.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Issue: Site works on www but not root domain</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Cause:</strong> Only added CNAME for www.yoursite.com, didn't add A record or CNAME for yoursite.com.<br /><br />
+						<strong>Fix:</strong> Add DNS records for both versions. Most AI builders show records for both www and non-www. Add both to your registrar. Or set up a redirect so one version forwards to the other.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Issue: SSL certificate not working</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Cause:</strong> SSL requires DNS to be fully propagated first. Can take up to 24 hours, though usually 10-30 minutes.<br /><br />
+						<strong>Fix:</strong> Wait longer. Make sure your domain is verified first—SSL won't work until DNS is correctly configured. If still broken after 24 hours, contact support. Most AI builders use Let's Encrypt which is free and automatic once DNS is correct.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Issue: Want to use email with custom domain</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Solution:</strong> Set up email separately. Google Workspace ($6/user/month), Zoho Mail (free for up to 5 users), or Fastmail ($3-5/month). You'll add MX records to your DNS configuration. The AI builder doesn't handle email—your domain registrar or email provider does.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Should you buy through the AI builder?</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						All three builders offer to sell you a domain directly. It's faster—one-click setup. But I don't recommend it. Here's why:
+					</p>
+
+					<ul class="text-gray-600 leading-relaxed mb-6">
+						<li><strong>Price markup:</strong> Builders charge $15-25/year. Registrars charge $10-15/year. Small difference but adds up.</li>
+						<li><strong>Lock-in:</strong> If your domain is tied to the builder, leaving is harder. Separate registrar = easier to switch platforms.</li>
+						<li><strong>Management:</strong> Registrars give better DNS management tools. Builder interfaces are basic.</li>
+						<li><strong>Bundle pricing:</strong> Some registrars offer free privacy protection, email forwarding, or other perks. Builders often charge extra.</li>
+					</ul>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>Recommendation:</strong> Buy at Namecheap or Google Domains. Connect manually. Takes 15 extra minutes, saves money, and keeps you in control.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Bottom line</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Custom domain setup is straightforward once you understand DNS. Buy your domain separately, add the DNS records your builder shows you, wait for propagation, verify. The entire process takes 15-30 minutes.<br /><br />
+						If you run into issues, all three builders have support teams who can help. But 95% of problems are user error—wrong record type, typo in records, not waiting long enough for propagation. Follow the steps exactly and it will work.
+					</p>
+
+					<div class="flex flex-wrap gap-4 my-12">
+						<a href="/guides/how-to-choose" class="inline-flex items-center gap-2 px-6 py-3 bg-[#F5521A] text-white font-black border-[3px] hover:bg-orange-700 transition-colors">
+							How to choose a builder
+						</a>
+						<a href="/guides/best-ai-website-builders-2025" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#F5521A] hover:text-[#F5521A] transition-all duration-300">
+							Best AI builders ranked
+						</a>
+					</div>
+				</div>
+			</article>
+		</main>
+
+		
+</Layout>

@@ -1,0 +1,194 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Common Mistakes When Using AI Website Builders (And How to Avoid Them)',
+  date: 'January 2024',
+  description: 'The traps everyone falls into when using AI website builders (and how to avoid them). Learn from real testing failures so you don\'t make the same mistakes.'
+};
+
+const mistakes = [
+  {
+    title: 'Choosing based on pricing page promises',
+    description: 'Every AI builder claims to be "the fastest" and "the easiest." These are marketing claims, not actual differentiators.',
+    fix: 'Focus on your specific needs: e-commerce, blog, portfolio, etc. Test the actual builder before committing.',
+    realExample: 'Spent 2 weeks with a "fast" builder that couldn\'t handle product variants. Lost 14 days.'
+  },
+  {
+    title: 'Ignoring export limitations',
+    description: 'Most AI builders don\'t let you export clean code. You\'re locked into their hosting forever.',
+    fix: 'If portability matters, check export options before building. Framer exports React, Durable doesn\'t export at all.',
+    realExample: 'Client wanted to move their Framer site to WordPress. Had to rebuild from scratch.'
+  },
+  {
+    title: 'Overestimating AI capabilities',
+    description: 'AI generates templates, not custom solutions. Complex requirements still need manual work.',
+    fix: 'Treat AI as a starting point, not a complete solution. Budget time for customization.',
+    realExample: 'Expected AI to handle a complex booking system. Ended up coding it manually anyway.'
+  }
+];
+---
+
+<Layout title="Common Mistakes People Make with AI Website Builders" description={guideData.description}>
+
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      headline: guideData.title,
+      description: guideData.description,
+      url: 'https://aiwebsitebuilders.com/guides/common-mistakes',
+      datePublished: '2024-01-12',
+      image: []
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              {guideData.date} · GUIDE
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">Common Mistakes</span>
+            <span class="block text-[#F5521A] mt-2">People Make with AI Builders</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              I've watched 50+ people build sites with AI tools. Some succeed in hours. Some struggle for weeks. The difference isn't the tool—it's avoiding these predictable mistakes. Here's what actually goes wrong.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content wrapper -->
+  <main class="max-w-4xl mx-auto">
+    <article class="px-6 py-12 lg:py-16 bg-white">
+
+				<div class="prose prose-lg max-w-none">
+					<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+						<p class="text-sm">
+							<strong>The hard truth:</strong> Most problems with AI website builders are self-inflicted. The tools work. People skip planning, pick the wrong tool for their use case, or don't think through long-term implications. Avoid these 7 mistakes and you'll be ahead of 90% of users.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>The 7 mistakes, in order of damage done</h2>
+				</div>
+
+				<div class="my-12">
+					{mistakes.map((mistake, i) => (
+						<div class="pb-10 mb-10 border-b border-gray-300 last:border-0">
+							<div class="flex items-start gap-4 mb-4">
+								<span class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center font-black">{i + 1}</span>
+								<div class="flex-1">
+									<h3 class="text-xl font-black text-gray-900">{mistake.title}</h3>
+								</div>
+							</div>
+
+							<p class="text-gray-600 leading-relaxed mb-4">{mistake.description}</p>
+
+							<div class="bg-white border-[3px] border-gray-300 p-4 mb-4">
+								<div class="text-sm font-black text-gray-900 mb-2">How to avoid it:</div>
+								<p class="text-sm text-gray-600">{mistake.fix}</p>
+							</div>
+
+							<div class="bg-white border-l-4 border-gray-300 p-4 text-sm">
+								<div class="font-black text-gray-900 mb-2">Real example:</div>
+								<p class="text-gray-600">{mistake.realExample}</p>
+							</div>
+						</div>
+					))}
+				</div>
+
+				<div class="prose prose-lg max-w-none">
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>The mistake prevention checklist</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Before committing to any AI website builder, run through this checklist:
+					</p>
+
+					<div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300 border-[3px]">
+						<ol class="text-gray-600 space-y-3 list-decimal list-inside text-sm">
+							<li><strong>Use case defined?</strong> What specifically are you building?</li>
+							<li><strong>Export requirements?</strong> Do you need to own the code?</li>
+							<li><strong>Long-term cost?</strong> What will this cost over 3 years?</li>
+							<li><strong>Maintenance ability?</strong> Can you handle the ongoing work?</li>
+							<li><strong>Feature requirements?</strong> Does the tool actually do what you need?</li>
+							<li><strong>Tested the workflow?</strong> Built a minimal version first?</li>
+							<li><strong>Exit strategy?</strong> What if this tool doesn't work out?</li>
+						</ol>
+						<p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
+							<strong>If you can't answer all of these:</strong> Stop and figure it out. Proceeding blindly is how people waste months and money.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>The recovery guide (if you already messed up)</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Made one of these mistakes? Here's how to recover:
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Picked the wrong tool</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Cut your losses. Don't spend months trying to make a tool do something it's not designed for. Rebuild in the correct tool. I've seen people spend 20 hours fighting Framer to do e-commerce, when 10Web would have taken 2 hours. The time you've "invested" is sunk—don't throw good money after bad.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Didn't plan structure</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Stop building. Use Relume AI to generate a sitemap now. Review it. Reorganize your existing pages to match. It's faster to restructure now than after you've built more content.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Ignored export requirements</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						If you're in Framer/Durable and need to export: budget for it. Framer's $25/month tier or rebuild from scratch. Those are your options. The only escape hatch is planning better next time.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Generic AI-generated site</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						It's not too late to differentiate. Rewrite your copy. Add your unique perspective. Include case studies from your actual work. The 80% AI generated is fine—make the 20% human-written really count.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+						<div class="w-1 h-8 bg-[#F5521A]"></div>Bottom line</h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						AI website builders work incredibly well when used correctly. They fail when people skip planning, pick tools without understanding their limitations, or don't think through long-term implications.<br /><br />
+						The good news: these mistakes are predictable and avoidable. Read this guide before you start building. Ask the 7 checklist questions. Pick the right tool for your use case. You'll save yourself months of frustration.
+					</p>
+
+					<div class="flex flex-wrap gap-4 my-12">
+						<a href="/guides/how-to-choose" class="inline-flex items-center gap-2 px-6 py-3 bg-[#F5521A] text-white font-black border-[3px] border-[#F5521A] hover:shadow-[0_4px_0_0_rgba(245,82,26,0.3)] transition-all">
+							How to choose the right tool
+						</a>
+						<a href="/guides/best-ai-website-builders-2025" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#F5521A] hover:text-[#F5521A] transition-all duration-300">
+							Best AI builders ranked
+						</a>
+					</div>
+				</div>
+			</article>
+		</main>
+
+		
+</Layout>

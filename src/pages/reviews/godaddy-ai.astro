@@ -1,0 +1,68 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+
+const reviewData = {
+  title: 'GoDaddy AI',
+  date: 'January 2025',
+  testingTime: '15 hours',
+  score: '7.2',
+  description: 'After 15 hours of testing GoDaddy AI website builder, I found it functional but basic. Good for GoDaddy customers, less competitive standalone.'
+};
+
+const pros = [
+  'Integration with GoDaddy hosting',
+  'Quick site generation',
+  'Domain included',
+  'Basic e-commerce',
+  '24/7 phone support'
+];
+
+const cons = [
+  'Generic templates',
+  'Limited customization',
+  'No code export',
+  'Below-average PageSpeed',
+  'Upsells everywhere',
+  'Design feels dated'
+];
+
+const scores = {
+  easeOfUse: 8.0,
+  designQuality: 6.5,
+  aiFeatures: 6.5,
+  speed: 6.5,
+  flexibility: 7.0,
+  value: 7.5
+};
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

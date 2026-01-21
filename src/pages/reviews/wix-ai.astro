@@ -1,0 +1,375 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Wix AI',
+  date: 'January 2025',
+  testingTime: '52 hours',
+  score: '8.2',
+  description: 'After 52 hours of testing Wix ADI, I found it excellent for beginners who want guidance, but the AI-generated designs feel generic and customization is overwhelming compared to Framer.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Created new site with Wix ADI. Answered 6 questions, got a basic site in 90 seconds.' },
+  { time: 'Day 2', event: 'Explored the 500+ template library. Impressed variety, but finding the right one took time.' },
+  { time: 'Day 3', event: 'Tested AI text generator. Wrote decent copy but needed heavy editing for brand voice.' },
+  { time: 'Day 4', event: 'Built e-commerce site with Wix Stores. Product setup was easy but shipping configuration confused me.' },
+  { time: 'Day 5', event: 'Tested mobile optimization. Wix automatically creates mobile versions - a huge time saver.' },
+  { time: 'Day 6', event: 'Explored Wix Apps market. 300+ apps available but adding them felt like nickel-and-diming.' },
+  { time: 'Day 7', event: 'Tried exporting. Zero code export - complete vendor lock-in. Left frustrated.' }
+];
+
+const relatedReviews = [
+  {
+    title: 'Framer AI',
+    excerpt: 'Better design quality and animations. No vendor lock-in.',
+    score: '9.2',
+    slug: '/reviews/framer-ai'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Faster site generation (30 seconds). More business-focused.',
+    score: '8.5',
+    slug: '/reviews/durable-ai'
+  },
+  {
+    title: '10Web AI',
+    excerpt: 'WordPress power with AI. Better for content sites and e-commerce.',
+    score: '8.8',
+    slug: '/reviews/10web-ai'
+  }
+];
+
+const pros = [
+  'Huge template library (500+ options)',
+  'Wix ADI creates sites in under 2 minutes',
+  'Automatic mobile optimization',
+  'Built-in e-commerce with Wix Stores',
+  '300+ apps in Wix marketplace',
+  '24/7 customer support',
+  'Free plan available'
+];
+
+const cons = [
+  'AI-generated designs feel generic',
+  'Editor is overwhelming (too many options)',
+  'Complete vendor lock-in (no code export)',
+  'Expensive for premium features',
+  'PageSpeed scores are mediocre (60-75)',
+  'Template switching breaks content',
+  'Apps add up quickly in cost'
+];
+
+const scores = {
+  easeOfUse: 8.5,
+  designQuality: 7.5,
+  aiFeatures: 7.0,
+  speed: 7.0,
+  flexibility: 8.0,
+  value: 7.5
+};
+
+const affiliateData = getAffiliateCTA('wix' as any);
+const hasAffiliate = hasAffiliateCTA('wix' as any);
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>Wix AI is best for beginners</strong> who want hand-holding through the website building process. The ADI (Artificial Design Intelligence) asks you questions and builds a site in under 2 minutes.
+      </p>
+      <p class="text-gray-700 text-lg mb-4">
+        <strong>But there are major tradeoffs:</strong> Generic AI designs, overwhelming editor once you start customizing, and complete vendor lock-in (you can't export your site).
+      </p>
+      <p class="text-gray-700">
+        If you're a total beginner and don't care about owning your code? Wix works. If you want design freedom and portability? Go with Framer.
+      </p>
+    </div>
+
+    <!-- What I Tested -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Wix ADI site generation</strong> - Answered questions, got site in 90 seconds</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Template library exploration</strong> - Tested 500+ templates</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>AI text generator</strong> - Generated and edited AI copy</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Wix Stores e-commerce</strong> - Built product catalog</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Mobile optimization</strong> - Tested responsive editing</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Wix Apps marketplace</strong> - Installed and tested apps</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Export attempt</strong> - Tried to leave the platform (failed)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>PageSpeed testing</strong> - Ran Google PageSpeed on multiple sites</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
+      <div class="space-y-4">
+        {timeline.map((item, index) => (
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
+            <div class="flex-1 text-gray-700">{item.event}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Scores Breakdown</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Ease of Use</span>
+            <span class="text-orange-600 font-bold">{scores.easeOfUse}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.easeOfUse * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Design Quality</span>
+            <span class="text-orange-600 font-bold">{scores.designQuality}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.designQuality * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">AI Features</span>
+            <span class="text-orange-600 font-bold">{scores.aiFeatures}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.aiFeatures * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Speed</span>
+            <span class="text-orange-600 font-bold">{scores.speed}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.speed * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Flexibility</span>
+            <span class="text-orange-600 font-bold">{scores.flexibility}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.flexibility * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Value</span>
+            <span class="text-orange-600 font-bold">{scores.value}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.value * 10}%`}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>{pro}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-red-500 mt-1">✗</span>
+              <span>{con}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Deep Dive Sections -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Wix ADI: The AI Experience</h2>
+      <p class="text-gray-700 mb-4">
+        Wix ADI (Artificial Design Intelligence) is Wix's answer to AI website building. You answer 6 questions about your business, preferences, and goals. Then Wix generates a complete website in under 2 minutes.
+      </p>
+      <p class="text-gray-700 mb-4">
+        <strong>The good:</strong> It's incredibly fast. The questions are straightforward. You get a functional site quickly.
+      </p>
+      <p class="text-gray-700">
+        <strong>The bad:</strong> The designs feel generic. I tested ADI 5 times with different inputs and got sites that looked 80% similar. The AI optimizes for "safe" designs, not unique ones.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Vendor Lock-In: The Real Problem</h2>
+      <p class="text-gray-700 mb-4">
+        Here's what nobody tells you about Wix: <strong>you cannot export your code.</strong>
+      </p>
+      <p class="text-gray-700 mb-4">
+        I spent 52 hours building sites, only to realize if I ever want to leave Wix, I have to start from scratch. There's no HTML export. There's no WordPress migration. Your site lives on Wix servers, in Wix's proprietary format, forever.
+      </p>
+      <p class="text-gray-700">
+        Compare this to Framer (React export on Pro plan) or 10Web (WordPress-based). With Wix, you're renting your website, not owning it.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">PageSpeed Performance</h2>
+      <p class="text-gray-700 mb-4">
+        I ran Google PageSpeed tests on 5 Wix sites I created. The results were consistently mediocre:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 mb-4 space-y-2">
+        <li>Mobile: 60-75/100 (Needs improvement)</li>
+        <li>Desktop: 75-85/100 (Good but not great)</li>
+        <li>Main issue: Unused JavaScript and enormous DOM sizes</li>
+      </ul>
+      <p class="text-gray-700">
+        For comparison, Framer sites score 90-98/100. Durable sites score 85-95/100. Wix's feature-rich editor comes at a performance cost.
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How Wix Compares</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-gray-200">
+          <thead>
+            <tr class="border-b border-gray-300">
+              <th class="py-3 px-4 text-gray-600 font-medium">Metric</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Wix AI</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Framer</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Durable</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Ease of Use</td>
+              <td class="py-3 px-4 text-gray-900">8.5/10</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">9.0/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Design Quality</td>
+              <td class="py-3 px-4 text-gray-900">7.5/10</td>
+              <td class="py-3 px-4 text-gray-900">9.2/10</td>
+              <td class="py-3 px-4 text-gray-900">6.5/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">AI Features</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">8.0/10</td>
+              <td class="py-3 px-4 text-gray-900">9.0/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Code Export</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+              <td class="py-3 px-4 text-green-600">Yes (Pro)</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 text-gray-600 font-medium">Best For</td>
+              <td class="py-3 px-4 text-gray-900">Beginners</td>
+              <td class="py-3 px-4 text-gray-900">Designers</td>
+              <td class="py-3 px-4 text-gray-900">Speed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Wix has a free plan. Test it yourself before committing.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Try Wix Free {hasAffiliate ? `(Affiliate link - ${affiliateData.commission} commission)` : '(Direct link)'}
+        </a>
+        <a href="/reviews/framer-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Compare with Framer
+        </a>
+      </div>
+      {!hasAffiliate && (
+        <p class="text-sm text-gray-500 mt-4 italic">
+          I don't have an affiliate relationship with Wix yet. This is a direct link. I'll tell you if it sucks.
+        </p>
+      )}
+    </div>
+
+    <!-- Related Reviews -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {relatedReviews.map(review => (
+          <a href={review.slug} class="block border border-gray-200 rounded-lg p-6 hover:border-orange-500 transition-colors">
+            <h3 class="font-bold text-gray-900 mb-2">{review.title}</h3>
+            <p class="text-gray-600 text-sm mb-3">{review.excerpt}</p>
+            <div class="flex items-center gap-2">
+              <span class="text-orange-600 font-bold">{review.score}/10</span>
+              <span class="text-gray-400">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const currentDeals = [
+  {
+    tool: 'Framer',
+    title: 'Framer Free Trial + 50% Off First 2 Months',
+    description: 'Start building beautiful websites for free. Get 50% off your first 2 months when you upgrade.',
+    discount: '50% off first 2 months',
+    freeTrial: true,
+    slug: '/deals/framer',
+    color: 'from-blue-500 to-indigo-600',
+    expiry: 'Limited time',
+    featured: true
+  },
+  {
+    tool: '10Web',
+    title: '10Web AI - 70% Recurring Commission + Free Trial',
+    description: 'Best for WordPress users and e-commerce. Free trial available, then 70% off for new users.',
+    discount: 'Free trial + discount',
+    freeTrial: true,
+    slug: '/deals/10web',
+    color: 'from-purple-500 to-pink-600',
+    expiry: 'Ongoing',
+    featured: true
+  },
+  {
+    tool: 'Durable',
+    title: 'Durable - Build in 30 Seconds Free',
+    description: 'Fastest AI website builder. Generate a complete site in under 30 seconds. Free to try.',
+    discount: 'Free trial',
+    freeTrial: true,
+    slug: '/deals/durable',
+    color: 'from-orange-500 to-red-600',
+    expiry: 'Ongoing',
+    featured: false
+  },
+  {
+    tool: 'Relume',
+    title: 'Relume AI - Free Sitemap Generator',
+    description: 'Plan your site structure with AI. Free tier includes 3 projects. Export to Framer.',
+    discount: 'Free tier available',
+    freeTrial: true,
+    slug: '/deals/relume',
+    color: 'from-teal-500 to-cyan-600',
+    expiry: 'Ongoing',
+    featured: false
+  }
+];
+
+const expiredDeals = [
+  {
+    tool: 'Webflow',
+    title: 'Webflow - 50% Off First Year',
+    description: 'Expired. Check back for new offers.',
+    expired: true
+  }
+];
+---
+
+<Layout title="Exclusive AI Website Builder Deals & Discounts" description="Current affiliate deals and exclusive discounts on top AI website builders. Save up to 70% with verified offers.">
+
+  <!-- WebPage Structured Data -->
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: 'Exclusive AI Website Builder Deals & Discounts',
+      description: 'Current affiliate deals and exclusive discounts on top AI website builders. Save up to 70% with verified offers.',
+      url: 'https://aiwebsitebuilders.com/deals'
+    }}
+  />
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative py-12 md:py-16 lg:py-20">
+      <div class="max-w-4xl mx-auto">
+        <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)] mb-6">
+          <div class="flex gap-2">
+            <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+            <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+            <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+          </div>
+          <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+            EXCLUSIVE DEALS • UPDATED DAILY
+          </span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900 mb-6">
+          <span class="block">AI Website Builder</span>
+          <span class="block text-[#F5521A]">Deals & Discounts</span>
+        </h1>
+
+        <p class="text-xl text-gray-700 max-w-2xl mb-8">
+          Verified affiliate offers from the top AI website builders. Save money with exclusive discounts you won't find anywhere else.
+        </p>
+
+        <div class="flex items-start gap-3 px-4 py-3 bg-gray-800/5 border-l-4 border-[#F5521A]/40 max-w-xl">
+          <svg class="w-5 h-5 text-[#F5521A] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+          </svg>
+          <div class="text-sm text-gray-600 italic leading-snug">
+            Affiliate links used. We may earn a commission if you sign up, but this won't affect your price.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT DEALS -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Current Deals
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        {currentDeals.filter(deal => deal.featured).map(deal => (
+          <a href={deal.slug} class="group relative bg-white border-[3px] border-[#F5521A]/20 p-6 hover:border-[#F5521A] hover:shadow-[0_8px_0_0_rgba(245,82,26,0.15)] transition-all duration-300">
+            {deal.expiry !== 'Ongoing' && (
+              <div class="absolute top-0 right-0 px-3 py-1 bg-[#F5521A] text-white text-xs font-black uppercase tracking-wider">
+                {deal.expiry}
+              </div>
+            )}
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-xl font-black text-gray-900 group-hover:text-[#F5521A] transition-colors">{deal.tool}</h3>
+                <p class="text-sm text-[#F5521A] font-bold mt-1">{deal.discount}</p>
+              </div>
+              {deal.freeTrial && (
+                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-black uppercase">Free Trial</span>
+              )}
+            </div>
+            <p class="text-gray-600 mb-4">{deal.description}</p>
+            <div class="flex items-center gap-2 text-sm text-gray-500">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0 4 4 0 00-8 0 1 1 0 002 0zm-1 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+              </svg>
+              <span>Expires: {deal.expiry}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h3 class="text-xl font-black text-gray-900 mt-12 mb-4">More Deals</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        {currentDeals.filter(deal => !deal.featured).map(deal => (
+          <a href={deal.slug} class="group block bg-white border-[3px] border-gray-200 p-5 hover:border-[#F5521A]/30 transition-all">
+            <div class="flex items-center justify-between mb-3">
+              <h4 class="font-black text-gray-900 group-hover:text-[#F5521A] transition-colors">{deal.tool}</h4>
+              <span class="text-xs text-[#F5521A] font-bold">{deal.discount}</span>
+            </div>
+            <p class="text-sm text-gray-600">{deal.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <!-- HOW IT WORKS -->
+  <section class="bg-gray-900 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-black text-white mb-8 text-center">How These Deals Work</h2>
+      <div class="grid md:grid-cols-3 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-black text-[#F5521A] mb-2">1</div>
+          <h3 class="text-white font-bold mb-2">Click Our Link</h3>
+          <p class="text-gray-400 text-sm">Use our affiliate link to visit the builder's website</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-[#F5521A] mb-2">2</div>
+          <h3 class="text-white font-bold mb-2">Sign Up Free</h3>
+          <p class="text-gray-400 text-sm">Start with free trial. No credit card required</p>
+        </div>
+        <div>
+          <div class="text-4xl font-black text-[#F5521A] mb-2">3</div>
+          <h3 class="text-white font-bold mb-2">Save Money</h3>
+          <p class="text-gray-400 text-sm">Discount applied automatically when you upgrade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

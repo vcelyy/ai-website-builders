@@ -1,0 +1,190 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredComparison = {
+  columns: ['Feature', 'Framer', 'Durable', '10Web', 'Relume'],
+  rows: [
+    { feature: 'Best For', framer: 'Design Quality', durable: 'Speed', tenweb: 'WordPress', relume: 'Planning' },
+    { feature: 'Learning Curve', framer: 'Medium', durable: 'Easy', tenweb: 'Medium', relume: 'Easy' },
+    { feature: 'AI Generation', framer: '★★★★☆', durable: '★★★★★', tenweb: '★★★★☆', relume: '★★★★☆' },
+    { feature: 'Export Code', framer: 'Partial', durable: 'No', tenweb: 'Yes (WP)', relume: 'Yes (Figma)' },
+    { feature: 'Pricing', framer: '$15-25/mo', durable: '$12-20/mo', tenweb: '$10-30/mo', relume: 'Free tier' },
+  ]
+};
+
+const comparisons = [
+  { slug: '/comparisons/10web-vs-framer', title: '10Web vs Framer', description: 'WordPress powerhouse vs design leader', image: '⚔️' },
+  { slug: '/comparisons/framer-vs-durable', title: 'Framer vs Durable', description: 'Design quality vs generation speed', image: '⚡' },
+  { slug: '/comparisons/durable-vs-10web', title: 'Durable vs 10Web', description: 'Simple vs powerful WordPress', image: '🔧' },
+  { slug: '/comparisons/framer-vs-relume', title: 'Framer vs Relume', description: 'Building vs planning workflow', image: '📐' },
+];
+---
+
+<Layout title="AI Website Builder Comparisons">
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              COMPARISONS
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">AI Website Builder</span>
+            <span class="block text-[#F5521A] mt-2">Comparisons</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              See how the top AI website builders stack up against each other. Find the perfect fit for your needs with our detailed head-to-head comparisons.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content wrapper -->
+	<main>
+		<!-- Featured Comparison -->
+		<section class="py-12 px-6">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Quick Comparison: Top 4 AI Builders
+				</h2>
+				<p class="text-gray-600 mb-8 ml-5">At a glance: how the major players compare</p>
+				<div class="overflow-x-auto">
+					<table class="w-full border-collapse bg-white border-[3px] border-gray-300">
+						<thead>
+							<tr class="bg-[#FFF8F0] border-b-[3px] border-gray-300">
+								{featuredComparison.columns.map((col) => (
+									<th class="py-3 px-4 text-left text-gray-900 font-black">{col}</th>
+								))}
+							</tr>
+						</thead>
+						<tbody>
+							{featuredComparison.rows.map((row) => (
+								<tr class="border-b border-gray-300 hover:bg-[#FFF8F0]">
+									<td class="py-3 px-4 text-gray-900 font-black">{row.feature}</td>
+									<td class="py-3 px-4 text-gray-600">{row.framer}</td>
+									<td class="py-3 px-4 text-gray-600">{row.durable}</td>
+									<td class="py-3 px-4 text-gray-600">{row.tenweb}</td>
+									<td class="py-3 px-4 text-gray-600">{row.relume}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+
+		<!-- Detailed Comparisons -->
+		<section class="py-12 px-6 bg-white">
+			<div class="max-w-7xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Detailed Comparisons
+				</h2>
+				<p class="text-gray-600 mb-8 ml-5 max-w-2xl">
+					Deep dives into specific use cases and head-to-head matchups
+				</p>
+
+				<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+					{comparisons.map((comparison) => (
+						<a
+							href={comparison.slug}
+							class="group bg-white border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-all hover:-translate-y-1 hover:shadow-[0_4px_0_0_rgba(245,82,26,0.2)]"
+						>
+							<div class="text-5xl mb-4">{comparison.image}</div>
+							<h3 class="text-lg font-black text-gray-900 mb-2 group-hover:text-[#F5521A] transition-colors">
+								{comparison.title}
+							</h3>
+							<p class="text-sm text-gray-600">{comparison.description}</p>
+						</a>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- How to Choose -->
+		<section class="py-16 px-6 bg-[#FFF8F0]/50">
+			<div class="max-w-4xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>How to Choose the Right AI Builder
+				</h2>
+
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="bg-white border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+						<h3 class="font-black text-gray-900 mb-3 flex items-center gap-2">
+							<span class="text-2xl">⚡</span>
+							Need Speed?
+						</h3>
+						<p class="text-gray-600 text-sm mb-3">
+							Choose <strong>Durable AI</strong>. Generates a complete site in under 30 seconds.
+						</p>
+						<a href="/reviews/durable-ai" class="text-[#F5521A] text-sm font-black hover:underline">
+							Read Review →
+						</a>
+					</div>
+
+					<div class="bg-white border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+						<h3 class="font-black text-gray-900 mb-3 flex items-center gap-2">
+							<span class="text-2xl">🎨</span>
+							Prioritize Design?
+						</h3>
+						<p class="text-gray-600 text-sm mb-3">
+							Choose <strong>Framer AI</strong>. Best-in-class AI-generated designs.
+						</p>
+						<a href="/reviews/framer-ai" class="text-[#F5521A] text-sm font-black hover:underline">
+							Read Review →
+						</a>
+					</div>
+
+					<div class="bg-white border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+						<h3 class="font-black text-gray-900 mb-3 flex items-center gap-2">
+							<span class="text-2xl">📝</span>
+							WordPress Fan?
+						</h3>
+						<p class="text-gray-600 text-sm mb-3">
+							Choose <strong>10Web AI</strong>. Full WordPress ecosystem with AI.
+						</p>
+						<a href="/reviews/10web-ai" class="text-[#F5521A] text-sm font-black hover:underline">
+							Read Review →
+						</a>
+					</div>
+
+					<div class="bg-white border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+						<h3 class="font-black text-gray-900 mb-3 flex items-center gap-2">
+							<span class="text-2xl">✏️</span>
+							Designer Workflow?
+						</h3>
+						<p class="text-gray-600 text-sm mb-3">
+							Choose <strong>Relume AI</strong>. Sitemaps and wireframes, then export.
+						</p>
+						<a href="/reviews/relume-ai" class="text-[#F5521A] text-sm font-black hover:underline">
+							Read Review →
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+
+</Layout>

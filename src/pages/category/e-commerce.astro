@@ -1,0 +1,212 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const categoryData = {
+  title: 'AI Website Builders for E-commerce - Online Stores',
+  description: 'Can AI build a real online store? Product variants, inventory, shipping zones, tax calculation tested across all major AI website builders.',
+  topPick: {
+    name: '10Web + WooCommerce',
+    reason: 'Only option with real e-commerce features: variants, inventory, shipping, taxes.',
+    slug: '/reviews/10web'
+  },
+  recommendations: [
+    {
+      name: '10Web',
+      verdict: 'Only viable e-commerce option',
+      score: '8.2',
+      slug: '/reviews/10web'
+    },
+    {
+      name: 'Framer',
+      verdict: 'No real cart or inventory',
+      score: '5.5',
+      slug: '/reviews/framer'
+    },
+    {
+      name: 'Durable',
+      verdict: 'Basic checkout only',
+      score: '5.0',
+      slug: '/reviews/durable'
+    },
+    {
+      name: 'Relume',
+      verdict: 'Planning tool only',
+      score: 'N/A',
+      slug: '/reviews/relume'
+    },
+
+  ],
+  warnings: [
+    {
+      name: 'No product variants',
+      issue: 'Framer can\'t handle sizes/colors. Each variant would be a separate product.'
+    },
+    {
+      name: 'No inventory tracking',
+      issue: 'Framer and Durable dont track inventory. 10Web does.'
+    },
+    {
+      name: 'Shipping/tax handling',
+      issue: 'Only 10Web handles zones and tax calculation properly.'
+    },
+
+  ]
+}
+---
+
+<Layout title={categoryData.title} description={categoryData.description}>
+
+  <!-- WebPage Structured Data -->
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: categoryData.title,
+      description: categoryData.description,
+      url: 'https://aiwebsitebuilders.com/category/e-commerce'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              CATEGORY · E-COMMERCE
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">E-commerce with AI:</span>
+            <span class="block text-[#F5521A] mt-2">Why Most Tools Can't Build Real Stores</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              Most AI website builders treat e-commerce as an afterthought. They'll generate a product page template, but actual store functionality—variants, inventory, shipping zones, tax calculation—is missing or severely limited.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content wrapper -->
+	<main class="max-w-3xl mx-auto">
+		<article class="px-6 py-16 lg:py-24">
+
+			<div class="prose prose-lg max-w-none">
+				<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+					<p class="text-sm">
+						<strong>Quick reality check:</strong> Most AI website builders treat e-commerce as an afterthought. They'll generate a product page template, but actual store functionality—variants, inventory, shipping zones, tax calculation—is missing or severely limited.
+					</p>
+				</div>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>What actually matters for e-commerce</h2>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Product variants (this is the big one)</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Selling t-shirts? You need sizes (S, M, L, XL) and colors. Selling software? You need licenses (single, team, enterprise). Most AI builders can't handle this. Framer can't do variants at all—each option would be a separate product. Durable has basic variants but they're clunky. Only 10Web with WooCommerce has proper product variations.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Inventory management</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					When you sell 5 units of something, the system should know you have 5 fewer. Basic stuff. Framer doesn't track inventory at all. Durable sort of does but it's rudimentary. 10Web with WooCommerce has full inventory tracking with low-stock alerts.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Payment processing that actually works</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					All of these integrate Stripe or PayPal. But the implementation matters. 10Web gives you full WooCommerce payment gateways—Stripe, PayPal, Square, local payments. Framer gives you a "buy" button that you have to manually configure to link somewhere else. Durable has basic checkout but limited payment options.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Shipping zones and tax calculation</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					If you're selling physical products, you need to charge different shipping rates based on location and calculate sales tax by region. 10Web handles this automatically. Durable? Flat-rate shipping only, no tax zones. Framer? Not applicable—you don't have a real cart.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>So what should you use?</h2>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					<strong>{categoryData.topPick.name}</strong> — {categoryData.topPick.reason}
+				</p>
+
+				<div class="my-8">
+					<a href={categoryData.topPick.slug} class="inline-flex items-center gap-2 text-[#F5521A] font-medium hover:underline">
+						Read the full review (47-product store build)
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-16 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>All tools, rated for e-commerce</h2>
+			</div>
+
+			<!-- Tools as simple list, not cards -->
+			<div class="my-12">
+				{categoryData.recommendations.map((tool, i) => (
+					<a href={tool.slug} class="block group pb-6 mb-6 border-b border-gray-300 last:border-0">
+						<div class="flex items-start justify-between">
+							<div class="flex-1">
+								<h3 class="text-lg font-black text-gray-900 group-hover:text-[#F5521A]">{tool.name}</h3>
+								<p class="text-sm text-gray-600 mt-1">{tool.verdict}</p>
+							</div>
+							<div class="text-right ml-4">
+								<div class="text-xl font-black text-gray-900">{tool.score}</div>
+								<div class="text-xs text-gray-600">/ 10</div>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Things that drove me crazy</h2>
+			</div>
+
+			<div class="my-8">
+				{categoryData.warnings.map((warning) => (
+					<div class="mb-6 pb-6 border-b border-gray-300 last:border-0">
+						<div class="font-black text-gray-900 mb-2">{warning.name}</div>
+						<p class="text-sm text-gray-600">{warning.issue}</p>
+					</div>
+				))}
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<p class="text-gray-600 leading-relaxed mt-12">
+					Not sure which is right for you? Check the full reviews for screenshots of actual product pages, checkout flows, and the specific e-commerce limitations I hit during 28 hours of store building.
+				</p>
+
+				<div class="flex flex-wrap gap-4 my-8">
+					<a href="/reviews" class="inline-flex items-center gap-2 text-[#F5521A] font-medium hover:underline">
+						See all reviews
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</article>
+	</main>
+
+
+</Layout>

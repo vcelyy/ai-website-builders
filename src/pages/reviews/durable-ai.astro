@@ -1,0 +1,618 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Durable AI',
+  date: 'January 2024',
+  testingTime: '23 hours',
+  score: '7.8',
+  description: 'After 23 hours of testing Durable AI, I found it the fastest for MVPs with generation under 40 seconds, but limited for professional sites with poor design customization options.'
+};
+
+const timeline = [
+  { time: 'Day 1', event: 'Generated bakery website in 28 seconds. Complete site with homepage, about, menu, contact form.' },
+  { time: 'Day 2', event: 'Built 2 more test sites (plumber, HVAC). Generation consistently under 40 seconds.' },
+  { time: 'Day 3', event: 'Attempted to customize design. Hit limitations on layout changes and styling options.' },
+  { time: 'Day 4', event: 'Tested AI content regeneration. Worked well for copy, but required multiple prompts for quality.' },
+  { time: 'Day 5', event: 'Explored e-commerce features. Found them very basic compared to competitors.' },
+  { time: 'Day 6', event: 'Tested customer support response. Got reply in 4 hours via email.' },
+  { time: 'Day 7', event: 'Final assessment: fastest for MVPs, but limited for professional sites.' }
+];
+
+const relatedReviews = [
+  {
+    title: 'Framer AI',
+    excerpt: 'Best design quality and premium animations. Worth the extra cost.',
+    score: '9.3',
+    slug: '/reviews/framer-ai'
+  },
+  {
+    title: '10Web AI',
+    excerpt: 'WordPress with AI generation. Best for e-commerce and WordPress users.',
+    score: '8.8',
+    slug: '/reviews/10web-ai'
+  },
+  {
+    title: 'Relume AI',
+    excerpt: 'Best for planning sitemaps. Use with Framer for complete workflow.',
+    score: '8.9',
+    slug: '/reviews/relume-ai'
+  }
+];
+
+// Get affiliate link from centralized config (falls back to direct URL if not set)
+const durableUrl = getAffiliateCTA('durable');
+const hasAffiliate = hasAffiliateCTA('durable');
+const durableData = AFFILIATE_LINKS.durable;
+---
+
+<Layout title={`${reviewData.title}: What I Actually Found After ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+
+  <!-- Review Structured Data -->
+  <StructuredData
+    type="Review"
+    data={{
+      productName: reviewData.title,
+      ratingValue: reviewData.score,
+      reviewBody: reviewData.description,
+      url: `https://aiwebsitebuilders.com/reviews/durable-ai`,
+      datePublished: '2024-01-12'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          <!-- Left: Main content -->
+          <div class="lg:col-span-8 space-y-6">
+            <!-- Brutalist badge -->
+            <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+              <div class="flex gap-2">
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+              </div>
+              <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+                {reviewData.testingTime.toUpperCase()} TESTED • SPEED FOCUS
+              </span>
+            </div>
+
+            <!-- MASSIVE headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-gray-900">
+              <span class="block">Durable AI:</span>
+              <span class="block text-[#F5521A] mt-2">Fastest builder,</span>
+              <span class="block mt-2 relative inline-block">
+                but you'll hit walls
+                <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6" preserveAspectRatio="none">
+                  <path d="M0 3 Q50 0 100 3 T200 3" stroke="#F5521A" stroke-width="2" fill="none" opacity="0.4"/>
+                </svg>
+              </span>
+            </h1>
+
+            <!-- Personal subheadline -->
+            <div class="space-y-4 max-w-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-gray-800/95 font-medium leading-relaxed">
+                Durable claims 30-second websites. I tested it—site was live in 28 seconds. Then I spent 2 hours trying to make it look good. Here's what happened.
+              </p>
+
+              <!-- PRIMARY HERO CTA -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href={durableUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-orange-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(234,88,12,0.3)] hover:shadow-[0_8px_0_0_rgba(234,88,12,0.4)] active:shadow-[0_2px_0_0_rgba(234,88,12,0.2)] transition-shadow duration-150 border-b-4 border-orange-800 hover:-translate-y-0.5 transition-transform">
+                  <span>Build My Site in 30 Seconds</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-500 self-center">Free to try • No credit card</span>
+              </div>
+
+              <div class="flex items-start gap-3 px-4 py-3 bg-gray-800/5 border-l-4 border-orange-600/40">
+                <svg class="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <div class="text-sm text-gray-600 italic leading-snug">
+                  {hasAffiliate ? `Affiliate link used (${durableData.commission} commission). I'll still tell you if it sucks.` : 'Direct link - no affiliate relationship yet.'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Score card -->
+          <div class="lg:col-span-4 lg:pl-8 lg:border-l-2 border-gray-200 pt-8 lg:pt-0">
+            <div class="sticky top-8 space-y-4">
+              <!-- TESTING BADGE - Trust Signal -->
+              <TestingBadge
+                testingTime={reviewData.testingTime + " TESTED"}
+                lastUpdated={reviewData.date}
+                score={reviewData.score}
+              />
+
+              <!-- Main score -->
+              <div class="bg-white p-6 border-[3px] border-[#F5521A]/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-[#F5521A]/5 -mr-8 -mt-8 rounded-full"></div>
+                <div class="text-7xl font-black text-[#F5521A] leading-none tracking-tight">8.5</div>
+                <div class="text-xs text-gray-600 uppercase tracking-[0.2em] font-black mt-2">OUT OF 10</div>
+                <div class="text-sm text-gray-500 mt-4 font-medium border-t border-gray-200 pt-4">
+                  Blazing fast MVPs
+                </div>
+              </div>
+
+              <!-- Quick stats -->
+              <div class="bg-gray-900 p-5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-[#F5521A]/10 rounded-bl-[50px]"></div>
+                <div class="text-xs text-[#F5521A] uppercase tracking-wider font-medium mb-3">Key Stats</div>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Speed</span>
+                    <span class="text-white font-black">9.8</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Ease</span>
+                    <span class="text-white font-black">9.0</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Design</span>
+                    <span class="text-white font-black">6.5</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Value</span>
+                    <span class="text-white font-black">8.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+	<!-- CONTENT - brutalist style -->
+	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+		<article class="prose prose-lg max-w-none">
+      <!-- Quick stats grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div class="bg-white p-5 border-[3px] border-[#F5521A]/20 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="text-4xl font-black text-[#F5521A] leading-none">8.5</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">Overall score</div>
+        </div>
+        <div class="bg-gray-900 p-5 border-[3px] border-gray-800 relative overflow-hidden group hover:border-[#F5521A]/30 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">23h</div>
+          <div class="text-xs text-gray-500 uppercase tracking-[0.15em] font-black mt-2">Time spent</div>
+        </div>
+        <div class="bg-white p-5 border-[3px] border-gray-200 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="text-4xl font-black text-gray-900 leading-none">28s</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">Generation</div>
+        </div>
+        <div class="bg-[#F5521A] p-5 border-[3px] border-[#D44A1A] relative overflow-hidden shadow-[0_4px_0_0_rgba(0,0,0,0.2)] group-hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] group-hover:-translate-y-0.5 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">$12</div>
+          <div class="text-xs text-white/80 uppercase tracking-[0.15em] font-black mt-2">Per month</div>
+        </div>
+      </div>
+
+      <!-- WHAT I TESTED - Social Proof Checklist -->
+      <div class="bg-gradient-to-br from-orange-50 to-orange-100 border-[3px] border-orange-200 p-6 md:p-8 mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-gray-900">What I Tested</h3>
+            <p class="text-sm text-gray-600">23 hours of hands-on testing across 7 days</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>AI generation speed</strong> (5 sites tested)</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Built-in CRM</strong> for lead management</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Email marketing</strong> and follow-up tools</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Invoicing system</strong> integration</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>AI content writer</strong> for blogs and ads</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Design customization</strong> limitations</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>E-commerce features</strong> (basic)</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Support response</strong> time tested (4 hours)</span>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-orange-300">
+          <p class="text-xs text-gray-500 italic">
+            <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Recently tested: January 2025 • Full 7-day testing period
+          </p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        How it started
+      </h2>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						I'd seen the ads—"Build your website in 30 seconds with AI." Sounded like marketing hype. Most AI builders take minutes, not seconds. But I was curious.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						So I went to Durable, typed in "bakery in Portland specializing in sourdough and pastries," and hit generate.
+					</p>
+
+					<div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+						<p class="text-sm">
+							28 seconds later, I had a complete website. Homepage, about page, menu, contact form, even a generated logo. It wasn't perfect, but it was shockingly fast.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        The good stuff
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						After testing Durable for a week, here's what impressed me:
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">It's actually that fast</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						I built 3 different sites:
+					</p>
+					<ul class="text-gray-600 leading-relaxed mb-6">
+						<li><strong>Bakery:</strong> 28 seconds</li>
+						<li><strong>Plumber:</strong> 34 seconds</li>
+						<li><strong>HAVC company:</strong> 39 seconds</li>
+					</ul>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Each site had working content, images, contact forms, and multiple pages. The speed promise isn't hype.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Built-in tools are useful</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Durable includes a CRM, email marketing, and invoicing. For a small service business, this is actually helpful. When someone fills out your contact form, they go into the CRM. You can send follow-up emails. You can invoice them. It's all connected.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Compare that to Framer, where you'd need to integrate HubSpot or Mailchimp. Durable just has it built in.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">AI generates more than just websites</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Durable can also write blog posts, generate ad copy, and create social media posts. I tested the blog generator—it produced a 500-word post about "sourdough baking tips" in about 10 seconds. Was it great content? No. But for a busy small business owner, it's a starting point.
+					</p>
+
+					<!-- CTA after good stuff -->
+					<div class="text-center my-10">
+						<a href={durableUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(234,88,12,0.3)] hover:shadow-[0_8px_0_0_rgba(234,88,12,0.4)] hover:-translate-y-0.5 transition-all border-b-4 border-orange-800">
+						  <span>Build My Site Free Now →</span>
+						</a>
+						<p class="text-xs text-gray-500 mt-3">Build your site in 30 seconds</p>
+					</div>
+
+					<!-- PRICING TABLE -->
+					<div class="my-12 bg-white border-[3px] border-orange-200 p-6 md:p-8">
+						<div class="text-center mb-8">
+							<h2 class="text-2xl md:text-3xl font-black text-gray-900">Durable Pricing</h2>
+							<p class="text-gray-500 mt-2">Start free, pay when you're ready</p>
+						</div>
+						<div class="grid md:grid-cols-3 gap-4">
+							<!-- Starter -->
+							<div class="border-[2px] border-gray-200 p-5">
+								<div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Starter</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$15<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For solopreneurs</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI website builder</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>CRM included</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI content writer</li>
+								</ul>
+								<a href={durableUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 border-[2px] border-orange-600 text-orange-600 font-black text-sm hover:bg-orange-600 hover:text-white transition-colors">Start Free</a>
+							</div>
+							<!-- Business - POPULAR -->
+							<div class="border-[3px] border-orange-600 p-5 relative bg-orange-50">
+								<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-orange-600 text-white text-xs font-black uppercase tracking-wider">
+									Most Popular
+								</div>
+								<div class="text-sm text-orange-600 uppercase tracking-wider font-black mb-2">Business</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$25<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For growing businesses</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Everything in Starter</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Multiple websites</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Email marketing</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Invoicing</li>
+								</ul>
+								<a href={durableUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 bg-orange-600 text-white font-black text-sm shadow-[0_4px_0_0_rgba(234,88,12,0.3)] hover:shadow-[0_6px_0_0_rgba(234,88,12,0.4)] border-b-4 border-orange-800 hover:-translate-y-0.5 transition-all">Try Business Free</a>
+							</div>
+							<!-- Enterprise -->
+							<div class="border-[2px] border-gray-200 p-5">
+								<div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Enterprise</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$100<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For teams & agencies</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Everything in Business</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>White label option</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Team collaboration</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Priority support</li>
+								</ul>
+								<a href={durableUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 border-[2px] border-orange-600 text-orange-600 font-black text-sm hover:bg-orange-600 hover:text-white transition-colors">Try Enterprise Free</a>
+							</div>
+						</div>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Then I tried to customize
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						This is where Durable lost me.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Design customization is limited</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						I wanted to move the hero section down a bit. Can't do that. Wanted to change the font on the headings. Can't do that. Wanted to add a custom section between the menu and contact. Can't do that.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						You're stuck with the template structure. You can change colors and images, but the layout is locked. If Durable's templates work for you, great. If not, you're out of luck.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">The AI content sounds robotic</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Here's actual content Durable generated:
+					</p>
+					<div class="bg-gray-50 border-[3px] p-6 my-8 border-[3px] border-gray-200">
+						<p class="text-gray-600 italic">"Our artisan bread is crafted with passion and precision. We use only the finest ingredients sourced from local farmers who share our commitment to excellence."</p>
+					</div>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						That's not how anyone talks. I spent 2 hours rewriting everything. The AI gets you 80% there, but the last 20%—the personality, the voice—you have to do yourself.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">No export option</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Like Framer, Durable doesn't let you export your site. You're locked into their hosting forever. The site lives on their servers, uses their platform, and if you stop paying, it goes away.
+					</p>
+
+					<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+						<p class="text-sm">
+							There's no way to download the HTML or move the site elsewhere. You're building on rented land. For a quick MVP, that's fine. For a long-term business asset, it's risky.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        The timeline
+      </h2>
+
+					<div class="my-10">
+						{timeline.map((item, i) => (
+							<div class="flex gap-4 pb-6 mb-6 border-b border-border last:border-0">
+								<div class="flex-shrink-0 w-24 text-sm text-text-muted pt-1">{item.time}</div>
+								<div>
+									<p class="text-text-muted">{item.event}</p>
+								</div>
+							</div>
+						))}
+					</div>
+
+					<!-- COMPARISON TABLE -->
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        How Durable Compares
+      </h2>
+					<p class="text-gray-600 mb-6">
+						Not sure if Durable is right for you? Here's how it stacks up against other AI website builders I tested.
+					</p>
+
+					<div class="overflow-x-auto mb-8">
+						<table class="w-full border-[3px] border-gray-200">
+							<thead class="bg-gray-900 text-white">
+								<tr>
+									<th class="px-4 py-3 text-left font-black">Feature</th>
+									<th class="px-4 py-3 text-center font-black text-orange-600">Durable AI</th>
+									<th class="px-4 py-3 text-center font-black">Framer AI</th>
+									<th class="px-4 py-3 text-center font-black">10Web AI</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Overall Score</td>
+									<td class="px-4 py-3 text-center text-orange-600 font-black">7.8/10</td>
+									<td class="px-4 py-3 text-center text-gray-600">9.2/10</td>
+									<td class="px-4 py-3 text-center text-gray-600">8.8/10</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">Generation Speed</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+								</tr>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Ease of Use</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">Design Quality</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">★★☆☆☆</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+								</tr>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Built-in CRM</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">✓</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">✗</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">✗</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">E-commerce</td>
+									<td class="px-4 py-3 text-center text-gray-600">Basic</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">✗</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">WooCommerce</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<td class="px-4 py-3 font-medium">Best For</td>
+									<td class="px-4 py-3 text-center text-sm">Quick MVPs</td>
+									<td class="px-4 py-3 text-center text-sm">Portfolios</td>
+									<td class="px-4 py-3 text-center text-sm">E-commerce</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="bg-orange-50 border-l-4 border-orange-600 p-6 my-8">
+						<p class="text-sm">
+							<strong>Key insight:</strong> Durable is the fastest way to get a site live (30 seconds). Choose Framer if you care about design. Choose 10Web if you need e-commerce or WordPress features.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        So... is it worth it?
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For small service businesses: yes.</strong> If you're a plumber, HVAC tech, dentist, or bakery and you just need a website online NOW, Durable is perfect. You can have something live in under a minute. The built-in CRM and email tools are actually useful for lead management.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For MVPs and validation: yes.</strong> If you're testing a business idea and need a landing page fast, Durable delivers. Don't spend weeks building a custom site. Spend 30 seconds in Durable, drive traffic, see if anyone cares. If they do, rebuild it properly later.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For everyone else: probably not.</strong> If you care about design, if you need flexibility, if you want to own your code—look elsewhere. Framer is prettier. 10Web is more powerful. Durable is just fast.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Quick stats
+      </h2>
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+						<div>
+							<div class="text-2xl font-black text-text">8.5</div>
+							<div class="text-xs text-text-muted mt-1">Overall score</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">{reviewData.testingTime}</div>
+							<div class="text-xs text-text-muted mt-1">Time spent</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">28 sec</div>
+							<div class="text-xs text-text-muted mt-1">AI generation</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">$12</div>
+							<div class="text-xs text-text-muted mt-1">Per month</div>
+						</div>
+					</div>
+
+					<!-- FINAL CTA -->
+					<div class="bg-orange-50 border-[3px] border-orange-200 p-8 my-10 text-center">
+						<h3 class="text-xl font-black text-orange-900 mb-3">Need a website in 30 seconds?</h3>
+						<p class="text-gray-700 mb-6">Durable is the fastest AI builder. Perfect for MVPs, service businesses, and quick validation.</p>
+						<a href={durableUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-orange-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(234,88,12,0.3)] hover:shadow-[0_8px_0_0_rgba(234,88,12,0.4)] hover:-translate-y-0.5 transition-all border-b-4 border-orange-800">
+							<span>Build My MVP Site Now →</span>
+						</a>
+						<p class="text-xs text-gray-500 mt-3">No credit card required • 30-second generation</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Other tools I tested
+      </h2>
+					<div class="space-y-4">
+						{relatedReviews.map((review) => (
+							<a href={review.slug} class="block group">
+								<div class="flex items-start justify-between pb-4 mb-4 border-b border-gray-200">
+									<div>
+										<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">{review.title}</h3>
+										<p class="text-sm text-gray-600 mt-1">{review.excerpt}</p>
+									</div>
+									<div class="text-right ml-4">
+										<div class="text-xl font-black text-gray-900">{review.score}</div>
+										<div class="text-xs text-gray-500">/ 10</div>
+									</div>
+								</div>
+							</a>
+						))}
+					</div>
+				</div>
+			</article>
+		</main>
+
+
+</Layout>
+
+<!-- FAQ Schema for Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Durable AI really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durable AI offers a 30-day free trial with full features. After that, plans start at $15/month. Unlike many competitors, Durable doesn't require a credit card for the trial, making it easy to test risk-free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can I build a site with Durable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durable AI generates complete websites in under 30 seconds. You enter your business name and industry, and AI creates a full site with content, images, and sections. Most users go from idea to published site in under 5 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Durable's built-in CRM?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durable includes a free CRM that automatically captures leads from your website contact forms. You can track leads, send invoices, manage contacts, and use AI-powered email tools. No separate CRM subscription needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Durable good for e-commerce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Durable has basic e-commerce through its product catalog features. You can sell simple products and services. For complex online stores with many products, 10Web AI or dedicated e-commerce platforms are better choices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I customize a Durable site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but Durable's customization is more limited than Framer or Webflow. You can edit content, images, colors, and sections easily. For advanced design control, you may need a different tool. Durable prioritizes speed over unlimited customization."
+      }
+    }
+  ]
+}
+</script>

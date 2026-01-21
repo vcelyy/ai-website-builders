@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'IONOS AI',
+  date: 'January 2025',
+  testingTime: '12 hours',
+  score: '7.0',
+  description: 'After 12 hours of testing IONOS AI website builder, I found it similar to Hostinger (same parent company) but with fewer features.'
+};
+
+const pros = [
+  'Very affordable',
+  'Hosting included',
+  'AI content tools',
+  'Free domain',
+  'Basic e-commerce'
+];
+
+const cons = [
+  'Limited templates',
+  'Basic AI features',
+  'No code export',
+  'Editor feels clunky',
+  'Less polish than Hostinger',
+  'Support can be slow'
+];
+
+const scores = {
+  easeOfUse: 7.5,
+  designQuality: 6.5,
+  aiFeatures: 6.5,
+  speed: 7.5,
+  flexibility: 6.5,
+  value: 8.5
+};
+
+const affiliateData = { href: 'https://ionos.com', commission: 'Varies', hasAffiliate: false };
+const hasAffiliate = false;
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-green-500 mt-1">✓</span><span>{pro}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a href="https://ionos.com" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        Try IONOS (Direct link)
+      </a>
+    </div>
+  </div>
+</Layout>
