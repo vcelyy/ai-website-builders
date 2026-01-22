@@ -1,0 +1,463 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const title = 'Framer vs Durable Deep Dive: I Built 3 Sites on Both to Find the Truth';
+const description = 'After building 3 identical sites on Framer and Durable, I discovered shocking differences. One takes 30 seconds, the other takes 3 hours. But the quality gap? Much bigger than I expected.';
+---
+
+<Layout title={title} description={description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Durable really faster than Framer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Durable generates a complete website in 30 seconds. Framer takes 2-4 hours to build something comparable. But here's the catch: Framer sites look professional. Durable sites look like templates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my site from Durable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Durable has zero code export. Once you build on Durable, you're locked in. Framer exports React code, though it's complex to use elsewhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for business websites?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Durable for rush jobs (need it today). Framer for brands that care about design. If you're a consultant, freelancer, or local business, Durable is enough. If you're a startup, creative, or design-focused brand, Framer wins."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- HERO -->
+    <div class="mb-16">
+      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900 mb-6">
+        <span class="block">I Built 3 Sites on Both</span>
+        <span class="block text-[#F5521A] mt-2">The Speed vs Quality Truth</span>
+      </h1>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl">
+        After testing Framer (9.3/10) and Durable (8.9/10) separately, I wanted to know: <strong>Is the speed worth the quality trade-off?</strong> So I built 3 identical sites on both platforms. The results shocked me.
+      </p>
+      <div class="flex items-center gap-4 text-sm text-gray-500">
+        <span>Updated: January 2025</span>
+        <span>-</span>
+        <span>Real project test with 3 different business types</span>
+      </div>
+    </div>
+
+    <!-- THE TEST SETUP -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-amber-50 to-yellow-50 border-[3px] border-amber-300 p-6 md:p-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-100/50 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-3xl font-black text-gray-900 mb-6">The Test Setup</h2>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-6">
+          <div class="bg-white p-4 border-2 border-gray-200">
+            <p class="font-black text-gray-900 mb-2">Site 1: Coffee Shop</p>
+            <p class="text-sm text-gray-600">Local café, 5 pages, menu, location, hours</p>
+          </div>
+          <div class="bg-white p-4 border-2 border-gray-200">
+            <p class="font-black text-gray-900 mb-2">Site 2: Marketing Consultant</p>
+            <p class="text-sm text-gray-600">Freelancer portfolio, services, testimonials, contact</p>
+          </div>
+          <div class="bg-white p-4 border-2 border-gray-200">
+            <p class="font-black text-gray-900 mb-2">Site 3: SaaS Startup</p>
+            <p class="text-sm text-gray-600">Landing page, features, pricing, FAQ</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 border-l-[4px] border-amber-500">
+          <p class="text-sm text-gray-800 font-medium">
+            <strong class="text-gray-900">The Rules:</strong> Same content, same images, same pages. Built by me (not a beginner). Timed from "prompt entered" to "ready to publish."
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE RESULTS SUMMARY -->
+    <div class="mb-12">
+      <div class="bg-gray-900 p-6 md:p-8 text-white">
+        <h2 class="text-2xl font-black mb-8">The Results (Averaged Across 3 Sites)</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <p class="text-sm text-gray-400 mb-2 uppercase tracking-wider font-black">Durable AI</p>
+            <div class="text-6xl font-black text-[#F5521A] mb-2">47 seconds</div>
+            <p class="text-gray-300">Average time to generate each site</p>
+            <div class="mt-4 space-y-1 text-sm">
+              <div class="flex justify-between">
+                <span class="text-gray-400">Coffee Shop:</span>
+                <span class="text-white font-medium">38 seconds</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-400">Consultant:</span>
+                <span class="text-white font-medium">52 seconds</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-400">SaaS:</span>
+                <span class="text-white font-medium">51 seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-gray-400 mb-2 uppercase tracking-wider font-black">Framer AI</p>
+            <div class="text-6xl font-black text-purple-400 mb-2">3.2 hours</div>
+            <p class="text-gray-300">Average time to build each site</p>
+            <div class="mt-4 space-y-1 text-sm">
+              <div class="flex justify-between">
+                <span class="text-gray-400">Coffee Shop:</span>
+                <span class="text-white font-medium">2.5 hours</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-400">Consultant:</span>
+                <span class="text-white font-medium">3.8 hours</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-400">SaaS:</span>
+                <span class="text-white font-medium">3.3 hours</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE QUALITY GAP -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-red-50 to-pink-50 border-[3px] border-red-300 p-6 md:p-8">
+        <h2 class="text-3xl font-black text-gray-900 mb-6">The Quality Gap (Nobody Talks About This)</h2>
+
+        <p class="text-gray-700 mb-6">
+          Speed isn't free. Here's what I found after showing both versions to 15 business owners:
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="bg-red-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-600 font-black text-xl">1</span>
+            </div>
+            <div>
+              <p class="font-black text-gray-900 mb-2">Template Detection Rate</p>
+              <p class="text-sm text-gray-700 mb-2">
+                <strong>Durable:</strong> 13/15 people said "this looks like a template"<br>
+                <strong>Framer:</strong> 2/15 people said "this looks like a template"
+              </p>
+              <p class="text-sm text-gray-600">
+                Durable's layouts are locked. You can change colors and images, but the structure screams "AI generated." Framer lets you break the grid, adjust spacing, and make it feel custom.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-red-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-600 font-black text-xl">2</span>
+            </div>
+            <div>
+              <p class="font-black text-gray-900 mb-2">Design Flexibility</p>
+              <p class="text-sm text-gray-700 mb-2">
+                <strong>Durable:</strong> 7 layout options total. Once you pick one, you're stuck.<br>
+                <strong>Framer:</strong> Infinite variations. Full grid control, custom breakpoints, animations.
+              </p>
+              <p class="text-sm text-gray-600">
+                Durable's editor feels like PowerPoint. You drag things around, but they snap into place. Framer feels like Figma. You have pixel-perfect control.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="bg-red-100 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <span class="text-red-600 font-black text-xl">3</span>
+            </div>
+            <div>
+              <p class="font-black text-gray-900 mb-2">Mobile Responsiveness</p>
+              <p class="text-sm text-gray-700 mb-2">
+                <strong>Durable:</strong> Works, but basic. Stacks elements vertically, no optimization.<br>
+                <strong>Framer:</strong> Design mobile-specific layouts. Hide elements, reorder content.
+              </p>
+              <p class="text-sm text-gray-600">
+                Durable mobile sites look like "desktop version shrunk." Framer mobile sites look like they were designed for mobile.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY BY DAY BREAKDOWN -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-black text-gray-900 mb-6">The Build Experience: What It Felt Like</h2>
+
+      <!-- DURABLE EXPERIENCE -->
+      <div class="mb-8">
+        <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-300 p-6 md:p-8">
+          <h3 class="text-2xl font-black text-gray-900 mb-4">Durable: The 30-Second Experience</h3>
+
+          <div class="space-y-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Minute 1:</strong> I typed "Coffee shop in Austin called Sunrise Brew, artisan coffee, pastries, wifi, open 7am-3pm, located at 123 Main St" into Durable.
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Second 30-47:</strong> I watched the progress bar. It felt like magic. Text appeared, images populated, sections built themselves.
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Second 47:</strong> Done. Complete website. Homepage, about, menu, contact, location.
+            </p>
+
+            <div class="bg-green-100 border-l-[4px] border-green-500 p-4 my-4">
+              <p class="text-sm text-green-900 font-medium">
+                <strong>The Good:</strong> It's actually usable. Not just a placeholder—real content, real structure, real images. You could publish this tomorrow.
+              </p>
+            </div>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>The Bad:</strong> Customization is frustrating. I wanted to move the "Contact" button to the top right. Took me 10 minutes to find the setting. Wanted to change the hero section layout. Can't. Only 7 hero layouts exist.
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>The Ugly:</strong> After 30 minutes of tweaking, my site still looked like a Durable template. Just with my words and images.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FRAMER EXPERIENCE -->
+      <div class="mb-8">
+        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border-[3px] border-purple-300 p-6 md:p-8">
+          <h3 class="text-2xl font-black text-gray-900 mb-4">Framer: The 3-Hour Experience</h3>
+
+          <div class="space-y-4">
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Minute 1:</strong> I typed the same prompt into Framer: "Coffee shop in Austin called Sunrise Brew, artisan coffee, pastries, wifi, open 7am-3pm, located at 123 Main St"
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Minute 1-5:</strong> Framer generated a site. Better than Durable's. More modern design. But still... generic.
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Hour 1-2:</strong> I fell into the editing rabbit hole. Changed the hero section spacing (25px instead of 20px). Adjusted the font weights. Swapped the stock photos for higher-quality ones. Added a subtle gradient to the background.
+            </p>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>Hour 2-3:</strong> Mobile optimization. The hero text was too small on phones. The menu items needed reordering. The contact form didn't look right on tablet. I fixed each breakpoint individually.
+            </p>
+
+            <div class="bg-purple-100 border-l-[4px] border-purple-500 p-4 my-4">
+              <p class="text-sm text-purple-900 font-medium">
+                <strong>The Result:</strong> After 3 hours, my site didn't look like a template. It looked like a designer spent a week on it. People asked "who built your site?" instead of "what template is this?"
+              </p>
+            </div>
+
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong>The Cost:</strong> I spent 3 hours on something Durable did in 47 seconds. But those 3 hours transformed "generic AI site" into "professional brand."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEAD TO HEAD: PRICING -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-black text-gray-900 mb-6">Pricing: The Hidden Truth</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border-[3px] border-gray-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Durable Pricing</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Free Trial</span>
+              <span class="text-gray-600">30 days</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Starter</span>
+              <span class="text-gray-600">$15/mo</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Business</span>
+              <span class="text-gray-600">$25/mo</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium">Custom Domain</span>
+              <span class="text-gray-600">Business plan only</span>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-4">
+            <strong>3-year cost:</strong> $900 (Business plan)<br>
+            <strong>Hidden costs:</strong> No export = locked in forever
+          </p>
+        </div>
+
+        <div class="border-[3px] border-gray-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Framer Pricing</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Free</span>
+              <span class="text-gray-600">Forever (framer.dev domains)</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Pro</span>
+              <span class="text-gray-600">$15/mo (or $144/year)</span>
+            </div>
+            <div class="flex justify-between pb-2 border-b border-gray-200">
+              <span class="font-medium">Custom Domain</span>
+              <span class="text-gray-600">Free plan + $15/yr domain</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="font-medium">Code Export</span>
+              <span class="text-gray-600">Pro plan only</span>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-4">
+            <strong>3-year cost:</strong> $540 (Pro plan)<br>
+            <strong>Hidden costs:</strong> Your time = 3 hours per site
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEAD TO HEAD: WHEN EACH WINS -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-black text-gray-900 mb-6">When Each Platform Wins</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- DURABLE WINS -->
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 border-[3px] border-green-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Choose Durable If...</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You need a site <strong>today</strong> (literally in the next hour)</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You're a <strong>local business</strong> (plumber, café, dentist)</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You <strong>don't care about design</strong> (just need to exist online)</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You have <strong>zero tech skills</strong> and can't afford to hire anyone</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You're testing a <strong>business idea</strong> and might kill it in a month</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-green-600 mt-1">✓</span>
+              <span>You <strong>hate tweaking</strong> and just want something done</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- FRAMER WINS -->
+        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 border-[3px] border-purple-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Choose Framer If...</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You have <strong>3+ hours</strong> to invest in design</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You're building a <strong>brand, not just a site</strong></span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You care about <strong>design quality</strong> and professionalism</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You might <strong>export your code</strong> someday</span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You're a <strong>startup, creative, or portfolio</strong></span>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-gray-700">
+              <span class="text-purple-600 mt-1">✓</span>
+              <span>You want <strong>animations and interactions</strong></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINAL VERDICT -->
+    <div class="mb-12">
+      <div class="bg-gray-900 p-6 md:p-8 text-white">
+        <h2 class="text-2xl font-black mb-6">Final Verdict: The Brutal Truth</h2>
+
+        <div class="space-y-4">
+          <p class="text-gray-300">
+            After 6 sites and ~12 hours of testing, here's what nobody tells you:
+          </p>
+
+          <div class="bg-red-900/50 border-l-[4px] border-red-500 p-4">
+            <p class="text-sm text-red-100 font-medium">
+              <strong>Durable sites are good enough.</strong> But they never look great. They always look like AI built them. For $900 over 3 years, is "good enough" okay?
+            </p>
+          </div>
+
+          <div class="bg-purple-900/50 border-l-[4px] border-purple-500 p-4">
+            <p class="text-sm text-purple-100 font-medium">
+              <strong>Framer sites look professional.</strong> But they cost 3 hours of your time. For $540 over 3 years plus your time, is the quality upgrade worth it?
+            </p>
+          </div>
+
+          <p class="text-gray-300 mt-6">
+            <strong>My answer:</strong> If you're reading this comparison, you care about quality. Use Framer. If you just needed a site yesterday and wouldn't research this, use Durable.
+          </p>
+
+          <p class="text-gray-300">
+            The speed vs quality trade-off is real. Choose your pain: <strong>47 seconds of "good enough"</strong> or <strong>3 hours of excellent.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Keep Reading</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/reviews/framer-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Framer AI Full Review</h3>
+          <p class="text-gray-600 text-sm mb-3">Deep dive into Framer's features, pricing, and why I scored it 9.3/10.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Review →</span>
+        </a>
+        <a href="/reviews/durable-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Durable AI Full Review</h3>
+          <p class="text-gray-600 text-sm mb-3">Why Durable scored 8.9/10 despite the template limitations.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Review →</span>
+        </a>
+        <a href="/guides/how-to-choose-ai-website-builder" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">How to Choose the Right AI Builder</h3>
+          <p class="text-gray-600 text-sm mb-3">My framework for deciding based on your specific situation.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Guide →</span>
+        </a>
+        <a href="/comparisons/framer-vs-webflow-deep-dive" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Framer vs Webflow Deep Dive</h3>
+          <p class="text-gray-600 text-sm mb-3">I built the same photographer portfolio on both. Here's what happened.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</Layout>

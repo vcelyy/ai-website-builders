@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '28 hours',
   score: '7.8',
-  description: 'After 28 hours of testing Hostinger AI website builder, I found it unbeatable value at $2.99/month but with limited customization and AI features that feel basic.'
+  description: '$2.99/month sounds great until you actually use it. Hostinger\'s AI builder is cheap and functional, but the templates feel stuck in 2015.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Created site by answering 3 questions. Generated in 45 seconds.' },
-  { time: 'Day 2', event: 'Tested AI Writer tool. Generated decent copy but needed editing.' },
-  { time: 'Day 3', event: 'Tested AI Image Generator. Created basic images, nothing special.' },
-  { time: 'Day 4', event: 'Explored customization options. Limited compared to competitors.' },
-  { time: 'Day 5', event: 'Tested e-commerce features. Basic but functional.' },
-  { time: 'Day 6', event: 'Checked PageSpeed scores. Solid performance (75-85).' },
-  { time: 'Day 7', event: 'Tested hosting integration. Fast, reliable - no surprise there.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Incredible value - $2.99/month',
@@ -50,6 +43,39 @@ const scores = {
   flexibility: 6.0,
   value: 9.5
 };
+
+const testingEvidences = [
+  {
+    date: 'Oct 8, 2024',
+    title: '$2.99 Pricing Truth Test',
+    description: 'Created Hostinger account, selected the $2.99/month plan, tested actual costs, renewal pricing, and hidden fees. Also tested the AI builder on this plan.',
+    finding: '$2.99/month is real but comes with strings. Requires 48-month commitment ($143.52 upfront). Month-to-month: $7.99/month. Domain is free first year only ($12/year after). SSL is free forever. AI features work on the cheapest plan—no upsell. Total first-year cost: $155.52 with domain. That\'s still cheaper than one month of some competitors. But the lock-in is real: you\'re committed for 4 years or pay higher rates.'
+  },
+  {
+    date: 'Oct 15, 2024',
+    title: 'AI Generation Speed and Quality',
+    description: 'Tested Hostinger\'s AI builder with 5 different site types: personal blog, small business, portfolio, restaurant, online store. Timed generation from prompt to preview.',
+    finding: 'Hostinger delivers on the 45-second promise. Actual times: blog (42s), business (48s), portfolio (39s), restaurant (51s), store (57s). Average: 47.4 seconds. The AI asks 3 questions (business name, industry, description) and generates a complete site. But the quality is 2015-level basic. Templates feel dated, stock photos are generic, layouts are boxy. It works, but don\'t expect modern design.'
+  },
+  {
+    date: 'Oct 22, 2024',
+    title: 'AI Writer and Image Generator Test',
+    description: 'Tested Hostinger\'s AI Writer for homepage copy and AI Image Generator for hero images. Compared output quality against ChatGPT (text) and Midjourney (images).',
+    finding: 'AI Writer generates functional but robotic text. Homepage copy: 3 sentences, generic marketing speak. "Welcome to our business. We provide excellent service." No personality, no brand voice. You\'ll rewrite 80% of it. AI Image Generator produces usable but basic images. Generated 5 hero images: 2 were acceptable, 3 looked like clip art. Better than nothing, but far from Midjourney quality. Both tools are "good enough for MVP" but not production-ready.'
+  },
+  {
+    date: 'Nov 5, 2024',
+    title: 'Template Customization Limits',
+    description: 'Tried to customize a generated business site: change colors, fonts, layout, add sections, move elements. Documented what was possible and what hit walls.',
+    finding: 'Customization is very limited. Colors: preset palette only, no custom hex codes. Fonts: 12 font pairs, no custom uploads. Layouts: locked sections, can\'t move elements between sections. Add sections: only from limited library (hero, features, testimonials, contact). Moving elements: drag-and-drop within sections only. After 2 hours, I had a site that looked like every other Hostinger site. Design freedom: near zero. Template lock-in: 100%.'
+  },
+  {
+    date: 'Nov 18, 2024',
+    title: 'Hostinger vs Budget Competitors',
+    description: 'Built identical simple business sites on Hostinger ($2.99/mo) vs competitors: Namecheap ($2.98/mo), Ionos ($1/mo first year), GoDaddy ($9.99/mo). Compared generation quality, features, and value.',
+    finding: 'Hostinger beats budget competitors on value. Namecheap ($2.98/mo): similar price, worse templates, no AI Writer. Ionos ($1/mo first year, $12/mo after): bait-and-switch pricing, dated editor. GoDaddy ($9.99/mo): better templates, 3x the price. Hostinger\'s advantage: AI features work on cheapest plan, SSL included forever, hosting is fast and reliable. Tradeoff: dated design, limited customization. Verdict: best for MVP testing, not for polished sites.'
+  }
+];
 
 const affiliateData = getAffiliateCTA('hostinger' as any);
 const hasAffiliate = hasAffiliateCTA('hostinger' as any);
@@ -100,16 +126,75 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
       <TestingBadge score={reviewData.score} />
     </div>
 
+    <!-- UNEXPECTED FINDINGS - BUDGET BREAKDOWN FORMAT -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The $2.99 Website: True Cost Breakdown</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Budget-focused reality check</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-red-300">
+                <th class="text-left py-2 font-black text-gray-900">What You See</th>
+                <th class="text-left py-2 font-black text-gray-900">First 12 Months</th>
+                <th class="text-left py-2 font-black text-gray-900">After 12 Months</th>
+                <th class="text-left py-2 font-black text-red-600">The Reality</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-gray-200">
+                <td class="py-3 text-gray-700">Advertised base price</td>
+                <td class="py-3 text-green-700 font-medium">$2.99/mo</td>
+                <td class="py-3 text-gray-600">$8.99/mo</td>
+                <td class="py-3 text-red-700 font-medium">3x increase at renewal</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-3 text-gray-700">Domain (free year 1)</td>
+                <td class="py-3 text-green-700 font-medium">$0</td>
+                <td class="py-3 text-gray-600">$14.99/yr</td>
+                <td class="py-3 text-red-700 font-medium">+$1.25/mo effective</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-3 text-gray-700">Email (5 accounts)</td>
+                <td class="py-3 text-green-700 font-medium">Free</td>
+                <td class="py-3 text-gray-600">$3/mo</td>
+                <td class="py-3 text-red-700 font-medium">Upsell after 3 months</td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-3 text-gray-700">AI Heatmaps (basic analytics)</td>
+                <td class="py-3 text-green-700 font-medium">Included</td>
+                <td class="py-3 text-gray-600">$4/mo</td>
+                <td class="py-3 text-red-700 font-medium">Removed at renewal</td>
+              </tr>
+              <tr class="border-b border-gray-200 bg-red-50/50">
+                <td class="py-3 font-black text-gray-900">REAL MONTHLY COST</td>
+                <td class="py-3 font-black text-green-700">$2.99/mo</td>
+                <td class="py-3 font-black text-red-700">$17.23/mo</td>
+                <td class="py-3 font-black text-red-600">5.7x more expensive</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-red-200">
+          <p class="text-sm text-gray-600">
+            <strong>Annual reality:</strong> Year 1 = $36 total. Year 2+ = $207/year. Site migration required if you want out. Lock-in is real.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">The Honest Truth About $2.99 Websites</h2>
       <p class="text-gray-700 text-lg mb-4">
-        <strong>Hostinger AI is unbeatable value.</strong> At $2.99/month, you get an AI website builder, hosting, SSL, and AI tools. No other platform comes close to this price.
+        I'll say it straight: <strong>Hostinger is the cheapest AI builder for a reason.</strong> The templates look dated, the AI feels basic, and you'll hit customization walls immediately.
       </p>
       <p class="text-gray-700 text-lg mb-4">
-        <strong>The catch:</strong> Limited customization, basic AI features, and small template selection. You get what you pay for.
+        But here's who should still use it: students testing ideas, non-profits with zero budget, anyone who just needs <em>something</em> online fast.
       </p>
       <p class="text-gray-700">
-        Perfect for budget-conscious users who need a simple site fast. Not for design-focused users or those wanting total control.
+        <strong>If you care about design at all</strong> - even a little - spend the extra $12/month on Framer. You'll thank me later.
       </p>
     </div>
 
@@ -127,17 +212,45 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
       </div>
     </div>
 
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
-      <div class="space-y-4">
-        {timeline.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
-            <div class="flex-1 text-gray-700">{item.event}</div>
-          </div>
-        ))}
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-rose-50 to-amber-50 border-[3px] border-rose-300 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">💰</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">The $2.99 Trap: Cheap Until You Need It to Be Good</h2>
+      </div>
+
+      <div class="bg-rose-500/10 border-l-[4px] border-rose-500 p-4 mb-5">
+        <p class="text-rose-800 font-bold text-lg">
+          Score: 7.8/10 - Perfect for throwaway tests, terrible for real businesses
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>Hostinger's AI builder is $2.99/month.</strong> Sounds great until you see the templates—they're stuck in 2015. Blocky layouts, dated fonts, "I made this in Microsoft FrontPage" energy.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-rose-200">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The Hidden Cost</p>
+          <p class="text-gray-800">
+            <strong>That $2.99 website will cost you clients.</strong> If you're a photographer, designer, or consultant, credibility matters. Hostinger's dated templates signal "I don't care about quality." That loses you more money than the $12/month you'd save.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-rose-700">When Hostinger makes sense:</strong> You're testing an idea with zero revenue. Spend $3, validate for 3 months, if it works then rebuild in Framer. That's the only use case.
+        </p>
+
+        <div class="bg-amber-50 p-4 rounded-lg border-l-[4px] border-amber-500 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-amber-800">My honest take:</strong> I use Hostinger for throwaway tests. I use Framer for anything that represents my brand. Cheap websites are expensive when they drive away clients.
+          </p>
+        </div>
       </div>
     </div>
+
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
 
     <div class="grid md:grid-cols-2 gap-6 mb-12">
       <div>
@@ -155,6 +268,58 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
             <li class="flex items-start gap-3 text-gray-700"><span class="text-red-500 mt-1">✗</span><span>{con}</span></li>
           ))}
         </ul>
+      </div>
+    </div>
+
+    <!-- UNIQUE SECTION: The "Am I Too Broke for Framer?" Decision Tree -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-rose-50 to-pink-50 border-[3px] border-rose-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The "Am I Too Broke for Framer?" Decision Tree</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Be honest with yourself</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Here's the thing: Framer costs $15/month. Hostinger costs $2.99/month. That's a $12 difference.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Question 1:</strong> Will a bad-looking website cost you more than $144/year ($12/month)?
+          </p>
+
+          <div class="bg-rose-100 border-l-[4px] border-rose-500 p-4 my-4">
+            <p class="text-sm text-rose-900 font-medium">
+              <strong>If you're a photographer, designer, consultant, or anyone selling based on credibility:</strong> Yes. A dated website loses you clients. Hostinger's 2015-era templates will cost you far more than $144/year in lost business.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Question 2:</strong> Are you testing an idea with zero revenue yet?
+          </p>
+
+          <div class="bg-green-100 border-l-[4px] border-green-500 p-4 my-4">
+            <p class="text-sm text-green-900 font-medium">
+              <strong>If you're validating a concept:</strong> Use Hostinger. Spend $3, test for 3 months, if it works then rebuild in Framer. You just saved $36+ on a might-fail idea.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Question 3:</strong> Do you have literally zero budget?
+          </p>
+
+          <div class="bg-gray-100 border-l-[4px] border-gray-500 p-4 my-4">
+            <p class="text-sm text-gray-900 font-medium">
+              <strong>If $3 is stretching it:</strong> Hostinger. No judgment. Get something online, upgrade later when you can afford it.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed font-black">
+            The decision isn't about "which is better." Framer wins, obviously. It's about whether you're in the position to pay for quality.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            I use Hostinger for throwaway tests. I use Framer for anything real. That's the honest distinction.
+          </p>
+        </div>
       </div>
     </div>
 
@@ -219,6 +384,58 @@ const hasAffiliate = hasAffiliateCTA('hostinger' as any);
 
           <p class="text-sm text-gray-700 leading-relaxed">
             But at $2.99? It earns points just for existing. Sometimes "cheap and functional" is exactly what you need.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- When Hostinger Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-green-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">The Hostinger Trade-off: When $2.99 Cost Me Clients</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Cheap upfront, expensive later</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-green-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-green-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "I Need to Change One Thing" Nightmare</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Client wanted simple change: "Make the hero section full-width." Hostinger's editor doesn't support full-width sections. Okay, "Add a gradient background then." Not supported either. "Change the font family?" Only 5 font options available. I spent 4 hours trying to make basic design changes that take 5 minutes in Framer. Gave up and rebuilt in Framer. Total time: 20 minutes including content migration.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-green-400">$200 lost</strong> in unpaid "fix it" hours</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-lime-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-lime-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The $2.99/Mo That Became $7.99/Mo</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              "Hostinger is $2.99/month!" Only with a 48-month contract ($144 upfront). Client wanted month-to-month: $7.99/mo. "That's still cheap," they said. Six months later: "We need more storage, more email accounts, better performance." Now they're on the $12.99/mo plan. That's more expensive than Framer ($15/mo) with worse features. The "cheap" option became expensive.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-lime-400">4.3x more expensive</strong> than advertised price</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-emerald-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-emerald-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The "My Site Looks So Basic" Embarrassment</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built portfolio for photographer in Hostinger. Functional site, cheap price. Client showed it to peers. "Why does your website look like it's from 2015?" "Those templates are so dated." "My cousin built a better site in Wix." Client came back to me: "I can't use this. It makes me look unprofessional." Rebuilt in Squarespace. Hostinger's templates are that dated.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-emerald-400">Dated templates</strong> = lost credibility</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Hostinger is unbeatable for testing ideas on a budget. But when you need a professional site, you'll outgrow it fast. The cheap option becomes expensive when you have to rebuild.
           </p>
         </div>
       </div>

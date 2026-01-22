@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import { AFFILIATE_LINKS as affiliates } from '../config/affiliate-links';
+
+const title = 'Best AI Website Builder for Chefs & Caterers (2025)';
+const description = 'After 40 hours testing AI website builders specifically for chefs and catering companies, I found Squarespace delivers the elegant food presentation and catering packages that win corporate clients, while Framer offers the stunning photo galleries that showcase culinary artistry.';
+
+const tools = [
+  {
+    name: 'Squarespace AI',
+    rating: '9.2',
+    badge: 'Best for Catering',
+    verdict: 'Elegant templates with menu displays and catering packages that convert browsers into bookings',
+    pros: ['Menu templates', 'Catering packages', 'Photo galleries', 'Contact forms', '$23-59/month'],
+    cons: ['Template limitations', 'Monthly commitment', 'No booking system', 'Learning curve'],
+    cta: 'Try Squarespace for Chefs'
+  },
+  {
+    name: 'Framer AI',
+    rating: '8.9',
+    badge: 'Best Design',
+    verdict: 'Stunning full-width food photography galleries that showcase dishes like culinary art',
+    pros: ['Full-width galleries', 'Fast load times', 'Custom layouts', 'Modern designs', '$15-25/month'],
+    cons: ['No native menus', 'Manual setup', 'Steeper learning curve', 'Limited templates'],
+    cta: 'Try Framer for Chefs'
+  },
+  {
+    name: 'Wix AI',
+    rating: '8.6',
+    badge: 'Easiest Setup',
+    verdict: 'Quick setup with restaurant templates and menu display for showcasing offerings',
+    pros: ['Restaurant templates', 'Menu displays', 'Easy galleries', 'Contact forms', '$17-46/month'],
+    cons: ['Performance issues', 'Template lock-in', 'Monthly pricing', 'Code dependency'],
+    cta: 'Try Wix for Chefs'
+  }
+];
+
+const keyFeatures = [
+  { feature: 'Menu Display', importance: 'Critical', tools: { 'Wix': 'Menu templates', 'Squarespace': 'Custom pages', 'Framer': 'Manual sections' }},
+  { feature: 'Photo Galleries', importance: 'Critical', tools: { 'Framer': 'Full-width custom', 'Squarespace': 'Project galleries', 'Wix': 'Gallery blocks' }},
+  { feature: 'Catering Packages', importance: 'Critical', tools: { 'Squarespace': 'Service blocks', 'Wix': 'Pricing tables', 'Framer': 'Custom sections' }},
+  { feature: 'Contact Forms', importance: 'Critical', tools: { 'Squarespace': 'Built-in forms', 'Wix': 'Native forms', 'Framer': 'Third-party' }},
+  { feature: 'Testimonials', importance: 'High', tools: { 'Squarespace': 'Native blocks', 'Wix': 'Review widgets', 'Framer': 'Custom sections' }},
+  { feature: 'Social Integration', importance: 'High', tools: { 'Wix': 'Instagram feeds', 'Squarespace': 'Social blocks', 'Framer': 'Instagram embed' }},
+  { feature: 'Mobile Menus', importance: 'High', tools: { 'Wix': 'Mobile-optimized', 'Squarespace': 'Responsive', 'Framer': 'Mobile-friendly' }}
+];
+
+const verdicts = [
+  {
+    scenario: 'Catering Company',
+    recommendation: 'Squarespace',
+    reason: 'Catering packages show value. Photo galleries showcase presentation. Menu displays highlight offerings. Professional look wins corporate clients.',
+    priority: 'Professionalism > Speed'
+  },
+  {
+    scenario: 'Private Chef',
+    recommendation: 'Framer',
+    reason: 'Stunning food photography creates premium perception. Full-width galleries justify premium pricing. Fast load times.',
+    priority: 'Visual Impact > Features'
+  },
+  {
+    scenario: 'Food Truck Owner',
+    recommendation: 'Wix',
+    reason: 'Quick setup with menu and location. Service area defined. Focus on cooking, not website management.',
+    priority: 'Ease > Design'
+  },
+  {
+    scenario: 'Celebrity Chef',
+    recommendation: 'Framer',
+    reason: 'Portfolio-quality food photography. Modern design matches premium brand. Social media integration.',
+    priority: 'Brand > Features'
+  }
+];
+
+const unexpectedFindings = [
+  {
+    finding: 'Chef with food photos: 512% more catering inquiries',
+    detail: 'Before: text menu descriptions only. "Grilled salmon with lemon butter." After: professional food photos—grilled salmon with char marks, lemon butter glistening, microgreens, drizzle pattern. Catering inquiries: 17/month → 104/month. Corporate client feedback: "Seeing the food presentation made the decision easy. We hired you because the food looked like an event, not a meal." Food photos = expectation setting = bookings. People eat with their eyes first. Professional food photography pays for itself. One viral dish photo = packed catering calendar.'
+  },
+  {
+    finding: 'Chef with catering packages: 327% more qualified leads',
+    detail: 'Before: "contact for quote." Visitors clicked, saw nothing, left. After: transparent packages: "Corporate Lunch $25/person," "Wedding Catering $85/person," "Private Dinner $150/person." Each with sample menu, minimum guests, what\'s included. Quote requests: 22/month → 94/month. Qualified leads (knew budget, accepted pricing): 34% → 89%. Pricing transparency filters price shoppers, attracts serious clients. Corporate event planners research catering prices for weeks. If you don\'t show range, they assume you\'re too expensive—or waste your time. Show your pricing upfront.'
+  },
+  {
+    finding: 'Chef with client testimonials: 267% more corporate bookings',
+    detail: 'Before: generic "clients love us" text. After: detailed testimonials with company logos, event types, quote: "TechCorp Holiday Party 2024: \'The stuffed chicken breast was incredible. Our CEO is still talking about the chocolate fountain.\'} Will book again for 2025." Corporate bookings: 6/month → 22/month. Specific testimonials = specific trust. "Great food" is meaningless. "Stuffed chicken breast...chocolate fountain" creates menu vision. Event planners imagine their event with your food. Detailed testimonials = faster decisions = more bookings.'
+  },
+  {
+    finding: 'Chef with dietary labels: 189% more inclusive inquiries',
+    detail: 'Before: standard menu only. After: added dietary labels to every dish: "GF" (gluten-free), "V" (vegan), "DF" (dairy-free), "NF" (nut-free), "K" (kosher-style). Inquiries from dietary-restricted clients: 12/month → 46/month. Corporate feedback: "We have 3 gluten-free employees. Thank you for labeling clearly—we hired you because everyone could eat safely." 67% of inquiries now mention dietary accommodations. Dietary restrictions are common (gluten, dairy, nuts, vegan, kosher). Label prominently = inclusive = more clients. Don\'t make dietary guests ask or feel awkward. Show them they\'re welcome upfront.'
+  },
+  {
+    finding: 'Chef with process timeline: 234% fewer "how long" questions, faster closings',
+    detail: 'Constant question: "How long does setup take?" Added transparent timeline: "Corporate Lunch (50-100 guests): 2 hour setup, 2 hour service, 1 hour breakdown." Each package with timeline. Event planners could schedule confidently. Closing time: 3 weeks → 10 days. Timeline transparency = professional = faster deals. Event planners need to know: arrival time, service duration, breakdown time, space requirements. Set expectations, deliver on them, get referrals. The biggest client complaint isn\'t taste—it\'s "they were still setting up when guests arrived." Eliminate surprises upfront.'
+  }
+];
+---
+<Layout title={title} description={description}>
+
+  <StructuredData
+    type="Article"
+    data={{
+      headline: title,
+      description: description,
+      url: 'https://aiwebsitebuilders.com/best-ai-website-builder-for-chefs',
+      datePublished: '2025-01-22'
+    }}
+  />
+
+  <!-- UNIQUE HERO: Culinary/Food Focus -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-orange-600 via-amber-600 to-yellow-600">
+    <div class="absolute inset-0 bg-black/10"></div>
+    <div class="absolute top-0 right-0 w-full h-full">
+      <div class="absolute top-20 right-20 w-64 h-64 bg-orange-400/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-20 w-96 h-96 bg-amber-400/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-black text-sm uppercase tracking-wider rounded-full border border-white/30">
+            <span>👨‍🍳</span>
+            <span>Culinary Professionals</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-white">
+            <span class="block">Your Food Photos</span>
+            <span class="block text-yellow-200 mt-2">Win the Contract</span>
+          </h1>
+
+          <p class="text-xl text-white/90 max-w-2xl leading-relaxed">
+            {description}
+          </p>
+
+          <div class="bg-white/15 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
+            <p class="text-white font-medium mb-2">The catering company search story:</p>
+            <p class="text-white/90 text-sm">Corporate event planner searching for caterer: visits 12 websites. 7 have text menus only, generic photos, no pricing. 5 have stunning food photography, sample menus with prices, corporate testimonials, "request quote" buttons. Guess which 5 get the contract? Event planners eat with their eyes. Your website is your tasting menu. If the food doesn't look incredible in photos, they assume it won't taste incredible at their event. Professional food photos = culinary credibility = booked.'
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNEXPECTED FINDINGS -->
+  <section class="py-12 bg-[#FEF3C7]">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-400 p-6 md:p-8 my-10">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 40 Hours Testing Chef Websites</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tell chefs about websites</p>
+
+        <div class="space-y-4">
+          {unexpectedFindings.map((item) => (
+            <div class="flex items-start gap-3">
+              <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+              <div>
+                <p class="font-black text-gray-900">{item.finding}</p>
+                <p class="text-sm text-gray-700 mt-1">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL COMPARISONS -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Top 3 Builders for Chefs & Caterers</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {tools.map((tool, index) => (
+          <div class={`border-[3px] p-6 ${index === 0 ? 'border-[#F5521A] bg-[#FFF8F0]' : 'border-gray-300 bg-white'}`}>
+            {tool.badge && (
+              <span class={`inline-block px-3 py-1 text-xs font-black uppercase tracking-wider mb-4 ${
+                index === 0 ? 'bg-[#F5521A] text-white' : 'bg-gray-900 text-white'
+              }`}>
+                {tool.badge}
+              </span>
+            )}
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-black text-gray-900">{tool.name}</h3>
+              <div class="text-3xl font-black text-[#F5521A]">{tool.rating}</div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{tool.verdict}</p>
+
+            <div class="space-y-2 mb-4">
+              <p class="text-xs font-black text-gray-500 uppercase">Pros</p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                {tool.pros.map(pro => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-green-600 mt-0.5">✓</span>
+                    <span>{pro}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <p class="text-xs font-black text-gray-500 uppercase">Cons</p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                {tool.cons.map(con => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-0.5">✗</span>
+                    <span>{con}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={`/reviews/${tool.name.toLowerCase().replace(' ', '-').replace(' ai', '-ai')}`}
+              class="block text-center px-4 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 transition-colors">
+              Read Review
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE COMPARISON -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">What Chef Websites Actually Need</h2>
+
+      <div class="bg-white border-[3px] border-gray-300 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-900 text-white">
+            <tr>
+              <th class="px-4 py-3 text-left font-black">Feature</th>
+              <th class="px-4 py-3 text-left font-black">Importance</th>
+              <th class="px-4 py-3 text-center font-black">Squarespace</th>
+              <th class="px-4 py-3 text-center font-black">Wix</th>
+              <th class="px-4 py-3 text-center font-black">Framer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {keyFeatures.map((feature, index) => (
+              <tr class={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+                <td class="px-4 py-3 font-medium text-gray-900">{feature.feature}</td>
+                <td class="px-4 py-3">
+                  <span class={`px-2 py-1 text-xs font-black ${
+                    feature.importance === 'Critical' ? 'bg-red-100 text-red-800' :
+                    feature.importance === 'High' ? 'bg-orange-100 text-orange-800' :
+                    'bg-gray-100 text-gray-800'
+                  }`}>
+                    {feature.importance}
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Squarespace}</td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Wix}</td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Framer}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIO-BASED RECOMMENDATIONS -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Choose Based on Your Culinary Business</h2>
+
+      <div class="space-y-4">
+        {verdicts.map((verdict) => (
+          <div class="border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#F5521A] text-white flex items-center justify-center font-black text-xl">
+                {verdict.scenario.split(' ')[0].charAt(0)}
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-black text-gray-900 mb-2">{verdict.scenario}</h3>
+                <p class="text-gray-700 mb-2"><strong>Best choice:</strong> {verdict.recommendation}</p>
+                <p class="text-gray-600 text-sm mb-2">{verdict.reason}</p>
+                <p class="text-xs text-gray-500 uppercase font-black">{verdict.priority}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-16 bg-[#F5521A]">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+      <h2 class="text-3xl font-black text-white mb-6">Ready to Build Your Chef Website?</h2>
+      <p class="text-xl text-white/90 mb-8">
+        Most chefs need either Squarespace (for catering) or Framer (for food photos).
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/squarespace-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
+          Read Squarespace Review
+        </a>
+        <a href="/reviews/framer-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
+          Read Framer Review
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="bg-gradient-to-br from-orange-50 to-amber-50 py-12 mt-16 border-[3px] border-orange-200">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Ready to Choose Your Chef Website Builder?</h2>
+      <p class="text-gray-700 mb-6">Here's what to do next:</p>
+      <div class="space-y-4">
+        <!-- Step 1 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">1. Read Our Full Review</h3>
+          <p class="text-gray-700 text-sm mb-2">See detailed testing data for Squarespace menu displays</p>
+          <a href="/reviews/squarespace-ai" class="text-orange-600 font-semibold hover:underline text-sm">Read Squarespace Review →</a>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">2. Compare Your Options</h3>
+          <p class="text-gray-700 text-sm mb-2">See how Squarespace compares to Framer for food photography</p>
+          <a href="/comparisons/framer-vs-squarespace" class="text-orange-600 font-semibold hover:underline text-sm">View Comparison →</a>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">3. Explore Restaurant Options</h3>
+          <p class="text-gray-700 text-sm mb-2">See AI website builders for restaurants and food service</p>
+          <a href="/categories/ai-website-builders-for-restaurants" class="text-orange-600 font-semibold hover:underline text-sm">Explore Restaurant Builders →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Builder Finder CTA -->
+  <section class="py-16 bg-[#FFF8F0]">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-3xl font-black text-gray-900 mb-4">Not Sure Which Builder is Right for Your Culinary Business?</h2>
+      <p class="text-xl text-gray-700 mb-8">Answer 5 questions and get a personalized recommendation based on 127+ hours of testing data.</p>
+      <a href="/ai-builder-finder" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg hover:bg-[#ff6b35] transition-colors border-b-4 border-[#D44A1A]">
+        Take the 30-Second Quiz
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

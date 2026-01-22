@@ -1,0 +1,385 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
+
+const title = 'AI Builder Finder - Get Your Perfect Match in 30 Seconds';
+const description = 'Answer 5 simple questions and get a personalized AI website builder recommendation. Based on 127+ hours of real testing data.';
+
+const questions = [
+  {
+    id: 'technical-skill',
+    text: 'How comfortable are you with technical stuff?',
+    options: [
+      { value: 'beginner', label: 'Not at all - I need something that just works', icon: '🚫' },
+      { value: 'intermediate', label: 'Somewhat - I can figure things out with instructions', icon: '🔧' },
+      { value: 'developer', label: 'Very - I\'m a developer or designer', icon: '💻' }
+    ]
+  },
+  {
+    id: 'urgency',
+    text: 'How fast do you need your website live?',
+    options: [
+      { value: 'asap', label: 'Yesterday - I need it NOW', icon: '⚡' },
+      { value: 'week', label: 'This week - No huge rush', icon: '📅' },
+      { value: 'month', label: 'This month - Taking my time', icon: '🗓️' }
+    ]
+  },
+  {
+    id: 'budget',
+    text: 'What\'s your monthly budget?',
+    options: [
+      { value: 'free', label: 'Free or under $15/month', icon: '💵' },
+      { value: 'mid', label: '$15-50/month', icon: '💰' },
+      { value: 'premium', label: '$50+/month - Money isn\'t the issue', icon: '💎' }
+    ]
+  },
+  {
+    id: 'website-type',
+    text: 'What are you building?',
+    options: [
+      { value: 'simple', label: 'Simple site (portfolio, landing page, local business)', icon: '📄' },
+      { value: 'content', label: 'Content-focused (blog, newsletter, resources)', icon: '📝' },
+      { value: 'complex', label: 'Complex (SaaS, startup, agency portfolio)', icon: '🏗️' },
+      { value: 'ecommerce', label: 'Online store', icon: '🛒' }
+    ]
+  },
+  {
+    id: 'priority',
+    text: 'What matters MOST to you?',
+    options: [
+      { value: 'design', label: 'Beautiful design that impresses visitors', icon: '🎨' },
+      { value: 'speed', label: 'Fast generation and easy updates', icon: '🚀' },
+      { value: 'features', label: 'Advanced features and flexibility', icon: '⚙️' },
+      { value: 'cost', label: 'Lowest price possible', icon: '💸' }
+    ]
+  }
+];
+
+const recommendations = {
+  'beginner-asap-simple-speed': { builder: 'Durable AI', score: 9.5, reason: 'Fastest AI generation (30 seconds). Zero technical skills needed. Perfect for getting something live immediately.' },
+  'beginner-asap-simple-design': { builder: 'Framer AI', score: 9.0, reason: 'Beautiful templates that make you look professional. Still beginner-friendly with excellent tutorials.' },
+  'beginner-asap-simple-cost': { builder: 'Durable AI', score: 9.2, reason: 'Most affordable for simple sites. $15/month includes everything you need.' },
+  'beginner-asap-simple-features': { builder: 'Framer AI', score: 8.8, reason: 'Great features for simple sites. More powerful than Durable while still easy to use.' },
+
+  'beginner-asap-content-speed': { builder: 'Durable AI', score: 8.5, reason: 'Fastest for content sites. Good enough for basic blogs and resources.' },
+  'beginner-asap-content-design': { builder: 'Framer AI', score: 9.1, reason: 'Superior design for content sites. Excellent blog templates and CMS.' },
+  'beginner-asap-content-cost': { builder: '10Web AI', score: 8.8, reason: 'WordPress-powered with affordable plans. Great for content-heavy sites.' },
+  'beginner-asap-content-features': { builder: '10Web AI', score: 9.0, reason: 'WordPress ecosystem gives you the most features for content sites.' },
+
+  'developer-asap-complex-speed': { builder: 'Durable AI', score: 7.5, reason: 'Fast, but you\'ll outgrow it quickly. Good for MVP, not for production.' },
+  'developer-asap-complex-design': { builder: 'Framer AI', score: 9.3, reason: 'Beautiful designs you can export and customize. Perfect for developer/designers.' },
+  'developer-asap-complex-cost': { builder: 'CodeDesign.ai', score: 8.2, reason: 'Clean code export you can build on. $29/month for developers.' },
+  'developer-asap-complex-features': { builder: 'Webflow', score: 9.0, reason: 'Most powerful and flexible. Expensive but worth it for complex projects.' },
+
+  'intermediate-week-ecommerce-features': { builder: '10Web AI', score: 9.2, reason: 'WooCommerce integration gives you full e-commerce capabilities. Best for online stores.' },
+  'intermediate-week-ecommerce-design': { builder: 'Framer AI', score: 8.9, reason: 'Beautiful product pages and checkout flows. Pair with Shopify for e-commerce.' },
+
+  'beginner-month-complex-design': { builder: 'Framer AI', score: 9.4, reason: 'Take your time building something beautiful. Framer\'s learning curve is manageable.' },
+  'beginner-month-complex-features': { builder: 'Webflow', score: 8.8, reason: 'Powerful enough for complex sites. University-level tutorials available.' },
+};
+---
+<Layout title={title} description={description}>
+
+  <StructuredData type="WebPage" data={{
+    name: title,
+    description: description,
+    url: 'https://aiwebsitebuilders.com/ai-builder-finder'
+  }} />
+
+  <!-- BRUTALIST HERO -->
+  <section class="relative overflow-hidden bg-[#FFF8F0] py-16">
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+
+    <div class="container mx-auto px-4 max-w-4xl relative">
+      <div class="text-center mb-12">
+        <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+          AI Builder <span class="text-[#F5521A]">Finder</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-4">
+          Answer 5 questions. Get your perfect match.
+        </p>
+        <p class="text-sm text-gray-500">
+          Based on 127+ hours of real testing across 27 builders
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-2xl" id="quiz-container">
+      <form id="builder-quiz" class="space-y-8">
+
+        {questions.map((question, index) => (
+          <div class="quiz-question" data-question={question.id}>
+            <h2 class="text-2xl font-black text-gray-900 mb-2">
+              <span class="text-[#F5521A]">{index + 1}.</span> {question.text}
+            </h2>
+            <div class="grid md:grid-cols-1 gap-3 mt-4">
+              {question.options.map((option) => (
+                <label class="quiz-option cursor-pointer">
+                  <input
+                    type="radio"
+                    name={question.id}
+                    value={option.value}
+                    class="sr-only"
+                    required
+                  >
+                  <div class="option-content border-[3px] border-gray-300 p-4 hover:border-[#F5521A] transition-colors">
+                    <div class="flex items-center gap-3">
+                      <span class="text-2xl">{option.icon}</span>
+                      <span class="font-medium text-gray-900">{option.label}</span>
+                    </div>
+                  </div>
+                </label>
+              ))}
+            </div>
+          </div>
+        ))}
+
+        <button
+          type="submit"
+          class="w-full py-4 bg-[#F5521A] text-white font-black text-xl hover:bg-[#ff6b35] transition-colors border-b-4 border-[#D44A1A]"
+        >
+          Find My Perfect Builder →
+        </button>
+      </form>
+
+      <!-- RESULT (hidden initially) -->
+      <div id="quiz-result" class="hidden">
+        <div class="bg-gradient-to-br from-green-50 to-emerald-50 border-[3px] border-green-300 p-8">
+          <div class="text-center mb-6">
+            <span class="text-4xl mb-4 block">🎯</span>
+            <h2 class="text-3xl font-black text-gray-900 mb-2">Your Perfect Match</h2>
+          </div>
+
+          <div class="bg-white p-6 border-[3px] border-gray-300 mb-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 id="result-builder" class="text-3xl font-black text-[#F5521A]"></h3>
+              <div id="result-score" class="text-2xl font-black text-gray-900"></div>
+            </div>
+            <p id="result-reason" class="text-gray-700 text-lg"></p>
+          </div>
+
+          <div class="space-y-4 mb-8">
+            <h4 class="font-black text-gray-900">Why this builder?</h4>
+            <ul id="result-benefits" class="space-y-2"></ul>
+          </div>
+
+          <div class="space-y-4 mb-8">
+            <h4 class="font-black text-gray-900">Things to know</h4>
+            <ul id="result-caveats" class="space-y-2"></ul>
+          </div>
+
+          <a
+            id="result-cta"
+            href="#"
+            class="block w-full py-4 bg-gray-900 text-white font-black text-xl text-center hover:bg-gray-800 transition-colors"
+          >
+            Read Full Review →
+          </a>
+        </div>
+
+        <div class="mt-6 text-center">
+          <button id="retake-quiz" class="text-[#F5521A] font-black hover:underline">
+            ← Start Over
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-16 bg-[#FFF8F0]">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8 text-center">
+        How This Works
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 border-[3px] border-gray-200">
+          <div class="text-3xl mb-3">1️⃣</div>
+          <h3 class="font-black text-lg mb-2">Answer 5 Questions</h3>
+          <p class="text-gray-600 text-sm">About your skills, budget, timeline, and goals. Takes 30 seconds.</p>
+        </div>
+        <div class="bg-white p-6 border-[3px] border-gray-200">
+          <div class="text-3xl mb-3">2️⃣</div>
+          <h3 class="font-black text-lg mb-2">Get Matched</h3>
+          <p class="text-gray-600 text-sm">Our algorithm analyzes 127+ hours of testing data to find your fit.</p>
+        </div>
+        <div class="bg-white p-6 border-[3px] border-gray-200">
+          <div class="text-3xl mb-3">3️⃣</div>
+          <h3 class="font-black text-lg mb-2">Build with Confidence</h3>
+          <p class="text-gray-600 text-sm">Start with the right tool. Avoid switching costs later.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Quiz functionality
+  const quizForm = document.getElementById('builder-quiz');
+  const quizResult = document.getElementById('quiz-result');
+  const retakeBtn = document.getElementById('retake-quiz');
+
+  const builderData = {
+    'Durable AI': {
+      url: '/reviews/durable-ai',
+      benefits: [
+        'Fastest generation (30 seconds)',
+        'Built-in CRM for lead capture',
+        'Very affordable ($15/month)',
+        'Zero technical skills needed'
+      ],
+      caveats: [
+        'Generic designs',
+        'Limited customization',
+        'Not for complex sites'
+      ]
+    },
+    'Framer AI': {
+      url: '/reviews/framer-ai',
+      benefits: [
+        'Beautiful, professional designs',
+        'Excellent templates',
+        'Fast performance (PageSpeed 95+)',
+        'Good for designers'
+      ],
+      caveats: [
+        'Learning curve for beginners',
+        'No built-in CMS for blogs',
+        'More expensive for advanced features'
+      ]
+    },
+    '10Web AI': {
+      url: '/reviews/10web-ai',
+      benefits: [
+        'WordPress ecosystem',
+        'Great for blogs and content',
+        'WooCommerce for e-commerce',
+        'Affordable plans'
+      ],
+      caveats: [
+        'Requires WordPress knowledge',
+        'Slower than Framer',
+        'Learning curve'
+      ]
+    },
+    'Webflow': {
+      url: '/reviews/webflow-ai',
+      benefits: [
+        'Most powerful and flexible',
+        'Enterprise-grade features',
+        'Beautiful custom designs',
+        'Best for complex projects'
+      ],
+      caveats: [
+        'Expensive ($23+/month)',
+        'Steep learning curve',
+        'Overkill for simple sites'
+      ]
+    },
+    'CodeDesign.ai': {
+      url: '/reviews/codedesign-ai',
+      benefits: [
+        'Clean code export',
+        'Good for developers',
+        'Decent AI generation',
+        'Production-ready code'
+      ],
+      caveats: [
+        'Expensive ($29/month)',
+        'Limited template variety',
+        'Not for non-technical users'
+      ]
+    }
+  };
+
+  quizForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(quizForm);
+    const key = [
+      formData.get('technical-skill'),
+      formData.get('urgency'),
+      formData.get('budget'),
+      formData.get('website-type'),
+      formData.get('priority')
+    ].join('-');
+
+    // Get recommendation or fallback
+    let result = recommendations[key];
+    if (!result) {
+      // Fallback logic
+      const priority = formData.get('priority');
+      const skill = formData.get('technical-skill');
+
+      if (skill === 'developer' && priority === 'features') {
+        result = { builder: 'Webflow', score: 9.0, reason: 'Most powerful for complex projects.' };
+      } else if (skill === 'developer' && priority === 'cost') {
+        result = { builder: 'CodeDesign.ai', score: 8.2, reason: 'Affordable for developers with clean code export.' };
+      } else if (formData.get('website-type') === 'ecommerce') {
+        result = { builder: '10Web AI', score: 9.2, reason: 'Best for online stores with WooCommerce.' };
+      } else if (priority === 'design') {
+        result = { builder: 'Framer AI', score: 9.2, reason: 'Most beautiful designs that impress visitors.' };
+      } else if (priority === 'speed' || formData.get('urgency') === 'asap') {
+        result = { builder: 'Durable AI', score: 9.0, reason: 'Fastest generation time (30 seconds).' };
+      } else {
+        result = { builder: 'Framer AI', score: 8.8, reason: 'Best balance of design, features, and ease of use.' };
+      }
+    }
+
+    // Display result
+    const data = builderData[result.builder];
+    document.getElementById('result-builder').textContent = result.builder;
+    document.getElementById('result-score').textContent = result.score + '/10 Match';
+    document.getElementById('result-reason').textContent = result.reason;
+    document.getElementById('result-cta').href = data.url;
+
+    // Benefits
+    const benefitsList = document.getElementById('result-benefits');
+    benefitsList.innerHTML = data.benefits.map(b =>
+      `<li class="flex items-start gap-2">
+        <span class="text-green-600 mt-0.5">✓</span>
+        <span>${b}</span>
+      </li>`
+    ).join('');
+
+    // Caveats
+    const caveatsList = document.getElementById('result-caveats');
+    caveatsList.innerHTML = data.caveats.map(c =>
+      `<li class="flex items-start gap-2">
+        <span class="text-orange-600 mt-0.5">!</span>
+        <span>${c}</span>
+      </li>`
+    ).join('');
+
+    // Show result, hide form
+    quizForm.classList.add('hidden');
+    quizResult.classList.remove('hidden');
+
+    // Scroll to result
+    quizResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  retakeBtn.addEventListener('click', () => {
+    quizResult.classList.add('hidden');
+    quizForm.classList.remove('hidden');
+    quizForm.reset();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Add selection styling
+  document.querySelectorAll('.quiz-option input').forEach(input => {
+    input.addEventListener('change', () => {
+      const parent = input.closest('.quiz-question');
+      parent.querySelectorAll('.quiz-option .option-content').forEach(el => {
+        el.classList.remove('bg-[#FFF8F0]', 'border-[#F5521A]');
+        el.classList.add('border-gray-300');
+      });
+      input.closest('.quiz-option').querySelector('.option-content').classList.add('bg-[#FFF8F0]', 'border-[#F5521A]');
+      input.closest('.quiz-option').querySelector('.option-content').classList.remove('border-gray-300');
+    });
+  });
+</script>

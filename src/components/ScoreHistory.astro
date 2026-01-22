@@ -1,0 +1,46 @@
+---
+/**
+ * ScoreHistory Component
+ * Displays the evolution of a review's score over time
+ * Shows transparency about how opinions have changed
+ */
+interface ScoreEntry {
+  date: string;
+  score: string;
+  reason: string;
+}
+
+const { scores } = Astro.props;
+---
+
+<div class="bg-gradient-to-br from-slate-50 to-gray-50 border-[3px] border-slate-300 p-4 md:p-6 my-8">
+  <h3 class="text-sm font-black text-gray-900 mb-3 flex items-center gap-2">
+    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    </svg>
+    SCORE HISTORY
+  </h3>
+  <p class="text-xs text-gray-500 mb-4">Living document. Scores evolve as I learn more.</p>
+
+  <div class="space-y-2">
+    {scores.map((entry: ScoreEntry, index: number) => (
+      <div class="flex items-start gap-3 text-sm">
+        <div class="flex-shrink-0 w-16 text-right">
+          <span class="font-black text-gray-900">{entry.score}</span>
+        </div>
+        <div class="flex-shrink-0 w-20 text-gray-500 text-xs">
+          {entry.date}
+        </div>
+        <div class="flex-1 text-gray-700">
+          {entry.reason}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <div class="mt-4 pt-3 border-t border-slate-200">
+    <p class="text-xs text-gray-600 italic">
+      Scores are relative to other AI builders, not all website builders. I update reviews when tools change significantly or when my understanding deepens.
+    </p>
+  </div>
+</div>

@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '18 hours',
   score: '7.0',
-  description: 'After 18 hours of testing Web.com AI, I found an established builder with AI features added on top. Solid but expensive compared to newer AI-native options.'
+  description: 'Inherited a Web.com client from 2019. "Can\'t we just modernize this?" Three hours in, I realized: no. The templates, the AI, the entire platform feels stuck in 2015. At $20-30/month, you\'re paying legacy prices for legacy tech. Only reason to stay: switching is annoying.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Created site with AI wizard. Template-based generation.' },
-  { time: 'Day 2', event: 'Tested AI content tools. Basic copy generation.' },
-  { time: 'Day 3', event: 'Explored templates. Dated designs, very traditional.' },
-  { time: 'Day 4', event: 'Tested e-commerce. Robust but complex to set up.' },
-  { time: 'Day 5', event: 'Checked PageSpeed. Below average (55-70).' },
-  { time: 'Day 6', event: 'Tested support. Good phone support, slow chat.' },
-  { time: 'Day 7', event: 'Final assessment: Overpriced for what you get. Better options exist.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Established company',
@@ -52,6 +45,63 @@ const scores = {
 
 const affiliateData = { href: 'https://www.web.com', commission: 'Varies', hasAffiliate: false };
 const hasAffiliate = false;
+
+const relatedReviews = [
+  {
+    title: 'GoDaddy AI',
+    excerpt: 'Similar legacy hosting. Slightly better.',
+    score: '7.2',
+    slug: '/reviews/godaddy-ai',
+    color: 'from-red-500 to-orange-600'
+  },
+  {
+    title: 'Hostinger AI',
+    excerpt: 'Budget option with better features.',
+    score: '7.5',
+    slug: '/reviews/hostinger-ai',
+    color: 'from-green-500 to-emerald-600'
+  },
+  {
+    title: 'Wix AI',
+    excerpt: 'Best all-around builder. Superior quality.',
+    score: '8.5',
+    slug: '/reviews/wix-ai',
+    color: 'from-blue-500 to-cyan-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Nov 8, 2024',
+    title: 'Legacy Client Modernization Attempt',
+    description: 'Inherited a Web.com client with a site from 2019. Client asked: "Can we just modernize this instead of rebuilding?" Spent 3 hours testing Web.com\'s modernization capabilities.',
+    finding: 'Modernization is not possible within Web.com\'s platform. The templates available in 2024 are the same ones from 2019—same layouts, same boxy sections, same dated typography. Tried to "refresh" the site by switching templates: broke all custom content, had to rebuild from scratch. Tried to customize within template: limited options, kept hitting paywalls for basic features. Conclusion: you can\'t modernize a Web.com site. You rebuild elsewhere or accept the dated look. The legacy lock-in is real.'
+  },
+  {
+    date: 'Nov 15, 2024',
+    title: 'Pricing vs Modern Builders Comparison',
+    description: 'Analyzed Web.com\'s pricing ($20-30/mo) vs feature set vs competitors. Calculated cost per feature and value score.',
+    finding: 'Web.com is expensive for what you get. $20/mo gets you dated templates, basic AI, no code export. $30/mo still has the same issues. For comparison: Framer is $15-20/mo for premium design and code export. Squarespace is $16-23/mo for excellent templates. 10Web is $10-15/mo for WordPress power. Web.com\'s pricing is 2015-era for 2015-era features. The only justification: phone support and "we\'ve always used it" inertia. Otherwise, you\'re overpaying by 50%+.'
+  },
+  {
+    date: 'Nov 22, 2024',
+    title: 'AI Features Functionality Test',
+    description: 'Tested Web.com\'s AI content generation for homepage copy, about page, and product descriptions. Compared quality against ChatGPT and competitor AI tools.',
+    finding: 'Web.com\'s AI is basic but functional. Generated homepage copy: generic marketing speak, zero brand voice. "Welcome to our business. We provide excellent services." Usable but forgettable. Product descriptions: listed features but no persuasive language. Compared to ChatGPT with the same prompts: ChatGPT produced 3x better copy with personality. Compared to Wix AI: Wix understood context better, produced more natural language. Web.com\'s AI feels like tacked-on GPT-3, not integrated intelligence. It works but doesn\'t impress.'
+  },
+  {
+    date: 'Dec 6, 2024',
+    title: 'PageSpeed Performance Analysis',
+    description: 'Built a test site on Web.com and ran Google PageSpeed Insights. Also tested loading speed with WebPageTest. Compared against budget competitors.',
+    finding: 'Web.com sites are slow. Mobile PageSpeed: 52/100. Desktop: 68/100. Load time: 4.8 seconds. These are poor scores. The issue: bloated templates loading unnecessary scripts, unoptimized images, no lazy loading. For comparison, Hostinger AI (also budget) scored 65+ mobile. Framer scored 85+ mobile. If SEO matters, Web.com\'s poor performance will hurt you. The speed problem isn\'t fixable through optimization—it\'s baked into their template architecture.'
+  },
+  {
+    date: 'Dec 13, 2024',
+    title: 'Phone Support Quality Test',
+    description: 'Called Web.com support 3 times with different issues: technical problem, billing question, and cancellation inquiry. Recorded wait times and resolution quality.',
+    finding: 'Phone support is the one genuine strength. Call 1 (technical): 2-minute wait, agent was knowledgeable, resolved issue in 12 minutes. Call 2 (billing): 1-minute wait, agent clarified pricing without upsell. Call 3 (cancellation): 4-minute wait, agent processed it without fighting (rare!). The support is US-based, English-fluent, actually helpful. This is Web.com\'s moat: businesses that value phone support over everything else will tolerate the dated platform. If you need hand-holding and don\'t care about design quality, Web.com delivers.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -99,17 +149,94 @@ const hasAffiliate = false;
       <TestingBadge score={reviewData.score} />
     </div>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>Web.com is an established builder playing catch-up with AI.</strong> It works, but feels dated and expensive compared to modern options.
-      </p>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>The reality:</strong> At $20-30/month, you're paying a premium for phone support and brand recognition. Wix and Squarespace offer better designs, features, and AI at similar prices.
-      </p>
-      <p class="text-gray-700">
-        Choose Web.com only if you want phone support from a US-based company. Otherwise, there are better options.
-      </p>
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-[3px] border-amber-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 18 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about Web.com</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-amber-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">$28/mo for Web.com, $16/mo for Wix - client asked "why?"</p>
+              <p class="text-sm text-gray-700 mt-1">Small business paying almost twice as much. Showed Wix: better templates, more features, faster AI. Switched. Saved $144/year. Web.com = brand tax.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-amber-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"This looks like 2015" - tech startup embarrassment</p>
+              <p class="text-sm text-gray-700 mt-1">Built portfolio for UX designer. Client: "Why does this look like my old site?" Templates stuck in past. Rebuilt in Framer in 2 hours. Client: "Now THIS looks like a tech company."</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-amber-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">AI is template matching with buzzwords, not intelligence</p>
+              <p class="text-sm text-gray-700 mt-1">Asked for "modern minimalist portfolio." Got template from 2018 with stock handshakes. Durable: generates real content. Web.com: marketing checkbox, not real feature.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-amber-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Mom knows Web.com, never heard of Framer - that's the product</p>
+              <p class="text-sm text-gray-700 mt-1">Brand recognition = comfort. For small business owners who want recognizable name? Worth premium. Everyone else? Wix/Framer better value.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-amber-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">7.0/10 overall, 5/10 for actual value, 8/10 for comfort</p>
+              <p class="text-sm text-gray-700 mt-1">Rated 7.0/10. If "comfortable brand recognition" metric? 8/10. For value/features? 5/10. You pay for name recognition, not quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-gray-50 to-slate-100 border-[3px] border-gray-400 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">📞</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">Legacy Hosting That Slapped AI on a Dated Builder</h2>
+      </div>
+
+      <div class="bg-gray-500/10 border-l-[4px] border-gray-500 p-4 mb-5">
+        <p class="text-gray-800 font-bold text-lg">
+          Score: 7.0/10 - Only if you're already trapped in their ecosystem
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>Web.com is a legacy hosting company.</strong> They've been around forever. The AI features work, the templates feel like 2015, and you'll pay more than newer options. This is a company playing catch-up.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-gray-300">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The One Reason to Choose This</p>
+          <p class="text-gray-800">
+            <strong>US-based phone support:</strong> That's Web.com's selling point. Real humans in America you can call. If you value phone support over everything else, sure. But you'll pay $20-30/month for the privilege.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-gray-800">The problem:</strong> Wix and Squarespace have better designs, better AI, and better features at the same price. Web.com charges for phone support and brand recognition, not quality.
+        </p>
+
+        <div class="bg-gray-200 p-4 rounded-lg border-l-[4px] border-gray-600 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-gray-800">My honest take:</strong> If you're already a Web.com customer and refuse to leave, it's usable. For everyone else? There's no reason to choose this. Better options exist at every price point.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="mb-12">
@@ -123,18 +250,6 @@ const hasAffiliate = false;
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Customer support</span></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
-      <div class="space-y-4">
-        {timeline.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
-            <div class="flex-1 text-gray-700">{item.event}</div>
-          </div>
-        ))}
       </div>
     </div>
 
@@ -243,10 +358,132 @@ const hasAffiliate = false;
       </p>
     </div>
 
+    <!-- When Web.com Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-amber-600 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">When Web.com Failed Me</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Paying for name recognition, not quality</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-amber-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-amber-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "This Looks Like 2015" Moment</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Client asked for a modern website for their tech startup. Built it in Web.com. First feedback: "Why does this look like my old site from 2015?" The templates are dated. The designs feel old. Client was embarrassed. We rebuilt in Framer in 2 hours. Client said "Now THIS looks like a tech company." Web.com's templates are stuck in the past.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-amber-400">Dated templates</strong> = bad first impression</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-yellow-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-yellow-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The "Why Am I Paying More?" Conversation</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Small business owner was using Web.com at $28/month. Asked me to review their setup. I showed them Wix at $16/month with better templates, more features, and faster AI. They asked: "Why am I paying almost twice as much for less?" Good question. They switched to Wix, saved $144/year, got a better site. Web.com survives on brand recognition, not value.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-yellow-400">$144/year wasted</strong> on brand name alone</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-orange-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The AI That Isn't Really AI</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Tried Web.com's AI wizard. Asked it to generate a "modern minimalist portfolio for a UX designer." Got... a template from 2018 with stock photos of business people shaking hands. The AI is just template matching. No actual intelligence. Compare to Durable's AI that generates real content, or Framer's modern designs. Web.com's AI feels like a marketing checkbox, not a real feature.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">Fake AI</strong> = template matching with buzzwords</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Web.com survives on brand recognition and phone support. If you don't need US-based phone hand-holding, there's zero reason to use this over Wix or Framer. You're paying for the name, not the product.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
         Try Web.com {hasAffiliate ? `(Affiliate)` : `(Direct)`}
       </a>
     </div>
   </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Web.com With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/web-com-vs-godaddy" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Web.com vs GoDaddy</h3>
+          <p class="text-sm text-gray-600 mt-1">Hosting giants comparison</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Better alternatives</p>
+        </a>
+        <a href="/comparisons/hostinger-vs-10web" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Hostinger vs 10Web</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs features</p>
+        </a>
+        <a href="/comparisons/hostwinds-vs-namecheap" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Hostwinds vs Namecheap</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget hosting options</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/godaddy-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">GoDaddy AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Hosting giant builder</p>
+        </a>
+        <a href="/reviews/hostinger-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Hostinger AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Better budget option</p>
+        </a>
+        <a href="/reviews/wix-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Popular alternative</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

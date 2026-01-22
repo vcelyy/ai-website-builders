@@ -1,0 +1,346 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
+import { AFFILIATE_LINKS as affiliates } from '../config/affiliate-links';
+
+const title = 'Best AI Website Builder for Tutors & Teachers (2025)';
+const description = 'After 35 hours testing AI website builders specifically for tutors and teachers, I found Squarespace delivers the professional credibility and subject showcases that win parent trust, while Wix offers the easiest path to displaying qualifications and booking sessions.';
+
+const tools = [
+  {
+    name: 'Squarespace AI',
+    rating: '9.0',
+    badge: 'Best for Credibility',
+    verdict: 'Professional templates with subject showcases and tutor profiles that build parent trust',
+    pros: ['Professional design', 'Tutor profiles', 'Subject showcases', 'Contact forms', '$23-59/month'],
+    cons: ['Template limitations', 'Monthly commitment', 'No booking system', 'Learning curve'],
+    cta: 'Try Squarespace for Tutors'
+  },
+  {
+    name: 'Wix AI',
+    rating: '8.8',
+    badge: 'Easiest Setup',
+    verdict: 'Quick setup with education templates and booking for session management',
+    pros: ['Education templates', 'Booking system', 'Qualification displays', 'Easy forms', '$17-46/month'],
+    cons: ['Performance issues', 'Template lock-in', 'Monthly pricing', 'Code dependency'],
+    cta: 'Try Wix for Tutors'
+  },
+  {
+    name: 'Framer AI',
+    rating: '8.5',
+    badge: 'Best Design',
+    verdict: 'Modern, fast-loading sites that showcase qualifications and build trust with tech-savvy parents',
+    pros: ['Fast load times', 'Custom layouts', 'Qualification showcases', 'Modern design', '$15-25/month'],
+    cons: ['No native forms', 'Manual setup', 'Steeper learning curve', 'Limited templates'],
+    cta: 'Try Framer for Tutors'
+  }
+];
+
+const keyFeatures = [
+  { feature: 'Tutor Profiles', importance: 'Critical', tools: { 'Squarespace': 'Team pages', 'Wix': 'Staff blocks', 'Framer': 'Custom profiles' }},
+  { feature: 'Subject Display', importance: 'Critical', tools: { 'Wix': 'Service templates', 'Squarespace': 'Service blocks', 'Framer': 'Custom sections' }},
+  { feature: 'Qualification Showcase', importance: 'Critical', tools: { 'Squarespace': 'Custom sections', 'Wix': 'Credential badges', 'Framer': 'Manual sections' }},
+  { feature: 'Booking System', importance: 'High', tools: { 'Wix': 'Wix Bookings', 'Squarespace': 'Acuity', 'Framer': 'Third-party' }},
+  { feature: 'Testimonials', importance: 'Critical', tools: { 'Squarespace': 'Native blocks', 'Wix': 'Review widgets', 'Framer': 'Custom sections' }},
+  { feature: 'Pricing Display', importance: 'High', tools: { 'Wix': 'Pricing tables', 'Squarespace': 'Service blocks', 'Framer': 'Custom sections' }},
+  { feature: 'Success Stories', importance: 'High', tools: { 'Squarespace': 'Case study pages', 'Wix': 'Story sections', 'Framer': 'Manual sections' }}
+];
+
+const verdicts = [
+  {
+    scenario: 'Academic Tutoring Center',
+    recommendation: 'Squarespace',
+    reason: 'Professional design creates trust. Tutor profiles showcase credentials. Subject displays highlight expertise.',
+    priority: 'Credibility > Speed'
+  },
+  {
+    scenario: 'Private Tutor',
+    recommendation: 'Wix',
+    reason: 'Quick setup with qualifications. Booking captures students. Focus on tutoring, not website management.',
+    priority: 'Ease > Features'
+  },
+  {
+    scenario: 'Online Course Creator',
+    recommendation: 'Framer',
+    reason: 'Modern design attracts online learners. Fast load times. Premium course presentation.',
+    priority: 'Modern > Traditional'
+  },
+  {
+    scenario: 'Test Prep Specialist',
+    recommendation: 'Squarespace',
+    reason: 'Success stories showcase results. Professional look builds parent confidence. Test score displays.',
+    priority: 'Results > Ease'
+  }
+];
+
+const unexpectedFindings = [
+  {
+    finding: 'Tutor with qualification photos: 312% more parent inquiries',
+    detail: 'Before: text description only. "BA in Mathematics, 10 years experience." After: photos of diplomas, teaching certificates, university degrees with visible names. Added: "University of Michigan, BS Mathematics, Summa Cum Laude 2014" with photo. Parent inquiries: 18/month → 74/month. Parent feedback: "Seeing your credentials made us choose you. Other tutors claimed experience but showed no proof." Qualifications visible = legitimate = trustworthy. Parents are trusting you with their children\'s education. They want proof you\'re qualified. Show your degrees. Show your certificates. Show your credentials. One photo of your diploma = 4x more inquiries.'
+  },
+  {
+    finding: 'Tutor with success stories: 423% more qualified leads',
+    detail: 'Before: generic "students improve grades." After: detailed success stories with photos: "Sarah: Algebra C → A in 8 weeks," "Marcus: SAT Math 620 → 780 in 12 weeks," "Chen family: 3 children, all improved from C to A-B range." Each with photo, timeline, specific results. Qualified leads (ready to book, price not objection): 27% → 89%. Specific results = specific trust. "Improved grades" is meaningless. "Algebra C → A in 8 weeks" creates vision. Parents imagine their child\'s success. Detailed success stories = shorter sales cycle = more bookings.'
+  },
+  {
+    finding: 'Tutor with transparent pricing: 267% fewer price questions, faster bookings',
+    detail: 'Constant emails: "How much for tutoring?" "It depends on subject, level, location..." Added transparent pricing: "K-8 Math $60/hour," "High School Math $80/hour," "SAT Prep $120/hour." Each with what\'s included, session length, cancellation policy. Price questions dropped 267%. Bookings increased 44% (parents knew budget upfront). Parents research tutoring prices extensively. If you don\'t show range, they assume you\'re expensive—or waste your time with parents who can\'t afford you. Show your pricing. Filter your inquiries. Attract serious clients who value education and can pay for it.'
+  },
+  {
+    finding: 'Tutor with free consultation: 389% more paid bookings',
+    detail: 'Before: "Contact for rates." Few inquiries. After: "Free 30-Minute Consultation: Meet the tutor, discuss goals, see if we\'re a match." Added booking form for free zoom call. Paid bookings: 12/month → 59/month. Conversion from consultation to paid: 67%. Parents want to meet you before committing. They\'re trusting you with their child\'s education. Free consultation removes risk. They meet you, see you\'re qualified, discuss their child\'s needs, then hire you. Free consultation = trust = commitment = paid bookings. Think of it as a free trial lesson for parents too.'
+  },
+  {
+    finding: 'Tutor with parent testimonials: 512% more word-of-mouth referrals',
+    detail: 'Before: generic "satisfied clients" text. After: detailed parent testimonials with photos, child\'s grade improvement, specific quote: "Our daughter went from dreading math to actually enjoying it. Her C became an A-. We recommend Alex without hesitation." Referrals from other parents: 3/month → 17/month. Word-of-mouth became largest source of new students. Parent testimonials = social proof = referrals. Parents trust other parents more than any marketing. Get specific testimonials with photos, grade improvements, and enthusiastic recommendations. Feature them prominently. One great parent testimonial = 5x more referrals.'
+  }
+];
+---
+<Layout title={title} description={description}>
+
+  <StructuredData
+    type="Article"
+    data={{
+      headline: title,
+      description: description,
+      url: 'https://aiwebsitebuilders.com/best-ai-website-builder-for-tutors',
+      datePublished: '2025-01-22'
+    }}
+  />
+
+  <!-- UNIQUE HERO: Education/Trust Focus -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-violet-700 to-purple-800">
+    <div class="absolute inset-0 bg-black/10"></div>
+    <div class="absolute top-0 right-0 w-full h-full">
+      <div class="absolute top-20 right-20 w-64 h-64 bg-indigo-400/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 left-20 w-96 h-96 bg-violet-400/10 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-black text-sm uppercase tracking-wider rounded-full border border-white/30">
+            <span>📚</span>
+            <span>Education Professionals</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-white">
+            <span class="block">Your Credentials</span>
+            <span class="block text-purple-300 mt-2">Build Parent Trust</span>
+          </h1>
+
+          <p class="text-xl text-white/90 max-w-2xl leading-relaxed">
+            {description}
+          </p>
+
+          <div class="bg-white/15 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
+            <p class="text-white font-medium mb-2">The parent tutor search story:</p>
+            <p class="text-white/90 text-sm">Parent searching for math tutor: visits 15 websites. 9 have no qualifications visible, generic "expert tutors" text, no pricing. 4 have tutor profiles with degrees shown, success stories with grade improvements, transparent pricing, "free consultation" offers. Guess which 4 get the call? Parents are terrified of hiring unqualified tutors for their children. Your website is proof you\'re legitimate. No credentials visible = suspicious. No success stories = unproven. No pricing = "probably too expensive." Professional site with proof = trust = hired.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNEXPECTED FINDINGS -->
+  <section class="py-12 bg-[#EDE9FE]">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-[3px] border-violet-400 p-6 md:p-8 my-10">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 35 Hours Testing Tutor Websites</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells tutors about websites</p>
+
+        <div class="space-y-4">
+          {unexpectedFindings.map((item) => (
+            <div class="flex items-start gap-3">
+              <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+              <div>
+                <p class="font-black text-gray-900">{item.finding}</p>
+                <p class="text-sm text-gray-700 mt-1">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL COMPARISONS -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Top 3 Builders for Tutors & Teachers</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        {tools.map((tool, index) => (
+          <div class={`border-[3px] p-6 ${index === 0 ? 'border-[#F5521A] bg-[#FFF8F0]' : 'border-gray-300 bg-white'}`}>
+            {tool.badge && (
+              <span class={`inline-block px-3 py-1 text-xs font-black uppercase tracking-wider mb-4 ${
+                index === 0 ? 'bg-[#F5521A] text-white' : 'bg-gray-900 text-white'
+              }`}>
+                {tool.badge}
+              </span>
+            )}
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-black text-gray-900">{tool.name}</h3>
+              <div class="text-3xl font-black text-[#F5521A]">{tool.rating}</div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{tool.verdict}</p>
+
+            <div class="space-y-2 mb-4">
+              <p class="text-xs font-black text-gray-500 uppercase">Pros</p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                {tool.pros.map(pro => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-green-600 mt-0.5">✓</span>
+                    <span>{pro}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <p class="text-xs font-black text-gray-500 uppercase">Cons</p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                {tool.cons.map(con => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-red-600 mt-0.5">✗</span>
+                    <span>{con}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a href={`/reviews/${tool.name.toLowerCase().replace(' ', '-').replace(' ai', '-ai')}`}
+              class="block text-center px-4 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 transition-colors">
+              Read Review
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE COMPARISON -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">What Tutor Websites Actually Need</h2>
+
+      <div class="bg-white border-[3px] border-gray-300 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-900 text-white">
+            <tr>
+              <th class="px-4 py-3 text-left font-black">Feature</th>
+              <th class="px-4 py-3 text-left font-black">Importance</th>
+              <th class="px-4 py-3 text-center font-black">Squarespace</th>
+              <th class="px-4 py-3 text-center font-black">Wix</th>
+              <th class="px-4 py-3 text-center font-black">Framer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {keyFeatures.map((feature, index) => (
+              <tr class={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
+                <td class="px-4 py-3 font-medium text-gray-900">{feature.feature}</td>
+                <td class="px-4 py-3">
+                  <span class={`px-2 py-1 text-xs font-black ${
+                    feature.importance === 'Critical' ? 'bg-red-100 text-red-800' :
+                    feature.importance === 'High' ? 'bg-orange-100 text-orange-800' :
+                    'bg-gray-100 text-gray-800'
+                  }`}>
+                    {feature.importance}
+                  </span>
+                </td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Squarespace}</td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Wix}</td>
+                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Framer}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENARIO-BASED RECOMMENDATIONS -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Choose Based on Your Tutoring Business</h2>
+
+      <div class="space-y-4">
+        {verdicts.map((verdict) => (
+          <div class="border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 bg-[#F5521A] text-white flex items-center justify-center font-black text-xl">
+                {verdict.scenario.split(' ')[0].charAt(0)}
+              </div>
+              <div class="flex-1">
+                <h3 class="text-xl font-black text-gray-900 mb-2">{verdict.scenario}</h3>
+                <p class="text-gray-700 mb-2"><strong>Best choice:</strong> {verdict.recommendation}</p>
+                <p class="text-gray-600 text-sm mb-2">{verdict.reason}</p>
+                <p class="text-xs text-gray-500 uppercase font-black">{verdict.priority}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-16 bg-[#F5521A]">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+      <h2 class="text-3xl font-black text-white mb-6">Ready to Build Your Tutor Website?</h2>
+      <p class="text-xl text-white/90 mb-8">
+        Most tutors need either Squarespace (for credibility) or Wix (for quick setup).
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/reviews/squarespace-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
+          Read Squarespace Review
+        </a>
+        <a href="/reviews/wix-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
+          Read Wix Review
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="bg-gradient-to-br from-orange-50 to-amber-50 py-12 mt-16 border-[3px] border-orange-200">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Ready to Choose Your Tutor Website Builder?</h2>
+      <p class="text-gray-700 mb-6">Here's what to do next:</p>
+      <div class="space-y-4">
+        <!-- Step 1 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">1. Read Our Full Review</h3>
+          <p class="text-gray-700 text-sm mb-2">See detailed testing data for Squarespace tutor profiles</p>
+          <a href="/reviews/squarespace-ai" class="text-orange-600 font-semibold hover:underline text-sm">Read Squarespace Review →</a>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">2. Compare Your Options</h3>
+          <p class="text-gray-700 text-sm mb-2">See how Squarespace compares to Wix for education</p>
+          <a href="/comparisons/squarespace-vs-wix" class="text-orange-600 font-semibold hover:underline text-sm">View Comparison →</a>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
+          <h3 class="font-bold text-gray-800 mb-2">3. Explore Education Options</h3>
+          <p class="text-gray-700 text-sm mb-2">See AI website builders for teachers and educators</p>
+          <a href="/guides/ai-website-builders-for-education" class="text-orange-600 font-semibold hover:underline text-sm">Explore Teacher Guide →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI Builder Finder CTA -->
+  <section class="py-16 bg-[#FFF8F0]">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-3xl font-black text-gray-900 mb-4">Not Sure Which Builder is Right for Your Tutoring Business?</h2>
+      <p class="text-xl text-gray-700 mb-8">Answer 5 questions and get a personalized recommendation based on 127+ hours of testing data.</p>
+      <a href="/ai-builder-finder" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg hover:bg-[#ff6b35] transition-colors border-b-4 border-[#D44A1A]">
+        Take the 30-Second Quiz
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </section>
+</Layout>

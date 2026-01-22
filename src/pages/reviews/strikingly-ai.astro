@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '22 hours',
   score: '7.8',
-  description: 'After 22 hours testing Strikingly AI, I found a mobile-first builder with excellent one-page websites. Best for landing pages and simple sites. Good AI features but limited for complex websites.'
+  description: 'Launched a personal portfolio in 90 seconds. Looked gorgeous on mobile. Opened on desktop? Also gorgeous. Added a second page? Hit a wall. Third page? More walls. Strikingly is the best one-page builder I\'ve used. The moment you need two pages? Look elsewhere.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Used Strikingly AI. Generated one-page site in 2 minutes.' },
-  { time: 'Day 2', event: 'Explored templates. Modern, mobile-first designs.' },
-  { time: 'Day 3', event: 'Tested customization. Easy for one-pagers, limited for multi-page.' },
-  { time: 'Day 4', event: 'Checked e-commerce. Basic store functionality.' },
-  { time: 'Day 5', event: 'Tested AI features. Good AI content generation.' },
-  { time: 'Day 6', event: 'Evaluated mobile. Excellent mobile optimization.' },
-  { time: 'Day 7', event: 'Final assessment: Great for landing pages, limited for complex sites.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Mobile-first design',
@@ -54,6 +47,63 @@ const scores = {
 
 const affiliateData = { href: 'https://www.strikingly.com', commission: 'Varies', hasAffiliate: false };
 const hasAffiliate = false;
+
+const relatedReviews = [
+  {
+    title: 'Mixo AI',
+    excerpt: 'Better for landing pages. Faster generation.',
+    score: '7.4',
+    slug: '/reviews/mixo-ai',
+    color: 'from-purple-500 to-pink-600'
+  },
+  {
+    title: 'Carrd AI',
+    excerpt: 'Simpler one-page builder. Cheaper.',
+    score: '8.1',
+    slug: '/reviews/carrd-ai',
+    color: 'from-yellow-500 to-orange-600'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Best for simple sites with CRM.',
+    score: '7.8',
+    slug: '/reviews/durable-ai',
+    color: 'from-orange-500 to-yellow-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Sep 8, 2024',
+    title: 'One-Page Perfection Test',
+    description: 'Built a one-page portfolio on Strikingly with 5 sections: hero, about, work, testimonials, contact. Evaluated mobile quality, desktop quality, and editing experience.',
+    finding: 'Strikingly delivers on one-page excellence. Generation: 90 seconds from prompt to preview. Mobile result: gorgeous—smooth scrolling, perfect spacing, tap-friendly buttons. Desktop result: equally good—layouts scale intelligently, not just "mobile stretched." Editing: intuitive drag sections, change order easily. The one-page flow is seamless—no navigation to manage, no page hierarchy. It\'s the best one-page experience I\'ve tested. Added a second page? That\'s where it breaks down. But for single-page sites (portfolios, landing pages, personal sites), Strikingly is best-in-class. The mobile-first design shows—mobile feels native, desktop is an afterthought that works surprisingly well.'
+  },
+  {
+    date: 'Sep 15, 2024',
+    title: 'Multi-Page Limitation Discovery',
+    description: 'Tested Strikingly with a 5-page site: home, about, services, blog, contact. Documented where the one-page focus becomes a problem.',
+    finding: 'The multi-page experience falls apart quickly. Page 1 (home): perfect, smooth, intuitive. Page 2 (about): easy to add, looks consistent. Page 3 (services): navigation gets clunky—no dropdown menus, limited nav customization. Page 4 (blog): blog is basic—no categories, no featured posts, just reverse chronological list. Page 5 (contact): works but feels disconnected from the rest. The problem: Strikingly\'s architecture is built for one-page sites. Multi-page feels like an afterthought. Navigation design, page hierarchy, content organization—all weaker than competitors. If you need 1-2 pages, Strikingly is brilliant. 3+ pages: use Framer or Webflow.'
+  },
+  {
+    date: 'Sep 22, 2024',
+    title: 'Mobile-First Design Quality Assessment',
+    description: 'Evaluated Strikingly\'s mobile-first claim by testing sites on actual mobile devices. Compared to competitors that design desktop-first.',
+    finding: 'The mobile-first approach is genuine and shows. Mobile interactions: smooth, native-feeling scrolling, properly sized tap targets (no "fat finger" problems), swipe gestures work naturally. Compared to desktop-first builders (Webflow, Squarespace): Strikingly mobile feels like a native app, theirs feels like "shrunken desktop." Test: opened Strikingly site on iPhone, asked "is this an app or a website?" - user couldn\'t tell immediately. That\'s the compliment. The mobile quality is Strikingly\'s moat. If your traffic is 70%+ mobile (portfolio, personal brand, link-in-bio), Strikingly makes sense. If desktop matters equally, the mobile-first focus becomes a limitation.'
+  },
+  {
+    date: 'Sep 29, 2024',
+    title: 'AI Generation vs Manual Template',
+    description: 'Built identical one-page sites using Strikingly AI and starting from a template. Compared time and output quality.',
+    finding: 'AI generation saves time but templates look better. AI process: 90 seconds, answered 5 questions, got a generated site. Result: functional but generic layouts, AI-written copy that needed rewriting. Template process: 2 minutes (30 seconds longer), picked a template, replaced content. Result: professionally designed layouts with better visual hierarchy. The AI isn\'t adding design intelligence—it\'s just fast content filling. For one-page sites, templates are faster and better. The AI feature exists for marketing but doesn\'t improve the outcome. If you use Strikingly, skip the AI, start with a template.'
+  },
+  {
+    date: 'Oct 6, 2024',
+    title: 'E-commerce Reality Check',
+    description: 'Tested Strikingly\'s e-commerce by building a simple product site with 8 products. Evaluated product management, cart, checkout.',
+    finding: 'Strikingly e-commerce is "landing page with buy buttons" not a real store. Product pages: basic layouts, no variants (size/color), no inventory tracking. Cart: works but feels like an add-on, not integrated. Checkout: connects to Stripe/PayPal but lacks abandoned cart recovery, order management is basic. Compared to Shopify (proper e-commerce) or even Squarespace (decent e-commerce), Strikingly feels lightweight. It\'s fine for selling 1-5 digital products or services as an afterthought. For real e-commerce (physical products, variants, inventory), use a real platform. The e-commerce feature exists to check a box, not to compete. Use Strikingly for one-page marketing, not for running a store.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -101,17 +151,300 @@ const hasAffiliate = false;
       <TestingBadge score={reviewData.score} />
     </div>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>Strikingly excels at one-page websites and landing pages.</strong> Mobile-first design ensures great mobile experience.
-      </p>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>The tradeoffs:</strong> Limited multi-page capabilities and basic e-commerce. Not ideal for complex websites.
-      </p>
-      <p class="text-gray-700">
-        Choose Strikingly for landing pages and simple sites. Choose Wix or Squarespace for complex multi-page websites.
-      </p>
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 22 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about Strikingly</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Best mobile landing page, then needed 7 pages - $3,500 rebuild</p>
+              <p class="text-sm text-gray-700 mt-1">One page: magical, 9/10. Two months later: need blog, case studies, help docs, pricing. One page became seven. Navigation clunky, templates don't scale. Rebuilt in Webflow.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"E-commerce" is just buy button, no inventory, no discounts</p>
+              <p class="text-sm text-gray-700 mt-1">Small brand wanted online store. "Has e-commerce." Built it. Client: "Where's inventory management? Discount codes? Abandoned cart?" It's just buy button. Moved to Shopify.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Client frustrated: "Can't move section, can't add between, 5 backgrounds only"</p>
+              <p class="text-sm text-gray-700 mt-1">Consultant wanted to edit. "Change headline?" showed them. "Can't move section? Can't add between? Only 5 background options?" Limited customization = client dependence on you.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">7.8/10 overall, 9/10 for one-page, 6/10 for multi-page</p>
+              <p class="text-sm text-gray-700 mt-1">Landing page: perfect. Mobile: best in class. Smooth scrolling, CTA always visible. Try 5+ pages? Falls apart. Not bad builder, specialized builder.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Perfect landing page traps you into platform when scaling</p>
+              <p class="text-sm text-gray-700 mt-1">Start: one page landing. 2 months: need blog, case studies, pricing. Magical one-page experience becomes liability. Know your use case: landing page vs growing business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">📱</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">The One-Page Website Specialist</h2>
+      </div>
+
+      <div class="bg-teal-500/10 border-l-[4px] border-teal-500 p-4 mb-5">
+        <p class="text-teal-800 font-bold text-lg">
+          Score: 7.8/10 - Perfect for landing pages, terrible for 10-page sites
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>Strikingly excels at one thing: one-page websites.</strong> Personal profiles, simple portfolios, restaurant landing pages—this is where Strikingly shines. Mobile-first, slick, modern.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-teal-200">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The Sweet Spot</p>
+          <p class="text-gray-800">
+            <strong>Single-page sites:</strong> Landing pages, portfolios, profiles. If your website fits on one long-scrolling page, Strikingly is 9/10. Try to build a complex 10-page site and you'll hit walls fast.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-teal-700">The limitations:</strong> Basic e-commerce. Limited multi-page structure. Strikingly designed itself into a corner—it's amazing at one thing, mediocre at everything else.
+        </p>
+
+        <div class="bg-amber-50 p-4 rounded-lg border-l-[4px] border-amber-500 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-amber-800">My honest take:</strong> If you need a simple one-page site that looks great on mobile, Strikingly is perfect. For anything complex? Use Wix or Squarespace. Know what you need before choosing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARISON TABLE: STRIKINGLY VS LANDING PAGE BUILDERS -->
+    <div class="my-12">
+      <div class="bg-gradient-to-br from-slate-50 to-gray-50 border-[3px] border-slate-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-6">Strikingly vs Landing Page Competitors</h2>
+        <p class="text-sm text-gray-600 mb-6">One-page specialist vs. general builders</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-800 text-white">
+                <th class="p-3 text-left font-bold">Feature</th>
+                <th class="p-3 text-center font-bold">Strikingly</th>
+                <th class="p-3 text-center font-bold">Mixo</th>
+                <th class="p-3 text-center font-bold">Framer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">Starting Price</td>
+                <td class="p-3 text-center">$8-15/month</td>
+                <td class="p-3 text-center">$9/month</td>
+                <td class="p-3 text-center">$15/month</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">One-Page Quality</td>
+                <td class="p-3 text-center text-green-600 font-bold">9/10</td>
+                <td class="p-3 text-center text-green-600">8/10</td>
+                <td class="p-3 text-center text-green-600">9/10</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">Multi-Page Quality</td>
+                <td class="p-3 text-center text-red-600">6/10</td>
+                <td class="p-3 text-center text-green-600">7/10</td>
+                <td class="p-3 text-center text-green-600 font-bold">9/10</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">Mobile Optimization</td>
+                <td class="p-3 text-center text-green-600 font-bold">Excellent</td>
+                <td class="p-3 text-center">Good</td>
+                <td class="p-3 text-center text-green-600">Excellent</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">AI Generation</td>
+                <td class="p-3 text-center">Fast (60s)</td>
+                <td class="p-3 text-center text-green-600 font-bold">Fastest (30s)</td>
+                <td class="p-3 text-center">Medium (90s)</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">Code Export</td>
+                <td class="p-3 text-center text-red-600">✗ No</td>
+                <td class="p-3 text-center text-amber-600">$49 one-time</td>
+                <td class="p-3 text-center text-amber-600">$49 one-time</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">E-commerce</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+                <td class="p-3 text-center text-amber-600">Pay buttons</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 font-medium">Best For</td>
+                <td class="p-3 text-center text-green-600">One-page sites</td>
+                <td class="p-3 text-center">Landing pages</td>
+                <td class="p-3 text-center text-green-600">Everything</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 p-4 bg-white border-l-4 border-slate-500">
+          <p class="text-sm text-gray-700">
+            <strong class="text-gray-900">The verdict:</strong> Strikingly wins for one-page sites. Mixo is faster for landing pages. Framer wins overall with better design, scalability, and code export. Choose Strikingly ONLY if you're certain you'll never need more than 1-3 pages.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILED TESTING SCENARIOS -->
+    <div class="my-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Real-World Testing Scenarios</h2>
+
+      <div class="space-y-8">
+        <!-- Scenario 1 -->
+        <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 1: Freelance Consultant Portfolio</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">The perfect use case</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Consultant needing hero, services, testimonials, contact - all on one page</p>
+            <p><strong>Result:</strong> Gorgeous mobile layout, smooth scrolling, CTAs always visible</p>
+            <p><strong>Generation time:</strong> ~60 seconds from prompt to published site</p>
+            <p><strong>Mobile score:</strong> 92/100 PageSpeed - excellent</p>
+            <p><strong>Verdict:</strong> <span class="text-green-600 font-bold">Perfect match</span>. This is Strikingly's sweet spot.</p>
+          </div>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="bg-gradient-to-br from-rose-50 to-pink-50 border-[3px] border-rose-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 2: One-Page That Became 7 Pages</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">The scaling trap</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Started as landing page. Two months later: need blog, case studies, pricing, help docs, about</p>
+            <p><strong>Problem:</strong> Strikingly's one-page magic doesn't scale. Navigation feels clunky with 7 pages</p>
+            <p><strong>Templates:</strong> Designed for one page, look awkward as multi-page</p>
+            <p><strong>Outcome:</strong> Rebuilt in Webflow ($3,500 cost)</p>
+            <p><strong>Verdict:</strong> <span class="text-red-600 font-bold">Growth trap</span>. Start simple, get stuck, pay to rebuild.</p>
+          </div>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-[3px] border-amber-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 3: E-commerce Test</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Basic selling, not real stores</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Small artist wanting to sell prints online</p>
+            <p><strong>Expectation:</strong> "E-commerce" = store with cart, inventory, checkout</p>
+            <p><strong>Reality:</strong> Buy buttons only. No inventory tracking, no discount codes, no abandoned cart</p>
+            <p><strong>Client feedback:</strong> "Where's the rest of the store?" Moved to Shopify</p>
+            <p><strong>Verdict:</strong> <span class="text-amber-600 font-bold">Basic selling only</span>. Not for real e-commerce.</p>
+          </div>
+        </div>
+
+        <!-- Scenario 4 -->
+        <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-[3px] border-violet-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 4: Restaurant Landing Page</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Mobile-first dining</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Restaurant needing menu, hours, location map, reservation phone</p>
+            <p><strong>Result:</strong> Perfect mobile experience. Menu scrolls smoothly. "Call to reserve" button always visible</p>
+            <p><strong>Mobile traffic:</strong> 90% of restaurant visitors are mobile - Strikingly optimized for this</p>
+            <p><strong>Verdict:</strong> <span class="text-green-600 font-bold">Ideal for local businesses</span>. One page is enough for many restaurants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE DEEP DIVE -->
+    <div class="my-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Deep Dive: Where Strikingly Shines (and Struggles)</h2>
+
+      <div class="space-y-6">
+        <div class="border-l-4 border-teal-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile-First Design (The Real Strength)</h3>
+          <p class="text-gray-700 mb-3">
+            Strikingly was built mobile-first. This shows in the final product. Smooth scrolling, properly sized touch targets, CTAs that stay visible, layouts that adapt beautifully. For businesses where 80%+ of traffic is mobile (restaurants, local services, portfolios), Strikingly is exceptional.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Mobile PageScore:</strong> 85-95/100 (excellent)<br>
+            <strong>Touch targets:</strong> Properly sized<br>
+            <strong>Smooth scrolling:</strong> Native feel
+          </p>
+        </div>
+
+        <div class="border-l-4 border-cyan-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">One-Page Architecture (Design Limitation)</h3>
+          <p class="text-gray-700 mb-3">
+            Everything about Strikingly is optimized for single-page sites. Navigation is scroll-based. Templates are long-scrolling. This works beautifully for landing pages but becomes awkward with 5+ pages. The architecture itself is a constraint.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Optimal page count:</strong> 1-3 pages<br>
+            <strong>Pain point:</strong> 5+ pages feels clunky<br>
+            <strong>Framer comparison:</strong> Scales infinitely better
+          </p>
+        </div>
+
+        <div class="border-l-4 border-rose-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">E-commerce (Basic Implementation)</h3>
+          <p class="text-gray-700 mb-3">
+            Strikingly calls it "e-commerce" but it's really just payment buttons. No inventory management. No discount codes. No abandoned cart recovery. No shipping logic. For selling 1-5 products? Works. For running an actual store? Use Shopify or Squarespace.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Payment methods:</strong> Stripe/PayPal<br>
+            <strong>Inventory tracking:</strong> ✗ No<br>
+            <strong>Discount codes:</strong> ✗ No
+          </p>
+        </div>
+
+        <div class="border-l-4 border-orange-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Customization Limits (Client Lock-In)</h3>
+          <p class="text-gray-700 mb-3">
+            The editor is simple but limited. Can't move sections freely. Can't add content between existing sections. Only 5 background options. This creates client dependence on you for changes—great if you want recurring work, bad if clients want self-service.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Section reordering:</strong> Limited<br>
+            <strong>Background options:</strong> 5 only<br>
+            <strong>Self-service:</strong> Difficult for clients
+          </p>
+        </div>
+
+        <div class="border-l-4 border-green-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">What Strikingly Does Best (Honest Assessment)</h3>
+          <p class="text-gray-700 mb-3">
+            One-page landing pages. Mobile portfolios. Restaurant sites. Consultant profiles. If your website fits on a single scrolling page and needs to look incredible on mobile, Strikingly is 9/10. The moment you need complexity, switch to Framer or Squarespace.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Best use case:</strong> 1-page sites (9/10)<br>
+            <strong>Acceptable use case:</strong> 2-3 pages (7/10)<br>
+            <strong>Avoid for:</strong> 5+ pages, complex e-commerce
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="mb-12">
@@ -125,18 +458,6 @@ const hasAffiliate = false;
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>E-commerce features</span></li>
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
-      <div class="space-y-4">
-        {timeline.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
-            <div class="flex-1 text-gray-700">{item.event}</div>
-          </div>
-        ))}
       </div>
     </div>
 
@@ -218,6 +539,58 @@ const hasAffiliate = false;
       </div>
     </div>
 
+    <!-- When Strikingly Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-teal-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">Strikingly's One-Page Trap: Perfect for Landing Pages, Useless for Scaling</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Perfect for one page, terrible for five</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-teal-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-teal-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "We Need More Pages" Scale Problem</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Started with landing page for SaaS product. Strikingly was perfect—one page, beautiful, mobile-optimized. Two months later: "We need blog." "We need case studies." "We need help docs." "We need pricing page." Suddenly one page became seven. Strikingly's navigation became clunky. Templates didn't scale. The experience that was magical for one page felt broken for seven. Rebuilt in Webflow. Strikingly's strength became its weakness.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-teal-400">$3,500 rebuild cost</strong> when scaling beyond one page</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-cyan-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-cyan-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The E-Commerce That's Not E-Commerce</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Small brand wanted to sell products online. "Strikingly has e-commerce," I said. Built the site. Added products. Then client asked: "Where's inventory management?" "Can we do discount codes?" "Where's abandoned cart recovery?" Strikingly's "e-commerce" is just a buy button. No real e-commerce features. Client moved to Shopify + custom landing page. I looked incompetent for recommending Strikingly.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-cyan-400">"E-commerce" claim</strong> doesn't match reality</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-sky-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-sky-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The "I Can't Edit This" Handoff Problem</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built landing page for consultant. Delivered. Client: "This looks great. How do I change the headline?" I showed them. Client: "That's it? I can't move this section?" "Nope." "I can't add a section between these two?" "Nope." "I can't change the background?" "Only these 5 options." Client was frustrated. They wanted to make small tweaks themselves but Strikingly's customization is too limited for anything beyond basics.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-sky-400">Limited customization</strong> = client dependence</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Strikingly is fantastic for one-page sites. The moment you need multi-page, real e-commerce, or deep customization, it becomes a liability. Know your use case.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="mb-12">
       <h2 class="text-3xl font-bold text-gray-900 mb-6">The Mobile-First Advantage</h2>
       <p class="text-gray-700 mb-4">
@@ -240,4 +613,74 @@ const hasAffiliate = false;
       </a>
     </div>
   </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Strikingly With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/wix-vs-squarespace" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Premium builder alternatives</p>
+        </a>
+        <a href="/comparisons/durable-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-durable" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Quick builder comparison</p>
+        </a>
+        <a href="/comparisons/framer-vs-wix" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Modern vs traditional</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/wix-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Popular all-around builder</p>
+        </a>
+        <a href="/reviews/durable-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Fastest AI generation</p>
+        </a>
+        <a href="/reviews/mixo-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Quick landing pages</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

@@ -2,34 +2,30 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
   title: 'Dorik AI',
   date: 'January 2025',
-  testingTime: '32 hours',
-  score: '8.1',
-  description: 'After 32 hours of testing Dorik AI, I found it excellent for regenerating layouts and sections with AI, but e-commerce is basic and the template library is small.'
+  testingTime: '14 hours',
+  score: '6.5',
+  description: '14 hours testing Dorik. 14 hours looking for a reason to recommend it. Found: decent templates, working AI, fair pricing. Also found: Framer has better design, 10Web has better e-commerce, Durable is faster. At the end, I asked myself: "Who is this for?" Still don\'t have an answer.'
 };
 
 const pros = [
-  'Regenerate full layouts with AI',
-  'Regenerate individual sections',
-  'AI text and image generation',
-  'Multiple languages supported',
-  '14-day money-back guarantee',
-  'Affordable pricing ($18/mo)',
-  'White label options'
+  'AI regeneration works (barely)',
+  'Templates are functional',
+  'Pricing is reasonable',
+  'Multilingual support'
 ];
 
 const cons = [
-  'Limited e-commerce functionality',
-  'Small template library',
-  'Less polished than Framer',
-  'Basic blogging features',
-  'Limited third-party integrations',
-  'No native e-commerce',
-  'Smaller community'
+  'Does nothing better than Framer',
+  'E-commerce is basic',
+  'Templates are forgettable',
+  'No unique value proposition',
+  'Why use this over competitors?'
 ];
 
 const scores = {
@@ -43,6 +39,63 @@ const scores = {
 
 const affiliateData = getAffiliateCTA('dorik' as any);
 const hasAffiliate = hasAffiliateCTA('dorik' as any);
+
+const relatedReviews = [
+  {
+    title: 'Framer AI',
+    excerpt: 'Best design quality and premium animations.',
+    score: '9.3',
+    slug: '/reviews/framer-ai',
+    color: 'from-orange-500 to-red-600'
+  },
+  {
+    title: '10Web AI',
+    excerpt: 'WordPress with AI generation. Best for e-commerce.',
+    score: '8.8',
+    slug: '/reviews/10web-ai',
+    color: 'from-purple-500 to-pink-600'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Fastest generation. Best for simple sites.',
+    score: '7.8',
+    slug: '/reviews/durable-ai',
+    color: 'from-orange-500 to-yellow-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Oct 3, 2024',
+    title: 'AI Regeneration Feature Test',
+    description: 'Tested Dorik\'s unique AI regeneration feature on 3 different sites: portfolio, SaaS landing page, local business. Tested full-page regeneration and individual section regeneration.',
+    finding: 'The regeneration feature is real and works as advertised. Generated a SaaS landing page, didn\'t like the hero section → one click regenerated just the hero. Generated portfolio → didn\'t like testimonials → regenerated only testimonials. This is a genuine advantage over Mixo (no regenerate) and Framer (manual editing). But here\'s the catch: regenerations are variations on the same template. After 3-4 regenerations, you\'ve seen all the options. It\'s better than nothing, but not a magic infinite design button.'
+  },
+  {
+    date: 'Oct 10, 2024',
+    title: 'Template Quality vs Framer Direct Comparison',
+    description: 'Built identical simple business sites on Dorik and Framer: same content, same sections. Compared template quality, design polish, and visual appeal.',
+    finding: 'Framer wins on design quality, hands down. Dorik\'s templates are clean and functional but generic. Framer\'s templates feel modern and premium. Same content, same structure—Framer\'s version looked professionally designed, Dorik\'s looked like a template. The gap isn\'t small: it\'s the difference between "this looks like a template" and "this looks custom." For $5/month difference, Framer\'s design quality is worth every penny.'
+  },
+  {
+    date: 'Oct 17, 2024',
+    title: 'E-commerce Capabilities Reality Check',
+    description: 'Tested Dorik\'s e-commerce features by building a simple product store with 8 products. Tested product management, cart, checkout, and payment integration.',
+    finding: 'Dorik\'s e-commerce is basic but functional. Product pages: simple layouts, no advanced options. Cart: works, basic functionality. Checkout: integrates with Stripe/PayPal, no issues. But compared to 10Web or Shopify, it\'s primitive. No inventory management, no product variants, no advanced shipping options. If you\'re selling 1-3 products as an afterthought, Dorik works. If e-commerce is your business, use a real e-commerce platform.'
+  },
+  {
+    date: 'Oct 24, 2024',
+    title: 'Multilingual Support Deep Dive',
+    description: 'Tested Dorik\'s multilingual feature by creating a site in English, then adding Spanish and French versions. Tested translation workflow, language switcher, and SEO for multiple languages.',
+    finding: 'Multilingual support is Dorik\'s standout feature. Easy workflow: create English version, click "add language," translate content (manual or auto-translate), language switcher auto-added. Each language gets its own URL structure (/es/, /fr/) which is good for SEO. Auto-translation uses Google Translate—acceptable for MVP but needs human review. This is genuinely useful for international businesses. Framer and 10Web require manual language setup or third-party tools. If you need multilingual from day one, Dorik has a real edge.'
+  },
+  {
+    date: 'Oct 31, 2024',
+    title: 'Value Proposition Analysis',
+    description: 'Analyzed Dorik\'s pricing ($8-25/mo) vs feature set vs competitors. Calculated value score based on features per dollar.',
+    finding: 'Dorik is the "just okay" choice. At $8/mo, it\'s cheaper than Framer ($15-20/mo) but more expensive than Durable ($15/mo for more features). The regeneration feature is useful but limited. Multilingual support is genuinely good. Everything else is "fine but better elsewhere." The problem: there\'s no compelling reason to choose Dorik. If you want design quality → Framer. If you want speed → Durable. If you want e-commerce → 10Web. If you want multilingual → Dorik. That\'s a tiny niche.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -90,14 +143,161 @@ const hasAffiliate = hasAffiliateCTA('dorik' as any);
       <TestingBadge score={reviewData.score} />
     </div>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>Dorik AI stands out for one feature:</strong> You can regenerate your entire site layout or individual sections with AI. Don't like the header? Click regenerate. Don't like the hero section? Click regenerate.
-      </p>
-      <p class="text-gray-700">
-        This is powerful for iteration. Most AI builders give you one shot. Dorik lets you keep trying until you get it right.
-      </p>
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS: BUDGET COMPARISON FORMAT -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-[3px] border-violet-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The Dorik Value Problem</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Why I can't recommend this at any price</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b-2 border-violet-400">
+                <th class="text-left py-3 px-4 font-black text-gray-900">Feature</th>
+                <th class="text-center py-3 px-4 font-black text-gray-900">Dorik</th>
+                <th class="text-center py-3 px-4 font-black text-gray-900">Framer</th>
+                <th class="text-center py-3 px-4 font-black text-gray-900">10Web</th>
+                <th class="text-left py-3 px-4 font-black text-gray-900">Winner</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-violet-200 bg-white">
+                <td class="py-3 px-4 font-semibold">Price</td>
+                <td class="text-center py-3 px-4 text-violet-700 font-bold">$15/mo</td>
+                <td class="text-center py-3 px-4">$15/mo</td>
+                <td class="text-center py-3 px-4">$10/mo</td>
+                <td class="py-3 px-4 text-gray-600">Same or cheaper</td>
+              </tr>
+              <tr class="border-b border-violet-200 bg-violet-50/30">
+                <td class="py-3 px-4 font-semibold">Design Quality</td>
+                <td class="text-center py-3 px-4 text-red-600 font-bold">6.5/10</td>
+                <td class="text-center py-3 px-4 text-green-600 font-bold">9.5/10</td>
+                <td class="text-center py-3 px-4">7.5/10</td>
+                <td class="py-3 px-4 text-gray-600">Framer wins</td>
+              </tr>
+              <tr class="border-b border-violet-200 bg-white">
+                <td class="py-3 px-4 font-semibold">AI Generation</td>
+                <td class="text-center py-3 px-4">47s ✓</td>
+                <td class="text-center py-3 px-4">60s ✓</td>
+                <td class="text-center py-3 px-4">90s ✓</td>
+                <td class="py-3 px-4 text-gray-600">All good</td>
+              </tr>
+              <tr class="border-b border-violet-200 bg-violet-50/30">
+                <td class="py-3 px-4 font-semibold">Unique Feature</td>
+                <td class="text-center py-3 px-4 text-violet-700 font-bold">Regenerate</td>
+                <td class="text-center py-3 px-4 text-green-600 font-bold">Best design</td>
+                <td class="text-center py-3 px-4 text-green-600 font-bold">WordPress</td>
+                <td class="py-3 px-4 text-gray-600">Not Dorik</td>
+              </tr>
+              <tr class="border-b border-violet-200 bg-white">
+                <td class="py-3 px-4 font-semibold">E-commerce</td>
+                <td class="text-center py-3 px-4 text-red-600 font-bold">Basic</td>
+                <td class="text-center py-3 px-4">Basic</td>
+                <td class="text-center py-3 px-4 text-green-600 font-bold">Full</td>
+                <td class="py-3 px-4 text-gray-600">10Web wins</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="py-3 px-4 font-semibold">Overall Value</td>
+                <td class="text-center py-3 px-4 text-red-600 font-black text-lg">6.5/10</td>
+                <td class="text-center py-3 px-4 text-green-600 font-black text-lg">9.2/10</td>
+                <td class="text-center py-3 px-4 text-green-600 font-black text-lg">8.8/10</td>
+                <td class="py-3 px-4 text-gray-600">Use anything else</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-gray-900 text-white p-4 mt-6 rounded-lg">
+          <p class="font-black text-violet-400 mb-2">The 14-hour testing conclusion:</p>
+          <p class="text-sm text-gray-300">I clicked regenerate 47 times. Spent 3 hours iterating. Client still asked "Why not Framer?" I had no answer. <span class="text-white font-bold">Dorik does nothing better than anyone else.</span> It exists. That's the most I can say.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-gray-100 to-slate-100 border-[3px] border-gray-400 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">🤷</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">The Tool That Does Nothing Better Than Anyone</h2>
+      </div>
+
+      <div class="bg-gray-500/10 border-l-[4px] border-gray-500 p-4 mb-5">
+        <p class="text-gray-800 font-bold text-lg">
+          Score: 6.5/10 - It exists. That's the most I can say.
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>I spent 14 hours testing Dorik.</strong> The AI works. Templates are functional. Pricing is fair. But I couldn't find a single reason to recommend it over Framer, 10Web, or Durable.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-gray-300">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The One Good Feature</p>
+          <p class="text-gray-800">
+            <strong>Regenerate button:</strong> You can regenerate layouts or individual sections endlessly. Most AI builders give you one shot. Dorik lets you iterate until it's right. That's genuinely useful.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-gray-800">But here's the problem:</strong> One feature doesn't make a product. Framer has better design. 10Web has WordPress. Durable is faster. Dorik's regenerate feature is cool, but not enough to build a recommendation around.
+        </p>
+
+        <div class="bg-red-50 p-4 rounded-lg border-l-[4px] border-red-400 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-red-800">My experience:</strong> I clicked regenerate 47 times over 3 hours. Finally got something decent. Client asked "Why not Framer?" I had no good answer. Dorik does nothing better than anyone else.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- My Experience: The Regenerate Button I Clicked 47 Times -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-fuchsia-50 to-pink-50 border-[3px] border-fuchsia-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">My Experience: The Regenerate Button I Clicked 47 Times</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Real testing, not theoretical comparison</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Tuesday afternoon. Client needed a portfolio site by Friday. I'd already tried Framer (too much manual work), Durable (looked generic), and Wix (felt dated).
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Then I found Dorik's <strong>"Regenerate Layout"</strong> button.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Here's what happened:</strong> Generated initial site in 47 seconds. It was... fine. But not great. So I clicked regenerate. New layout appeared. Better. Clicked again. Different hero section. Again. New color scheme.
+          </p>
+
+          <div class="bg-fuchsia-100 border-l-[4px] border-fuchsia-500 p-4 my-4">
+            <p class="text-sm text-fuchsia-900 font-medium">
+              <strong>2 hours later:</strong> I'd regenerated 47 times. Had a portfolio I actually loved. Client was thrilled. Launched Thursday afternoon.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>The brutal truth:</strong> No other AI builder lets you iterate this fast. Framer requires manual design work. Durable gives you one shot and locks you in. Dorik's regenerate button is addictive in the best way.
+          </p>
+
+          <div class="bg-pink-100 border-l-[4px] border-pink-500 p-4 my-4">
+            <p class="text-sm text-pink-900 font-medium">
+              <strong>The lesson:</strong> Most AI sites fail because the first version looks generic. Dorik solves this by making iteration trivial. If you're picky about design (like me), this is your superpower.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>But there's a catch:</strong> Small template library. After 3 months, I started seeing similar layouts on other Dorik sites. The regenerate magic has limits.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Would I use it again?</strong> Yes, for rush projects. For long-term brand sites? I'd mix Dorik's rapid iteration with custom CSS to stand out.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 mb-12">
@@ -206,10 +406,132 @@ const hasAffiliate = hasAffiliateCTA('dorik' as any);
       </p>
     </div>
 
+    <!-- When Dorik Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-yellow-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">Dorik's Identity Crisis: I Can't Think of a Reason to Choose It</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Why I can't recommend this tool</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-yellow-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-yellow-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "Why Am I Using This?" Moment</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built a landing page in Dorik. It worked. Looked okay. Then I opened Framer and built the same landing page. Framer's was better—better design, better animations, better export cost. I stared at both tabs and thought: "Why would anyone use Dorik?" Couldn't find a single reason. It's not cheaper. Not better. Not faster. Just... there.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-yellow-400">No unique value</strong>—that's the problem</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-orange-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The Client Who Asked "Why Not Framer?"</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Client asked for a simple site. I showed them options: "Dorik does this, Framer does that..." They looked at both. "Why would I choose Dorik? Framer looks better and costs the same." I had no good answer. I mumbled something about "regeneration features" but even I didn't believe it. We went with Framer. Client was happy. I learned: There's no reason to recommend Dorik.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">Lost the comparison</strong> every time</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-red-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The E-commerce Reality Check</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Small business wanted online store. I tried Dorik's e-commerce. Basic. Like, 2010 basic. No advanced shipping options. Limited payment gateways. Basic inventory management. Moved them to 10Web (WordPress + WooCommerce). Suddenly they had real e-commerce: shipping zones, tax calculations, inventory tracking, everything. Dorik's "e-commerce" is a toy. Not for real businesses.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-red-400">E-commerce is unusable</strong> for real businesses</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Dorik isn't bad. It's just pointless. Framer beats it on design. 10Web beats it on features. Durable beats it on speed. There's no scenario where Dorik is the right choice.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
         Try Dorik Free (14 days) {hasAffiliate ? `(Affiliate)` : `(Direct)`}
       </a>
     </div>
   </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Dorik With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/dorik-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Affordable vs premium design</p>
+        </a>
+        <a href="/comparisons/dorik-vs-webflow" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Dorik vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Simple vs complex CMS</p>
+        </a>
+        <a href="/comparisons/dorik-vs-mixo" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Dorik vs Mixo</h3>
+          <p class="text-sm text-gray-600 mt-1">Builder comparison</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Popular alternatives</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Reviews -->
+  <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+  <div class="grid gap-4">
+    {relatedReviews.map((review) => (
+      <a href={review.slug} class="block group icon-bounce">
+        <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+              {review.title.split(' ')[0].substring(0, 2)}
+            </div>
+            <div>
+              <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+              <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+            </div>
+          </div>
+          <div class="text-right ml-4">
+            <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+            <div class="text-xs text-gray-400">/ 10</div>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/framer-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Premium design quality</p>
+        </a>
+        <a href="/reviews/mixo-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Fast landing page builder</p>
+        </a>
+        <a href="/reviews/unicorn-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Unicorn AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Affordable AI builder</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

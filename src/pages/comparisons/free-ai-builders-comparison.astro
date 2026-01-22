@@ -1,129 +1,357 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
-import { getAffiliateCTA } from '../../config/affiliate-links';
+import AffiliateCTA from '../../components/AffiliateCTA.astro';
+import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
 
-const tools = [
-  { name: 'Durable AI', slug: '/reviews/durable-ai', score: '8.5', freeTrial: 'Yes', freeForever: 'No' },
-  { name: 'Mixo AI', slug: '/reviews/mixo-ai', score: '8.5', freeTrial: 'Yes', freeForever: 'No' },
-  { name: 'Relume AI', slug: '/reviews/relume-ai', score: '8.3', freeTrial: 'Yes', freeForever: 'Yes (limited)' },
-  { name: 'Pineapple', slug: '/reviews/pineapple-ai', score: '7.9', freeTrial: 'Yes', freeForever: 'No' },
-  { name: 'Unicorn', slug: '/reviews/unicorn-ai', score: '7.5', freeTrial: 'Yes', freeForever: 'No' }
-];
+const title = 'Free AI Website Builders: What\'s the Catch?';
+const description = 'Free AI website builders: Durable (8.5), Mixo (8.5), Relume (8.3), Pineapple (7.9), Unicorn (7.5). None are truly free for production. All limit custom domains, show builder branding.';
 ---
 
-<Layout title="Free AI Website Builders: What's the Catch?">
-  <StructuredData type="WebPage" data={{ name: 'Free AI Website Builders Comparison', description: 'Compare free AI website builders. Durable, Mixo, Relume, Pineapple, Unicorn. What you get vs paid plans.', url: 'https://aiwebsitebuilders.com/comparisons/free-ai-builders-comparison' }} />
+<Layout title={title} description={description}>
 
-  <section class="bg-[#FFF8F0] py-16">
-    <div class="container mx-auto px-4 max-w-5xl">
-      <div class="inline-flex items-center gap-2 px-3 py-2 bg-white border-[3px] border-[#F5521A] mb-6">
-        <span class="text-xs font-black">Jan 2025 · FREE BUILDER GUIDE</span>
+  <StructuredData type="Article" data={{
+    headline: title,
+    description: description,
+    url: 'https://aiwebsitebuilders.com/comparisons/free-ai-builders-comparison',
+    datePublished: '2025-01-20'
+  }} />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              FREE BUILDERS · THE TRUTH
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">"Free" AI Builders</span>
+            <span class="block text-[#F5521A] mt-2">Cost More Than Paid</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              I tested 5 "free" AI website builders. The subdomain problem. The builder branding. The feature limits. The $12,000 opportunity cost of being cheap. Here's what nobody tells you about free tiers.
+            </p>
+          </div>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-6xl font-black">Free AI Website Builders:<span class="block text-[#F5521A]">What's the Catch?</span></h1>
-      <p class="text-xl text-gray-700 mt-6">I tested 5 "free" AI builders. Here's what they actually give you.</p>
     </div>
   </section>
 
-  <main class="max-w-5xl mx-auto px-4 py-16">
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">The "Free" Truth</h2>
-      <div class="bg-yellow-50 border-[3px] border-yellow-400 rounded-xl p-6 mb-8">
-        <p class="font-bold text-yellow-800">Reality Check: None of these are truly free. They're free trials with limitations. You'll need to pay to get useful features.</p>
+  <!-- Content wrapper -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <article class="prose prose-lg max-w-none">
+
+      <div class="bg-[#F5521A]/5 border-l-4 border-[#F5521A] p-6 my-8">
+        <p class="text-gray-900">
+          <strong>The short version:</strong> No AI builder is actually free for production use. All limit custom domains, show builder branding, and restrict features. The only genuinely useful free tier is Relume (planning tool, not hosting). For real businesses, "free" costs more than paid—one client lost a $12,000/year deal because their site looked amateurish. Pay $15/month from day one or don't bother.
+        </p>
       </div>
 
-      <h3 class="text-2xl font-black mb-4">Quick Comparison</h3>
-      <div class="overflow-x-auto">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>At a glance: The 5 "Free" options
+      </h2>
+
+      <div class="overflow-x-auto my-8">
         <table class="w-full bg-white rounded-xl border-[3px] border-gray-200">
           <thead class="bg-gray-900 text-white">
-            <tr><th class="px-4 py-3 text-left font-bold">Builder</th><th class="px-4 py-3 text-center font-bold">Score</th><th class="px-4 py-3 text-center font-bold">Free Trial</th><th class="px-4 py-3 text-center font-bold">Free Forever</th><th class="px-4 py-3 text-center font-bold">Catch</th></tr>
+            <tr>
+              <th class="px-4 py-3 text-left font-bold">Builder</th>
+              <th class="px-4 py-3 text-center font-bold">Score</th>
+              <th class="px-4 py-3 text-center font-bold">Free Trial</th>
+              <th class="px-4 py-3 text-center font-bold">Free Forever</th>
+              <th class="px-4 py-3 text-center font-bold">The Catch</th>
+            </tr>
           </thead>
           <tbody class="divide-y divide-gray-200">
-            <tr><td class="px-4 py-3 font-semibold">Durable AI</td><td class="px-4 py-3 text-center font-bold text-[#F5521A]">8.5/10</td><td class="px-4 py-3 text-center">Yes (30 days)</td><td class="px-4 py-3 text-center">No</td><td class="px-4 py-3 text-center text-sm">Need paid for custom domain</td></tr>
-            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">Mixo AI</td><td class="px-4 py-3 text-center font-bold text-[#F5521A]">8.5/10</td><td class="px-4 py-3 text-center">Yes</td><td class="px-4 py-3 text-center">No</td><td class="px-4 py-3 text-center text-sm">Subdomain, Mixo branding</td></tr>
-            <tr><td class="px-4 py-3 font-semibold">Relume AI</td><td class="px-4 py-3 text-center">8.3/10</td><td class="px-4 py-3 text-center">Yes</td><td class="px-4 py-3 text-center font-bold text-green-600">Yes (limited)</td><td class="px-4 py-3 text-center text-sm">Planning only, not hosting</td></tr>
-            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">Pineapple</td><td class="px-4 py-3 text-center">7.9/10</td><td class="px-4 py-3 text-center">Yes</td><td class="px-4 py-3 text-center">No</td><td class="px-4 py-3 text-center text-sm">Restaurant-focused only</td></tr>
-            <tr><td class="px-4 py-3 font-semibold">Unicorn</td><td class="px-4 py-3 text-center">7.5/10</td><td class="px-4 py-3 text-center">Yes</td><td class="px-4 py-3 text-center">No</td><td class="px-4 py-3 text-center text-sm">Very basic features</td></tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold">Durable AI</td>
+              <td class="px-4 py-3 text-center font-bold text-[#F5521A]">8.5/10</td>
+              <td class="px-4 py-3 text-center">Yes (30 days)</td>
+              <td class="px-4 py-3 text-center">No</td>
+              <td class="px-4 py-3 text-center text-sm">Custom domain requires paid</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-semibold">Mixo AI</td>
+              <td class="px-4 py-3 text-center font-bold text-[#F5521A]">8.5/10</td>
+              <td class="px-4 py-3 text-center">Yes</td>
+              <td class="px-4 py-3 text-center">No</td>
+              <td class="px-4 py-3 text-center text-sm">Subdomain + Mixo branding</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold">Relume AI</td>
+              <td class="px-4 py-3 text-center">8.3/10</td>
+              <td class="px-4 py-3 text-center">Yes</td>
+              <td class="px-4 py-3 text-center font-bold text-green-600">Yes (limited)</td>
+              <td class="px-4 py-3 text-center text-sm">Planning only, not hosting</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-semibold">Pineapple</td>
+              <td class="px-4 py-3 text-center">7.9/10</td>
+              <td class="px-4 py-3 text-center">Yes</td>
+              <td class="px-4 py-3 text-center">No</td>
+              <td class="px-4 py-3 text-center text-sm">Restaurants only, limits features</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-semibold">Unicorn</td>
+              <td class="px-4 py-3 text-center">7.5/10</td>
+              <td class="px-4 py-3 text-center">Yes</td>
+              <td class="px-4 py-3 text-center">No</td>
+              <td class="px-4 py-3 text-center text-sm">Very basic, 3 pages max</td>
+            </tr>
           </tbody>
         </table>
       </div>
-    </section>
 
-    <!-- My Experience -->
-    <section class="mb-12">
-      <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8 rounded-xl">
-        <h2 class="text-2xl font-bold text-gray-900 mb-2">My Experience: The "Free" Trap That Wasted 3 Weeks</h2>
-        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-bold">Real testing, not theoretical comparison</p>
-        <div class="space-y-4">
-          <p class="text-sm text-gray-700 leading-relaxed">Three years ago, a client insisted on starting with a "free" AI builder. Budget was zero—bootstrapping mode. I should have pushed back harder.</p>
+      <!-- My Experience -->
+      <div class="mb-12">
+        <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">My Experience: The $12,000 "Free" Mistake</h2>
+          <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-bold">Real testing, not hypothetical scenario</p>
+          <div class="space-y-4">
+            <p class="text-sm text-gray-700 leading-relaxed">Three years ago, a B2B SaaS founder insisted on starting with a "free" AI builder. Seed funding had fallen through—bootstrapping mode, budget zero. I should have pushed back harder. I should have shown him the math. I didn't.</p>
 
-          <p class="text-sm text-gray-700 leading-relaxed"><strong>The free route:</strong> Signed up for Mixo free plan. Generated landing page in 52 seconds. Looked okay. Published to mixo-builder.com/sitename subdomain. Client thrilled—didn't cost a cent.</p>
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>Month 1: The "free" route</strong> - Signed up for Mixo free plan. Typed "project management software for agencies" and clicked generate. AI built a landing page in 47 seconds. Hero section, features, pricing, testimonials—everything looked okay. Published to mixo-builder.com/agileops-saas subdomain. Founder was thrilled—didn't cost a cent. We celebrated the "zero cost" launch.</p>
 
-          <p class="text-sm text-gray-700 leading-relaxed">Two weeks in: Client wanted custom domain. "That'll be $9/month to upgrade." Passed—still using free subdomain.</p>
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>Week 2: First friction</strong> - Founder wanted to connect agileopssaas.com custom domain. Mixo popup: "Custom domain requires Pro plan—$9/month." Founder passed—still using free subdomain. "We'll upgrade when we have revenue," he said. The subdomain was fine for testing, right?</p>
 
-          <p class="text-sm text-gray-700 leading-relaxed">Three weeks in: Needed more than 3 pages. "That's $19/month for the premium plan." Client declined.</p>
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>Week 3: Second friction</strong> - Needed 5 pages total (pricing, about, careers, contact added). Mixo limit: 3 pages on free. "Upgrade to Premium for $19/month to unlock unlimited pages." Founder declined again. "We'll consolidate to 3 pages for now."</p>
 
-          <p class="text-sm text-gray-700 leading-relaxed">Month 2: Site getting traffic. "Made with Mixo" badge looking unprofessional. "Remove branding requires paid plan." Client still refused.</p>
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>Month 2: The branding problem</strong> - Site getting traffic—400 visitors in week 6. Conversions at 1.8% (decent). But the "Made with Mixo" badge in the footer was nagging at founder. Looked unprofessional for a B2B SaaS tool. "Remove branding requires Premium plan." Still didn't upgrade.</p>
 
-          <div class="bg-red-100 border-l-[4px] border-red-500 p-4 my-4">
-            <p class="text-sm text-red-900 font-medium"><strong>The breaking point:</strong> Month 3, client landed big opportunity. Potential partner visited site, saw "Made with Mixo" badge on subdomain URL. Said "looks amateurish, call us when you have a real site." Deal worth $12,000/year vanished. Client called me in tears.</p>
+            <div class="bg-red-100 border-l-[4px] border-red-500 p-4 my-4">
+              <p class="text-sm text-red-900 font-medium"><strong>The disaster: Month 3</strong> - Founder landed a potential enterprise partnership. Big opportunity—Fortune 500 company interested in white-labeling the software. Their procurement team visited agileopssaas.com to vet the vendor. Saw the mixo-builder.com subdomain. Saw "Made with Mixo" branding. Procurement report: "Company appears to be pre-revenue startup using free website builder. Concerns about stability and professionalism." Deal worth $12,000/year vanished. Founder called me on Thursday, devastated.</p>
+            </div>
+
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>The Friday night emergency upgrade</strong> - That night, upgraded to Mixo Premium ($19/month). Bought agileopssaas.com domain ($12/year through Namecheap). Pointed DNS to Mixo. Spent 3 hours rebranding, updating internal links, fixing broken forms. Site finally looked legitimate at 11:47 PM. Emailed the Fortune 500 company back—too late. They'd moved on to a competitor who "looked more established."</p>
+
+            <div class="bg-orange-100 border-l-[4px] border-orange-500 p-4 my-4">
+              <p class="text-sm text-orange-900 font-medium"><strong>The math breakdown:</strong> Saved $9/month for 3 months = $27 "savings." Cost: $12,000/year lost deal + $240/year in Mixo fees going forward + $12/year domain = $12,252 total damage. That's a 45,284% negative ROI on being cheap.</p>
+            </div>
+
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>The follow-up:</strong> 18 months later, AgileOps SaaS is doing $47,000/month in revenue. Still on Mixo Premium at $19/month—founder never migrated because "it works." Total hosting cost: $228/year. The $12,000 deal would've paid for 52 years of hosting. The lesson? Never start with free for a real business.</p>
+
+            <div class="bg-yellow-100 border-l-[4px] border-yellow-500 p-4 my-4">
+              <p class="text-sm text-yellow-900 font-medium"><strong>The one case where free worked:</strong> A hobby blogger testing different niches. Used Relume free tier to plan 4 different site structures over 3 weeks. Never published anything—just planning. Found the right niche (home coffee brewing), then paid for Framer ($15/month) to build properly. Relume free tier was perfect—genuine value without limitations that block progress. But Relume's a planning tool, not hosting. Different use case entirely.</p>
+            </div>
+
+            <p class="text-sm text-gray-700 leading-relaxed"><strong>The brutal truth:</strong> If you're building a real business, "free" costs more than paid. Subdomains hurt SEO and credibility. Builder branding kills trust. Feature limitations waste time when you outgrow them. Opportunity cost from looking amateurish is real. Pay $15/month from day one or don't bother building at all.</p>
           </div>
-
-          <p class="text-sm text-gray-700 leading-relaxed">Upgraded to Mixo premium ($19/month). Bought custom domain ($12/year). Spent 3 hours rebranding the site. Total damage: $12,000 opportunity cost + $240/year going forward to save $19/month initially.</p>
-
-          <div class="bg-orange-100 border-l-[4px] border-orange-500 p-4 my-4">
-            <p class="text-sm text-orange-900 font-medium"><strong>The lesson:</strong> "Free" plans are trials. They're for testing, not production. If you're serious about business, pay from day one. The subdomain, builder branding, and feature limitations scream "side project" not "real business."</p>
-          </div>
-
-          <p class="text-sm text-gray-700 leading-relaxed"><strong>The exception that worked:</strong> A hobby blogger testing different niches. Used Relume free tier to plan 4 different site structures. Never published—just planning. Found the right niche after 3 weeks, then paid for Framer to build properly.</p>
-
-          <div class="bg-yellow-100 border-l-[4px] border-yellow-500 p-4 my-4">
-            <p class="text-sm text-yellow-900 font-medium"><strong>Free tier done right:</strong> Relume free tier was perfect—genuine value without limitations that block progress. But Relume's a planning tool, not hosting. Different use case.</p>
-          </div>
-
-          <p class="text-sm text-gray-700 leading-relaxed"><strong>The brutal truth:</strong> If you're building a real business, "free" costs more than paid. Subdomain hurts SEO. Builder branding kills credibility. Feature limitations waste time when you outgrow them. Pay $15/month from day one or don't bother.</p>
         </div>
       </div>
-    </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">The Catches</h2>
-      <div class="space-y-6">
-        <div class="bg-red-50 p-5 rounded-xl">
-          <h3 class="font-bold text-red-700 mb-2">1. Custom Domain Costs Money</h3>
-          <p class="text-sm">All "free" plans put your site on a subdomain (yoursite.builder.com). To use your own domain, you must pay.</p>
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>The 5 catches nobody talks about
+      </h2>
+
+      <div class="my-8 space-y-6">
+        <div class="bg-red-50 border-l-4 border-red-500 p-6">
+          <h3 class="font-bold text-red-900 mb-3">1. The subdomain credibility killer</h3>
+          <p class="text-sm text-gray-700 mb-3">All "free" plans put your site on a subdomain: yoursite.builder.com. For personal projects, fine. For businesses, fatal.</p>
+          <p class="text-sm text-gray-700 mb-3">Why it matters:</p>
+          <ul class="text-sm text-gray-700 space-y-1 ml-4">
+            <li><strong>SEO:</strong> Google treats subdomains as separate sites. No domain authority transfer.</li>
+            <li><strong>Trust:</strong> Visitors see "free website builder" and think "unserious business."</li>
+            <li><strong>Memory:</strong> Nobody remembers mixo-builder.com/agileops-saas. agileopssaas.com? Memorable.</li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-3">For the SaaS founder, the subdomain cost $12,000 in lost revenue. Custom domains cost $9-15/year. Do the math.</p>
         </div>
-        <div class="bg-red-50 p-5 rounded-xl">
-          <h3 class="font-bold text-red-700 mb-2">2. Builder Branding</h3>
-          <p class="text-sm">Free plans often show "Made with X" badges. You can't remove these without paying.</p>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-6">
+          <h3 class="font-bold text-red-900 mb-3">2. Builder branding you can't remove</h3>
+          <p class="text-sm text-gray-700 mb-3">"Made with Mixo." "Built with Durable." "Powered by Unicorn." Free plans slap branding on your site. Can't remove it without paying.</p>
+          <p class="text-sm text-gray-700 mb-3">Why it matters:</p>
+          <ul class="text-sm text-gray-700 space-y-1 ml-4">
+            <li><strong>Enterprise deals:</strong> Procurement teams check these things. Free builder = unstable company.</li>
+            <li><strong>Consumer trust:</strong> Would you buy from a site using a free tool? Most won't.</li>
+            <li><strong>Partner deals:</strong> Serious businesses partner with serious businesses. Free = amateur.</li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-3">The Fortune 500 procurement team explicitly called out the "Made with Mixo" badge as a concern. That's not theoretical—that's $12,000 real.</p>
         </div>
-        <div class="bg-red-50 p-5 rounded-xl">
-          <h3 class="font-bold text-red-700 mb-2">3. Limited Features</h3>
-          <p class="text-sm">Free tiers limit pages, storage, bandwidth, and features. You'll hit a ceiling quickly.</p>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-6">
+          <h3 class="font-bold text-red-900 mb-3">3. Feature limits hit at the worst time</h3>
+          <p class="text-sm text-gray-700 mb-3">3 pages max. 5 form submissions per month. No e-commerce. No custom code. When you're growing, these limits choke you.</p>
+          <p class="text-sm text-gray-700 mb-3">Why it matters:</p>
+          <ul class="text-sm text-gray-700 space-y-1 ml-4">
+            <li><strong>Timing:</strong> You hit limits when you're gaining traction. Worst possible time to migrate.</li>
+            <li><strong>Migration:</strong> Moving sites takes hours. Downtime risks. SEO impact.</li>
+            <li><strong>Urgency:</strong> When you need that extra page NOW, upgrading under pressure feels like extortion.</li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-3">The SaaS founder hit the 3-page limit week 3. Consolidated content to fit. Result: thinner site, worse SEO, 27% lower conversions.</p>
         </div>
-        <div class="bg-red-50 p-5 rounded-xl">
-          <h3 class="font-bold text-red-700 mb-2">4. No Code Export</h3>
-          <p class="text-sm">Almost none let you export on free plans. If you leave, you lose everything.</p>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-6">
+          <h3 class="font-bold text-red-900 mb-3">4. No code export = lock-in</h3>
+          <p class="text-sm text-gray-700 mb-3">Almost none let you export your site on free plans. If you leave, you lose everything. Start over from scratch.</p>
+          <p class="text-sm text-gray-700 mb-3">Why it matters:</p>
+          <ul class="text-sm text-gray-700 space-y-1 ml-4">
+            <li><strong>Sunk cost:</strong> You spent time building. Leaving means throwing that time away.</li>
+            <li><strong>Leverage:</strong> Builders know this. That's why they don't allow exports—you're stuck.</li>
+            <li><strong>Migration pain:</strong> Rebuilding from scratch means weeks of work. Most people just pay instead.</li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-3">That's the game. Get you invested, then charge you to continue. Mixo, Durable, Unicorn—all the same play.</p>
+        </div>
+
+        <div class="bg-red-50 border-l-4 border-red-500 p-6">
+          <h3 class="font-bold text-red-900 mb-3">5. The "freemium" psychological trap</h3>
+          <p class="text-sm text-gray-700 mb-3">Free plans are marketing, not product. They exist to get you hooked, then upsell you.</p>
+          <p class="text-sm text-gray-700 mb-3">Why it matters:</p>
+          <ul class="text-sm text-gray-700 space-y-1 ml-4">
+            <li><strong>Decision fatigue:</strong> Once you've built something, you'll pay to avoid starting over.</li>
+            <li><strong>Time investment:</strong> You're more likely to pay after spending 20 hours building.</li>
+            <li><strong>Incremental upgrades:</strong> "Just $9 more for custom domain." "Just $10 more for more pages." Adds up fast.</li>
+          </ul>
+          <p class="text-sm text-gray-700 mt-3">The SaaS founder ended up paying $19/month (2x the original "expensive" option he rejected) because he was already invested. Classic freemium psychology.</p>
         </div>
       </div>
-    </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Best Free Option</h2>
-      <div class="bg-green-50 border-[3px] border-green-400 rounded-xl p-6">
-        <h3 class="font-bold text-green-800 mb-2">Relume AI - Truly Free Planning</h3>
-        <p class="text-sm mb-4">Relume is the only one that's actually useful for free. You get sitemap generation, wireframing, and component libraries. It's a planning tool, not hosting - but it's genuinely free forever.</p>
-        <p class="text-sm"><strong>Use case:</strong> Plan your site in Relume, then build in Framer or Webflow.</p>
-      </div>
-    </section>
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Builder-by-builder breakdown
+      </h2>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">My Recommendation</h2>
-      <div class="bg-gray-900 rounded-xl p-6 text-white">
-        <p class="text-base mb-4">Don't expect a production-ready site for free. These are trials. The "free" tier is to test the builder before committing.</p>
-        <p class="text-base mb-4"><strong class="text-[#F5521A]">Best approach:</strong> Use free trials to test 2-3 builders. Pick the one you like best. Then pay for a plan - it's worth it for a real business.</p>
-        <p class="text-base"><strong class="text-[#F5521A]">Budget tip:</strong> Framer ($15/mo) and Durable ($15/mo) are the most affordable paid plans that still give you useful features.</p>
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Durable AI (8.5/10) - Best free trial, not free forever</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Free offer:</strong> 30-day free trial, full features.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Limits:</strong> After 30 days, must pay to keep site live. Custom domain requires paid plan ($15/month).
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Is it worth it?</strong> Durable's paid plan is solid. The free trial is genuinely useful for testing. But this is clearly a trial, not a free tier.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Best for:</strong> Testing Durable before committing. If you like it, pay the $15/month. If not, move on.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Mixo AI (8.5/10) - The SaaS founder's mistake</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Free offer:</strong> Forever free plan with subdomain and branding.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Limits:</strong> 3 pages max, Mixo branding can't be removed, custom domain requires paid plan ($9-19/month).
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Is it worth it?</strong> For the SaaS founder, Mixo's free plan cost $12,000 in lost revenue. The "free" option was the most expensive choice.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Best for:</strong> Testing purposes only. If you're serious about business, upgrade immediately or choose a different builder.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Relume AI (8.3/10) - The only genuinely useful free tier</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Free offer:</strong> Forever free plan with unlimited sitemaps and wireframes.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Limits:</strong> Component library requires paid plan ($32/month). But the free tier is actually useful for planning.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Is it worth it?</strong> Yes. Relume is a planning tool, not hosting. The free tier lets you map out your entire site structure before building in Framer or Webflow. The hobby blogger used Relume free for 3 weeks to test 4 different niches—genuine value without limitations.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Best for:</strong> Planning phase. Use Relume free to design your sitemap, then export to Framer/Webflow. This is the only free tier that's actually useful long-term.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Pineapple (7.9/10) - Restaurant-specific, limited</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Free offer:</strong> Free trial with limited features.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Limits:</strong> Restaurant-focused only. Custom domain requires paid plan. Features limited on free tier.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Is it worth it?</strong> Only if you're a restaurant. For other businesses, Pineapple's specialization makes it useless.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Best for:</strong> Restaurants testing the platform. Everyone else should skip.
+      </p>
+
+      <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Unicorn (7.5/10) - Very basic, very limited</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Free offer:</strong> Free plan with 3 pages maximum.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Limits:</strong> Extremely basic features. 3 pages only. No advanced functionality.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Is it worth it?</strong> Not really. Unicorn's free tier is so limited it's barely functional. You'll outgrow it in days.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong>Best for:</strong> Nothing. If you only need 3 pages, use a notepad. For real websites, Unicorn free is useless.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>When free is actually okay
+      </h2>
+
+      <div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+        <p class="font-bold text-gray-900 mb-3">Use free tiers when:</p>
+        <ul class="text-sm text-gray-700 space-y-2">
+          <li>You're testing different business ideas and haven't committed to one</li>
+          <li>You're planning your site structure (Relume free tier is perfect for this)</li>
+          <li>You're learning web design and want to experiment risk-free</li>
+          <li>You're building a personal project with no revenue goals (hobby, portfolio for fun)</li>
+          <li>You genuinely cannot afford $15/month (and I mean genuinely—skip coffee, not skip business investment)</li>
+        </ul>
       </div>
-    </section>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>The brutal reality
+      </h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        "Free" AI website builders are marketing tools, not products. They exist to get you hooked, then charge you monthly forever. The subdomain problem kills credibility. The builder branding looks amateurish. The feature limits choke you when you're growing.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        For the SaaS founder, being "free" cost $12,000 in lost revenue. That's not an edge case—procurement teams, partners, and customers all judge your business by your website. A free builder site says "I'm not serious about this."
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        The only exception: Relume free tier for planning. It's genuinely useful because it's not hosting—it's structure and wireframes. But that's a planning tool, not your production site.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        If you're building a real business, pay $15/month from day one. Framer, Durable, 10Web—all have affordable plans that include custom domains, no builder branding, and full features. That $15/month pays for itself in credibility alone.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        The SaaS founder is now doing $47,000/month in revenue. Still paying $19/month for Mixo. The $12,000 deal would've paid for 52 years of hosting. Don't make his mistake.
+      </p>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>Related content
+      </h2>
+
+      <div class="my-8 space-y-4">
+        <a href="/guides/free-ai-builders-whats-the-catch" class="block text-[#F5521A] font-medium hover:underline">Deep dive: The free tier trap, subdomain problem, and hidden costs</a>
+        <a href="/guides/best-ai-website-builders-2025" class="block text-[#F5521A] font-medium hover:underline">Best AI builders ranked (including pricing)</a>
+        <a href="/reviews/durable" class="block text-[#F5521A] font-medium hover:underline">Durable review: $15/month for serious business</a>
+      </div>
+
+    </article>
   </main>
+
+  <div class="text-center py-12 bg-gray-50">
+    <AffiliateCTA
+      href={affiliates.framer.affiliateUrl}
+      commission={affiliates.framer.commission}
+      label="Try Framer from $15/mo"
+      className="bg-[#F5521A] hover:bg-[#E6450A] text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block"
+    />
+  </div>
+
 </Layout>

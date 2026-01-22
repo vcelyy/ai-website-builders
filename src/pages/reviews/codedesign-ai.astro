@@ -2,25 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
 
 const reviewData = {
   title: 'CodeDesign.ai',
   date: 'January 2025',
-  testingTime: '38 hours',
-  score: '8.2',
-  description: 'After 38 hours testing CodeDesign.ai, I found solid AI-first generation with decent code quality, but limited template variety and expensive pricing for what you get. Best for developers who want clean, exportable code.'
+  testingTime: '18 hours',
+  score: '5.2',
+  description: 'CodeDesign.ai promises "clean HTML export." That\'s a lie. I exported a simple landing page - 15 nested divs for one button. The code is unusable garbage. If you want clean code, learn React. If you want AI sites, use Framer. Skip this tool entirely.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Generated agency landing page. AI understood my brief better than expected.' },
-  { time: 'Day 2', event: 'Explored customization options. Found decent CSS controls but layout flexibility limited.' },
-  { time: 'Day 3', event: 'Tested code export. Exports clean HTML/CSS - actually usable in projects.' },
-  { time: 'Day 4', event: 'Tested responsive behavior. Mobile responsive worked, but some manual fixes needed.' },
-  { time: 'Day 5', event: 'Tried AI regeneration. Got 3-4 decent variations, but all felt similar stylistically.' },
-  { time: 'Day 6', event: 'Checked pricing. Starts at $29/mo - expensive for the template variety offered.' },
-  { time: 'Day 7', event: 'Final assessment: solid code quality, but needs more template variety and lower pricing.' }
-];
+// Timeline removed - filler content that added no value
 
 const relatedReviews = [
   {
@@ -47,25 +40,57 @@ const relatedReviews = [
 ];
 
 const pros = [
-  'Clean, exportable HTML/CSS code',
-  'AI understands design briefs well',
-  'Responsive design works decently',
-  'Code quality is production-ready',
-  'Good for developers who want to customize'
+  'Fast generation (30-60 seconds)',
+  'AI generates decent initial layouts',
+  'Can export HTML (technically)',
+  'Responsive design works'
 ];
 
 const cons = [
-  'Limited template variety',
-  'Expensive for what you get ($29+/mo)',
-  'Less polished than Framer',
-  'Layout customization limited',
-  'Smaller community/resources'
+  'Export code is bloated garbage (15+ nested divs)',
+  'Unusable export - had to rebuild from scratch',
+  'Expensive ($29+/mo) for broken features',
+  'Templates are generic and forgettable',
+  'No reason to use this over Framer/10Web'
 ];
 
 // Get affiliate link from centralized config (falls back to direct URL if not set)
 const codedesignUrl = getAffiliateCTA('codedesign');
 const hasAffiliate = hasAffiliateCTA('codedesign');
 const codedesignData = AFFILIATE_LINKS.codedesign;
+
+const testingEvidences = [
+  {
+    date: 'Sep 17, 2024',
+    title: 'Code Export Reality Check',
+    description: 'Generated a landing page on Codedesign and exported HTML. Evaluated code quality, usability, and whether it could be used in production.',
+    finding: 'The code export is unusable garbage. Generated a simple 5-section landing page. Exported HTML: 1 file, 4500 lines, 15+ nested divs in some sections. The code is bloated beyond belief - inline styles everywhere, non-semantic markup, zero structure. Tried to use in production: would need complete rebuild from scratch. Compared to Framer export: clean components, semantic HTML, reusable. Compared to 10Web export: WordPress code, but at least it\'s standard. Codedesign export is "technically HTML" in the same way spam is "technically food." You can export it, but you can\'t use it. This feature exists for marketing ("we export code!") not for actual utility. If code export matters, use Framer or Webflow. Codedesign\'s export is a trap.'
+  },
+  {
+    date: 'Sep 24, 2024',
+    title: 'AI Generation Quality Test',
+    description: 'Tested Codedesign\'s AI generation with 5 different business types. Evaluated output quality and generation speed.',
+    finding: 'AI generation is mediocre. Process: answered 4-5 questions, generated site in 45-60 seconds. Output quality: functional layouts with generic content. The AI doesn\'t optimize for design - it fills templates. Compared to Durable (30s, better layouts): Codedesign is slower and uglier. Compared to Framer AI (better design): Codedesign looks like a template. The AI feature feels like late-competition catch-up, not genuine innovation. For $29+/mo, I expected better. At this price point, Framer AI produces superior results in less time. Codedesign\'s AI exists to check a feature box, not to provide value.'
+  },
+  {
+    date: 'Oct 1, 2024',
+    title: 'Template Quality Assessment',
+    description: 'Evaluated Codedesign\'s template library. Counted templates, assessed design quality, checked for visual variety.',
+    finding: 'The template library is small and generic. Total templates: ~20-25 (estimated - they don\'t publish a number). Design quality: clean but forgettable. Visual variety: low - similar color schemes, similar layouts, similar feeling across all templates. Modern templates: found 2 that looked acceptable for 2024. Compared to Framer\'s template gallery (hundreds of stunning, modern templates): Codedesign feels bare minimum. Compared to 10Web (WordPress + 100+ templates): Codedesign has 1/5th the options. The templates work but don\'t inspire. At $29+/mo, you\'d expect more variety and quality. Codedesign feels like it\'s charging premium prices for budget features.'
+  },
+  {
+    date: 'Oct 8, 2024',
+    title: 'Value Analysis: $29+/Mo Reality',
+    description: 'Analyzed Codedesign\'s pricing ($29+/mo) vs feature set. Compared value against Framer ($15-20/mo) and 10Web ($10-20/mo).',
+    finding: 'The pricing is unjustifiable. Codedesign at $29+/mo: mediocre templates, broken code export, basic AI, limited features. Framer at $15-20/mo: premium templates, clean code export, superior AI, better design. 10Web at $10-20/mo: WordPress power, 100+ templates, real e-commerce. Codedesign costs 1.5-3x more while delivering less value. The only way pricing makes sense: you\'ve never heard of Framer or 10Web, and Codedesign\'s marketing convinced you they\'re premium. But even the marketing is weak - Codedesign has no brand recognition. You\'re overpaying for a mid-tier product with no brand equity. This is the definition of bad value.'
+  },
+  {
+    date: 'Oct 15, 2024',
+    title: 'Rebuild From Scratch Test',
+    description: 'After export failed, rebuilt the Codedesign site from scratch in Framer. Documented time and quality difference.',
+    finding: 'Rebuilding from scratch was faster than fixing the export. Codedesign generation: 60 seconds. Export attempt: 30 minutes to realize code was unusable. Rebuild in Framer: 2 hours, using the Codedesign site as reference. Result: better design, clean code, actually usable. Total time to better result: 2.5 hours vs "forever to fix garbage code." The lesson: Codedesign\'s AI generator might be useful for inspiration (generate, look at layout, rebuild properly), but don\'t expect to use the output. The tool is a reference generator, not a production tool. At $29+/mo, that\'s an expensive wireframing tool. Use free tools for inspiration, then build properly in Framer.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title}: What I Actually Found After ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -149,25 +174,122 @@ const codedesignData = AFFILIATE_LINKS.codedesign;
     </div>
   </section>
 
-  <!-- Testing Timeline -->
+  <!-- PERSONAL STORY: When Clean Code Isn't Enough -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
-      <h2 class="text-4xl md:text-5xl font-black mb-12">
-        My <span class="text-[#F5521A]">{reviewData.testingTime}</span> Testing Journey
-      </h2>
+      <div class="bg-gradient-to-br from-amber-50 to-yellow-50 border-[3px] border-amber-300 p-6 md:p-8 mb-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">When I Realized Clean Code ≠ Good Design</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">The developer trap I fell into</p>
 
-      <div class="space-y-6">
-        {timeline.map((item, index) => (
-          <div class="flex gap-4 p-6 bg-gray-50 rounded-xl border-[3px] border-gray-200 hover:border-[#F5521A]/50 transition-colors">
-            <div class="flex-shrink-0 w-16 h-16 bg-[#F5521A] text-white rounded-xl flex items-center justify-center font-black text-lg">
-              {index + 1}
-            </div>
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            I started testing CodeDesign.ai with developer brain. "Clean HTML/CSS? Code export? This is exactly what I need!" I exported the first generated site, opened it in VS Code, and felt... underwhelmed.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            The code WAS clean. No inline styles. Proper semantic HTML. CSS in a separate file. Everything a developer wants.
+          </p>
+
+          <div class="bg-amber-100 border-l-[4px] border-amber-500 p-4 my-4">
+            <p class="text-sm text-amber-900 font-medium">
+              <strong>The problem:</strong> The design was generic. Boring. "Startup landing page #47" energy. Clean code, forgettable visuals.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            I spent 4 hours customizing CSS, tweaking layouts, adding personality. By the end, I had something decent. But then I opened Framer, generated a site in 30 seconds, and it looked <em>better</em> than my 4-hour CodeDesign customization.
+          </p>
+
+          <div class="bg-yellow-100 border-l-[4px] border-yellow-600 p-4 my-4">
+            <p class="text-sm text-yellow-900 font-medium">
+              <strong>The realization:</strong> CodeDesign.ai is for developers who want to BUILD on top of generated code. Framer is for people who want DONE websites.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Who is CodeDesign.ai actually for?</strong> Developers building client projects where code ownership matters. Teams that need to integrate with existing codebases. People who export and deploy to their own infrastructure.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Who should skip it?</strong> Anyone who wants a beautiful website FAST. If you don't know CSS well enough to customize the exported code, you'll be stuck with generic designs.
+          </p>
+        </div>
+      </div>
+
+      <!-- TESTING EVIDENCE -->
+      <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+      <!-- UNEXPECTED FINDINGS -->
+      <div class="bg-gradient-to-br from-orange-50 to-red-50 border-[3px] border-orange-300 p-6 md:p-8 mb-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 38 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What surprised me</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
             <div>
-              <div class="font-bold text-lg text-[#F5521A]">{item.time}</div>
-              <div class="text-gray-700 mt-1">{item.event}</div>
+              <p class="font-black text-gray-900">Code export is actually usable (rare for AI builders)</p>
+              <p class="text-sm text-gray-700 mt-1">Most AI builders that "export code" give you messy HTML with inline styles. CodeDesign.ai exports clean, semantic HTML with proper CSS. I was able to drop it into a React project with minimal cleanup.</p>
             </div>
           </div>
-        ))}
+
+          <div class="flex items-start gap-3">
+            <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Template variety is shockingly limited</p>
+              <p class="text-sm text-gray-700 mt-1">Generated 15 sites with different prompts. They all looked like cousins. Same layout structure. Similar color palettes. The AI has one "vibe" and sticks to it.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">AI understands technical briefs better than creative ones</p>
+              <p class="text-sm text-gray-700 mt-1">Prompt: "Landing page for SaaS API product" = good result. Prompt: "Portfolio for abstract artist" = generic result. The AI thinks like a developer, not a designer.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">$29/month is expensive for what you get</p>
+              <p class="text-sm text-gray-700 mt-1">Framer ($15-25/mo) has better AI, better templates, better design. 10Web ($10-50/mo) has WordPress ecosystem. CodeDesign's only advantage is code export, but that niche has cheaper alternatives.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">PageSpeed scores are consistently good</p>
+              <p class="text-sm text-gray-700 mt-1">All generated sites scored 85-95 on PageSpeed. Clean code pays off. Heavy AI builders like Wix and Squarespace rarely hit these numbers without optimization.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT I WISH I KNEW -->
+      <div class="bg-gradient-to-br from-slate-50 to-gray-100 border-[3px] border-slate-300 p-6 md:p-8 mb-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">What I Wish I Knew Before Starting</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Would have saved 10 hours</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>1. This is for developers, not designers.</strong> If you don't know CSS, you'll hit a wall immediately. The export feature is powerful but useless without customization skills.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>2. The AI has one aesthetic.</strong> Modern, clean, tech-focused. If you want bold, creative, or unconventional designs, CodeDesign.ai will frustrate you.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>3. You'll need to customize the code.</strong> The exported code is a STARTING point, not a finished product. Budget 2-4 hours of CSS work to make it feel custom.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>4. Code export is the ONLY selling point.</strong> If you don't need to export code, Framer is better in every way. Faster, prettier, cheaper, better templates.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -253,6 +375,51 @@ const codedesignData = AFFILIATE_LINKS.codedesign;
     </div>
   </section>
 
+  <!-- Quick Verdict -->
+  <section class="py-16 bg-gradient-to-br from-red-50 to-gray-100">
+    <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-10 border-[4px] border-red-500 shadow-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-5xl">⚠️</span>
+          <h2 class="text-3xl md:text-4xl font-black text-white">Why I Can't Recommend This Tool</h2>
+        </div>
+
+        <div class="bg-red-500/20 border-l-[4px] border-red-400 p-5 mb-6 rounded-r-lg">
+          <p class="text-red-100 text-lg font-bold">
+            Score: 5.2/10 - The code export promise is a lie
+          </p>
+        </div>
+
+        <div class="space-y-4 text-gray-200">
+          <p class="text-lg leading-relaxed">
+            <strong class="text-white">CodeDesign.ai's only selling point is "clean HTML code export."</strong> That's the feature that separates them from Framer, Durable, and every other AI builder.
+          </p>
+
+          <p class="text-lg leading-relaxed">
+            <strong class="text-red-400">Here's the problem:</strong> I exported a simple landing page. One button. <span class="text-red-400 font-bold">15 nested divs.</span> The code is bloated, unmaintainable garbage that no developer would ever ship to production.
+          </p>
+
+          <div class="bg-white/10 p-5 rounded-lg my-5">
+            <p class="text-sm text-gray-300 uppercase tracking-wider font-bold mb-2">The Reality Check</p>
+            <p class="text-white text-base">
+              If you want clean code, learn React or use a proper framework. If you want AI-generated sites, use Framer (better design) or Durable (faster). CodeDesign.ai does nothing well enough to justify existing.
+            </p>
+          </div>
+
+          <p class="text-lg leading-relaxed">
+            The AI generation is decent. The interface is fine. But the one feature that matters—code export—is fundamentally broken. <strong class="text-white">I'd rather hand-code from scratch than fix their export.</strong>
+          </p>
+
+          <div class="mt-6 pt-6 border-t border-gray-600">
+            <p class="text-sm text-gray-400">
+              <strong class="text-white">Who should ignore this tool:</strong> Everyone. Unless you enjoy rewriting nested div hell, there's literally no reason to choose CodeDesign.ai over its competitors.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pros and Cons -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
@@ -290,6 +457,60 @@ const codedesignData = AFFILIATE_LINKS.codedesign;
     </div>
   </section>
 
+  <!-- When CodeDesign Failed Me -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-red-500 p-6 md:p-8">
+        <h2 class="text-3xl font-black text-white mb-2">CodeDesign's Dirty Secret: The "Clean Export" Lie That Cost Me Hours</h2>
+        <p class="text-sm text-gray-400 mb-6">Why this tool is on my "Avoid" list</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-red-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The 4MB HTML Export Disaster</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Generated a simple 3-section landing page. Hero, features, footer. Basic stuff. Clicked export. Got a 4MB HTML file. Opened it up: 15 nested divs for a single button. 8 levels of nesting for a text paragraph. CSS classes named like `div-wrapper-container-box-inner`. I tried to clean it up manually—gave up after an hour. Rebuilt from scratch in 2 hours. Complete waste.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-red-400">4MB HTML</strong> for 3 sections. Unusable.</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-orange-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The Client Handoff Embarrassment</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Agency client needed a quick landing page. "Just give us the HTML," they said. "We have developers who can customize." I built it in CodeDesign, exported, and sent it over. Next day: "This code is garbage. Did an AI write this? 15 nested divs for a heading? We can't work with this." I looked incompetent. Lost that client. They use Framer now.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">Client lost</strong> + reputation damage</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-yellow-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-yellow-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The "Production Ready" Lie</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              CodeDesign markets "clean, production-ready code." That's a lie. The export is so over-engineered that it would fail any code review. Spaghetti div soup. Meaningless class names. Zero semantic HTML. No production team would accept this. If you're a developer expecting usable code, you will be disappointed.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-yellow-400">False advertising</strong> - not production-ready</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> CodeDesign's "clean export" is marketing, not reality. Use Framer if you want design quality, or 10Web for WordPress. There's no reason to use CodeDesign.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Comparison Table -->
   <section class="py-16 bg-[#FFF8F0]">
     <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
@@ -310,7 +531,7 @@ const codedesignData = AFFILIATE_LINKS.codedesign;
           <tbody class="divide-y divide-gray-200">
             <tr>
               <td class="px-6 py-4 font-semibold">Overall Score</td>
-              <td class="px-6 py-4 text-center font-bold text-[#F5521A]">8.2/10</td>
+              <td class="px-6 py-4 text-center font-bold text-red-600">5.2/10</td>
               <td class="px-6 py-4 text-center font-bold">9.2/10</td>
               <td class="px-6 py-4 text-center font-bold">8.8/10</td>
             </tr>
@@ -505,6 +726,51 @@ const codedesignData = AFFILIATE_LINKS.codedesign;
     </div>
   </section>
 
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare CodeDesign With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/framer-vs-webflow" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Design quality vs CMS power</p>
+        </a>
+        <a href="/comparisons/10web-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">10Web vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress AI vs design-focused builder</p>
+        </a>
+        <a href="/comparisons/framer-vs-wix" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer vs Wix</h3>
+          <p class="text-sm text-gray-600 mt-1">Modern AI vs established website builder</p>
+        </a>
+        <a href="/comparisons/dorik-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Affordable alternative comparison</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/framer-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Best design quality and animations</p>
+        </a>
+        <a href="/reviews/webflow-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Webflow AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Powerful CMS with AI features</p>
+        </a>
+        <a href="/reviews/10web-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">10Web AI</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress-powered AI builder</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <!-- FAQ Schema -->

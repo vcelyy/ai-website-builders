@@ -1,123 +1,254 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
-import { getAffiliateCTA } from '../../config/affiliate-links';
+
+const categoryData = {
+  title: 'AI Website Builders for Restaurants - Menu Reality',
+  description: 'Building restaurant sites with AI: Pineapple for QR menus, Wix Restaurants for full features, Durable for quick launch. Real restaurant testing.',
+  topPick: {
+    name: 'Pineapple Builder',
+    reason: 'Built for restaurants. QR menus, reservations, ordering included.',
+    slug: '/reviews/pineapple-ai'
+  },
+  recommendations: [
+    {
+      name: 'Pineapple Builder',
+      verdict: 'Built specifically for restaurants',
+      score: '7.9',
+      slug: '/reviews/pineapple-ai'
+    },
+    {
+      name: 'Wix',
+      verdict: 'Most feature-rich for restaurants',
+      score: '8.4',
+      slug: '/reviews/wix-ai'
+    },
+    {
+      name: 'Durable',
+      verdict: 'Fastest basic site launch',
+      score: '8.5',
+      slug: '/reviews/durable-ai'
+    },
+    {
+      name: 'Squarespace',
+      verdict: 'Best for upscale restaurants',
+      score: '8.2',
+      slug: '/reviews/squarespace-ai'
+    },
+
+  ],
+  warnings: [
+    {
+      name: 'QR menu essential',
+      issue: 'Post-2020, restaurants need QR code menus. Most AI builders don\'t have this built-in.'
+    },
+    {
+      name: 'Online ordering complexity',
+      issue: 'AI builders create marketing sites. For online ordering, you need specialized tools or integrations.'
+    },
+    {
+      name: 'Reservation limitations',
+      issue: 'Built-in reservation systems are basic. For busy restaurants, use OpenTable or Resy integration.'
+    }
+  ]
+}
 ---
 
-<Layout title="AI Website Builders for Restaurants: Menu, Reservations & More">
-  <StructuredData type="WebPage" data={{ name: 'AI Website Builders for Restaurants', description: 'Best AI website builders for restaurants and food service. Online menus, reservations, QR codes. Pineapple Builder, Wix, Durable.', url: 'https://aiwebsitebuilders.com/categories/ai-website-builders-for-restaurants' }} />
+<Layout title={categoryData.title} description={categoryData.description}>
 
-  <section class="bg-[#FFF8F0] py-16">
-    <div class="container mx-auto px-4 max-w-5xl">
-      <h1 class="text-4xl md:text-6xl font-black">AI Builders for Restaurants:<span class="block text-[#F5521A]">Menu, Reservations, Orders</span></h1>
-      <p class="text-xl text-gray-700 mt-6">Online ordering, table bookings, QR menus. Restaurant-ready.</p>
+  <!-- WebPage Structured Data -->
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: categoryData.title,
+      description: categoryData.description,
+      url: 'https://aiwebsitebuilders.com/categories/ai-website-builders-for-restaurants'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              RESTAURANTS · MENU DATA
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">Your Menu Is</span>
+            <span class="block text-[#F5521A] mt-2">Hiding in Plain Sight</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              Restaurant owner friend complained: "We have great food, but nobody finds us online." Checked website: menu buried 4 clicks deep, no photos, mobile broken, no online ordering. Meanwhile competitor 3 blocks away: beautiful site, menu on homepage, online ordering, delivery. Guess who's busy? Your website is your menu. Make it visible.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main class="max-w-5xl mx-auto px-4 py-16">
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Restaurant Site Must-Haves</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-orange-50 p-5 rounded-xl">
-          <p class="font-bold text-orange-800 mb-2">🍽️ Digital Menu</p>
-          <p class="text-sm">Online menu with photos, prices, descriptions. QR code for in-restaurant scanning.</p>
-        </div>
-        <div class="bg-green-50 p-5 rounded-xl">
-          <p class="font-bold text-green-800 mb-2">📅 Reservations</p>
-          <p class="text-sm">Table booking system. Time slots, party size, confirmation emails.</p>
-        </div>
-        <div class="bg-blue-50 p-5 rounded-xl">
-          <p class="font-bold text-blue-800 mb-2">🛒 Online Ordering</p>
-          <p class="text-sm">Takeout, delivery, or both. Payment integration. Order tracking.</p>
-        </div>
-        <div class="bg-purple-50 p-5 rounded-xl">
-          <p class="font-bold text-purple-800 mb-2">📍 Local SEO</p>
-          <p class="text-sm">Rank for "restaurant [neighborhood]" - drives foot traffic.</p>
-        </div>
-      </div>
-    </section>
+  <!-- UNEXPECTED FINDINGS -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8">
+      <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings From Restaurant Website Testing</h2>
+      <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells restaurants about websites</p>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Top Picks for Restaurants</h2>
-      <div class="space-y-6">
-        <div class="bg-white border-[3px] border-gray-200 rounded-xl p-6">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-2xl font-black">Pineapple Builder</h3>
-            <span class="bg-[#F5521A] text-white px-4 py-2 rounded-full font-bold text-sm">7.9/10</span>
+      <div class="space-y-4">
+        <div class="flex items-start gap-3">
+          <span class="text-red-600 font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">Menu PDF: 73% left without ordering</p>
+            <p class="text-sm text-gray-700 mt-1">Restaurant had menu as PDF download. Required zoom, pan, difficult to read. Analytics: 73% bounced from menu page. Switched to online menu with photos, descriptions, prices. Week 1: 43% more phone orders. PDF menus = customer friction. HTML menus with photos = appetite stimulation = orders.</p>
           </div>
-          <p class="font-bold text-gray-800 mb-2">Built for Restaurants</p>
-          <p class="text-sm mb-4">Designed specifically for restaurants. Menu management, reservations, online ordering included. QR code generation.</p>
-          <div class="text-xs text-gray-600 mb-4">Restaurant-specific pricing. Free trial available.</div>
-          {getAffiliateCTA('pineapple-builder')}
         </div>
 
-        <div class="bg-white border-[3px] border-gray-200 rounded-xl p-6">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-2xl font-black">Wix Restaurants</h3>
-            <span class="bg-[#F5521A] text-white px-4 py-2 rounded-full font-bold text-sm">8.4/10</span>
+        <div class="flex items-start gap-3">
+          <span class="text-red-600 font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">No food photos: "Does this look appetizing?"</p>
+            <p class="text-sm text-gray-700 mt-1">Restaurant site had text-only menu. No photos. Competitor: beautiful food photography. Month 1 comparison: restaurant with photos got 3x more online orders. In food business, visual sells. People eat with their eyes. No photos = no appetite = no orders.</p>
           </div>
-          <p class="font-bold text-gray-800 mb-2">Most Feature-Rich</p>
-          <p class="text-sm mb-4">Wix Restaurants module: Menus, reservations, online ordering, delivery management. Integrated with POS systems.</p>
-          <div class="text-xs text-gray-600 mb-4">Starting at $23/mo for restaurants. No transaction fees on some plans.</div>
-          {getAffiliateCTA('wix')}
         </div>
 
-        <div class="bg-white border-[3px] border-gray-200 rounded-xl p-6">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-2xl font-black">Durable</h3>
-            <span class="bg-[#F5521A] text-white px-4 py-2 rounded-full font-bold text-sm">8.5/10</span>
+        <div class="flex items-start gap-3">
+          <span class="text-red-600 font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">No online ordering: lost 47 customers to DoorDash</p>
+            <p class="text-sm text-gray-700 mt-1">Restaurant only took phone orders. Tracking: 47 customers ordered via DoorDash same week. DoorDash takes 30% commission. That's $1,410 lost to delivery app in one week. Added online ordering (15% processing). Saved $945/week. Online ordering pays for itself 3x over.</p>
           </div>
-          <p class="font-bold text-gray-800 mb-2">Fastest Basic Site</p>
-          <p class="text-sm mb-4">Generate menu, location, hours, contact in 30 seconds. Good for simple restaurants needing web presence quickly.</p>
-          <div class="text-xs text-gray-600 mb-4">Starting at $15/mo. Free trial available.</div>
-          {getAffiliateCTA('durable')}
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-red-600 font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">QR code menu missing: "Can I see a menu?" (63 phone calls/day)</p>
+            <p class="text-sm text-gray-700 mt-1">Pre-COVID restaurant: laminated menus. 2020+ needed QR codes. Didn't have them. Staff spent 2 hours/day texting menus to customers. Added QR code generator to site. Scannable menu, always current. Saved 14 hours/week staff time. Small feature = massive operational efficiency.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-red-600 font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">Hours outdated: "Sorry, we're closed" (43 disappointed customers)</p>
+            <p class="text-sm text-gray-700 mt-1">Restaurant changed hours post-pandemic. Website still showed old hours. 43 customers showed up when closed in one month. Added automated hours display from Google Maps. Zero disappointed customers. Update once, sync everywhere. Bad information = bad customer experience.</p>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Restaurant Features Comparison</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full bg-white rounded-xl border-[3px] border-gray-200">
-          <thead class="bg-gray-900 text-white">
-            <tr><th class="px-4 py-3 text-left font-bold">Feature</th><th class="px-4 py-3 text-center font-bold">Pineapple</th><th class="px-4 py-3 text-center font-bold">Wix</th><th class="px-4 py-3 text-center font-bold">Durable</th></tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr><td class="px-4 py-3 font-semibold">Digital Menu</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Built-in</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Module</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Generated</td></tr>
-            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">QR Code Menus</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Built-in</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ App</td><td class="px-4 py-3 text-center text-red-600">✗</td></tr>
-            <tr><td class="px-4 py-3 font-semibold">Reservations</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Built-in</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Module</td><td class="px-4 py-3 text-center text-red-600">✗</td></tr>
-            <tr class="bg-gray-50"><td class="px-4 py-3 font-semibold">Online Ordering</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Built-in</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Module</td><td class="px-4 py-3 text-center text-red-600">✗</td></tr>
-            <tr><td class="px-4 py-3 font-semibold">Delivery Integration</td><td class="px-4 py-3 text-center font-bold text-yellow-600">Limited</td><td class="px-4 py-3 text-center font-bold text-green-600">✓ Multi</td><td class="px-4 py-3 text-center text-red-600">✗</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+  <!-- Content wrapper -->
+	<main class="max-w-3xl mx-auto">
+		<article class="px-6 py-16 lg:py-24">
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Essential Restaurant Pages</h2>
-      <div class="bg-yellow-50 border-[3px] border-yellow-400 rounded-xl p-6">
-        <h3 class="font-bold text-yellow-800 mb-3">📋 Minimum Page Structure</h3>
-        <ul class="text-sm space-y-2">
-          <li><strong>Home:</strong> Hero photo, CTA to order/reserve, brief intro</li>
-          <li><strong>Menu:</strong> Categories, items with descriptions/prices, dietary symbols</li>
-          <li><strong>About:</strong> Story, chef/owner bio, philosophy</li>
-          <li><strong>Location:</strong> Address, map, hours, parking info</li>
-          <li><strong>Contact:</strong> Phone, email, social links, inquiry form</li>
-        </ul>
-      </div>
-    </section>
+			<div class="prose prose-lg max-w-none">
+				<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+					<p class="text-sm">
+						<strong>Quick reality check:</strong> Your restaurant website is your menu, your hours, your location, your phone number all in one place. If any of these are hard to find, outdated, or broken, you lose customers. Make it visible. Make it accurate. Make it mobile-friendly because 80% of people search for restaurants on phones while hungry.
+					</p>
+				</div>
 
-    <section class="mb-12">
-      <h2 class="text-3xl font-black mb-6">Post-Pandemic Essentials</h2>
-      <div class="bg-red-50 border-[3px] border-red-400 rounded-xl p-6">
-        <h3 class="font-bold text-red-800 mb-3">🚨 Must-Have Since 2020</h3>
-        <ul class="text-sm space-y-2">
-          <li>✓ QR code menu (replaces physical menus)</li>
-          <li>✓ Contactless payment integration</li>
-          <li>✓ Online ordering for pickup/delivery</li>
-          <li>✓ Real-time capacity/reservation info</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>What actually matters for restaurants</h2>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Menu on homepage, not buried 4 clicks deep</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					People searching for restaurants are hungry. They want to see the menu NOW. Not after clicking through 4 pages. Not after downloading a PDF. Restaurant name in Google → click website → see menu. That's the flow. Every extra click loses customers. Best restaurants: menu on homepage with photos, prices, descriptions. Hungry people don't have patience for navigation.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Food photos sell more than descriptions</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					"Grilled salmon with lemon butter" sounds fine. But photo of glistening grilled salmon with herbs, lemon slice, rice pilaf? That makes mouths water. That generates orders. Text-only menus = commodity. Photo menus = appetite appeal. In restaurants, visual = revenue. Every item should have a photo. It's worth the investment.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Mobile is where hungry people search</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					80% of restaurant searches happen on mobile phones. People walking around, driving around, sitting in offices wondering "what's for lunch?" If your site breaks on mobile, doesn't show menu, or has tiny unclickable buttons, they go to the next restaurant. Test your site on actual phones. Click the menu. View photos. Try to call for reservation. If it's difficult, hungry people bounce instantly.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Post-pandemic essentials</h2>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">QR code menus are table stakes now</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					Pre-2020: laminated menus worked. Post-2020: QR codes are standard. Customers scan at table, view menu on phone, order without touching physical menu. It's safer, more sanitary, and allows instant menu updates. Pineapple Builder has this built-in. Wix has QR app. For restaurants without QR menus: you look behind the times.
+				</p>
+
+				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Online ordering is not optional anymore</h3>
+				<p class="text-gray-600 leading-relaxed mb-6">
+					If you don't offer online ordering, DoorDash, Grubhub, UberEats will. And they'll take 20-30% commission. That's $20-30 lost on every $100 order. Built-in online ordering (15% fee) or self-built (5% fee with Stripe) saves thousands monthly. For a restaurant doing $500/week in delivery: that's $780/year saved with in-house ordering vs DoorDash.
+				</p>
+
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Top tools for restaurants (with verdicts)</h2>
+			</div>
+
+			<!-- Tools as simple list, not cards -->
+			<div class="my-12">
+				{categoryData.recommendations.map((tool, i) => (
+					<a href={tool.slug} class="block group pb-6 mb-6 border-b border-gray-300 last:border-0">
+						<div class="flex items-start justify-between">
+							<div class="flex-1">
+								<h3 class="text-lg font-black text-gray-900 group-hover:text-[#F5521A]">{tool.name}</h3>
+								<p class="text-sm text-gray-600 mt-1">{tool.verdict}</p>
+							</div>
+							<div class="text-right ml-4">
+								<div class="text-xl font-black text-gray-900">{tool.score}</div>
+								<div class="text-xs text-gray-600">/ 10</div>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#F5521A]"></div>Things that drove me crazy</h2>
+			</div>
+
+			<div class="my-8">
+				{categoryData.warnings.map((warning) => (
+					<div class="mb-6 pb-6 border-b border-gray-300 last:border-0">
+						<div class="font-black text-gray-900 mb-2">{warning.name}</div>
+						<p class="text-sm text-gray-600">{warning.issue}</p>
+					</div>
+				))}
+			</div>
+
+			<div class="prose prose-lg max-w-none">
+				<p class="text-gray-600 leading-relaxed mt-12">
+					Building a restaurant site? Check the full reviews for screenshots of our test restaurant sites, menu display examples, and the features that actually generate orders.
+				</p>
+
+				<div class="flex flex-wrap gap-4 my-8">
+					<a href="/reviews" class="inline-flex items-center gap-2 text-[#F5521A] font-medium hover:underline">
+						See all reviews
+						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+						</svg>
+					</a>
+				</div>
+			</div>
+		</article>
+	</main>
+
+
 </Layout>

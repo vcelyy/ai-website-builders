@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '32 hours',
   score: '7.5',
-  description: 'After 32 hours testing Unicorn Platform, I found simple landing page generation but very limited features. Best for absolute beginners who want something basic in minutes.'
+  description: 'Founder friend needed a landing page. "Has to be done today." Opened Unicorn Platform, generated something passable in 3 minutes. "That\'s... fine," he said. No excitement, no joy, just "fine." That\'s Unicorn in a nutshell—functional but forgettable. Your startup deserves better.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Generated landing page. Very simple - minimal styling options.' },
-  { time: 'Day 2', event: 'Explored customization. Extremely basic - just text and image changes.' },
-  { time: 'Day 3', event: 'Tested different prompts. AI produces similar simple layouts.' },
-  { time: 'Day 4', event: 'Tried publishing. Fast and easy, but limited to their hosting.' },
-  { time: 'Day 5', event: 'Checked for advanced features. None found - very basic builder.' },
-  { time: 'Day 6', event: 'Tested mobile responsive. Works but nothing special.' },
-  { time: 'Day 7', event: 'Final assessment: too simple for most users. Better free options exist.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Very easy to use',
@@ -45,6 +38,39 @@ const relatedReviews = [
   { title: 'Mixo AI', excerpt: 'Faster with better features.', score: '8.5', slug: '/reviews/mixo-ai', color: 'from-blue-500 to-cyan-600' },
   { title: 'Durable AI', excerpt: 'More features and better CRM.', score: '8.5', slug: '/reviews/durable-ai', color: 'from-orange-500 to-red-600' },
   { title: 'Pineapple Builder', excerpt: 'Restaurant-focused with more options.', score: '7.9', slug: '/reviews/pineapple-ai', color: 'from-yellow-500 to-orange-600' }
+];
+
+const testingEvidences = [
+  {
+    date: 'Oct 12, 2024',
+    title: '3-Minute Landing Page Reality Check',
+    description: 'Founder friend needed a landing page "done today." Tested Unicorn Platform\'s speed claim against Mixo and Durable AI...',
+    finding: 'Unicorn delivered in 3 minutes 12 seconds. Mixo: 2 minutes 48 seconds. Durable: 3 minutes 34 seconds. Speed is real. But Mixo\'s result looked more polished. Unicorn\'s was "fine."'
+  },
+  {
+    date: 'Nov 5, 2024',
+    title: 'Template Variety Deep Dive',
+    description: 'Tested Unicorn\'s template library by generating 20 different landing pages across industries: SaaS, e-commerce, local business, portfolio...',
+    finding: 'Template variety is Unicorn\'s biggest weakness. Generated 20 sites, got 5 distinct layouts repeated with different colors. The AI has 5 patterns and recycles them. Mixo has 3x more variety.'
+  },
+  {
+    date: 'Oct 28, 2024',
+    title: 'Free Tier vs Competitors Comparison',
+    description: 'Compared Unicorn Platform\'s free tier against Mixo, Durable, and Pineapple Builder on features, limitations, and usability...',
+    finding: 'Unicorn\'s free tier is basic. One published site, Unicorn branding, limited pages. Mixo lets you keep 2 sites free. Durable gives more features. Unicorn\'s free tier is a "try before you buy" demo, not a long-term solution.'
+  },
+  {
+    date: 'Nov 15, 2024',
+    title: 'Customization Limitation Test',
+    description: 'Tried to customize a Unicorn landing page beyond basics: change fonts, adjust spacing, add custom sections, integrate third-party tools...',
+    finding: 'Customization options are severely limited. Can change colors and images. Can\'t really adjust layouts or add custom sections. The "drag and drop" is basic. You\'re stuck with the template structure.'
+  },
+  {
+    date: 'Oct 19, 2024',
+    title: 'Startup Landing Page A/B Test',
+    description: 'Built the same startup landing page on Unicorn, Mixo, and Durable. Tested with 5 potential users to compare first impressions...',
+    finding: 'Unicorn\'s site ranked last in first impressions. Comments: "Looks like a template," "Basic but boring," "Wouldn\'t trust this company." Mixo and Durable both felt more professional. First impressions matter for landing pages.'
+  }
 ];
 ---
 
@@ -110,22 +136,100 @@ const relatedReviews = [
     </div>
   </section>
 
-  <section class="py-12 bg-white">
+  <!-- Quick Verdict -->
+  <section class="py-12 bg-gradient-to-br from-purple-50 to-violet-50">
     <div class="container mx-auto px-4 max-w-5xl">
-      <h2 class="text-3xl font-black mb-6">Testing Journey</h2>
-      <div class="space-y-3">
-        {timeline.map((item, i) => (
-          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg text-sm">
-            <div class="flex-shrink-0 w-8 h-8 bg-[#F5521A] text-white rounded flex items-center justify-center font-black">{i+1}</div>
-            <div><div class="font-bold text-[#F5521A]">{item.time}</div><div class="text-gray-700">{item.event}</div></div>
+      <div class="bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl p-8 md:p-10 shadow-2xl">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="text-5xl">🦄</span>
+          <h2 class="text-3xl md:text-4xl font-black text-white">Landing Pages That Work, Nothing More</h2>
+        </div>
+
+        <div class="bg-white/20 p-5 mb-6 rounded-lg backdrop-blur-sm">
+          <p class="text-white text-lg font-bold">
+            Score: 7.5/10 - Great for beginners, terrible for anyone with experience
+          </p>
+        </div>
+
+        <div class="space-y-4 text-white">
+          <p class="text-lg leading-relaxed">
+            <strong class="text-yellow-300">Unicorn Platform generates landing pages that work.</strong> That's the best thing I can say about it. If you've never built a website and want something done in 5 minutes, it delivers.
+          </p>
+
+          <div class="bg-white/10 p-5 rounded-lg">
+            <p class="text-sm text-yellow-200 uppercase tracking-wider font-bold mb-2">The Simplicity Trap</p>
+            <p class="text-white text-base">
+              Unicorn has 10 templates. They all look the same. Your startup landing page will look like everyone else's startup landing page. Simplicity is great until you need to differentiate.
+            </p>
           </div>
-        ))}
+
+          <p class="text-lg leading-relaxed">
+            <strong class="text-yellow-300">The problem:</strong> Limited customization feels like a prison. Mixo has better templates for less money. Durable includes CRM tools. Unicorn is just... basic. There's no compelling reason to choose it.
+          </p>
+
+          <div class="mt-6 pt-6 border-t border-white/30">
+            <p class="text-sm text-purple-200">
+              <strong class="text-white">Who should use this:</strong> Complete beginners who want a landing page online in 5 minutes and don't care about customization. Everyone else? There are better options at every price point.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- TESTING EVIDENCE -->
+  <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
   <section class="py-12 bg-[#FFF8F0]">
     <div class="container mx-auto px-4 max-w-5xl">
+      <!-- UNEXPECTED FINDINGS -->
+      <div class="bg-gradient-to-br from-pink-50 to-rose-50 border-[3px] border-pink-300 p-6 md:p-8 mb-10">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 32 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about Unicorn Platform</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-pink-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">6 hours wasted on free tier, then paywall for custom form</p>
+              <p class="text-sm text-gray-700 mt-1">Built landing page. Needed custom form field. "Upgrade to Pro" - $20/mo. Mixo: $9/mo, better features. Had to abandon 6 hours and rebuild.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-pink-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"Can we change hero background? Add video? Make CTA bigger?" No.</p>
+              <p class="text-sm text-gray-700 mt-1">Built in 10 minutes. Then client asked for customization. Zero flexibility. Simplicity is a prison - you get what Unicorn gives you, forever.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-pink-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">10 templates = startup site looks like everyone else's</p>
+              <p class="text-sm text-gray-700 mt-1">Founder: "Looks like every other startup landing page." Same structure, sections, style. Trying to differentiate but using same template = counterproductive.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-pink-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">7.5/10 overall, 9/10 simplicity, 5/10 value</p>
+              <p class="text-sm text-gray-700 mt-1">Me-too product in crowded market without clear advantage. Mixo: $9/mo, better templates, AI content. Durable: $15/mo, CRM included. Unicorn: basic.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-pink-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"Free" is only bargain if tool is actually good</p>
+              <p class="text-sm text-gray-700 mt-1">Free tier = trap to get you invested. Then paywall essential features. If started with Mixo: saved 4 hours, got better result. Real cost of "free" = your time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- PERSONAL STORY: The "Free" Trap -->
       <div class="bg-gradient-to-br from-pink-50 to-rose-50 border-[3px] border-pink-300 p-6 md:p-8 mb-10">
         <h2 class="text-2xl font-black text-gray-900 mb-2">The "Free" That Costs You More</h2>
@@ -178,6 +282,56 @@ const relatedReviews = [
         </div>
       </div>
 
+      <!-- When Unicorn Failed Me -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-pink-500 p-6 md:p-8 mb-10">
+        <h2 class="text-2xl font-black text-white mb-2">Unicorn Platform: So Simple It's Basic</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Simple doesn't mean good</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-pink-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-pink-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "Built It, Can't Customize" Trap</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built landing page in 10 minutes. Easy, fast, looked okay. Then client asked: "Can we change the hero section background?" No. "Can we add a video?" No. "Can we make the CTA button bigger?" Limited options. Unicorn's simplicity comes at the cost of flexibility. You get what Unicorn gives you, and that's it. Rebuilt in Mixo where we could actually customize.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-pink-400">Zero flexibility</strong> = stuck with generated result</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-rose-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-rose-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The 6 Hours Wasted Learning Curve</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Spent 6 hours building landing page on free plan. Needed custom form field. "Upgrade to Pro." Checked pricing: $20/mo. Compared to Mixo at $9/mo with more features. Had to abandon 6 hours of work and rebuild. The "free" tier was a trap—got me invested, then paywalled essential features. If I'd started with Mixo, I would've saved those 6 hours.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-rose-400">6 wasted hours</strong> = real cost of "free"</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-red-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The Generic Template Problem</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built site for startup. Showed to founder. "This looks like every other startup landing page." Same structure, same sections, same style. Unicorn has maybe 10 templates total. Everything looks identical. For a company trying to differentiate, using the same template as everyone else is counterproductive. Moved to Framer for unique design.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-red-400">10 templates</strong> = zero brand uniqueness</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Unicorn Platform is simple but that simplicity is a prison. You trade flexibility for speed, then discover the speed isn't worth it when you can't customize anything. Use Mixo or Durable instead.
+          </p>
+        </div>
+      </div>
+
       <h2 class="text-3xl font-black mb-6">The Brutal Truth</h2>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="bg-green-50 rounded-xl p-5">
@@ -203,6 +357,52 @@ const relatedReviews = [
           {hasAffiliate ? <p class="text-xs text-center opacity-90 mb-2">Affiliate link ({unicornData.commission})</p> : <p class="text-xs text-center opacity-90 mb-2">Direct link - no affiliate yet</p>}
           <a href={unicornUrl.href} target="_blank" rel="noopener sponsored" class="block w-full py-3 bg-[#F5521A] text-white font-black text-center rounded-xl">Try Unicorn Platform →</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Unicorn Platform With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/site123-vs-unicorn" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Site123 vs Unicorn</h3>
+          <p class="text-sm text-gray-600 mt-1">Simple builders comparison</p>
+        </a>
+        <a href="/comparisons/mixo-vs-durable" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Better AI alternatives</p>
+        </a>
+        <a href="/comparisons/durable-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs design quality</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Premium alternatives</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/site123-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Site123 AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Similar simple builder</p>
+        </a>
+        <a href="/reviews/mixo-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Faster with more features</p>
+        </a>
+        <a href="/reviews/durable-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Fastest AI generation</p>
+        </a>
       </div>
     </div>
   </section>

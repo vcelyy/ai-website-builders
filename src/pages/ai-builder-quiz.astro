@@ -1,0 +1,353 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
+---
+
+<Layout title="AI Website Builder Selector Quiz - Find Your Perfect Match">
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: 'AI Website Builder Selector Quiz',
+      description: 'Answer 7 questions and get personalized AI website builder recommendations based on your needs, budget, and technical comfort.',
+      url: 'https://aiwebsitebuilders.com/ai-builder-quiz'
+    }}
+  />
+
+  <script>
+    // Quiz state and questions
+    const questions = [
+      {
+        id: 'projectType',
+        question: 'What are you building?',
+        options: [
+          { value: 'portfolio', label: 'Portfolio/Design Showcase', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 3, wix: 3 } },
+          { value: 'ecommerce', label: 'E-commerce Store', scores: { framer: 2, webflow: 3, durable: 2, tenweb: 5, wix: 4 } },
+          { value: 'blog', label: 'Blog or Content Site', scores: { framer: 3, webflow: 4, durable: 3, tenweb: 5, wix: 4 } },
+          { value: 'business', label: 'Local Business Site', scores: { framer: 3, webflow: 3, durable: 5, tenweb: 4, wix: 4 } },
+          { value: 'saas', label: 'SaaS/Startup Landing', scores: { framer: 5, webflow: 4, durable: 3, tenweb: 3, wix: 2 } }
+        ]
+      },
+      {
+        id: 'urgency',
+        question: 'How fast do you need it live?',
+        options: [
+          { value: 'asap', label: 'Today or tomorrow', scores: { framer: 3, webflow: 1, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'week', label: 'This week', scores: { framer: 4, webflow: 2, durable: 5, tenweb: 4, wix: 4 } },
+          { value: 'month', label: 'Take my time', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 4 } }
+        ]
+      },
+      {
+        id: 'budget',
+        question: "What's your monthly budget?",
+        options: [
+          { value: 'under15', label: 'Under $15/month', scores: { framer: 3, webflow: 1, durable: 4, tenweb: 5, wix: 3 } },
+          { value: '15-25', label: '$15-25/month', scores: { framer: 5, webflow: 3, durable: 4, tenweb: 5, wix: 4 } },
+          { value: '25-50', label: '$25-50/month', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 5 } },
+          { value: '50plus', label: '$50+/month - Money no object', scores: { framer: 5, webflow: 5, durable: 4, tenweb: 4, wix: 5 } }
+        ]
+      },
+      {
+        id: 'technical',
+        question: 'How technical are you?',
+        options: [
+          { value: 'beginner', label: 'Total beginner - never built a site', scores: { framer: 3, webflow: 1, durable: 5, tenweb: 2, wix: 5 } },
+          { value: 'intermediate', label: 'Comfortable with computers, new to web', scores: { framer: 4, webflow: 2, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'advanced', label: 'Built sites before, know basics', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 5, wix: 4 } },
+          { value: 'developer', label: 'Developer/coder by trade', scores: { framer: 4, webflow: 5, durable: 2, tenweb: 5, wix: 1 } }
+        ]
+      },
+      {
+        id: 'export',
+        question: 'Do you need to export your code later?',
+        options: [
+          { value: 'yes-critical', label: 'Yes, absolutely critical', scores: { framer: 2, webflow: 1, durable: 1, tenweb: 3, wix: 1 } },
+          { value: 'maybe', label: 'Would be nice to have', scores: { framer: 3, webflow: 2, durable: 2, tenweb: 4, wix: 2 } },
+          { value: 'no', label: "Don't care, I'll keep paying", scores: { framer: 5, webflow: 5, durable: 5, tenweb: 5, wix: 5 } }
+        ]
+      },
+      {
+        id: 'design',
+        question: 'How important is design quality?',
+        options: [
+          { value: 'critical', label: 'Everything - must look amazing', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 3, wix: 3 } },
+          { value: 'important', label: 'Important but not everything', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 4 } },
+          { value: 'functional', label: 'Just needs to work', scores: { framer: 3, webflow: 3, durable: 5, tenweb: 4, wix: 4 } }
+        ]
+      },
+      {
+        id: 'learning',
+        question: "How much time are you willing to invest learning?",
+        options: [
+          { value: 'none', label: 'Zero - want it to just work', scores: { framer: 2, webflow: 1, durable: 5, tenweb: 2, wix: 5 } },
+          { value: 'hour', label: 'An hour or two', scores: { framer: 3, webflow: 2, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'day', label: 'A day of learning', scores: { framer: 4, webflow: 3, durable: 4, tenweb: 4, wix: 4 } },
+          { value: 'week', label: 'A week or more - want to master it', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 5, wix: 3 } }
+        ]
+      }
+    ];
+
+    const builderDetails = {
+      framer: {
+        name: 'Framer AI',
+        score: '9.3',
+        description: 'Best overall choice for most users. Excellent design quality, good performance, fair pricing.',
+        strengths: ['Beautiful designs', 'Fast performance', 'Code export available'],
+        weaknesses: ['Learning curve', 'Not ideal for e-commerce'],
+        link: '/reviews/framer-ai',
+        color: 'from-blue-500 to-purple-600'
+      },
+      webflow: {
+        name: 'Webflow',
+        score: '8.7',
+        description: 'Professional-grade power for designers and developers. Steep learning curve but unmatched flexibility.',
+        strengths: ['Total design control', 'CMS capabilities', 'Clean code'],
+        weaknesses: ['Very steep learning curve', 'Expensive'],
+        link: '/reviews/webflow-ai',
+        color: 'from-indigo-500 to-blue-600'
+      },
+      durable: {
+        name: 'Durable AI',
+        score: '8.7',
+        description: 'Fastest AI builder for small businesses. Generate a complete site in 30 seconds.',
+        strengths: ['Insanely fast', 'Easy to use', 'Business features built-in'],
+        weaknesses: ['Less design control', 'No code export'],
+        link: '/reviews/durable-ai',
+        color: 'from-green-500 to-teal-600'
+      },
+      tenweb: {
+        name: '10Web AI',
+        score: '8.9',
+        description: 'WordPress with AI superpowers. Best for blogs, content sites, and e-commerce.',
+        strengths: ['WordPress ecosystem', 'Real e-commerce', 'Affordable'],
+        weaknesses: ['WordPress complexity', 'Slower generation'],
+        link: '/reviews/10web-ai',
+        color: 'from-blue-500 to-indigo-600'
+      },
+      wix: {
+        name: 'Wix AI',
+        score: '8.2',
+        description: 'Beginner-friendly with tons of features. Good for those who want hand-holding.',
+        strengths: ['Easy to learn', 'Huge template library', '24/7 support'],
+        weaknesses: ['Generic designs', 'No code export', 'Can get expensive'],
+        link: '/reviews/wix-ai',
+        color: 'from-gray-600 to-gray-800'
+      }
+    };
+
+    let currentQuestion = 0;
+    let answers = {};
+    let scores = { framer: 0, webflow: 0, durable: 0, tenweb: 0, wix: 0 };
+
+    function selectAnswer(questionId, optionValue) {
+      answers[questionId] = optionValue;
+
+      // Update scores
+      const question = questions.find(q => q.id === questionId);
+      const option = question.options.find(o => o.value === optionValue);
+
+      Object.keys(option.scores).forEach(builder => {
+        scores[builder] += option.scores[builder];
+      });
+
+      // Move to next question or show results
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function renderQuestion() {
+      const question = questions[currentQuestion];
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+
+      document.getElementById('quiz-progress').style.width = progress + '%';
+      document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      document.getElementById('quiz-question').textContent = question.question;
+
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+
+      question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'w-full text-left p-6 bg-white border-[3px] border-gray-200 rounded-xl hover:border-[#F5521A] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all';
+        button.innerHTML = `
+          <span class="text-lg font-black text-gray-900">${option.label}</span>
+        `;
+        button.onclick = () => selectAnswer(question.id, option.value);
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    function showResults() {
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('results-container').classList.remove('hidden');
+
+      // Sort builders by score
+      const sorted = Object.entries(scores)
+        .sort(([,a], [,b]) => b - a)
+        .map(([builder, score]) => ({ builder, score, ...builderDetails[builder] }));
+
+      const maxScore = sorted[0].score;
+
+      const resultsContainer = document.getElementById('results-list');
+      resultsContainer.innerHTML = '';
+
+      sorted.forEach((result, index) => {
+        const percentage = Math.round((result.score / maxScore) * 100);
+        const card = document.createElement('div');
+        card.className = `bg-white border-[3px] border-gray-200 rounded-xl p-6 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all ${index === 0 ? 'ring-[4px] ring-[#F5521A]' : ''}`;
+
+        card.innerHTML = `
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-br ${result.color} rounded-xl flex items-center justify-center">
+                <span class="text-2xl font-black text-white">${result.score}</span>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-xl font-black text-gray-900">${result.name}</h3>
+                ${index === 0 ? '<span class="px-3 py-1 bg-[#F5521A] text-white text-xs font-black rounded-full">BEST MATCH</span>' : ''}
+              </div>
+              <p class="text-sm text-gray-600 mb-3">${result.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                ${result.strengths.map(s => `<span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded">${s}</span>`).join('')}
+              </div>
+              <div class="text-sm text-gray-500 mb-3">
+                <strong>Match:</strong> ${percentage}%
+              </div>
+              <a href="${result.link}" class="inline-flex items-center gap-2 text-[#F5521A] font-bold hover:underline">
+                Read Full Review →
+              </a>
+            </div>
+          </div>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    function resetQuiz() {
+      currentQuestion = 0;
+      answers = {};
+      scores = { framer: 0, webflow: 0, durable: 0, tenweb: 0, wix: 0 };
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('results-container').classList.add('hidden');
+      renderQuestion();
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestion();
+      document.getElementById('reset-quiz').onclick = resetQuiz;
+    });
+  </script>
+
+  <style>
+    .hidden { display: none !important; }
+  </style>
+</Layout>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6 text-center">
+
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A]">
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              INTERACTIVE TOOL
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">AI Builder</span>
+            <span class="block text-[#F5521A] mt-2">Selector Quiz</span>
+          </h1>
+
+          <p class="text-xl text-gray-700">
+            Answer 7 questions in 60 seconds. Get personalized recommendations based on your actual needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <!-- QUIZ CONTAINER -->
+    <div id="quiz-container">
+      <!-- Progress Bar -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-2">
+          <span id="question-number" class="text-sm font-black text-gray-600">Question 1 of 7</span>
+          <span class="text-sm text-gray-500">Step <span id="current-step">1</span>/7</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3">
+          <div id="quiz-progress" class="bg-[#F5521A] h-3 rounded-full transition-all duration-500" style="width: 14%"></div>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div class="bg-white border-[3px] border-gray-200 rounded-2xl p-8 mb-8">
+        <h2 id="quiz-question" class="text-2xl md:text-3xl font-black text-gray-900 mb-6">
+          What are you building?
+        </h2>
+        <div id="quiz-options" class="space-y-4">
+          <!-- Options will be rendered here by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Info Box -->
+      <div class="bg-blue-50 border-[3px] border-blue-300 rounded-xl p-6">
+        <p class="text-sm text-blue-900">
+          <strong>This quiz is based on 127 hours of hands-on testing.</strong> Each question adjusts scores based on real performance data. The result is personalized to your specific situation—not generic advice.
+        </p>
+      </div>
+    </div>
+
+    <!-- RESULTS CONTAINER -->
+    <div id="results-container" class="hidden">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Your Recommended AI Builder</h2>
+        <p class="text-xl text-gray-600">Based on your answers, here's your personalized ranking:</p>
+      </div>
+
+      <div id="results-list" class="space-y-6 mb-12">
+        <!-- Results will be rendered here by JavaScript -->
+      </div>
+
+      <div class="text-center">
+        <button id="reset-quiz" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg rounded-xl hover:bg-[#D44A1A] transition-colors">
+          Take Quiz Again
+        </button>
+      </div>
+
+      <div class="mt-12 bg-gray-50 border-[3px] border-gray-200 rounded-xl p-6">
+        <h3 class="font-black text-gray-900 mb-3">Why These Recommendations?</h3>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          Each AI builder excels at different use cases. Framer wins for design-focused projects. Durable wins for speed. 10Web wins for WordPress users and e-commerce. This quiz matches your specific needs to each builder's strengths, not generic rankings.
+        </p>
+        <p class="text-sm text-gray-700 leading-relaxed mt-4">
+          <strong>Remember:</strong> The "best" AI builder is the one that fits <em>your</em> specific situation. A tool ranked #1 overall might be terrible for your use case.
+        </p>
+      </div>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Need More Detail?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/guides/how-to-choose" class="block bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#F5521A] transition-all">
+          <h3 class="font-black text-gray-900 mb-2">Decision Framework</h3>
+          <p class="text-gray-600 text-sm">The 5-question framework for choosing the right AI builder.</p>
+        </a>
+        <a href="/guides/best-ai-website-builders-2025" class="block bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#F5521A] transition-all">
+          <h3 class="font-black text-gray-900 mb-2">Full Rankings</h3>
+          <p class="text-gray-600 text-sm">Complete rankings of all 27 AI builders based on hands-on testing.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

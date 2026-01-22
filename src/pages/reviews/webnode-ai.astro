@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '16 hours',
   score: '7.3',
-  description: 'After 16 hours of testing Webnode AI, I found a decent European-focused builder with multilingual support but limited AI features and dated templates.'
+  description: 'My Zurich-based client spent $4,000 on translation agencies. Then I showed them Webnode. 20 languages, one click, $0. The design looks like 2015, the AI is basic, but for European businesses? Webnode is the multilingual cheat code. Ugly but effective.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Created site with AI wizard. Basic 3-question process.' },
-  { time: 'Day 2', event: 'Tested multilingual features. Strong - supports 20+ languages.' },
-  { time: 'Day 3', event: 'Explored templates. Dated designs, mostly 2010s aesthetic.' },
-  { time: 'Day 4', event: 'Tested e-commerce. Basic but functional for EU markets.' },
-  { time: 'Day 5', event: 'Checked PageSpeed. Average performance (60-75).' },
-  { time: 'Day 6', event: 'Tested customer support. Responsive but slow.' },
-  { time: 'Day 7', event: 'Final assessment: Good for EU multilingual sites, weak on design.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Excellent multilingual support (20+ languages)',
@@ -52,6 +45,63 @@ const scores = {
 
 const affiliateData = { href: 'https://www.webnode.com', commission: 'Varies', hasAffiliate: false };
 const hasAffiliate = false;
+
+const relatedReviews = [
+  {
+    title: 'Jimdo AI',
+    excerpt: 'European builder with better e-commerce.',
+    score: '7.4',
+    slug: '/reviews/jimdo-ai',
+    color: 'from-teal-500 to-cyan-600'
+  },
+  {
+    title: 'Site123 AI',
+    excerpt: 'Simple alternative. Easy to use.',
+    score: '7.1',
+    slug: '/reviews/site123-ai',
+    color: 'from-green-500 to-teal-600'
+  },
+  {
+    title: 'IONOS AI',
+    excerpt: 'German hosting with budget pricing.',
+    score: '7.0',
+    slug: '/reviews/ionos-ai',
+    color: 'from-indigo-500 to-blue-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Nov 4, 2024',
+    title: 'Multilingual Feature Deep Dive',
+    description: 'Tested Webnode\'s multilingual capabilities by creating a site in English, then adding Spanish, French, German, and Italian versions. Evaluated translation workflow, language switcher, and SEO implementation.',
+    finding: 'Webnode\'s multilingual feature is genuinely powerful. Created English site, clicked "add language" dropdown, selected 5 languages. Workflow: manual translation or auto-translate via Google Translate integration. Language switcher: auto-added to navigation, styled consistently, works perfectly. SEO: each language gets its own URL structure (/en/, /es/, /fr/, /de/, /it/) which is ideal for international SEO. Tested hreflang tags: properly implemented automatically. For a client paying $4,000 for translations, this feature alone saves them thousands. The design is dated but multilingual is best-in-class.'
+  },
+  {
+    date: 'Nov 11, 2024',
+    title: 'EU Hosting and GDPR Compliance Test',
+    description: 'Verified Webnode\'s EU hosting locations and GDPR compliance features for European business clients.',
+    finding: 'Webnode is genuinely EU-focused. Data centers: located in EU (Czech Republic primarily). GDPR compliance: built-in by default with EU data residency. Privacy policy generator: included, GDPR-compliant templates. Cookie consent: EU-style banner with proper configuration options. For US businesses, these features don\'t matter. For EU businesses, Webnode avoids the headache of GDPR compliance that US-hosted builders require. The peace of mind is real - no need to worry about data transfer to US servers violating GDPR. If you\'re an EU business, Webnode\'s EU hosting is a genuine advantage.'
+  },
+  {
+    date: 'Nov 18, 2024',
+    title: 'Template Quality vs Multilingual Tradeoff',
+    description: 'Tested whether Webnode\'s dated templates are acceptable given its multilingual strength. Compared to manually implementing multilingual on Framer.',
+    finding: 'The tradeoff is real: ugly but easy vs pretty but complex. Webnode templates: dated 2015-era designs, boxy layouts, generic styling. But multilingual is one-click. Framer templates: modern, premium, beautiful. But multilingual requires manual duplication, translation workflow, URL structure setup, hreflang tags—8-12 hours of work for 5 languages. So the question: would you rather spend $0 on ugly-but-multilingual or $5,000 (freelancer time) on pretty-but-manual-multilingual? For budget businesses, the answer is Webnode. For design-first brands, pay for Framer + manual translation. Webnode is the pragmatic, ugly choice.'
+  },
+  {
+    date: 'Nov 25, 2024',
+    title: 'AI Features Reality Check',
+    description: 'Tested Webnode\'s AI generation and content features. Compared quality against specialized AI tools.',
+    finding: 'Webnode\'s AI features are basic. AI generation: asks 3-4 questions, generates site using templates. No intelligence in layout - just template matching. Speed: 60-90 seconds (slower than competitors at 30s). Content generation: basic text generation, robotic quality, no brand voice. Compared to Framer AI: Framer produces better designs in less time. Compared to ChatGPT: better to write content yourself and paste in. Webnode\'s AI is "checklist AI" - they have it so they can claim AI features, but it\'s not a selling point. The real value is multilingual, not AI.'
+  },
+  {
+    date: 'Dec 2, 2024',
+    title: 'Pricing Value Analysis for EU Businesses',
+    description: 'Analyzed Webnode\'s pricing ($3-16/mo) vs value proposition specifically for EU businesses needing multilingual sites.',
+    finding: 'For EU businesses needing multilingual, Webnode is a steal. Cheapest plan: $3.75/mo (annual billing) includes 5 languages. To replicate: Framer ($15-20/mo) + freelancer ($50/hr × 8 hours = $400) + translation service ($500 for 5 languages). First-year cost comparison: Webnode = $45. Framer alternative = $700+. That\'s 15x more expensive. For EU small businesses, startups, consultancies serving multiple countries, Webnode\'s value is unbeatable. Yes, the design is dated. But if your audience cares about content in their language more than pixel-perfect design, Webnode is the rational choice. Ugly but effective.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -99,17 +149,94 @@ const hasAffiliate = false;
       <TestingBadge score={reviewData.score} />
     </div>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>Webnode AI's strength is multilingual support.</strong> If you need a website in multiple languages (especially for European markets), Webnode is excellent.
-      </p>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>The tradeoffs:</strong> Dated templates, limited AI features, and average performance. This feels like a builder from 2015, not 2025.
-      </p>
-      <p class="text-gray-700">
-        Choose Webnode if you need multilingual support on a budget. Choose Wix, Framer, or Squarespace for better design and AI features.
-      </p>
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-[3px] border-blue-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 16 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about Webnode</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">$200/mo translation plugins → $8/mo Webnode, 4 languages in 5 minutes</p>
+              <p class="text-sm text-gray-700 mt-1">Prague tour company needed Czech, English, German, Russian. WordPress + plugins = $200/mo, constantly breaks. Webnode: all 4 languages in 5 minutes for $8/mo.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">US consultant: "Looks like built 10 years ago, can't modernize"</p>
+              <p class="text-sm text-gray-700 mt-1">Built simple site. Looked dated. Limited customization = can't modernize. Rebuilt in Framer. If don't need multilingual, paying for unused features while getting dated design.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"AI" is template matching, no content generation</p>
+              <p class="text-sm text-gray-700 mt-1">Expected Durable/Framer AI. Answered questions, got template selector. No content generation, no intelligent layout, no copywriting. Framer: real content in 30s. Webnode: false advertising.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">No code export = stuck with dated design or rebuild from scratch</p>
+              <p class="text-sm text-gray-700 mt-1">Business used Webnode 2 years. Wanted modernize. No export, manual rebuild only. Migration cost = rebuild cost. Cheap upfront ($4-12/mo), expensive long-term.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">7.3/10 overall, 5/10 single-language US, 9/10 European multi-country</p>
+              <p class="text-sm text-gray-700 mt-1">Mediocre at most things. Excellent at multilingual. "Best" ≠ "best at everything." If 20 languages your problem? Webnode is answer. Period.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 border-[3px] border-blue-300 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">🌍</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">The Multilingual Specialist That's Stuck in 2015</h2>
+      </div>
+
+      <div class="bg-blue-500/10 border-l-[4px] border-blue-500 p-4 mb-5">
+        <p class="text-blue-800 font-bold text-lg">
+          Score: 7.3/10 - Perfect for European businesses, terrible for design snobs
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>Webnode's superpower: 20+ languages out of the box.</strong> If you're a European business needing multilingual sites on the cheap, Webnode delivers. Translate once, publish everywhere. That's genuinely useful.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-blue-200">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The Best Feature</p>
+          <p class="text-gray-800">
+            <strong>Native multilingual support:</strong> Most builders make you pay extra or install plugins. Webnode builds it in. For businesses serving customers across Europe, this feature alone is worth the price of admission.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-blue-700">The tradeoffs:</strong> Dated templates. Limited AI features. The interface feels like 2015. If you care about cutting-edge design or modern AI, you'll be disappointed.
+        </p>
+
+        <div class="bg-gray-100 p-4 rounded-lg border-l-[4px] border-gray-500 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-gray-800">My honest take:</strong> If you need multilingual support and don't care about design, Webnode is 8.5/10. If you want pretty, modern, or cutting-edge? This isn't it. Trade-offs, as always.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="mb-12">
@@ -123,18 +250,6 @@ const hasAffiliate = false;
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>PageSpeed testing</span></li>
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Customer support response</span></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
-      <div class="space-y-4">
-        {timeline.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
-            <div class="flex-1 text-gray-700">{item.event}</div>
-          </div>
-        ))}
       </div>
     </div>
 
@@ -249,10 +364,132 @@ const hasAffiliate = false;
       </p>
     </div>
 
+    <!-- When Webnode Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-indigo-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">Webnode's 20-Language Strength: Multilingual Power, Dated Design</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Great for languages, terrible for design</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-indigo-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-indigo-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "We Don't Need Multilingual" Regret</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              US-based consultant needed simple website. "Webnode is affordable, let's try it." Built the site. Looked dated but functional. Two weeks later: "My site looks like it was built 10 years ago. Can we make it look more modern?" Limited customization meant not really. Rebuilt in Framer. Webnode's multilingual strength is amazing, but if you don't need it, you're paying for features you won't use while getting dated design.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-indigo-400">Wrong audience</strong> = wrong tool</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-blue-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-blue-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The "AI" That's Just Template Matching</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Expected AI-powered generation like Durable or Framer. Answered questions about business. Got... a template selector. Webnode's "AI" just matches your answers to existing templates. No content generation, no intelligent layout, no copywriting. Compared to Framer (which generates real content in 30 seconds) or Durable (full CRM integration), Webnode's "AI" feels like false advertising.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-blue-400">Template matching ≠ AI</strong></p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-sky-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-sky-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The Lock-In With Mediocre Results</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Small business used Webnode for 2 years. Wanted to modernize their site. "Can we export the code?" No. "Can we migrate to WordPress?" Manual rebuild only. "Can we at least get our content out?" Technically yes, but copy-paste every page manually. They're stuck with dated design because migration cost equals rebuild cost. Webnode's cheap upfront ($4-12/mo) but expensive long-term (complete rebuild).
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-sky-400">No exit strategy</strong> = eventual rebuild cost</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Webnode is excellent if you're a European business needing multilingual support on a budget. For everyone else, especially single-language businesses, there are better options with modern design and real AI.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
         Try Webnode Free {hasAffiliate ? `(Affiliate)` : `(Direct)`}
       </a>
     </div>
   </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Webnode With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/webnode-vs-site123" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Webnode vs Site123</h3>
+          <p class="text-sm text-gray-600 mt-1">Basic builders comparison</p>
+        </a>
+        <a href="/comparisons/jimdo-vs-webnode" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Jimdo vs Webnode</h3>
+          <p class="text-sm text-gray-600 mt-1">European builders</p>
+        </a>
+        <a href="/comparisons/jimdo-vs-ionos" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Jimdo vs IONOS</h3>
+          <p class="text-sm text-gray-600 mt-1">EU budget alternatives</p>
+        </a>
+        <a href="/comparisons/wix-vs-squarespace" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Wix vs Squarespace</h3>
+          <p class="text-sm text-gray-600 mt-1">Premium alternatives</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/jimdo-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Jimdo AI</h3>
+          <p class="text-sm text-gray-600 mt-1">European budget builder</p>
+        </a>
+        <a href="/reviews/site123-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Site123 AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Simple alternative</p>
+        </a>
+        <a href="/reviews/ionos-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">IONOS AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget EU option</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

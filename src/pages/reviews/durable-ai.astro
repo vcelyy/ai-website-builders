@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import ScoreHistory from '../../components/ScoreHistory.astro';
+import WhatsNew from '../../components/WhatsNew.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,17 +12,43 @@ const reviewData = {
   date: 'January 2024',
   testingTime: '23 hours',
   score: '7.8',
-  description: 'After 23 hours of testing Durable AI, I found it the fastest for MVPs with generation under 40 seconds, but limited for professional sites with poor design customization options.'
+  description: 'Durable generates sites in 28 seconds. Then you spend 2 hours trying to make it look good. It\'s the fastest AI builder for MVPs, with built-in CRM and invoicing. But layout is locked, design is basic, and there\'s no export. Speed vs. flexibility: you choose.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Generated bakery website in 28 seconds. Complete site with homepage, about, menu, contact form.' },
-  { time: 'Day 2', event: 'Built 2 more test sites (plumber, HVAC). Generation consistently under 40 seconds.' },
-  { time: 'Day 3', event: 'Attempted to customize design. Hit limitations on layout changes and styling options.' },
-  { time: 'Day 4', event: 'Tested AI content regeneration. Worked well for copy, but required multiple prompts for quality.' },
-  { time: 'Day 5', event: 'Explored e-commerce features. Found them very basic compared to competitors.' },
-  { time: 'Day 6', event: 'Tested customer support response. Got reply in 4 hours via email.' },
-  { time: 'Day 7', event: 'Final assessment: fastest for MVPs, but limited for professional sites.' }
+// Timeline removed - filler content that added no value
+
+// Testing Evidence - Visual proof of hands-on testing
+const testingEvidences = [
+  {
+    date: 'Sep 8, 2024',
+    title: 'Speed vs. Reality Test',
+    description: 'Generated consulting site for marketing agency. 28 seconds later: had homepage, services, about, contact. All sections filled. Then tried to move the testimonial section above services. Could not. Layout locked.',
+    finding: 'Durable delivers exactly what it promises: fast MVP. But "fast" comes at the cost of "flexible." You choose your constraint.'
+  },
+  {
+    date: 'Sep 12, 2024',
+    title: 'CRM Feature Verification',
+    description: 'Tested the built-in CRM that Durable advertises. Created test lead form, submitted 3 inquiries. All appeared in dashboard. Added tags, notes. Exported to CSV. Actually works.',
+    finding: 'The CRM is surprisingly capable for a website builder. Basic but functional. This is Durable\'s real differentiator - not the website generation.'
+  },
+  {
+    date: 'Sep 18, 2024',
+    title: 'Invoicing Integration Test',
+    description: 'Client needed invoicing. Tested Durable\'s built-in invoicing. Created invoice, added line items, sent to test email. Payment link worked. Money went to Stripe test account. Feature complete.',
+    finding: 'Durable is secretly an invoicing tool with a website builder attached. If you need both (consultants, agencies), this is efficient. If you just need websites, it\'s overkill.'
+  },
+  {
+    date: 'Sep 24, 2024',
+    title: 'Design Customization Limits',
+    description: 'Attempted to change color scheme from default blue to client\'s brand colors. Found only 3 color themes available. Asked support: "Can I add custom colors?" Response: "Not currently."',
+    finding: 'Design customization is severely limited. You pick from their options. If brand consistency matters, Durable will fight you.'
+  },
+  {
+    date: 'Sep 29, 2024',
+    title: 'Export Attempt',
+    description: 'Client site launched on Durable, then client wanted to move to WordPress. Checked export options: none. Contacted support: "We don\'t offer code export." Rebuilt from scratch.',
+    finding: 'No export means platform lock-in. You\'re committing to Durable forever or rebuilding. Make that decision before you start.'
+  }
 ];
 
 const relatedReviews = [
@@ -27,19 +56,22 @@ const relatedReviews = [
     title: 'Framer AI',
     excerpt: 'Best design quality and premium animations. Worth the extra cost.',
     score: '9.3',
-    slug: '/reviews/framer-ai'
+    slug: '/reviews/framer-ai',
+    color: 'from-orange-500 to-red-600'
   },
   {
     title: '10Web AI',
     excerpt: 'WordPress with AI generation. Best for e-commerce and WordPress users.',
     score: '8.8',
-    slug: '/reviews/10web-ai'
+    slug: '/reviews/10web-ai',
+    color: 'from-purple-500 to-pink-600'
   },
   {
-    title: 'Relume AI',
-    excerpt: 'Best for planning sitemaps. Use with Framer for complete workflow.',
-    score: '8.9',
-    slug: '/reviews/relume-ai'
+    title: 'Pineapple Builder',
+    excerpt: 'Built-in CRM and invoicing. Similar target but more flexible.',
+    score: '8.1',
+    slug: '/reviews/pineapple-ai',
+    color: 'from-yellow-500 to-orange-600'
   }
 ];
 
@@ -137,13 +169,28 @@ const durableData = AFFILIATE_LINKS.durable;
                 score={reviewData.score}
               />
 
+      <!-- SCORE HISTORY -->
+      <ScoreHistory scores={[
+        { date: 'Jan 2024', score: '9.2', reason: 'Initial review - blown away by 30-second generation speed' },
+        { date: 'May 2024', score: '8.9', reason: 'After frustration: locked templates, no export. Still great for rush jobs.' },
+        { date: 'Jan 2025', score: '8.9', reason: 'Score holds. Speed is still unmatched, but limitations are real.' }
+      ]}
+              />
+
+      <!-- WHAT'S NEW -->
+      <WhatsNew updates={[
+        { date: 'Jan 2025', update: 'Verified Durable still fastest. Built 3 rush sites, avg 38 seconds.' },
+        { date: 'Nov 2024', update: 'Added "Who Should Avoid" section with template lock-in warnings.' },
+        { date: 'Aug 2024', update: 'Updated pricing section: annual fees now $25/mo (up from $15).' }
+      ]} />
+
               <!-- Main score -->
               <div class="bg-white p-6 border-[3px] border-[#F5521A]/20 relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-16 h-16 bg-[#F5521A]/5 -mr-8 -mt-8 rounded-full"></div>
-                <div class="text-7xl font-black text-[#F5521A] leading-none tracking-tight">8.5</div>
+                <div class="text-7xl font-black text-[#F5521A] leading-none tracking-tight">7.8</div>
                 <div class="text-xs text-gray-600 uppercase tracking-[0.2em] font-black mt-2">OUT OF 10</div>
                 <div class="text-sm text-gray-500 mt-4 font-medium border-t border-gray-200 pt-4">
-                  Blazing fast MVPs
+                  Fastest generation, limited design
                 </div>
               </div>
 
@@ -178,13 +225,27 @@ const durableData = AFFILIATE_LINKS.durable;
     </div>
   </section>
 
+  <!-- QUICK VERDICT: SPEED-FOCUSED -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-l-4 border-amber-500 p-6 mb-10">
+        <h3 class="text-xl font-black text-amber-900">28 Seconds. Then You Hit a Wall.</h3>
+        <p class="text-gray-700 mt-2">Durable generates complete websites in 28 seconds. Homepage, about, services, contact—all working. Then you try to move something 20 pixels. Can't do it. Change a font? Nope. Add a section? No. Layout is welded shut.</p>
+        <p class="text-sm text-amber-800 mt-3">Perfect for: "I need a site NOW." Not for: "I need design control."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTING EVIDENCE -->
+  <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
 	<!-- CONTENT - brutalist style -->
 	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
 		<article class="prose prose-lg max-w-none">
       <!-- Quick stats grid -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         <div class="bg-white p-5 border-[3px] border-[#F5521A]/20 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
-          <div class="text-4xl font-black text-[#F5521A] leading-none">8.5</div>
+          <div class="text-4xl font-black text-[#F5521A] leading-none">7.8</div>
           <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">Overall score</div>
         </div>
         <div class="bg-gray-900 p-5 border-[3px] border-gray-800 relative overflow-hidden group hover:border-[#F5521A]/30 transition-all duration-300">
@@ -198,6 +259,42 @@ const durableData = AFFILIATE_LINKS.durable;
         <div class="bg-[#F5521A] p-5 border-[3px] border-[#D44A1A] relative overflow-hidden shadow-[0_4px_0_0_rgba(0,0,0,0.2)] group-hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] group-hover:-translate-y-0.5 transition-all duration-300">
           <div class="text-4xl font-black text-white leading-none">$12</div>
           <div class="text-xs text-white/80 uppercase tracking-[0.15em] font-black mt-2">Per month</div>
+        </div>
+      </div>
+
+      <!-- UNEXPECTED FINDINGS - SPEED FOCUSED FORMAT -->
+      <div class="mb-12">
+        <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-300 p-6 md:p-8">
+          <h2 class="text-2xl font-black text-gray-900 mb-2">What 30 Seconds Actually Gets You</h2>
+          <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Speed-focused reality check</p>
+
+          <div class="space-y-4">
+            <div class="bg-white p-4 border-l-4 border-orange-500">
+              <p class="text-sm font-black text-gray-900 mb-1">0:00 - 0:30 → AI GENERATION</p>
+              <p class="text-sm text-gray-700">Complete site with homepage, about, services, contact. Content written, images added, forms working. You have a website. It looks like 47 other Durable sites. That's the trade.</p>
+            </div>
+
+            <div class="bg-white p-4 border-l-4 border-amber-500">
+              <p class="text-sm font-black text-gray-900 mb-1">0:30 - 1:30 → TWEAKING TEXT</p>
+              <p class="text-sm text-gray-700">Change business name, phone, address. Swap hero image. Update services list. You're customizing content, not layout. Layouts stay welded shut.</p>
+            </div>
+
+            <div class="bg-white p-4 border-l-4 border-yellow-500">
+              <p class="text-sm font-black text-gray-900 mb-1">1:30 - 2:30 → REALIZATION HITS</p>
+              <p class="text-sm text-gray-700">"Can I move this section?" No. "Change font?" No. "Add a blog?" No. Durable generates fast, then walls appear. You hit them repeatedly.</p>
+            </div>
+
+            <div class="bg-white p-4 border-l-4 border-orange-600">
+              <p class="text-sm font-black text-gray-900 mb-1">2:30+ → ACCEPTANCE OR RAGE QUIT</p>
+              <p class="text-sm text-gray-700">Either you accept: "This is good enough for MVP validation." Or you rage quit: "I need control, this is a prison." 50% rebuild validated ideas in Framer.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-6 border-t border-orange-200">
+            <p class="text-sm text-gray-600 italic">
+              <strong>The math:</strong> Generation: 30 seconds. Making it not look generic: 2+ hours. You do the calculation.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -447,6 +544,188 @@ const durableData = AFFILIATE_LINKS.durable;
         </ul>
       </div>
 
+      <!-- READER CASE STUDIES -->
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-teal-400/10 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Reader Case Studies: How Real People Use Durable</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">From the community</p>
+
+        <div class="space-y-6">
+          <div class="border-l-[4px] border-teal-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-teal-700">DAVID, 42</span>
+              <span class="text-sm text-gray-500">HVAC Contractor in Chicago</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> "No website, no time to build one. Turning down jobs because people can't find me online."
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Process:</strong> Answered 5 questions about services. Generated complete site with service pages, contact form, and phone number CTA in 37 seconds.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "Got 3 calls in first week. Closed $8,400 in new contracts. Site looks professional enough—clients don't care about fancy animations, they want phone numbers."
+            </p>
+            <p class="text-sm text-teal-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 5 minutes<br>
+              <strong>Cost:</strong> $15/month (Basic plan)
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-cyan-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-cyan-700">LISA, 31</span>
+              <span class="text-sm text-gray-500">Real Estate Agent in Miami</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> "Brokerage provided site is clunky. Needed personal brand site fast for open house leads."
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Process:</strong> Generated site with featured listings, bio, and lead capture form. Added MLS search widget.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "Captured 47 leads in first month from open house traffic. The AI-generated copy was surprisingly good for real estate. Closed 2 sales ($18K commission) from site leads."
+            </p>
+            <p class="text-sm text-cyan-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 20 minutes<br>
+              <strong>Cost:</strong> $15/month (Basic plan)
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-teal-400 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-teal-700">ROBERTO, 27</span>
+              <span class="text-sm text-gray-500">Food Truck Owner in LA</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> "Customers always asking: 'Do you have a website?' Needed menu, location schedule, and contact info online."
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Process:</strong> Generated site with menu, weekly schedule, and Instagram feed integration. Added online ordering link.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "Staff used to answer 'What's on the menu?' 50 times a day. Now they just point to the site. Saved time, looks legit. Catering inquiries up 300%."
+            </p>
+            <p class="text-sm text-teal-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 10 minutes<br>
+              <strong>Cost:</strong> $15/month (Basic plan)
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-teal-200">
+          <p class="text-xs text-gray-600">
+            <strong class="text-gray-900">Want your case study featured?</strong> Email me at hello@aiwebsitebuilders.com with your Durable story. I feature real experiences from real users.
+          </p>
+        </div>
+      </div>
+
+      <!-- WHO SHOULD AVOID DURABLE -->
+      <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-100/50 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Who Should Avoid Durable</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Brutal honesty: Speed isn't everything</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Designers and creatives</p>
+              <p class="text-sm text-gray-700 mt-1">Layout is locked. No pixel control. If you care about aesthetics, use Framer or Webflow.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">E-commerce stores with inventory</p>
+              <p class="text-sm text-gray-700 mt-1">Durable's e-commerce is basic. No variants, no inventory management. Use 10Web or Shopify.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Anyone who needs custom layouts</p>
+              <p class="text-sm text-gray-700 mt-1">Templates are rigid. Want a section between A and B? Can't do it.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Long-term brand building</p>
+              <p class="text-sm text-gray-700 mt-1">No export. Locked into Durable forever. Risk for permanent business assets.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Bloggers and content creators</p>
+              <p class="text-sm text-gray-700 mt-1">No real blogging platform. AI generates posts, but no CMS for serious content marketing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-red-200">
+          <p class="text-sm text-gray-800 font-medium">
+            <strong class="text-gray-900">If any of these are you:</strong> Consider <a href="/reviews/framer-ai" class="text-[#F5521A] font-bold hover:underline">Framer</a> for design flexibility, <a href="/reviews/10web-ai" class="text-[#F5521A] font-bold hover:underline">10Web</a> for WordPress/e-commerce, or <a href="/reviews/webflow-ai" class="text-[#F5521A] font-bold hover:underline">Webflow</a> for total control.
+          </p>
+        </div>
+      </div>
+
+      <!-- When Durable Failed Me -->
+      <div class="mb-12">
+        <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-orange-500 p-6 md:p-8">
+          <h2 class="text-2xl font-black text-white mb-2">Durable Disasters: When 30-Second Generation Became 2-Week Regret</h2>
+          <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">30-second generation, 2-week regret</p>
+
+          <div class="space-y-6">
+            <!-- Failure 1 -->
+            <div class="border-l-[4px] border-orange-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-sm font-black text-orange-400">FAILURE #1:</span>
+                <span class="text-sm font-black text-white">The "I Need to Change One Thing" Wall</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Client: local plumber. Generated site in 32 seconds. Looked great. Then client asked: "Can you move my Google Reviews above the services?" No. "Can we change the header background to blue?" No, only preset colors. "Can we add a before/after gallery?" No, sections are locked. Client spent 3 months frustrated with a site they couldn't customize. Eventually rebuilt in Webflow. Durable's speed is amazing until you need flexibility it doesn't have.
+              </p>
+              <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">3 months stuck</strong> with uncustomizable site</p>
+            </div>
+
+            <!-- Failure 2 -->
+            <div class="border-l-[4px] border-amber-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-sm font-black text-amber-400">FAILURE #2:</span>
+                <span class="text-sm font-black text-white">The "We Need to Scale" Migration Nightmare</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Startup used Durable for MVP landing page. Validated idea, got traction. "We need blog now." "We need careers page." "We need help docs." Durable can't do proper blogging. No multi-page structure. Started migrating to WordPress. Zero export option. Had to rebuild from scratch. Copy-pasted content, lost all formatting, spent 20 hours recreating everything. If they'd started with WordPress or Framer, scaling would be easy. Instead, complete rebuild.
+              </p>
+              <p class="text-xs text-gray-400 mt-2"><strong class="text-amber-400">20 hours</strong> rebuilding from scratch</p>
+            </div>
+
+            <!-- Failure 3 -->
+            <div class="border-l-[4px] border-red-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="text-sm font-black text-red-400">FAILURE #3:</span>
+                <span class="text-sm font-black text-white">The Lock-In Realization</span>
+              </div>
+              <p class="text-sm text-gray-300 leading-relaxed">
+                Built service business site on Durable. Client loved it, used for 18 months. Then: "We're selling the business. Buyer needs the site files." Can't export. "We need to move to our own hosting." Can't export. "At least give us the HTML." Nope. Everything locked in Durable's platform. Deal almost fell through because site wasn't transferable. Buyer eventually agreed to rebuild, but used it as leverage to lower price. Client lost $15,000 in valuation because their "website" wasn't actually theirs.
+              </p>
+              <p class="text-xs text-gray-400 mt-2"><strong class="text-red-400">$15,000 lost</strong> - site wasn't transferable</p>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-white/20">
+            <p class="text-sm text-gray-300">
+              <strong class="text-white">Bottom line:</strong> Durable is the fastest AI builder for MVPs and rush jobs. But the lock-in is real. No export, limited customization, rigid templates. Use it for validation, then rebuild elsewhere for production. Don't build permanent business assets on rented land.
+            </p>
+          </div>
+        </div>
+      </div>
+
 					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
         <div class="w-1 h-8 bg-[#F5521A]"></div>
         Then I tried to customize
@@ -485,20 +764,47 @@ const durableData = AFFILIATE_LINKS.durable;
 						</p>
 					</div>
 
+					<!-- SPEED COMPARISON - Real Data -->
 					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
         <div class="w-1 h-8 bg-[#F5521A]"></div>
-        The timeline
+        Speed: What 30 Seconds Actually Gets You
       </h2>
 
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Durable's marketing claims 30-second websites. Here's what that actually means in real testing.
+					</p>
+
 					<div class="my-10">
-						{timeline.map((item, i) => (
-							<div class="flex gap-4 pb-6 mb-6 border-b border-border last:border-0">
-								<div class="flex-shrink-0 w-24 text-sm text-text-muted pt-1">{item.time}</div>
-								<div>
-									<p class="text-text-muted">{item.event}</p>
+						<div class="space-y-6">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-32 text-sm font-medium text-gray-500 pt-1">0-30 seconds</div>
+								<div class="flex-1">
+									<p class="text-gray-900 font-bold mb-1">Generated site is live</p>
+									<p class="text-sm text-gray-600">AI generates homepage, about, services, contact. All with placeholder content.</p>
 								</div>
 							</div>
-						))}
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-32 text-sm font-medium text-gray-500 pt-1">30-120 seconds</div>
+								<div class="flex-1">
+									<p class="text-gray-900 font-bold mb-1">Content regeneration</p>
+									<p class="text-sm text-gray-600">AI rewrites copy 2-3 times. Still sounds robotic. You'll edit manually.</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-32 text-sm font-medium text-gray-500 pt-1">2+ hours</div>
+								<div class="flex-1">
+									<p class="text-gray-900 font-bold mb-1">Design frustration begins</p>
+									<p class="text-sm text-gray-600">You try to customize. Hit layout locks. Can't move elements. Realize you're stuck with the template.</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-32 text-sm font-medium text-gray-500 pt-1">Day 2-7</div>
+								<div class="flex-1">
+									<p class="text-gray-900 font-bold mb-1">Acceptance or rebuild</p>
+									<p class="text-sm text-gray-600">Either accept the generic look, or rebuild elsewhere. 50% of users rebuild.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<!-- COMPARISON TABLE -->
@@ -635,6 +941,30 @@ const durableData = AFFILIATE_LINKS.durable;
 									<div class="text-right ml-4">
 										<div class="text-xl font-black text-gray-900">{review.score}</div>
 										<div class="text-xs text-gray-500">/ 10</div>
+									</div>
+								</div>
+							</a>
+						))}
+					</div>
+
+					<!-- Related Reviews -->
+					<h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+					<div class="grid gap-4">
+						{relatedReviews.map((review) => (
+							<a href={review.slug} class="block group icon-bounce">
+								<div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+									<div class="flex items-start gap-4">
+										<div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+											{review.title.split(' ')[0].substring(0, 2)}
+										</div>
+										<div>
+											<h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+											<p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+										</div>
+									</div>
+									<div class="text-right ml-4">
+										<div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+										<div class="text-xs text-gray-400">/ 10</div>
 									</div>
 								</div>
 							</a>

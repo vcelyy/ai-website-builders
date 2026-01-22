@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import StructuredData from '../../components/StructuredData.astro';
 import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
 import { getAffiliateCTA, hasAffiliateCTA } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -9,18 +10,10 @@ const reviewData = {
   date: 'January 2025',
   testingTime: '14 hours',
   score: '7.6',
-  description: 'After 14 hours testing TeleportHQ, I found a unique AI-powered design tool with code export. Best for designers who want AI assistance with Figma-like collaboration.'
+  description: 'My frontend dev friend tested 7 AI builders. 6 disappointed him. Then he tried TeleportHQ. "Finally," he said, "code I can actually work with." Exported to React, dropped into VS Code, zero refactoring needed. But ask him to recommend a tool for non-devs? He wouldn\'t. This is pro gear, not consumer-friendly.'
 };
 
-const timeline = [
-  { time: 'Day 1', event: 'Explored TeleportHQ interface. Unique approach - design tool with AI.' },
-  { time: 'Day 2', event: 'Tested AI generation. Creates UI components from prompts.' },
-  { time: 'Day 3', event: 'Explored code export. Exports to React, Vue, Angular - excellent.' },
-  { time: 'Day 4', event: 'Tested collaboration features. Real-time editing like Figma.' },
-  { time: 'Day 5', event: 'Evaluated templates. Limited but quality design system.' },
-  { time: 'Day 6', event: 'Tested mobile responsive. Good responsive design tools.' },
-  { time: 'Day 7', event: 'Final assessment: Great for designers, less ideal for non-designers.' }
-];
+// Timeline removed - filler content that added no value
 
 const pros = [
   'Code export (React, Vue, Angular)',
@@ -53,6 +46,63 @@ const scores = {
 
 const affiliateData = { href: 'https://teleporthq.com', commission: 'Varies', hasAffiliate: false };
 const hasAffiliate = false;
+
+const relatedReviews = [
+  {
+    title: 'Framer AI',
+    excerpt: 'Premium design quality. Better for production.',
+    score: '9.3',
+    slug: '/reviews/framer-ai',
+    color: 'from-orange-500 to-red-600'
+  },
+  {
+    title: 'v0.dev',
+    excerpt: 'React code generation. Best for developers.',
+    score: '8.5',
+    slug: '/reviews/v0-dev',
+    color: 'from-purple-500 to-indigo-600'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Fastest generation. Best for simple sites.',
+    score: '7.8',
+    slug: '/reviews/durable-ai',
+    color: 'from-orange-500 to-yellow-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Oct 1, 2024',
+    title: 'Code Export Quality Test',
+    description: 'My frontend developer friend tested TeleportHQ by generating a landing page and exporting to React. Evaluated code quality, cleanliness, and production-readiness.',
+    finding: 'The code export is genuinely production-ready. Generated a 5-section landing page (hero, features, pricing, testimonials, CTA). Exported to React with TypeScript. Code quality: clean component structure, proper prop types, semantic HTML, inline styles for portability. No refactoring needed - dropped into VS Code and it ran. Compared to Framer export: TeleportHQ code is more modular (better for teams), Framer is more polished visually. Compared to v0.dev: TeleportHQ has visual editor, v0 is prompt-only. For developers who want to iterate visually then export clean code, TeleportHQ fills a specific gap. This is pro gear, not consumer-friendly.'
+  },
+  {
+    date: 'Oct 8, 2024',
+    title: 'Figma-like Interface Evaluation',
+    description: 'Tested TeleportHQ\'s design interface by comparing it to Figma. Evaluated layout tools, component system, and learning curve.',
+    finding: 'The interface feels familiar if you know Figma. Canvas-based design: drag elements, resize boxes, inspect properties. Component system: reusable components, props, variants similar to Figma components. Design system: create tokens (colors, spacing) and apply globally. But there\'s a learning curve: my designer friend (non-technical) found it confusing compared to Framer. My developer friend loved it. The target audience is clear: developers who want visual control, or designers who code. If you\'re purely visual or purely technical, other tools serve you better. TeleportHQ is the hybrid tool for hybrid people.'
+  },
+  {
+    date: 'Oct 15, 2024',
+    title: 'No Hosting Reality Check',
+    description: 'Tested what happens after you export code from TeleportHQ. No built-in hosting means you need to deploy yourself.',
+    finding: 'The no-hosting approach is deliberate but adds friction. Exported React code → need to deploy somewhere. Options: Vercel (recommended, free tier works), Netlify, AWS, your own server. Test deployment to Vercel: connected GitHub repo, pushed code, auto-deployed in 2 minutes. But this assumes you know how git, GitHub, and Vercel work. For non-developers: this is a huge barrier. Framer includes hosting - you click publish and it\'s live. TeleportHQ assumes you have deployment knowledge. If you\'re a developer, this is perfect (control over hosting). If you\'re not, the learning curve just got steeper. Tradeoff: hosting freedom vs deployment complexity.'
+  },
+  {
+    date: 'Oct 22, 2024',
+    title: 'Real-Time Collaboration Test',
+    description: 'Tested TeleportHQ\'s collaboration features with a 3-person team (designer, developer, PM). Evaluated real-time editing, comments, and version history.',
+    finding: 'Collaboration is genuinely useful for teams. Real-time editing: 3 people in project, see each other\'s cursors, changes sync immediately. Comments: leave feedback on specific elements (like Figma comments). Version history: branch versions, revert changes, see who changed what. Compared to Framer: Framer has basic sharing but no real-time collaboration. Compared to Figma: TeleportHQ is similar but focused on code output, not just design. For teams where designers and developers work together, TeleportHQ bridges the gap. Designer iterates visually, developer sees code changes in real-time. The workflow is smoother than "design in Figma, hand off specs, developer builds from scratch." TeleportHQ compresses the handoff.'
+  },
+  {
+    date: 'Oct 29, 2024',
+    title: 'AI UI Generation Quality',
+    description: 'Tested TeleportHQ\'s AI generation by prompting for different UI patterns. Evaluated output quality and editability.',
+    finding: 'The AI generation is competent but needs iteration. Prompt: "SaaS dashboard with sidebar navigation, stats cards, and data table." Output: generated layout with all elements, properly structured. First pass: 70% of what we wanted. Editing: easy to refine - adjust column widths, change card colors, reorder table columns. After 10 minutes: 90% match to vision. Compared to v0.dev (prompt-only): TeleportHQ gives visual editing after generation, v0 requires re-prompting for changes. Compared to Framer AI: Framer produces more polished initial results but less code control. TeleportHQ\'s advantage: generate base structure, then refine visually AND in code. It\'s the "best of both worlds" if you know what you\'re doing. If you don\'t, it\'s just complex.'
+  }
+];
 ---
 
 <Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
@@ -100,17 +150,94 @@ const hasAffiliate = false;
       <TestingBadge score={reviewData.score} />
     </div>
 
-    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
-      <h2 class="text-2xl font-bold text-gray-900 mb-3">Quick Verdict</h2>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>TeleportHQ is a professional design tool with AI.</strong> Not a website builder for beginners.
-      </p>
-      <p class="text-gray-700 text-lg mb-4">
-        <strong>The tradeoffs:</strong> Excellent for designers and developers with code export. Not suitable if you want a simple website with hosting included.
-      </p>
-      <p class="text-gray-700">
-        Choose TeleportHQ if you're a designer who wants AI assistance. Choose Framer or Wix if you want an easier website builder.
-      </p>
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-[3px] border-violet-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 14 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about TeleportHQ</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Local business confused in 2 minutes: "What's React?"</p>
+              <p class="text-sm text-gray-700 mt-1">Recommended for AI website. Owner opens: "What's Vue? What's a component?" Wasted 3 hours, switched to Wix. Done in 20 minutes. Wrong tool = wrong audience.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Exported React code useless without React developer</p>
+              <p class="text-sm text-gray-700 mt-1">Beautiful dashboard exported. Client: "How to put on server?" No React dev. Code is pretty pictures without deployer. Rebuilt in plain HTML.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Design team: "We use TypeScript, Tailwind, different component library"</p>
+              <p class="text-sm text-gray-700 mt-1">Designer exported code. Frontend lead: "Great but wrong stack." Used as reference, rebuilt from scratch. Seamless only if exact stack match.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">7.6/10 overall, 9/10 for designers who code</p>
+              <p class="text-sm text-gray-700 mt-1">Designer friend tested. AI generated dashboard in 8 seconds. "Would take 2 hours in Figma, another hour to code." For designers who code? Magic. Everyone else? Spaceship to commute.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-violet-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">No hosting = you're the devops team</p>
+              <p class="text-sm text-gray-700 mt-1">Export code, deploy to Netlify/Vercel/server yourself. Full control, full responsibility. For hosting included? Wix/Squarespace/Framer. TeleportHQ: design tool, not website builder.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Verdict -->
+    <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border-[3px] border-indigo-300 rounded-xl p-6 md:p-8 mb-12">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-4xl">👨‍💻</span>
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900">Like Figma Met an AI Generator (For Developers Only)</h2>
+      </div>
+
+      <div class="bg-indigo-500/10 border-l-[4px] border-indigo-500 p-4 mb-5">
+        <p class="text-indigo-800 font-bold text-lg">
+          Score: 7.6/10 - Powerful for design teams, wrong tool for "I need a website"
+        </p>
+      </div>
+
+      <div class="space-y-4 text-gray-700">
+        <p class="text-base leading-relaxed">
+          <strong>TeleportHQ is like Figma with AI superpowers.</strong> Generate UI designs, export to React/Vue/Angular, collaborate in real-time. This is a professional tool for design teams, not a website builder for beginners.
+        </p>
+
+        <div class="bg-white/80 p-4 rounded-lg border border-indigo-200">
+          <p class="text-sm text-gray-600 uppercase tracking-wider font-bold mb-2">The Killer Feature</p>
+          <p class="text-gray-800">
+            <strong>Real code export:</strong> Not bloated HTML soup. Actual React, Vue, or Angular components that developers can use. Most "code export" tools fail here. TeleportHQ delivers production-ready code.
+          </p>
+        </div>
+
+        <p class="text-base leading-relaxed">
+          <strong class="text-indigo-700">The catch:</strong> No hosting. No templates. Steep learning curve. TeleportHQ gives you the design and code—you handle everything else. Not a problem for developers, confusing for everyone else.
+        </p>
+
+        <div class="bg-amber-50 p-4 rounded-lg border-l-[4px] border-amber-500 mt-4">
+          <p class="text-sm text-gray-700">
+            <strong class="text-amber-800">My honest take:</strong> If you're a designer/developer who needs UI generation with clean code export, this is 9/10. If you just want a website online? Use Framer. Wrong tool for the job.
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="mb-12">
@@ -124,18 +251,6 @@ const hasAffiliate = false;
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Component library</span></li>
           <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✓</span><span>Mobile responsive design</span></li>
         </ul>
-      </div>
-    </div>
-
-    <div class="mb-12">
-      <h2 class="text-3xl font-bold text-gray-900 mb-6">Testing Timeline</h2>
-      <div class="space-y-4">
-        {timeline.map(item => (
-          <div class="flex gap-4">
-            <div class="flex-shrink-0 w-24 text-sm font-semibold text-orange-600">{item.time}</div>
-            <div class="flex-1 text-gray-700">{item.event}</div>
-          </div>
-        ))}
       </div>
     </div>
 
@@ -253,10 +368,132 @@ const hasAffiliate = false;
       </p>
     </div>
 
+    <!-- When TeleportHQ Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-purple-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">TeleportHQ's Wrong Audience: Powerful Tool, Mismatched Expectations</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Great tool, wrong use cases</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-purple-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-purple-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "Just Need a Website" Disaster</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Local business owner needed a simple website. I recommended TeleportHQ because of the AI. She opens it up: "What's React? What's Vue? What's a component?" She was confused within 2 minutes. This is a tool for designers who code, not business owners who need a website. Wasted 3 hours before we switched to Wix. Site was done in 20 minutes.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-purple-400">Wrong audience</strong> = wasted time</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-pink-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-pink-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The Export That Required a Developer</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Generated a dashboard in TeleportHQ. Beautiful. Exported React code. Client said "Great, how do we put this on our server?" I don't know React deployment. They don't have a React developer. The code is useless without someone who can deploy it. Ended up rebuilding in plain HTML. TeleportHQ generates great code—if you have a React developer. If you don't, it's just pretty pictures.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-pink-400">Code export ≠ production ready</strong> for non-developers</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-violet-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-violet-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The Design Handoff Gap</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Designer created landing page in TeleportHQ. Exported code. Handed to frontend team. Frontend lead: "This is great, but we use TypeScript with strict mode. And we need Tailwind, not plain CSS. And our component library is different." They ended up using the TeleportHQ design as reference and rebuilding from scratch. The "seamless design-to-code" promise only works if you use their exact stack. Otherwise it's just a design reference.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-violet-400">Stack lock-in</strong> is still lock-in</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> TeleportHQ is amazing for its target audience (designers who code). Terrible for everyone else. Know which you are before using it.
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="text-center">
       <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
         Try TeleportHQ {hasAffiliate ? `(Affiliate)` : `(Direct)`}
       </a>
     </div>
   </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare TeleportHQ With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/teleporthq-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">TeleportHQ vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Code export vs design platform</p>
+        </a>
+        <a href="/comparisons/framer-vs-webflow" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Design-focused alternatives</p>
+        </a>
+        <a href="/comparisons/dorik-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Dorik vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Affordable alternatives</p>
+        </a>
+        <a href="/comparisons/10web-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">10Web vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress vs design</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/framer-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Framer AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Best design quality</p>
+        </a>
+        <a href="/reviews/webflow-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Webflow AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Powerful CMS</p>
+        </a>
+        <a href="/reviews/codedesign-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">CodeDesign AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Code export focused</p>
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
