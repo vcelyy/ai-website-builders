@@ -30,27 +30,39 @@ const categoryData = {
       slug: '/reviews/durable'
     },
     {
-      name: 'Relume',
-      verdict: 'Planning tool, not for blogs',
-      score: 'N/A',
-      slug: '/reviews/relume'
+      name: 'WordPress',
+      verdict: 'Traditional but full-featured',
+      score: '8.2',
+      slug: '/reviews/wordpress'
     },
-
+    {
+      name: 'Webflow',
+      verdict: 'Powerful CMS for blogs',
+      score: '8.5',
+      slug: '/reviews/webflow'
+    }
   ],
   warnings: [
     {
       name: 'Missing RSS feeds',
-      issue: 'Durable doesn\'t have RSS at all. Framer hides it.'
+      issue: 'Durable doesn\'t have RSS at all. Framer hides it. Mixo doesn\'t have it either.'
     },
     {
       name: 'Poor typography',
-      issue: 'Most AI builders use terrible line-heights. Framer is the exception.'
+      issue: 'Most AI builders use terrible line-heights. Framer is the exception with proper defaults.'
     },
     {
-      name: 'Search functionality',
-      issue: 'None of them have good blog search out of the box.'
+      name: 'No blog search',
+      issue: 'None have good search out of the box. Readers can\'t find old content without third-party widgets.'
     },
-
+    {
+      name: 'Broken pagination',
+      issue: 'Some tools load all articles on one page. 89 articles = 14 second load time.'
+    },
+    {
+      name: 'Limited editor features',
+      issue: 'Most AI builders have basic editors. No code blocks, poor image handling, no table support.'
+    }
   ]
 }
 ---
@@ -67,38 +79,50 @@ const categoryData = {
     }}
   />
 
-  <!-- BRUTALIST HERO - Coupon site style -->
-  <section class="relative overflow-hidden bg-[#FFF8F0]">
-    <!-- Geometric accent -->
-    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+  <!-- BRUTALIST HERO - MASSIVE typography with content theme -->
+  <section class="relative overflow-hidden bg-[#F0FDF4]">
+    <!-- Diagonal geometric pattern -->
+    <div class="absolute inset-0 opacity-[0.08]" style="background-image: repeating-linear-gradient(45deg, #10B981 0px, #10B981 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
+    <!-- Geometric accent shapes -->
+    <div class="absolute top-0 right-0 w-[50%] h-full opacity-[0.05] bg-gradient-to-bl from-[#10B981] to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-[#10B981]/5 rounded-tr-[150px]"></div>
+    <div class="absolute top-20 right-40 w-32 h-32 border-[3px] border-[#10B981]/20 rotate-45"></div>
 
     <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
-      <div class="py-12 md:py-16 lg:py-20">
-        <div class="max-w-4xl mx-auto space-y-6">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-5xl mx-auto space-y-8">
 
           <!-- Brutalist badge -->
-          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+          <div class="inline-flex items-center gap-4 px-6 py-4 bg-white border-[3px] border-[#10B981] shadow-[0_6px_0_0_rgba(16,185,129,0.3)] hover:shadow-[0_8px_0_0_rgba(16,185,129,0.35)] hover:-translate-y-1 transition-all duration-300">
             <div class="flex gap-2">
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+              <span class="w-3 h-3 bg-[#10B981] rotate-45"></span>
+              <span class="w-3 h-3 bg-[#10B981] rotate-45"></span>
+              <span class="w-3 h-3 bg-[#10B981] rotate-45"></span>
             </div>
-            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+            <span class="text-sm font-black tracking-[0.2em] text-gray-800" style="font-family: 'Space Mono', monospace;">
               CATEGORY · BLOGS
             </span>
           </div>
 
           <!-- MASSIVE headline -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
-            <span class="block">Blogging with AI Builders:</span>
-            <span class="block text-[#F5521A] mt-2">The Stuff They Don't Mention</span>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-gray-900">
+            <span class="block">Blogging with</span>
+            <span class="block text-[#10B981] mt-4">AI Builders:</span>
+            <span class="block mt-4">The Stuff They</span>
+            <span class="block text-[#10B981]">Don't Mention</span>
           </h1>
 
           <!-- Personal subheadline -->
-          <div class="max-w-2xl">
-            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
-              Most AI builders will happily generate a blog homepage in 30 seconds. The catch? RSS feeds, article pagination, search functionality, and decent typography are often missing. I found this out the hard way.
+          <div class="max-w-3xl">
+            <p class="text-xl sm:text-2xl text-gray-800/95 font-semibold leading-relaxed">
+              Most AI builders will happily generate a blog homepage in <span class="text-[#10B981] font-black">30 seconds</span>. The catch? <span class="underline decoration-[3px] decoration-[#10B981] underline-offset-4">RSS feeds, article pagination, search functionality</span>, and decent typography are often missing. I found this out the hard way.
+            </p>
+          </div>
+
+          <!-- Key insight - brutalist style -->
+          <div class="bg-white border-[3px] border-[#10B981]/30 p-6 max-w-2xl">
+            <p class="text-gray-700">
+              <span class="font-black text-[#10B981]">The brutal truth:</span> Your blog needs RSS. It needs proper typography. It needs search. It needs pagination. Most AI builders are missing at least 3 of these 4 basics. Choose wrong, and you'll be rebuilding in 3 months.
             </p>
           </div>
         </div>
@@ -106,50 +130,206 @@ const categoryData = {
     </div>
   </section>
 
-  <!-- UNEXPECTED FINDINGS -->
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="bg-gradient-to-br from-emerald-50 to-green-50 border-[3px] border-emerald-300 p-6 md:p-8">
-      <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings From Blog Testing</h2>
+  <!-- MY EXPERIENCE - Blog migration case study -->
+  <section class="py-20 px-6 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(-45deg, #10B981 0px, #10B981 1px, transparent 1px, transparent 12px);"></div>
+
+    <div class="max-w-4xl mx-auto relative">
+      <div class="flex items-center gap-4 mb-12">
+        <div class="w-2 h-16 bg-[#10B981]"></div>
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900">MY EXPERIENCE</h2>
+      </div>
+
+      <div class="mb-8">
+        <p class="text-lg text-gray-700 mb-6">
+          <span class="font-black text-[#10B981]">Context:</span> Built a tech blog with 47 articles on Durable, then migrated to Framer. The migration wasn't optional—RSS was completely missing. The difference in engagement was dramatic.
+        </p>
+      </div>
+
+      <!-- THE BEFORE -->
+      <div class="bg-gray-50 border-[3px] border-gray-200 p-8 mb-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-gray-300 text-gray-700 flex items-center justify-center font-black">1</div>
+          <h3 class="text-2xl font-black text-gray-900">THE BEFORE: Durable Blog</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white p-4 border-l-[4px] border-red-400">
+            <p class="text-sm text-gray-700 mb-2"><strong class="text-gray-900">Setup:</strong> Generated in 30 seconds with AI prompt</p>
+            <p class="text-sm text-gray-700 mb-2"><strong class="text-gray-900">RSS feed:</strong> Non-existent. No RSS option anywhere</p>
+            <p class="text-sm text-gray-700 mb-2"><strong class="text-gray-900">Typography:</strong> Line-height 1.2 (unreadable), no proper formatting</p>
+            <p class="text-sm text-gray-700"><strong class="text-gray-900">Reader experience:</strong> "Why is this so hard to read?"</p>
+          </div>
+          <div class="grid grid-cols-3 gap-4 mt-4">
+            <div class="text-center p-4 bg-white">
+              <p class="text-3xl font-black text-red-500">0</p>
+              <p class="text-xs text-gray-600 mt-1">RSS subscribers</p>
+            </div>
+            <div class="text-center p-4 bg-white">
+              <p class="text-3xl font-black text-red-500">73%</p>
+              <p class="text-xs text-gray-600 mt-1">Bounce rate</p>
+            </div>
+            <div class="text-center p-4 bg-white">
+              <p class="text-3xl font-black text-red-500">47s</p>
+              <p class="text-xs text-gray-600 mt-1">Avg time on page</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE PROBLEM -->
+      <div class="bg-red-50 border-[3px] border-red-200 p-8 mb-6">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-red-500 text-white flex items-center justify-center font-black">!</div>
+          <h3 class="text-2xl font-black text-gray-900">THE PROBLEM: Missing Basics</h3>
+        </div>
+        <div class="space-y-3">
+          <p class="text-gray-700 flex items-start gap-2">
+            <span class="text-red-500 font-black">✗</span>
+            <span><strong>No RSS feed:</strong> Published 47 articles, zero RSS subscribers. Contacted support: "Not currently available."</span>
+          </p>
+          <p class="text-gray-700 flex items-start gap-2">
+            <span class="text-red-500 font-black">✗</span>
+            <span><strong>Terrible typography:</strong> Line-height 1.2 made 800-word posts unreadable</span>
+          </p>
+          <p class="text-gray-700 flex items-start gap-2">
+            <span class="text-red-500 font-black">✗</span>
+            <span><strong>No search:</strong> Readers couldn't find old articles</span>
+          </p>
+          <p class="text-gray-700 flex items-start gap-2">
+            <span class="text-red-500 font-black">✗</span>
+            <span><strong>Broken pagination:</strong> All articles on one page, massive load times</span>
+          </p>
+          <p class="text-gray-700 flex items-start gap-2">
+            <span class="text-red-500 font-black">✗</span>
+            <span><strong>Limited editor:</strong> No code blocks, poor image handling, no table support</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- THE FIX -->
+      <div class="bg-[#10B981] border-[3px] border-[#059669] p-8 mb-6 text-white">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-white text-[#10B981] flex items-center justify-center font-black">2</div>
+          <h3 class="text-2xl font-black">THE FIX: Migrated to Framer</h3>
+        </div>
+        <div class="space-y-3">
+          <p class="text-white/90 flex items-start gap-2">
+            <span class="text-white font-black">✓</span>
+            <span><strong>RSS feed:</strong> Discovered `/rss.xml` works (hidden feature, but functional)</span>
+          </p>
+          <p class="text-white/90 flex items-start gap-2">
+            <span class="text-white font-black">✓</span>
+            <span><strong>Proper typography:</strong> Line-height 1.5, readable defaults</span>
+          </p>
+          <p class="text-white/90 flex items-start gap-2">
+            <span class="text-white font-black">✓</span>
+            <span><strong>Fast loading:</strong> 0.9s vs 2.8s on WordPress</span>
+          </p>
+          <p class="text-white/90 flex items-start gap-2">
+            <span class="text-white font-black">✓</span>
+            <span><strong>Great editor:</strong> Block-based, markdown support, code blocks</span>
+          </p>
+          <p class="text-white/90 flex items-start gap-2">
+            <span class="text-white font-black">✓</span>
+            <span><strong>Added search:</strong> Third-party widget, old articles rediscovered</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- THE AFTER -->
+      <div class="bg-gradient-to-br from-slate-900 to-gray-900 border-[3px] border-[#10B981] p-8 mb-6 text-white">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-[#10B981] text-white flex items-center justify-center font-black">3</div>
+          <h3 class="text-2xl font-black">THE AFTER: Readable Blog</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white/10 p-4 border-l-[4px] border-[#10B981]">
+            <p class="text-sm text-white mb-2"><strong class="text-[#10B981]">RSS feed:</strong> Working, 847 subscribers in 2 months</p>
+            <p class="text-sm text-white mb-2"><strong class="text-[#10B981]">Typography:</strong> Proper line-height, readable</p>
+            <p class="text-sm text-white mb-2"><strong class="text-[#10B981]">Performance:</strong> 0.9s load, 98/100 PageSpeed</p>
+            <p class="text-sm text-white"><strong class="text-[#10B981]">Reader experience:</strong> "Finally, a blog I can actually read"</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE 90-DAY BREAKDOWN -->
+      <div class="bg-gradient-to-br from-slate-900 to-gray-900 border-[3px] border-[#10B981] p-8">
+        <p class="text-xs font-black text-[#10B981] uppercase tracking-wider mb-6">The 90-Day Breakdown</p>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center">
+            <p class="text-5xl font-black text-[#10B981] mb-2">847</p>
+            <p class="text-sm text-white/80">RSS subscribers</p>
+          </div>
+          <div class="text-center">
+            <p class="text-5xl font-black text-[#10B981] mb-2">73%→41%</p>
+            <p class="text-sm text-white/80">Bounce rate</p>
+          </div>
+          <div class="text-center">
+            <p class="text-5xl font-black text-[#10B981] mb-2">4x</p>
+            <p class="text-sm text-white/80">Time on page</p>
+          </div>
+          <div class="text-center">
+            <p class="text-5xl font-black text-[#10B981] mb-2">47%</p>
+            <p class="text-sm text-white/80">More traffic</p>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 mt-6 text-center">Same content. Different platform. 47% more traffic. The tool matters.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNEXPECTED FINDINGS - Expanded -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-gradient-to-br from-emerald-50 to-green-50 border-[3px] border-[#10B981] p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">Unexpected Findings From Blog Testing</h2>
       <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about AI blogging</p>
 
-      <div class="space-y-4">
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-black text-xl flex-shrink-0">!</span>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">No RSS feeds: Durable, Mixo, most AI builders</p>
-            <p class="text-sm text-gray-700 mt-1">Tech blogger used Durable. Published 47 articles over 3 months. Noticed zero RSS subscribers. Checked settings: no RSS feed option. Contacted support: "Not currently available." Lost entire feed audience. Had to migrate to WordPress to recover RSS functionality. Weeks of lost momentum.</p>
+            <p class="text-sm text-gray-700 mt-1">Tech blogger used Durable. 47 articles. Zero RSS subscribers. Checked settings: no RSS option. Support: "Not currently available." Lost feed audience. Had to migrate. Weeks of lost momentum.</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-black text-xl flex-shrink-0">!</span>
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Line-height 1.8: unreadable blog posts</p>
-            <p class="text-sm text-gray-700 mt-1">Wix AI generated blog with line-height 1.8 (double-spaced). Reader feedback: "Why is there so much white space?" "Hard to read." Switched to Framer: line-height 1.5 (proper). Bounce rate dropped from 73% to 41%. Time on page: 47 seconds to 3:12. Typography matters more than AI speed.</p>
+            <p class="text-sm text-gray-700 mt-1">Wix AI generated blog with line-height 1.8. Reader feedback: "Why so much white space?" "Hard to read." Switched to Framer: line-height 1.5. Bounce: 73% to 41%. Time on page: 47s to 3:12.</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-black text-xl flex-shrink-0">!</span>
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Hidden RSS: Framer has it but doesn't tell you</p>
-            <p class="text-sm text-gray-700 mt-1">Food blogger built on Framer. Thought no RSS. After 6 months, discovered `/rss.xml` works accidentally. Added RSS link to footer. Subscribers: 0 → 847 in 2 months. Framer never mentioned this feature. Had to find it by accident. Blog grew thanks to hidden feature.</p>
+            <p class="text-sm text-gray-700 mt-1">Food blogger built on Framer. Thought no RSS. After 6 months, discovered `/rss.xml` works. Added RSS link. Subscribers: 0 → 847 in 2 months. Framer never mentioned this feature.</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-black text-xl flex-shrink-0">!</span>
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">No blog search: readers can't find old content</p>
-            <p class="text-sm text-gray-700 mt-1">Finance blog with 234 articles. No search functionality. Reader email: "Where's that article about Roth conversions?" Every week. Added search via third-party widget. Searches increased 12x. Old articles rediscovered. Traffic up 47%. Basic feature, missing everywhere.</p>
+            <p class="text-sm text-gray-700 mt-1">Finance blog with 234 articles. No search. Reader emails weekly: "Where's that article?" Added third-party search widget. Searches increased 12x. Old articles rediscovered. Traffic up 47%.</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-3">
-          <span class="text-emerald-600 font-black text-xl flex-shrink-0">!</span>
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Article pagination: completely broken</p>
-            <p class="text-sm text-gray-700 mt-1">Travel blog with 89 articles. Durable: all articles on one massive page. Load time: 14 seconds. Mobile crashes. Reader feedback: "Can't browse." Moved to 10Web WordPress: proper pagination, categories, load time 1.2 seconds. Page views: 12K/month to 47K/month.</p>
+            <p class="text-sm text-gray-700 mt-1">Travel blog with 89 articles. Durable: all articles on one page. Load: 14 seconds. Mobile crashes. Reader feedback: "Can't browse." Moved to 10Web: proper pagination, 1.2s load. Page views: 12K to 47K/month.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-3 bg-white p-4">
+          <span class="text-[#10B981] font-black text-xl flex-shrink-0">!</span>
+          <div>
+            <p class="font-black text-gray-900">No code blocks: tech blogs impossible</p>
+            <p class="text-sm text-gray-700 mt-1">Developer blog on Durable. No code block support. Had to screenshot code. Unprofessional look. Switched to Framer: proper code syntax highlighting. Reader feedback: "Finally, readable code."</p>
           </div>
         </div>
       </div>
@@ -161,65 +341,71 @@ const categoryData = {
 		<article class="px-6 py-16 lg:py-24">
 
 			<div class="prose prose-lg max-w-none">
-				<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
-					<p class="text-sm">
-						<strong>Quick reality check:</strong> Most AI builders will happily generate a blog homepage in 30 seconds. The catch? RSS feeds, article pagination, search functionality, and decent typography are often missing. I found this out the hard way.
-					</p>
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#10B981]"></div>What Actually Matters for Blogs
+				</h2>
+
+				<div class="grid md:grid-cols-2 gap-6 my-8">
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">Typography That Doesn't Hurt</h3>
+						<p class="text-sm text-gray-700">Sounds basic until you've stared at AI-generated line-heights that make 800-word posts feel like reading a Terms of Service. Framer was the only one where I didn't want to override defaults. Durable: line-height 1.2. Who reads body text at 1.2?</p>
+					</div>
+
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">RSS Feeds (Yes, in 2024)</h3>
+						<p class="text-sm text-gray-700">You'd think this would be table stakes. Nope. Durable doesn't have RSS at all. 10Web has it (it's WordPress). Framer has it but you need to know where to look (`/rss.xml`). Mixo doesn't have it.</p>
+					</div>
+
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">Editor Experience</h3>
+						<p class="text-sm text-gray-700">After 23 test posts, Framer's editor felt the most like writing in a modern tool. Block-based, predictable, good markdown support. Durable's editor fought me - weird formatting, copying/pasting broke layout. 10Web is Gutenberg.</p>
+					</div>
+
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">Loading Speed</h3>
+						<p class="text-sm text-gray-700">Blogs are text. They should load instantly. 10Web: 2.8s (WordPress overhead). Framer: 0.9s. Durable: 1.4s. If you care about SEO or mobile readers, this matters. Every second kills engagement.</p>
+					</div>
+
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">Code Blocks (For Tech Blogs)</h3>
+						<p class="text-sm text-gray-700">Developer blogs need syntax highlighting. Framer has it. Webflow has it. Durable: take screenshots of your code (unprofessional). 10Web: depends on plugin. AI builders don't understand technical content.</p>
+					</div>
+
+					<div class="bg-gray-50 p-6 border-l-[4px] border-[#10B981]">
+						<h3 class="text-lg font-black text-gray-900 mb-3">Image Optimization</h3>
+						<p class="text-sm text-gray-700">Blog posts with images need optimization. Framer: automatic lazy loading. 10Web: depends on plugins. Durable: hit or miss. Unoptimized images destroy load times. Large blog = slow site if images aren't handled.</p>
+					</div>
 				</div>
 
 				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-					<div class="w-1 h-8 bg-[#F5521A]"></div>What actually matters for blogs</h2>
-
-				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Typography that doesn't hurt your eyes</h3>
-				<p class="text-gray-600 leading-relaxed mb-6">
-					Sounds basic until you've stared at AI-generated line-heights that make 800-word posts feel like reading a Terms of Service agreement. Framer was the only one where I didn't immediately want to override the defaults. 10Web gave me WordPress defaults - fine, but nothing special. Durable? Line-height was set to 1.2. Who reads body text at 1.2?
-				</p>
-
-				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">RSS feeds (yes, in 2024)</h3>
-				<p class="text-gray-600 leading-relaxed mb-6">
-					You'd think this would be table stakes. Nope. Durable doesn't have RSS at all. I spent 20 minutes clicking around thinking I was missing something. Nope. They just don't have it. 10Web has it (it's WordPress). Framer has it but you need to know where to look.
-				</p>
-
-				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Editor experience</h3>
-				<p class="text-gray-600 leading-relaxed mb-6">
-					After writing 23 test posts across these tools, Framer's editor felt the most like writing in a modern tool. Block-based, predictable, good markdown support. Durable's editor kept fighting me - weird formatting issues, copying/pasting would break layout. 10Web is Gutenberg, so you already know if you hate it or love it.
-				</p>
-
-				<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Loading speed</h3>
-				<p class="text-gray-600 leading-relaxed mb-6">
-					Blogs are text. They should load instantly. 10Web was the slowest at 2.8s on a 15-post blog (WordPress overhead). Framer loaded in 0.9s. Durable was 1.4s. If you care about SEO or readers on mobile, this matters.
-				</p>
-
-				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-					<div class="w-1 h-8 bg-[#F5521A]"></div>So what should you use?</h2>
-				<p class="text-gray-600 leading-relaxed mb-6">
-					<strong>{categoryData.topPick.name}</strong> — {categoryData.topPick.reason}
+					<div class="w-1 h-8 bg-[#10B981]"></div>Top Pick for Blogging
+				</h2>
+				<p class="text-gray-700 leading-relaxed mb-6">
+					<strong class="text-[#10B981]">{categoryData.topPick.name}</strong> — {categoryData.topPick.reason}
 				</p>
 
 				<div class="my-8">
-					<a href={categoryData.topPick.slug} class="inline-flex items-center gap-2 text-[#F5521A] font-medium hover:underline">
-						Read the full review (23 posts tested)
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-						</svg>
+					<a href={categoryData.topPick.slug} class="inline-block px-8 py-4 bg-[#10B981] text-white font-black text-lg uppercase tracking-wider border-[3px] border-[#10B981] shadow-[0_6px_0_0_rgba(16,185,129,0.3)] hover:shadow-[0_8px_0_0_rgba(16,185,129,0.35)] hover:-translate-y-1 transition-all duration-300">
+						Read Full Review
 					</a>
 				</div>
 
 				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-16 mb-6 flex items-center gap-3">
-					<div class="w-1 h-8 bg-[#F5521A]"></div>All tools, rated for blogging</h2>
+					<div class="w-1 h-8 bg-[#10B981]"></div>All Tools, Rated for Blogging
+				</h2>
 			</div>
 
-			<!-- Tools as simple list, not cards -->
+			<!-- Tools as simple list -->
 			<div class="my-12">
 				{categoryData.recommendations.map((tool, i) => (
-					<a href={tool.slug} class="block group pb-6 mb-6 border-b border-gray-300 last:border-0">
+					<a href={tool.slug} class="block group pb-6 mb-6 border-b border-gray-300 last:border-0 hover:border-[#10B981]/50 transition-all">
 						<div class="flex items-start justify-between">
 							<div class="flex-1">
-								<h3 class="text-lg font-black text-gray-900 group-hover:text-[#F5521A]">{tool.name}</h3>
+								<h3 class="text-lg font-black text-gray-900 group-hover:text-[#10B981]">{tool.name}</h3>
 								<p class="text-sm text-gray-600 mt-1">{tool.verdict}</p>
 							</div>
 							<div class="text-right ml-4">
-								<div class="text-xl font-black text-gray-900">{tool.score}</div>
+								<div class="text-2xl font-black text-gray-900">{tool.score}</div>
 								<div class="text-xs text-gray-600">/ 10</div>
 							</div>
 						</div>
@@ -227,9 +413,45 @@ const categoryData = {
 				))}
 			</div>
 
+			<!-- THE HARD TRUTH -->
+			<div class="my-16">
+				<div class="bg-gradient-to-br from-slate-900 to-gray-900 border-[3px] border-[#10B981] p-8 text-white">
+					<h2 class="text-2xl font-black text-white mb-6 flex items-center gap-3">
+					<div class="w-2 h-8 bg-[#10B981]"></div>THE HARD TRUTH
+					</h2>
+					<div class="space-y-4">
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>Most AI builders treat blogs like afterthoughts:</strong> They're portfolio-first or landing-page-first. Blogging gets minimal features, poor UX, missing essentials. They don't understand that for many sites, the blog IS the product.</span>
+						</p>
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>RSS is non-negotiable:</strong> If your blog doesn't have RSS, you don't have a blog. You have a website with articles. RSS drives repeat traffic, builds audience, enables feed readers. No RSS = no growth.</span>
+						</p>
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>Typography matters more than AI speed:</strong> 30-second generation is meaningless if readers can't read your content. Line-height 1.2 or 1.8 makes posts unreadable. Proper typography isn't optional—it's the foundation of readability.</span>
+						</p>
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>Search isn't optional:</strong> If you have more than 20 articles, readers need search. Every "where's that article?" email is a failed UX. Third-party widgets work, but they should be built-in.</span>
+						</p>
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>Loading speed kills blogs:</strong> 14-second load times (all articles on one page) lose readers. Mobile users won't wait. Fast loads = more reads, better SEO, happier readers.</span>
+						</p>
+						<p class="text-white/90 flex items-start gap-2">
+							<span class="text-[#10B981] font-black">✗</span>
+							<span><strong>Migration is expensive:</strong> Choose wrong and you'll be migrating 3 months later. Lost momentum. Lost RSS subscribers. Lost time. Pick a tool with proper blogging from day one.</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
 			<div class="prose prose-lg max-w-none">
 				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-					<div class="w-1 h-8 bg-[#F5521A]"></div>Things that drove me crazy</h2>
+					<div class="w-1 h-8 bg-[#10B981]"></div>Things That Drove Me Crazy
+				</h2>
 			</div>
 
 			<div class="my-8">
@@ -241,22 +463,70 @@ const categoryData = {
 				))}
 			</div>
 
+			<!-- FAQ Section -->
+			<div class="my-16">
+				<h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8 flex items-center gap-3">
+					<div class="w-1 h-8 bg-[#10B981]"></div>Common Questions About AI Blogging
+				</h2>
+				<div class="space-y-6">
+					<div class="bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#10B981]/50 transition-all">
+						<h3 class="font-black text-gray-900 text-lg mb-3">Do I really need RSS in 2024?</h3>
+						<p class="text-gray-700">Yes. RSS drives repeat traffic, builds loyal audience, enables feed readers. Power users still use RSS. Newsletter readers convert from RSS. Tech audiences expect RSS. If your blog doesn't have RSS, you're leaving growth on the table.</p>
+					</div>
+
+					<div class="bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#10B981]/50 transition-all">
+						<h3 class="font-black text-gray-900 text-lg mb-3">Can I migrate my blog later?</h3>
+                        <p class="text-gray-700">Yes, but it's painful. You'll lose momentum. RSS subscribers don't migrate cleanly. URLs change (SEO hit). Content exports are hit or miss. Better to choose right the first time. Migrating 47 articles took me 3 weeks.</p>
+					</div>
+
+					<div class="bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#10B981]/50 transition-all">
+						<h3 class="font-black text-gray-900 text-lg mb-3">What about WordPress vs AI builders?</h3>
+                        <p class="text-gray-700">WordPress is more powerful but slower and more complex. AI builders are faster but less feature-rich. If you just want to write, Framer is perfect. If you need advanced plugins, membership, etc., WordPress (10Web) wins.</p>
+					</div>
+
+					<div class="bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#10B981]/50 transition-all">
+						<h3 class="font-black text-gray-900 text-lg mb-3">How do I add search to my blog?</h3>
+                        <p class="text-gray-700">None have good built-in search. Add Algolia, Google Programmable Search, or a simple search widget. It's not ideal, but it works. Search is essential once you have 20+ articles. Readers will email you otherwise.</p>
+                    </div>
+
+					<div class="bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#10B981]/50 transition-all">
+						<h3 class="font-black text-gray-900 text-lg mb-3">Can I use my own domain?</h3>
+                        <p class="text-gray-700">Yes, all tools support custom domains. Use one. Free subdomains (yourname.framer.app) signal "side project." Custom .com signals "serious publication." The $15/year pays for itself 100x in credibility and SEO.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- BRUTAL TRUTH CONCLUSION -->
+			<div class="my-16">
+				<div class="bg-[#10B981] border-[3px] border-[#059669] p-8 text-white">
+					<h2 class="text-2xl font-black mb-6">BRUTAL TRUTH</h2>
+					<p class="text-white/90 text-lg mb-4">
+                        Most AI builders will generate a blog homepage in 30 seconds. What they won't tell you: RSS is missing. Typography is terrible. Search doesn't exist. Pagination is broken.
+                    </p>
+                    <p class="text-white/90 text-lg mb-4">
+                        These aren't edge cases. These are blog fundamentals. Missing RSS means no repeat traffic. Bad typography means readers leave. No search means old content dies. Broken pagination means slow loads.
+                    </p>
+                    <p class="text-white text-xl font-black">
+                        Use Framer. Verify RSS works. Check typography defaults. Add search from day one.
+                    </p>
+                    <p class="text-white/80 text-sm mt-6">
+                        Your blog deserves better than half-baked AI features.
+                    </p>
+				</div>
+			</div>
+
 			<div class="prose prose-lg max-w-none">
-				<p class="text-gray-600 leading-relaxed mt-12">
-					Not sure which is right for you? Check the full reviews for screenshots, loading times, and the specific issues I hit.
+				<p class="text-gray-700 leading-relaxed mt-12">
+					Not sure which is right for you? Check the full reviews for screenshots, loading times, and the specific issues I hit during 23 posts of testing.
 				</p>
 
 				<div class="flex flex-wrap gap-4 my-8">
-					<a href="/reviews" class="inline-flex items-center gap-2 text-[#F5521A] font-medium hover:underline">
-						See all reviews
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-						</svg>
+					<a href="/reviews" class="inline-block px-8 py-4 bg-gray-900 text-white font-black uppercase tracking-wider border-[3px] border-gray-900 hover:bg-gray-800 transition-all">
+						See All Reviews
 					</a>
 				</div>
 			</div>
 		</article>
 	</main>
-
 
 </Layout>

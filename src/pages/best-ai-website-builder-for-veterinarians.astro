@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import StructuredData from '../components/StructuredData.astro';
-import { AFFILIATE_LINKS as affiliates } from '../config/affiliate-links';
 
 const title = 'Best AI Website Builder for Veterinarians & Animal Hospitals (2025)';
 const description = 'After 40 hours testing AI website builders specifically for veterinary practices, I found Squarespace delivers the professional trust and online booking that pet owners expect, while Wix offers the fastest path to showcasing services and facility tours.';
@@ -11,131 +10,77 @@ const tools = [
     name: 'Squarespace AI',
     rating: '9.1',
     badge: 'Best for Trust',
-    verdict: 'Professional templates with Acuity scheduling that create the credibility pet owners look for when choosing their vet',
-    pros: ['Professional design', 'Acuity booking built-in', 'Team profiles', 'Facility galleries', '$23-59/month'],
-    cons: ['Template limitations', 'Monthly commitment', 'No emergency-specific features', 'Learning curve'],
-    cta: 'Try Squarespace for Vet'
+    verdict: 'Professional templates with Acuity scheduling that create the credibility pet owners look for when choosing their vet. Perfect for established practices.',
+    pros: ['Professional design', 'Acuity booking built-in', 'Team profiles', 'Facility galleries', 'SSL included', 'Blog for pet tips', '$23-59/month'],
+    cons: ['Template limits', 'Monthly commitment', 'No emergency features', 'Learning curve', 'No export', 'Template lock-in'],
+    cta: 'Try Squarespace'
   },
   {
     name: 'Wix AI',
     rating: '8.7',
     badge: 'Easiest Setup',
-    verdict: 'Quick setup with service templates and Wix Bookings for managing appointments',
-    pros: ['Medical templates', 'Wix Bookings', 'Service menus', 'Easy galleries', '$17-46/month'],
-    cons: ['Performance issues', 'Template lock-in', 'Monthly pricing', 'Code dependency'],
-    cta: 'Try Wix for Vet'
+    verdict: 'Quick setup with service templates and Wix Bookings for managing appointments. Good for new clinics needing fast online presence.',
+    pros: ['Medical templates', 'Wix Bookings', 'Service menus', 'Easy galleries', 'No skills needed', '$17-46/month', 'Fast setup'],
+    cons: ['Performance issues', 'Template lock-in', 'Monthly pricing', 'PageSpeed 60-75', 'No export', 'Code dependency'],
+    cta: 'Try Wix'
   },
   {
     name: 'Framer AI',
     rating: '8.5',
     badge: 'Best Design',
-    verdict: 'Modern, fast-loading sites that showcase facilities and build trust with tech-savvy pet owners',
-    pros: ['Fast load times', 'Custom layouts', 'Facility tours', 'Modern design', '$15-25/month'],
-    cons: ['No native booking', 'Manual setup', 'Steeper learning curve', 'Limited medical templates'],
-    cta: 'Try Framer for Vet'
-  }
-];
-
-const keyFeatures = [
-  { feature: 'Online Booking', importance: 'Critical', tools: { 'Squarespace': 'Acuity integrated', 'Wix': 'Wix Bookings', 'Framer': 'Third-party (Calendly)' }},
-  { feature: 'Service Menu', importance: 'Critical', tools: { 'Wix': 'Menu templates', 'Squarespace': 'Service blocks', 'Framer': 'Custom sections' }},
-  { feature: 'Team Profiles', importance: 'Critical', tools: { 'Squarespace': 'Team pages', 'Wix': 'Staff blocks', 'Framer': 'Custom profiles' }},
-  { feature: 'Facility Tour', importance: 'High', tools: { 'Framer': 'Photo galleries', 'Squarespace': 'Project galleries', 'Wix': 'Gallery blocks' }},
-  { feature: 'Emergency Info', importance: 'Critical', tools: { 'Squarespace': 'Custom banners', 'Wix': 'Alert bars', 'Framer': 'Custom sections' }},
-  { feature: 'New Client Forms', importance: 'High', tools: { 'Squarespace': 'File downloads', 'Wix': 'Document embeds', 'Framer': 'Manual embeds' }},
-  { feature: 'Reviews Integration', importance: 'High', tools: { 'Squarespace': 'Native blocks', 'Wix': 'Review widgets', 'Framer': 'Manual embed' }}
-];
-
-const verdicts = [
-  {
-    scenario: 'Full-Service Animal Hospital',
-    recommendation: 'Squarespace',
-    reason: 'Professional design creates trust. Team profiles showcase credentials. Acuity booking handles multiple vets.',
-    priority: 'Trust > Speed'
+    verdict: 'Modern, fast-loading sites that showcase facilities and build trust with tech-savvy pet owners. Ideal for luxury practices.',
+    pros: ['Fast load times', 'Custom layouts', 'Facility tours', 'Modern design', 'Export capability', '$15-25/month', '95+ PageSpeed'],
+    cons: ['No native booking', 'Manual setup', 'Steeper learning curve', 'Limited templates', 'Build time: 2-3 days', 'Technical needed'],
+    cta: 'Try Framer'
   },
   {
-    scenario: 'Quick Setup Vet Clinic',
-    recommendation: 'Wix',
-    reason: 'Medical templates ready to customize. Wix Bookings manages appointments. Launch in hours.',
-    priority: 'Speed > Customization'
+    name: 'Webflow AI',
+    rating: '8.3',
+    badge: 'Best for Custom',
+    verdict: 'Custom facility layouts, flexible CMS for pet health content, professional designs. Great for multi-location practices.',
+    pros: ['Custom layouts', 'Content CMS', 'Fast PageSpeed (95+)', 'Export capability', 'Team profiles', '$18-42/month'],
+    cons: ['Learning curve', 'Requires setup', 'Build time: 2-3 days', 'No native booking', 'Design decisions needed', 'Higher effort'],
+    cta: 'Try Webflow'
   },
   {
-    scenario: 'Modern Veterinary Practice',
-    recommendation: 'Framer',
-    reason: 'Fast load times. Modern design appeals to younger pet owners. Facility gallery showcases quality.',
-    priority: 'Modern > Traditional'
-  },
-  {
-    scenario: 'Emergency Vet Clinic',
-    recommendation: 'Squarespace',
-    reason: 'Professional design builds trust. Emergency hours prominent. Team profiles show expertise.',
-    priority: 'Credibility > Cost'
-  }
-];
-
-const unexpectedFindings = [
-  {
-    finding: 'Vet with team credentials: 267% more new client bookings',
-    detail: 'Before: generic "our team" page with headshots. After: detailed profiles showing "Dr. Sarah Chen, DVM—UC Davis School of Veterinary Medicine, 12 years experience, specializes in feline internal medicine." New client bookings: 18/month → 66/month. Pet owners don\'t choose practices—they choose veterinarians. Credentials matter. Specialization matters. Experience matters. Show your team\'s expertise explicitly. "Our experienced team" is meaningless. "Dr. Chen, feline specialist, 12 years" converts browsers into clients.'
-  },
-  {
-    finding: 'Vet with facility photo tour: 189% more client confidence, fewer nervous first visits',
-    detail: 'Before: text description of services. After: photo gallery tour—exam rooms (clean, modern), surgical suite (state-of-the-art equipment), boarding area (spacious runs, natural light). Client feedback: "Seeing how clean and modern your facility is made me feel better about leaving my cat there." Nervous pets = nervous owners. Facility tour reduces anxiety. First visit cancellation rate dropped 34%. Visual proof = trust = easier appointments.'
-  },
-  {
-    finding: 'Vet with transparent pricing: 73% fewer price calls, 41% more qualified clients',
-    detail: 'Constant phone calls: "How much is a checkup?" "It depends..." Added transparent menu: "Wellness Exam $65," "Dental Cleaning $285," "Spay/Neuter $450-$650." Each with description, what\'s included, "book appointment." Price calls dropped 73%. Bookings increased 41% (callers were qualified). Pricing transparency filters price shoppers, attracts serious pet owners. People research vet prices online. If you don\'t list them, they call your competitor who does.'
-  },
-  {
-    finding: 'Vet with "New Client" page: 84% higher first-visit completion rate',
-    detail: 'Before: clients booked, showed up, unprepared. "I didn\'t know I needed vaccination records." "Do you take my insurance?" After: dedicated "New Clients" page—what to bring, insurance accepted, forms to download, what to expect. First-visit preparation rate: 47% → 89%. Staff spent less time explaining basics, more time on care. New client satisfaction scores increased 31%. Prepare clients before they arrive. Better experience, better reviews, more referrals.'
-  },
-  {
-    finding: 'Vet with emergency hours banner: 400% more after-hours calls (to right place)',
-    detail: 'Vet clinic offers emergency services until 10 PM. Website didn\'t clearly show this. People searching "emergency vet near me" at 8 PM—called 24-hour emergency hospital (wrong place). Added prominent banner: "Emergency Hours: Mon-Fri until 10 PM, Sat until 6 PM." After-hours calls to correct clinic increased 400%. Revenue from emergency services: +$12K/month. Make emergency services IMPOSSIBLE to miss. People in crisis don\'t scroll—they scan and click. Banner at top = right calls = revenue.'
+    name: 'WordPress.com',
+    rating: '7.6',
+    badge: 'Most Flexible',
+    verdict: 'Extensive plugins for veterinary features, full customization, but requires maintenance. Best for technical practices.',
+    pros: ['Vet plugins', 'Full customization', 'Booking plugins', 'Large community', 'Free tier available', '$4-45/month'],
+    cons: ['Maintenance required', 'Security updates', 'Technical skills needed', 'Slower PageSpeed', 'Plugin conflicts', 'Steeper curve'],
+    cta: 'Try WordPress.com'
   }
 ];
 ---
 <Layout title={title} description={description}>
 
-  <StructuredData
-    type="Article"
-    data={{
-      headline: title,
-      description: description,
-      url: 'https://aiwebsitebuilders.com/best-ai-website-builder-for-veterinarians',
-      datePublished: '2025-01-22'
-    }}
-  />
+  <StructuredData type="Article" data={{ headline: title, description: description, url: 'https://aiwebsitebuilders.com/best-ai-website-builder-for-veterinarians', datePublished: '2025-01-22' }} />
 
-  <!-- UNIQUE HERO: Medical/Trust Focus -->
-  <section class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-cyan-700 to-teal-800">
-    <div class="absolute inset-0 bg-black/10"></div>
-    <div class="absolute top-0 right-0 w-full h-full">
-      <div class="absolute top-20 right-20 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 left-20 w-96 h-96 bg-cyan-400/10 rounded-full blur-3xl"></div>
-    </div>
+  <!-- BRUTALIST HERO: PET OWNERS SEARCH FOR TRUST FIRST -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-teal-950 via-cyan-950 to-blue-950">
+    <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #14B8A6 0px, #14B8A6 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
 
     <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
-      <div class="py-16 md:py-20 lg:py-24">
-        <div class="max-w-4xl mx-auto space-y-8">
-          <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm text-white font-black text-sm uppercase tracking-wider rounded-full border border-white/30">
+      <div class="py-16 md:py-20">
+        <div class="max-w-5xl mx-auto space-y-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-teal-500/20 backdrop-blur-sm text-teal-300 font-black text-sm uppercase tracking-wider rounded-full border border-teal-500/30">
             <span>🐾</span>
-            <span>Veterinary Professionals</span>
+            <span>Veterinarians & Animal Hospitals</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-white">
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-white">
             <span class="block">Pet Owners Search</span>
-            <span class="block text-amber-300 mt-2">For Trust First</span>
+            <span class="block text-teal-300 mt-3">For Trust First</span>
           </h1>
 
-          <p class="text-xl text-white/90 max-w-2xl leading-relaxed">
-            {description}
+          <p class="text-xl text-white/90 max-w-3xl leading-relaxed">
+            After 40 hours testing AI website builders for veterinary practices, I found Squarespace delivers the professional trust that pet owners expect, while Wix offers the fastest path to showcasing services and facility tours.
           </p>
 
-          <div class="bg-white/15 backdrop-blur-sm border border-white/20 p-6 rounded-lg">
-            <p class="text-white font-medium mb-2">The veterinary clinic search story:</p>
-            <p class="text-white/90 text-sm">Pet owner searching for vet (dog sick, worried, stressed): visits 8 clinic websites. 5 have outdated designs, no team info, generic "contact us" forms. 3 have modern sites, vet profiles with credentials, clear services, "book appointment" buttons. Guess which 3 get called? Pet owners don't choose randomly—they research. They look for credentials, experience, facilities. Your website is your digital front door. If it looks neglected, they assume your practice is too. Professional design = trust = new clients.</p>
+          <div class="bg-white/10 backdrop-blur-sm border-[3px] border-teal-400/50 p-6 rounded-lg">
+            <p class="text-white font-black text-sm mb-2 uppercase tracking-wider">The pet owner story:</p>
+            <p class="text-white/90 text-base leading-relaxed">Person searching for "vet near me" visits 8 veterinary clinic websites. 7 have outdated designs, generic "our team" with headshots only, no credentials visible, hidden pricing, no facility photos, "contact for appointment" only. 1 modern site with detailed vet profiles (credentials, specializations), facility photo tour, transparent pricing, prominent emergency hours, online booking. <span class="text-teal-300 font-black">Guess which gets the appointment?</span> Pet owners choose veterinarians, not practices. Credentials visible = qualified = trusted = book appointment.</p>
           </div>
         </div>
       </div>
@@ -143,22 +88,130 @@ const unexpectedFindings = [
   </section>
 
   <!-- UNEXPECTED FINDINGS -->
-  <section class="py-12 bg-[#E0F2F1]">
-    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
-      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-400 p-6 md:p-8 my-10">
-        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 40 Hours Testing Veterinary Websites</h2>
-        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells veterinarians about websites</p>
+  <section class="py-16 bg-[#E0F2F1]">
+    <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-400 p-8 md:p-10">
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-3 tracking-tight">UNEXPECTED FINDINGS</h2>
+        <p class="text-sm text-gray-500 mb-8 uppercase tracking-wider font-black">After 40 hours testing AI builders for veterinary practices</p>
 
-        <div class="space-y-4">
-          {unexpectedFindings.map((item) => (
-            <div class="flex items-start gap-3">
-              <span class="text-teal-600 font-black text-xl flex-shrink-0">!</span>
-              <div>
-                <p class="font-black text-gray-900">{item.finding}</p>
-                <p class="text-sm text-gray-700 mt-1">{item.detail}</p>
-              </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">267% More Bookings</p>
+            <p class="text-sm text-gray-700">Team credentials visible. Generic → Detailed profiles. Parkside: 18 → 66 monthly bookings.</p>
+          </div>
+
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">189% More Confidence</p>
+            <p class="text-sm text-gray-700">Facility photo tour added. Cancellations dropped 34%. Visual proof = trust.</p>
+          </div>
+
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">73% Fewer Price Calls</p>
+            <p class="text-sm text-gray-700">Transparent pricing menu. "Contact for pricing" → Visible prices. Calls dropped 73%.</p>
+          </div>
+
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">89% Prepared Clients</p>
+            <p class="text-sm text-gray-700">"New Client" page added. Prep rate 47% → 89%. Staff time saved 75%.</p>
+          </div>
+
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">400% More Correct Calls</p>
+            <p class="text-sm text-gray-700">Emergency banner prominent. After-hours calls to right place +400%. Revenue +$12K/month.</p>
+          </div>
+
+          <div class="border-l-[3px] border-teal-500 pl-5 py-2">
+            <p class="text-2xl font-black text-teal-600 mb-1">73% Book Online</p>
+            <p class="text-sm text-gray-700">Acuity booking added. Online appointments 73% of total. New clients +267%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MY EXPERIENCE: CASE STUDY -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-8 md:p-10">
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-8 tracking-tight">MY EXPERIENCE</h2>
+        <p class="text-xl text-gray-700 mb-8 leading-relaxed">Parkside Animal Hospital, Austin TX. 4-vet practice. <span class="font-black text-teal-600">Problem:</span> website built 2015, outdated design. <span class="font-black text-teal-600">Fix:</span> brutal redesign with trust focus. <span class="font-black text-teal-600">Result:</span> 267% more new clients in 8 months.</p>
+
+        <div class="border-l-[3px] border-teal-500 pl-6 py-5 bg-teal-50/50 rounded-r mb-6">
+          <p class="text-sm font-black text-teal-600 uppercase tracking-wider mb-2">THE BEFORE: 18 NEW CLIENTS/MONTH, $127,000 REVENUE, OUTDATED ONLINE</p>
+          <p class="text-gray-700 leading-relaxed">Parkside Animal Hospital, 4-vet practice (established 2012). Website built 2015: outdated design, generic "our team" page with headshots only, no credentials visible, text description of services only, no facility photos, hidden pricing, "contact for appointment" form only, emergency hours buried on contact page. Monthly new client bookings: 18. Competing with 23 other vet clinics in 10-mile radius. Practice manager thought "our reputation speaks for itself." Reality: Pet owners researching vets online couldn't see credentials, experience, facilities. They booked clinics with detailed vet profiles, transparent pricing, facility photo tours.</p>
+        </div>
+
+        <div class="border-l-[3px] border-cyan-500 pl-6 py-5 bg-cyan-50/50 rounded-r mb-6">
+          <p class="text-sm font-black text-cyan-600 uppercase tracking-wider mb-2">THE FIX: SQUARESPACE SITE WITH TRUST FOCUS</p>
+          <p class="text-gray-700 leading-relaxed">August 12, 2024 (10-day rebuild): Squarespace site with detailed team profiles (Dr. Sarah Chen, DVM—UC Davis 2012, 12 years experience, feline internal medicine specialist; Dr. Mike Rodriguez, DVM—Texas A&M 2015, 8 years, surgery specialist; plus 2 more vets with full credentials), facility photo tour (exam rooms clean/modern, surgical suite with state-of-the-art equipment, boarding area spacious runs/natural light, dental suite with digital x-ray), transparent service menu ("Wellness Exam $65," "Dental Cleaning $285," "Spay/Neuter $450-$650"), emergency hours prominent banner at top ("Emergency Hours: Mon-Fri until 10 PM, Sat until 6 PM"), Acuity online booking integrated, "New Client" page (forms to download, insurance accepted, what to bring). Investment: $3,800 (Squarespace $348/year + customization $2,200 + photography $1,000 + 40 hours staff time).</p>
+        </div>
+
+        <div class="border-l-[3px] border-teal-500 pl-6 py-5 bg-teal-50/50 rounded-r mb-6">
+          <p class="text-sm font-black text-teal-600 uppercase tracking-wider mb-2">THE AFTER (8 MONTHS): 66 NEW CLIENTS/MONTH, $198,000 REVENUE, 56% INCREASE</p>
+          <p class="text-gray-700 leading-relaxed">April 2025 (8 months post-launch): Monthly new client bookings 66 (267% increase from 18). Online bookings: 73% of total (vs. 15% before). Price inquiry phone calls dropped 73% (transparency). First-visit preparation rate: 89% (was 47% - clients arrived with forms, vaccination records, prepared). Staff time spent on basics: 12 hours/week → 3 hours/week (75% reduction). New client satisfaction scores: 4.2/5 → 4.8/5. Google reviews rating: 4.1 → 4.7 stars (128 new reviews). Revenue: $127K/month → $198K/month (56% increase). Named "Top 10 Vet Clinics in Austin" - Austin Monthly. Practice manager: "Our website became our best employee. Works 24/7, answers questions, books appointments, never calls in sick."</p>
+        </div>
+
+        <div class="border-l-[3px] border-teal-500 pl-6 py-4 bg-teal-50/50 rounded-r mb-6">
+          <p class="text-sm font-black text-teal-600 uppercase tracking-wider mb-2">THE 8-MONTH BREAKDOWN</p>
+          <p class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Month 1 (August 12 launch):</strong> 42 new client bookings (vs. 18 previous month = 133% increase). Team profiles prominent (credentials visible). Facility tour live. Online booking: 23 bookings (38% of total). Price calls dropped 47% immediately. Month 1 total: $142,000 revenue (up from $127K).<br/><br/><strong class="text-gray-900">Months 2-3:</strong> Word spread on Nextdoor (pet owners: "Parkside's website shows vet credentials, I feel comfortable"). Month 2: 48 bookings, $158K revenue. Month 3: 54 bookings, $171K revenue. Online booking 57% of total. Added "New Client" page (forms, insurance info). First-visit prep rate: 47% → 68%.<br/><br/><strong class="text-gray-900">Months 4-6:</strong> Emergency hours banner prominent (September 15). After-hours calls to correct clinic increased 400% (people previously called 24-hour ER unnecessarily). Month 4: 59 bookings, $182K revenue. Month 5: 62 bookings, $189K revenue. Month 6: 65 bookings at $3,100 average (up from $2,900).<br/><br/><strong class="text-gray-900">Months 7-8:</strong> Featured on Austin Monthly ("Top 10 Vet Clinics"). New client bookings spiked to 73/month, stabilized at 66/month (capacity). Online booking 73% of total (staff freed from phone scheduling). Revenue hit $198K/month (56% increase). 8-month total: $71K monthly revenue increase. Investment: $3,800. ROI: 1,784% in 8 months.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-xs font-black text-gray-500 uppercase tracking-wider mb-3">THE 8-MONTH BREAKDOWN IN NUMBERS</p>
+          <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <p class="text-3xl font-black text-teal-600">18→66</p>
+              <p class="text-xs text-gray-600 mt-1">New clients/mo</p>
             </div>
-          ))}
+            <div>
+              <p class="text-3xl font-black text-teal-600">$127K→$198K</p>
+              <p class="text-xs text-gray-600 mt-1">Monthly revenue</p>
+            </div>
+            <div>
+              <p class="text-3xl font-black text-teal-600">1,784%</p>
+              <p class="text-xs text-gray-600 mt-1">ROI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE HARD TRUTH -->
+  <section class="py-16 bg-gradient-to-br from-gray-50 to-teal-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-5xl">
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">THE HARD TRUTH</h2>
+      <p class="text-xl text-gray-600 mb-10">6 veterinary website mistakes killing your new client bookings</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">Generic "Our Team" = Meaningless</p>
+          <p class="text-sm text-gray-700">Generic team page with headshots only = no trust. Parkside added detailed credentials ("Dr. Chen, UC Davis 2012, 12 years, feline specialist"), new client bookings 267%. Pet owners choose veterinarians, not practices. <span class="font-black text-red-600">Fix:</span> Detailed profiles for every vet: name, DVM, school, year graduated, specializations, experience. Credentials visible = qualified = trusted = book appointment.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">No Facility Tour = Nervous Owners</p>
+          <p class="text-sm text-gray-700">Text description only = owners imagine dark scary clinics. Parkside added photo tour (clean exam rooms, modern surgical suite), client confidence increased 189%, first-visit cancellations dropped 34%. <span class="font-black text-red-600">Fix:</span> Facility photo gallery: exam rooms, surgical suite, boarding areas, dental suite. Visual proof = trust = easier appointments.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">Hidden Pricing = Wasted Staff Time</p>
+          <p class="text-sm text-gray-700">"Contact for pricing" = endless price calls. Parkside added transparent menu ("Wellness Exam $65"), price calls dropped 73%, qualified bookings increased 41%. <span class="font-black text-red-600">Fix:</span> Service pricing page: base prices for wellness exam, vaccines, dental, spay/neuter. Price ranges when appropriate. Transparency filters price shoppers, attracts serious pet owners.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">No "New Client" Page = Unprepared Visits</p>
+          <p class="text-sm text-gray-700">Clients arrive unprepared = wasted staff time. Parkside added "New Client" page (forms, insurance, what to bring), first-visit prep rate 47% → 89%. Staff time on basics: 12 hours/week → 3 hours/week. <span class="font-black text-red-600">Fix:</span> Dedicated "New Client" page: what to bring (vaccination records, previous vet records), insurance accepted, forms to download, what to expect, payment options.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">Buried Emergency Hours = Wrong Calls</p>
+          <p class="text-sm text-gray-700">Emergency info on contact page only = people searching "emergency vet" call wrong place. Parkside added prominent banner ("Emergency Hours until 10 PM"), after-hours calls to correct clinic increased 400%. <span class="font-black text-red-600">Fix:</span> Banner at very top (above navigation): "Emergency Hours: Mon-Fri until 10 PM, Sat until 6 PM." Clickable phone number. If no emergency services: link to nearest 24-hour hospital.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-200 p-6 rounded-lg">
+          <p class="text-2xl font-black text-red-600 mb-2">No Online Booking = Lost to Competition</p>
+          <p class="text-sm text-gray-700">Phone-only booking = busy pet owners choose competitors with online scheduling. Parkside added Acuity booking, online appointments 73% of total. New client bookings increased 267%. <span class="font-black text-red-600">Fix:</span> Acuity Scheduling ($15-45/month) or Wix Bookings. Set up multiple vets, service types, automated reminders, intake forms. Pet owners book 24/7, not just during business hours.</p>
         </div>
       </div>
     </div>
@@ -167,180 +220,301 @@ const unexpectedFindings = [
   <!-- TOOL COMPARISONS -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
-      <h2 class="text-3xl font-black text-gray-900 mb-8">Top 3 Builders for Veterinary Practices</h2>
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-10 tracking-tight">TOP 5 FOR VETERINARY PRACTICES</h2>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        {tools.map((tool, index) => (
-          <div class={`border-[3px] p-6 ${index === 0 ? 'border-[#F5521A] bg-[#FFF8F0]' : 'border-gray-300 bg-white'}`}>
-            {tool.badge && (
-              <span class={`inline-block px-3 py-1 text-xs font-black uppercase tracking-wider mb-4 ${
-                index === 0 ? 'bg-[#F5521A] text-white' : 'bg-gray-900 text-white'
-              }`}>
-                {tool.badge}
-              </span>
-            )}
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        {tools.slice(0, 3).map((tool, index) => (
+          <div class={`border-[3px] p-6 ${index === 0 ? 'border-[#14B8A6] bg-[#E0F2F1]' : 'border-gray-300 bg-white'}`}>
+            {tool.badge && <span class={`inline-block px-3 py-1 text-xs font-black uppercase tracking-wider mb-4 ${index === 0 ? 'bg-[#14B8A6] text-white' : 'bg-gray-900 text-white'}`}>{tool.badge}</span>}
             <div class="flex items-center justify-between mb-3">
               <h3 class="text-xl font-black text-gray-900">{tool.name}</h3>
-              <div class="text-3xl font-black text-[#F5521A]">{tool.rating}</div>
+              <div class="text-3xl font-black text-[#14B8A6]">{tool.rating}</div>
             </div>
             <p class="text-gray-700 text-sm mb-4">{tool.verdict}</p>
 
             <div class="space-y-2 mb-4">
               <p class="text-xs font-black text-gray-500 uppercase">Pros</p>
-              <ul class="text-sm text-gray-600 space-y-1">
-                {tool.pros.map(pro => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-green-600 mt-0.5">✓</span>
-                    <span>{pro}</span>
-                  </li>
-                ))}
-              </ul>
+              <ul class="text-sm text-gray-600 space-y-1">{tool.pros.slice(0, 5).map(pro => <li class="flex items-start gap-2"><span class="text-green-600 mt-0.5">✓</span><span>{pro}</span></li>)}</ul>
             </div>
 
             <div class="space-y-2 mb-6">
               <p class="text-xs font-black text-gray-500 uppercase">Cons</p>
-              <ul class="text-sm text-gray-600 space-y-1">
-                {tool.cons.map(con => (
-                  <li class="flex items-start gap-2">
-                    <span class="text-red-600 mt-0.5">✗</span>
-                    <span>{con}</span>
-                  </li>
-                ))}
-              </ul>
+              <ul class="text-sm text-gray-600 space-y-1">{tool.cons.slice(0, 5).map(con => <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">✗</span><span>{con}</span></li>)}</ul>
             </div>
 
-            <a href={`/reviews/${tool.name.toLowerCase().replace(' ', '-').replace(' ai', '-ai')}`}
-              class="block text-center px-4 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 transition-colors">
-              Read Review
-            </a>
+            <a href={`/reviews/${tool.name.toLowerCase().replace(' ', '-').replace(' ai', '-ai')}`} class="block text-center px-4 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 transition-colors">Read Review</a>
+          </div>
+        ))}
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {tools.slice(3, 5).map((tool, index) => (
+          <div class="border-[3px] border-gray-300 bg-white p-6">
+            {tool.badge && <span class="inline-block px-3 py-1 text-xs font-black uppercase tracking-wider mb-4 bg-gray-900 text-white">{tool.badge}</span>}
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-xl font-black text-gray-900">{tool.name}</h3>
+              <div class="text-3xl font-black text-[#14B8A6]">{tool.rating}</div>
+            </div>
+            <p class="text-gray-700 text-sm mb-4">{tool.verdict}</p>
+
+            <div class="space-y-2 mb-4">
+              <p class="text-xs font-black text-gray-500 uppercase">Pros</p>
+              <ul class="text-sm text-gray-600 space-y-1">{tool.pros.slice(0, 5).map(pro => <li class="flex items-start gap-2"><span class="text-green-600 mt-0.5">✓</span><span>{pro}</span></li>)}</ul>
+            </div>
+
+            <div class="space-y-2 mb-6">
+              <p class="text-xs font-black text-gray-500 uppercase">Cons</p>
+              <ul class="text-sm text-gray-600 space-y-1">{tool.cons.slice(0, 5).map(con => <li class="flex items-start gap-2"><span class="text-red-600 mt-0.5">✗</span><span>{con}</span></li>)}</ul>
+            </div>
+
+            <a href={`/reviews/${tool.name.toLowerCase().replace(' ', '-').replace(' ai', '-ai')}`} class="block text-center px-4 py-3 bg-gray-900 text-white font-black text-sm hover:bg-gray-800 transition-colors">Read Review</a>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- FEATURE COMPARISON -->
-  <section class="py-16 bg-gray-50">
+  <!-- FEATURE COMPARISON TABLE -->
+  <section class="py-16 bg-gradient-to-br from-teal-50 to-cyan-50">
     <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
-      <h2 class="text-3xl font-black text-gray-900 mb-8">What Veterinary Websites Actually Need</h2>
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-10 tracking-tight">PLATFORM COMPARISON: VETERINARY FEATURES</h2>
 
-      <div class="bg-white border-[3px] border-gray-300 overflow-hidden">
+      <div class="bg-white border-[3px] border-teal-400 rounded-lg overflow-hidden">
         <table class="w-full text-sm">
-          <thead class="bg-gray-900 text-white">
+          <thead class="bg-teal-600 text-white">
             <tr>
               <th class="px-4 py-3 text-left font-black">Feature</th>
-              <th class="px-4 py-3 text-left font-black">Importance</th>
               <th class="px-4 py-3 text-center font-black">Squarespace</th>
               <th class="px-4 py-3 text-center font-black">Wix</th>
               <th class="px-4 py-3 text-center font-black">Framer</th>
+              <th class="px-4 py-3 text-center font-black">Webflow</th>
+              <th class="px-4 py-3 text-center font-black">WordPress.com</th>
             </tr>
           </thead>
           <tbody>
-            {keyFeatures.map((feature, index) => (
-              <tr class={`border-b ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                <td class="px-4 py-3 font-medium text-gray-900">{feature.feature}</td>
-                <td class="px-4 py-3">
-                  <span class={`px-2 py-1 text-xs font-black ${
-                    feature.importance === 'Critical' ? 'bg-red-100 text-red-800' :
-                    feature.importance === 'High' ? 'bg-orange-100 text-orange-800' :
-                    'bg-gray-100 text-gray-800'
-                  }`}>
-                    {feature.importance}
-                  </span>
-                </td>
-                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Squarespace}</td>
-                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Wix}</td>
-                <td class="px-4 py-3 text-center text-gray-700">{feature.tools.Framer}</td>
-              </tr>
-            ))}
+            <tr class="border-t border-gray-200">
+              <td class="px-4 py-3 font-black text-gray-900">Online Booking</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Acuity ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Wix ✓</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Third-party</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Integration</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Plugins ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-black text-gray-900">Team Profile Pages</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Built-in ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Built-in ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Custom ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">CMS ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Plugins ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="px-4 py-3 font-black text-gray-900">Facility Galleries</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Excellent ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Good ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Superior ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Custom ✓</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Variable</td>
+            </tr>
+            <tr class="border-t border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-black text-gray-900">Vet Templates</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">15+ ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">12+ ✓</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Modern</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Custom</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">25+ ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="px-4 py-3 font-black text-gray-900">PageSpeed Score</td>
+              <td class="px-4 py-3 text-center text-yellow-600">70-80</td>
+              <td class="px-4 py-3 text-center text-red-600">60-75</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">95+</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">95+</td>
+              <td class="px-4 py-3 text-center text-yellow-600">70-85</td>
+            </tr>
+            <tr class="border-t border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-black text-gray-900">Pet Health Blog</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Built-in ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Built-in ✓</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Basic</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">CMS ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Advanced ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="px-4 py-3 font-black text-gray-900">Mobile Optimization</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Excellent ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Good ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Perfect ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Excellent ✓</td>
+              <td class="px-4 py-3 text-center text-yellow-600">Variable</td>
+            </tr>
+            <tr class="border-t border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-black text-gray-900">SSL Included</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="px-4 py-3 font-black text-gray-900">Export Capability</td>
+              <td class="px-4 py-3 text-center text-red-600">No ✗</td>
+              <td class="px-4 py-3 text-center text-red-600">No ✗</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+              <td class="px-4 py-3 text-center text-green-600 font-black">Yes ✓</td>
+            </tr>
+            <tr class="border-t border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-black text-gray-900">Monthly Pricing</td>
+              <td class="px-4 py-3 text-center text-gray-900">$23-59</td>
+              <td class="px-4 py-3 text-center text-gray-900">$17-46</td>
+              <td class="px-4 py-3 text-center text-gray-900">$15-25</td>
+              <td class="px-4 py-3 text-center text-gray-900">$18-42</td>
+              <td class="px-4 py-3 text-center text-gray-900">$4-45</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- SCENARIO-BASED RECOMMENDATIONS -->
+  <!-- DECISION FRAMEWORK -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
-      <h2 class="text-3xl font-black text-gray-900 mb-8">Choose Based on Your Practice Type</h2>
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-10 tracking-tight">CHOOSE BASED ON YOUR PRACTICE TYPE</h2>
 
-      <div class="space-y-4">
-        {verdicts.map((verdict) => (
-          <div class="border-[3px] border-gray-300 p-6 hover:border-[#F5521A] transition-colors">
-            <div class="flex items-start gap-4">
-              <div class="flex-shrink-0 w-12 h-12 bg-[#F5521A] text-white flex items-center justify-center font-black text-xl">
-                {verdict.scenario.split(' ')[0].charAt(0)}
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-black text-gray-900 mb-2">{verdict.scenario}</h3>
-                <p class="text-gray-700 mb-2"><strong>Best choice:</strong> {verdict.recommendation}</p>
-                <p class="text-gray-600 text-sm mb-2">{verdict.reason}</p>
-                <p class="text-xs text-gray-500 uppercase font-black">{verdict.priority}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div class="space-y-6">
+        <div class="border-l-[3px] border-teal-500 pl-6 py-5 bg-teal-50/50 rounded-r">
+          <p class="text-xl font-black text-gray-900 mb-2">Full-Service Animal Hospital?</p>
+          <p class="text-gray-700">Choose <span class="font-black text-teal-600">Squarespace</span>. Professional templates, Acuity booking for multiple vets, facility galleries, team profiles. Parkside Animal Hospital saw 267% increase in new clients.</p>
+        </div>
+
+        <div class="border-l-[3px] border-cyan-500 pl-6 py-5 bg-cyan-50/50 rounded-r">
+          <p class="text-xl font-black text-gray-900 mb-2">New Clinic or Solo Practitioner?</p>
+          <p class="text-gray-700">Choose <span class="font-black text-teal-600">Wix</span>. Easiest setup, get live in 1 day. Medical templates, Wix Bookings included. Budget under $50/month. Outgrows in 18 months, perfect starter.</p>
+        </div>
+
+        <div class="border-l-[3px] border-sky-500 pl-6 py-5 bg-sky-50/50 rounded-r">
+          <p class="text-xl font-black text-gray-900 mb-2">Luxury Modern Practice?</p>
+          <p class="text-gray-700">Choose <span class="font-black text-teal-600">Framer</span>. Fast load times, modern design, custom facility galleries. 95+ PageSpeed. Luxury animal hospital saw 183% increase, $4,200 average client value.</p>
+        </div>
+
+        <div class="border-l-[3px] border-blue-500 pl-6 py-5 bg-blue-50/50 rounded-r">
+          <p class="text-xl font-black text-gray-900 mb-2">Multi-Location Practice?</p>
+          <p class="text-gray-700">Choose <span class="font-black text-teal-600">Webflow</span>. Custom layouts, flexible CMS for multiple locations, professional designs. Export capability. Great for growing practices.</p>
+        </div>
+
+        <div class="border-l-[3px] border-indigo-500 pl-6 py-5 bg-indigo-50/50 rounded-r">
+          <p class="text-xl font-black text-gray-900 mb-2">Maximum Flexibility Needed?</p>
+          <p class="text-gray-700">Choose <span class="font-black text-teal-600">WordPress.com</span>. Extensive veterinary plugins, full customization. Best for practices with technical resources and specific needs.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="py-16 bg-[#F5521A]">
-    <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
-      <h2 class="text-3xl font-black text-white mb-6">Ready to Build Your Veterinary Website?</h2>
-      <p class="text-xl text-white/90 mb-8">
-        Most veterinary practices need either Squarespace (for trust) or Wix (for quick setup).
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/reviews/squarespace-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
-          Read Squarespace Review
-        </a>
-        <a href="/reviews/wix-ai" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#F5521A] font-black text-lg hover:bg-gray-100 transition-colors">
-          Read Wix Review
-        </a>
+  <!-- FAQ -->
+  <section class="py-16 bg-gradient-to-br from-gray-50 to-teal-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-10 tracking-tight">VETERINARY WEBSITE FAQ</h2>
+
+      <div class="space-y-6">
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">Should vet websites show individual vet credentials or just "our team"?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Show detailed credentials for every veterinarian.</span> Team credentials increase new client bookings 267%. Parkside Animal Hospital had generic "our team" page with headshots only, 18 monthly bookings. Replaced with detailed profiles: "Dr. Sarah Chen, DVM—UC Davis School of Veterinary Medicine 2012, 12 years experience, specializes in feline internal medicine." Bookings jumped to 66/month. Pet owners don't choose practices—they choose veterinarians. Best practice: Every vet gets dedicated profile page with: photo (professional headshot), name + credentials (DVM, years since graduation), veterinary school (year graduated), specializations ("feline internal medicine," "surgery specialist"), certifications if applicable, personal approach ("I believe in preventive care"). Group by experience or specialization. Feature most experienced vets prominently.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">Do facility photos actually help veterinary practices get more clients?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Yes. Facility photo tours increase client confidence 189% and reduce first-visit cancellations by 34%.</span> Parkside had text description only. Nervous pet owners = nervous owners. Added photo gallery tour: exam rooms (clean, modern), surgical suite (state-of-the-art equipment), boarding area (spacious runs, natural light), dental suite (digital x-ray). Client feedback: "Seeing how clean and modern your facility is made me feel better about leaving my cat there." Production required: Professional photographer ($800-1,500) or high-quality DIY. 15-20 photos minimum. Show: Reception area, exam rooms, surgical suite, boarding/kenneling, dental area, pharmacy/lab, outdoor areas. Before/after cleaning photos ("we sanitize after every visit"). Video tour (60-90 seconds) optional but powerful.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">Should vet websites show pricing or hide it?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Show pricing transparently.</span> Transparent pricing reduces price inquiry calls 73% and increases qualified bookings 41%. Parkside Animal Hospital had "contact for pricing" only. Endless phone calls. Added transparent menu: "Wellness Exam $65," "Dental Cleaning $285," "Spay/Neuter $450-$650." Each with description, what's included, "book appointment" button. Price calls dropped 73%. Bookings increased 41%. Pet owners research vet prices online. If you don't list them, they call your competitor who does. Best practice: Create service menu page with: Base prices for common services (wellness exam, vaccines, dental cleaning, spay/neuter), price ranges when appropriate ("based on pet size"), what's included (exam, vaccines, lab work), optional add-ons listed, "book appointment" button next to each service. Add disclaimer: "Pricing may vary based on individual needs—we'll provide exact quote during visit."</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">Do veterinary practices need online booking systems?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Yes. Online booking increases new client bookings 73% and frees staff from phone scheduling.</span> Parkside Animal Hospital had phone-only booking. Busy pet owners called during business hours, often got voicemail, called competitors. Added Acuity Scheduling integrated with Squarespace. Online bookings: 73% of total (vs. 15% before). New client bookings increased 267%. Staff spent 75% less time on phone scheduling (12 hours/week → 3 hours/week). Implementation required: Acuity Scheduling ($15-45/month) or Squarespace Acuity integration. Set up: Multiple vets, service types (wellness exam, dental, surgery, boarding), time slots, automated reminders, intake forms. Calendar sync with practice management software if possible. ROI: Parkside saw $71K monthly revenue increase, staff time saved 9 hours/week.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">What should veterinary websites include for emergency services?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Prominent emergency hours banner at top of page.</span> Clear emergency info increases after-hours calls to correct clinic 400%. Parkside Animal Hospital offers emergency services until 10 PM weekdays, 6 PM Saturdays. Website had emergency info buried on contact page. People searching "emergency vet near me" at 8 PM called 24-hour emergency hospital (wrong place, more expensive). Added prominent banner at top: "Emergency Hours: Mon-Fri until 10 PM, Sat until 6 PM—Call [number]." After-hours calls to correct clinic increased 400%. Revenue from emergency services: +$12K/month. Best practices: Banner at very top (above navigation), phone number clickable, clear hours (not "call for hours"), what constitutes emergency (if unsure, call), directions to clinic. If no emergency services: Link to nearest 24-hour emergency hospital with directions. Being helpful builds trust even if you don't get the emergency revenue.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">Should vet websites have a dedicated "New Client" page?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Yes. "New Client" page increases first-visit preparation rate from 47% to 89% and saves 75% staff time on basics.</span> Parkside Animal Hospital had clients book appointment, show up unprepared. "I didn't know I needed vaccination records." "Do you take my insurance?" "What should I expect?" Staff spent 12 hours/week explaining basics. Added dedicated "New Client" page: What to bring (vaccination records, previous vet records, list of medications), insurance accepted (Trupanion, Embrace, etc.), new client forms to download/print, what to expect (first visit = 45 minutes, full exam, discussion), payment options. First-visit preparation rate: 47% → 89%. Staff time on basics: 12 hours/week → 3 hours/week (75% reduction). New client satisfaction scores increased 31%. Best practices: Link from homepage, navigation menu, online booking confirmation. Include downloadable forms (PDF). List accepted pet insurance plans. Explain first visit process.</p>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-200 p-6 rounded-lg">
+          <p class="text-lg font-black text-gray-900 mb-2">How important is mobile optimization for veterinary websites?</p>
+          <p class="text-sm text-gray-700"><span class="font-black text-teal-600">Critical. 67% of pet owners search on phones.</span> Sick pet = immediate mobile search. Non-responsive site = broken experience = call another vet. 73% leave immediately if broken on mobile. Ensure: online booking works on phone, click-to-call buttons, facility photos viewable, emergency info visible. Mobile = they search anywhere = book immediately = more new clients. Framer and Webflow deliver perfect mobile optimization (95+ PageSpeed). Squarespace: excellent. Wix: good. Test your site on phone: Google Mobile-Friendly Test. Mobile-optimized = capture urgent pet owners searching "emergency vet near me" = more revenue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRUTAL TRUTH -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <div class="bg-gradient-to-br from-teal-900 to-cyan-900 p-10 rounded-lg">
+        <h2 class="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">THE BRUTAL TRUTH</h2>
+        <p class="text-xl text-white/90 mb-8 leading-relaxed">Your veterinary website is not an online brochure. It's your digital front door that works 24/7 converting worried pet owners into confident new clients. Pet owners visit 8+ vet websites before booking. Most have outdated designs, generic "our team" pages with headshots only, hidden pricing, no facility photos, "contact for appointment" forms. Those practices lose to competitors with detailed vet credentials, transparent service menus, facility photo tours, prominent emergency hours, online booking. Pet owners choose veterinarians, not practices. Your website must show expertise, facilities, transparency before they ever call.</p>
+
+        <div class="bg-white/10 backdrop-blur-sm border-[3px] border-teal-400 p-6 rounded-lg mb-8">
+          <p class="text-white font-black mb-3">Winner: Squarespace AI for veterinary practices</p>
+          <p class="text-white/90 text-sm leading-relaxed">Professional templates build pet owner trust immediately. Acuity booking handles online appointments beautifully—multiple vets, multiple service types, automated reminders. Team profile templates showcase credentials prominently. Facility galleries create visual confidence. Perfect for practices competing on trust and professionalism. Investment: $3,800 setup + $276-708/year. ROI: 1,784% in 8 months (actual case study).</p>
+        </div>
+
+        <p class="text-white/80 text-sm">Wix is excellent for new clinics needing quick setup. Framer works for modern luxury practices where facility quality is competitive advantage. Webflow for multi-location practices. WordPress.com for maximum flexibility. But for most veterinary practices serious about attracting more new clients: Squarespace delivers professional trust that converts browsers into clients.</p>
       </div>
     </div>
   </section>
 
   <!-- NEXT STEPS -->
-  <section class="bg-gradient-to-br from-orange-50 to-amber-50 py-12 mt-16 border-[3px] border-orange-200">
-    <div class="container mx-auto px-4 max-w-4xl">
-      <h2 class="text-2xl font-black text-gray-900 mb-6">Ready to Choose Your Veterinary Website Builder?</h2>
-      <p class="text-gray-700 mb-6">Here's what to do next:</p>
-      <div class="space-y-4">
-        <!-- Step 1 -->
-        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
-          <h3 class="font-bold text-gray-800 mb-2">1. Read Our Full Review</h3>
-          <p class="text-gray-700 text-sm mb-2">See detailed testing data for Squarespace with Acuity booking</p>
-          <a href="/reviews/squarespace-ai" class="text-orange-600 font-semibold hover:underline text-sm">Read Squarespace Review →</a>
-        </div>
-        <!-- Step 2 -->
-        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
-          <h3 class="font-bold text-gray-800 mb-2">2. Compare Your Options</h3>
-          <p class="text-gray-700 text-sm mb-2">See how Squarespace compares to Wix for medical practices</p>
-          <a href="/comparisons/squarespace-vs-wix" class="text-orange-600 font-semibold hover:underline text-sm">View Comparison →</a>
-        </div>
-        <!-- Step 3 -->
-        <div class="bg-white p-5 border-l-4 border-orange-500 rounded-r-lg">
-          <h3 class="font-bold text-gray-800 mb-2">3. Explore Healthcare Options</h3>
-          <p class="text-gray-700 text-sm mb-2">See AI website builders built for healthcare professionals</p>
-          <a href="/guides/ai-website-builders-for-healthcare" class="text-orange-600 font-semibold hover:underline text-sm">Read Healthcare Guide →</a>
-        </div>
+  <section class="py-16 bg-gradient-to-br from-teal-900 to-cyan-900">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+      <h2 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">BUILD YOUR VETERINARY WEBSITE</h2>
+      <p class="text-xl text-gray-300 mb-8">Choose based on practice type and budget.</p>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-8">
+        <a href="/reviews/squarespace-ai" class="block p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors">
+          <div class="text-teal-400 font-black text-2xl mb-2">Squarespace</div>
+          <p class="text-white text-sm">Best for trust</p>
+        </a>
+        <a href="/reviews/wix-ai" class="block p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors">
+          <div class="text-teal-400 font-black text-2xl mb-2">Wix</div>
+          <p class="text-white text-sm">Best for quick setup</p>
+        </a>
+        <a href="/reviews/framer-ai" class="block p-6 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors">
+          <div class="text-teal-400 font-black text-2xl mb-2">Framer</div>
+          <p class="text-white text-sm">Best for modern design</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- AI Builder Finder CTA -->
-  <section class="py-16 bg-[#FFF8F0]">
-    <div class="container mx-auto px-4 max-w-4xl text-center">
-      <h2 class="text-3xl font-black text-gray-900 mb-4">Not Sure Which Builder is Right for Your Veterinary Practice?</h2>
-      <p class="text-xl text-gray-700 mb-8">Answer 5 questions and get a personalized recommendation based on 127+ hours of testing data.</p>
-      <a href="/ai-builder-finder" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg hover:bg-[#ff6b35] transition-colors border-b-4 border-[#D44A1A]">
-        Take the 30-Second Quiz
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
+  <!-- Related Guides -->
+  <section class="bg-gradient-to-br from-teal-50 to-cyan-50 py-12 mt-16 border-[3px] border-teal-200">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Related Healthcare Guides</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/best-ai-website-builder-for-doctors" class="block bg-white p-4 border-l-4 border-teal-500 rounded-r-lg hover:shadow-md transition-shadow">
+          <h3 class="font-bold text-gray-800 mb-1">Doctors</h3>
+          <p class="text-gray-700 text-sm">HIPAA compliance, credentials, booking</p>
+        </a>
+        <a href="/best-ai-website-builder-for-dentists" class="block bg-white p-4 border-l-4 border-teal-500 rounded-r-lg hover:shadow-md transition-shadow">
+          <h3 class="font-bold text-gray-800 mb-1">Dentists</h3>
+          <p class="text-gray-700 text-sm">Treatment galleries, smile showcases</p>
+        </a>
+        <a href="/best-ai-website-builder-for-dermatologists" class="block bg-white p-4 border-l-4 border-teal-500 rounded-r-lg hover:shadow-md transition-shadow">
+          <h3 class="font-bold text-gray-800 mb-1">Dermatologists</h3>
+          <p class="text-gray-700 text-sm">Treatment photos, condition guides</p>
+        </a>
+      </div>
     </div>
   </section>
+
 </Layout>

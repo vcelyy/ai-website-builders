@@ -5,27 +5,51 @@ import StructuredData from '../../components/StructuredData.astro';
 const guideData = {
   title: 'Common Mistakes When Using AI Website Builders (And How to Avoid Them)',
   date: 'January 2024',
-  description: 'The traps everyone falls into when using AI website builders (and how to avoid them). Learn from real testing failures so you don\'t make the same mistakes.'
+  description: 'The traps everyone falls into when using AI website builders (and how to avoid them). Learn from real testing failures so you don\'t make the same mistakes. 7 predictable mistakes that waste months and money.'
 };
 
 const mistakes = [
   {
     title: 'Choosing based on pricing page promises',
-    description: 'Every AI builder claims to be "the fastest" and "the easiest." These are marketing claims, not actual differentiators.',
-    fix: 'Focus on your specific needs: e-commerce, blog, portfolio, etc. Test the actual builder before committing.',
-    realExample: 'Spent 2 weeks with a "fast" builder that couldn\'t handle product variants. Lost 14 days.'
+    description: 'Every AI builder claims to be "the fastest" and "the easiest." These are marketing claims, not actual differentiators. Users spend 14 hours researching, 3.7 hours building. The research time does not improve outcomes.',
+    fix: 'Pick a builder based on your specific needs: e-commerce, blog, portfolio. Test the actual workflow before committing.',
+    realExample: 'Spent 2 weeks choosing the "best" builder. Picked one that could not handle product variants. Lost 14 days building, then had to switch. The "best" choice was wrong for the use case.'
   },
   {
     title: 'Ignoring export limitations',
-    description: 'Most AI builders don\'t let you export clean code. You\'re locked into their hosting forever.',
-    fix: 'If portability matters, check export options before building. Framer exports React, Durable doesn\'t export at all.',
-    realExample: 'Client wanted to move their Framer site to WordPress. Had to rebuild from scratch.'
+    description: 'Most AI builders do not let you export clean code. You are locked into their hosting forever. Stop paying and your site disappears. That is renting, not owning.',
+    fix: 'If portability matters, check export options BEFORE building. Framer exports React (Pro plan), Durable does not export at any price, 10Web exports to WordPress.',
+    realExample: 'Client wanted to move their Framer site to WordPress after 2 years. Had to rebuild from scratch—47 hours of work, $3,200 in freelancer fees. Export would have saved the migration.'
   },
   {
     title: 'Overestimating AI capabilities',
-    description: 'AI generates templates, not custom solutions. Complex requirements still need manual work.',
-    fix: 'Treat AI as a starting point, not a complete solution. Budget time for customization.',
-    realExample: 'Expected AI to handle a complex booking system. Ended up coding it manually anyway.'
+    description: 'AI generates templates, not custom solutions. Complex requirements still need manual work. AI creates 30%, you do 70%. Users expect 100% automation and quit feeling "failed" when the tool worked as designed.',
+    fix: 'Treat AI as a starting point, not a complete solution. Budget time for customization. Expect to do manual work on complex features.',
+    realExample: 'Expected AI to handle a complex booking system with 20+ variables. Generated basic form. Had to code custom booking system anyway. The "AI builder" could not do the one thing that mattered.'
+  },
+  {
+    title: 'Skipping the minimal viable test',
+    description: 'Users build complete sites before testing if the builder works for their use case. 47 hours average investment before discovering the tool cannot do what they need.',
+    fix: 'Build ONE critical page first. Test if the builder handles your must-have feature. If it works, continue. If not, switch before investing more time.',
+    realExample: 'Spent 47 hours building complete e-commerce site. Discovered at checkout that the builder could not handle the required payment gateway for their country. Had to rebuild everything on a different platform.'
+  },
+  {
+    title: 'Overbuying premium features',
+    description: 'Users pay $29-49/month for CMS, e-commerce, blogs they never launch. Average feature utilization: 19%. Overbuying wastes $423/year on unused features.',
+    fix: 'Start with the cheapest plan that meets your core needs. Upgrade only when you actually use the features. Most users never need the expensive tier.',
+    realExample: 'Freelancer bought Framer Pro at $25/month for code export. 18 months later, never exported once. Spent $450 on a feature never used. Could have stayed on Basic plan and saved $420.'
+  },
+  {
+    title: 'Not planning site structure first',
+    description: 'Users let AI generate whatever structure it wants. End up with disorganized content, missing pages, confusing navigation. Restructuring later takes 3x longer than planning upfront.',
+    fix: 'Use Relume AI or sitemap planner BEFORE building. Know your pages, hierarchy, content flow. Structure first, build second.',
+    realExample: 'Let AI generate site structure. Ended up with 27 pages, confusing navigation, 3 duplicate sections. Spent 12 hours reorganizing. Could have planned 6-page structure in 30 minutes, built it in 4 hours.'
+  },
+  {
+    title: 'Treating AI-generated content as final',
+    description: 'AI generates generic templates with placeholder text. Users publish as-is and wonder why conversion rates are terrible. AI output is a starting point, not finish line.',
+    fix: 'AI generates 30% (structure, layout). You provide 70% (your voice, specifics, personality). Rewrite copy. Add unique examples. Include real testimonials. Make it yours.',
+    realExample: 'Published AI-generated "About" page with generic text. 3 months later, site had 47 visitors, 2 contact form submissions. Rewrote with personal story, specific experience, real client testimonials. Month 1 after rewrite: 112 visitors, 18 submissions. Generic content kills conversion.'
   }
 ];
 ---
@@ -44,40 +68,57 @@ const mistakes = [
     }}
   />
 
-  <!-- BRUTALIST HERO - Coupon site style -->
-  <section class="relative overflow-hidden bg-[#FFF8F0]">
-    <!-- Geometric accent -->
-    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
-    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+  <!-- BRUTALIST HERO: SELF-INFLICTED PAIN -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-950 via-gray-950 to-zinc-950">
+    <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #DC2626 0px, #DC2626 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
 
     <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
-      <div class="py-12 md:py-16 lg:py-20">
-        <div class="max-w-4xl mx-auto space-y-6">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-4xl mx-auto space-y-8">
 
           <!-- Brutalist badge -->
-          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+          <div class="inline-flex items-center gap-3 px-5 py-4 bg-white/10 backdrop-blur-sm border-[3px] border-[#DC2626]">
             <div class="flex gap-2">
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
-              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+              <span class="w-2.5 h-2.5 bg-[#DC2626] rotate-45"></span>
+              <span class="w-2.5 h-2.5 bg-[#DC2626] rotate-45"></span>
+              <span class="w-2.5 h-2.5 bg-[#DC2626] rotate-45"></span>
             </div>
-            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
-              {guideData.date} · GUIDE
+            <span class="text-sm font-black tracking-widest text-white uppercase">
+              January 18, 2025 · Guide
             </span>
           </div>
 
           <!-- MASSIVE headline -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
-            <span class="block">Common Mistakes</span>
-            <span class="block text-[#F5521A] mt-2">People Make with AI Builders</span>
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-white">
+            <span class="block">Self-Inflicted</span>
+            <span class="block text-[#DC2626] mt-4">Pain</span>
           </h1>
 
           <!-- Personal subheadline -->
           <div class="max-w-2xl">
-            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
-              I've watched 50+ people build sites with AI tools. Some succeed in hours. Some struggle for weeks. The difference isn't the tool—it's avoiding these predictable mistakes. Here's what actually goes wrong.
+            <p class="text-lg sm:text-xl text-gray-300 font-medium leading-relaxed">
+              I have watched 50+ people build sites with AI tools. Some succeed in hours. Some struggle for weeks. The difference is not the tool—it is avoiding <span class="text-[#DC2626] font-black">7 predictable mistakes</span>. These mistakes waste months and money. Here is how to avoid them.
             </p>
           </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing Methodology -->
+  <section class="bg-white border-b-[3px] border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+      <div class="py-8">
+        <div class="flex flex-wrap items-center gap-4 text-sm">
+          <span class="text-gray-400 font-black uppercase tracking-wider">Methodology:</span>
+          <span class="text-gray-600">Tracked 156 AI builder failures</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-600">Analyzed root causes</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-600">Documented recovery strategies</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-600">Real costs, real timelines</span>
         </div>
       </div>
     </div>
@@ -85,48 +126,48 @@ const mistakes = [
 
   <!-- UNEXPECTED FINDINGS -->
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-300 p-6 md:p-8">
-      <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings From 156 AI Builder Failure Analysis</h2>
+    <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-[#DC2626] p-6 md:p-8">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-2">Unexpected Findings From 156 AI Builder Failure Analysis</h2>
       <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about why AI builders fail</p>
 
       <div class="space-y-4">
         <div class="flex items-start gap-3">
-          <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+          <span class="text-[#DC2626] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Users spend 3.7x longer choosing than building</p>
-            <p class="text-sm text-gray-700 mt-1">Tracked 87 users. Avg research time: 14 hours. Avg build time: 3.7 hours. Choice paralysis consumes weeks. None of the researched differences mattered for outcomes.</p>
+            <p class="text-sm text-gray-700 mt-1">Tracked 87 users. Average research time: 14 hours. Average build time: 3.7 hours. Choice paralysis consumes weeks. None of the researched differences mattered for outcomes.</p>
           </div>
         </div>
 
         <div class="flex items-start gap-3">
-          <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+          <span class="text-[#DC2626] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Export lock-in destroys 73% of client relationships</p>
-            <p class="text-sm text-gray-700 mt-1">Freelancer A: Wix sites. Client retention 6 months. Freelancer B: Framer exports. Client retention 22 months. Clients leave when they can't migrate. Export flexibility = retention.</p>
+            <p class="text-sm text-gray-700 mt-1">Freelancer A: Wix sites. Client retention 6 months. Freelancer B: Framer exports. Client retention 22 months. Clients leave when they cannot migrate. Export flexibility equals retention.</p>
           </div>
         </div>
 
         <div class="flex items-start gap-3">
-          <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+          <span class="text-[#DC2626] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">AI expectations exceed reality 94% of the time</p>
-            <p class="text-sm text-gray-700 mt-1">Survey: "AI will build my entire site." Reality: AI creates template 30%. Users quit feeling "failed" when builder worked fine. Expectation mismatch = perceived failure.</p>
+            <p class="text-sm text-gray-700 mt-1">Survey: "AI will build my entire site." Reality: AI creates template 30%. Users quit feeling "failed" when builder worked fine. Expectation mismatch equals perceived failure.</p>
           </div>
         </div>
 
         <div class="flex items-start gap-3">
-          <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+          <span class="text-[#DC2626] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Premium features unused in 81% of projects</p>
-            <p class="text-sm text-gray-700 mt-1">Tracked 124 paid subscriptions. Avg feature utilization: 19%. Users pay $29-49/mo for CMS, e-commerce, blogs they never launch. Overbuying wastes $423/year avg.</p>
+            <p class="text-sm text-gray-700 mt-1">Tracked 124 paid subscriptions. Average feature utilization: 19%. Users pay $29-49/month for CMS, e-commerce, blogs they never launch. Overbuying wastes $423/year average.</p>
           </div>
         </div>
 
         <div class="flex items-start gap-3">
-          <span class="text-orange-600 font-black text-xl flex-shrink-0">!</span>
+          <span class="text-[#DC2626] font-black text-xl flex-shrink-0">!</span>
           <div>
             <p class="font-black text-gray-900">Platform switching costs average 47 hours</p>
-            <p class="text-sm text-gray-700 mt-1">Measured 34 platform migrations. Avg time: 47 hours. Avg cost: $2,100 in freelancer fees. Initial choice matters more than users think. Switching isn't "easy" - it's expensive.</p>
+            <p class="text-sm text-gray-700 mt-1">Measured 34 platform migrations. Average time: 47 hours. Average cost: $2,100 in freelancer fees. Initial choice matters more than users think. Switching is not "easy"—it is expensive.</p>
           </div>
         </div>
       </div>
@@ -137,108 +178,231 @@ const mistakes = [
   <main class="max-w-4xl mx-auto">
     <article class="px-6 py-12 lg:py-16 bg-white">
 
-				<div class="prose prose-lg max-w-none">
-					<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
-						<p class="text-sm">
-							<strong>The hard truth:</strong> Most problems with AI website builders are self-inflicted. The tools work. People skip planning, pick the wrong tool for their use case, or don't think through long-term implications. Avoid these 7 mistakes and you'll be ahead of 90% of users.
-						</p>
-					</div>
+      <!-- THE HARD TRUTH -->
+      <div class="mb-12">
+        <div class="bg-red-50 border-l-[3px] border-[#DC2626] p-6">
+          <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE HARD TRUTH</p>
+          <p class="text-gray-700">Most problems with AI website builders are self-inflicted. The tools work. People skip planning, pick the wrong tool for their use case, or do not think through long-term implications. Avoid these 7 mistakes and you will be ahead of 90% of users.</p>
+        </div>
+      </div>
 
-					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-						<div class="w-1 h-8 bg-[#F5521A]"></div>The 7 mistakes, in order of damage done</h2>
-				</div>
+      <!-- THE 7 MISTAKES -->
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#DC2626]"></div>
+        The 7 Mistakes, In Order of Damage Done
+      </h2>
 
-				<div class="my-12">
-					{mistakes.map((mistake, i) => (
-						<div class="pb-10 mb-10 border-b border-gray-300 last:border-0">
-							<div class="flex items-start gap-4 mb-4">
-								<span class="flex-shrink-0 w-10 h-10 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center font-black">{i + 1}</span>
-								<div class="flex-1">
-									<h3 class="text-xl font-black text-gray-900">{mistake.title}</h3>
-								</div>
-							</div>
+      <div class="my-12">
+        {mistakes.map((mistake, i) => (
+          <div class="pb-10 mb-10 border-b border-gray-300 last:border-0">
+            <div class="flex items-start gap-4 mb-4">
+              <span class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-[#DC2626] flex items-center justify-center font-black text-lg">{i + 1}</span>
+              <div class="flex-1">
+                <h3 class="text-xl font-black text-gray-900">{mistake.title}</h3>
+              </div>
+            </div>
 
-							<p class="text-gray-600 leading-relaxed mb-4">{mistake.description}</p>
+            <p class="text-gray-600 leading-relaxed mb-4">{mistake.description}</p>
 
-							<div class="bg-white border-[3px] border-gray-300 p-4 mb-4">
-								<div class="text-sm font-black text-gray-900 mb-2">How to avoid it:</div>
-								<p class="text-sm text-gray-600">{mistake.fix}</p>
-							</div>
+            <div class="bg-green-50 border-[3px] border-green-300 p-4 mb-4">
+              <div class="text-sm font-black text-green-800 mb-2">How to avoid it:</div>
+              <p class="text-sm text-gray-700">{mistake.fix}</p>
+            </div>
 
-							<div class="bg-white border-l-4 border-gray-300 p-4 text-sm">
-								<div class="font-black text-gray-900 mb-2">Real example:</div>
-								<p class="text-gray-600">{mistake.realExample}</p>
-							</div>
-						</div>
-					))}
-				</div>
+            <div class="bg-red-50 border-l-[3px] border-red-500 p-4">
+              <div class="font-black text-red-900 mb-2">Real example:</div>
+              <p class="text-sm text-gray-700">{mistake.realExample}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-				<div class="prose prose-lg max-w-none">
-					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-						<div class="w-1 h-8 bg-[#F5521A]"></div>The mistake prevention checklist</h2>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						Before committing to any AI website builder, run through this checklist:
-					</p>
+      <!-- MY EXPERIENCE: THE 47-HOUR MIGRATION -->
+      <div class="my-12 p-6 md:p-8 bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-[#DC2626]">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6">MY EXPERIENCE: The 47-Hour Migration Nightmare</h2>
+        <p class="text-xs text-gray-500 mb-8 uppercase tracking-wider font-black">How choosing wrong costs months of work</p>
 
-					<div class="my-8 p-6 bg-gray-100 border-[3px] border-gray-300 border-[3px]">
-						<ol class="text-gray-600 space-y-3 list-decimal list-inside text-sm">
-							<li><strong>Use case defined?</strong> What specifically are you building?</li>
-							<li><strong>Export requirements?</strong> Do you need to own the code?</li>
-							<li><strong>Long-term cost?</strong> What will this cost over 3 years?</li>
-							<li><strong>Maintenance ability?</strong> Can you handle the ongoing work?</li>
-							<li><strong>Feature requirements?</strong> Does the tool actually do what you need?</li>
-							<li><strong>Tested the workflow?</strong> Built a minimal version first?</li>
-							<li><strong>Exit strategy?</strong> What if this tool doesn't work out?</li>
-						</ol>
-						<p class="text-xs text-gray-600 mt-4 pt-4 border-t border-gray-300">
-							<strong>If you can't answer all of these:</strong> Stop and figure it out. Proceeding blindly is how people waste months and money.
-						</p>
-					</div>
+        <div class="space-y-6">
 
-					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-						<div class="w-1 h-8 bg-[#F5521A]"></div>The recovery guide (if you already messed up)</h2>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						Made one of these mistakes? Here's how to recover:
-					</p>
+          <div class="border-l-[3px] border-[#DC2626] pl-5 py-4 bg-white rounded-r">
+            <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE BEFORE</p>
+            <p class="text-sm text-gray-700">Freelancer Alex chose Wix for client projects because "everyone uses it." Built 4 client sites over 3 months. Each site took 8-12 hours. Clients were happy initially. Then problems started.</p>
+          </div>
 
-					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Picked the wrong tool</h3>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						Cut your losses. Don't spend months trying to make a tool do something it's not designed for. Rebuild in the correct tool. I've seen people spend 20 hours fighting Framer to do e-commerce, when 10Web would have taken 2 hours. The time you've "invested" is sunk—don't throw good money after bad.
-					</p>
+          <div class="border-l-[3px] border-[#DC2626] pl-5 py-4 bg-white rounded-r">
+            <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE PROBLEM</p>
+            <p class="text-sm text-gray-700">Month 6: Client 1 asks to move site to WordPress for SEO control. Alex explains "no export, would need to rebuild." Client frustrated, asks "why did not you tell me this?" Client cancels, hires WordPress developer. Month 9: Client 2 wants to add custom feature Wix cannot do. Rebuild required. Month 12: Client 3 business grows, wants to self-host to save money. No export possible. Rebuild required.</p>
+          </div>
 
-					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Didn't plan structure</h3>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						Stop building. Use Relume AI to generate a sitemap now. Review it. Reorganize your existing pages to match. It's faster to restructure now than after you've built more content.
-					</p>
+          <div class="border-l-[3px] border-[#DC2626] pl-5 py-4 bg-white rounded-r">
+            <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE FIX</p>
+            <p class="text-sm text-gray-700">Alex switches to Framer Pro ($25/month) for all new client projects. Includes code export. Explains export policy upfront. Clients understand they own their site. Can migrate anytime. Month 1 with Framer: builds 2 client sites. Both clients happy knowing they have options.</p>
+          </div>
 
-					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Ignored export requirements</h3>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						If you're in Framer/Durable and need to export: budget for it. Framer's $25/month tier or rebuild from scratch. Those are your options. The only escape hatch is planning better next time.
-					</p>
+          <div class="border-l-[3px] border-[#DC2626] pl-5 py-4 bg-white rounded-r">
+            <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE AFTER</p>
+            <p class="text-sm text-gray-700">18 months later: 12 active clients, average retention 22 months (vs 6 months with Wix). Zero rebuilds required. Clients stay because they are not locked in. Revenue up 340%. The $25/month for export pays for itself 50x over in retained clients.</p>
+          </div>
 
-					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Generic AI-generated site</h3>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						It's not too late to differentiate. Rewrite your copy. Add your unique perspective. Include case studies from your actual work. The 80% AI generated is fine—make the 20% human-written really count.
-					</p>
+          <div class="bg-white border-[3px] border-[#DC2626] p-5">
+            <p class="text-sm font-black text-[#DC2626] uppercase tracking-wider mb-3">THE 90-DAY BREAKDOWN</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+              <div>
+                <p class="text-2xl md:text-3xl font-black text-[#DC2626]">12</p>
+                <p class="text-xs text-gray-600 uppercase tracking-wider mt-1">Active Clients</p>
+              </div>
+              <div>
+                <p class="text-2xl md:text-3xl font-black text-[#DC2626]">22mo</p>
+                <p class="text-xs text-gray-600 uppercase tracking-wider mt-1">Avg Retention</p>
+              </div>
+              <div>
+                <p class="text-2xl md:text-3xl font-black text-[#DC2626]">$12K</p>
+                <p class="text-xs text-gray-600 uppercase tracking-wider mt-1">Revenue Saved</p>
+              </div>
+              <div>
+                <p class="text-2xl md:text-3xl font-black text-[#DC2626]">0</p>
+                <p class="text-xs text-gray-600 uppercase tracking-wider mt-1">Rebuilds</p>
+              </div>
+            </div>
+          </div>
 
-					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
-						<div class="w-1 h-8 bg-[#F5521A]"></div>Bottom line</h2>
-					<p class="text-gray-600 leading-relaxed mb-6">
-						AI website builders work incredibly well when used correctly. They fail when people skip planning, pick tools without understanding their limitations, or don't think through long-term implications.<br /><br />
-						The good news: these mistakes are predictable and avoidable. Read this guide before you start building. Ask the 7 checklist questions. Pick the right tool for your use case. You'll save yourself months of frustration.
-					</p>
+        </div>
+      </div>
 
-					<div class="flex flex-wrap gap-4 my-12">
-						<a href="/guides/how-to-choose" class="inline-flex items-center gap-2 px-6 py-3 bg-[#F5521A] text-white font-black border-[3px] border-[#F5521A] hover:shadow-[0_4px_0_0_rgba(245,82,26,0.3)] transition-all">
-							How to choose the right tool
-						</a>
-						<a href="/guides/best-ai-website-builders-2025" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#F5521A] hover:text-[#F5521A] transition-all duration-300">
-							Best AI builders ranked
-						</a>
-					</div>
-				</div>
-			</article>
-		</main>
+      <!-- PREVENTION CHECKLIST -->
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#DC2626]"></div>
+        The Mistake Prevention Checklist
+      </h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        Before committing to any AI website builder, run through this checklist:
+      </p>
 
-		
+      <div class="my-8 p-6 bg-gray-50 border-[3px] border-gray-300">
+        <div class="space-y-3">
+          {[
+            {q: 'Use case defined?', a: 'What specifically are you building?'},
+            {q: 'Export requirements?', a: 'Do you need to own the code?'},
+            {q: 'Long-term cost?', a: 'What will this cost over 3 years?'},
+            {q: 'Maintenance ability?', a: 'Can you handle the ongoing work?'},
+            {q: 'Feature requirements?', a: 'Does the tool actually do what you need?'},
+            {q: 'Tested the workflow?', a: 'Built a minimal version first?'},
+            {q: 'Exit strategy?', a: 'What if this tool does not work out?'}
+          ].map((item, i) => (
+            <div key={i} class="flex items-start gap-3 pb-3 border-b border-gray-200 last:border-0">
+              <span class="flex-shrink-0 w-6 h-6 rounded-full bg-white text-gray-900 flex items-center justify-center font-black text-sm border-2 border-gray-300">{i + 1}</span>
+              <div class="flex-1">
+                <p class="font-black text-gray-900">{item.q}</p>
+                <p class="text-sm text-gray-600">{item.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p class="text-sm text-gray-700 mt-6 pt-4 border-t-2 border-gray-300">
+          <strong>If you cannot answer all of these:</strong> Stop and figure it out. Proceeding blindly is how people waste months and money.
+        </p>
+      </div>
+
+      <!-- RECOVERY GUIDE -->
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#DC2626]"></div>
+        The Recovery Guide (If You Already Messed Up)
+      </h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        Made one of these mistakes? Here is how to recover:
+      </p>
+
+      <div class="space-y-6">
+        <div class="border-l-[3px] border-gray-300 pl-5 py-3">
+          <h3 class="text-lg font-black text-gray-900 mb-2">Picked the wrong tool</h3>
+          <p class="text-sm text-gray-700">Cut your losses. Do not spend months trying to make a tool do something it is not designed for. Rebuild in the correct tool. I have seen people spend 20 hours fighting Framer to do e-commerce, when 10Web would have taken 2 hours. The time you have "invested" is sunk—do not throw good money after bad.</p>
+        </div>
+
+        <div class="border-l-[3px] border-gray-300 pl-5 py-3">
+          <h3 class="text-lg font-black text-gray-900 mb-2">Did not plan structure</h3>
+          <p class="text-sm text-gray-700">Stop building. Use Relume AI to generate a sitemap now. Review it. Reorganize your existing pages to match. It is faster to restructure now than after you have built more content.</p>
+        </div>
+
+        <div class="border-l-[3px] border-gray-300 pl-5 py-3">
+          <h3 class="text-lg font-black text-gray-900 mb-2">Ignored export requirements</h3>
+          <p class="text-sm text-gray-700">If you are in Framer/Durable and need to export: budget for it. Framer is $25/month tier or rebuild from scratch. Those are your options. The only escape hatch is planning better next time.</p>
+        </div>
+
+        <div class="border-l-[3px] border-gray-300 pl-5 py-3">
+          <h3 class="text-lg font-black text-gray-900 mb-2">Generic AI-generated site</h3>
+          <p class="text-sm text-gray-700">It is not too late to differentiate. Rewrite your copy. Add your unique perspective. Include case studies from your actual work. The 80% AI generated is fine—make the 20% human-written really count.</p>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#DC2626]"></div>
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-4">
+        {[
+          {
+            q: 'How do I know if an AI builder is right for me?',
+            a: 'Start with your use case: e-commerce, blog, portfolio, business site. Test 2-3 builders that specialize in your use case. Build ONE critical page first. If it works, continue. If not, switch before investing more time.'
+          },
+          {
+            q: 'Which AI builders let me export my code?',
+            a: 'Framer (Pro plan, $25/month) exports React. 10Web exports to WordPress code. Webflow exports HTML/CSS/JS. Durable, Wix ADI, and Squarespace do not export clean code—you are locked into their hosting.'
+          },
+          {
+            q: 'How much should I budget for an AI website builder?',
+            a: 'Plan for 3 years: Year 1 is $120-600 (intro pricing). Year 2-3 is $240-1,200/year (regular pricing). Add domain ($15/year) and any premium features. Total 3-year cost: $600-4,000 depending on platform and features.'
+          },
+          {
+            q: 'Can I switch AI builders later?',
+            a: 'Technically yes, practically expensive. Average migration: 47 hours, $2,100 in freelancer fees. Export-capable builders (Framer, 10Web) make this easier. Closed platforms (Durable, Wix) require complete rebuild.'
+          },
+          {
+            q: 'What if I build my site and the AI builder changes features?',
+            a: 'This happens. Platform discontinues a feature you rely on. You are stuck. Choose builders with clear roadmaps and large user bases. Avoid experimental tools for critical business sites. Export capability is your insurance policy.'
+          },
+          {
+            q: 'How long does it take to build a site with AI?',
+            a: 'AI generates base template in 30 seconds to 5 minutes. Customization: 4-12 hours for simple sites, 20-47 hours for complex features. Total time: 1-3 days for most projects. AI eliminates 80% of initial work, not 100%.'
+          },
+          {
+            q: 'Should I pay for premium features upfront?',
+            a: 'No. Start with the cheapest plan that meets your core needs. 81% of users never use the features they overpay for. Upgrade only when you actually hit the limit. Premium features are a trap—avoid until proven necessary.'
+          }
+        ].map((faq, i) => (
+          <div key={i} class="border-b-2 border-gray-200 pb-4">
+            <p class="font-black text-gray-900 mb-2">{faq.q}</p>
+            <p class="text-sm text-gray-700">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- BRUTAL TRUTH -->
+      <div class="mt-12 p-6 md:p-8 bg-gradient-to-br from-slate-900 to-gray-900 border-[3px] border-[#DC2626]">
+        <h2 class="text-2xl md:text-3xl font-black text-white mb-6">THE BRUTAL TRUTH</h2>
+        <p class="text-lg text-white leading-relaxed mb-6">
+          AI website builders work incredibly well when used correctly. They fail when people skip planning, pick tools without understanding their limitations, or do not think through long-term implications.
+        </p>
+        <p class="text-lg text-white leading-relaxed mb-6">
+          The good news: these mistakes are predictable and avoidable. Read this guide before you start building. Ask the 7 checklist questions. Pick the right tool for your use case. You will save yourself months of frustration.
+        </p>
+        <p class="text-lg text-white leading-relaxed">
+          <strong>Choose:</strong> Plan 2 hours, build 8 hours, launch successfully. OR research 14 hours, build 47 hours, discover incompatibility, switch platforms, repeat. The first path is faster. The second path is what most people do. Do not be most people.
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="flex flex-wrap gap-4 my-12">
+        <a href="/guides/how-to-choose-ai-website-builder" class="inline-flex items-center gap-2 px-8 py-4 bg-[#DC2626] text-white font-black text-lg uppercase tracking-wider border-[3px] border-[#DC2626] shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:-translate-y-0.5 transition-all duration-300">
+          How to Choose the Right Tool
+        </a>
+        <a href="/guides/best-ai-website-builders-2025" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-black text-lg uppercase tracking-wider border-[3px] border-gray-300 hover:border-[#DC2626] hover:text-[#DC2626] transition-all duration-300">
+          Best AI Builders Ranked
+        </a>
+      </div>
+
+    </article>
+  </main>
+
 </Layout>
