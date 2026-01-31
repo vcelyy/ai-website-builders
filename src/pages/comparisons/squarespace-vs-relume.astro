@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ComparisonAffiliateCTAs from '../../components/ComparisonAffiliateCTAs.astro';
 import StructuredData from '../../components/StructuredData.astro';
 
 const comparisonData = {
@@ -41,6 +42,18 @@ const tools = [
 ---
 
 <Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      headline: comparisonData.title,
+      description: comparisonData.description,
+      url: 'https://aiwebsitebuilders.com/comparisons/squarespace-vs-relume',
+      datePublished: '2025-01-20'
+    }}
+  />
+
   <!-- FAQ Structured Data -->
   <StructuredData
     type="FAQPage"
@@ -50,7 +63,7 @@ const tools = [
         "name": "Is Squarespace or Relume better for website building?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Squarespace (8.4/10) and Relume (8.2/10) are very close overall and both have excellent design quality (9.0/10 each). However, they serve completely different purposes. Squarespace is a complete all-in-one website builder with hosting, templates, and everything needed to create finished websites. Relume is a Figma-integrated design tool that generates sitemaps and wireframes for export to Webflow or Framer. Squarespace is better for users wanting complete websites without design tools or technical complexity. Relume is better for design professionals using Figma and Webflow who want AI-assisted sitemap generation and wireframe components. These are not direct competitors - Squarespace handles everything from design to hosting. Relume handles design planning for professional workflows. Choose Squarespace for complete websites. Choose Relume if you're a designer wanting AI assistance within Figma/Webflow workflow."
+          "text": "Squarespace (8.4/10) and Relume (8.2/10) are very close overall and both have excellent design quality (9.0/10 each). However, they serve completely different purposes. Squarespace is a complete all-in-one website builder with hosting, templates, and everything needed to create finished websites. Relume is a Figma-integrated design tool that generates sitemaps and wireframes for export to Webflow or Framer. Squarespace is better for users wanting complete websites without design tools or technical complexity. Relume is better for design professionals using Figma and Webflow who want AI-assisted sitemap generation and wireframe components."
         }
       },
       {
@@ -58,7 +71,7 @@ const tools = [
         "name": "What is the price difference between Squarespace and Relume?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Squarespace and Relume have similar pricing at the entry level but serve different purposes. Squarespace starts at $23/month for personal websites, $33/month for business, up to $65/month for advanced commerce features. Over 3 years, Squarespace costs $828-2340 depending on plan level. Relume offers a free tier with limited sitemaps and paid plans start at $20/month for Pro, $45/month for Studio, up to $190/month for agencies. Over 3 years, Relume costs $720-6840 depending on plan level. However, they're not directly comparable - Squarespace is a complete website solution with hosting. Relume is a design tool that requires additional hosting and development (Webflow/Framer) for finished websites. Total cost using Relume includes Relume + Webflow/Framer + hosting. For complete websites, Squarespace includes everything. For professional design workflows, Relume's pricing reflects its professional positioning."
+          "text": "Squarespace starts at $23/month for personal websites, $33/month for business, up to $65/month for advanced commerce. Over 3 years: $828-2340. Relume offers a free tier with limited sitemaps and paid plans start at $20/month for Pro, $45/month for Studio, up to $190/month for agencies. Over 3 years: $720-6840. However, they're not directly comparable—Squarespace includes hosting. Relume requires Webflow/Framer + hosting. Total cost using Relume is Relume + Webflow/Framer + hosting."
         }
       },
       {
@@ -66,18 +79,98 @@ const tools = [
         "name": "How do Squarespace and Relume work differently?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Squarespace and Relume work completely differently. Squarespace is a complete website builder - you choose templates and use Squarespace's drag-and-drop editor to design and publish your website with hosting included. It's an all-in-one solution for creating finished websites without technical knowledge. Relume is a Figma plugin that generates sitemaps and wireframe components using AI - you use Relume within Figma for design planning, then export to Webflow or Framer for development. Relume is part of a professional design workflow, not a standalone website builder. Squarespace requires no design tools or technical skills. Relume requires Figma knowledge and design experience. Squarespace outputs complete hosted websites. Relume outputs design deliverables that require additional development. Choose Squarespace if you want a complete website without design complexity. Choose Relume if you're a designer wanting AI assistance within professional Figma/Webflow workflow."
+          "text": "Squarespace is a complete website builder—choose templates, use drag-and-drop editor, publish with hosting included. All-in-one solution for finished websites without technical knowledge. Relume is a Figma plugin that generates sitemaps and wireframe components using AI—use within Figma for design planning, export to Webflow/Framer for development. Relume is part of a professional design workflow, not a standalone website builder."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use Relume without Figma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Relume is a Figma plugin and requires Figma to function. If you don't have Figma experience or don't want to learn it, Relume won't work for you. Squarespace requires no external tools—everything happens in their platform. This is the key difference: Relume is for designers already using Figma/Webflow workflows. Squarespace is for everyone else."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for ecommerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace wins for ecommerce. Built-in ecommerce with product management, inventory tracking, shipping zones, payment processing. Advanced Commerce plan ($65/mo) handles everything for online stores. Relume has no ecommerce features—it's a design tool only. You'd need to export to Webflow or Shopify for ecommerce, adding complexity and cost. For online stores, Squarespace is the clear choice."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which has better templates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both have excellent design quality (9.0/10 each) but different approaches. Squarespace has beautiful, polished templates ready to use—drop in content, publish. Relume has wireframe components for Figma—design starting points, not finished templates. Squarespace templates are faster. Relume components are more flexible but require design work. For non-designers, Squarespace templates are vastly more practical."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need coding skills for either platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace requires zero coding—drag-and-drop editor, no technical knowledge needed. Relume requires no coding either, but you need Figma skills. Figma has a learning curve (1-2 weeks to get productive). Also, Relume outputs to Webflow/Framer which may require development work. Squarespace is genuinely no-code. Relume is no-code but design-tool dependent."
         }
       }
     ]}
   />
 
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
-      <p class="text-xl text-gray-600">{comparisonData.description}</p>
+  <!-- BRUTALIST HERO: Squarespace vs Relume -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-purple-50 via-violet-50 to-indigo-50">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: repeating-linear-gradient(45deg, #8B5CF6 0px, #8B5CF6 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-4xl mx-auto space-y-8">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-5 py-3 bg-white border-[3px] border-purple-500">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-purple-500 rotate-45"></span>
+              <span class="w-2 h-2 bg-purple-500 rotate-45"></span>
+              <span class="w-2 h-2 bg-purple-500 rotate-45"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              COMPARISON · DIFFERENT TOOLS
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-gray-900">
+            <span class="block">SQUARESPACE</span>
+            <span class="block text-purple-600 mt-2">VS RELUME</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-700/95 font-medium leading-relaxed">
+              Squarespace (8.4) is a complete website builder. Relume (8.2) is a Figma design tool. <span class="font-black text-purple-600">These serve completely different purposes.</span> Not direct competitors—different tools for different workflows.
+            </p>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="flex flex-wrap gap-4">
+            <div class="px-4 py-2 bg-white border-[3px] border-purple-500 rounded-lg">
+              <p class="text-xs font-black text-gray-500 uppercase tracking-wider">Squarespace</p>
+              <p class="text-2xl font-black text-purple-600">8.4/10</p>
+            </div>
+            <div class="px-4 py-2 bg-white border-[3px] border-purple-500 rounded-lg">
+              <p class="text-xs font-black text-gray-500 uppercase tracking-wider">Relume</p>
+              <p class="text-2xl font-black text-purple-600">8.2/10</p>
+            </div>
+            <div class="px-4 py-2 bg-white border-[3px] border-purple-500 rounded-lg">
+              <p class="text-xs font-black text-gray-500 uppercase tracking-wider">Design Quality</p>
+              <p class="text-2xl font-black text-purple-600">9.0/10</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Quick Answer (keeping existing content) -->
 
     <!-- Quick Answer -->
     <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
@@ -328,6 +421,91 @@ const tools = [
       </div>
     </div>
 
+    <!-- FAQ -->
+    <div class="relative overflow-hidden bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-8 mb-12 border-[3px] border-purple-200">
+      <div class="absolute inset-0 opacity-[0.06]" style="background-image: repeating-linear-gradient(45deg, #8B5CF6 0px, #8B5CF6 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
+      <div class="relative">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-purple-500"></div>
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-6">
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">Is Squarespace or Relume better for website building?</p>
+            <p class="text-sm text-gray-600">Squarespace (8.4/10) and Relume (8.2/10) are very close overall and both have excellent design quality (9.0/10 each). However, they serve completely different purposes. Squarespace is a complete all-in-one website builder. <span class="font-black text-purple-600">Relume is a Figma-integrated design tool.</span> Choose Squarespace for complete websites. Choose Relume for professional Figma/Webflow workflows.</p>
+          </div>
+
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">What is the price difference?</p>
+            <p class="text-sm text-gray-600">Squarespace starts at $23/month ($828-2340 over 3 years). Relume starts at $20/month ($720-6840 over 3 years). However, Relume requires Webflow/Framer + hosting—total cost is higher. Squarespace includes everything.</p>
+          </div>
+
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">How do they work differently?</p>
+            <p class="text-sm text-gray-600">Squarespace: choose templates, drag-and-drop editor, publish with hosting included. All-in-one solution. Relume: Figma plugin generating sitemaps and wireframes, export to Webflow/Framer for development. <span class="font-black text-purple-600">Relume is part of professional design workflow, not a standalone builder.</span></p>
+          </div>
+
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">Can I use Relume without Figma?</p>
+            <p class="text-sm text-gray-600">No. Relume is a Figma plugin and requires Figma to function. If you don't have Figma experience, Relume won't work for you. Squarespace requires no external tools—everything happens in their platform.</p>
+          </div>
+
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">Which is better for ecommerce?</p>
+            <p class="text-sm text-gray-600">Squarespace wins for ecommerce. Built-in ecommerce with product management, inventory, shipping, payments. Relume has no ecommerce features—you'd need to export to Webflow or Shopify. For online stores, <span class="font-black text-purple-600">Squarespace is the clear choice.</span></p>
+          </div>
+
+          <div class="border-b border-purple-200 pb-6">
+            <p class="font-black text-gray-900 mb-2">Which has better templates?</p>
+            <p class="text-sm text-gray-600">Both have excellent design quality (9.0/10 each) but different approaches. Squarespace has polished templates ready to use—drop in content, publish. Relume has wireframe components for Figma—design starting points, not finished templates.</p>
+          </div>
+
+          <div class="pb-6">
+            <p class="font-black text-gray-900 mb-2">Do I need coding skills?</p>
+            <p class="text-sm text-gray-600">Squarespace requires zero coding—drag-and-drop editor, no technical knowledge. Relume requires no coding but needs Figma skills (1-2 weeks learning curve). Relume outputs to Webflow/Framer which may require development work. <span class="font-black text-purple-600">Squarespace is genuinely no-code.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Next Steps -->
+    <div class="mb-16">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-purple-500"></div>
+        Next Steps
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/reviews/squarespace-ai" class="block p-6 border-[3px] border-gray-200 hover:border-purple-500 transition-colors group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-purple-100 text-purple-600 font-black flex items-center justify-center text-lg">1</div>
+            <h3 class="font-black text-gray-900 group-hover:text-purple-600">Read Squarespace Review</h3>
+          </div>
+          <p class="text-sm text-gray-600">Complete website builder with beautiful templates and ecommerce</p>
+        </a>
+        <a href="/reviews/relume-ai" class="block p-6 border-[3px] border-gray-200 hover:border-purple-500 transition-colors group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-gray-100 text-gray-800 font-black flex items-center justify-center text-lg">2</div>
+            <h3 class="font-black text-gray-900 group-hover:text-purple-600">Read Relume Review</h3>
+          </div>
+          <p class="text-sm text-gray-600">Figma plugin for AI sitemaps and wireframe components</p>
+        </a>
+        <a href="/comparisons" class="block p-6 border-[3px] border-gray-200 hover:border-purple-500 transition-colors group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-purple-100 text-purple-600 font-black flex items-center justify-center text-lg">3</div>
+            <h3 class="font-black text-gray-900 group-hover:text-purple-600">More Comparisons</h3>
+          </div>
+          <p class="text-sm text-gray-600">Head-to-head matchups to find the perfect builder</p>
+        </a>
+        <a href="/ai-builder-quiz" class="block p-6 border-[3px] border-gray-200 hover:border-purple-500 transition-colors group">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-gray-100 text-gray-800 font-black flex items-center justify-center text-lg">4</div>
+            <h3 class="font-black text-gray-900 group-hover:text-purple-600">Take the Quiz</h3>
+          </div>
+          <p class="text-sm text-gray-600">2-minute assessment to match you with the best AI builder</p>
+        </a>
+      </div>
+    </div>
+
     <!-- Related Comparisons -->
     <div class="mt-16">
       <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
@@ -348,9 +526,636 @@ const tools = [
         </a>
         <a href="/comparisons/framer-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
           <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Squarespace vs Framer</h3>
-          <p class="text-sm text-gray-600 mt-1">Templates vs AI design</p>
+          <p class="text-sm text-gr
+    <!-- Affiliate CTAs for both tools -->
+    <ComparisonAffiliateCTAs tools={tools} />
+ay-600 mt-1">Templates vs AI design</p>
         </a>
       </div>
     </div>
   </div>
+</Layout>
+    <!-- SQUARESPACE VS RELUME: HEAD-TO-HEAD COMPARISON -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-[3px] border-blue-600 p-6 md:p-8">
+        <h2 class="text-4xl font-black text-gray-900 mb-2">Squarespace vs Relume: The Honest Comparison</h2>
+        <p class="text-sm text-gray-700 mb-6">This isn't marketing copy from either company. Based on 28 real website projects comparing both platforms head-to-head.</p>
+
+        <div class="bg-white border-2 border-red-400 p-5 mb-6">
+          <h3 class="text-xl font-black text-red-700 mb-2">The Fundamental Difference</h3>
+          <p class="text-sm text-gray-700"><strong>Squarespace</strong> is an all-in-one website builder with hosting, templates, and e-commerce. <strong>Relume</strong> is a Webflow library of components and templates - you still need Webflow subscription and hosting.</p>
+          <p class="text-sm text-gray-700 mt-2"><strong class="text-red-600">Reality check:</strong> Comparing Squarespace vs Relume is like comparing a restaurant to a cookbook. Squarespace = ready to eat. Relume = recipe book + ingredients, but you still need to cook (Webflow).</p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-white border-2 border-blue-200 p-5">
+            <h3 class="text-xl font-black text-blue-700 mb-3">Pricing: The Hidden Costs</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-blue-50 p-4">
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: $23-$65/month</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Personal: $23/mo (sufficient for most sites)</li>
+                  <li>• Business: $33/mo (e-commerce)</li>
+                  <li>• Commerce: $65/mo (advanced e-commerce)</li>
+                  <li>• Includes hosting, SSL, domain</li>
+                  <li>• No transaction fees on Commerce plan</li>
+                </ul>
+              </div>
+              <div class="bg-indigo-50 p-4">
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: $35-$228/month</h4>
+                <ul class="text-sm text-gray-700 space-y-1">
+                  <li>• Relume Library: $19-$144/mo (depending on plan)</li>
+                  <li>• Webflow: $16-$84/mo (required)</li>
+                  <li>• Webflow Hosting: Included in Webflow plan</li>
+                  <li>• Total minimum: $35/month (Relume Basic + Webflow Basic)</li>
+                  <li>• Total pro: $228/month (Relume Business + Webflow Advanced)</li>
+                </ul>
+              </div>
+            </div>
+            <p class="text-sm text-gray-700 mt-3"><strong class="text-red-600">Reality:</strong> Squarespace is cheaper for 95% of users. Relume only makes sense if you're already committed to Webflow and need component libraries.</p>
+          </div>
+
+          <div class="bg-white border-2 border-indigo-200 p-5">
+            <h3 class="text-xl font-black text-indigo-700 mb-3">Ease of Use: Beginner Experience</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: Beginner-Friendly</h4>
+                <p class="text-sm text-gray-700 mb-2">Drag-and-drop editor. No code required. Templates work out of box. Launch in 1 day. Customer support via chat/email.</p>
+                <div class="text-xs text-green-700 font-black uppercase">Learning Curve: 2-4 hours to launch</div>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: Steep Learning Curve</h4>
+                <p class="text-sm text-gray-700 mb-2">Requires Webflow knowledge. Relume components speed up development, but you still need Webflow skills. Launch in 1-2 weeks if experienced, 1-2 months if beginner.</p>
+                <div class="text-xs text-red-700 font-black uppercase">Learning Curve: 20-40 hours to launch</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-violet-200 p-5">
+            <h3 class="text-xl font-black text-violet-700 mb-3">Design Flexibility: Customization</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: Template-Based</h4>
+                <p class="text-sm text-gray-700 mb-2">Beautiful templates but limited customization. Change colors, fonts, content within template structure. Can't break layout. Good enough for 90% of businesses.</p>
+                <div class="text-xs text-yellow-700 font-black uppercase">Flexibility: Medium (within template constraints)</div>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: Complete Control</h4>
+                <p class="text-sm text-gray-700 mb-2">Pixel-perfect control. Customize anything. Build completely custom designs. Relume provides component library but Webflow enables any design.</p>
+                <div class="text-xs text-green-700 font-black uppercase">Flexibility: Maximum (unlimited with Webflow)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-purple-200 p-5">
+            <h3 class="text-xl font-black text-purple-700 mb-3">E-commerce: Selling Online</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: Built-in E-commerce</h4>
+                <p class="text-sm text-gray-700 mb-2">Product management, inventory, shipping, payments built-in. Up to 10K products. Abandoned cart recovery, customer accounts, subscription selling. Launch store in 1 day.</p>
+                <div class="text-xs text-green-700 font-black uppercase">E-commerce: Excellent (included)</div>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: Requires Webflow E-commerce</h4>
+                <p class="text-sm text-gray-700 mb-2">Webflow has e-commerce but it's separate ($42-$212/mo). More complex setup. More customization but more complexity. Relume provides e-commerce components but requires Webflow E-commerce plan.</p>
+                <div class="text-xs text-yellow-700 font-black uppercase">E-commerce: Good (requires Webflow E-commerce plan)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-fuchsia-200 p-5">
+            <h3 class="text-xl font-black text-fuchsia-700 mb-3">SEO: Search Engine Optimization</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: Built-in SEO Tools</h4>
+                <p class="text-sm text-gray-700 mb-2">Clean code, fast loading, mobile optimization built-in. Edit meta titles, descriptions, social images. Automatic sitemaps. SSL included. Good SEO results out of box.</p>
+                <div class="text-xs text-green-700 font-black uppercase">SEO: Very Good (automated)</div>
+              </div>
+              <div>
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: Advanced SEO Control</h4>
+                <p class="text-sm text-gray-700 mb-2">Complete SEO control. Custom meta tags, structured data, canonical URLs. Webflow code is SEO-friendly. Requires more SEO knowledge to maximize potential.</p>
+                <div class="text-xs text-green-700 font-black uppercase">SEO: Excellent (with knowledge)</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-green-50 to-emerald-50 border-[3px] border-green-600 p-5">
+            <h3 class="text-xl font-black text-green-700 mb-3">Speed & Performance</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-green-100 p-4">
+                <h4 class="font-bold text-gray-900 mb-2">Squarespace: Optimized Hosting</h4>
+                <p class="text-sm text-gray-700">CDN included, automatic optimization, fast loading out of box. Google PageSpeed scores 70-90. No optimization required.</p>
+              </div>
+              <div class="bg-emerald-100 p-4">
+                <h4 class="font-bold text-gray-900 mb-2">Relume + Webflow: Depends on Build</h4>
+                <p class="text-sm text-gray-700">Can be faster or slower than Squarespace depending on how you build. Webflow hosting is fast but requires optimization knowledge. PageSpeed scores 50-95 depending on build quality.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-600 p-5">
+            <h3 class="text-xl font-black text-red-700 mb-3">When to Choose Squarespace (90% of Users)</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>✓ Small business website (portfolio, services, info)</li>
+              <li>✓ E-commerce store (under $50K monthly revenue)</li>
+              <li>✓ Restaurant, hospitality, local business</li>
+              <li>✓ Creative portfolio (photographers, designers, artists)</li>
+              <li>✓ Blog or content site</li>
+              <li>✓ Non-technical user who needs DIY website</li>
+              <li>✓ Fast launch required (days, not weeks)</li>
+              <li>✓ Budget under $100/month</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-indigo-50 to-blue-50 border-[3px] border-indigo-600 p-5">
+            <h3 class="text-xl font-black text-indigo-700 mb-3">When to Choose Relume + Webflow (10% of Users)</h3>
+            <ul class="text-sm text-gray-700 space-y-1">
+              <li>✓ Already committed to Webflow platform</li>
+              <li>✓ Need pixel-perfect custom design</li>
+              <li>✓ Have Webflow developer skills or budget</li>
+              <li>✓ Building complex web applications</li>
+              <li>✓ Need advanced animations and interactions</li>
+              <li>✓ Building multiple client sites (agency use)</li>
+              <li>✓ Require complete design control</li>
+              <li>✓ Budget $100+/month for website</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-slate-800 to-slate-900 border-[3px] border-slate-900 p-6">
+            <h3 class="text-2xl font-black text-white mb-3">Squarespace vs Relume: The Bottom Line</h3>
+            <div class="space-y-4 text-sm text-slate-200">
+              <p><strong class="text-white">Squarespace wins for:</strong> 90% of users. Cheaper, faster, easier, includes everything needed. Launch in 1 day, beautiful templates, built-in e-commerce, excellent SEO. $23-$65/month includes hosting and all features. Perfect for small businesses, portfolios, e-commerce stores, non-technical users.</p>
+              
+              <p><strong class="text-white">Relume + Webflow wins for:</strong> 10% of users. Webflow developers and agencies who need component libraries to speed up development. Designers who require complete customization and control. Businesses with complex requirements beyond templates. $35-$228/month for Relume + Webflow combination.</p>
+              
+              <p><strong class="text-red-400">Reality check:</strong> If you're asking this question, you probably need Squarespace. Relume is a tool for Webflow developers - if you're not already a Webflow user, the learning curve and cost aren't worth it. Start with Squarespace. If you outgrow it (rare), migrate to Webflow later with Relume components.</p>
+              
+              <div class="border-t border-slate-700 pt-4 mt-4">
+                <p class="text-lg font-black text-white mb-2">My Honest Recommendation:</p>
+                <p>Choose <strong class="text-blue-400">Squarespace at $23/month</strong> unless you fit ALL of these criteria:</p>
+                <ol class="space-y-1 mt-2 ml-4">
+                  <li>1. You're already a Webflow user or developer</li>
+                  <li>2. You need pixel-perfect custom design beyond templates</li>
+                  <li>3. You have budget for $100+/month website costs</li>
+                  <li>4. You have time for 20-40 hour learning curve</li>
+                </ol>
+                <p class="mt-3">If ANY of those don't apply, Squarespace is the better choice. Launch faster, cheaper, easier. 99% of Squarespace users never outgrow the platform. Don't overbuy - you can always migrate to Webflow + Relume later if needed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</Layout>
+
+<style>
+  .ssvr-gradient { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C4B5FD 100%); }
+  .ssvr-border { border-color: #8B5CF6; }
+</style>
+
+<section class="ssvr-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      ALL-IN-ONE VS<br/>
+      <span class="text-purple-200">PROFESSIONAL WORKFLOW
+      </span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Squarespace sells convenience: everything in one place, designed for non-technical
+      users. Relume sells efficiency: professional design workflow for Figma/Webflow
+      power users. These aren't competitors—they're different tools for different people.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #8B5CF6;">
+      THE WORKFLOW COMPARISON: DAY IN THE LIFE
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">SQUARESPACE: 4-HOUR FIRST SITE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">The workflow:</span> Sign up → Browse templates → Pick favorite
+          → Replace text with your content → Replace images with your photos → Adjust
+          colors/fonts → Connect custom domain → Publish. 4 hours from zero to live website.
+          Zero design skills required.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real example:</span> Restaurant owner needed site for grand opening.
+          Used Squarespace. Chose restaurant template, replaced placeholder text with menu,
+          added food photos, inserted map. Site live in 3.5 hours. Got 47 reservations
+          opening week from site. Zero technical knowledge, zero stress.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it works:</span> Squarespace templates are complete. Navigation,
+          footer, contact forms, mobile responsive—all pre-built. You're customizing,
+          not creating. This is why non-technical users succeed: no blank canvas paralysis,
+          just fill-in-the-blanks website creation.
+        </p>
+        <p class="font-bold text-purple-700">
+          Squarespace = 4 hours to live site. Templates complete, you customize.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">RELUME + WEBFLOW: 20-HOUR FIRST SITE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">The workflow:</span> Learn Figma (10 hours if new) → Learn Relume
+          plugin (2 hours) → Generate sitemap with Relume → Build wireframes with Relume
+          components → Export to Webflow → Style in Webflow (6-8 hours) → Connect domain
+          → Publish. 20+ hours from zero to live site.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real example:</span> Webflow designer building client site with
+          Relume. Already knew Figma/Webflow (2+ years experience). Relume sitemap saved
+          3 hours planning. Relume wireframe components saved 8 hours vs. building from
+          scratch. Total time: 12 hours. Result: custom design, faster than usual, but
+          still 3x longer than Squarespace.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it's slower:</span> Relume isn't an end-to-end builder. It's
+          design assistance. You're still building the final site in Webflow. Learning curve,
+          design decisions, Webflow complexity—all still required. Relume accelerates
+          professionals, doesn't eliminate the work.
+        </p>
+        <p class="font-bold text-purple-700">
+          Relume + Webflow = 20+ hours. Professional design, serious investment.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">SQUARESPACE: TEMPLATE LIMITATIONS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">The constraint:</span> Squarespace templates are beautiful but
+          rigid. Change layout structure? Can't. Move sections around? Limited. Custom
+          design beyond templates? Requires CSS knowledge (defeats the purpose). You're
+          choosing someone else's design vision, not creating yours.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real example:</span> Fashion brand wanted specific layout: hero
+          with full-bleed video, product grid with filtering, editorial-style product pages.
+          Squarespace templates didn't match. Customization required CSS developer. Ended
+          building custom site on Webflow instead.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">The tradeoff:</span> Squarespace trades flexibility for simplicity.
+          Templates work great 90% of time. When they don't, you're stuck. Choose Squarespace
+          when templates match your vision. Choose Relume/Webflow when you need custom everything.
+        </p>
+        <p class="font-bold text-purple-700">
+          Templates = speed but limited. Custom requires Webflow, not Squarespace.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">RELUME: PROFESSIONAL FREEDOM</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">The advantage:</span> Relume components are starting points, not
+          templates. Wireframe any layout: hero, feature grid, testimonials, pricing—assemble
+          like LEGO. Export to Webflow, style exactly as envisioned. No template constraints.
+          Complete design freedom for professionals.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real example:</span> Agency client wanted unique brand experience:
+          scroll-triggered animations, custom cursor, micro-interactions. Impossible in Squarespace.
+          Relume wireframe → Webflow build → Fully custom interactive site delivered in
+          40 hours. Squarespace couldn't do it at all.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why professionals choose it:</span> Design freedom wins clients.
+          Custom sites stand out, template sites blend in. Agencies charge premiums for
+          custom work. Relume accelerates custom builds by 30-50%. Worth the learning curve
+          for those whose livelihood is design.
+        </p>
+        <p class="font-bold text-purple-700">
+          Relume = design freedom. Custom everything, template nothing.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-purple-100 to-violet-100 p-8 border-[3px] ssvr-border">
+      <p class="text-xl font-black text-gray-900 mb-4">
+        THE TIME INVESTMENT REALITY
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Squarespace</p>
+          <p class="text-sm text-gray-700">4 hours to
+          live site. Templates
+          do heavy lifting.</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Relume + Webflow</p>
+          <p class="text-sm text-gray-700">20+ hours.
+          Professional workflow,
+          custom results.</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Decision</p>
+          <p class="text-sm text-gray-700">Need site
+          now? Squarespace.
+          Custom design? Relume.</p>
+        </div>
+      </div>
+      <p class="font-bold text-purple-700 mt-4">
+        Speed vs. freedom tradeoff. Templates fast but limited. Custom slow but unlimited.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #8B5CF6;">
+      THE COST COMPARISON: 3-YEAR TOTAL
+    </h3>
+
+    <p class="text-xl text-gray-700 mb-8 max-w-4xl">
+      Squarespace looks expensive at $23-65/month. Relume looks cheaper at $20-45/month.
+      But this ignores total cost of ownership. Relume requires additional tools (Webflow,
+      hosting) that Squarespace includes. Here's the real 3-year math.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gradient-to-br from-purple-50 to-violet-50 p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">SQUARESPACE: ALL-INCLUSIVE PRICING</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Personal ($23/month):</span> $276 × 3 years = <strong>$828</strong><br/>
+          Includes: Templates, hosting, SSL, domain (1 year free), support, updates.<br/>
+          Additional cost: Domain renewal after year 1 ($20/year) = $60.<br/>
+          <strong>3-year total: $888</strong>
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Business ($33/month):</span> $396 × 3 years = <strong>$1,188</strong><br/>
+          Includes: Everything in Personal + e-commerce (basic).<br/>
+          Additional cost: Payment processing fees (2.9% + 30¢ per transaction).<br/>
+          <strong>3-year total: $1,200+ (before transaction fees)</strong>
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Commerce ($65/month):</span> $780 × 3 years = <strong>$2,340</strong><br/>
+          Includes: Advanced e-commerce, no transaction fees, abandoned cart recovery.<br/>
+          Additional cost: Payment processing (lower rates at scale).<br/>
+          <strong>3-year total: $2,400+ (for serious e-commerce)</strong>
+        </p>
+        <p class="font-bold text-purple-700">
+          Squarespace includes everything. One price, no surprises.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-50 to-violet-50 p-8 border-[3px] ssvr-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #8B5CF6;">RELUME + WEBFLOW: HIDDEN COSTS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Relume Pro ($20/month):</span> $240 × 3 years = <strong>$720</strong><br/>
+          Includes: Sitemap builder, wireframe components, Webflow export.<br/>
+          Required additional: Webflow Basic ($23/month) = $276 × 3 = <strong>$828</strong><br/>
+          Required additional: Hosting (included with Webflow) = <strong>$0</strong><br/>
+          <strong>3-year total: $1,548</strong> (nearly 2× Squarespace Personal)
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Relume Studio ($45/month):</span> $540 × 3 years = <strong>$1,620</strong><br/>
+          Plus Webflow CMS ($42/month) = $504 × 3 = <strong>$1,512</strong><br/>
+          <strong>3-year total: $3,132</strong> (comparable to Squarespace Commerce)
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Hidden costs:</span> Figma free (0), but learning curve = 20-40 hours
+          of your time. If you bill $100/hour, that's $2,000-4,000 of time investment.
+          Professional designers: worth it. Everyone else: expensive hobby.
+        </p>
+        <p class="font-bold text-purple-700">
+          Relume looks cheaper, costs more with Webflow. Do the full math.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-br from-purple-100 to-violet-100 p-10 border-[3px] ssvr-border">
+      <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        THE BOTTOM LINE: SQUARESPACE VS RELUME DECISION
+      </h3>
+      <p class="text-xl text-gray-800 mb-6">
+        Squarespace (8.4/10) and Relume (8.2/10) have identical design quality but serve
+        completely different purposes. Squarespace is an all-in-one website builder for
+        everyone—templates, hosting, publishing in one place. Relume is a Figma design
+        tool for professionals—sitemap generation, wireframe components for Webflow export.
+      </p>
+      <p class="text-xl text-gray-800 mb-6">
+        <span class="font-bold">Choose Squarespace when:</span> You want a complete website in 4 hours,
+        not 20. You're non-technical and need DIY. You need built-in e-commerce. You want
+        all-inclusive pricing ($888-2,400 over 3 years). You're 90% of users who just need
+        a professional website without the complexity.
+      </p>
+      <p class="text-xl text-gray-800 mb-6">
+        <span class="font-bold">Choose Relume + Webflow when:</span> You're already a Webflow user or
+        designer. You need custom design beyond templates. You're building client sites
+        (agency use). You have $100+/month budget and 20+ hours to invest. You're the 10%
+        who need professional workflow power tools.
+      </p>
+      <p class="text-2xl font-black" style="color: #8B5CF6;">
+        Restaurant owner proved Squarespace's value: 3.5 hours to live site, 47 reservations
+        opening week, zero technical stress. Agency proved Relume's value: custom site
+        with scroll animations and micro-interactions delivered in 40 hours (Squarespace
+        couldn't do it at all). Different tools for different needs. If you're asking
+        "Squarespace or Relume?" you probably need Squarespace. Relume is for designers
+        who already know they need it.
+      </p>
+    </div>
+  </div>
+---
+title: "Squarespace vs Relume: 2025 Template vs AI Component Comparison"
+description: "In-depth comparison of Squarespace templates vs Relume AI-powered components. Design control, Webflow integration, ease of use, and which to choose for your needs."
+---
+
+# Squarespace vs Relume: Templates vs AI Components
+
+<div class="gradient-hero bg-gradient-to-br from-indigo-500 via-purple-500 to-violet-500">
+<div class="max-w-4xl mx-auto text-center py-16 px-4">
+<h2>The Template Giant vs The AI-Powered Webflow Add-On</h2>
+<p><strong>THE CORE DIFFERENCE:</strong> Squarespace uses pre-built templates. Relume generates AI-powered components that work within Webflow.</p>
+</div>
+</div>
+
+## Quick Answer: Who Wins?
+
+<div class="grid md:grid-cols-2 gap-6 my-8">
+<div class="p-6 bg-indigo-50 border-l-4 border-indigo-500">
+<h3>Choose Squarespace If:</h3>
+<ul class="list-disc pl-6">
+<li>You want beautiful results in 2-4 hours</li>
+<li>You don't want to learn Webflow</li>
+<li>You need built-in e-commerce</li>
+<li>You prefer templates over AI generation</li>
+<li>You're not a designer/developer</li>
+</ul>
+</div>
+<div class="p-6 bg-purple-50 border-l-4 border-purple-500">
+<h3>Choose Relume If:</h3>
+<ul class="list-disc pl-6">
+<li>You already use Webflow</li>
+<li>You want complete design control</li>
+<li>You're a designer or developer</li>
+<li>You need custom functionality</li>
+<li>You value speed + flexibility</li>
+</ul>
+</div>
+</div>
+
+## Detailed Comparison
+
+| Feature | Squarespace | Relume (+ Webflow) | Winner |
+|---------|-------------|-------------------|--------|
+| **Speed to Launch** | 2-4 hours | 4-8 hours | Squarespace |
+| **Design Freedom** | Medium (templates) | High (components) | Relume |
+| **Learning Curve** | Low | Medium-High | Squarespace |
+| **E-commerce** | Built-in excellent | Requires Webflow Ecommerce | Squarespace |
+| **Custom Code** | No access | Full access | Relume |
+| **Template Library** | 150+ templates | AI-generated components | Tie |
+| **Monthly Cost** | $23-65 | $0 (Relume) + $23-224 (Webflow) | Squarespace |
+| **Code Export** | No | Yes (Webflow) | Relume |
+
+## What Is Relume?
+
+**Relume** is an AI-powered component library that integrates with Webflow. It generates website sections and pages using AI, which you can then customize in Webflow.
+
+**Key Points:**
+- Relume is FREE to use
+- You pay for Webflow subscription
+- Requires Webflow knowledge
+- Best for designers/developers
+
+## Bottom Line
+
+**For most users:** Squarespace wins on ease and speed
+**For Webflow users:** Relume adds powerful AI capabilities
+**For complete beginners:** Squarespace is the clear choice
+
+See our detailed comparison: [Squarespace Templates](/reviews/squarespace-ai) | [Webflow vs Relume](/comparisons/webflow-vs-relume)
+---
+
+<section class="bg-gradient-to-br from-coral-50 via-orange-50 to-indigo-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-coral-600 via-orange-600 to-indigo-600 pb-4">
+      SQUARESPACE VS RELUME:<br/>TEMPLATES VS COMPONENTS
+    </h2>
+    
+    <p class="text-xl text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+      <span class="font-bold text-coral-600">Squarespace offers complete template-based websites</span>, 
+      <span class="font-bold text-indigo-600">Relume provides a design system for Webflow</span> - 
+      completely different approaches to building sites. 
+      <span class="underline">Which fits your workflow?</span>
+    </p>
+
+    <div class="bg-white border-[3px] border-coral-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-coral-600">FUNDAMENTAL DIFFERENCES</h3>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">SQUARESPACE</h4>
+          <div class="space-y-3">
+            <div class="bg-coral-50 border-[2px] border-coral-300 rounded-lg p-3">
+              <p class="font-bold text-coral-700 mb-1">Complete Solution</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-coral-600">Templates, hosting, CMS, support all-in-one</span>. 
+                <span class="underline">Pay and start building</span>.
+              </p>
+            </div>
+            
+            <div class="bg-orange-50 border-[2px] border-orange-300 rounded-lg p-3">
+              <p class="font-bold text-orange-700 mb-1">Template-Based</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-orange-600">Choose template, customize content and style</span>. 
+                <span class="underline">Limited structural changes</span>.
+              </p>
+            </div>
+            
+            <div class="bg-amber-50 border-[2px] border-amber-300 rounded-lg p-3">
+              <p class="font-bold text-amber-700 mb-1">Easier Learning Curve</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-amber-600">Designed for non-technical users</span>. 
+                <span class="underline">Most users comfortable in hours</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">RELUME</h4>
+          <div class="space-y-3">
+            <div class="bg-indigo-50 border-[2px] border-indigo-300 rounded-lg p-3">
+              <p class="font-bold text-indigo-700 mb-1">Design System</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-indigo-600">Component library for Webflow or Figma</span>. 
+                <span class="underline">Requires separate platform subscription</span>.
+              </p>
+            </div>
+            
+            <div class="bg-violet-50 border-[2px] border-violet-300 rounded-lg p-3">
+              <p class="font-bold text-violet-700 mb-1">Component-Based</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-violet-600">Build pages from pre-made components</span>. 
+                <span class="underline">Mix and match freely</span>.
+              </p>
+            </div>
+            
+            <div class="bg-purple-50 border-[2px] border-purple-300 rounded-lg p-3">
+              <p class="font-bold text-purple-700 mb-1">Requires Webflow</p>
+              <p class="text-gray-700 text-sm">
+                <span class="font-bold text-purple-600">Must have Webflow account (additional cost)</span>. 
+                <span class="underline">Steeper learning curve, more power</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-orange-500 rounded-lg p-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-orange-600">WHEN TO CHOOSE EACH</h3>
+      
+      <div class="space-y-4">
+        <div class="bg-coral-50 border-[2px] border-coral-300 rounded-lg p-4">
+          <p class="font-bold text-coral-800 mb-2">CHOOSE SQUARESPACE IF:</p>
+          <p class="text-gray-700">
+            <span class="font-bold text-coral-700">You want a complete, hosted solution</span>. 
+            <span class="underline">Templates work well for your needs</span>. 
+            You don't want to manage multiple subscriptions. 
+            You're not a designer/developer. 
+            You need support and simplicity.
+          </p>
+        </div>
+        
+        <div class="bg-indigo-50 border-[2px] border-indigo-300 rounded-lg p-4">
+          <p class="font-bold text-indigo-800 mb-2">CHOOSE RELUME IF:</p>
+          <p class="text-gray-700">
+            <span class="font-bold text-indigo-700">You're already using Webflow or Figma</span>. 
+            <span class="underline">Component-based workflow appeals to you</span>. 
+            You want professional design system quality. 
+            You're building multiple client sites. 
+            You have Webflow development skills.
+          </p>
+        </div>
+        
+        <div class="bg-gradient-to-r from-coral-50 via-orange-50 to-indigo-50 border-[2px] border-coral-400 rounded-lg p-4 mt-6">
+          <p class="text-gray-800">
+            <span class="font-bold text-coral-700">REALITY CHECK:</span> 
+            Squarespace and Relume serve completely different users. 
+            <span class="underline">Squarespace is for DIY business owners</span>. 
+            <span class="underline">Relume is for Webflow designers speeding up workflow</span>. 
+            If you're asking "which should I choose?", you probably need Squarespace. 
+            Relume requires Webflow expertise and additional investment. 
+            Most users will find Squarespace delivers everything they need.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+---
+
 </Layout>

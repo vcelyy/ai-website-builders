@@ -897,4 +897,280 @@ const conversionData = {
     </article>
   </main>
 
+<style>
+  .domain-gradient { background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #059669 100%); }
+  .domain-border { border-color: #2563EB; }
+  .domain-text { color: #2563EB; }
+</style>
+
+<section class="domain-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    HOW TO SET UP CUSTOM DOMAIN FOR AI BUILDERS<br/>
+    <span class="text-green-200">Complete Setup Guide: DNS Settings, Domain Registrars, Platform Instructions</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Step-by-step DNS configuration for Mixo, Durable, Framer, 10Web, Squarespace, Webflow. Avoid common mistakes, troubleshoot issues.
+  </p>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 domain-text">
+      DOMAIN SETUP REALITY: 10-30 MINUTES, ONCE CONFIGURED
+    </h2>
+    
+    <div class="bg-gradient-to-r from-blue-100 to-purple-100 border-[3px] domain-border p-8 rounded-lg mb-12">
+      <p class="text-2xl font-bold text-center">
+        🌐 Brutal truth: Custom domain = credibility. Clients trust yourbrand.com vs yourbrand.mixo.io. Setup costs $10-15/year, takes 10-30 minutes once you know the steps.
+      </p>
+      <p class="text-lg text-center mt-4 text-gray-700">
+        Why custom domain matters: Professionalism (83% of consumers distrust subdomains), branding (memorable URL = repeat visitors), SEO benefits (domain authority, backlinks), email (you@yourbrand.com vs @gmail.com).<br/>
+        Cost: Domain $10-15/year (Namecheap, Google Domains, Cloudflare). Most AI builders include free SSL certificate.<br/>
+        Time investment: 10-30 minutes for DNS configuration. 24-48 hours for DNS propagation (worldwide update).<br/>
+        Difficulty: Easy once you understand DNS records. Hard first time, trivial after.<br/>
+        This guide: Platform-specific instructions for Mixo, Durable, Framer, 10Web, Squarespace, Webflow. Follow exactly, avoid common mistakes.
+      </p>
+    </div>
+    
+    <div class="space-y-8">
+      <div class="border-[3px] domain-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🔧 Common DNS Records Explained</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-4">Understanding DNS Records:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-[3px] domain-border">
+              <thead>
+                <tr class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                  <th class="p-3 text-left">Record Type</th>
+                  <th class="p-3 text-center">Purpose</th>
+                  <th class="p-3 text-center">Example</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">A Record</td>
+                  <td class="p-3 text-center">Points domain to IP address</td>
+                  <td class="p-3 text-center">yourbrand.com → 192.0.2.1</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">CNAME</td>
+                  <td class="p-3 text-center">Points subdomain to domain</td>
+                  <td class="p-3 text-center">www.yourbrand.com → yourbrand.com</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">MX Record</td>
+                  <td class="p-3 text-center">Mail exchange (email routing)</td>
+                  <td class="p-3 text-center">yourbrand.com → mail.yourbrand.com</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold">TXT Record</td>
+                  <td class="p-3 text-center">Verification, SPF, DKIM</td>
+                  <td class="p-3 text-center">v=spf1 include:_spf.google.com ~all</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-gray-700"><strong>Key insight:</strong> For AI builders, you'll mostly add A records and CNAME records. TXT records for domain verification. MX records only if setting up email (Google Workspace, Microsoft 365).</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] domain-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🛒 Step 1: Buy Domain (If You Don't Have One)</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-4">Recommended Domain Registrars:</p>
+          <ul class="space-y-4">
+            <li><strong>Namecheap ($10-15/year):</strong> Best balance of price + features. Free WHOIS privacy first year. Clean interface. Highly recommended.</li>
+            <li><strong>Cloudflare ($10-15/year at cost):</strong> No markup, you pay wholesale price. Best DNS performance. Free CDN included.</li>
+            <li><strong>Google Domains ($12-15/year):</strong> Clean integration with Google Workspace. Privacy included. Simple interface.</li>
+          </ul>
+          <p class="mt-4 bg-yellow-100 p-4 rounded"><strong>⚠️ Avoid:</strong> GoDaddy (expensive renewal, upsells), Network Solutions (poor reputation). Stick to Namecheap, Cloudflare, or Google Domains.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] domain-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🎯 Platform-Specific Setup Guides</h3>
+        <div class="text-lg space-y-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">Mixo Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In Mixo: Settings → Domain → Connect custom domain</li>
+              <li>Enter your domain (e.g., yourbrand.com)</li>
+              <li>Mixo will show DNS records to add (usually 1 A record, 1 CNAME)</li>
+              <li>Go to your domain registrar (Namecheap, etc.)</li>
+              <li>Find DNS management / Advanced DNS</li>
+              <li>Add A record: @ → [IP address from Mixo]</li>
+              <li>Add CNAME record: www → [Mixo verification]</li>
+              <li>Save changes, wait 10-30 minutes</li>
+              <li>In Mixo: Click "Verify connection"</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">Durable Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In Durable: Settings → Custom Domain</li>
+              <li>Enter your domain name</li>
+              <li>Durable provides A record and CNAME record</li>
+              <li>Go to domain registrar DNS settings</li>
+              <li>Add A record: @ → [Durable IP]</li>
+              <li>Add CNAME: www → [Durable verification]</li>
+              <li>Wait for DNS propagation (10-30 min)</li>
+              <li>Click "Verify" in Durable dashboard</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">Framer Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In Framer: Settings → Domain</li>
+              <li>Enter custom domain</li>
+              <li>Framer shows 2 A records (root domain) + 1 CNAME (www)</li>
+              <li>Add both A records to registrar</li>
+              <li>Add CNAME for www subdomain</li>
+              <li>Enable "Auto-renew SSL" in Framer</li>
+              <li>Wait 10-30 minutes, verify in Framer</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">10Web Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In 10Web: Domain manager → Add domain</li>
+              <li>Enter domain name</li>
+              <li>10Web provides A record for WordPress hosting</li>
+              <li>Add A record at registrar: @ → [10Web IP]</li>
+              <li>Add CNAME: www → @ (points www to root)</li>
+              <li>Nameservers option: Change to 10Web nameservers (easier, full control)</li>
+              <li>Verify connection in 10Web dashboard</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">Squarespace Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In Squarespace: Settings → Domains → Connect domain</li>
+              <li>Enter domain, click "Connect Domain"</li>
+              <li>Choose "Connect from provider" (keep domain at registrar)</li>
+              <li>Squarespace shows 4 DNS records to add</li>
+              <li>Add all records to registrar (A record, 3 CNAME records)</li>
+              <li>Wait 10-30 minutes</li>
+              <li>Return to Squarespace, click "Verify"</li>
+            </ol>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">Webflow Domain Setup</h4>
+            <ol class="space-y-2 list-decimal pl-6">
+              <li>In Webflow: Project Settings → Publishing</li>
+              <li>Enter custom domain</li>
+              <li>Webflow provides A record (or AAAA for IPv6)</li>
+              <li>Add A record at registrar: @ → [Webflow IP]</li>
+              <li>Add CNAME: www → proxy-ssl.webflow.com</li>
+              <li>Add TXT record for verification (if required)</li>
+              <li>Click "Publish" in Webflow</li>
+              <li>SSL auto-provisioned by Webflow</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 domain-text">
+      TROUBLESHOOTING: COMMON ISSUES + SOLUTIONS
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] domain-border p-6">
+        <h3 class="text-2xl font-bold mb-4">⏱️ DNS Propagation Taking Too Long?</h3>
+        <div class="text-lg">
+          <p><strong>Issue:</strong> Changes not visible after 30 minutes.</p>
+          <p><strong>Solution:</strong> DNS propagation takes 24-48 hours worldwide. Check status:</p>
+          <ul class="space-y-2 mt-2">
+            <li>• <strong>What's my DNS:</strong> https://www.whatsmydns.net/ - Check global propagation status</li>
+            <li>• <strong>Dig tool:</strong> `dig yourbrand.com` (Mac/Linux) - See current DNS records</li>
+            <li>• <strong>Flush cache:</strong> Clear browser cache, try incognito mode</li>
+            <li>• <strong>Patience:</strong> Some ISPs cache DNS for 24 hours. Wait it out.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-[3px] domain-border p-6">
+        <h3 class="text-2xl font-bold mb-4">❌ Verification Failing?</h3>
+        <div class="text-lg">
+          <p><strong>Common causes:</strong></p>
+          <ul class="space-y-2">
+            <li>• <strong>Wrong record type:</strong> Added CNAME instead of A record (or vice versa)</li>
+            <li>• <strong>Typos:</strong> IP address wrong by one digit, misspelled hostname</li>
+            <li>• <strong>Cached DNS:</strong> Your ISP hasn't updated yet. Try mobile network (different ISP)</li>
+            <li>• <strong>Multiple A records:</strong> Old A record conflicts. Remove old records first.</li>
+          </ul>
+          <p class="mt-4 bg-blue-100 p-4 rounded"><strong>Verification tip:</strong> Use dig command to see current records: `dig yourbrand.com ANY`. Compare with platform instructions. Must match exactly.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] domain-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🔒 SSL Certificate Issues?</h3>
+        <div class="text-lg">
+          <p><strong>Issue:</strong> "Not secure" warning in browser.</p>
+          <p><strong>Solution:</strong> Most AI builders auto-provision SSL. Takes 24-48 hours after domain verification.</p>
+          <ul class="space-y-2 mt-2">
+            <li>• <strong>Wait:</strong> SSL provisioning not instant. Give it 24-48 hours.</li>
+            <li>• <strong>Verify domain:</strong> SSL won't provision until domain verified.</li>
+            <li>• <strong>Check settings:</strong> SSL auto-enable option in platform (Webflow, Framer).</li>
+            <li>• <strong>Force HTTPS:</strong> Enable "force HTTPS" redirect in platform settings.</li>
+          </ul>
+          <p class="mt-4 bg-green-100 p-4 rounded"><strong>Good news:</strong> 95% of SSL issues resolve automatically within 48 hours. Contact support only if still not working after 3 days.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] domain-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📧 Email Setup (Optional)</h3>
+        <div class="text-lg">
+          <p><strong>Need email at your domain?</strong> Google Workspace, Microsoft 365, or free Zoho Mail.</p>
+          <p><strong>Steps:</strong></p>
+          <ol class="space-y-2 list-decimal pl-6 mt-2">
+            <li>Sign up for email provider (Google Workspace $6/user/month)</li>
+            <li>Add MX records provided by email provider to your domain registrar</li>
+            <li>Add TXT records for SPF, DKIM (spam protection)</li>
+            <li>Wait 24-48 hours for MX propagation</li>
+            <li>Verify email ownership in email provider dashboard</li>
+          </ol>
+          <p class="mt-4 bg-yellow-100 p-4 rounded"><strong>Note:</strong> MX records don't affect website DNS. You can have both website and email at same domain. Records coexist fine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-blue-600 via-purple-600 to-green-600">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      CUSTOM DOMAIN SETUP: FINAL CHECKLIST
+    </h2>
+    
+    <div class="bg-white/10 backdrop-blur-sm border-[3px] border-white p-8 rounded-lg">
+      <div class="bg-white p-6 rounded-lg">
+        <h3 class="text-2xl font-bold domain-text mb-4">✅ Pre-Launch Checklist:</h3>
+        <ul class="text-lg space-y-2">
+          <li>☐ Domain purchased at registrar (Namecheap, Cloudflare, Google Domains)</li>
+          <li>☐ DNS records added exactly as platform specifies (A record, CNAME)</li>
+          <li>☐ Waited 10-30 minutes for DNS propagation</li>
+          <li>☐ Domain verified in platform dashboard (shows "Connected")</li>
+          <li>☐ SSL certificate auto-provisioned (usually takes 24-48 hours)</li>
+          <li>☐ Tested website loads at yourbrand.com (HTTP redirects to HTTPS)</li>
+          <li>☐ Tested www subdomain works (www.yourbrand.com → yourbrand.com)</li>
+          <li>☐ Set up email if needed (MX records added separately)</li>
+        </ul>
+        <p class="text-2xl font-bold mt-6 domain-text">
+          Brutal truth: Custom domain = non-negotiable for professional site. $10-15/year, 30 minutes setup. Worth every cent for credibility, branding, SEO. Follow platform instructions exactly, verify records with dig tool, wait for propagation. Don't skip this step.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </Layout>

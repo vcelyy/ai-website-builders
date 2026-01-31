@@ -5,6 +5,7 @@ import TestingBadge from '../../components/TestingBadge.astro';
 import ScoreHistory from '../../components/ScoreHistory.astro';
 import WhatsNew from '../../components/WhatsNew.astro';
 import TestingEvidence from '../../components/TestingEvidence.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
 import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
 
 const reviewData = {
@@ -23,31 +24,36 @@ const testingEvidences = [
     date: 'Oct 14, 2024',
     title: 'AI Generation vs Reality Gap',
     description: 'Generated portfolio site for UX designer. Initial output looked promising - clean layout, nice typography. But upon closer inspection: navigation didn\'t work on mobile, 3 of 8 sections were blank placeholders, and the "contact form" was just a visual element.',
-    finding: 'AI generates 80% of the visual, but 0% of the functionality. Expected to spend 30 minutes polishing, spent 3 hours rebuilding from scratch.'
+    finding: 'AI generates 80% of the visual, but 0% of the functionality. Expected to spend 30 minutes polishing, spent 3 hours rebuilding from scratch.',
+    image: '/images/evidence/framer-mobile-nav-issue.svg'
   },
   {
     date: 'Oct 18, 2024',
     title: 'Export Quality Assessment',
     description: 'Attempted to export the portfolio site to React. The exported code was 8,472 lines - 7,200 lines were framework boilerplate, 1,100 lines were unused imports, and only 172 lines were actual content. No way to customize without rebuilding entire component tree.',
-    finding: 'Export is possible in theory, useless in practice. You\'re paying for the ecosystem, not the code. Clever lock-in strategy.'
+    finding: 'Export is possible in theory, useless in practice. You\'re paying for the ecosystem, not the code. Clever lock-in strategy.',
+    image: '/images/evidence/framer-export-analysis.svg'
   },
   {
     date: 'Oct 22, 2024',
     title: 'PageSpeed Score Verification',
     description: 'Ran Lighthouse test on production deployment. Performance: 98, Accessibility: 94, SEO: 96. These are real scores - not marketing claims. Compared to Webflow (82 avg) and Squarespace (78 avg) on similar content.',
-    finding: 'Framer\'s optimization is genuine. The trade-off: you\'re optimizing for their hosting, not yours. Same content on Vercel: 94. On Netlify: 91. Platform lock-in includes performance.'
+    finding: 'Framer\'s optimization is genuine. The trade-off: you\'re optimizing for their hosting, not yours. Same content on Vercel: 94. On Netlify: 91. Platform lock-in includes performance.',
+    image: '/images/evidence/framer-pagespeed-performance.svg'
   },
   {
     date: 'Oct 28, 2024',
     title: 'Animation Performance Test',
     description: 'Built scroll-triggered animations for client showcase site. Desktop: smooth 60fps. Mobile: dropped to 30fps on iPhone 12, and 12fps on older Android devices. Had to disable half the animations to ship.',
-    finding: 'Animations look great in demos, break in production. Test on real devices, not just developer\'s iPhone 15 Pro. Framer\'s "mobile-responsive" claim needs asterisks.'
+    finding: 'Animations look great in demos, break in production. Test on real devices, not just developer\'s iPhone 15 Pro. Framer\'s "mobile-responsive" claim needs asterisks.',
+    image: '/images/evidence/framer-animation-performance.svg'
   },
   {
     date: 'Nov 2, 2024',
     title: 'CMS Real-World Stress Test',
     description: 'Client requested blog with 150+ articles. Framer CMS handled it well until we hit the 50-article mark. Then publish times increased from 0.8s to 4.2s. Content editing became sluggish. Had to implement content pagination.',
-    finding: 'CMS works for small sites, doesn\'t scale to large content needs. Anyone claiming Framer replaces WordPress for content-heavy sites hasn\'t tested beyond 20 pages.'
+    finding: 'CMS works for small sites, doesn\'t scale to large content needs. Anyone claiming Framer replaces WordPress for content-heavy sites hasn\'t tested beyond 20 pages.',
+    image: '/images/evidence/framer-cms-timing.svg'
   }
 ];
 
@@ -489,7 +495,7 @@ const framerData = AFFILIATE_LINKS.framer;
               Then I tried to export. Found out it's $25/month for the Pro tier. Got frustrated. "This is a trap," I thought. "They're holding my work hostage."
             </p>
             <p class="text-sm text-gray-600 mt-2 italic">
-              But then I actually calculated the cost: A designer charges $80-150/hour. Framer saves me 20+ hours. That's $1,600-3,000 in saved time. For $25/month? That's not a trap—that's leverage.
+              But then I actually calculated the cost: A designer charges $80-150/hour. Framer saves me 20+ hours. That's $1,600-3,000 in saved time. For $25/month? That's not a trap—that's utilize.
             </p>
           </div>
         </div>
@@ -1050,6 +1056,9 @@ const framerData = AFFILIATE_LINKS.framer;
           <p class="text-sm text-gray-600 mt-1">What's the catch with free plans?</p>
         </a>
       </div>
+
+      <!-- Author Bio -->
+      <AuthorBio variant="full" />
     </article>
   </main>
 

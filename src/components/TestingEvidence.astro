@@ -16,6 +16,7 @@ interface EvidenceItem {
   title: string;
   description: string;
   finding: string;
+  image?: string; // Optional path to evidence image
 }
 
 interface Props {
@@ -48,6 +49,11 @@ const { tool, evidences } = Astro.props;
             </div>
           </div>
           <p class="text-sm text-gray-700 mb-3">{evidence.description}</p>
+          {evidence.image && (
+            <div class="my-4 rounded-lg overflow-hidden border-2 border-gray-200 shadow-sm">
+              <img src={evidence.image} alt={`${evidence.title} - ${tool}`} class="w-full" loading="lazy" />
+            </div>
+          )}
           <div class="bg-orange-50 border border-orange-200 p-3 rounded">
             <p class="text-sm font-semibold text-orange-900">🔍 Finding: {evidence.finding}</p>
           </div>

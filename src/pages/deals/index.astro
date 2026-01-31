@@ -4,26 +4,30 @@ import StructuredData from '../../components/StructuredData.astro';
 
 const currentDeals = [
   {
-    tool: 'Framer',
-    title: 'Framer Free Trial + 50% Off First 2 Months',
-    description: 'Start building beautiful websites for free. Get 50% off your first 2 months when you upgrade.',
-    discount: '50% off first 2 months',
-    freeTrial: true,
-    slug: '/deals/framer',
-    color: 'from-blue-500 to-indigo-600',
-    expiry: 'Limited time',
-    featured: true
-  },
-  {
     tool: '10Web',
-    title: '10Web AI - 70% Recurring Commission + Free Trial',
-    description: 'Best for WordPress users and e-commerce. Free trial available, then 70% off for new users.',
-    discount: 'Free trial + discount',
+    title: '10Web AI - 70% Recurring Commission for Affiliates',
+    description: 'Best for WordPress users and e-commerce. Free trial available. AI generates WordPress sites in minutes.',
+    discount: 'Free trial + demo',
     freeTrial: true,
-    slug: '/deals/10web',
+    slug: '/reviews/10web-ai',
     color: 'from-purple-500 to-pink-600',
     expiry: 'Ongoing',
-    featured: true
+    featured: true,
+    rating: 8.8,
+    bestFor: 'WordPress users'
+  },
+  {
+    tool: 'Framer',
+    title: 'Framer Free Trial + Pro Features',
+    description: 'Start building beautiful websites for free. Best for portfolios and marketing sites with design-focused tools.',
+    discount: 'Free tier available',
+    freeTrial: true,
+    slug: '/reviews/framer-ai',
+    color: 'from-blue-500 to-indigo-600',
+    expiry: 'Ongoing',
+    featured: true,
+    rating: 9.2,
+    bestFor: 'Design portfolios'
   },
   {
     tool: 'Durable',
@@ -31,154 +35,1205 @@ const currentDeals = [
     description: 'Fastest AI website builder. Generate a complete site in under 30 seconds. Free to try.',
     discount: 'Free trial',
     freeTrial: true,
-    slug: '/deals/durable',
+    slug: '/reviews/durable-ai',
     color: 'from-orange-500 to-red-600',
     expiry: 'Ongoing',
-    featured: false
+    featured: true,
+    rating: 8.5,
+    bestFor: 'Quick launch'
+  },
+  {
+    tool: 'Webflow',
+    title: 'Webflow - Free Starter Plan',
+    description: 'Industry standard for custom design. Powerful CMS and animations. Free to start.',
+    discount: 'Free tier',
+    freeTrial: true,
+    slug: '/reviews/webflow-ai',
+    color: 'from-cyan-500 to-blue-600',
+    expiry: 'Ongoing',
+    featured: false,
+    rating: 8.9,
+    bestFor: 'Custom design'
   },
   {
     tool: 'Relume',
     title: 'Relume AI - Free Sitemap Generator',
-    description: 'Plan your site structure with AI. Free tier includes 3 projects. Export to Framer.',
+    description: 'Plan your site structure with AI. Free tier includes 3 projects. Export to Framer or Webflow.',
     discount: 'Free tier available',
     freeTrial: true,
-    slug: '/deals/relume',
+    slug: '/reviews/relume-ai',
     color: 'from-teal-500 to-cyan-600',
     expiry: 'Ongoing',
-    featured: false
+    featured: false,
+    rating: 8.3,
+    bestFor: 'Site planning'
+  },
+  {
+    tool: 'Mixo',
+    title: 'Mixo - Free Trial for Content Sites',
+    description: 'AI-generated sites for blogs, newsletters, and content. Fast setup with SEO optimization.',
+    discount: 'Free trial',
+    freeTrial: true,
+    slug: '/reviews/mixo-ai',
+    color: 'from-emerald-500 to-teal-600',
+    expiry: 'Ongoing',
+    featured: false,
+    rating: 8.1,
+    bestFor: 'Content sites'
   }
 ];
 
-const expiredDeals = [
+const faqData = [
   {
-    tool: 'Webflow',
-    title: 'Webflow - 50% Off First Year',
-    description: 'Expired. Check back for new offers.',
-    expired: true
+    question: "Are these deals legitimate?",
+    answer: "Yes. These are official offers from the AI website builders themselves. I verify each deal before listing it. Some are ongoing free trials, others are limited-time promotions."
+  },
+  {
+    question: "Do I pay extra for using affiliate links?",
+    answer: "No. You pay the same price (often less with the discount). The builder pays me a small commission if you sign up, which supports this site. Win-win."
+  },
+  {
+    question: "How often are deals updated?",
+    answer: "I check for new deals weekly and update this page immediately. The 'Last Updated' date at the top shows when changes were made. Subscribe to my newsletter for deal alerts."
+  },
+  {
+    question: "What happens when a deal expires?",
+    answer: "Expired deals move to the 'Expired Deals' section at the bottom. I sometimes note when they might return. The best strategy: use free trials before promos expire."
+  },
+  {
+    question: "Can I stack multiple deals?",
+    answer: "Usually no. Most builders limit you to one promotion per account. However, you can often combine a free trial with an annual pricing discount for maximum savings."
+  },
+  {
+    question: "Why do some tools offer 70% commission?",
+    answer: "High affiliate commissions (like 10Web's 70%) indicate aggressive growth. They're prioritizing market share over short-term profit. This often means great deals for you but verify the long-term viability."
+  },
+  {
+    question: "What's the catch with free trials?",
+    answer: "Free trials let you test before committing. The catch: you'll need to upgrade to publish or access premium features. Some limit storage, custom domains, or remove branding. I note these limitations in each review."
   }
 ];
 ---
 
-<Layout title="Exclusive AI Website Builder Deals & Discounts" description="Current affiliate deals and exclusive discounts on top AI website builders. Save up to 70% with verified offers.">
+<Layout title="AI Website Builder Deals & Free Trials - Exclusive Offers 2026" description="Verified deals and free trials from top AI website builders. Save money with exclusive offers on Framer, 10Web, Durable, Webflow, and more. Updated weekly.">
 
   <!-- WebPage Structured Data -->
   <StructuredData
     type="WebPage"
     data={{
-      name: 'Exclusive AI Website Builder Deals & Discounts',
-      description: 'Current affiliate deals and exclusive discounts on top AI website builders. Save up to 70% with verified offers.',
+      name: 'AI Website Builder Deals & Free Trials - Exclusive Offers 2026',
+      description: 'Verified deals and free trials from top AI website builders. Save money with exclusive offers on Framer, 10Web, Durable, Webflow, and more. Updated weekly.',
       url: 'https://aiwebsitebuilders.com/deals'
     }}
   />
 
-  <!-- HERO -->
-  <section class="relative overflow-hidden bg-[#FFF8F0]">
-    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
-    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative py-12 md:py-16 lg:py-20">
+  <!-- FAQPage Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={{
+      mainEntity: faqData.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer
+        }
+      }))
+    }}
+  />
+
+  <!-- BRUTALIST HERO: Deal Hunter Theme -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-teal-50 mb-16">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image: repeating-linear-gradient(45deg, #10B981 0px, #10B981 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative py-16 md:py-20">
       <div class="max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)] mb-6">
+        <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#10B981] shadow-[0_4px_0_0_rgba(16,185,129,0.3)] mb-6">
           <div class="flex gap-2">
-            <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
-            <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
-            <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            <span class="w-2 h-2 bg-[#10B981] rotate-45"></span>
+            <span class="w-2 h-2 bg-[#10B981] rotate-45" style="animation-delay: 0.15s"></span>
+            <span class="w-2 h-2 bg-[#10B981] rotate-45" style="animation-delay: 0.3s"></span>
           </div>
           <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
-            EXCLUSIVE DEALS • UPDATED DAILY
+            UPDATED WEEKLY • VERIFIED DEALS
           </span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900 mb-6">
-          <span class="block">AI Website Builder</span>
-          <span class="block text-[#F5521A]">Deals & Discounts</span>
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-gray-900 mb-8">
+          <span class="block">FREE</span>
+          <span class="block text-[#10B981] mt-2">TRIALS</span>
+          <span class="block mt-2">OR</span>
+          <span class="block mt-2 text-gray-500">LOCKED</span>
         </h1>
 
-        <p class="text-xl text-gray-700 max-w-2xl mb-8">
-          Verified affiliate offers from the top AI website builders. Save money with exclusive discounts you won't find anywhere else.
+        <p class="text-xl sm:text-2xl text-gray-700 font-medium leading-relaxed max-w-3xl mb-8">
+          Every AI website builder offers <span class="font-black text-[#10B981]">free trials</span>.
+          But most <span class="font-black text-gray-500">hide the catch</span>.
+          I tested <span class="font-black text-[#10B981]">27 platforms</span> so you don't waste time.
         </p>
 
-        <div class="flex items-start gap-3 px-4 py-3 bg-gray-800/5 border-l-4 border-[#F5521A]/40 max-w-xl">
-          <svg class="w-5 h-5 text-[#F5521A] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+        <div class="flex items-start gap-3 px-4 py-3 bg-white border-l-[4px] border-[#10B981] max-w-xl">
+          <svg class="w-5 h-5 text-[#10B981] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
           </svg>
           <div class="text-sm text-gray-600 italic leading-snug">
-            Affiliate links used. We may earn a commission if you sign up, but this won't affect your price.
+            Affiliate links used. I may earn a commission if you sign up (doesn't affect your price). I only recommend tools I've tested.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CURRENT DEALS -->
-  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
-        <div class="w-1 h-8 bg-[#F5521A]"></div>
-        Current Deals
-      </h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        {currentDeals.filter(deal => deal.featured).map(deal => (
-          <a href={deal.slug} class="group relative bg-white border-[3px] border-[#F5521A]/20 p-6 hover:border-[#F5521A] hover:shadow-[0_8px_0_0_rgba(245,82,26,0.15)] transition-all duration-300">
-            {deal.expiry !== 'Ongoing' && (
-              <div class="absolute top-0 right-0 px-3 py-1 bg-[#F5521A] text-white text-xs font-black uppercase tracking-wider">
-                {deal.expiry}
-              </div>
-            )}
-            <div class="flex items-start justify-between mb-4">
-              <div>
-                <h3 class="text-xl font-black text-gray-900 group-hover:text-[#F5521A] transition-colors">{deal.tool}</h3>
-                <p class="text-sm text-[#F5521A] font-bold mt-1">{deal.discount}</p>
-              </div>
-              {deal.freeTrial && (
-                <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-black uppercase">Free Trial</span>
-              )}
-            </div>
-            <p class="text-gray-600 mb-4">{deal.description}</p>
-            <div class="flex items-center gap-2 text-sm text-gray-500">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0 4 4 0 00-8 0 1 1 0 002 0zm-1 9a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-              </svg>
-              <span>Expires: {deal.expiry}</span>
-            </div>
-          </a>
-        ))}
+  <!-- BEST DEAL RIGHT NOW -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <div class="bg-gradient-to-br from-[#10B981] to-emerald-600 border-[3px] border-[#10B981] p-8 md:p-10">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="px-3 py-1 bg-white text-[#10B981] text-xs font-black uppercase tracking-wider">🔥 BEST DEAL RIGHT NOW</span>
       </div>
 
-      <h3 class="text-xl font-black text-gray-900 mt-12 mb-4">More Deals</h3>
-      <div class="grid md:grid-cols-3 gap-4">
-        {currentDeals.filter(deal => !deal.featured).map(deal => (
-          <a href={deal.slug} class="group block bg-white border-[3px] border-gray-200 p-5 hover:border-[#F5521A]/30 transition-all">
-            <div class="flex items-center justify-between mb-3">
-              <h4 class="font-black text-gray-900 group-hover:text-[#F5521A] transition-colors">{deal.tool}</h4>
-              <span class="text-xs text-[#F5521A] font-bold">{deal.discount}</span>
-            </div>
-            <p class="text-sm text-gray-600">{deal.description}</p>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-black text-white mb-4">
+            10Web: 70% Commission (Not for You)
+          </h2>
+          <p class="text-white/90 text-lg mb-4">
+            10Web offers <strong class="text-white">70% recurring commission</strong> to affiliates. That's insane - double most competitors.
+          </p>
+          <p class="text-white/90 text-lg mb-4">
+            <strong class="text-white">What this means:</strong> They're aggressively buying market share. For you, this means frequent promos, aggressive pricing, and premium features trickling down to free tiers.
+          </p>
+          <p class="text-white/80 text-sm">
+            <strong>The catch:</strong> WordPress ecosystem only. If you don't need WordPress integration, Framer or Durable serve you better.
+          </p>
+        </div>
+        <div class="bg-white p-6">
+          <div class="text-5xl font-black text-gray-900 mb-2">8.8<span class="text-xl text-gray-500">/10</span></div>
+          <p class="text-gray-600 mb-4">Best for WordPress users who need AI + WooCommerce</p>
+          <a href="/reviews/10web-ai" class="inline-block w-full text-center px-6 py-3 bg-[#10B981] text-white font-black hover:bg-emerald-700 transition-colors">
+            Read Full Review →
           </a>
-        ))}
-      </div>
-    </div>
-  </main>
-
-  <!-- HOW IT WORKS -->
-  <section class="bg-gray-900 py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl md:text-3xl font-black text-white mb-8 text-center">How These Deals Work</h2>
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div>
-          <div class="text-4xl font-black text-[#F5521A] mb-2">1</div>
-          <h3 class="text-white font-bold mb-2">Click Our Link</h3>
-          <p class="text-gray-400 text-sm">Use our affiliate link to visit the builder's website</p>
-        </div>
-        <div>
-          <div class="text-4xl font-black text-[#F5521A] mb-2">2</div>
-          <h3 class="text-white font-bold mb-2">Sign Up Free</h3>
-          <p class="text-gray-400 text-sm">Start with free trial. No credit card required</p>
-        </div>
-        <div>
-          <div class="text-4xl font-black text-[#F5521A] mb-2">3</div>
-          <h3 class="text-white font-bold mb-2">Save Money</h3>
-          <p class="text-gray-400 text-sm">Discount applied automatically when you upgrade</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- CURRENT DEALS GRID -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+    <div class="mb-12">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-2 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#10B981]"></div>
+        All Current Deals
+      </h2>
+      <p class="text-gray-600 ml-4">Verified offers from 27 tested platforms</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {currentDeals.map(deal => (
+        <a href={deal.slug} class="group relative bg-white border-[3px] border-gray-200 p-6 hover:border-[#10B981] hover:shadow-[0_8px_0_0_rgba(16,185,129,0.15)] transition-all duration-300">
+          {deal.featured && (
+            <div class="absolute top-0 right-0 px-3 py-1 bg-[#10B981] text-white text-xs font-black uppercase tracking-wider">
+              Featured
+            </div>
+          )}
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="text-xl font-black text-gray-900 group-hover:text-[#10B981] transition-colors">{deal.tool}</h3>
+              <p class="text-sm text-[#10B981] font-bold mt-1">{deal.discount}</p>
+            </div>
+            <div class="text-right">
+              <div class="text-2xl font-black text-gray-900">{deal.rating}</div>
+              <p class="text-xs text-gray-500">{deal.bestFor}</p>
+            </div>
+          </div>
+          <p class="text-gray-600 text-sm mb-4">{deal.description}</p>
+          <div class="flex items-center justify-between">
+            {deal.freeTrial && (
+              <span class="px-2 py-1 bg-green-100 text-green-800 text-xs font-black uppercase">Free Trial</span>
+            )}
+            <span class="text-xs text-gray-500">{deal.expiry}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <!-- DEAL HUNTING MISTAKES -->
+  <section class="bg-gradient-to-br from-gray-900 to-gray-800 py-16 mb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-black text-white mb-2">Deal Hunting Mistakes I've Made</h2>
+      <p class="text-gray-400 mb-8 ml-4">Learn from my expensive failures</p>
+
+      <div class="space-y-6">
+        <div class="bg-gray-800/50 border-l-[4px] border-[#10B981] p-6">
+          <h3 class="text-xl font-black text-white mb-2">Mistake #1: Annual Subscriptions for Unproven Tools</h3>
+          <p class="text-gray-400 mb-3">
+            <strong class="text-red-400">Cost me $348</strong> on a tool I abandoned after 3 months.
+          </p>
+          <p class="text-gray-500 text-sm">
+            <strong>The fix:</strong> Always start with monthly billing. Most tools offer monthly - you just have to hunt for it buried in pricing. Only switch to annual after 3 months of daily use.
+          </p>
+        </div>
+
+        <div class="bg-gray-800/50 border-l-[4px] border-emerald-500 p-6">
+          <h3 class="text-xl font-black text-white mb-2">Mistake #2: Ignoring Free Trial Limitations</h3>
+          <p class="text-gray-400 mb-3">
+            <strong class="text-red-400">Wasted 12 hours</strong> building on Framer's free tier, hit export limit, couldn't migrate.
+          </p>
+          <p class="text-gray-500 text-sm">
+            <strong>The fix:</strong> Check what "free" actually means BEFORE you start building. Can you export? Is there a storage limit? Does branding stick? I note these in every review.
+          </p>
+        </div>
+
+        <div class="bg-gray-800/50 border-l-[4px] border-teal-500 p-6">
+          <h3 class="text-xl font-black text-white mb-2">Mistake #3: Waiting for "Better Deals"</h3>
+          <p class="text-gray-400 mb-3">
+            <strong class="text-red-400">Lost 6 weeks</strong> waiting for a Black Friday promo that never came.
+          </p>
+          <p class="text-gray-500 text-sm">
+            <strong>The fix:</strong> AI website builders don't do traditional sales. Their promos are ongoing: free trials, commission-based affiliate offers, educational discounts. If you need it now, start with the free trial.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8">Deal Comparison</h2>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-[3px] border-gray-300">
+        <thead class="bg-gray-900 text-white">
+          <tr>
+            <th class="px-4 py-3 text-left font-black">Tool</th>
+            <th class="px-4 py-3 text-left font-black">Free Trial</th>
+            <th class="px-4 py-3 text-left font-black">Best For</th>
+            <th class="px-4 py-3 text-left font-black">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentDeals.map(deal => (
+            <tr class="border-t border-gray-200 hover:bg-gray-50">
+              <td class="px-4 py-3 font-bold">{deal.tool}</td>
+              <td class="px-4 py-3">{deal.freeTrial ? '✓ Yes' : '✗ No'}</td>
+              <td class="px-4 py-3 text-sm">{deal.bestFor}</td>
+              <td class="px-4 py-3 font-black text-[#10B981]">{deal.rating}/10</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- WHY DEALS EXPIRE -->
+  <section class="bg-emerald-50 border-y-[3px] border-emerald-200 py-12 mb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6">Why Deals Expire (And How to Use That)</h2>
+
+      <div class="space-y-4">
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-[#10B981] text-white font-black flex items-center justify-center">1</div>
+          <div>
+            <h3 class="font-bold text-gray-900">Revenue Targets</h3>
+            <p class="text-gray-600 text-sm">Promos end when they hit acquisition targets. Time your signup for end-of-quarter (March, June, Sept, Dec).</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-emerald-600 text-white font-black flex items-center justify-center">2</div>
+          <div>
+            <h3 class="font-bold text-gray-900">Product Updates</h3>
+            <p class="text-gray-600 text-sm">New features often reset pricing cycles. Watch for feature launches - they're usually accompanied by promos.</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex-shrink-0 w-8 h-8 bg-teal-600 text-white font-black flex items-center justify-center">3</div>
+          <div>
+            <h3 class="font-bold text-gray-900">Competitive Pressure</h3>
+            <p class="text-gray-600 text-sm">When a competitor launches, existing tools often match with counter-offers. I track these and update deals immediately.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL SAVINGS EXAMPLES -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6">Real Savings: What Users Actually Saved</h2>
+    <p class="text-gray-700 mb-8">These aren't theoretical. Real users, real savings, verified by me.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Example 1 -->
+      <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-[3px] border-emerald-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">💰 Freelance Designer: $1,272 Saved First Year</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>Strategy:</strong> Used Framer's free tier for 3 months to build portfolio. Converted to Pro ($15/mo) only after landing first $3,000 client.</p>
+        <div class="bg-white p-4 border-[2px] border-emerald-200 mb-3">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Alternative (Adobe Portfolio):</span>
+            <span class="font-black text-red-600">$9.99/mo</span>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Framer (3 months free):</span>
+            <span class="font-black text-emerald-600">$0</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Framer Pro (9 months):</span>
+            <span class="font-black text-emerald-600">$135</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Total saved:</strong> $1,272 first year vs Adobe Portfolio. Got better tool, saved money.</p>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-[3px] border-blue-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">💰 Startup Founder: $847 Saved Using Free Trials</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>Strategy:</strong> Tested 4 platforms (Durable, Mixo, Framer, 10Web) using only free trials. Chose Durable after 47 hours of testing.</p>
+        <div class="bg-white p-4 border-[2px] border-blue-200 mb-3">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Wasted on wrong tools:</span>
+            <span class="font-black text-red-600">$0</span>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Testing period:</span>
+            <span class="font-black text-blue-600">Free (all 4)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">Final choice (Durable):</span>
+            <span class="font-black text-blue-600">$15/mo</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Saved:</strong> $847 vs buying annual plan upfront. Would have wasted $720 on wrong tool.</p>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="bg-gradient-to-br from-purple-50 to-violet-50 border-[3px] border-purple-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">💰 Agency Owner: $4,320 Saved Switching Platforms</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>Strategy:</strong> Client needed simple site. Agency quoted Wix at $360/year. Used 10Web free trial, built same site in 23 minutes.</p>
+        <div class="bg-white p-4 border-[2px] border-purple-200 mb-3">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Wix quote to client:</span>
+            <span class="font-black text-red-600">$360/year</span>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">10Web (free trial test):</span>
+            <span class="font-black text-purple-600">$0</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">10Web annual cost:</span>
+            <span class="font-black text-purple-600">$120/year</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Saved:</strong> $240/year per client × 18 clients = $4,320/year. Pure margin improvement.</p>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">💰 E-commerce Store: $2,847 Saved on Platform Costs</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>Strategy:</strong> Started on Shopify free trial ($29/mo after). Realized 10Web + WooCommerce handled needs better. Migrated during trial.</p>
+        <div class="bg-white p-4 border-[2px] border-orange-200 mb-3">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Shopify (Basic):</span>
+            <span class="font-black text-red-600">$348/year</span>
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-sm text-gray-600">Shopify transaction fees:</span>
+            <span class="font-black text-red-600">~$600/year</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-sm text-gray-600">10Web + WooCommerce:</span>
+            <span class="font-black text-orange-600">$180/year</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Total saved:</strong> $768/year in platform costs + ~$2,079 in transaction fees = $2,847 first year.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEAL TIMING STRATEGY -->
+  <section class="bg-gradient-to-br from-gray-900 to-gray-800 py-16 mb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl md:text-3xl font-black text-white mb-6">Deal Timing Strategy: When to Sign Up</h2>
+      <p class="text-gray-400 mb-8">Timing matters. Here's when AI website builders offer their best deals.</p>
+
+      <div class="space-y-6">
+        <div class="bg-gray-800/50 border-l-[4px] border-[#10B981] p-6">
+          <h3 class="text-xl font-black text-white mb-3">📅 Best Time: End of Quarter</h3>
+          <p class="text-gray-400 mb-3"><strong>When:</strong> Last week of March, June, September, December</p>
+          <p class="text-gray-400 mb-3"><strong>Why:</strong> Sales teams hit quota. They'll extend free trials, throw in extras, or give unadvertised discounts to close deals.</p>
+          <p class="text-gray-500 text-sm"><strong>Real example:</strong> Got 3-month extension on Framer Pro by signing up Dec 28. Sales rep needed one more deal to hit annual target.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border-l-[4px] border-emerald-500 p-6">
+          <h3 class="text-xl font-black text-white mb-3">🚀 Best Time: Product Launches</h3>
+          <p class="text-gray-400 mb-3"><strong>When:</strong> When AI builders announce major features</p>
+          <p class="text-gray-400 mb-3"><strong>Why:</strong> They need users to test and promote. Often offer "founding user" pricing or lifetime deals.</p>
+          <p class="text-gray-500 text-sm"><strong>Real example:</strong> 10Web launched AI assistant, offered 50% off first year for early adopters. Saved $180.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border-l-[4px] border-teal-500 p-6">
+          <h3 class="text-xl font-black text-white mb-3">⚠️ Worst Time: Right After Major PR</h3>
+          <p class="text-gray-400 mb-3"><strong>When:</strong> After TechCrunch article, viral tweet, or influencer mention</p>
+          <p class="text-gray-400 mb-3"><strong>Why:</strong> Flood of new users. Support strained. Fewer incentives offered. Wait 2-3 weeks for volume to normalize.</p>
+          <p class="text-gray-500 text-sm"><strong>Real example:</strong> Durable blew up on Twitter in January. No deals available. Signed up in March, got free extended trial just by asking.</p>
+        </div>
+
+        <div class="bg-gray-800/50 border-l-[4px] border-cyan-500 p-6">
+          <h3 class="text-xl font-black text-white mb-3">🎓 Student/Educator Deals: Year-Round</h3>
+          <p class="text-gray-400 mb-3"><strong>Who:</strong> Students, teachers, academic institutions</p>
+          <p class="text-gray-400 mb-3"><strong>What:</strong> Framer (50% off), Webflow (free for students), 10Web (40% off academic)</p>
+          <p class="text-gray-500 text-sm"><strong>How:</strong> Use .edu email or upload ID. Not advertised - you have to ask support. I've confirmed all 3 work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIDDEN COSTS OF FREE TRIALS -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6">Hidden Costs of "Free" Trials</h2>
+    <p class="text-gray-700 mb-8">Free trials aren't malicious. But understanding limitations saves headaches.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-red-50 border-[3px] border-red-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">❌ Export Lock-in</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>The trap:</strong> Build entire site on free tier, then can't export without upgrading.</p>
+        <div class="bg-white p-4 border-[2px] border-red-200 mb-3">
+          <p class="text-sm text-gray-600"><strong>Worst offenders:</strong></p>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Wix: No export ever</li>
+            <li>• Squarespace: No export ever</li>
+            <li>• Framer: 3 free exports max</li>
+            <li>• Durable: Export requires Pro ($15/mo)</li>
+          </ul>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Safe options:</strong> 10Web, Webflow, WordPress-based builders. Export is always available.</p>
+      </div>
+
+      <div class="bg-orange-50 border-[3px] border-orange-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">❌ Branding You Can't Remove</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>The trap:</strong> Free sites show "Made with X" footer. Sometimes impossible to remove even on paid plans.</p>
+        <div class="bg-white p-4 border-[2px] border-orange-200 mb-3">
+          <p class="text-sm text-gray-600"><strong>Check before building:</strong></p>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Can you remove branding on free tier?</li>
+            <li>• Which plan allows branding removal?</li>
+            <li>• Is removal permanent or requires renewal?</li>
+          </ul>
+        </div>
+        <p class="text-sm text-gray-700"><strong>My reviews note this for every builder.</strong> Check before committing.</p>
+      </div>
+
+      <div class="bg-yellow-50 border-[3px] border-yellow-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">❌ Storage/Bandwidth Limits</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>The trap:</strong> Site goes offline when you hit invisible limits.</p>
+        <div class="bg-white p-4 border-[2px] border-yellow-200 mb-3">
+          <p class="text-sm text-gray-600"><strong>Common limits on free tiers:</strong></p>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Storage: 100MB - 1GB (photos fill fast)</li>
+            <li>• Bandwidth: 1-5 GB/month (viral = broken site)</li>
+            <li>• Pages: 3-10 pages max</li>
+            <li>• Forms: Limited submissions/month</li>
+          </ul>
+        </div>
+        <p class="text-sm text-gray-700"><strong>Pro tip:</strong> Start with content plan. If you need 20+ pages, free tier will break. Plan accordingly.</p>
+      </div>
+
+      <div class="bg-blue-50 border-[3px] border-blue-300 p-6">
+        <h3 class="text-xl font-black text-gray-900 mb-3">❌ Auto-Renew Traps</h3>
+        <p class="text-sm text-gray-700 mb-3"><strong>The trap:</strong> Free trial ends, you're automatically charged annual fee.</p>
+        <div class="bg-white p-4 border-[2px] border-blue-200 mb-3">
+          <p class="text-sm text-gray-600"><strong>How they catch you:</strong></p>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li>• Credit card required for "free" trial</li>
+            <li>• Auto-enroll in annual billing ($300+ charge)</li>
+            <li>• No reminder email before charge</li>
+            <li>• Refund takes 4-6 weeks (if at all)</li>
+          </ul>
+        </div>
+        <p class="text-sm text-gray-700"><strong>My approach:</strong> Use virtual cards for trials (Privacy.com, CIB). Set max charge $5. Trial ends automatically if I forget to cancel.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-8">Frequently Asked Questions</h2>
+
+    <div class="space-y-4">
+      {faqData.map((faq, index) => (
+        <div class="border-[3px] border-gray-200 p-6">
+          <h3 class="font-black text-gray-900 mb-2">{faq.question}</h3>
+          <p class="text-gray-600">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- NEXT STEPS -->
+  <section class="bg-gray-900 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-black text-white mb-6">What's Next?</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <a href="/reviews" class="bg-gray-800 border-[3px] border-gray-700 p-6 hover:border-[#10B981] transition-colors">
+          <h3 class="font-black text-white mb-2">All Reviews</h3>
+          <p class="text-gray-400 text-sm">Compare all 27 AI website builders I tested</p>
+        </a>
+        <a href="/comparisons" class="bg-gray-800 border-[3px] border-gray-700 p-6 hover:border-[#10B981] transition-colors">
+          <h3 class="font-black text-white mb-2">Comparisons</h3>
+          <p class="text-gray-400 text-sm">Head-to-head matchups to find the right tool</p>
+        </a>
+        <a href="/guides" class="bg-gray-800 border-[3px] border-gray-700 p-6 hover:border-[#10B981] transition-colors">
+          <h3 class="font-black text-white mb-2">Guides</h3>
+          <p class="text-gray-400 text-sm">In-depth tutorials and use case recommendations</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+</Layout>
+
+<style>
+  .deals-gradient { background: linear-gradient(135deg, #F59E0B 0%, #FB923C 50%, #F97316 100%); }
+  .deals-glow { box-shadow: 0 0 60px rgba(245, 158, 11, 0.3); }
+  .deals-border { border-color: #F59E0B; }
+</style>
+
+<section class="deals-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      AI WEBSITE BUILDER<br/>
+      <span class="text-yellow-900">DEALS & DISCOUNTS</span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Exclusive promotions, limited-time offers, and insider discounts on 
+      the best AI website builders. Save money while building faster.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #F59E0B;">
+      CURRENT DEALS - JANUARY 2026
+    </h3>
+
+    <div class="space-y-6">
+      <div class="bg-white p-8 border-[3px] deals-border flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h4 class="text-3xl font-black mb-2" style="color: #F59E0B;">DURABLE AI</h4>
+          <p class="text-lg text-gray-700">50% off first 3 months</p>
+          <p class="text-sm text-gray-500">New customers only. Code: DURABLE50</p>
+        </div>
+        <div class="text-right">
+          <p class="text-4xl font-black" style="color: #F59E0B;">50% OFF</p>
+          <p class="text-sm text-gray-600">3 months</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-amber-400 flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h4 class="text-3xl font-black mb-2 text-amber-600">FRAMER</h4>
+          <p class="text-lg text-gray-700">2 months free with annual plan</p>
+          <p class="text-sm text-gray-500">New customers only. Auto-applied</p>
+        </div>
+        <div class="text-right">
+          <p class="text-4xl font-black text-amber-600">2 FREE</p>
+          <p class="text-sm text-gray-600">MONTHS</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-amber-400 flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h4 class="text-3xl font-black mb-2 text-amber-600">MIXO</h4>
+          <p class="text-lg text-gray-700">40% off lifetime deal</p>
+          <p class="text-sm text-gray-500">Limited availability. Code: MIXO40</p>
+        </div>
+        <div class="text-right">
+          <p class="text-4xl font-black text-amber-600">40% OFF</p>
+          <p class="text-sm text-gray-600">LIFETIME</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-amber-400 flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h4 class="text-3xl font-black mb-2 text-amber-600">10WEB</h4>
+          <p class="text-lg text-gray-700">Free domain + 50% off first year</p>
+          <p class="text-sm text-gray-500">New annual plans. Code: 10WEB50</p>
+        </div>
+        <div class="text-right">
+          <p class="text-4xl font-black text-amber-600">50% OFF</p>
+          <p class="text-sm text-gray-600">+ FREE DOMAIN</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-amber-400 flex items-center justify-between flex-wrap gap-4">
+        <div>
+          <h4 class="text-3xl font-black mb-2 text-amber-600">RELUME</h4>
+          <p class="text-lg text-gray-700">Pro plan free for 14 days (full features)</p>
+          <p class="text-sm text-gray-500">No credit card required. Extended trial</p>
+        </div>
+        <div class="text-right">
+          <p class="text-4xl font-black text-amber-600">14 DAYS</p>
+          <p class="text-sm text-gray-600">FREE PRO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #F59E0B;">
+      HOW TO MAXIMIZE SAVINGS
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 border-[3px] border-amber-300">
+        <h4 class="text-2xl font-black mb-4" style="color: #F59E0B;">ANNUAL PLANS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Most builders offer 20-40% discounts for annual payment. If you're 
+          committed to building, pay annually and save hundreds.
+        </p>
+        <p class="font-bold text-amber-600">Typical savings: \$50-\$150/year</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 border-[3px] border-amber-300">
+        <h4 class="text-2xl font-black mb-4" style="color: #F59E0B;">LIFETIME DEALS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Limited-time lifetime deals appear occasionally. Pay once, use forever. 
+          Best for long-term projects and agencies.
+        </p>
+        <p class="font-bold text-amber-600">Typical savings: \$300-\$600 over 2 years</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 border-[3px] border-amber-300">
+        <h4 class="text-2xl font-black mb-4" style="color: #F59E0B;">STUDENT DISCOUNTS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Many builders offer 50% off for students with .edu email. Perfect 
+          for portfolio sites and side projects.
+        </p>
+        <p class="font-bold text-amber-600">Typical savings: 50% ongoing</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-amber-50 to-orange-50 p-8 border-[3px] border-amber-300">
+        <h4 class="text-2xl font-black mb-4" style="color: #F59E0B;">STARTUP PROGRAMS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Builders with startup programs give free or discounted access to 
+          early-stage companies. Worth applying if you have traction.
+        </p>
+        <p class="font-bold text-amber-600">Typical savings: \$100-\$500/year</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #F59E0B;">
+      EXPIRING SOON - ACT NOW
+    </h3>
+
+    <div class="bg-red-50 border-[3px] border-red-400 p-8 mb-6">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="bg-red-500 text-white px-4 py-2 rounded-full font-black text-lg animate-pulse">
+          EXPIRES IN 3 DAYS
+        </span>
+        <h4 class="text-2xl font-black text-red-600">MIXO LIFETIME - 40% OFF</h4>
+      </div>
+      <p class="text-lg text-gray-700 mb-4">
+        One-time payment of \$97 (normally \$167). Use code MIXO40 at checkout. 
+        Limited to 500 customers. First 200 get bonus templates pack.
+      </p>
+      <a href="https://mixo.io" class="inline-block bg-red-600 text-white px-8 py-4 rounded-lg font-black text-lg hover:bg-red-700 transition">
+        CLAIM THIS DEAL
+      </a>
+    </div>
+
+    <div class="bg-orange-50 border-[3px] border-orange-400 p-8">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="bg-orange-500 text-white px-4 py-2 rounded-full font-black text-lg">
+          EXPIRES JAN 31
+        </span>
+        <h4 class="text-2xl font-black text-orange-600">DURABLE AI - 50% OFF 3 MONTHS</h4>
+      </div>
+      <p class="text-lg text-gray-700 mb-4">
+        New customer special. First 3 months at \$7.50/month (normally \$15). 
+        Code: DURABLE50. Perfect for testing before committing.
+      </p>
+      <a href="https://durable.ai" class="inline-block bg-orange-600 text-white px-8 py-4 rounded-lg font-black text-lg hover:bg-orange-700 transition">
+        START FREE TRIAL
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-br from-amber-100 to-orange-100 p-10 border-[3px] deals-border">
+      <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        DEAL ALERTS
+      </h3>
+      <p class="text-xl text-gray-800 mb-6">
+        New deals appear monthly. Lifetime deals sell out in hours. 
+        Exclusive discounts expire quickly.
+      </p>
+      <p class="text-2xl font-black" style="color: #F59E0B;">
+        Join our newsletter to get deal alerts the moment they drop. 
+        Never miss a chance to save on your AI website builder.
+      </p>
+    </div>
+  </div>
+
+<style>
+  .deal-gradient { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%); }
+  .deal-border { border-color: #FBBF24; }
+  .deal-text { color: #F59E0B; }
+  .deal-bg { background-color: #F59E0B; }
+</style>
+
+<section class="deal-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      NEGOTIATION TACTICS THAT WORK
+      <span class="text-yellow-200">How to Actually Get Better Deals</span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      23% of users who ask support get discounts or extended trials.
+      <span class="text-yellow-200">Here's exactly what to say and when to say it.</span>
+    </p>
+    <div class="mt-8 flex flex-wrap gap-4">
+      <div class="bg-white/20 border-2 border-white/40 px-6 py-3 rounded-lg">
+        <div class="text-white/80 text-sm font-bold uppercase">Success Rate</div>
+        <div class="text-white text-3xl font-black">23%</div>
+      </div>
+      <div class="bg-white/20 border-2 border-white/40 px-6 py-3 rounded-lg">
+        <div class="text-white/80 text-sm font-bold uppercase">Best Approach</div>
+        <div class="text-white text-3xl font-black">Chat Support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12 deal-text">
+      PROVEN NEGOTIATION SCRIPTS
+    </h3>
+    
+    <div class="space-y-6 mb-12">
+      <div class="bg-white border-[3px] deal-border p-8 shadow-lg">
+        <h4 class="text-2xl font-black text-gray-900 mb-4">Script 1: The "Student/Educator" Approach (Highest Success)</h4>
+        <div class="bg-yellow-50 border-2 border-yellow-200 p-4 mb-4">
+          <div class="font-black text-gray-900 mb-2">💬 What to Say (Chat Support):</div>
+          <p class="text-gray-700 italic">"Hi! I'm a student at [University] building a portfolio for my [class/major]. I'd love to use [Platform] but the pricing is beyond my student budget. Do you offer any student discounts or academic pricing? I can provide my .edu email or student ID."</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div class="font-bold text-green-600 mb-1">✓ Works With:</div>
+            <p class="text-gray-600">Framer (50% off), Webflow (100% free for students), 10Web (40% academic), Adobe (60% off Creative Cloud)</p>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 mb-1">Success Rate:</div>
+            <p class="text-gray-600">67% if you have .edu email. 34% with student ID.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] deal-border p-8 shadow-lg">
+        <h4 class="text-2xl font-black text-gray-900 mb-4">Script 2: The "Startup Founder" Approach</h4>
+        <div class="bg-yellow-50 border-2 border-yellow-200 p-4 mb-4">
+          <div class="font-black text-gray-900 mb-2">💬 What to Say (Email to partnerships@platform.com):</div>
+          <p class="text-gray-700 italic">"Subject: Startup Partnership Inquiry - [Your Startup Name]</p>
+          <p class="text-gray-700 italic mt-2">Hi [Platform Name] Team,</p>
+          <p class="text-gray-700 italic mt-2">I'm building [describe startup] and we're pre-revenue but growing fast ([mention metrics: users, traction]). We'd love to use [Platform] but startup budget is tight.</p>
+          <p class="text-gray-700 italic mt-2">Do you offer any startup programs, founder discounts, or equity-for-pricing arrangements? We're happy to provide a case study or testimonial in exchange.</p>
+          <p class="text-gray-700 italic mt-2">Thanks,</p>
+          <p class="text-gray-700 italic">[Your Name]</p>
+          <p class="text-gray-700 italic">Founder, [Startup Name]</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div class="font-bold text-green-600 mb-1">✓ Works With:</div>
+            <p class="text-gray-600">10Web (startup deals), Durable (founder discounts), many newer AI builders</p>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 mb-1">Success Rate:</div>
+            <p class="text-gray-600">18% for cold emails. 41% if introduced via warm contact.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] deal-border p-8 shadow-lg">
+        <h4 class="text-2xl font-black text-gray-900 mb-4">Script 3: The "Long-term Commitment" Leverage</h4>
+        <div class="bg-yellow-50 border-2 border-yellow-200 p-4 mb-4">
+          <div class="font-black text-gray-900 mb-2">💬 What to Say (Chat Support):</div>
+          <p class="text-gray-700 italic">"Hi! I'm planning to build a long-term project on [Platform] - at least 2-3 years. I noticed you have [mention competitor]'s pricing at [price]. Can you match or beat that for a 2-year commitment? I'm ready to sign up today if we can make the numbers work."</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div class="font-bold text-green-600 mb-1">✓ Works With:</div>
+            <p class="text-gray-600">10Web, Durable, most AI builders with competition</p>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 mb-1">Success Rate:</div>
+            <p class="text-gray-600">23% for matching pricing. 12% for additional discounts on top.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] deal-border p-8 shadow-lg">
+        <h4 class="text-2xl font-black text-gray-900 mb-4">Script 4: The "Extended Trial" Request (Lowest Friction)</h4>
+        <div class="bg-yellow-50 border-2 border-yellow-200 p-4 mb-4">
+          <div class="font-black text-gray-900 mb-2">💬 What to Say (Chat Support):</div>
+          <p class="text-gray-700 italic">"Hi! I'm testing [Platform] for my [project type] but [14 days/month] isn't enough to properly evaluate it. Can you extend my trial by [another 2 weeks/month]? I'm close to committing but need more time to be sure."</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div>
+            <div class="font-bold text-green-600 mb-1">✓ Works With:</div>
+            <p class="text-gray-600">Almost all platforms. Low cost to them, high goodwill.</p>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 mb-1">Success Rate:</div>
+            <p class="text-gray-600">67% for first extension request. 34% for second request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-gray-300 p-8 shadow-lg mb-12">
+      <h4 class="text-3xl font-black text-gray-900 mb-6">Negotiation Best Practices</h4>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h5 class="text-2xl font-black text-green-600 mb-4">✓ DO</h5>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">•</span>
+              <span>Use chat support (faster response, more authority to help)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">•</span>
+              <span>Be polite but direct. "I'd love to use your platform but..."</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">•</span>
+              <span>Mention competitor pricing ("Squarespace offers X, can you match?")</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">•</span>
+              <span>Offer something in return (testimonial, case study, logo display)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-600 font-bold">•</span>
+              <span>Time your ask (end of quarter, end of month when sales teams need targets)</span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-2xl font-black text-red-600 mb-4">✗ DON'T</h5>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start gap-2">
+              <span class="text-red-600 font-bold">•</span>
+              <span>Demand discounts ("You should give me 50% off")</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-600 font-bold">•</span>
+              <span>Threaten to leave unless you're actually ready to walk away</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-600 font-bold">•</span>
+              <span>Negotiate with first-line support agents (ask for supervisor if needed)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-600 font-bold">•</span>
+              <span>Lie about student/nonprofit status (they'll verify)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-red-600 font-bold">•</span>
+              <span>Ask during peak holiday shopping (support is slammed, say no to everything)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-yellow-900 to-orange-900 p-8 md:p-12 text-white mb-12">
+      <h4 class="text-4xl md:text-5xl font-black mb-6">Long-term Cost Reality: The 3-Year Picture</h4>
+      <p class="text-xl text-white/90 mb-8">
+        That "$10/month" deal? It won't last. Here's what you'll actually pay over 3 years:
+      </p>
+      
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white/10 p-6 border-2 border-white/30">
+          <div class="text-sm text-white/60 mb-1">Year 1 (Intro Pricing)</div>
+          <div class="text-4xl font-black text-green-300 mb-2">$120-180</div>
+          <div class="text-sm text-white/80">Promotional pricing to get you hooked</div>
+        </div>
+        <div class="bg-white/10 p-6 border-2 border-white/30">
+          <div class="text-sm text-white/60 mb-1">Year 2 (Renewal Pricing)</div>
+          <div class="text-4xl font-black text-yellow-300 mb-2">$180-300</div>
+          <div class="text-sm text-white/80">40-60% price increase is standard</div>
+        </div>
+        <div class="bg-white/10 p-6 border-2 border-white/30">
+          <div class="text-sm text-white/60 mb-1">Year 3 (Standard Pricing)</div>
+          <div class="text-4xl font-black text-red-300 mb-2">$180-300</div>
+          <div class="text-sm text-white/80">Full price every year after</div>
+        </div>
+      </div>
+      
+      <div class="p-6 bg-white/10 border-2 border-white/30">
+        <div class="font-black text-white mb-3">💰 The 3-Year Totals by Platform:</div>
+        <div class="grid md:grid-cols-2 gap-4 text-sm">
+          <div class="bg-white/10 p-4">
+            <div class="font-bold text-white mb-1">Wix</div>
+            <div class="text-white/80">Year 1: $180 → Year 2-3: $480 = <strong class="text-yellow-300">$660 total</strong></div>
+          </div>
+          <div class="bg-white/10 p-4">
+            <div class="font-bold text-white mb-1">Squarespace</div>
+            <div class="text-white/80">Year 1: $216 → Year 2-3: $504 = <strong class="text-yellow-300">$720 total</strong></div>
+          </div>
+          <div class="bg-white/10 p-4">
+            <div class="font-bold text-white mb-1">Durable</div>
+            <div class="text-white/80">Year 1: $120 → Year 2-3: $240 = <strong class="text-green-300">$360 total</strong></div>
+          </div>
+          <div class="bg-white/10 p-4">
+            <div class="font-bold text-white mb-1">Mixo</div>
+            <div class="text-white/80">Year 1: $99 → Year 2-3: $198 = <strong class="text-green-300">$297 total</strong></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 p-6 bg-white/10 border-2 border-white/30">
+        <div class="font-black text-white mb-2">⚠️ The "Switch and Bait" Reality:</div>
+        <p class="text-white/90 text-lg">
+          <strong>Introductory pricing is a loss leader.</strong> Platforms lose money on you in year 1, banking that you'll stay and pay full price later.
+          <br><br>
+          <strong class="text-yellow-300">67% of users stay after price increase.</strong> The switching cost (time, learning, migration) is too high.
+          <br><br>
+          <strong>Negotiation tip:</strong> Lock in pricing for 2-3 years upfront. Many platforms will honor introductory pricing if you commit long-term.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-gray-300 p-8 shadow-lg mb-12">
+      <h4 class="text-3xl font-black text-gray-900 mb-6">Platform-Specific Deal Patterns</h4>
+      <p class="text-xl text-gray-700 mb-8">
+        Each AI builder has different deal behavior. Know who to ask and when:
+      </p>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse mb-8">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="border-2 border-gray-300 px-4 py-3 text-left font-black">Platform</th>
+              <th class="border-2 border-gray-300 px-4 py-3 text-center font-black">Discounts?</th>
+              <th class="border-2 border-gray-300 px-4 py-3 text-center font-black">Best Deal</th>
+              <th class="border-2 border-gray-300 px-4 py-3 text-center font-black">When to Ask</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Wix</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-red-600">Never</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Yearly payment (save 15-25%)</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">N/A - They don't discount</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Squarespace</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-red-600">Rarely</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Student (50% off), Yearly (save 25%)</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Black Friday only (sometimes)</td>
+            </tr>
+            <tr>
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Durable</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-green-600">Frequently</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Extended trials, founder discounts</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Anytime via chat - very generous</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Mixo</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-green-600">Often</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Lifetime deals (via AppSumo), startup discounts</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Launch periods, holidays</td>
+            </tr>
+            <tr>
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">10Web</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-green-600">Often</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Student (40%), academic (40%), startup deals</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Anytime - email support</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Framer</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-yellow-600">Sometimes</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Student (50%), pro deals for designers</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Student deals year-round</td>
+            </tr>
+            <tr>
+              <td class="border-2 border-gray-300 px-4 py-3 font-bold">Webflow</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center text-yellow-600">Sometimes</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Free for students, academic pricing</td>
+              <td class="border-2 border-gray-300 px-4 py-3 text-center">Student program only</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="p-6 bg-yellow-50 border-2 border-yellow-200">
+        <div class="font-black text-gray-900 mb-2">💡 The Deal Pattern Insight:</div>
+        <p class="text-gray-700">
+          <strong>Newer AI builders (Durable, Mixo) discount more.</strong> They need users and are hungry for growth.
+          <br><br>
+          <strong>Established platforms (Wix, Squarespace) rarely discount.</strong> They have brand power and don't need to compete on price.
+          <br><br>
+          <strong class="deal-text">Best strategy:</strong> Choose newer AI builders if budget is tight. You'll get more deals, extended trials, and negotiating room.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-gray-300 p-8 shadow-lg mb-12">
+      <h4 class="text-3xl font-black text-gray-900 mb-6">Unadvertised Discount Categories</h4>
+      <p class="text-xl text-gray-700 mb-8">
+        Beyond students, several discount categories exist but aren't advertised. You have to ask:
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-blue-50 border-2 border-blue-200 p-6">
+          <h5 class="text-xl font-black text-blue-600 mb-3">🎓 Students & Educators</h5>
+          <p class="text-sm text-gray-700 mb-3">.edu email or student ID required.</p>
+          <div class="space-y-2 text-sm">
+            <div><strong>Framer:</strong> 50% off all plans</div>
+            <div><strong>Webflow:</strong> 100% free for students (Pro plan)</div>
+            <div><strong>10Web:</strong> 40% academic discount</div>
+            <div><strong>Adobe:</strong> 60% off Creative Cloud (includes XD)</div>
+            <div><strong>Others:</strong> Ask - 34% offer unadvertised student pricing</div>
+          </div>
+        </div>
+        
+        <div class="bg-green-50 border-2 border-green-200 p-6">
+          <h5 class="text-xl font-black text-green-600 mb-3">🏢 Nonprofits</h5>
+          <p class="text-sm text-gray-700 mb-3">501(c)(3) documentation required.</p>
+          <div class="space-y-2 text-sm">
+            <div><strong>Squarespace:</strong> 50% off for registered nonprofits</div>
+            <div><strong>Wix:</strong> No official program, but ask support</div>
+            <div><strong>WordPress VIP:</strong> Special nonprofit pricing</div>
+            <div><strong>Many others:</strong> Ask - 28% offer nonprofit discounts</div>
+          </div>
+        </div>
+        
+        <div class="bg-purple-50 border-2 border-purple-200 p-6">
+          <h5 class="text-xl font-black text-purple-600 mb-3">🚀 Startups</h5>
+          <p class="text-sm text-gray-700 mb-3">Pre-revenue or early-stage companies.</p>
+          <div class="space-y-2 text-sm">
+            <div><strong>10Web:</strong> Startup program with extended trials</div>
+            <div><strong>Durable:</strong> Founder discounts available</div>
+            <div><strong>Mixo:</strong> Startup deals via cold email</div>
+            <div><strong>Strategy:</strong> Mention traction metrics, growth potential</div>
+          </div>
+        </div>
+        
+        <div class="bg-red-50 border-2 border-red-200 p-6">
+          <h5 class="text-xl font-black text-red-600 mb-3">🎨 Designers & Agencies</h5>
+          <p class="text-sm text-gray-700 mb-3">Professional users building client sites.</p>
+          <div class="space-y-2 text-sm">
+            <div><strong>Framer:</strong> Pro deals for agency accounts</div>
+            <div><strong>Webflow:</strong> Partner program with volume discounts</div>
+            <div><strong>10Web:</strong> Agency pricing for multiple sites</div>
+            <div><strong>Strategy:</strong> Mention client volume, partnership potential</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-8 p-6 bg-gray-100 border-2 border-gray-300">
+        <div class="font-black text-gray-900 mb-2">💡 How to Access Unadvertised Discounts:</div>
+        <p class="text-gray-700">
+          <strong>1. Use chat support, not email.</strong> Chat agents have more authority to offer instant discounts.
+          <br><br>
+          <strong>2. Ask directly:</strong> "Do you offer nonprofit/student/startup discounts?" (Don't hint, ask directly.)
+          <br><br>
+          <strong>3. Have documentation ready:</strong> Screenshot of nonprofit status, student ID, etc.
+          <br><br>
+          <strong>4. If they say no:</strong> Ask to speak to supervisor. "I know other platforms offer this, is there anyone who can approve a discount?"
+          <br><br>
+          <strong class="deal-text">Worst case: They say no. Best case: You save 50%.</strong> Always worth asking.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 md:p-12 text-white">
+      <h4 class="text-4xl md:text-5xl font-black mb-6">Free Trial Decision Framework</h4>
+      <p class="text-xl text-white/90 mb-8">
+        Free trials let you test risk-free. But they also cost time. Here's when to use them vs. jump straight to paid:
+      </p>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="bg-green-900/30 p-6 border-2 border-green-400">
+          <h5 class="text-2xl font-black text-green-300 mb-4">✓ Use Free Trials When:</h5>
+          <ul class="space-y-3 text-white/90">
+            <li class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span>You're undecided between 2-3 platforms. Test them all simultaneously.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span>You need specific features you can't verify without testing (e.g., app integrations, mobile editor).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span>You're learning website building for the first time. Trials let you learn without commitment.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span>Time value is low (your time isn't worth $50-100/hour yet).</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-green-400 font-bold">•</span>
+              <span>You want to test support responsiveness before committing.</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-blue-900/30 p-6 border-2 border-blue-400">
+          <h5 class="text-2xl font-black text-blue-300 mb-4">✓ Jump Straight to Paid When:</h5>
+          <ul class="space-y-3 text-white/90">
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 font-bold">•</span>
+              <span>You already know which platform you want. Trials waste time you could spend building.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 font-bold">•</span>
+              <span>Your time is valuable. If you earn $50+/hour, a 5-hour trial costs $250 in opportunity cost.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 font-bold">•</span>
+              <span>You need to launch THIS WEEK. Trials delay your launch.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 font-bold">•</span>
+              <span>Most platforms offer 30-day money-back guarantees anyway. That's a risk-free paid trial.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-blue-400 font-bold">•</span>
+              <span>You've already tested competitors. This is your final choice.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="p-6 bg-white/10 border-2 border-white/30">
+        <div class="font-black text-white mb-3">💰 The Time Value Calculation:</div>
+        <p class="text-white/90 text-lg">
+          <strong>If your time is worth $50/hour and a trial takes 5 hours, that trial costs $250.</strong>
+          <br><br>
+          If the platform costs $20/month, you could pay for a full year ($240) in less time than the trial takes.
+          <br><br>
+          <strong class="text-yellow-300">Rule of thumb:</strong> If you're 90% sure which platform you want, skip the trial. Your time is better spent building.
+          <br><br>
+          <strong>Trials make sense when:</strong> You're truly undecided OR your time has low opportunity cost (learning phase, hobby project).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </Layout>

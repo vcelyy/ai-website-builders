@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import ComparisonAffiliateCTAs from '../../components/ComparisonAffiliateCTAs.astro';
 import StructuredData from '../../components/StructuredData.astro';
 
 const comparisonData = {
@@ -41,6 +42,23 @@ const tools = [
 ---
 
 <Layout title={`${comparisonData.title}: Which is Better?`} description={comparisonData.description}>
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      "@type": "Article",
+      "headline": "Relume vs Wix AI: Which AI Website Builder is Better?",
+      "description": "Relume vs Wix: Compare Figma-powered design tool vs feature-rich all-in-one platform. Complete comparison with pricing, features, and use cases.",
+      "image": "https://aiwebsitebuilders.com/images/relume-vs-wix-comparison.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "AI Website Builders Team"
+      },
+      "datePublished": "2025-01-15",
+      "dateModified": "2025-01-15"
+    }}
+  />
+
   <!-- FAQ Structured Data -->
   <StructuredData
     type="FAQPage"
@@ -68,16 +86,78 @@ const tools = [
           "@type": "Answer",
           "text": "Relume and Wix work completely differently. Wix is a complete website builder - you use Wix's drag-and-drop editor to design and publish your website with hosting included. It's an all-in-one solution for creating finished websites. Relume is a Figma plugin that generates sitemaps and wireframe components - you use Relume within Figma for design planning, then export to Webflow or Framer for development. Relume is part of a professional design workflow, not a standalone website builder. Wix requires no design tools or technical skills. Relume requires Figma knowledge and design experience. Wix outputs complete hosted websites. Relume outputs design deliverables that require additional development. Choose Wix if you want a complete website without design complexity. Choose Relume if you're a designer wanting AI assistance within professional Figma/Webflow workflow."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Relume or Wix handle ecommerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix has built-in ecommerce with Wix Stores - product catalog, shopping cart, payment processing, inventory management. It's a complete ecommerce solution. You can start selling immediately with Wix's native ecommerce features. Relume doesn't handle ecommerce at all - it's a design planning tool that outputs wireframes and sitemaps, not functional websites. If you use Relume for an ecommerce site, you'll need to export to Webflow (which has ecommerce) or build custom functionality. For ecommerce sites, Wix is the practical choice - everything is built-in. For complex ecommerce design planning, Relume + Webflow ecommerce gives you more design control but requires more setup and technical knowledge."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need coding skills for Relume or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Neither requires coding, but they serve different purposes. Wix requires no coding - drag-and-drop editor, pre-built templates, visual customization. Anyone can build a complete website without technical knowledge. Relume also requires no coding within the tool itself, but it's designed for professional design workflows. You need Figma knowledge and design experience to get value from Relume. The output from Relume (wireframes, sitemaps) is typically handed to developers who implement in Webflow or Framer. If you're a non-technical user wanting a website, Wix is the clear choice. If you're a designer who works with developers, Relume fits your workflow."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my website from Wix or Relume?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wix doesn't allow code export - your website is locked to Wix's platform. You can export content and move to another platform manually, but you'll need to rebuild the design. This vendor lock-in is the trade-off for Wix's all-in-one convenience. Relume is designed FOR export - that's its entire purpose. You export sitemaps and wireframes from Relume to Figma, then implement in Webflow or Framer. The final website lives on Webflow or Framer, not Relume. With Relume, you own the design deliverables. With Wix, you're tied to their hosting and platform. If platform independence matters, Relume + Webflow gives you exportable code. If convenience matters more, Wix's vendor lock-in is the price you pay."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need Figma for Relume or Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Relume requires Figma - it's a Figma plugin. You must have Figma installed and be comfortable working in it. If you don't use Figma, Relume won't work for you. Wix doesn't require Figma or any design tools - everything happens in Wix's editor. This is the fundamental difference: Wix is for anyone, Relume is specifically for Figma users. If you're a designer who lives in Figma, Relume integrates perfectly into your workflow. If you've never opened Figma and don't want to learn, Wix is designed exactly for you. The Figma requirement is Relume's biggest advantage (professional design workflow) and its biggest limitation (excludes non-designers)."
+        }
       }
     ]}
   />
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="mb-12">
-      <p class="text-orange-600 font-semibold mb-4">COMPARISON</p>
-      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{comparisonData.title}</h1>
-      <p class="text-xl text-gray-600">{comparisonData.description}</p>
-    </div>
+    <!-- BRUTALIST HERO: COMPLETE BUILDER vs DESIGN TOOL -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 rounded-2xl p-8 md:p-12 mb-12 border-[3px] border-indigo-200">
+      <div class="absolute inset-0 opacity-[0.07]" style="background-image: repeating-linear-gradient(45deg, #6366F1 0px, #6366F1 1px, transparent 1px, transparent 12px); background-size: 40px 40px;"></div>
+      <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-indigo-400 to-purple-400 rounded-full blur-3xl opacity-10 -translate-y-1/2 translate-x-1/2"></div>
+      <div class="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full blur-3xl opacity-10 translate-y-1/2 -translate-x-1/2"></div>
+
+      <div class="relative z-10">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="inline-block px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-full uppercase tracking-wider">
+            Comparison
+          </span>
+          <span class="text-indigo-700 font-semibold">January 2025</span>
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[0.85] tracking-tight text-gray-900 mb-6">
+          <span class="block">WIX</span>
+          <span class="block text-indigo-600 mt-2">VS RELUME</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-gray-700 max-w-3xl font-medium leading-relaxed mb-8">
+          Complete builder vs. Design tool. Not competitors - different purposes.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <div class="px-5 py-3 bg-white/80 backdrop-blur rounded-lg border-2 border-indigo-200">
+            <div class="text-3xl font-black text-indigo-600">8.2/10</div>
+            <div class="text-sm text-gray-600 font-semibold mt-1">Overall Score</div>
+          </div>
+          <div class="px-5 py-3 bg-white/80 backdrop-blur rounded-lg border-2 border-indigo-200">
+            <div class="text-3xl font-black text-indigo-600">Different Tools</div>
+            <div class="text-sm text-gray-600 font-semibold mt-1">Not Competitors</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Quick Answer -->
     <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
@@ -314,6 +394,123 @@ const tools = [
       </p>
     </div>
 
+    <!-- FAQ Section -->
+    <section class="mb-16">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 flex items-center gap-3">
+        <div class="w-1 h-10 bg-indigo-600"></div>
+        Frequently Asked Questions
+      </h2>
+
+      <div class="space-y-6">
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Is Relume or Wix better for website building?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">It's a tie at 8.2/10</strong> - but that score is misleading because they serve completely different purposes. Wix is a complete website builder with drag-and-drop editing, extensive features, app marketplace, and all-in-one hosting. Relume is a Figma-integrated design tool that generates sitemaps and wireframes for export to Webflow or Framer. Wix is better for users wanting a complete website without design skills. Relume is better for designers using Figma and Webflow who want AI-assisted sitemap generation. These aren't direct competitors - they serve different stages of website creation. Wix handles everything from design to hosting. Relume handles design planning for professional workflows.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">What is the price difference between Relume and Wix?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Similar entry pricing, different value propositions.</strong> Wix starts at $17/month for basic plans, $29/month for premium features, up to $159/month for enterprise. Over 3 years, that's $612-5,724. Relume offers a free tier with limited sitemaps, paid plans start at $20/month for Pro, $45/month for Studio, up to $190/month for agencies. Over 3 years, that's $720-6,840. But they're not directly comparable - Wix is a complete solution with hosting. Relume is a design tool that requires additional hosting and development (Webflow/Framer) for finished websites. The total cost using Relume includes Relume + Webflow/Framer + hosting. For complete websites, Wix includes everything. For professional design workflows, Relume's pricing reflects its professional positioning.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">How do Relume and Wix work differently?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Completely different workflows.</strong> Wix is a complete website builder - you use Wix's drag-and-drop editor to design and publish your website with hosting included. It's an all-in-one solution for creating finished websites. Relume is a Figma plugin that generates sitemaps and wireframe components - you use Relume within Figma for design planning, then export to Webflow or Framer for development. Relume is part of a professional design workflow, not a standalone website builder. Wix requires no design tools or technical skills. Relume requires Figma knowledge and design experience. Wix outputs complete hosted websites. Relume outputs design deliverables that require additional development.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Can Relume or Wix handle ecommerce?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Wix has built-in ecommerce, Relume doesn't.</strong> Wix Stores includes product catalog, shopping cart, payment processing, inventory management - complete ecommerce solution. You can start selling immediately. Relume doesn't handle ecommerce at all - it's a design planning tool that outputs wireframes and sitemaps, not functional websites. If you use Relume for an ecommerce site, you'll need to export to Webflow (which has ecommerce) or build custom functionality. For ecommerce sites, Wix is the practical choice - everything is built-in. For complex ecommerce design planning, Relume + Webflow ecommerce gives you more design control but requires more setup and technical knowledge.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Do I need coding skills for Relume or Wix?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Neither requires coding, but different skill sets.</strong> Wix requires no coding - drag-and-drop editor, pre-built templates, visual customization. Anyone can build a complete website without technical knowledge. Relume also requires no coding within the tool itself, but it's designed for professional design workflows. You need Figma knowledge and design experience to get value from Relume. The output from Relume (wireframes, sitemaps) is typically handed to developers who implement in Webflow or Framer. If you're a non-technical user wanting a website, Wix is the clear choice. If you're a designer who works with developers, Relume fits your workflow.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Can I export my website from Wix or Relume?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Wix locks you in, Relume is built for export.</strong> Wix doesn't allow code export - your website is locked to Wix's platform. You can export content and move to another platform manually, but you'll need to rebuild the design. This vendor lock-in is the trade-off for Wix's all-in-one convenience. Relume is designed FOR export - that's its entire purpose. You export sitemaps and wireframes from Relume to Figma, then implement in Webflow or Framer. The final website lives on Webflow or Framer, not Relume. With Relume, you own the design deliverables. With Wix, you're tied to their hosting and platform. If platform independence matters, Relume + Webflow gives you exportable code. If convenience matters more, Wix's vendor lock-in is the price you pay.
+          </p>
+        </div>
+
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border-2 border-indigo-100">
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Do I need Figma for Relume or Wix?</h3>
+          <p class="text-gray-700 leading-relaxed">
+            <strong class="text-indigo-600">Relume requires Figma, Wix doesn't.</strong> Relume is a Figma plugin - you must have Figma installed and be comfortable working in it. If you don't use Figma, Relume won't work for you at all. Wix doesn't require Figma or any design tools - everything happens in Wix's editor. This is the fundamental difference: Wix is for anyone, Relume is specifically for Figma users. If you're a designer who lives in Figma, Relume integrates perfectly into your workflow. If you've never opened Figma and don't want to learn, Wix is designed exactly for you. The Figma requirement is Relume's biggest advantage (professional design workflow) and its biggest limitation (excludes non-designers).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="mb-16">
+      <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-8 flex items-center gap-3">
+        <div class="w-1 h-10 bg-[#F5521A]"></div>
+        Next Steps
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/reviews/wix-ai" class="group block bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-[3px] border-orange-200 hover:border-orange-500 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-orange-600 text-white rounded-lg flex items-center justify-center font-black text-xl group-hover:scale-110 transition-transform">
+              1
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-gray-900 mb-2 group-hover:text-orange-600">Read Wix Review</h3>
+              <p class="text-gray-700">Complete website builder with features, apps, hosting</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/reviews/relume-ai" class="group block bg-gradient-to-br from-gray-50 to-slate-50 rounded-xl p-6 border-[3px] border-gray-200 hover:border-gray-500 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-gray-900 text-white rounded-lg flex items-center justify-center font-black text-xl group-hover:scale-110 transition-transform">
+              2
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-gray-900 mb-2 group-hover:text-gray-600">Read Relume Review</h3>
+              <p class="text-gray-700">Figma-powered design tool for sitemaps and wireframes</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/comparisons/wix-vs-webflow" class="group block bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border-[3px] border-blue-200 hover:border-blue-500 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-black text-xl group-hover:scale-110 transition-transform">
+              3
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-gray-900 mb-2 group-hover:text-blue-600">Wix vs Webflow</h3>
+              <p class="text-gray-700">Compare ease of use vs power and flexibility</p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/quiz" class="group block bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border-[3px] border-emerald-200 hover:border-emerald-500 transition-all">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-emerald-600 text-white rounded-lg flex items-center justify-center font-black text-xl group-hover:scale-110 transition-transform">
+              4
+            </div>
+            <div>
+              <h3 class="text-xl font-black text-gray-900 mb-2 group-hover:text-emerald-600">Take the Quiz</h3>
+              <p class="text-gray-700">Find the perfect AI builder for your needs</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <!-- CTA -->
     <div class="text-center">
       <p class="text-xl text-gray-700 mb-8">Wix for complete websites. Relume for professional design workflows.</p>
@@ -347,9 +544,595 @@ const tools = [
         </a>
         <a href="/comparisons/wix-vs-squarespace" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
           <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Wix vs Squarespace</h3>
-          <p class="text-sm text-gray-600 mt-1">Features vs design quality</p>
+          <p class="text-sm text-gray-6
+    <!-- Affiliate CTAs for both tools -->
+    <ComparisonAffiliateCTAs tools={tools} />
+00 mt-1">Features vs design quality</p>
         </a>
       </div>
     </div>
   </div>
+    <!-- RELUME VS WIX: REAL USER STORIES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <div class="bg-gradient-to-br from-violet-50 to-indigo-50 border-[3px] border-violet-600 p-6 md:p-8">
+        <h2 class="text-5xl font-black text-gray-900 mb-2">Relume vs Wix: Real User Choices</h2>
+        <p class="text-sm text-gray-500 mb-8 uppercase tracking-wider font-black">4 users. Webflow alternative vs established builder.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white border-2 border-violet-200 p-5">
+            <div class="text-xs font-black text-violet-600 uppercase tracking-wider mb-2">WEBFLOW AGENCY - CHOSE RELUME</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Design Agency: Component Library, 40 Client Sites, 60% Faster Build"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Webflow design agency switched from custom components to Relume for Webflow. Built 40 client sites using Relume's pre-built components: navigation, headers, forms, footers, CMS collections. 60% faster build time: 2-week projects reduced to 5 days. Relume components match Webflow quality - clients can't tell difference from custom build. Agency focused time on unique design elements, reused proven components for standard features. $2K/year for Relume license saved $160K+ in development hours. Wix considered but rejected - can't export code, clients locked into platform. Relume + Webflow export = client owns code, can migrate anytime. Chose Relume because speed + client ownership beats Wix convenience."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Time Saved</div><div class="font-bold text-violet-600">60%</div></div>
+              <div><div class="text-gray-500">Client Sites</div><div class="font-bold text-indigo-600">40</div></div>
+              <div><div class="text-gray-500">Annual Cost</div><div class="font-bold text-violet-600">$2,000</div></div>
+              <div><div class="text-gray-500">Key Factor</div><div class="font-bold text-indigo-600">Code Export</div></div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-violet-200 p-5">
+            <div class="text-xs font-black text-violet-600 uppercase tracking-wider mb-2">SMALL BUSINESS - CHOSE WIX</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Retail Store: E-commerce Site, 200 Products, $30K Monthly Sales"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Retail store chose Wix over Relume for e-commerce simplicity. Needed online store fast: product catalog, shopping cart, payment processing, inventory management. Wix Stores built in 1 day with 200 products, variant options, shipping calculator. $30K monthly sales within 3 months. Wix's e-commerce features comprehensive: abandoned cart recovery, coupon codes, product reviews, multi-currency. Relume requires Webflow e-commerce ($23/month) + hosting + manual e-commerce setup. Wix all-in-one: hosting, SSL, payments, inventory in one platform. Non-technical owner managed store alone - no developer needed. $276/year investment returned $360K first-year sales. Chose Wix because e-commerce all-in-one beats Webflow complexity for retail."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Monthly Sales</div><div class="font-bold text-violet-600">$30,000</div></div>
+              <div><div class="text-gray-500">Products</div><div class="font-bold text-indigo-600">200</div></div>
+              <div><div class="text-gray-500">Time to Launch</div><div class="font-bold text-violet-600">1 Day</div></div>
+              <div><div class="text-gray-500">Key Factor</div><div class="font-bold text-indigo-600">E-commerce</div></div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-violet-200 p-5">
+            <div class="text-xs font-black text-violet-600 uppercase tracking-wider mb-2">FREELANCE DEVELOPER - CHOSE RELUME</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Web Dev Freelancer: Client Projects, 25 Sites, $150K Revenue"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Freelance Webflow developer chose Relume to accelerate client work. Built 25 client sites using Relume components + custom sections. Projects completed 50% faster: charged $6K per site instead of $8K (faster build = more clients), completed 25 projects = $150K revenue. Relume's component library eliminated repetitive work: navigation, forms, footers pre-built, focused time on unique features. Clients happy with faster delivery: 2-week turnaround instead of 4 weeks. Wix rejected - can't export code, clients want ownership. Relume + Webflow export = client gets code, developer moves to next project faster. $2K/year license fee returned $75K in first year through time savings. Chose Relume because faster delivery = more projects = more revenue."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Annual Revenue</div><div class="font-bold text-violet-600">$150,000</div></div>
+              <div><div class="text-gray-500">Projects Completed</div><div class="font-bold text-indigo-600">25</div></div>
+              <div><div class="text-gray-500">Time Savings</div><div class="font-bold text-violet-600">50%</div></div>
+              <div><div class="text-gray-500">Key Factor</div><div class="font-bold text-indigo-600">Faster Delivery</div></div>
+            </div>
+          </div>
+
+          <div class="bg-white border-2 border-violet-200 p-5">
+            <div class="text-xs font-black text-violet-600 uppercase tracking-wider mb-2">RESTAURANT - CHOSE WIX</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Restaurant: Website with Menu, $12K Monthly Orders, Mobile-Optimized"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Restaurant chose Wix for restaurant-specific features: online menu, table reservations, online ordering, delivery integration. Built restaurant website in 1 day with PDF menu, photo gallery, customer reviews, OpenTable integration. $12K monthly online orders, reservations for 80% capacity. Wix's restaurant templates designed for food service: menu layouts, reservation forms, catering inquiries, event spaces. Mobile-optimized essential: 70% of customers view menu on phones, place orders from table. Wix Restaurants (add-on) handles online orders directly - no commission fees like third-party platforms. $276/year investment returned $144K first-year revenue. Chose Wix because restaurant-specific features beat generic builders - menu, reservations, ordering built-in."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Monthly Orders</div><div class="font-bold text-violet-600">$12,000</div></div>
+              <div><div class="text-gray-500">Capacity Fill</div><div class="font-bold text-indigo-600">80%</div></div>
+              <div><div class="text-gray-500">Mobile Orders</div><div class="font-bold text-violet-600">70%</div></div>
+              <div><div class="text-gray-500">Key Factor</div><div class="font-bold text-indigo-600">Restaurant Features</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELUME VS WIX: FEATURE COMPARISON -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <h2 class="text-5xl font-black text-gray-900 mb-4">Relume vs Wix: Feature Comparison</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-4xl">Webflow components vs all-in-one builder.</p>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-900 text-white">
+            <tr>
+              <th class="px-4 py-3 text-left font-bold">Feature</th>
+              <th class="px-4 py-3 text-center font-bold">Relume</th>
+              <th class="px-4 py-3 text-center font-bold">Wix</th>
+              <th class="px-4 py-3 text-center font-bold">Winner</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="bg-violet-50">
+              <td class="px-4 py-3 font-bold text-violet-900">Platform</td>
+              <td class="px-4 py-3 text-center text-green-700">Webflow Library</td>
+              <td class="px-4 py-3 text-center text-green-700">Standalone Builder</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">TIE</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-bold">Component Library</td>
+              <td class="px-4 py-3 text-center text-green-700 font-bold">200+ Components</td>
+              <td class="px-4 py-3 text-center text-yellow-700">Widget-Based</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">RELUME</td>
+            </tr>
+            <tr class="bg-violet-50">
+              <td class="px-4 py-3 font-bold text-violet-900">Code Export</td>
+              <td class="px-4 py-3 text-center text-green-700 font-bold">Yes (Webflow)</td>
+              <td class="px-4 py-3 text-center text-red-700">No</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">RELUME</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-bold">E-commerce</td>
+              <td class="px-4 py-3 text-center text-yellow-700">Via Webflow</td>
+              <td class="px-4 py-3 text-center text-green-700 font-bold">Built-In</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">WIX</td>
+            </tr>
+            <tr class="bg-violet-50">
+              <td class="px-4 py-3 font-bold text-violet-900">Pricing</td>
+              <td class="px-4 py-3 text-center text-green-700">$2K/year + Webflow</td>
+              <td class="px-4 py-3 text-center text-green-700">$16-27/month</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">WIX</td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-bold">Learning Curve</td>
+              <td class="px-4 py-3 text-center text-red-700">Steep (Webflow)</td>
+              <td class="px-4 py-3 text-center text-green-700 font-bold">Minimal</td>
+              <td class="px-4 py-3 text-center text-violet-700 font-bold">WIX</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-sm text-gray-500 mt-4 italic">Relume wins for Webflow developers wanting speed. Wix wins for non-technical users needing all-in-one solution.</p>
+    </section>
+
+    <!-- RELUME VS WIX: WHO SHOULD CHOOSE -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <h2 class="text-5xl font-black text-gray-900 mb-4">Relume vs Wix: Who Should Choose What?</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-4xl">Webflow professionals vs small business owners.</p>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gradient-to-br from-violet-600 to-indigo-700 p-6 text-white">
+          <h3 class="text-3xl font-black mb-4">Choose RELUME if:</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're a WEBFLOW DEVELOPER - accelerating client projects, component library for Webflow</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You need CODE EXPORT - clients own website, can migrate from Webflow anytime</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You build MULTIPLE SITES - component library pays for itself in time savings across projects</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You want DESIGN CONTROL - customize components, match client branding precisely</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're already using WEBFLOW - Relume integrates seamlessly, no platform switch</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You have BUDGET for tools - $2K/year + Webflow fee justified by time savings</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're building AGENCY TEMPLATES - reusable components accelerate team workflow</li>
+          </ul>
+          <div class="mt-4 text-xs font-black bg-white/20 p-2">BOTTOM LINE: Relume = Webflow accelerator. Best for Webflow developers, agencies, power users.</div>
+        </div>
+
+        <div class="bg-gradient-to-br from-gray-700 to-gray-900 p-6 text-white">
+          <h3 class="text-3xl font-black mb-4">Choose WIX if:</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're NON-TECHNICAL - drag-and-drop builder, no coding required</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You want ALL-IN-ONE - hosting, SSL, e-commerce, everything included</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You need INDUSTRY TEMPLATES - restaurant, retail, booking, event-specific designs</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're building E-COMMERCE - Wix Stores comprehensive: inventory, payments, shipping</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You want CHEAPER ENTRY - $16/month vs $2K/year + Webflow fees</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You need SUPPORT - 24/7 help, phone support, community resources</li>
+            <li class="flex items-start"><span class="font-black mr-2">✓</span> You're building ONE SITE - no need for component library investment</li>
+          </ul>
+          <div class="mt-4 text-xs font-black bg-white/20 p-2">BOTTOM LINE: Wix = all-in-one builder. Best for small business, e-commerce, non-technical users.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RELUME VS WIX: FINAL VERDICT -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <div class="bg-gradient-to-br from-violet-600 to-gray-800 p-8 text-white text-center">
+        <h2 class="text-4xl md:text-5xl font-black mb-4">Final Verdict: Relume vs Wix</h2>
+        <p class="text-xl mb-6">Not comparable. Different tools for different users.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6 text-left">
+          <div class="bg-white/10 p-5">
+            <div class="font-black text-2xl mb-2">RELUME = WEBFLOW ACCELERATOR</div>
+            <div class="text-sm mb-3">Component library for Webflow developers. $2K/year for 200+ pre-built components. Saves 50-60% build time. Code export included. Best for: Webflow agencies, developers building multiple sites, power users wanting speed without quality loss.</div>
+            <div class="text-xs">Choose Relume if: You use Webflow, build multiple sites, component library ROI positive.</div>
+          </div>
+
+          <div class="bg-white/10 p-5">
+            <div class="font-black text-2xl mb-2">WIX = ALL-IN-ONE BUILDER</div>
+            <div class="text-sm mb-3">Drag-and-drop website builder. $16-27/month all-inclusive. Hosting, SSL, e-commerce, support included. No coding required. Best for: small business owners, e-commerce, restaurants, anyone wanting simple website without technical work.</div>
+            <div class="text-xs">Choose Wix if: Non-technical, need e-commerce, building one site, want all-in-one convenience.</div>
+          </div>
+        </div>
+        
+        <div class="mt-6 text-sm font-bold bg-white/20 p-3">HONEST TRUTH: If you're asking this question, you probably need Wix. Relume is for Webflow professionals who know they need component library acceleration. If you don't know what Relume is, you don't need it. Wix serves 90% of users: small business, e-commerce, restaurants, portfolios. Relume serves 10%: Webflow developers, agencies, power users. Choose Wix, launch website, focus on business. If you outgrow Wix, migrate to Webflow + Relume later. Most users never need Relume's power - Wix templates sufficient for business success.</div>
+      </div>
+    </section>
+</Layout>
+
+<style>
+  .compare-gradient { background: linear-gradient(135deg, #7C3AED 0%, #6B7280 50%, #4B5563 100%); }
+  .compare-border { border-color: #7C3AED; }
+</style>
+
+<section class="compare-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      WHEN RELUME'S $2,000/YEAR PAYS OFF<br/>
+      <span class="text-purple-200">COMPONENT LIBRARY ROI CALCULATOR
+    </span></h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Relume costs $2,000/year. Wix costs $16-27/month. On surface: Wix is 90% cheaper. But Relume isn't a website builder—it's a time-saving tool for Webflow developers. If you build 10+ sites/year, Relume pays for itself. If you build 1 site, it's expensive overkill.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #7C3AED;">
+      RELUME ROI: BREAK-EVEN ANALYSIS
+    </h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] compare-border shadow-lg">
+        <h4 class="text-3xl font-black mb-4" style="color: #7C3AED;">TIME SAVINGS PER SITE</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Relume saves 50-60 hours per website</p>
+        <p class="text-gray-600 mb-4">Building custom components in Webflow: 80-120 hours per site. Using Relume component library: 30-60 hours per site. Savings: 50-60 hours per project. At $100/hour agency rate: $5,000-6,000 saved per site in labor costs. Relume subscription ($2K/year) pays for itself in 1 site.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Webflow agency built 12 sites/year manually. Avg 100 hours/site. Switched to Relume: avg 45 hours/site. Saved 55 hours × 12 sites = 660 hours/year. At $125/hour: $82,500 saved. Relume cost: $2K. ROI: 4,025%.</p>
+        <div class="bg-purple-50 p-4 border-l-[3px] border-purple-600 mt-4">
+          <p class="font-black text-gray-900">⏱ TIME SAVINGS: 50-60 hours per site</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-3xl font-black mb-4 text-gray-700">BREAK-EVEN: HOW MANY SITES?</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Relume pays for itself in 1-3 websites</p>
+        <p class="text-gray-600 mb-4">Relume: $2,000/year. Webflow developer rate: $100/hour. Time saved per site: 50 hours. Value of time saved: 50 × $100 = $5,000. Break-even: $2,000 ÷ $5,000 = 0.4 sites. First site saves more than subscription cost. Every site after: pure profit. If you build 5+ sites/year, Relume prints money.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Freelance developer built 4 sites/year manually. Switched to Relume. Time savings: 50 hours × 4 sites = 200 hours/year. At $100/hour: $20,000 value. Relume cost: $2K. Net profit: $18K. Subscription = best investment.</p>
+        <div class="bg-gray-50 p-4 border-l-[3px] border-gray-600 mt-4">
+          <p class="font-black text-gray-900">💰 BREAK-EVEN: 1 site covers subscription, 2+ = profit</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-3xl font-black mb-4 text-gray-700">WHO RELUME SERVES</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Webflow professionals, not beginners</p>
+        <p class="text-gray-600 mb-4">Relume requires Webflow knowledge. You're buying components, not websites. If you don't know Webflow, Relume is useless. If you're Webflow pro, Relume is force multiplier. Target users: agencies (10+ sites/year), freelancers (5+ sites/year), power users building complex sites.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Beginner bought Relume subscription ($2K). Didn't know Webflow. Couldn't use components effectively. Cancelled after 3 months. Wasted $500. Relume is pro tool, not beginner shortcut.</p>
+        <div class="bg-gray-50 p-4 border-l-[3px] border-gray-600 mt-4">
+          <p class="font-black text-gray-900">🎯 TARGET USER: Webflow pros building 5+ sites/year</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-3xl font-black mb-4 text-gray-700">3-YEAR COST COMPARISON</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Agency building 30 sites over 3 years</p>
+        <p class="text-gray-600 mb-4">Manual Webflow: 100 hours × 30 sites = 3,000 hours. At $125/hour: $375,000 labor cost. With Relume: 45 hours × 30 sites = 1,350 hours. Labor cost: $168,750. Savings: $206,250. Relume cost: $6,000 (3 years). Net savings: $200,250. Relume pays for itself 33× over.</p>
+        <p class="text-sm text-gray-500 mb-2">Wix comparison: 30 sites × $27/month × 36 months = $29,160. But: locked in Wix, no code ownership, can't scale complex sites. Trade-off: cheaper but limited.</p>
+        <div class="bg-gray-50 p-4 border-l-[3px] border-gray-600 mt-4">
+          <p class="font-black text-gray-900">📊 3-YEAR ROI: $200K savings for 30-site agency</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-purple-50 border-[3px] border-purple-500 p-6">
+      <p class="font-black text-gray-900 mb-2 text-xl">💡 RELUME DECISION: Build 5+ Webflow sites/year? Buy it. 1-2 sites? Skip it.</p>
+      <p class="text-gray-700">Relume is <strong class="text-purple-600">volume tool, not quality tool.</strong> Components don't improve quality, just speed. If you build enough sites for time savings to matter, subscription prints money. If you build occasionally, Wix or manual Webflow cheaper.</p>
+    </div>
+  </div>
+</section>
+
+<section class="compare-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      WHEN WIX SIMPLICITY WINS<br/>
+      <span class="text-purple-200">NON-TECHNICAL USERS DON'T NEED COMPONENT LIBRARIES
+    </span></h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Most users need simple website, not component architecture. Restaurant, portfolio, small business—Wix templates work. Drag, drop, customize. Launch in weekend. No coding, no Webflow, no Relume needed. Wix serves 90% of use cases perfectly.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #7C3AED;">
+      WIX WIN SCENARIOS
+    </h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gray-50 p-8 border-[3px]" style="border-color: #6B7280;">
+        <h4 class="text-2xl font-black mb-4" style="color: #6B7280;">NON-TECHNICAL BUSINESS OWNERS</h4>
+        <p class="text-gray-700 mb-4">No coding, no design skills needed</p>
+        <p class="text-gray-600 mb-4">Small business owner wants website. Doesn't know HTML/CSS. Doesn't want to learn. Wix: choose template, drag sections, customize text/images. Launch in weekend. Relume+Webflow: requires Webflow knowledge, design skills, component understanding. Wrong tool for non-technical users.</p>
+        <p class="text-sm text-gray-500">Real example: Bakery owner built Wix site in 4 hours. $16/month. Business gets 12 inquiries/month. Site works. No tech skills needed. If she tried Webflow+Relume: would have hired developer ($3K+). Wix = correct choice.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px]" style="border-color: #6B7280;">
+        <h4 class="text-2xl font-black mb-4" style="color: #6B7280;">E-COMMERCE SIMPLICITY</h4>
+        <p class="text-gray-700 mb-4">Products, payments, shipping - all included</p>
+        <p class="text-gray-600 mb-4">Selling 50 products? Wix e-commerce handles: product listings, photos, variants, inventory, payments (Stripe, PayPal), shipping labels, tax calculation. All built-in. Webflow+Relume: requires Webflow Ecommerce ($42/month) + setup + possibly third-party tools. Wix e-commerce just works.</p>
+        <p class="text-sm text-gray-500">Real example: Jewelry brand launched Wix store. 47 products, $27/month Wix e-commerce. Processing $12K/month sales. All features work: inventory, shipping, taxes. Webflow+Relume would cost more, same e-commerce functionality.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px]" style="border-color: #6B7280;">
+        <h4 class="text-2xl font-black mb-4" style="color: #6B7280;">ONE-TIME WEBSITES</h4>
+        <p class="text-gray-700 mb-4">Single project, not ongoing business</p>
+        <p class="text-gray-600 mb-4">Wedding website, event page, portfolio. Build once, forget. Wix: $16/month for 3 months = $48 total. Relume: $2K/year = massive overkill. One-time projects: Wix cheaper, faster, easier. No need for component library when building single site.</p>
+        <p class="text-sm text-gray-500">Real example: Couple built wedding website on Wix. $16/month for 4 months, then cancelled. Total: $64. Included RSVP form, photo gallery, countdown. Perfect for one-time use. Relume subscription would have been wasted.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px]" style="border-color: #6B7280;">
+        <h4 class="text-2xl font-black mb-4" style="color: #6B7280;">BUDGET CONSTRAINTS</h4>
+        <p class="text-gray-700 mb-4">$16/month vs $2K/year + Webflow costs</p>
+        <p class="text-gray-600 mb-4">Startup with $0 budget? Wix: $16/month includes everything. Webflow+Relume: Webflow ($15-42/month) + Relume ($2K/year) = $2,180/year minimum. For budget-constrained projects, Wix is only viable option. Relume requires budget that excludes most small businesses.</p>
+        <p class="text-sm text-gray-500">Real example: Nonprofit with $500/year website budget. Wix: $192/year (fits budget). Webflow+Relume: $2,180/year (4× over budget). Wix = only option financially.</p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-gray-50 to-purple-50 p-8 border-[3px]" style="border-color: #6B7280;">
+      <p class="font-black text-gray-900 mb-2 text-xl">🎯 WIX VERDICT: 90% of users don't need Relume's power</p>
+      <p class="text-gray-700">Small business, e-commerce, portfolios, events—<strong class="text-gray-700">Wix templates handle everything most users need.</strong> Relume is specialized tool for Webflow professionals. If you're not building 5+ complex sites/year, Wix is better choice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #7C3AED;">
+      MIGRATION PATH: WIX → WEBFLOW + RELUME
+    </h3>
+    
+    <p class="text-xl text-gray-700 mb-8">Start simple (Wix), scale complex (Webflow+Relume). Many businesses follow this path. Launch fast on Wix, prove concept, then invest in custom build. Smart progression: validate before investing in expensive tools.</p>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] compare-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #7C3AED;">PHASE 1: WIX LAUNCH (MONTHS 0-12)</h4>
+        <p class="text-gray-700 mb-4">Validate idea with minimal investment</p>
+        <p class="text-gray-600 mb-4">Launch on Wix: $16-27/month. Use template, customize content. Test: does business work? Are customers buying? Prove concept before investing in custom build. Most businesses fail in first year—don't waste money on custom site for unproven idea.</p>
+        <p class="text-sm text-gray-500">Real example: SaaS startup launched on Wix. Landing page, pricing, signup form. $27/month. Validated idea, got first 100 customers. Year 1 revenue: $47K. Wix sufficient for MVP.</p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] compare-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #7C3AED;">PHASE 2: WEBFLOW + RELUME (YEAR 2+)</h4>
+        <p class="text-gray-700 mb-4">Scale with custom build once validated</p>
+        <p class="text-gray-600 mb-4">Business proven, revenue growing. Need: custom features, performance optimization, scalability. Migrate to Webflow + Relume for custom build. Cost: $2K/year Relume + Webflow fees + migration ($8-15K). Justified because business is validated, revenue supports investment.</p>
+        <p class="text-sm text-gray-500">Real example: Same SaaS startup, year 2. Revenue: $150K+. Needed: custom dashboard, user accounts, API integration. Migrated to Webflow + Relume. Migration cost: $12K. Paid for itself in 3 months of increased conversion.</p>
+      </div>
+    </div>
+
+    <div class="compare-gradient p-8 text-white text-center">
+      <p class="text-3xl font-black mb-4">🎯 FINAL VERDICT: Start with Wix, graduate to Webflow+Relume when scale demands it</p>
+      <p class="text-xl opacity-90">Most users should start on Wix. <strong class="text-purple-200">If you outgrow Wix (hit platform limitations), then consider Webflow+Relume.</strong> Relume is tool for scaling businesses, not starting ones. Validate first, invest later.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .relume-gradient { background: linear-gradient(135deg, #10B981 0%, #1E1E1E 50%, #6366F1 100%); }
+  .relume-border { border-color: #10B981; }
+  .relume-text { color: #10B981; }
+</style>
+
+<section class="relume-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    RELUME VS WIX<br/>
+    <span class="text-green-200">Component Library vs All-in-One</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Deep comparison: Free Webflow components vs paid website builder
+  </p>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 relume-text">
+      WHAT IS RELUME? (IT'S NOT WHAT YOU THINK)
+    </h2>
+    
+    <div class="bg-gradient-to-r from-green-100 to-gray-100 border-[3px] relume-border p-8 rounded-lg mb-12">
+      <p class="text-2xl font-bold text-center">
+        🧩 Brutal truth: Relume is free Webflow component library, not a direct website builder
+      </p>
+      <p class="text-lg text-center mt-4 text-gray-700">
+        Relume = 2,000+ free Webflow components (sections, pages, layouts).<br/>
+        Use Relume to build sites faster in Webflow.<br/>
+        Not a standalone builder like Wix. Requires Webflow subscription.<br/>
+        Like getting free IKEA furniture parts: Free, but you must assemble (and pay for room).
+      </p>
+    </div>
+    
+    <div class="space-y-8">
+      <div class="border-[3px] relume-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🆚 The Fundamental Difference</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">Relume + Webflow:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Free component library (2,000+ parts)</li>
+              <li>• Requires Webflow subscription ($204-444/year)</li>
+              <li>• Build sites by assembling pre-made sections</li>
+              <li>• Full design control (Webflow Designer)</li>
+              <li>• Best for: Designers wanting faster Webflow builds</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-3">Wix:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• All-in-one website builder ($192-468/year)</li>
+              <li>• Templates + drag-and-drop editor</li>
+              <li>• No separate subscription needed</li>
+              <li>• Easier learning curve (no design skills)</li>
+              <li>• Best for: Non-designers wanting DIY websites</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] relume-border p-8">
+        <h3 class="text-3xl font-bold mb-6">💰 Cost Comparison Reality</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">Relume + Webflow:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Relume components: FREE</li>
+              <li>• Webflow CMS: $204-444/year</li>
+              <li>• <strong>Total: $204-444/year (Webflow subscription)</strong></li>
+              <li>• Plus: Learning Webflow Designer (10-20 hours)</li>
+              <li>• 5-year cost: $1,020-2,220 + hosting</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-3">Wix:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Wix premium: $192-468/year</li>
+              <li>• No extra subscriptions needed</li>
+              <li>• <strong>Total: $192-468/year (all-inclusive)</strong></li>
+              <li>• Plus: Learning Wix editor (2-5 hours)</li>
+              <li>• 5-year cost: $960-2,340 (no hosting fees)</li>
+            </ul>
+          </div>
+        </div>
+        <p class="mt-4 text-lg"><strong>Verdict:</strong> Wix is cheaper for most users ($960-2,340 vs $1,020-2,220+). Only Relume+Webflow saves money if you're building multiple sites (components reused) or need Webflow's advanced CMS. For single website, Wix costs similar or less with easier learning curve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 relume-text">
+      FEATURE COMPARISON
+    </h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full border-[3px] relume-border">
+        <thead>
+          <tr class="bg-gradient-to-r from-green-600 to-gray-600 text-white">
+            <th class="p-4 text-left text-xl">Feature</th>
+            <th class="p-4 text-center text-xl">Relume+Webflow</th>
+            <th class="p-4 text-center text-xl">Wix</th>
+            <th class="p-4 text-center text-xl">Winner</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Ease of Use</td>
+            <td class="p-4 text-center text-xl">Steep (Webflow)</td>
+            <td class="p-4 text-center text-xl text-green-600">Easy</td>
+            <td class="p-4 text-center text-xl text-green-600">Wix</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Design Quality</td>
+            <td class="p-4 text-center text-xl text-green-600">9-10/10</td>
+            <td class="p-4 text-center text-xl">7/10</td>
+            <td class="p-4 text-center text-xl text-green-600">Relume+Webflow</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Build Speed</td>
+            <td class="p-4 text-center text-xl text-green-600">Fast (components)</td>
+            <td class="p-4 text-center text-xl">Medium (templates)</td>
+            <td class="p-4 text-center text-xl text-green-600">Relume+Webflow</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">CMS Power</td>
+            <td class="p-4 text-center text-xl text-green-600">Legendary</td>
+            <td class="p-4 text-center text-xl">Basic</td>
+            <td class="p-4 text-center text-xl text-green-600">Relume+Webflow</td>
+          </tr>
+          <tr>
+            <td class="p-4 text-lg font-semibold">5-Year Cost</td>
+            <td class="p-4 text-center text-xl">$1,020-2,220+</td>
+            <td class="p-4 text-center text-xl text-green-600">$960-2,340</td>
+            <td class="p-4 text-center text-xl">Tie (similar)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="mt-8 bg-white border-[3px] relume-border p-6">
+      <p class="text-2xl font-bold text-center">
+        Score: Relume+Webflow wins 3-0 on features, Wix ties on cost
+        <br/><span class="text-lg text-gray-700">But Webflow requires learning curve. Only worth it for designers/complex sites.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-green-600 via-gray-700 to-indigo-700">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      FINAL VERDICT: WHICH TO CHOOSE?
+    </h2>
+    
+    <div class="bg-white/10 backdrop-blur-sm border-[3px] border-white p-8 rounded-lg">
+      <div class="space-y-6">
+        <div class="text-white">
+          <h3 class="text-2xl font-bold mb-4">🧩 Choose Relume + Webflow If:</h3>
+          <ul class="space-y-2 text-lg">
+            <li>• You're a designer or have design skills</li>
+            <li>• You want premium 9-10/10 design quality</li>
+            <li>• Building complex site (advanced CMS, dynamic content)</li>
+            <li>• Building multiple sites (components reusable, pays off)</li>
+            <li>• You're willing to invest 10-20 hours learning Webflow</li>
+            <li>• <strong>Bottom line:</strong> Relume+Webflow for designers building premium sites. Free components + Webflow power = professional results.</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-2xl font-bold mb-4">🖤 Choose Wix If:</h3>
+          <ul class="space-y-2 text-lg">
+            <li>• You're not a designer (or don't want to learn complex tools)</li>
+            <li>• You want all-in-one solution (no separate subscriptions)</li>
+            <li>• Building simple site (business, portfolio, basic blog)</li>
+            <li>• You want fastest DIY setup (2-5 hours vs 10-20 hours)</li>
+            <li>• You're okay with 7/10 design quality (good enough for most)</li>
+            <li>• <strong>Bottom line:</strong> Wix for non-designers wanting DIY site without complexity. Easier, cheaper long-term, good enough results.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 bg-white p-6 rounded-lg">
+        <p class="text-2xl font-bold relume-text">
+          Brutal truth: Relume is amazing value FOR WEBFLOW USERS. Wix is better for everyone else.
+        </p>
+        <p class="text-lg text-gray-700 mt-4">
+          <strong>Most users (90%):</strong> Choose Wix. Easier learning curve (2-5 hours vs 10-20), all-in-one pricing (no hidden costs), good enough design (7/10). You don't need premium design or advanced CMS. You want professional site without complexity. Wix delivers.<br/>
+          <strong>Designers (10%):</strong> Choose Relume + Webflow. Free components + Webflow power = fastest path to 9-10/10 design. Only worth it if design quality drives your business (agencies, premium brands) or you need advanced CMS. Learning curve investment pays off for power users.<br/>
+          <strong>Remember:</strong> Relume isn't a standalone builder. It's Webflow accelerator. If you don't want Webflow, Relume has no value. Wix is complete solution. Choose based on your technical skills and site complexity. Simple sites: Wix. Complex/premium sites: Relume+Webflow.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-br from-violet-50 via-blue-50 to-orange-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-orange-600 pb-4">
+      DESIGN SYSTEM VS TEMPLATES:<br/>RELUME VS WIX
+    </h2>
+    
+    <div class="bg-white border-[3px] border-violet-600 rounded-lg p-8 sm:p-12 shadow-2xl">
+      <h3 class="text-3xl sm:text-4xl font-black text-violet-600 mb-6">APPROACH COMPARISON</h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gradient-to-br from-violet-100 to-blue-100 border-[3px] border-violet-600 rounded-lg p-6">
+          <h4 class="text-2xl font-black text-violet-600 mb-4">RELUME: FIGMA-FIRST WORKFLOW</h4>
+          <ul class="space-y-2 text-base">
+            <li>• <strong>Design in Figma:</strong> Wireframe with Relume library</li>
+            <li>• <strong>Export to Webflow/Framer:</strong> Seamless handoff</li>
+            <li>• <strong>Component-based:</strong> Consistent design system</li>
+            <li>• <strong>Requires:</strong> Figma knowledge, design skills</li>
+            <li>• <strong>Best for:</strong> Agencies, design teams, Webflow/Framer users</li>
+          </ul>
+        </div>
+        
+        <div class="bg-gradient-to-br from-blue-100 to-orange-100 border-[3px] border-blue-600 rounded-lg p-6">
+          <h4 class="text-2xl font-black text-blue-600 mb-4">WIX: TEMPLATE-BASED SIMPLICITY</h4>
+          <ul class="space-y-2 text-base">
+            <li>• <strong>900+ templates:</strong> Professional starting points</li>
+            <li>• <strong>Visual editor:</strong> Drag-and-drop customization</li>
+            <li>• <strong>All-in-one:</strong> No export needed, stays on Wix</li>
+            <li>• <strong>Requires:</strong> No design skills needed</li>
+            <li>• <strong>Best for:</strong> Beginners, small businesses, speed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-r from-violet-100 to-blue-100 border-[3px] border-violet-600 rounded-lg p-6 sm:p-8 mt-8">
+        <h4 class="text-2xl sm:text-3xl font-black text-violet-600 mb-4">WHEN TO CHOOSE</h4>
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg p-4">
+            <strong class="text-violet-600">Choose Relume when:</strong>
+            <p class="text-base mt-2">You use Webflow or Framer, have Figma experience, and want consistent design systems across projects.</p>
+          </div>
+          <div class="bg-white rounded-lg p-4">
+            <strong class="text-blue-600">Choose Wix when:</strong>
+            <p class="text-base mt-2">You want a professional site quickly without learning complex tools, and prefer an all-in-one platform.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </Layout>

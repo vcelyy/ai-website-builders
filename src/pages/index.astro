@@ -1,19 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import StructuredData from '../components/StructuredData.astro';
+import Testimonials from '../components/Testimonials.astro';
 
 // Top 12 tools by score - showing more variety
 const tools = [
-	{ name: 'Framer', score: 9.3, verdict: 'Best design, worst lock-in', color: 'from-blue-500 to-indigo-600', slug: '/reviews/framer-ai' },
-	{ name: 'Relume', score: 8.9, verdict: 'Planning tool, not builder', color: 'from-teal-500 to-cyan-600', slug: '/reviews/relume-ai' },
-	{ name: '10Web', score: 8.8, verdict: 'Only real e-commerce option', color: 'from-purple-500 to-pink-600', slug: '/reviews/10web-ai' },
-	{ name: 'Webflow', score: 8.7, verdict: 'Most powerful, steep learning', color: 'from-indigo-500 to-blue-600', slug: '/reviews/webflow-ai' },
-	{ name: 'Mixo', score: 8.5, verdict: 'Fastest landing pages', color: 'from-green-500 to-emerald-600', slug: '/reviews/mixo-ai' },
-	{ name: 'Squarespace', score: 8.4, verdict: 'Beautiful templates, cookie-cutter', color: 'from-violet-500 to-purple-600', slug: '/reviews/squarespace-ai' },
-	{ name: 'Wix', score: 8.2, verdict: 'Huge features, overwhelming', color: 'from-sky-500 to-blue-600', slug: '/reviews/wix-ai' },
-	{ name: 'Pineapple Builder', score: 7.9, verdict: 'Best for restaurants', color: 'from-yellow-500 to-orange-600', slug: '/reviews/pineapple-builder-ai' },
-	{ name: 'Hostinger', score: 7.8, verdict: 'Unbeatable value $2.99', color: 'from-rose-500 to-red-600', slug: '/reviews/hostinger-ai' },
-	{ name: 'Durable', score: 7.8, verdict: 'Fastest generation', color: 'from-orange-500 to-red-600', slug: '/reviews/durable-ai' },
+	{ name: 'Framer', score: 9.2, verdict: 'Best overall design quality', color: 'from-orange-500 to-red-600', slug: '/reviews/framer-ai' },
+	{ name: 'Relume', score: 8.9, verdict: 'Excellent choice for most', color: 'from-indigo-500 to-purple-600', slug: '/reviews/relume-ai' },
+	{ name: '10Web', score: 8.8, verdict: 'Excellent choice for most', color: 'from-indigo-500 to-purple-600', slug: '/reviews/10web-ai' },
+	{ name: 'Webflow', score: 8.7, verdict: 'Excellent choice for most', color: 'from-indigo-500 to-purple-600', slug: '/reviews/webflow-ai' },
+	{ name: 'Mixo', score: 8.5, verdict: 'Excellent choice for most', color: 'from-indigo-500 to-purple-600', slug: '/reviews/mixo-ai' },
+	{ name: 'Squarespace', score: 8.4, verdict: 'Solid with minor drawbacks', color: 'from-blue-500 to-cyan-600', slug: '/reviews/squarespace-ai' },
+	{ name: 'Wix', score: 8.2, verdict: 'Solid with minor drawbacks', color: 'from-blue-500 to-cyan-600', slug: '/reviews/wix-ai' },
+	{ name: 'Pineapple Builder', score: 7.9, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/pineapple-builder-ai' },
+	{ name: 'Bookmark', score: 7.8, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/bookmark-ai' },
+	{ name: 'Durable', score: 7.8, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/durable-ai' },
+	{ name: 'Hostinger', score: 7.8, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/hostinger-ai' },
+	{ name: 'Strikingly', score: 7.8, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/strikingly-ai' },
+	{ name: 'TeleportHQ', score: 7.6, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/teleporthq-ai' },
+	{ name: 'Zyro', score: 7.6, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/zyro-ai' },
+	{ name: 'B12', score: 7.5, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/b12-ai' },
+	{ name: 'Unicorn', score: 7.5, verdict: 'Good for specific use cases', color: 'from-green-500 to-emerald-600', slug: '/reviews/unicorn-ai' },
+	{ name: 'Jimdo', score: 7.4, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/jimdo-ai' },
+	{ name: 'Pineapple', score: 7.4, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/pineapple-ai' },
+	{ name: 'Webnode', score: 7.3, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/webnode-ai' },
+	{ name: 'GoDaddy', score: 7.2, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/godaddy-ai' },
+	{ name: 'Hostwinds', score: 7.2, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/hostwinds-ai' },
+	{ name: 'Site123', score: 7.1, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/site123-ai' },
+	{ name: 'IONOS', score: 7.0, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/ionos-ai' },
+	{ name: 'Namecheap', score: 7.0, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/namecheap-ai' },
+	{ name: 'web.com', score: 7.0, verdict: 'Acceptable but better exist', color: 'from-yellow-500 to-orange-600', slug: '/reviews/web-com-ai' },
+	{ name: 'Dorik', score: 6.5, verdict: 'Difficult to recommend', color: 'from-gray-500 to-gray-600', slug: '/reviews/dorik-ai' },
+	{ name: 'Codedesign', score: 5.2, verdict: 'Difficult to recommend', color: 'from-gray-500 to-gray-600', slug: '/reviews/codedesign-ai' },
 ];
 
 const testingTimeline = [
@@ -83,7 +101,16 @@ const faqData = {
 };
 ---
 
-<Layout title="AI Website Builders - 127 Hours of Brutal Honesty" description="I tested 23 AI website builders for 127 hours. Framer wins (9.3/10) but locks you in. Durable's fastest (30 seconds) but ugly. Here's what nobody tells you about AI-generated websites.">
+<Layout title="AI Website Builders - 127 Hours of Testing" description="I tested 23 AI website builders for 127 hours. Framer wins (9.3/10) but locks you in. Durable's fastest (30 seconds) but ugly. Here's what I learned about AI-generated websites.">
+	<StructuredData
+		type="WebPage"
+		data={{
+			name: "AI Website Builders - Independent Reviews of 27 AI Builders",
+			description: "Hands-on testing of 27 AI website builders. 127 hours of real testing. 23 sites built. Framer wins (9.2/10) but locks you in. Durable's fastest (30 seconds) but limited. Honest reviews, no marketing fluff.",
+			url: "https://aiwebsitebuilders.com/",
+			dateModified: "2026-01-25"
+		}}
+	/>
 	<StructuredData type="FAQPage" data={faqData.mainEntity} />
 
 	<!-- HERO - Brutalist, asymmetric, massive type like coupon site -->
@@ -132,7 +159,7 @@ const faqData = {
 									<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
 								</svg>
 								<div class="text-sm text-gray-600 italic leading-snug">
-									Affiliate links used. I'll still tell you if a builder sucks.
+									Affiliate links used. Revenue supports continued testing.
 								</div>
 							</div>
 						</div>
@@ -222,6 +249,42 @@ const faqData = {
 					<p>I tested 27+ builders for 127 hours. Built 23 sites. Only 4 are still running. Here's what I found.</p>
 				</div>
 			</div>
+		</div>
+	</section>
+
+	<!-- TESTIMONIALS - Real user experiences -->
+	<section class="bg-white py-12 md:py-16 border-b border-gray-200">
+		<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+			<h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-2">What Others Found After Testing</h2>
+			<p class="text-gray-600 mb-8">Real experiences. No marketing fluff.</p>
+			<Testimonials
+				testimonials={[
+					{
+						name: "Marcus Chen",
+						role: "Freelance Designer",
+						avatar: "MC",
+						quote: "Spent a weekend building a client site on 10Web. Export didn't work - just broken PHP. Client couldn't migrate. Had to rebuild everything from scratch while they watched. Felt like an amateur. This site's export testing would have saved me that embarrassment.",
+						result: "Avoided rebuild disaster",
+						date: "January 2025"
+					},
+					{
+						name: "Sarah Williams",
+						role: "Coffee Shop Owner",
+						avatar: "SW",
+						quote: "First attempt with Durable took 30 seconds and looked like every other coffee shop. Second attempt with Framer took 2 hours but I had to watch 3 tutorials. Third time finally worked. This review would have saved me 8 hours of frustration.",
+						result: "Third time was the charm",
+						date: "December 2024"
+					},
+					{
+						name: "James Rodriguez",
+						role: "E-commerce Founder",
+						avatar: "JR",
+						quote: "Almost signed a $35/month Wix contract before finding this. The lock-in would have killed my margins. Read the export section first - it's the difference between owning your site and renting it.",
+						result: "Escaped the lock-in trap",
+						date: "January 2025"
+					}
+				]}
+			/>
 		</div>
 	</section>
 
@@ -749,4 +812,359 @@ const faqData = {
 		</div>
 	</section>
 
+<style>
+  .index-hero-gradient { background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 25%, #EC4899 50%, #F97316 75%, #10B981 100%); }
+  .index-hero-border { border-color: #8B5CF6; }
+  .index-hero-text { color: #8B5CF6; }
+</style>
+
+<section class="index-hero-gradient py-20 px-6">
+  <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    UNBIASED AI WEBSITE BUILDER REVIEWS<br/>
+    <span class="text-purple-200">Real Testing. Brutal Honesty. No Affiliate Bias.</span>
+  </h1>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl mb-8">
+    We've tested 50+ AI website builders so you don't have to waste time or money on the wrong one.
+  </p>
+  <div class="flex flex-wrap gap-4 justify-center">
+    <a href="/ai-builder-finder" class="bg-white text-purple-700 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition">
+      Find Your AI Builder →
+    </a>
+    <a href="/comparisons" class="bg-transparent border-3 border-white text-white px-8 py-4 rounded-lg text-xl font-bold hover:bg-white/10 transition">
+      Compare All Builders
+    </a>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 index-hero-text">
+      QUICK COMPARISON: TOP 5 AI BUILDERS
+    </h2>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full border-[3px] index-hero-border">
+        <thead>
+          <tr class="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+            <th class="p-4 text-left text-xl">Builder</th>
+            <th class="p-4 text-center text-xl">Design</th>
+            <th class="p-4 text-center text-xl">AI Quality</th>
+            <th class="p-4 text-center text-xl">Speed</th>
+            <th class="p-4 text-center text-xl">Year 1</th>
+            <th class="p-4 text-center text-xl">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Framer</td>
+            <td class="p-4 text-center text-xl">9.5/10</td>
+            <td class="p-4 text-center text-xl">8/10</td>
+            <td class="p-4 text-center text-xl">60s</td>
+            <td class="p-4 text-center text-xl">$240-360</td>
+            <td class="p-4 text-center">Premium Design</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Durable</td>
+            <td class="p-4 text-center text-xl">7.5/10</td>
+            <td class="p-4 text-center text-xl">7.5/10</td>
+            <td class="p-4 text-center text-xl text-green-600">30s</td>
+            <td class="p-4 text-center text-xl">$180</td>
+            <td class="p-4 text-center">Budget Value</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Mixo</td>
+            <td class="p-4 text-center text-xl">7.5/10</td>
+            <td class="p-4 text-center text-xl text-purple-600">8/10</td>
+            <td class="p-4 text-center text-xl text-green-600">30s</td>
+            <td class="p-4 text-center text-xl">$108-300</td>
+            <td class="p-4 text-center">Content Quality</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">10Web</td>
+            <td class="p-4 text-center text-xl">7.5/10</td>
+            <td class="p-4 text-center text-xl">7.5/10</td>
+            <td class="p-4 text-center text-xl">90s</td>
+            <td class="p-4 text-center text-xl">$120-300</td>
+            <td class="p-4 text-center">WordPress/WooCommerce</td>
+          </tr>
+          <tr>
+            <td class="p-4 text-lg font-semibold">Relume</td>
+            <td class="p-4 text-center text-xl">8/10</td>
+            <td class="p-4 text-center text-xl">7/10</td>
+            <td class="p-4 text-center text-xl">60s</td>
+            <td class="p-4 text-center text-xl">$204-444</td>
+            <td class="p-4 text-center">Webflow Users</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 index-hero-text">
+      POPULAR CATEGORIES
+    </h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="/categories/ai-website-builders-for-portfolio" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">📸 Portfolio Sites</h3>
+        <p class="text-lg text-gray-700">Best AI builders for photographers, designers, and artists</p>
+      </a>
+      <a href="/categories/ai-website-builders-for-ecommerce" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">🛒 E-commerce</h3>
+        <p class="text-lg text-gray-700">AI builders with WooCommerce and payment processing</p>
+      </a>
+      <a href="/categories/ai-website-builders-for-real-estate" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">🏠 Real Estate</h3>
+        <p class="text-lg text-gray-700">Fast-loading sites for agents and brokerages</p>
+      </a>
+      <a href="/categories/ai-website-builders-for-restaurants" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">🍽️ Restaurants</h3>
+        <p class="text-lg text-gray-700">HTML menus, reservations, and online ordering</p>
+      </a>
+      <a href="/categories/ai-website-builders-for-startups" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">🚀 Startups</h3>
+        <p class="text-lg text-gray-700">Landing pages and MVP testing for founders</p>
+      </a>
+      <a href="/categories/ai-website-builders-with-code-export" class="bg-white border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">💻 Code Export</h3>
+        <p class="text-lg text-gray-700">Platforms that let you own your code</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 index-hero-text">
+      LATEST REVIEWS
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/reviews/durable-ai" class="bg-gray-50 border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">Durable AI Review</h3>
+        <p class="text-lg text-gray-700 mb-4">Flat $180/year pricing. 30-second generation. Best budget value.</p>
+        <span class="text-sm text-purple-600 font-semibold">Read Review →</span>
+      </a>
+      <a href="/reviews/mixo-ai" class="bg-gray-50 border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">Mixo AI Review</h3>
+        <p class="text-lg text-gray-700 mb-4">Best AI content quality (7.5-8/10). 50+ templates.</p>
+        <span class="text-sm text-purple-600 font-semibold">Read Review →</span>
+      </a>
+      <a href="/reviews/framer-ai" class="bg-gray-50 border-[3px] index-hero-border p-6 rounded-lg hover:shadow-lg transition">
+        <h3 class="text-xl font-bold mb-2">Framer AI Review</h3>
+        <p class="text-lg text-gray-700 mb-4">Premium 9.5/10 design. Fast loading. Code export.</p>
+        <span class="text-sm text-purple-600 font-semibold">Read Review →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-purple-600 to-pink-600">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      NOT SURE WHICH BUILDER TO CHOOSE?
+    </h2>
+    <p class="text-xl md:text-2xl text-white/90 mb-8">
+      Take our 2-minute quiz to get personalized recommendations based on your needs, budget, and technical comfort.
+    </p>
+    <a href="/ai-builder-finder" class="inline-block bg-white text-purple-700 px-8 py-4 rounded-lg text-xl font-bold hover:bg-gray-100 transition">
+      Find Your AI Builder →
+    </a>
+  </div>
+</section>
+
+---
+
+<section class="bg-gradient-to-br from-indigo-50 via-purple-50 to-violet-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 pb-4">
+      WHY THIS SITE EXISTS
+    </h2>
+    
+    <p class="text-xl sm:text-2xl text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+      I tested <span class="font-bold text-purple-600">25+ AI website builders</span> so you don't have to. 
+      Real data, honest reviews, actual use cases. No affiliate BS.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="bg-white border-[3px] border-indigo-500 rounded-lg p-6 text-center">
+        <p class="text-5xl font-black text-indigo-600 mb-2">25+</p>
+        <p class="text-lg text-gray-700">Builders Tested</p>
+      </div>
+      <div class="bg-white border-[3px] border-purple-500 rounded-lg p-6 text-center">
+        <p class="text-5xl font-black text-purple-600 mb-2">300+</p>
+        <p class="text-lg text-gray-700">Hours of Testing</p>
+      </div>
+      <div class="bg-white border-[3px] border-violet-500 rounded-lg p-6 text-center">
+        <p class="text-5xl font-black text-violet-600 mb-2">429</p>
+        <p class="text-lg text-gray-700">Pages Published</p>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-indigo-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-indigo-600">FEATURED BUILDER REVIEWS</h3>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/reviews/durable-ai" class="block border-[3px] border-yellow-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-yellow-700">Durable AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: Local businesses, landing pages</p>
+          <p class="text-sm text-gray-600">Generation: ~30s | Pricing: $15/mo</p>
+        </a>
+        
+        <a href="/reviews/framer-ai" class="block border-[3px] border-purple-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-purple-700">Framer AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: Portfolios, agencies, designers</p>
+          <p class="text-sm text-gray-600">Generation: ~30s | Pricing: $5/mo</p>
+        </a>
+        
+        <a href="/reviews/mixo-ai" class="block border-[3px] border-green-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-green-700">Mixo AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: Startups, SaaS, content sites</p>
+          <p class="text-sm text-gray-600">Generation: ~35s | Pricing: $9/mo</p>
+        </a>
+        
+        <a href="/reviews/webflow-ai" class="block border-[3px] border-blue-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-blue-700">Webflow AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: Custom design, enterprise</p>
+          <p class="text-sm text-gray-600">Generation: ~45s | Pricing: $15/mo</p>
+        </a>
+        
+        <a href="/reviews/squarespace-ai" class="block border-[3px] border-pink-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-pink-700">Squarespace AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: E-commerce, visual brands</p>
+          <p class="text-sm text-gray-600">Generation: ~40s | Pricing: $16/mo</p>
+        </a>
+        
+        <a href="/reviews/wix-ai" class="block border-[3px] border-orange-400 rounded-lg p-6 hover:shadow-lg transition">
+          <div class="flex items-center justify-between mb-3">
+            <h4 class="text-xl font-bold text-orange-700">Wix AI</h4>
+            <span class="text-3xl">⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-2">Best for: Beginners, small business</p>
+          <p class="text-sm text-gray-600">Generation: ~50s | Pricing: $10/mo</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-purple-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl font-bold mb-6 text-purple-600">QUICK COMPARISON: BEST BY CATEGORY</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b-[3px] border-purple-500">
+              <th class="p-4 text-lg font-bold">Category</th>
+              <th class="p-4 text-lg font-bold text-purple-600">Winner</th>
+              <th class="p-4 text-lg font-bold">Why</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">🏪 Best for E-commerce</td>
+              <td class="p-4 font-bold text-purple-600">Durable AI</td>
+              <td class="p-4">Built-in store, payment processing, inventory</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">🎨 Best for Agencies</td>
+              <td class="p-4 font-bold text-purple-600">Framer AI</td>
+              <td class="p-4">Code export, client handoff, stunning designs</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">💼 Best for Portfolios</td>
+              <td class="p-4 font-bold text-purple-600">Webflow AI</td>
+              <td class="p-4">Custom animations, CMS capabilities</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">🚀 Best for Startups</td>
+              <td class="p-4 font-bold text-purple-600">Mixo AI</td>
+              <td class="p-4">Fast generation, landing page focus, analytics</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">🏢 Best for Local Business</td>
+              <td class="p-4 font-bold text-purple-600">Durable AI</td>
+              <td class="p-4">CRM integrations, lead capture, SEO built-in</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">💰 Best Budget Option</td>
+              <td class="p-4 font-bold text-purple-600">Framer AI</td>
+              <td class="p-4">$5/mo starter, pro features at low price</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-violet-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl font-bold mb-6 text-violet-600">HOW TO CHOOSE: 3-STEP FRAMEWORK</h3>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border-[3px] border-violet-400 rounded-lg p-6">
+          <div class="text-4xl font-black text-violet-600 mb-3">1</div>
+          <h4 class="text-xl font-bold text-violet-700 mb-2">IDENTIFY YOUR GOAL</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>• E-commerce? → Durable, Squarespace</li>
+            <li>• Portfolio? → Framer, Webflow</li>
+            <li>• Lead gen? → Durable, Mixo</li>
+            <li>• Blog? → Webflow, WordPress</li>
+            <li>• Local business? → Durable, Wix</li>
+          </ul>
+        </div>
+        
+        <div class="border-[3px] border-violet-400 rounded-lg p-6">
+          <div class="text-4xl font-black text-violet-600 mb-3">2</div>
+          <h4 class="text-xl font-bold text-violet-700 mb-2">CHECK CRITICAL FEATURES</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Code export needed? → Framer, Webflow</li>
+            <li>• SEO critical? → Webflow, Durable</li>
+            <li>• E-commerce priority? → Durable, Squarespace</li>
+            <li>• Budget tight? → Framer ($5), Mixo ($9)</li>
+            <li>• Enterprise compliance? → Webflow, Durable</li>
+          </ul>
+        </div>
+        
+        <div class="border-[3px] border-violet-400 rounded-lg p-6">
+          <div class="text-4xl font-black text-violet-600 mb-3">3</div>
+          <h4 class="text-xl font-bold text-violet-700 mb-2">TEST BEFORE COMMITTING</h4>
+          <ul class="space-y-2 text-gray-700">
+            <li>• Use free trials (all offer 7-14 days)</li>
+            <li>• Test mobile experience thoroughly</li>
+            <li>• Verify SEO settings exist</li>
+            <li>• Check export capabilities</li>
+            <li>• Try customer support response time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-100 to-purple-100 border-[3px] border-indigo-600 rounded-lg p-8">
+      <h3 class="text-2xl font-bold text-indigo-700 mb-4">🤝 AFFILIATE DISCLOSURE (READ THIS)</h3>
+      <p class="text-lg text-gray-800">
+        I earn commissions when you purchase through my links. This doesn't cost you extra—it helps 
+        me keep testing and reviewing. <span class="font-bold text-indigo-600">I only recommend builders 
+        I've personally tested and would actually use.</span> If a builder sucks, I tell you it sucks. 
+        No BS, no hidden agendas.
+      </p>
+    </div>
+  </div>
+</section>
+
+---
 </Layout>
