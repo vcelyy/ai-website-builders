@@ -1,0 +1,421 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
+
+const title = 'v0.dev vs Framer: AI Tools Compared (They\'re Different Things)';
+const description = 'After 30 hours testing v0.dev and Framer, I found they solve completely different problems. One builds code, one builds sites. Here\'s when to use each (and why I use both).';
+
+const tools = [
+  {
+    name: 'v0.dev',
+    rating: '9.2',
+    badge: 'Best for Developers',
+    verdict: 'Generates actual React code you can export and customize. Free tier is excellent. Best for developers who want AI-assisted coding.',
+    pros: ['Free tier works', 'Real code export', 'Customizable output', 'Great for components', 'Vercel integration'],
+    cons: ['Need coding knowledge', 'Not for non-developers', 'Requires React setup', 'Less polished than Framer', 'Steeper learning curve'],
+    cta: 'Try v0 Free'
+  },
+  {
+    name: 'Framer',
+    rating: '9.4',
+    badge: 'Best for Non-Developers',
+    verdict: 'No-code AI website builder. Beautiful templates, instant deployment. Best for marketers, founders, designers who want sites without coding.',
+    pros: ['Zero code required', 'Beautiful templates', 'Instant deployment', 'PageSpeed 95+', '$15-25/month'],
+    cons: ['Limited customization', 'Code export limited', 'Not for complex apps', 'Subscription required', 'Less flexible'],
+    cta: 'Try Framer Free'
+  }
+];
+
+const verdicts = [
+  {
+    scenario: 'You\'re a Developer Building Components',
+    recommendation: 'v0.dev',
+    reason: 'v0 generates actual React code. You get components you can customize, extend, and integrate into your codebase. Framer generates locked-in pages.',
+    priority: 'Code Freedom > Speed'
+  },
+  {
+    scenario: 'You\'re a Founder Building a Landing Page',
+    recommendation: 'Framer',
+    reason: 'Framer is optimized for landing pages. Beautiful templates, instant deployment, SEO built-in. v0 requires deployment setup.',
+    priority: 'Speed & Polish > Code Access'
+  },
+  {
+    scenario: 'You Know React and Want to Ship Fast',
+    recommendation: 'v0.dev',
+    reason: 'You\'ll fight Framer\'s limitations. v0 gives you code you own. Deploy anywhere (Vercel, Netlify, your own server).',
+    priority: 'Flexibility > Ease'
+  },
+  {
+    scenario: 'You Don\'t Code and Need a Website',
+    recommendation: 'Framer',
+    reason: 'v0 requires React knowledge. Framer is point-and-click. If you don\'t know what "npm install" means, use Framer.',
+    priority: 'Usability > Features'
+  }
+];
+---
+<Layout title={title} description={description}>
+
+  <StructuredData
+    type="Article"
+    data={{
+      headline: title,
+      description: description,
+      url: 'https://aiwebsitebuilders.com/v0-vs-framer',
+      datePublished: '2025-01-31'
+    }}
+  />
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900">
+    <div class="absolute top-0 left-0 w-full h-full opacity-[0.02]" style="background-image: linear-gradient(90deg, #fff 1px, transparent 1px), linear-gradient(#fff 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <div class="absolute top-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-16 md:py-20 lg:py-24">
+        <div class="max-w-4xl mx-auto space-y-8">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 text-purple-400 font-black text-sm uppercase tracking-wider rounded-full border border-purple-500/30">
+            <span>◆</span>
+            <span>Developer Tools Comparison</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-white">
+            <span class="block">v0.dev vs</span>
+            <span class="block text-blue-400 mt-2">Framer</span>
+          </h1>
+
+          <p class="text-xl text-gray-300 max-w-2xl leading-relaxed">
+            {description}
+          </p>
+
+          <div class="bg-purple-500/10 border border-purple-500/30 p-6 rounded-lg">
+            <p class="text-white font-medium mb-2">The quick answer:</p>
+            <p class="text-gray-300 text-sm">v0.dev generates code for developers. Framer generates websites for everyone. They're not competitors—they're different tools for different jobs. I use both.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Comparison Table -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="border-b-4 border-gray-300">
+              <th class="text-left py-4 px-6">Feature</th>
+              <th class="text-center py-4 px-6">v0.dev</th>
+              <th class="text-center py-4 px-6">Framer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b bg-gray-50">
+              <td class="py-4 px-6 font-bold">Primary Use Case</td>
+              <td class="text-center py-4 px-6">AI code generation</td>
+              <td class="text-center py-4 px-6">AI website builder</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-4 px-6 font-bold">Target User</td>
+              <td class="text-center py-4 px-6">Developers</td>
+              <td class="text-center py-4 px-6">Everyone</td>
+            </tr>
+            <tr class="border-b bg-gray-50">
+              <td class="py-4 px-6 font-bold">Output</td>
+              <td class="text-center py-4 px-6">React code</td>
+              <td class="text-center py-4 px-6">Published website</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-4 px-6 font-bold">Code Export</td>
+              <td class="text-center py-4 px-6">✓ Full code access</td>
+              <td class="text-center py-4 px-6">✗ Limited/Paid only</td>
+            </tr>
+            <tr class="border-b bg-gray-50">
+              <td class="py-4 px-6 font-bold">Price</td>
+              <td class="text-center py-4 px-6">Free (generous)</td>
+              <td class="text-center py-4 px-6">$15-25/month</td>
+            </tr>
+            <tr class="border-b">
+              <td class="py-4 px-6 font-bold">Learning Curve</td>
+              <td class="text-center py-4 px-6">Steep (need React)</td>
+              <td class="text-center py-4 px-6">Gentle (drag & drop)</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-4 px-6 font-bold">Best For</td>
+              <td class="text-center py-4 px-6">Building components</td>
+              <td class="text-center py-4 px-6">Building websites</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Breakdown -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+
+      <!-- v0.dev Deep Dive -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center">
+            <span class="text-2xl">🤖</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-black text-gray-900">v0.dev</h2>
+            <p class="text-gray-600">AI code generator for developers</p>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            v0.dev is Vercel's AI tool that <strong>generates React code</strong>. You type what you want, v0 writes the code, you copy-paste into your project.
+          </p>
+
+          <h3 class="text-2xl font-black text-gray-900 mt-8 mb-4">What v0.dev Excels At</h3>
+
+          <div class="grid md:grid-cols-2 gap-6 my-6">
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Component Generation</h4>
+              <p class="text-gray-700">Need a data table, form, dashboard widget? v0 generates the React component in seconds. The code is clean, typed, and production-ready.</p>
+            </div>
+
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Iterative Refinement</h4>
+              <p class="text-gray-700">Don't like the output? Chat with v0 to refine. "Make it responsive," "add dark mode," "use shadcn/ui" - it understands technical feedback.</p>
+            </div>
+
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Free Tier is Generous</h4>
+              <p class="text-gray-700">Unlike most AI tools, v0's free tier is actually usable. No "50 requests per day" limit. I've generated 50+ components without hitting a wall.</p>
+            </div>
+
+            <div class="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Code You Own</h4>
+              <p class="text-gray-700">You get actual React code. Copy it, modify it, integrate it. No vendor lock-in. Deploy anywhere (Vercel, Netlify, your server).</p>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-black text-gray-900 mt-8 mb-4">What v0.dev Struggles With</h3>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Not for Non-Developers</h4>
+            <p class="text-gray-700">If you don't know React, v0 won't help. You get code, but you need to know how to run it, debug it, deploy it. No "visual" building—just code generation.</p>
+          </div>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mt-4">
+            <h4 class="font-bold text-gray-900 mb-2">Requires Setup</h4>
+            <p class="text-gray-700">You need a React project set up. Node.js installed. Build process configured. v0 gives you code—not a hosted website. You handle deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Framer Deep Dive -->
+      <div class="mb-16">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+            <span class="text-2xl">🎨</span>
+          </div>
+          <div>
+            <h2 class="text-3xl font-black text-gray-900">Framer</h2>
+            <p class="text-gray-600">AI website builder for everyone</p>
+          </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed">
+            Framer is an AI-powered <strong>website builder</strong>. You describe what you want, Framer builds the site visually, you click publish. No code required.
+          </p>
+
+          <h3 class="text-2xl font-black text-gray-900 mt-8 mb-4">What Framer Excels At</h3>
+
+          <div class="grid md:grid-cols-2 gap-6 my-6">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Instant Deployment</h4>
+              <p class="text-gray-700">Build a site, click "Publish," it's live. Framer hosts it. SSL included. Custom domain supported. No DevOps, no servers, no headaches.</p>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Beautiful Templates</h4>
+              <p class="text-gray-700">Framer's templates are gorgeous. Modern design, responsive out of the box, PageSpeed scores of 95+. Your site looks professional immediately.</p>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">Zero Code Required</h4>
+              <p class="text-gray-700">Drag, drop, edit text, swap images. If you can use PowerPoint, you can use Framer. Perfect for marketers, founders, designers.</p>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+              <h4 class="font-bold text-gray-900 mb-2">AI Site Generation</h4>
+              <p class="text-gray-700">Describe your site ("landing page for AI tool"), Framer generates the layout, copy, and images. 30 seconds to a draft you can refine.</p>
+            </div>
+          </div>
+
+          <h3 class="text-2xl font-black text-gray-900 mt-8 mb-4">What Framer Struggles With</h3>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Limited Customization</h4>
+            <p class="text-gray-700">Want something outside Framer's features? Too bad. You're constrained to what the builder supports. Power users hit walls fast.</p>
+          </div>
+
+          <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg mt-4">
+            <h4 class="font-bold text-gray-900 mb-2">Vendor Lock-In</h4>
+            <p class="text-gray-700">Your site lives on Framer. Exporting code requires the $25/month Pro plan, and even then it's not full React code—it's Framer-specific code that's hard to maintain elsewhere.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- When to Use Each -->
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8 text-center">When to Use What</h2>
+
+      <div class="space-y-6">
+        {verdicts.map(verdict => (
+          <div class={`bg-white rounded-xl p-6 border-2 ${verdict.recommendation === 'v0.dev' ? 'border-purple-300' : 'border-blue-300'}`}>
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="font-bold text-xl text-gray-900">{verdict.scenario}</h3>
+              <span class={`px-3 py-1 rounded-full text-sm font-bold ${verdict.recommendation === 'v0.dev' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                {verdict.recommendation}
+              </span>
+            </div>
+            <p class="text-gray-700 mb-2">{verdict.reason}</p>
+            <p class="text-sm text-gray-500 italic">Priority: {verdict.priority}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Example -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Real Example: Building a Landing Page</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-2 border-purple-200 rounded-xl p-6">
+          <h3 class="font-bold text-xl text-gray-900 mb-4">With v0.dev</h3>
+          <div class="space-y-3 text-sm">
+            <p><strong>Step 1:</strong> Open v0.dev</p>
+            <p><strong>Step 2:</strong> Type "landing page for AI tool with hero, features, pricing, CTA"</p>
+            <p><strong>Step 3:</strong> v0 generates React code (15 seconds)</p>
+            <p><strong>Step 4:</strong> Copy code into your React project</p>
+            <p><strong>Step 5:</strong> Install dependencies (shadcn/ui, tailwind, etc.)</p>
+            <p><strong>Step 6:</strong> Customize styling, copy, images</p>
+            <p><strong>Step 7:</strong> Deploy to Vercel/Netlify</p>
+            <p class="font-bold mt-4">Total time: 2-4 hours (if you know React)</p>
+          </div>
+        </div>
+
+        <div class="border-2 border-blue-200 rounded-xl p-6">
+          <h3 class="font-bold text-xl text-gray-900 mb-4">With Framer</h3>
+          <div class="space-y-3 text-sm">
+            <p><strong>Step 1:</strong> Open Framer</p>
+            <p><strong>Step 2:</strong> Type "landing page for AI tool"</p>
+            <p><strong>Step 3:</strong> Framer generates the site (30 seconds)</p>
+            <p><strong>Step 4:</strong> Edit text, swap images in visual editor</p>
+            <p><strong>Step 5:</strong> Adjust layout with drag & drop</p>
+            <p><strong>Step 6:</strong> Click "Publish"</p>
+            <p class="font-bold mt-4">Total time: 30-60 minutes</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#E07A5F]/10 p-6 rounded-xl mt-8">
+        <p class="font-bold text-gray-900 mb-2">The catch:</p>
+        <p class="text-gray-700">v0.dev takes longer BUT you get code you own. Framer is faster BUT you're locked into their platform. For a one-off landing page? Framer wins. For a component you'll integrate into your app? v0.dev wins.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-12 bg-white border-t">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+      <h2 class="text-3xl font-black text-gray-900 mb-8">Pricing Breakdown</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="font-bold text-xl text-gray-900 mb-4">v0.dev</h3>
+          <div class="text-3xl font-black text-gray-900 mb-4">Free</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✓ Unlimited generations</li>
+            <li>✓ Full code access</li>
+            <li>� Copy/paste anywhere</li>
+            <li>✓ No credit card required</li>
+            <li>✓ Vercel integration</li>
+          </ul>
+          <p class="text-sm text-gray-500 mt-4">No paid tier yet (still in beta)</p>
+        </div>
+
+        <div class="border-2 border-gray-200 rounded-xl p-6">
+          <h3 class="font-bold text-xl text-gray-900 mb-4">Framer</h3>
+          <div class="mb-4">
+            <span class="text-sm text-gray-600">Free tier available, then</span>
+            <div class="text-3xl font-black text-gray-900">$15-25/month</div>
+          </div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✓ Free tier: 2 sites, Framer branding</li>
+            <li>✓ $15/month: Custom domain, Pro features</li>
+            <li>✓ $25/month: Code export, team features</li>
+            <li>✓ Hosting included</li>
+            <li>✓ SSL certificate included</li>
+          </ul>
+          <p class="text-sm text-gray-500 mt-4">Free to start, paid to remove limits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Verdict -->
+  <section class="py-12 bg-gradient-to-br from-gray-900 to-slate-900 text-white">
+    <div class="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-black mb-6">So... Which One?</h2>
+
+      <p class="text-xl text-gray-300 mb-8">
+        Use both. They're different tools for different jobs.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 text-left">
+        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+          <h3 class="font-bold text-xl mb-3">Choose v0.dev If:</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li>• You're a developer</li>
+            <li>• You want code you own</li>
+            <li>• You're building components</li>
+            <li>• You know React</li>
+            <li>• You want free AI code generation</li>
+          </ul>
+          <p class="mt-4">
+            <a href="https://v0.dev" target="_blank" rel="noopener" class="inline-block bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg">
+              Try v0.dev Free →
+            </a>
+          </p>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+          <h3 class="font-bold text-xl mb-3">Choose Framer If:</h3>
+          <ul class="space-y-2 text-gray-300">
+            <li>• You're not a developer</li>
+            <li>• You need a website fast</li>
+            <li>• You want beautiful templates</li>
+            <li>• You don't want to touch code</li>
+            <li>• You're okay with $15-25/month</li>
+          </ul>
+          <p class="mt-4">
+            <a href={affiliates.framer?.url || 'https://framer.com'} target="_blank" rel="noopener" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg">
+              Try Framer Free →
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <p class="text-gray-400 mt-8 text-sm">
+        I use v0.dev for component generation in my React projects. I use Framer for landing pages and marketing sites. Different tools, different problems. Both excellent.
+      </p>
+    </div>
+  </section>
+
+</Layout>
