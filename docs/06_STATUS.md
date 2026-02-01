@@ -87,24 +87,29 @@ git push origin master  # Deploy to GitHub Pages
 
 ## LATEST CHANGES (2026-02-01 - Quality Audit COMPLETE) ✅
 
-### CRITICAL NEXT STEPS (Read AFFILIATE-SIGNUP-GUIDE.md)
+### CRITICAL NEXT STEPS
 
-**Step 1: Join 10Web Affiliate Program (5 min)**
-- [ ] Apply at: https://10web.io/affiliate-program/ (70% commission!)
-- [ ] Website: https://vcelyy.github.io/ai-website-builders/
-- [ ] Description: "Content site reviewing AI website builders with 468 comparison pages and guides"
-- [ ] Wait 24-48 hours for approval
+**🔥 PATH TO FIRST DOLLAR: Join Affiliate Programs**
 
-**Step 2: Update 10Web Affiliate Code (2 min)**
-- [ ] Edit `src/config/affiliate-links.ts` line 28
-- [ ] Replace `YOUR_CODE` with your actual affiliate ID
-- [ ] Save file
+The site is live and ready. To start earning, follow the step-by-step guide:
 
-**Step 3: Rebuild and Deploy (5 min)**
-- [ ] Run `npm run build`
-- [ ] Run `git add src/config/affiliate-links.ts`
-- [ ] Run `git commit -m "Update 10Web affiliate code"`
-- [ ] Run `git push`
+**Read: `docs/AFFILIATE-SIGNUP-GUIDE.md`**
+
+This guide contains:
+- ✅ Verified affiliate program URLs (all tested and working)
+- ✅ Correct commission rates (Webflow 50%, 10Web 30%, Durable 25% recurring)
+- ✅ Exact application descriptions to use
+- ✅ Step-by-step code update instructions
+- ✅ Revenue timeline and expectations
+
+**Priority Order:**
+1. **Webflow** (50% commission, 12 months) - Apply first
+2. **10Web** (30% commission, 12 months) - Apply second
+3. **Durable** (25% recurring) - Apply third
+
+**After Approval:** Update your affiliate codes in `src/config/affiliate-links.ts`
+
+**Expected Timeline:** First referral within 30 days after affiliate codes are live
 - [ ] Site auto-rebuilds on GitHub Pages
 
 **Step 4: Join Other Programs (Repeat)**
