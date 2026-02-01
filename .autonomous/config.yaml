@@ -1,8 +1,49 @@
-session_start: 2026-01-24T04:09:00+01:00
-min_overall_time: "20h"
-max_overall_time: "24h"
+# Autonomous Session Configuration
+# Created: 2026-02-01T11:29:09+01:00
+
+session_start: "2026-02-01T11:29:09+01:00"
+session_id: "autonomous-2026-02-01-v1"
+
+# Time settings (in minutes)
+min_overall_time: 60  # 1 hour minimum
+max_overall_time: 120  # 2 hours maximum
+
 project: /root/business-projects/ai-website-builders
 spend_tokens_freely: true
+
+# Phase configurations
+phases:
+  analysis:
+    enabled: true
+    min_duration: 30
+    max_duration: 60
+
+  research:
+    enabled: true
+    min_duration: 15
+    max_duration: 30
+    custom_query: null
+
+  planning:
+    enabled: true
+    min_duration: 30
+    max_duration: 60
+
+  execution:
+    focus: "revenue-generating improvements"
+
+# Quota handling
 fallback_llm:
   enabled: false
-session_type: continuous_work
+
+session_type: autonomous_work
+
+# Project context
+project_metadata:
+  name: "AI Website Builders"
+  dev_port: 8002
+  live_site: "https://vcelyy.github.io/ai-website-builders/"
+  status: "LIVE - 468 pages built"
+  blockers:
+    - "Affiliate codes need updating (YOUR_CODE placeholders)"
+    - "Traffic generation needed"
