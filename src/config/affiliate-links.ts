@@ -24,7 +24,8 @@ export const AFFILIATE_LINKS = {
   '10web': {
     name: '10Web AI',
     url: 'https://10web.io/ai-website-builder/',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://10web.io/?ref=YOUR_CODE (search for "YOUR_CODE" and replace with your actual affiliate ID)
+    affiliateUrl: 'https://10web.io/?ref=YOUR_CODE',
     commission: '70%',
     recurring: 'recurring',
     freeTrial: true,
@@ -40,7 +41,8 @@ export const AFFILIATE_LINKS = {
   framer: {
     name: 'Framer AI',
     url: 'https://framer.com/website-builder',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://framer.com/?affiliate=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://framer.com/?affiliate=YOUR_CODE',
     commission: '30%',
     recurring: 'recurring',
     freeTrial: true,
@@ -56,7 +58,8 @@ export const AFFILIATE_LINKS = {
   durable: {
     name: 'Durable AI',
     url: 'https://durable.co',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://durable.co/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://durable.co/?ref=YOUR_CODE',
     commission: '25%',
     recurring: 'recurring',
     freeTrial: true,
@@ -72,7 +75,8 @@ export const AFFILIATE_LINKS = {
   relume: {
     name: 'Relume AI',
     url: 'https://relume.io',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://relume.io/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://relume.io/?ref=YOUR_CODE',
     commission: '30%',
     recurring: 'recurring',
     freeTrial: true,
@@ -88,7 +92,8 @@ export const AFFILIATE_LINKS = {
   webflow: {
     name: 'Webflow',
     url: 'https://webflow.com',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://webflow.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://webflow.com/?ref=YOUR_CODE',
     commission: '50%',
     recurring: '12 months',
     freeTrial: true,
@@ -104,7 +109,8 @@ export const AFFILIATE_LINKS = {
   wix: {
     name: 'Wix AI',
     url: 'https://wix.com/ai-website-builder',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://wix.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://wix.com/?ref=YOUR_CODE',
     commission: '$50-100',
     recurring: 'one-time',
     freeTrial: true,
@@ -120,7 +126,8 @@ export const AFFILIATE_LINKS = {
   squarespace: {
     name: 'Squarespace AI',
     url: 'https://squarespace.com/websites/ai-website-builder',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://squarespace.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://squarespace.com/?ref=YOUR_CODE',
     commission: '$100-200',
     recurring: 'one-time',
     freeTrial: true,
@@ -136,7 +143,8 @@ export const AFFILIATE_LINKS = {
   hostinger: {
     name: 'Hostinger AI',
     url: 'https://hostinger.com/ai-website-builder',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://hostinger.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://hostinger.com/?ref=YOUR_CODE',
     commission: '60%',
     recurring: 'recurring',
     freeTrial: false,
@@ -152,7 +160,8 @@ export const AFFILIATE_LINKS = {
   dorik: {
     name: 'Dorik AI',
     url: 'https://dorik.com',
-    affiliateUrl: '', // TODO: Replace with your affiliate link after joining
+    // Format: https://dorik.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://dorik.com/?ref=YOUR_CODE',
     commission: '30%',
     recurring: 'recurring',
     freeTrial: true,
@@ -168,7 +177,8 @@ export const AFFILIATE_LINKS = {
   bookmark: {
     name: 'Bookmark AI',
     url: 'https://bookmark.com',
-    affiliateUrl: '',
+    // Format: https://bookmark.com/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://bookmark.com/?ref=YOUR_CODE',
     commission: 'TBD',
     recurring: 'unknown',
     freeTrial: true,
@@ -184,7 +194,8 @@ export const AFFILIATE_LINKS = {
   teleporthq: {
     name: 'TeleportHQ',
     url: 'https://teleporthq.io',
-    affiliateUrl: '',
+    // Format: https://teleporthq.io/?ref=YOUR_CODE (replace YOUR_CODE with your affiliate ID)
+    affiliateUrl: 'https://teleporthq.io/?ref=YOUR_CODE',
     commission: 'TBD',
     recurring: 'unknown',
     freeTrial: true,
