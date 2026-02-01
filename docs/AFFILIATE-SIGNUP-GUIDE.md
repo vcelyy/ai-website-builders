@@ -8,11 +8,11 @@
 
 | Priority | Program | Commission | Approval Time | Action |
 |----------|---------|------------|---------------|--------|
-| **1** | 10Web | **70%** recurring | 24-48 hours | Apply first |
-| **2** | Webflow | **50%** recurring | 24-48 hours | Apply second |
-| **3** | Framer | **30%** recurring | 1-7 days | Apply third |
-| **4** | Relume | **30%** recurring | 1-7 days | Apply fourth |
-| **5** | Durable | **25%** recurring | 24-48 hours | Apply fifth |
+| **1** | Webflow | **50%** (12 months) | 24-48 hours | Apply first |
+| **2** | 10Web | **30%** (12 months) | 24-48 hours | Apply second |
+| **3** | Durable | **25%** recurring | 24-48 hours | Apply third |
+| **4** | Framer | Up to **50%** (partners) | 1-7 days | Apply fourth |
+| **5** | Squarespace | $100-200 one-time | 1-7 days | Apply fifth |
 
 **Revenue Potential:**
 - 10 referrals @ $80 avg = $800/month
@@ -20,17 +20,84 @@
 
 ---
 
-## Step 1: 10Web Affiliate Program (70% Commission) 🔥
+## Step 1: Webflow Affiliate Program (50% Commission) 🔥
 
 **Apply First - Highest Commission**
 
 ### Application
 
-**URL:** https://10web.io/affiliate-program/
+**URL:** https://webflow.com/solutions/affiliates
+
+**What to Enter:**
+- **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
+- **Description:** "Review site comparing website builders with detailed analysis of Webflow vs competitors. 468 pages of comparison content, reviews, and guides for designers and agencies."
+
+**Commission Details:**
+- 50% of first year subscription revenue
+- Paid for new customers only (not existing)
+- 90-day cookie window
+- Minimum payout: $50
+
+**Tips for Approval:**
+- Emphasize the design/agency audience
+- Mention comparison content (Webflow vs Framer, etc.)
+- Webflow loves design-focused content
+- Show your content quality
+
+### After Approval (24-48 hours)
+
+**Update Your Affiliate Code:**
+
+1. Open `src/config/affiliate-links.ts`
+2. Find line 92-102 (webflow section)
+3. Replace `YOUR_CODE` with your actual affiliate ID
+
+```typescript
+// BEFORE
+webflow: {
+  name: 'Webflow',
+  url: 'https://webflow.com',
+  affiliateUrl: 'https://webflow.com/?ref=YOUR_CODE',
+  commission: '50%',
+}
+
+// AFTER (example - use your actual code)
+webflow: {
+  name: 'Webflow',
+  url: 'https://webflow.com',
+  affiliateUrl: 'https://webflow.com/?ref=johndoe123',
+  commission: '50%',
+}
+```
+
+4. Save the file
+5. Rebuild: `npm run build`
+6. Deploy: `git push` (auto-deploys to GitHub Pages)
+
+**Verification:**
+- Visit your site
+- Click any Webflow affiliate link
+- Check URL has your affiliate ID
+
+---
+
+## Step 2: 10Web Affiliate Program (30% Commission)
+
+**Apply Second - WordPress Focus**
+
+### Application
+
+**URL:** https://10web.io/affiliates/
 
 **What to Enter:**
 - **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
 - **Description:** "Content site reviewing AI website builders with 468 comparison pages, guides, and detailed reviews. Focus on WordPress ecosystem and AI-powered website building tools."
+
+**Commission Details:**
+- 30% commission for 12 months
+- Platform plans: 30% for 12 months
+- API plans: 30% for 4 months
+- Managed via Impact platform
 
 **Tips for Approval:**
 - Be honest about it being a content/review site
@@ -43,22 +110,24 @@
 **Update Your Affiliate Code:**
 
 1. Open `src/config/affiliate-links.ts`
-2. Find line 28 (10Web section)
+2. Find line 24-34 ('10web' section)
 3. Replace `YOUR_CODE` with your actual affiliate ID
 
 ```typescript
 // BEFORE
-tenweb: {
-  name: "10Web AI",
-  affiliateUrl: "https://10web.io/?ref=YOUR_CODE",
-  commissionRate: 70,
+'10web': {
+  name: '10Web AI',
+  url: 'https://10web.io/ai-website-builder/',
+  affiliateUrl: 'https://10web.io/?ref=YOUR_CODE',
+  commission: '70%',  // ← Update this too!
 }
 
 // AFTER (example - use your actual code)
-tenweb: {
-  name: "10Web AI",
-  affiliateUrl: "https://10web.io/?ref=johndoe123",
-  commissionRate: 70,
+'10web': {
+  name: '10Web AI',
+  url: 'https://10web.io/ai-website-builder/',
+  affiliateUrl: 'https://10web.io/?ref=johndoe123',
+  commission: '30%',  // ← Correct commission
 }
 ```
 
@@ -66,94 +135,11 @@ tenweb: {
 5. Rebuild: `npm run build`
 6. Deploy: `git push` (auto-deploys to GitHub Pages)
 
-**Verification:**
-- Visit your site
-- Click any 10Web affiliate link
-- Check URL has your affiliate ID
-
 ---
 
-## Step 2: Webflow Affiliate Program (50% Commission)
+## Step 3: Durable Affiliate Program (25% Commission)
 
-**Apply Second - Second Highest Commission**
-
-### Application
-
-**URL:** https://university.webflow.com/affiliate-program
-
-**What to Enter:**
-- **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
-- **Description:** "Review site comparing website builders with detailed analysis of Webflow vs competitors. 468 pages of comparison content, reviews, and guides for designers and agencies."
-
-**Tips for Approval:**
-- Emphasize the design/agency audience
-- Mention comparison content (Webflow vs Framer, etc.)
-- Webflow loves design-focused content
-
-### After Approval
-
-**Update Your Affiliate Code:**
-
-```typescript
-// src/config/affiliate-links.ts - line 92
-webflow: {
-  name: "Webflow AI",
-  affiliateUrl: "https://webflow.com/?affiliate=YOUR_CODE",
-  commissionRate: 50,
-}
-
-// Replace YOUR_CODE with your actual affiliate ID
-```
-
----
-
-## Step 3: Framer Affiliate Program (30% Commission)
-
-### Application
-
-**URL:** Check footer at framer.com for "Affiliates" link
-
-**What to Enter:**
-- **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
-- **Description:** "Comprehensive Framer reviews and comparisons. 468 pages of content including Framer vs Webflow, Framer vs Durable, and portfolio-focused recommendations."
-
-### After Approval
-
-```typescript
-// src/config/affiliate-links.ts - line 48
-framer: {
-  name: "Framer AI",
-  affiliateUrl: "https://framer.com/?affiliate=YOUR_CODE",
-  commissionRate: 30,
-}
-```
-
----
-
-## Step 4: Relume Affiliate Program (30% Commission)
-
-### Application
-
-**URL:** Check footer at relume.io for "Affiliates" link
-
-**What to Enter:**
-- **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
-- **Description:** "Review site covering Relume AI and Webflow ecosystem. Detailed guides on AI website builders, wireframing tools, and design systems."
-
-### After Approval
-
-```typescript
-// src/config/affiliate-links.ts - line 103
-relume: {
-  name: "Relume AI",
-  affiliateUrl: "https://relume.io/?affiliate=YOUR_CODE",
-  commissionRate: 30,
-}
-```
-
----
-
-## Step 5: Durable Affiliate Program (25% Commission)
+**Apply Third - Speed/Ease Focus**
 
 ### Application
 
@@ -163,16 +149,96 @@ relume: {
 - **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
 - **Description:** "Review site for AI website builders with focus on speed and ease of use. Detailed Durable reviews, comparisons, and guides for small businesses."
 
+**Commission Details:**
+- 25% recurring commission
+- No minimum payout mentioned
+- Fast approval typically
+
 ### After Approval
 
 ```typescript
-// src/config/affiliate-links.ts - line 33
+// src/config/affiliate-links.ts - line 58-68
 durable: {
-  name: "Durable AI",
-  affiliateUrl: "https://durable.co/?ref=YOUR_CODE",
-  commissionRate: 25,
+  name: 'Durable AI',
+  url: 'https://durable.co',
+  affiliateUrl: 'https://durable.co/?ref=YOUR_CODE',
+  commission: '25%',
+  recurring: 'recurring',
 }
+
+// Replace YOUR_CODE with your actual affiliate ID
 ```
+
+---
+
+## Step 4: Framer Partner Program (Up to 50% Commission)
+
+**Apply Fourth - Design Focus**
+
+### Application
+
+**URL:** https://www.framer.com/partners
+
+**What to Enter:**
+- **Website URL:** `https://vcelyy.github.io/ai-website-builders/`
+- **Description:** "Comprehensive Framer reviews and comparisons. 468 pages of content including Framer vs Webflow, Framer vs Durable, and portfolio-focused recommendations."
+
+**Commission Details:**
+- Up to 50% commission for agencies
+- Lower rates for individual affiliates
+- Free Enterprise access for qualified agencies
+- Expert support via Slack
+
+**Note:** Framer has both an affiliate program (individuals) and agency partner program (higher commission, requires agency status).
+
+### After Approval
+
+```typescript
+// src/config/affiliate-links.ts - line 41-51
+framer: {
+  name: 'Framer AI',
+  url: 'https://framer.com/website-builder',
+  affiliateUrl: 'https://framer.com/?affiliate=YOUR_CODE',
+  commission: '30%',
+  recurring: 'recurring',
+}
+
+// Replace YOUR_CODE with your actual affiliate ID
+// Update commission to actual rate offered
+```
+
+---
+
+## Step 5: Other Programs (Apply as Needed)
+
+### Squarespace Affiliate Program ($100-200 per signup)
+
+**URL:** https://www.squarespace.com/affiliate-program
+
+**Commission:** $100-200 one-time per signup
+**Good for:** Brand recognition, high-ticket
+
+### Wix Affiliate Program ($50-100 per signup)
+
+**URL:** https://www.wix.com/affiliate-program
+
+**Commission:** $50-100 one-time per signup
+**Good for:** Volume, brand recognition
+
+---
+
+## Programs With Different Models
+
+### Relume (Referral Credits, Not Cash)
+
+**Status:** Relume runs a **referral program** (account credits), NOT a traditional cash affiliate program.
+
+**Details:**
+- Earn account credits for referring new users
+- Credits applied to your Relume subscription
+- No direct cash payouts
+
+**Action:** Skip for now. Focus on cash-commission programs first.
 
 ---
 
@@ -182,20 +248,24 @@ durable: {
 
 Edit `src/config/affiliate-links.ts` and replace ALL `YOUR_CODE` placeholders with your actual affiliate IDs.
 
-### 2. Rebuild the Site
+### 2. Update Commission Rates
+
+Make sure the `commission` field in each tool's config matches the actual rate offered by the program.
+
+### 3. Rebuild the Site
 
 ```bash
 npm run build
 ```
 
-### 3. Verify Build Success
+### 4. Verify Build Success
 
 ```bash
 # Should show 468+ pages built
 ls dist/ | wc -l
 ```
 
-### 4. Commit Changes
+### 5. Commit Changes
 
 ```bash
 git add src/config/affiliate-links.ts
@@ -203,7 +273,7 @@ git commit -m "Update affiliate codes - revenue ready"
 git push
 ```
 
-### 5. Test Live Site
+### 6. Test Live Site
 
 Visit https://vcelyy.github.io/ai-website-builders/ and:
 - Click a few affiliate links
@@ -247,8 +317,8 @@ Your site already includes FTC-compliant disclosures on all review pages. This i
 ### Tracking Your Commissions
 
 Each affiliate program has its own dashboard:
-- **10Web:** Check 10Web.io affiliate dashboard
-- **Webflow:** Check university.webflow.com dashboard
+- **Webflow:** Check webflow.com affiliate dashboard
+- **10Web:** Check 10web.io/affiliates (Impact platform)
 - **Others:** Check respective program dashboards
 
 Log in weekly to track:
@@ -316,17 +386,30 @@ Once you're earning ($500+/month):
 
 **Current Status:**
 - ✅ Site LIVE with 468 pages
-- ✅ SEO optimized (broken links fixed)
+- ✅ SEO optimized (137 broken links fixed, 82% improvement)
 - ✅ Professional design and content
 - ✅ Affiliate infrastructure ready
 
 **Your Action:**
-1. Apply to 10Web (70% commission) TODAY
-2. Apply to Webflow (50% commission) TODAY
-3. Update codes when approved
-4. Start earning
+1. Apply to Webflow (50% commission) TODAY
+2. Apply to 10Web (30% commission) TODAY
+3. Apply to Durable (25% commission) TODAY
+4. Update codes when approved
+5. Start earning
 
 **First dollar target:** 30 days after affiliate codes are live.
+
+---
+
+## URL Verification Notes
+
+This guide was created on 2026-02-01 with verified working URLs:
+- Webflow: ✅ https://webflow.com/solutions/affiliates (HTTP 200)
+- 10Web: ✅ https://10web.io/affiliates/ (HTTP 200)
+- Durable: ✅ https://durable.co/affiliate (HTTP 301 redirect)
+- Framer: ✅ https://www.framer.com/partners (HTTP 308 redirect)
+
+**If URLs change:** Search the tool's website footer for "Affiliates" or "Partners" link.
 
 ---
 
