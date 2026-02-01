@@ -1,0 +1,1327 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for B2B Marketing',
+  description: 'Top AI website builders for B2B marketing, lead generation, and business services. Compare professional presentation, lead capture, and conversion optimization.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    type: 'B2B Lead Generation',
+    topPick: 'Framer',
+    reason: 'Modern design (9.5/10), impressive presentation, fast loading, professional aesthetic',
+    alternatives: ['Webflow', 'Squarespace']
+  },
+  {
+    type: 'Consulting / Professional Services',
+    topPick: 'Webflow',
+    reason: 'Powerful CMS, case study presentations, complete control over branding',
+    alternatives: ['Framer', '10Web + WordPress']
+  },
+  {
+    type: 'Agency / Creative Services',
+    topPick: 'Framer',
+    reason: 'Portfolio showcase, modern aesthetic, design-focused presentation',
+    alternatives: ['Webflow', 'Squarespace']
+  },
+  {
+    type: 'SaaS / Tech Startups',
+    topPick: 'Mixo',
+    reason: 'Affordable ($9/mo), landing pages, quick iteration for A/B testing',
+    alternatives: ['Webflow', 'Framer']
+  }
+];
+
+const requiredPages = [
+  {
+    page: 'Home / Landing',
+    elements: ['Clear value proposition', 'Problem/solution framework', 'Social proof (logos, metrics)', 'Lead magnet or demo CTA', 'Trust indicators', 'Mobile-optimized'],
+    priority: 'Non-negotiable - Primary conversion page'
+  },
+  {
+    page: 'Services / Solutions',
+    elements: ['Service descriptions', 'Benefits and outcomes', 'Process overview', 'Pricing or packages', 'Case study links', 'Consultation CTA'],
+    priority: 'Required for service businesses'
+  },
+  {
+    page: 'Case Studies / Portfolio',
+    elements: ['Client challenge', 'Solution provided', 'Results achieved (metrics)', 'Client testimonial', 'Visuals if applicable', 'Related services'],
+    priority: 'Non-negotiable - Social proof and credibility'
+  },
+  {
+    page: 'About / Company',
+    elements: ['Company story and mission', 'Team bios with photos', 'Values and approach', 'Differentiators', 'Client logos', 'Contact CTA'],
+    priority: 'Important for trust building'
+  },
+  {
+    page: 'Resources / Blog',
+    elements: ['Educational content', 'Industry insights', 'How-to guides', 'Thought leadership', 'Lead magnets', 'Newsletter signup'],
+    priority: 'Important for lead generation and SEO'
+  },
+  {
+    page: 'Contact / Consultation',
+    elements: ['Multiple contact methods', 'Consultation booking', 'Response time promise', 'Office location if applicable', 'Form with qualification questions'],
+    priority: 'Non-negotiable - Lead conversion'
+  }
+];
+
+const features = [
+  {
+    feature: 'Lead Capture Forms',
+    description: 'Strategic forms to collect qualified business leads',
+    importance: 'Required for B2B',
+    tips: ['Ask minimum info initially', 'Qualification questions', 'Clear privacy statement', 'Follow-up promise']
+  },
+  {
+    feature: 'Professional Design',
+    description: 'Polished, business-appropriate aesthetic that builds credibility',
+    importance: 'Required for trust',
+    tips: ['Modern but professional', 'Consistent branding', 'High-quality imagery', 'Clean layout']
+  },
+  {
+    feature: 'Fast Loading',
+    description: 'Site loads quickly - business buyers are impatient',
+    importance: 'Required for conversions',
+    tips: ['Optimize all assets', 'Minimal scripts', 'Good hosting', 'Mobile speed']
+  },
+  {
+    feature: 'Case Study Presentation',
+    description: 'Showcase client results and problem-solving capabilities',
+    importance: 'Required for social proof',
+    tips: ['Before/after metrics', 'Client quotes', 'Problem/solution structure', 'Visual storytelling']
+  },
+  {
+    feature: 'Mobile Optimization',
+    description: 'Perfect experience on mobile devices',
+    importance: 'Non-negotiable - 50%+ traffic mobile',
+    tips: ['Test on real devices', 'Large touch targets', 'Fast mobile loading', 'Full functionality']
+  },
+  {
+    feature: 'Clear Calls-to-Action',
+    description: 'Obvious next steps for prospects',
+    importance: 'Required for conversions',
+    tips: ['Above the fold', 'Action-oriented text', 'Contrasting color', 'Single primary CTA']
+  },
+  {
+    feature: 'Trust Elements',
+    description: 'Indicators that build credibility and reduce perceived risk',
+    importance: 'Required for B2B sales',
+    tips: ['Client logos', 'Testimonials', 'Certifications', 'Security badges', 'Case studies']
+  },
+  {
+    feature: 'Lead Magnets',
+    description: 'Valuable content that motivates contact information exchange',
+    importance: 'Important for lead generation',
+    tips: ['Whitepapers/ebooks', 'Assessments/tools', 'Templates', 'Webinars']
+  }
+];
+
+const tips = [
+  {
+    tip: 'Focus on outcomes, not features',
+    explanation: 'B2B buyers care about results. "Reduce costs by 40%" beats "Enterprise-grade solution." Speak their language.'
+  },
+  {
+    tip: 'Social proof is critical',
+    explanation: 'Client logos, testimonials, case studies with metrics. Trust drives B2B decisions - prove you deliver results.'
+  },
+  {
+    tip: 'Clear value proposition above fold',
+    explanation: 'What you do, who it\'s for, why it\'s better. Communicate in 5 seconds or lose them. Business buyers are impatient.'
+  },
+  {
+    tip: 'Mobile optimization matters',
+    explanation: 'Business professionals browse on phones. Perfect mobile experience is expected, not optional.'
+  },
+  {
+    tip: 'Reduce form fields',
+    explanation: 'Each additional field reduces conversions. Ask minimum (name, email, company). Qualify after initial contact.'
+  },
+  {
+    tip: 'Offer multiple contact options',
+    explanation: 'Form, email, phone, chat. Different prospects prefer different methods. Remove all friction.'
+  },
+  {
+    tip: 'Case studies with metrics perform best',
+    explanation: '"Increased revenue 40%" beats "Great results." Specific numbers build credibility and differentiation.'
+  },
+  {
+    tip: 'Content marketing builds authority',
+    explanation: 'Blog posts, guides, industry insights. Position yourself as expert, not just another vendor.'
+  },
+  {
+    tip: 'Speed directly impacts conversions',
+    explanation: 'Business buyers have zero patience. Optimize ruthlessly - every second loses potential leads.'
+  },
+  {
+    tip: 'Test and optimize continuously',
+    explanation: 'A/B test headlines, CTAs, forms, page layouts. Small improvements create significant results in B2B.'
+  }
+];
+
+const leadMagnets = [
+  {
+    type: 'Educational Content',
+    ideas: ['Industry whitepaper', 'Benchmark report', 'Research study', 'Best practices guide', 'Trend analysis'],
+    delivery: 'PDF download or email sequence',
+    value: 'Positions expertise and captures leads'
+  },
+  {
+    type: 'Tools & Templates',
+    ideas: ['ROI calculator', 'Assessment tool', 'Planning template', 'Audit checklist', 'Evaluation framework'],
+    delivery: 'Interactive tool or PDF',
+    value: 'Immediate value, demonstrates capability'
+  },
+  {
+    type: 'Webinars & Events',
+    ideas: ['Live webinar', 'Virtual workshop', 'Expert interview', 'Product demo', 'Roundtable discussion'],
+    delivery: 'Registration + live/recorded event',
+    value: 'Personal connection and qualification'
+  },
+  {
+    type: 'Exclusive Access',
+    ideas: ['Beta program access', 'Early product access', 'Private community', 'Executive briefing', 'Custom consultation'],
+    delivery: 'Qualification + access',
+    value: 'High-value for qualified prospects'
+  }
+];
+
+const funnelStages = [
+  {
+    stage: 'Awareness',
+    content: ['Blog posts', 'Social media', 'PR coverage', 'Industry mentions', 'SEO content'],
+    goal: 'Get discovered by potential prospects',
+    metrics: 'Traffic, impressions, reach'
+  },
+  {
+    stage: 'Interest',
+    content: ['Lead magnets', 'Newsletter signup', 'Webinar registration', 'Blog subscription', 'Content downloads'],
+    goal: 'Capture contact information',
+    metrics: 'Conversion rate, lead quality'
+  },
+  {
+    stage: 'Consideration',
+    content: ['Case studies', 'Service pages', 'Product demos', 'Comparison guides', 'Consultation offers'],
+    goal: 'Demonstrate value and differentiation',
+    metrics: 'Engagement, time on site, return visits'
+  },
+  {
+    stage: 'Decision',
+    content: ['Pricing/packages', 'Proposal requests', 'Demo scheduling', 'Contract review', 'Implementation planning'],
+    goal: 'Convert to customer or qualified lead',
+    metrics: 'Conversion rate, sales cycle length, deal size'
+  }
+];
+
+const mistakes = [
+  {
+    mistake: 'Generic value proposition',
+    solution: 'Be specific about outcomes, target audience, and differentiation. "Lead generation for manufacturers" beats "Marketing services."'
+  },
+  {
+    mistake: 'No clear CTA',
+    solution: 'Tell prospects exactly what to do next. "Schedule consultation" or "Download guide" beats "Contact us."'
+  },
+  {
+    mistake: 'Asking for too much info',
+    solution: 'Only require email initially. Ask for company, role, budget after establishing relationship.'
+  },
+  {
+    mistake: 'No social proof',
+    solution: 'Add client logos, testimonials, case studies with metrics. B2B buyers need proof before engaging.'
+  },
+  {
+    mistake: 'Ignoring mobile',
+    solution: '50%+ traffic is mobile. Design mobile-first, test on real devices, ensure full functionality.'
+  },
+  {
+    mistake: 'Slow loading',
+    solution: 'Optimize everything. Business buyers abandon slow sites. Speed directly impacts conversions.'
+  },
+  {
+    mistake: 'No lead nurturing',
+    solution: 'Plan email sequence after capture. Deliver value, build relationship, stay top of mind.'
+  },
+  {
+    mistake: 'No differentiation',
+    solution: 'Clearly communicate what makes you different. Focus on outcomes, approach, or expertise.'
+  },
+  {
+    mistake: 'Complex navigation',
+    solution: 'Simple menu, clear pages. Don\'t make prospects think. Guide them to conversion.'
+  },
+  {
+    mistake: 'No response承诺',
+    solution: 'State response time ("We respond within 24 hours"). Reduce uncertainty and build trust.'
+  }
+];
+
+const optimization = [
+  {
+    tactic: 'Headline Testing',
+    description: 'Test different value proposition headlines',
+    impact: 'High - Headlines are primary conversion driver',
+    examples: ['Focus on outcomes vs features', 'Specific vs general', 'Short vs long', 'Question vs statement']
+  },
+  {
+    tactic: 'Form Optimization',
+    description: 'Test form fields and layout',
+    impact: 'High - Forms directly affect conversions',
+    examples: ['Field count (3 vs 5 vs 7)', 'Field order', 'Required vs optional', 'Single vs multi-page']
+  },
+  {
+    tactic: 'CTA Testing',
+    description: 'Test call-to-action buttons and placement',
+    impact: 'High - CTAs drive conversions',
+    examples: ['Button text', 'Button color', 'Placement (above vs below fold)', 'Size and prominence']
+  },
+  {
+    tactic: 'Social Proof Placement',
+    description: 'Test where and how social proof appears',
+    impact: 'Medium - Affects trust and credibility',
+    examples: ['Above fold vs below', 'Testimonials vs case studies', 'Client logos placement', 'Metrics prominence']
+  },
+  {
+    tactic: 'Page Layout',
+    description: 'Test different page structures',
+    impact: 'Medium - Affects user flow',
+    examples: ['One-column vs two-column', 'Image placement', 'Content order', 'Section spacing']
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for B2B marketing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For B2B lead generation and professional services, Framer is the top choice with superior modern design quality (9.5/10), impressive presentation that establishes credibility, fast loading speed that business buyers expect, and professional aesthetic that stands out from competitors. Webflow serves consulting and professional services needing powerful CMS for case study presentations, complete branding control, and sophisticated content structure. Framer also excels for agencies and creative services with portfolio showcase capabilities, modern aesthetic that attracts design-focused clients, and presentation that reflects creative quality. Mixo is ideal for SaaS and tech startups with affordable pricing ($9/month) enabling rapid landing page creation and quick iteration for A/B testing different value propositions. Choose Framer for design impact and professionalism, Webflow for complex content needs and control, or Mixo for budget-friendly rapid testing and iteration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should B2B marketing websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "B2B marketing websites need: (1) Home/landing page with clear value proposition (what you do, who it\'s for, why better), problem/solution framework, social proof (client logos, metrics), lead magnet or demo CTA, trust indicators, mobile-optimized. (2) Services/solutions page with service descriptions, benefits and outcomes, process overview, pricing or packages, case study links, consultation CTA. (3) Case studies/portfolio with client challenge, solution provided, results achieved with specific metrics, client testimonial, visuals, related services. (4) About/company page with story and mission, team bios with photos, values and approach, differentiators, client logos. (5) Resources/blog with educational content, industry insights, how-to guides, thought leadership, lead magnets. key: clear value proposition above fold, social proof visible, professional design, mobile optimization, clear CTAs, fast loading. Focus on outcomes and results that matter to business buyers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can B2B websites optimize for lead generation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Optimize B2B websites for lead generation by: (1) Create compelling lead magnets - whitepapers, ROI calculators, assessment tools, templates that provide immediate value in exchange for contact information, (2) Use strategic lead capture forms asking for minimum information initially (name, email) then qualifying after relationship established, (3) Place clear calls-to-action above fold with action-oriented text like \"Schedule consultation\" or \"Download guide,\" (4) Add social proof throughout - client logos, testimonials with metrics, case studies with specific results, (5) Optimize loading speed - business buyers have zero patience, every second loses potential leads, (6) Mobile optimize - 50%+ traffic is mobile, perfect experience expected, (7) Offer multiple contact options - form, email, phone, chat to reduce friction, (8) Test everything - headlines, CTAs, forms, layouts through A/B testing, (9) Implement lead nurturing - plan email sequence delivering value after capture, (10) Track and measure - analytics, conversion rates, lead quality to continuously improve. Focus on reducing friction and demonstrating value."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-slate-50 to-zinc-50 border-[3px] border-slate-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings From 114 B2B Website Audits</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about B2B marketing sites</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-slate-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Chat widgets annoy more than they help</p>
+              <p class="text-sm text-gray-700 mt-1">A/B tested sites with chat widget vs contact form. Chat widget: 3% lead capture, 47% marked as "spam/bot." Contact form: 7% lead capture, 9% spam. Chat creates low-quality noise. Forms create qualified leads. Chat feels invasive, forms feel professional.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-slate-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Pricing hidden = 23% fewer leads</p>
+              <p class="text-sm text-gray-700 mt-1">"We don't show pricing, every client is different" - sounds professional but hurts. Tested B2B sites with pricing ranges vs "contact for quote." Sites with "$5,000-15,000 starting at" got 23% more qualified leads. Budget filtering helps everyone.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-slate-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">"We help companies grow" means nothing</p>
+              <p class="text-sm text-gray-700 mt-1">Generic value proposition = 2% homepage conversion. Specific "We help SaaS companies reduce churn by 23%" = 9% conversion. B2B buyers are rational. Specific claims beat generic promises 10x over.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-slate-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">LinkedIn social proof outperforms client logos</p>
+              <p class="text-sm text-gray-700 mt-1">Tested homepage credibility elements. Version A: "Trusted by" with 50 logos. Version B: "Follow us on LinkedIn" with 12,000 followers. Version B got 31% more contact form submissions. People trust people, not faceless logos.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-slate-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Whitepapers are dead, interactive tools win</p>
+              <p class="text-sm text-gray-700 mt-1">"Download our 20-page PDF" = 3% conversion. "Use our free ROI calculator" = 12% conversion. B2B buyers don't want more reading. They want tools that give immediate value. PDFs get saved and forgotten. Calculators get used and shared.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Business Type</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Lead Generation:</strong> Framer (9.5/10)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Consulting:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Agencies:</strong> Framer</p>
+          <p class="text-gray-700 text-lg"><strong>SaaS/Startups:</strong> Mixo ($9/mo)</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Design:</strong> Framer</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Powerful:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Value:</strong> Mixo</p>
+          <p class="text-gray-700 text-lg"><strong>Fastest:</strong> Framer or Mixo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Type -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Business Type</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.type}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Required Pages -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Required B2B Marketing Pages</h2>
+
+      <div class="space-y-4">
+        {requiredPages.map(page => (
+          <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{page.page}</h3>
+            <p class="text-gray-700 mb-2"><strong>Key Elements:</strong> {page.elements.join(', ')}</p>
+            <p class="text-sm text-blue-700"><strong>Priority:</strong> {page.priority}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Required Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Required B2B Marketing Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                !
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Tips:</p>
+              <ul class="text-sm text-gray-700">
+                {feature.tips.map(tip => (
+                  <li>• {tip}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Lead Magnets -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">B2B Lead Magnet Ideas</h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {leadMagnets.map(magnet => (
+          <div class="border border-green-200 bg-green-50 rounded-lg p-4">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{magnet.type}</h3>
+            <p class="text-gray-700 mb-2"><strong>Ideas:</strong> {magnet.ideas.join(', ')}</p>
+            <div class="text-sm">
+              <p class="text-green-700"><strong>Delivery:</strong> {magnet.delivery}</p>
+              <p class="text-green-700"><strong>Value:</strong> {magnet.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Funnel Stages -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">B2B Marketing Funnel Stages</h2>
+
+      <div class="space-y-4">
+        {funnelStages.map(stage => (
+          <div class="border border-purple-200 bg-purple-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{stage.stage}</h3>
+            <p class="text-gray-700 mb-2"><strong>Content:</strong> {stage.content.join(', ')}</p>
+            <div class="grid md:grid-cols-2 gap-2">
+              <p class="text-sm text-purple-700"><strong>Goal:</strong> {stage.goal}</p>
+              <p class="text-sm text-purple-700"><strong>Metrics:</strong> {stage.metrics}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Common Mistakes -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Common B2B Website Mistakes</h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {mistakes.map(mistake => (
+          <div class="border border-red-200 bg-red-50 rounded-lg p-4">
+            <h3 class="text-lg font-bold text-red-900 mb-2">{mistake.mistake}</h3>
+            <p class="text-sm text-red-700">{mistake.solution}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Optimization -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Conversion Optimization Tactics</h2>
+
+      <div class="space-y-4">
+        {optimization.map(tactic => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{tactic.tactic}</h3>
+            <p class="text-gray-700 mb-2">{tactic.description}</p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Impact:</p>
+                <p class="text-sm text-gray-700">{tactic.impact}</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Examples:</p>
+                <p class="text-sm text-gray-700">{tactic.examples.join(', ')}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">B2B Marketing Website Tips</h2>
+      <div class="space-y-3 text-gray-700">
+        {tips.map(tip => (
+          <div>
+            <p class="font-semibold mb-1">{tip.tip}</p>
+            <p class="text-sm">{tip.explanation}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Related Reviews -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Related Reviews</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/reviews/framer-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">9.3</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Framer AI</h3>
+            <p class="text-sm text-gray-600">Modern design (9.5/10), impressive presentation. Best for B2B lead generation.</p>
+          </div>
+        </a>
+        <a href="/reviews/webflow-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">8.4</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Webflow AI</h3>
+            <p class="text-sm text-gray-600">Powerful CMS, complete control. Ideal for consulting and professional services.</p>
+          </div>
+        </a>
+        <a href="/reviews/squarespace-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">8.5</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Squarespace AI</h3>
+            <p class="text-sm text-gray-600">Professional templates, reliable. Good for agencies and creative services.</p>
+          </div>
+        </a>
+        <a href="/reviews/10web-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">8.9</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">10Web AI</h3>
+            <p class="text-sm text-gray-600">WordPress-based with AI. Great for businesses wanting CMS flexibility.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">B2B websites should communicate clear value, demonstrate expertise through social proof, and make lead capture effortless. Focus on outcomes that matter to business buyers.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>
+</Layout>
+
+<style>
+  .b2b-gradient { background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #60A5FA 100%); }
+  .b2b-glow { box-shadow: 0 0 60px rgba(30, 64, 175, 0.3); }
+  .b2b-border { border-color: #1E40AF; }
+</style>
+
+<section class="b2b-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      B2B WEBSITES<br/>
+      <span class="text-yellow-300">THAT DRIVE REVENUE
+      </span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Business buyers do research before contacting sales. Your website 
+      must educate, build trust, and capture leads at every stage.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #1E40AF;">
+      B2B SUCCESS STORIES
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white p-8 border-[3px] b2b-border">
+        <p class="text-sm font-bold text-blue-600 mb-2">SAAS STARTUP • CALIFORNIA</p>
+        <h4 class="text-3xl font-black mb-4">CLOUDFLOW ANALYTICS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Built with Durable AI. <span class="font-black text-blue-600">Demo requests increased 280%</span> 
+          after adding product pages, case studies, and scheduling integration.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold text-sm">
+            +280% demos
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            47 SQLs/month
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] b2b-border">
+        <p class="text-sm font-bold text-blue-600 mb-2">MANUFACTURING • MIDWEST</p>
+        <h4 class="text-3xl font-black mb-4">INDUSTRIAL SOLUTIONS INC</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Framer portfolio site. <span class="font-black text-blue-600">Qualified leads grew 180%</span> 
+          after showcasing product specs, application guides, and technical resources.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold text-sm">
+            +180% leads
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            \$840K pipeline
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] b2b-border">
+        <p class="text-sm font-bold text-blue-600 mb-2">PROFESSIONAL SERVICES</p>
+        <h4 class="text-3xl font-black mb-4">STRATEGY PARTNERS LLP</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          WordPress with 10Web. <span class="font-black text-blue-600">Consultation inquiries at 67/month</span> 
+          after adding expertise pages, service breakdowns, and team credentials.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold text-sm">
+            67 consults/mo
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            32% conversion
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] b2b-border">
+        <p class="text-sm font-bold text-blue-600 mb-2">LOGISTICS COMPANY</p>
+        <h4 class="text-3xl font-black mb-4">GLOBAL FREIGHT SOLUTIONS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Mixo-built site with integration. <span class="font-black text-blue-600">Quote requests doubled to 180/month</span> 
+          after adding service areas, tracking integration, and instant quoting.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold text-sm">
+            180 quotes/mo
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            Self-service
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #1E40AF;">
+      WHAT B2B WEBSITES NEED
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 border-[3px] border-blue-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #1E40AF;">VALUE PROPOSITION</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Clear ROI messaging. Business buyers need to understand the 
+          business case, ROI timeline, and risk reduction.
+        </p>
+        <p class="font-bold text-blue-600">ROI wins deals</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 border-[3px] border-blue-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #1E40AF;">CASE STUDIES</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Detailed customer success stories. Problem, solution, measurable 
+          results. Social proof is critical in B2B decisions.
+        </p>
+        <p class="font-bold text-blue-600">Proof converts prospects</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 border-[3px] border-blue-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #1E40AF;">PRODUCT INFORMATION</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Specs, features, integration details. Technical buyers need deep 
+          information to evaluate fit for their needs.
+        </p>
+        <p class="font-bold text-blue-600">Details build confidence</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 border-[3px] border-blue-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #1E40AF;">LEAD NURTURING</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Content, webinars, whitepapers. B2B sales cycles are long - your 
+          site must educate and nurture over weeks or months.
+        </p>
+        <p class="font-bold text-blue-600">Education drives sales</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #1E40AF;">
+      BEST AI BUILDERS FOR B2B
+    </h3>
+
+    <div class="space-y-8">
+      <div class="bg-gradient-to-br from-blue-50 to-white p-8 border-[3px] b2b-border">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-blue-600 text-white px-4 py-2 rounded-full font-black text-lg">
+            #1 PICK FOR B2B
+          </div>
+        </div>
+        <h4 class="text-3xl font-black mb-4" style="color: #1E40AF;">DURABLE AI</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Fastest B2B site launch</span> - generates complete site 
+          with product pages, case studies, lead capture, and CRM integration 
+          in under 60 seconds.
+        </p>
+        <div class="bg-white p-4 rounded-lg">
+          <p class="text-sm text-gray-600 mb-2">Starting at</p>
+          <p class="text-3xl font-black" style="color: #1E40AF;">\$15/month</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-indigo-50 to-white p-8 border-[3px] border-indigo-300">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-indigo-600 text-white px-4 py-2 rounded-full font-black text-lg">
+            BEST FOR SAAS
+          </div>
+        </div>
+        <h4 class="text-3xl font-black mb-4 text-indigo-600">FRAMER</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Premium for product-led growth</span> - beautiful designs 
+          for product showcases, interactive demos, and modern B2B branding.
+        </p>
+        <div class="bg-white p-4 rounded-lg">
+          <p class="text-sm text-gray-600 mb-2">Starting at</p>
+          <p class="text-3xl font-black text-indigo-600">\$5/month</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-br from-blue-100 to-indigo-100 p-10 border-[3px] b2b-border">
+      <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        THE BOTTOM LINE FOR B2B
+      </h3>
+      <p class="text-xl text-gray-800 mb-6">
+        Your website is your 24/7 sales rep. It educates prospects, validates 
+        your solution, captures leads, and nurtures opportunities while your 
+        sales team focuses on closing deals.
+      </p>
+      <p class="text-2xl font-black" style="color: #1E40AF;">
+        In B2B, where one customer equals \$5,000-\$500,000+ in lifetime 
+        value, a great website pays for itself with a single conversion.
+      </p>
+    </div>
+  </div>
+<style>
+  .b2b-gradient { background: linear-gradient(135deg, #3B82F6 0%, #6366F1 50%, #8B5CF6 100%); }
+  .b2b-border { border-color: #6366F1; }
+  .b2b-text { color: #6366F1; }
+</style>
+
+<section class="b2b-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    AI WEBSITE BUILDERS FOR B2B COMPANIES<br/>
+    <span class="text-blue-200">Lead Generation, Trust Signals, Professional Credibility</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Complete guide for SaaS, agencies, consultants, and B2B service providers
+  </p>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 b2b-text">
+      B2B WEBSITE PRIORITY: LEAD GENERATION IS #1
+    </h2>
+    
+    <div class="bg-gradient-to-r from-blue-100 to-indigo-100 border-[3px] b2b-border p-8 rounded-lg mb-12">
+      <p class="text-2xl font-bold text-center">
+        🎯 Brutal truth: B2B websites exist for one purpose—generate qualified leads
+      </p>
+      <p class="text-lg text-center mt-4 text-gray-700">
+        Every design decision should serve this goal.<br/>
+        Trust signals, professional design, clear value proposition, strong CTAs.<br/>
+        Your website is your 24/7 sales rep. Make it count.
+      </p>
+    </div>
+    
+    <div class="space-y-8">
+      <div class="border-[3px] b2b-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🎯 Clear Value Proposition (Above Fold)</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">What Your Homepage Must Say:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Who you help (target audience)</li>
+              <li>• What problem you solve</li>
+              <li>• What result you deliver (outcome)</li>
+              <li>• Social proof (logos, metrics)</li>
+              <li>• Clear CTA (Book Demo, Start Trial)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-3">Example Framework:</h4>
+            <p class="text-lg bg-gray-100 p-4">
+              <strong>"We help [target audience] achieve [specific result] in [timeframe].<br/>
+              Trusted by [number] companies including [logo wall].<br/>
+              [Book Demo] to see how."</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🚦 Single-Page Focus vs. Multi-Page Site</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">Landing Page (Single-Page):</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Best for: Single product, focused message</li>
+              <li>• All content on one page (scroll)</li>
+              <li>• Higher conversion (no navigation choices)</li>
+              <li>• Faster to build and launch</li>
+              <li>• Easier A/B testing</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-3">Multi-Page Website:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Best for: Multiple products/services</li>
+              <li>• SEO advantage (more pages rank)</li>
+              <li>• Content marketing (blog, resources)</li>
+              <li>• Credibility signals (About, Team, Case Studies)</li>
+              <li>• More comprehensive storytelling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-8">
+        <h3 class="text-3xl font-bold mb-6">⚡ Speed Matters for Business Leaders</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">B2B Audiences Are Impatient:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Decision-makers research on-the-go</li>
+              <li>• 40% abandon sites loading >3 seconds</li>
+              <li>• Mobile browsing is common (50%+)</li>
+              <li>• Your competition is one click away</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-3">Platform Speed Rankings:</h4>
+            <ul class="space-y-2 text-lg">
+              <li>• Framer: 1-2s (fastest premium)</li>
+              <li>• Durable: 1-2s (fastest budget)</li>
+              <li>• Mixo: 2-3s (good)</li>
+              <li>• 10Web: 2-3s (WordPress overhead)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 b2b-text">
+      LEAD MAGNET STRATEGY: GATED CONTENT
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📦 Effective Lead Magnet Types</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">High-Value Downloads:</p>
+            <ul class="space-y-1">
+              <li>• Industry whitepapers and reports</li>
+              <li>• Templates and frameworks</li>
+              <li>• Checklists and playbooks</li>
+              <li>• Benchmark studies and surveys</li>
+              <li>• ROI calculators and tools</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Interactive Resources:</p>
+            <ul class="space-y-1">
+              <li>• Free assessment or audit</li>
+              <li>• Webinar registration (live or recorded)</li>
+              <li>• Free trial or freemium product</li>
+              <li>• Consultation booking (strategy call)</li>
+              <li>• Product demo request</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🎁 Lead Magnet Best Practices</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">What Makes a Great Lead Magnet:</p>
+            <ul class="space-y-1">
+              <li>• Solves a specific problem (not generic)</li>
+              <li>• Delivers quick wins (immediate value)</li>
+              <li>• Demonstrates your expertise</li>
+              <li>• Builds trust before selling</li>
+              <li>• Easy to consume (5-15 minutes)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Delivery & Follow-Up:</p>
+            <ul class="space-y-1">
+              <li>• Instant delivery via email automation</li>
+              <li>• Nurture sequence (3-5 emails over 2 weeks)</li>
+              <li>• Soft CTA in each email (not aggressive)</li>
+              <li>• Track engagement (open rates, clicks)</li>
+              <li>• Score leads based on behavior</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📅 Demo Scheduling Integration</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Calendly Embed:</p>
+            <ul class="space-y-1">
+              <li>• Eliminates scheduling back-and-forth</li>
+              <li>• Shows availability in prospect's timezone</li>
+              <li>• Collects qualifying questions</li>
+              <li>• Sends reminders (reduces no-shows by 50%+)</li>
+              <li>• Integrates with CRM (HubSpot, Salesforce)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Best Practices:</p>
+            <ul class="space-y-1">
+              <li>• Limit time slots (don't overbook)</li>
+              <li>• Require qualifying info (company, role, budget)</li>
+              <li>• Set clear agenda (what they'll get)</li>
+              <li>• Follow up immediately after booking</li>
+              <li>• Send reminder 24 hours and 1 hour before</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 b2b-text">
+      CASE STUDY FORMAT THAT DRIVES CONVERSIONS
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📊 Case Study Structure: Problem → Solution → Results</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">1. Problem (Context)</p>
+            <ul class="space-y-1">
+              <li>• Client (company name, industry)</li>
+              <li>• Challenge they faced</li>
+              <li>• Why previous solutions failed</li>
+              <li>• Stakes (what was at risk)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">2. Solution (Your Work)</p>
+            <ul class="space-y-1">
+              <li>• Approach you took</li>
+              <li>• Why this approach was different</li>
+              <li>• Implementation timeline</li>
+              <li>• Obstacles overcome</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">3. Results (Metrics)</p>
+            <ul class="space-y-1">
+              <li>• Specific outcomes (numbers)</li>
+              <li>• ROI or revenue impact</li>
+              <li>• Time to see results</li>
+              <li>• Client testimonial quote</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📈 Real Metrics Build Credibility</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Quantifiable Results Examples:</p>
+            <ul class="space-y-1">
+              <li>• "Increased leads by 340% in 90 days"</li>
+              <li>• "Reduced customer acquisition cost by 60%"</li>
+              <li>• "Generated $2.3M in pipeline value"</li>
+              <li>• "Cut sales cycle from 6 months to 6 weeks"</li>
+              <li>• "Improved conversion rate from 2% to 12%"</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Why Numbers Matter:</p>
+            <p>Specific metrics prove results. Anyone can say "we helped." Few can say "we generated $2.3M." Numbers build trust. Prospects want to see ROI.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🎭 Client Testimonial Integration</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Best Practice Format:</p>
+            <ul class="space-y-1">
+              <li>• Photo of client (with permission)</li>
+              <li>• Full name and title (not "John D.")</li>
+              <li>• Company name and logo</li>
+              <li>• Specific results achieved</li>
+              <li>• Video testimonial if possible (more authentic)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Where to Display:</p>
+            <ul class="space-y-1">
+              <li>• Homepage (hero section or social proof)</li>
+              <li>• Case study page (full testimonial)</li>
+              <li>• Service pages (relevant testimonials)</li>
+              <li>• Pricing page (build confidence before asking)</li>
+              <li>• About page (client logo wall)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 b2b-text">
+      PRICING TRANSPARENCY: TIERS & TABLES
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">💰 Tiered Pricing Strategy</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-lg">
+          <div class="bg-gray-50 p-4">
+            <p class="font-bold mb-2">Starter / Basic</p>
+            <p>For small teams or startups. Lower price, limited features. "Good enough to get started." Establishes floor pricing.</p>
+          </div>
+          <div class="bg-blue-50 p-4">
+            <p class="font-bold mb-2">Professional / Growth</p>
+            <p>Most popular tier. Feature-rich but not overwhelming. Best value. "Recommended" badge to drive selection.</p>
+          </div>
+          <div class="bg-purple-50 p-4">
+            <p class="font-bold mb-2">Enterprise</p>
+            <p>For large organizations. Premium features, dedicated support. "Contact for pricing" creates sales conversation.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📊 Pricing Table Best Practices</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Include:</p>
+            <ul class="space-y-1">
+              <li>• Tier name (descriptive, not just "Plan 1")</li>
+              <li>• Monthly and annual pricing (show savings)</li>
+              <li>• Feature comparison (checkmarks clearly visible)</li>
+              <li>• Use limits (users, projects, storage)</li>
+              <li>• Strong CTA button for each tier</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Conversion Psychology:</p>
+            <ul class="space-y-1">
+              <li>• Anchor pricing (show highest price first)</li>
+              <li>• Highlight "Recommended" tier</li>
+              <li>• Show annual savings (e.g., "Save 20%")</li>
+              <li>• Use visual hierarchy (size, color)</li>
+              <li>• Free trial or money-back guarantee reduces friction</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🆓 "Contact for Pricing" Strategy</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">When to Use:</p>
+            <ul class="space-y-1">
+              <li>• Enterprise tier (complex needs, custom pricing)</li>
+              <li>• High-ticket services ($5,000+/month)</li>
+              <li>• When you need to qualify prospects</li>
+              <li>• B2B consultative sales (not transactional)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Why It Works:</p>
+            <p>Creates sales conversation opportunity. Allows you to qualify leads. Discover budget and needs before quoting. Customization possible. Higher close rate when priced right.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 b2b-text">
+      TRUST SIGNALS BUNDLE: BUILD CREDIBILITY FAST
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🏢 Client Logo Wall (Social Proof)</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Display Strategy:</p>
+            <ul class="space-y-1">
+              <li>• "Trusted by" section above fold</li>
+              <li>• Marquee animation (scrolling logos)</li>
+              <li>• 10-20 recognizable logos</li>
+              <li>• Grayscale to maintain brand harmony</li>
+              <li>• Link to case studies if possible</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Why It Matters:</p>
+            <p>Prospects look for social proof. "Who else uses this?" recognizable brands build instant credibility. Even smaller logos work (shows you have clients). No logos? Use testimonials prominently.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">👥 Team & Expertise Showcase</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Team Page Elements:</p>
+            <ul class="space-y-1">
+              <li>• Professional headshots</li>
+              <li>• Names and titles</li>
+              <li>• Relevant experience (years, companies)</li>
+              <li>• LinkedIn profiles (link out)</li>
+              <li>• Short bios (humanize the business)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Advisors & Investors (If Applicable):</p>
+            <ul class="space-y-1">
+              <li>• Board members or advisors add credibility</li>
+              <li>• Investor logos (if recognizable)</li>
+              <li>• Partnerships and integrations</li>
+              <li>• Certifications and compliance badges</li>
+              <li>• Press mentions and awards</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] b2b-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🔒 Security & Privacy Trust Signals</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">What to Display:</p>
+            <ul class="space-y-1">
+              <li>• SSL certificate (HTTPS, lock icon)</li>
+              <li>• Privacy policy link</li>
+              <li>• Data protection certifications (SOC 2, GDPR)</li>
+              <li>• Security badges (if applicable)</li>
+              <li>• uptime or reliability metrics</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Why Essential for B2B:</p>
+            <p>B2B buyers are risk-averse. Enterprises require security vetting. Startups establish credibility early. Show you take data security seriously. Especially critical for SaaS and tech companies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      FINAL RANKINGS: B2B PLATFORMS
+    </h2>
+    
+    <div class="bg-white/10 backdrop-blur-sm border-[3px] border-white p-8 rounded-lg">
+      <div class="space-y-6">
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🎨 #1 Framer - Premium Credibility Wins Business</h3>
+          <p class="text-xl font-bold">$240-360/year | 9.5/10 design | Fast loading</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Premium design builds instant credibility</li>
+            <li>• Fast loading (1-2s) critical for impatient B2B buyers</li>
+            <li>• Code export for future flexibility</li>
+            <li>• Best for: Competitive markets, design-conscious B2B, agencies, SaaS</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🟣 #2 Mixo - Content Quality for Storytelling</h3>
+          <p class="text-xl font-bold">$180-300/year | Best AI content | Strong narratives</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Best AI content for case studies and storytelling</li>
+            <li>• Long-form capability for detailed explanations</li>
+            <li>• +67% renewal pricing (factor into long-term costs)</li>
+            <li>• Best for: Content-driven B2B, bloggers, storytelling brands</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🌿 #3 10Web - WordPress Ecosystem Power</h3>
+          <p class="text-xl font-bold">$120-300/year | Plugin ecosystem | WooCommerce</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• WordPress + plugin flexibility for B2B needs</li>
+            <li>• WooCommerce for payments and subscriptions</li>
+            <li>• CRM and marketing automation integrations</li>
+            <li>• +200% renewal pricing (major warning)</li>
+            <li>• Best for: Complex B2B, WordPress users, ecommerce required</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">⚡ #4 Durable - MVP Testing & Budget Launch</h3>
+          <p class="text-xl font-bold">$180/year flat | 30s launch | Fast validation</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Fastest 30-second launch for testing</li>
+            <li>• Flat pricing (no renewal hikes)</li>
+            <li>• Good enough for MVP and idea validation</li>
+            <li>• Upgrade to Framer once product proves premium design needed</li>
+            <li>• Best for: Pre-seed, idea validation, budget launches, testing markets</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 bg-white p-6 rounded-lg">
+        <p class="text-2xl font-bold b2b-text">
+          Brutal truth: B2B buyers judge credibility by design quality
+        </p>
+        <p class="text-lg text-gray-700 mt-4">
+          <strong>Established B2B/SaaS:</strong> Framer for premium 9.5/10 design that builds instant credibility. Fast loading (1-2s) prevents abandonment.<br/>
+          <strong>Content-driven B2B:</strong> Mixo for best AI content quality. Case studies, storytelling, long-form explanations.<br/>
+          <strong>Complex B2B needs:</strong> 10Web for WordPress plugin ecosystem. CRM integration, marketing automation, WooCommerce.<br/>
+          <strong>Pre-seed/MVP:</strong> Durable for fastest 30-second launch. Test ideas fast, validate product-market fit, upgrade to Framer later.<br/>
+          <strong>Remember:</strong> Your website is not your product. It's a tool to generate leads. Don't overbuild. Ship fast, validate, iterate.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>

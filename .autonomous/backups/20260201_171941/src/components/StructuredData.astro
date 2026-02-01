@@ -1,0 +1,146 @@
+---
+/**
+ * Schema.org Structured Data Component
+ *
+ * Adds JSON-LD structured data for better SEO and rich snippets
+ * Supports: Article, Review, Organization, BreadcrumbList, FAQPage
+ */
+interface Props {
+  type: 'Article' | 'Review' | 'Organization' | 'BreadcrumbList' | 'FAQPage' | 'WebPage';
+  data?: Record<string, any>;
+  schema?: Record<string, any>; // Allow passing custom schema directly
+}
+
+const { type, data = {}, schema } = Astro.props;
+
+// Default organization data
+const orgData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'AI Builders Reviewed',
+  url: 'https://aiwebsitebuilders.com',
+  logo: 'https://aiwebsitebuilders.com/favicon.svg',
+  description: 'Independent testing and reviews of AI website builders. No affiliate fluff, just real results from hands-on testing.',
+  sameAs: [],
+};
+
+// Build schema based on type
+let jsonLd: Record<string, any>;
+
+if (schema) {
+  jsonLd = schema;
+} else {
+  const baseSchema = {
+    '@context': 'https://schema.org',
+    '@type': type,
+  };
+
+  switch (type) {
+    case 'Article':
+      jsonLd = {
+        ...baseSchema,
+        headline: data.headline || '',
+        description: data.description || '',
+        image: data.image || [],
+        author: {
+          '@type': 'Organization',
+          name: 'AI Builders Reviewed',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'AI Builders Reviewed',
+          logo: {
+            '@type': 'ImageObject',
+            url: 'https://aiwebsitebuilders.com/favicon.svg',
+          },
+        },
+        datePublished: data.datePublished || new Date().toISOString(),
+        dateModified: data.dateModified || new Date().toISOString(),
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': data.url || '',
+        },
+        url: data.url || '',
+      };
+      break;
+
+    case 'Review':
+      jsonLd = {
+        ...baseSchema,
+        itemReviewed: {
+          '@type': 'SoftwareApplication',
+          name: data.productName || '',
+          applicationCategory: 'BusinessApplication',
+          operatingSystem: 'Web',
+        },
+        reviewRating: {
+          '@type': 'Rating',
+          ratingValue: data.ratingValue || '8',
+          bestRating: '10',
+          worstRating: '1',
+        },
+        author: {
+          '@type': 'Organization',
+          name: 'AI Builders Reviewed',
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'AI Builders Reviewed',
+        },
+        reviewBody: data.reviewBody || '',
+        datePublished: data.datePublished || new Date().toISOString(),
+        url: data.url || '',
+      };
+      break;
+
+    case 'BreadcrumbList':
+      jsonLd = {
+        ...baseSchema,
+        itemListElement: data.breadcrumbs?.map((item: any, index: number) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })) || [],
+      };
+      break;
+
+    case 'FAQPage':
+      jsonLd = {
+        ...baseSchema,
+        mainEntity: data.faqs?.map((faq: any) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })) || [],
+      };
+      break;
+
+    case 'WebPage':
+      jsonLd = {
+        ...baseSchema,
+        name: data.name || '',
+        description: data.description || '',
+        url: data.url || '',
+        publisher: {
+          '@type': 'Organization',
+          name: 'AI Builders Reviewed',
+        },
+        dateModified: data.dateModified || new Date().toISOString(),
+      };
+      break;
+
+    default:
+      jsonLd = orgData;
+  }
+}
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(jsonLd, null, 2)}
+>
+</script>

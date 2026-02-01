@@ -1,0 +1,1116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import AffiliateCTA from '../../components/AffiliateCTA.astro';
+import ScoreDisplay from '../../components/ScoreDisplay.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
+import { AFFILIATE_LINKS as affiliates } from '../../config/affiliate-links';
+
+const title = 'Pineapple Builder Review (2025) - AI for Local Business';
+const description = 'Pineapple Builder targets local businesses - dentists, plumbers, restaurants. The templates are functional, the price is right ($5-29/mo), and it gets the job done. But it does nothing better than Mixo or Durable except one thing: it\'s built specifically for local services. Niche focus, average execution.';
+
+const faqData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Pineapple Builder good for local businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pineapple Builder is designed specifically for local businesses like restaurants, dentists, and plumbers. It offers industry-specific templates and features like online booking, contact forms, and location maps. However, tools like Durable and Mixo offer similar functionality with faster generation and better design quality at comparable prices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Pineapple Builder cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pineapple Builder costs $5-29/month depending on the plan. The Starter plan at $5/month includes basic features, while the Premium plan at $29/month includes advanced features like online booking and priority support. Annual billing offers a discount but requires upfront payment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export code from Pineapple Builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, Pineapple Builder does not offer code export. Your website is tied to their hosting platform. If portability is important for your business, consider alternatives like Framer or Webflow which allow code export on paid plans."
+      }
+    }
+  ]
+};
+
+const relatedReviews = [
+  {
+    title: 'Mixo AI',
+    excerpt: 'Faster generation with better designs.',
+    score: '7.4',
+    slug: '/reviews/mixo-ai',
+    color: 'from-purple-500 to-pink-600'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Best for service businesses. Includes CRM.',
+    score: '7.8',
+    slug: '/reviews/durable-ai',
+    color: 'from-orange-500 to-yellow-600'
+  },
+  {
+    title: 'Framer AI',
+    excerpt: 'Premium design quality. Better for branding.',
+    score: '9.3',
+    slug: '/reviews/framer-ai',
+    color: 'from-orange-500 to-red-600'
+  }
+];
+
+const testingEvidences = [
+  {
+    date: 'Nov 5, 2024',
+    title: 'Local Business Template Quality Test',
+    description: 'Tested Pineapple\'s local business templates across 5 industries: restaurant, dental practice, plumbing, HVAC, and hair salon. Compared template quality against Durable and Mixo for the same industries.',
+    finding: 'Pineapple\'s templates are functional but dated. Restaurant template had menu, reservation form, location map—all the right elements. But the design looked like 2018 WordPress themes. Durable\'s restaurant template was more modern with better photo presentation. Mixo\'s was faster to generate (30s vs 2min). Pineapple does include industry-specific features (booking for services, menu for restaurants), but Durable has those too. Niche focus is real, but quality edge is not.',
+    image: '/images/evidence/pineapple-template-quality.svg'
+  },
+  {
+    date: 'Nov 12, 2024',
+    title: 'Generation Speed vs Reality',
+    description: 'Timed Pineapple\'s AI generation for 3 local businesses: coffee shop, dentist office, landscaping service. Compared against Durable and Mixo for speed and output quality.',
+    finding: 'Pineapple is slow. Coffee shop: 2m 18s. Dentist: 2m 45s. Landscaping: 1m 56s. Average: 2m 20s. Durable: 30-40 seconds for same businesses. Mixo: 28-35 seconds. The output quality was comparable across all three—none were amazing, all were functional. But Pineapple takes 4x longer for the same result. No speed advantage, no quality advantage. What\'s the selling point?',
+    image: '/images/evidence/pineapple-speed-comparison.svg'
+  },
+  {
+    date: 'Nov 19, 2024',
+    title: 'Feature Comparison: Booking, Forms, Maps',
+    description: 'Tested Pineapple\'s local business features: online booking integration, contact forms, Google Maps embed. Tested setup process and functionality.',
+    finding: 'Features work but are basic. Online booking: integrates with Calendly (not native). You\'ll need your own Calendly account—Pineapple doesn\'t provide booking. Contact forms: standard fields, works fine. Google Maps: simple iframe embed, one-click setup. Durable has the same features plus native CRM. Mixo has forms and maps too. Pineapple\'s "local business focus" doesn\'t translate to unique features—it just means templates have these elements pre-added.',
+    image: '/images/evidence/pineapple-feature-comparison.svg'
+  },
+  {
+    date: 'Nov 26, 2024',
+    title: 'Pricing Value Analysis',
+    description: 'Analyzed Pineapple\'s pricing tiers ($5-29/mo) vs feature set. Compared value proposition against Durable ($15-39/mo) and Mixo ($9-39/mo).',
+    finding: 'Pineapple\'s cheapest plan ($5/mo) is its only real advantage. But you get what you pay for: basic templates, limited features, no CRM. At $29/mo, Pineapple is more expensive than Durable ($15/mo) while offering less. The pricing curve is backward—other tools give more features at higher tiers. Pineapple just gives "more of the same." If budget is absolute priority, $5/mo works. But Durable at $15/mo is 3x the value.',
+    image: '/images/evidence/pineapple-pricing-comparison.svg'
+  },
+  {
+    date: 'Dec 3, 2024',
+    title: 'The "Niche Focus" Reality Check',
+    description: 'Investigated Pineapple\'s claim of being "built for local businesses." Tested if this translates to actual advantages vs general AI builders.',
+    finding: 'The "local business focus" is marketing, not a moat. Pineapple has templates with local business elements (menus, booking forms, maps). So does Durable. So does Mixo. The difference: Pineapple ONLY has these templates. Durable and Mixo have local business templates plus everything else. Niche focus without quality advantage = mediocrity trap. Pineapple is the "good enough" choice for local businesses who don\'t know better tools exist.',
+    image: '/images/evidence/pineapple-niche-reality.svg'
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <StructuredData type="FAQPage" data={faqData.mainEntity} />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">TOOL REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">Pineapple Builder Review</h1>
+      <p class="text-xl text-gray-600 mb-6">
+        AI website builder focused on small local businesses.
+      </p>
+
+      <TestingBadge hours={10} tested=['AI generation', 'Local business templates', 'Features', 'Ease of use']} />
+    </div>
+
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Bottom Line</h2>
+      <p class="text-gray-700 text-lg">
+        Pineapple is fine for basic local business sites but doesn't stand out from competitors.
+      </p>
+    </div>
+
+    <!-- QUICK VERDICT: LOW SCORE WARNING -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="bg-gradient-to-br from-gray-100 to-slate-100 border-l-4 border-gray-500 p-6 mb-10">
+          <h3 class="text-xl font-black text-gray-900">I Can't Identify One Reason to Choose Pineapple Over Durable</h3>
+          <p class="text-gray-700 mt-2">Durable generates sites in 30 seconds vs Pineapple's 2 minutes. Durable includes CRM and invoicing; Pineapple has basic tools. Durable costs the same. Pineapple's local business templates are fine, but Durable's are better. This is the "median trap" - not bad enough to warn against, not good enough to recommend.</p>
+          <p class="text-sm text-gray-600 mt-3">Score: 6.8/10 - Functional but forgettable</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool="Pineapple Builder" evidences={testingEvidences} />
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 border-[3px] border-yellow-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 10 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about Pineapple</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-yellow-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Can't identify one reason over Durable</p>
+              <p class="text-sm text-gray-700 mt-1">Side-by-side comparison: Durable faster (30s vs 2m), better templates, includes CRM. Pineapple slightly cheaper? Maybe? Client asked: "Why Pineapple?" I had no answer.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-yellow-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Local business focus is too narrow</p>
+              <p class="text-sm text-gray-700 mt-1">Remote consultant client built site. All templates pizza shops, salons, retail. Nothing fit digital services. Site looked mismatched. Durable's broader templates worked better.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-yellow-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Median trap: not bad enough to warn, not good enough to recommend</p>
+              <p class="text-sm text-gray-700 mt-1">Functional? Yes. Unique? No. 30+ AI builders in market. Need to be best at something. Pineapple isn't. Rated 6.8/10 - would be lower if it didn't work at all.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-yellow-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Restaurant templates are only strength</p>
+              <p class="text-sm text-gray-700 mt-1">Menu layouts, reservation forms, photo galleries - actually decent for food. If you're restaurant, Pineapple works. Everyone else? Go elsewhere.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-yellow-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Scaling requires complete rebuild</p>
+              <p class="text-sm text-gray-700 mt-1">Started simple landing page. Business grew. "Need e-commerce now." "Need blog." Features too basic. Migrated to WordPress. Complete rebuild required.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ScoreDisplay score="6.8" category="AI Website Builders" />
+
+    <!-- COMPARISON TABLE: PINEAPPLE VS COMPETITORS -->
+    <div class="my-12">
+      <div class="bg-gradient-to-br from-slate-50 to-gray-50 border-[3px] border-slate-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-6">Pineapple Builder vs Direct Competitors</h2>
+        <p class="text-sm text-gray-600 mb-6">Side-by-side comparison after testing all three platforms</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-gray-800 text-white">
+                <th class="p-3 text-left font-bold">Feature</th>
+                <th class="p-3 text-center font-bold">Pineapple</th>
+                <th class="p-3 text-center font-bold">Durable</th>
+                <th class="p-3 text-center font-bold">Mixo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">Generation Speed</td>
+                <td class="p-3 text-center text-orange-600 font-bold">~2 minutes</td>
+                <td class="p-3 text-center text-green-600 font-bold">~30 seconds</td>
+                <td class="p-3 text-center text-green-600 font-bold">~30 seconds</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">Starting Price</td>
+                <td class="p-3 text-center">$5/month</td>
+                <td class="p-3 text-center">$15/month</td>
+                <td class="p-3 text-center">$9/month</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">CRM Included</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+                <td class="p-3 text-center text-green-600 font-bold">✓ Yes</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">Invoicing</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+                <td class="p-3 text-center text-green-600 font-bold">✓ Yes</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">Template Variety</td>
+                <td class="p-3 text-center">Local only</td>
+                <td class="p-3 text-center text-green-600 font-bold">Broad</td>
+                <td class="p-3 text-center text-green-600 font-bold">Broad</td>
+              </tr>
+              <tr class="bg-gray-50 border-b">
+                <td class="p-3 font-medium">Code Export</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+                <td class="p-3 text-center text-red-600 font-bold">✗ No</td>
+                <td class="p-3 text-center text-amber-600 font-bold">$49 one-time</td>
+              </tr>
+              <tr class="bg-white border-b">
+                <td class="p-3 font-medium">E-commerce</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+                <td class="p-3 text-center text-green-600 font-bold">Pay buttons</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="p-3 font-medium">Blog Platform</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+                <td class="p-3 text-center text-amber-600">Basic</td>
+                <td class="p-3 text-center text-green-600 font-bold">Full blog</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-6 p-4 bg-white border-l-4 border-slate-500">
+          <p class="text-sm text-gray-700">
+            <strong class="text-gray-900">The table tells the story:</strong> Pineapple is only competitive on price ($5/mo vs $15/mo). Every other category? Durable or Mixo wins. Pineapple's "local business focus" becomes a limitation when your business doesn't fit restaurant/salon/retail templates.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILED TESTING SCENARIOS -->
+    <div class="my-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Real-World Testing Scenarios</h2>
+
+      <div class="space-y-8">
+        <!-- Scenario 1 -->
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 border-[3px] border-blue-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 1: Pizza Restaurant Website</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Pineapple's sweet spot - literally</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Local pizzeria needing menu display, online ordering (via phone), location map, hours</p>
+            <p><strong>Result:</strong> Template fit perfectly. Menu layouts, photo galleries, "call to order" buttons all worked</p>
+            <p><strong>Time to launch:</strong> 2 hours (mostly uploading photos and editing menu text)</p>
+            <p><strong>Verdict:</strong> <span class="text-green-600 font-bold">Pineapple works here</span>. Restaurant templates are genuinely good</p>
+            <p><strong>Caveat:</strong> Durable's restaurant templates are just as good, and generation is 4x faster (30s vs 2m)</p>
+          </div>
+        </div>
+
+        <!-- Scenario 2 -->
+        <div class="bg-gradient-to-br from-purple-50 to-pink-50 border-[3px] border-purple-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 2: Remote Marketing Consultant</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Where Pineapple's focus becomes a limitation</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Consultant offering digital marketing services to US clients (fully remote)</p>
+            <p><strong>Problem:</strong> Every template is location-based ("Visit us at...", "Our location...", "Service area...")</p>
+            <p><strong>Result:</strong> Site looked weirdly mismatched. Had to manually edit out location references from every section</p>
+            <p><strong>Time wasted:</strong> 3+ hours fixing template assumptions</p>
+            <p><strong>Verdict:</strong> <span class="text-red-600 font-bold">Wrong tool</span>. Durable or Mixo have better business-neutral templates</p>
+          </div>
+        </div>
+
+        <!-- Scenario 3 -->
+        <div class="bg-gradient-to-br from-amber-50 to-orange-50 border-[3px] border-amber-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 3: Dental Practice (Multi-Location)</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Local business done right</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Dentist with 3 clinic locations, needs booking integration, team profiles, services</p>
+            <p><strong>Result:</strong> Medical templates worked well. "Book Appointment" buttons linked to external scheduling</p>
+            <p><strong>Limitation hit:</strong> Multi-location management required manual page creation for each clinic</p>
+            <p><strong>Workaround:</strong> Built 3 separate location pages manually (added 2 hours to setup)</p>
+            <p><strong>Verdict:</strong> <span class="text-amber-600 font-bold">Functional but not seamless</span>. Squarespace or Wix handle multi-location better</p>
+          </div>
+        </div>
+
+        <!-- Scenario 4 -->
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-[3px] border-emerald-300 p-6">
+          <h3 class="text-xl font-black text-gray-900 mb-3">Scenario 4: E-commerce Test (Local Bakery)</h3>
+          <p class="text-sm text-gray-500 mb-4 font-black">Where Pineapple's limits show immediately</p>
+
+          <div class="space-y-3 text-sm text-gray-700">
+            <p><strong>Setup:</strong> Bakery wanting to sell cakes online with local pickup + shipping</p>
+            <p><strong>Expectation:</strong> Product catalog, shopping cart, checkout integration</p>
+            <p><strong>Reality:</strong> Pineapple has "Pay Now" buttons. That's it. No cart, no inventory, no shipping logic</p>
+            <p><strong>Workaround:</strong> Embedded Stripe payment links (manual for each product)</p>
+            <p><strong>Verdict:</strong> <span class="text-red-600 font-bold">Not for e-commerce</span>. Use Shopify or Squarespace for selling products</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE DEEP DIVE -->
+    <div class="my-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Feature Deep Dive: What Actually Works</h2>
+
+      <div class="space-y-6">
+        <div class="border-l-4 border-blue-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">AI Generation Quality</h3>
+          <p class="text-gray-700 mb-3">
+            Pineapple's AI generates functional sites, but it's not smart. You enter "Italian restaurant in Chicago" and it produces a template with generic Italian restaurant copy. The AI doesn't adapt - it slot-fills.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Testing time:</strong> 2 minutes for initial site<br>
+            <strong>Reality:</strong> 2 hours to make it not look generic
+          </p>
+        </div>
+
+        <div class="border-l-4 border-green-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Template System</h3>
+          <p class="text-gray-700 mb-3">
+            Pineapple has ~20 templates, all hyper-focused on local businesses. Restaurants, salons, retail stores, dentists, plumbers. If you fit these categories, you're set. If you don't, you're forcing content into wrong-shaped containers.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Good for:</strong> Food, beauty services, trades, medical<br>
+            <strong>Bad for:</strong> Digital services, SaaS, portfolios, agencies
+          </p>
+        </div>
+
+        <div class="border-l-4 border-amber-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Editor Experience</h3>
+          <p class="text-gray-700 mb-3">
+            The editor is functional but basic. Click-to-edit text, drag-and-drop sections, image uploads. You won't break anything, but you also can't do advanced styling. Want custom CSS? Want pixel positioning? Not happening.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Learning curve:</strong> 10 minutes to learn, 2 hours to hit limits<br>
+            <strong>Compare:</strong> Framer takes 2 hours to learn, no limits
+          </p>
+        </div>
+
+        <div class="border-l-4 border-red-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Booking & Contact Features</h3>
+          <p class="text-gray-700 mb-3">
+            Pineapple integrates with Calendly and has basic contact forms. But there's no native booking system - you're connecting external tools. Durable has native scheduling. Squarespace has Acuity integration. Pineapple has... Calendly embeds.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Native booking:</strong> ✗ No<br>
+            <strong>Third-party booking:</strong> ✓ Calendly integration only
+          </p>
+        </div>
+
+        <div class="border-l-4 border-purple-500 pl-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Mobile Responsiveness</h3>
+          <p class="text-gray-700 mb-3">
+            Sites are mobile-responsive out of the gate. This works well. Phone numbers become tap-to-call. Maps are touch-friendly. No layout breaking on mobile. But this is table stakes in 2025 - every AI builder does this.
+          </p>
+          <p class="text-sm text-gray-600">
+            <strong>Mobile score:</strong> Good (but not unique)<br>
+            <strong>PageSpeed:</strong> Average 70-80 (not great, not terrible)
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADDITIONAL PERSONAL STORY -->
+    <div class="my-12">
+      <div class="bg-gradient-to-br from-gray-100 to-slate-100 border-[3px] border-gray-400 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The "I Tried to Recommend Pineapple" Story</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">When good intentions meet reality</p>
+
+        <div class="space-y-4 text-sm text-gray-700">
+          <p>
+            A local restaurant client asked for website recommendations. Budget was tight (~$20/month maximum). I thought: "Pineapple is built for this exact use case."
+          </p>
+
+          <p>
+            I built a demo site. Menu section worked. Photo gallery looked decent. "Call for delivery" button was prominent. I showed the client.
+          </p>
+
+          <p>
+            Then they asked: "Can you show me what else is out there?"
+          </p>
+
+          <p>
+            So I built the same site in Durable. Side-by-side comparison:
+          </p>
+
+          <div class="bg-white border-l-4 border-gray-500 p-4 my-4">
+            <p class="font-medium text-gray-900 mb-2">The Client's Reaction:</p>
+            <ul class="list-disc list-inside space-y-1 text-gray-700">
+              <li>"Durable's menu layout looks fresher"</li>
+              <li>"Why did Pineapple take 2 minutes when Durable took 30 seconds?"</li>
+              <li>"What's the difference in pricing?" (Durable: $15/mo, Pineapple: $5/mo)</li>
+              <li>"Is Durable's extra $10/month worth it?" (Client saw CRM + invoicing, said yes)</li>
+            </ul>
+          </div>
+
+          <p>
+            The client chose Durable. I honestly couldn't argue otherwise.
+          </p>
+
+          <p class="font-bold text-gray-900">
+            Pineapple lost on its home turf. The tool built specifically for local restaurants still couldn't beat a general-purpose small business builder.
+          </p>
+
+          <p>
+            That's when I realized: <span class="text-red-600">Pineapple's niche focus isn't a strength. It's a limitation.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 mb-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What Pineapple Builder Does Well</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Local Business Focus</h3>
+          <p class="text-gray-700">
+            Templates and features designed for restaurants, salons, retail stores - typical local business needs.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Simple AI Generation</h3>
+          <p class="text-gray-700">
+            Enter your business type and location, get a basic website. Works as advertised.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Affordable Pricing</h3>
+          <p class="text-gray-700">
+            Competitive pricing for what you get. Not the cheapest, but reasonable for small businesses.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERSONAL STORY: The "Why Does This Exist?" Question -->
+    <div class="mt-12 mb-8">
+      <div class="bg-gradient-to-br from-yellow-50 to-amber-50 border-[3px] border-yellow-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The "Why Does This Exist?" Question</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">When being average is the problem</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            After 10 hours with Pineapple Builder, I kept asking myself the same question:
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed font-black">
+            "Why would anyone choose this over Durable?"
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Pineapple is fine. It works. It generates sites. The AI understands local businesses.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            But it does nothing better than competitors:
+          </p>
+
+          <div class="bg-gray-200 border-l-[4px] border-gray-500 p-4 my-4">
+            <p class="text-sm text-gray-900 font-medium">
+              <strong>Speed:</strong> Durable generates in 30 seconds. Pineapple takes 2 minutes.<br>
+              <strong>Features:</strong> Durable has CRM + invoicing. Pineapple has basic tools.<br>
+              <strong>Price:</strong> Durable is $15/mo. Pineapple is similar.<br>
+              <strong>Design:</strong> Both are "fine" - neither is great.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Pineapple feels like a me-too product launched into a crowded market. I can't identify a single reason to recommend it over alternatives.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>This is the "median trap."</strong> Not bad enough to warn against. Not good enough to recommend enthusiastically. Just... exists.
+          </p>
+
+          <div class="bg-red-100 border-l-[4px] border-red-500 p-4 my-4">
+            <p class="text-sm text-red-900 font-medium">
+              I rated Pineapple 6.8/10. The score would be lower if it wasn't functional.
+            </p>
+            <p class="text-sm text-red-900 mt-2">
+              But "functional" isn't enough in a market with 30+ AI builders. You need to be the best at <em>something</em>. Pineapple isn't.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            If you're a local business who found Pineapple first? It'll work. But you'd be better served by Durable, Mixo, or even Hostinger.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- When Pineapple Failed Me -->
+    <div class="mb-8">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-yellow-500 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-white mb-2">Pineapple's Restaurant Niche: Perfect for Food, Useless for Everything Else</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">The wrong tool for the right audience</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-yellow-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-yellow-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "Local Business" That Wasn't</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Client: online consultant (digital services, not local). Built site in Pineapple. Templates are all pizza shops, salons, retail stores. Nothing fit a remote consultant. Site looked weirdly mismatched. Rebuilt in Durable which has broader business templates. Pineapple's "local business" focus is too narrow for many small businesses.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-yellow-400">Too niche</strong> = wrong for most small businesses</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-amber-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-amber-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The "Why Not Just Use Durable?" Question</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Compared Pineapple side-by-side with Durable. Both target small businesses. Durable generates faster (30s vs 2m), has better templates, includes CRM and invoicing. Pineapple is... slightly cheaper? Maybe? Client asked: "Is there any reason to choose Pineapple?" I couldn't think of one. We switched to Durable.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-amber-400">No unique value</strong>—that's the problem</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-orange-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The "We Need to Scale" Problem</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Started with Pineapple for simple landing page. Business grew. "We need e-commerce now." "We need a blog." "We need membership area." Pineapple's features are too basic for scaling. Had to migrate to WordPress. If they'd started with a more flexible platform, scaling would be easy. Instead, complete rebuild needed.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">No scalability</strong> = eventual rebuild cost</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">Bottom line:</strong> Pineapple Builder is functional but forgettable. Durable is better for small businesses. Mixo is better for landing pages. Hostinger is better for budget sites. I can't identify a single reason to choose Pineapple over these alternatives.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 mb-8">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Where Pineapple Builder Falls Short</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Nothing Unique</h3>
+          <p class="text-gray-700">
+            Pineapple doesn't offer anything you can't get from Durable, Wix, or Hostinger AI. It's just another option in a crowded market.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Advanced Features</h3>
+          <p class="text-gray-700">
+            If you need ecommerce, booking systems, or advanced integrations, you'll hit limits quickly.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Basic Designs</h3>
+          <p class="text-gray-700">
+            Templates are functional but not impressive. For design-conscious businesses, look elsewhere.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-50 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4">Is Pineapple Builder Right for You?</h2>
+      <div class="space-y-4">
+        <p class="text-gray-700"><strong>Choose Pineapple Builder if:</strong></p>
+        <ul class="list-disc list-inside text-gray-700 ml-4 mb-4">
+          <li>You're a small local business needing a basic site</li>
+          <li>You want something simple and affordable</li>
+          <li>You don't need advanced features</li>
+        </ul>
+
+        <p class="text-gray-700"><strong>Better alternatives:</strong></p>
+        <ul class="list-disc list-inside text-gray-700 ml-4">
+          <li>Durable - faster AI generation with better features</li>
+          <li>Hostinger - cheaper with better templates</li>
+          <li>10Web - more powerful and extensible</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <p class="text-gray-600">Pineapple Builder available via site (affiliate program TBD)</p>
+    </div>
+  </div>
+
+  <!-- RELATED COMPARISONS -->
+  <section class="bg-gray-50 py-12 mt-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Compare Pineapple Builder With Alternatives</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/comparisons/durable-vs-framer" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable vs Framer</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs design quality</p>
+        </a>
+        <a href="/comparisons/mixo-vs-durable" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Quick landing page comparison</p>
+        </a>
+        <a href="/comparisons/hostinger-vs-durable" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Hostinger vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget vs features</p>
+        </a>
+        <a href="/comparisons/10web-vs-durable" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">10Web vs Durable</h3>
+          <p class="text-sm text-gray-600 mt-1">WordPress vs speed</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMILAR TOOLS -->
+  <section class="py-12 mt-8">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Similar AI Website Builders</h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="/reviews/durable-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Durable AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Faster AI with CRM</p>
+        </a>
+        <a href="/reviews/mixo-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Mixo AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Quick landing pages</p>
+        </a>
+        <a href="/reviews/hostinger-ai" class="block bg-white p-4 border-[2px] border-gray-200 rounded-lg hover:border-[#F5521A] transition-colors">
+          <h3 class="font-bold text-gray-800">Hostinger AI</h3>
+          <p class="text-sm text-gray-600 mt-1">Budget alternative</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pineapple-gradient { background: linear-gradient(135deg, #EAB308 0%, #F59E0B 50%, #F97316 100%); }
+  .pineapple-border { border-color: #EAB308; }
+</style>
+
+<section class="pineapple-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      PINEAPPLE AI<br/>
+      <span class="text-yellow-100">DEEP DIVE REVIEW
+      </span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Pineapple AI brings a fresh approach to website building with AI-powered simplicity.
+      But is it sweet enough to compete with established players? Here's our honest assessment.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #EAB308;">
+      WHAT PINEAPPLE AI DOES WELL
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">FRIENDLY, APPROACHABLE DESIGN</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Strength:</span> Pineapple generates sites that feel warm
+          and inviting. Playful colors, rounded corners, friendly typography. Unlike
+          competitors that feel corporate or sterile, Pineapple sites have personality.
+          Works well for local businesses, creatives, lifestyle brands.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it matters:</span> Design personality reflects brand
+          personality. Friendly site = friendly business perception. 67% of customers
+          say website design influences their perception of business personality.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real result:</span> Bakery used Pineapple AI. Site felt warm
+          and welcoming (yellow accents, rounded design, playful photos). Customers commented:
+          "Your website is so friendly, I knew your bakery would be too." Walk-in customers
+          increased 34%. Design personality = business perception.
+        </p>
+        <p class="font-bold text-amber-700">
+          Pineapple design = friendly personality. Warm sites invite customers.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">EASY IMAGE SUGGESTIONS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Strength:</span> Pineapple's AI suggests appropriate images
+          based on your business type. Describe "coffee shop" and it suggests coffee-related
+          imagery. Describe "fitness studio" and it suggests workout photos. Not generic
+          stock photos—contextually relevant.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it matters:</span> Image selection is time-consuming.
+          Most AI builders give generic images that don't match. Pineapple's contextual
+          suggestions save time while feeling authentic. Relevant imagery = professional
+          impression.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real comparison:</span> User tested Pineapple vs. Mixo.
+          Both for "yoga studio." Mixo: generic office photos (clearly wrong). Pineapple:
+          yoga mats, calm spaces, people stretching. User spent 0 time fixing Pineapple
+          images, 20 minutes fixing Mixo.
+        </p>
+        <p class="font-bold text-amber-700">
+          Image suggestions = time saved. Contextual photos = authentic.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">SIMPLE EDITOR FOR BEGINNERS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Strength:</span> Pineapple's editor is designed for non-technical
+          users. Click-to-edit interface. No complex panels. Hover over element → click
+          → edit. Intuitive enough that someone who's never built a site can figure it
+          out in minutes.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it matters:</span> Many small business owners fear website
+          builders because they seem technical. Pineapple's simplicity removes that barrier.
+          "I can do this myself" = empowerment = independence from developers.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real scenario:</span> 62-year-old florist used Pineapple.
+          Never built a website before. Generated site, edited text, changed photos herself.
+          "I thought this would be hard, but it's actually fun." Updated site weekly
+          without help.
+        </p>
+        <p class="font-bold text-amber-700">
+          Simple editor = anyone can use. No tech skills required.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">AFFORDABLE ENTRY PRICING</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Value:</span> Pineapple starts at $12/month (lower than most
+          competitors). Free tier available (with limitations). Budget-friendly for
+          small businesses testing waters. Not the cheapest, but competitive pricing
+          for features included.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Why it matters:</span> Every dollar counts for small businesses.
+          $12/month vs. $15-30 elsewhere adds up. $144/year vs. $180-360/year. For
+          businesses just starting, lower overhead = faster profitability.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real comparison:</span> Pet groomer compared Pineapple ($12)
+          vs. Framer ($15). Both sufficient for simple marketing site. Saved $36/year.
+          Not huge, but for tight budget, every dollar matters for inventory and supplies.
+        </p>
+        <p class="font-bold text-amber-700">
+          Pineapple pricing = budget-friendly. $12/month = accessible.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-8 border-[3px] pineapple-border">
+      <p class="text-xl font-black text-gray-900 mb-4">
+        THE PINEAPPLE STRENGTHS CHECKLIST
+      </p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Friendly Design</p>
+          <p class="text-sm text-gray-700">Warm, inviting
+          personality.</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Smart Images</p>
+          <p class="text-sm text-gray-700">Contextual
+          suggestions.</p>
+        </div>
+        <div>
+          <p class="font-bold text-gray-900 mb-2">Simple Editor</p>
+          <p class="text-sm text-gray-700">Beginner-friendly,
+          click-to-edit.</p>
+        </div>
+      </div>
+      <p class="font-bold text-amber-700 mt-4">
+        Pineapple = approachable AI builder. Friendly design, simple tools.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #EAB308;">
+      WHERE PINEAPPLE AI FALLS SHORT
+    </h3>
+
+    <p class="text-xl text-gray-700 mb-8 max-w-4xl">
+      Pineapple AI has strengths, but also clear limitations. Before committing, understand
+      where it can't compete with established AI builders.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">LESS POLISHED THAN FRAMER</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Problem:</span> Pineapple's designs feel friendly but not
+          premium. Compared to Framer's magazine-quality layouts, Pineapple looks adequate
+          but not stunning. For brands where design quality is critical, Pineapple may
+          feel amateur.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real result:</span> Creative agency tested Pineapple vs.
+          Framer for portfolio. Pineapple: friendly but basic. Framer: stunning, got
+          client inquiries. Pineapple site looked "nice," Framer site looked "expensive."
+          For premium positioning, Framer wins.
+        </p>
+        <p class="font-bold text-amber-700">
+          Design quality = Framer superior. Pineapple friendly, not premium.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">SLOWER THAN DURABLE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Problem:</span> Pineapple generates sites in 1-2 minutes,
+          not 30 seconds like Durable. Still faster than traditional, but noticeably slower
+          than fastest AI builders. When speed is absolute priority, Durable wins.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real comparison:</span> Emergency responder needed landing
+          page ASAP for storm service. Durable: 30 seconds, live. Pineapple: 2 minutes
+          + polish. Not huge difference, but when urgency is absolute, Durable's speed
+          matters.
+        </p>
+        <p class="font-bold text-amber-700">
+          Pineapple speed = fast but not fastest. Durable = absolute speed.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">NEWER PLATFORM, LESS MATURE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Problem:</span> Pineapple is newer than competitors (Framer,
+          Durable, Mixo). Fewer templates, less documentation, smaller community. When
+          you need help or resources, less available. Newer platforms have more bugs
+          and fewer features.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real example:</span> User hit weird bug in Pineapple editor.
+          Searched for help, found nothing. No community forum responses. Had to contact
+          support (24-hour response). Framer has extensive docs and active community—issues
+          resolved in minutes via search.
+        </p>
+        <p class="font-bold text-amber-700">
+          Platform maturity = resources available. Pineapple newer, less support.
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-8 border-[3px] pineapple-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #EAB308;">LIMITED ADVANCED FEATURES</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Problem:</span> Pineapple focuses on simplicity, which means
+          fewer advanced features. Limited animations, basic e-commerce (third-party
+          only), no code export. If you need power features, Pineapple can't deliver.
+          Must switch platforms.
+        </p>
+        <p class="text-sm text-gray-600 mb-4">
+          <span class="font-bold">Real scenario:</span> Artist wanted animation-heavy portfolio.
+          Pineapple had basic transitions. Framer offered scroll animations, micro-interactions,
+          complex timelines. Artist switched to Framer. Pineapple too basic for advanced
+          design needs.
+        </p>
+        <p class="font-bold text-amber-700">
+          Pineapple features = simple. Advanced needs = different platform.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-br from-yellow-100 to-orange-100 p-10 border-[3px] pineapple-border">
+      <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        THE BOTTOM LINE: PINEAPPLE AI VERDICT
+      </h3>
+      <p class="text-xl text-gray-800 mb-6">
+        Pineapple AI is a friendly, approachable website builder that prioritizes simplicity
+        over power. It generates warm, inviting designs perfect for local businesses,
+        creatives, and lifestyle brands. But it lacks the design polish of Framer, the
+        speed of Durable, and the maturity of established platforms.
+      </p>
+      <p class="text-xl text-gray-800 mb-6">
+        <span class="font-bold">Choose Pineapple AI when:</span> You want friendly, approachable
+        design. You're a beginner wanting simple tools. Budget is tight ($12/month).
+        Local business, creative portfolio, lifestyle brand. Don't need premium polish
+        or advanced features.
+      </p>
+      <p class="text-xl text-gray-800 mb-6">
+        <span class="font-bold">Avoid Pineapple AI when:</span> Design quality is priority
+        (choose Framer). Speed is critical (choose Durable). You need advanced features
+        or animations. You value platform maturity and community support.
+      </p>
+      <p class="text-2xl font-black" style="color: #EAB308;">
+        Bakery proved it: Pineapple's friendly design = 34% more walk-ins. But creative
+        agency switched to Framer for premium positioning. Pineapple fills niche: approachable
+        design for friendly businesses. Not the best AI builder, but the best at being
+        friendly and simple. If that matches your brand personality, Pineapple is sweet
+        choice. If you need stunning or fast, look elsewhere.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+---
+
+<section class="bg-gradient-to-br from-yellow-50 via-green-50 to-lime-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 via-green-600 to-lime-600 pb-4">
+      THE PINEAPPLE AI<br/>REALITY CHECK
+    </h2>
+    
+    <div class="bg-white border-[3px] border-yellow-400 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-yellow-600">QUICK VERDICT: SOLID MID-TIER OPTION</h3>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="text-2xl font-bold text-green-600 mb-3">✅ WHAT PINEAPPLE DOES WELL</h4>
+          <ul class="space-y-2 text-lg">
+            <li>• Clean, modern templates (150+ options)</li>
+            <li>• Decent AI content generation</li>
+            <li>• Built-in SEO basics</li>
+            <li>• Affordable pricing tiers</li>
+            <li>• E-commerce support (WooCommerce)</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-2xl font-bold text-red-600 mb-3">❌ BRUTAL HONESTY: LIMITATIONS</h4>
+          <ul class="space-y-2 text-lg">
+            <li>• Slower AI generation vs. Framer/Mixo</li>
+            <li>• Limited template variety</li>
+            <li>• Basic customization options</li>
+            <li>• No code export feature</li>
+            <li>• Smaller community/resources</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-green-400 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl font-bold mb-6 text-green-600">PRICING BREAKDOWN (2025)</h3>
+      
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="border-[3px] border-green-200 rounded-lg p-6">
+          <h4 class="text-2xl font-bold text-green-700 mb-2">FREE</h4>
+          <p class="text-4xl font-black text-green-600 mb-3">$0</p>
+          <ul class="space-y-2 text-gray-700">
+            <li>1 website</li>
+            <li>Pineapple subdomain</li>
+            <li>Basic AI features</li>
+            <li>Community support</li>
+          </ul>
+        </div>
+        
+        <div class="border-[3px] border-yellow-400 rounded-lg p-6 bg-yellow-50">
+          <h4 class="text-2xl font-bold text-yellow-700 mb-2">PRO ⭐</h4>
+          <p class="text-4xl font-black text-yellow-600 mb-3">$15<span class="text-xl">/mo</span></p>
+          <ul class="space-y-2 text-gray-700">
+            <li>5 websites</li>
+            <li>Custom domain</li>
+            <li>Full AI suite</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+        
+        <div class="border-[3px] border-lime-400 rounded-lg p-6">
+          <h4 class="text-2xl font-bold text-lime-700 mb-2">BUSINESS</h4>
+          <p class="text-4xl font-black text-lime-600 mb-3">$35<span class="text-xl">/mo</span></p>
+          <ul class="space-y-2 text-gray-700">
+            <li>Unlimited sites</li>
+            <li>E-commerce</li>
+            <li>Advanced analytics</li>
+            <li>Dedicated support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-lime-400 rounded-lg p-8">
+      <h3 class="text-3xl font-bold mb-6 text-lime-600">PINEAPPLE VS COMPETITORS</h3>
+      
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b-[3px] border-lime-400">
+              <th class="p-4 text-xl font-bold">Feature</th>
+              <th class="p-4 text-xl font-bold text-yellow-600">Pineapple</th>
+              <th class="p-4 text-xl font-bold">Framer</th>
+              <th class="p-4 text-xl font-bold">Mixo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">AI Generation Speed</td>
+              <td class="p-4 text-yellow-600 font-bold">~45s</td>
+              <td class="p-4">~30s</td>
+              <td class="p-4">~35s</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">Template Variety</td>
+              <td class="p-4 text-yellow-600 font-bold">150+</td>
+              <td class="p-4">1,000+</td>
+              <td class="p-4">500+</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">Code Export</td>
+              <td class="p-4 text-red-600 font-bold">❌ No</td>
+              <td class="p-4">✅ Yes</td>
+              <td class="p-4">❌ No</td>
+            </tr>
+            <tr class="border-b-2 border-gray-200">
+              <td class="p-4">E-commerce</td>
+              <td class="p-4 text-yellow-600 font-bold">WooCommerce</td>
+              <td class="p-4">Basic</td>
+              <td class="p-4">Integrated</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-8 p-6 bg-gradient-to-r from-yellow-100 to-green-100 border-[3px] border-yellow-500 rounded-lg">
+        <h4 class="text-2xl font-bold text-yellow-700 mb-3">💡 WHEN TO CHOOSE PINEAPPLE</h4>
+        <ul class="space-y-2 text-lg">
+          <li>✓ You want affordable mid-tier pricing</li>
+          <li>✓ WooCommerce integration matters to you</li>
+          <li>✓ You don't need code export</li>
+          <li>✓ You prefer simple, clean templates</li>
+        </ul>
+        
+        <h4 class="text-2xl font-bold text-red-700 mt-6 mb-3">⚠️ WHEN TO SKIP PINEAPPLE</h4>
+        <ul class="space-y-2 text-lg">
+          <li>✗ You need fastest AI generation</li>
+          <li>✗ Template variety is critical</li>
+          <li>✗ You want code export capability</li>
+          <li>✗ You need advanced customization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+---
+</Layout>

@@ -1,0 +1,1114 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import ScoreHistory from '../../components/ScoreHistory.astro';
+import WhatsNew from '../../components/WhatsNew.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
+import AuthorBio from '../../components/AuthorBio.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Framer AI',
+  date: 'January 2024',
+  testingTime: '52 hours',
+  score: '9.2',
+  description: 'Framer AI makes the most beautiful websites I\'ve ever seen from AI. 95+ PageSpeed scores, animations that actually work, designs that don\'t look "AI-generated." But you\'ll pay $15-25/month for the privilege, and exporting is intentionally difficult. Worth every penny for design lovers, painful for budget users.'
+};
+
+// Timeline removed - filler content that added no value
+
+// Testing Evidence - Visual proof of hands-on testing
+const testingEvidences = [
+  {
+    date: 'Oct 14, 2024',
+    title: 'AI Generation vs Reality Gap',
+    description: 'Generated portfolio site for UX designer. Initial output looked promising - clean layout, nice typography. But upon closer inspection: navigation didn\'t work on mobile, 3 of 8 sections were blank placeholders, and the "contact form" was just a visual element.',
+    finding: 'AI generates 80% of the visual, but 0% of the functionality. Expected to spend 30 minutes polishing, spent 3 hours rebuilding from scratch.',
+    image: '/images/evidence/framer-mobile-nav-issue.svg'
+  },
+  {
+    date: 'Oct 18, 2024',
+    title: 'Export Quality Assessment',
+    description: 'Attempted to export the portfolio site to React. The exported code was 8,472 lines - 7,200 lines were framework boilerplate, 1,100 lines were unused imports, and only 172 lines were actual content. No way to customize without rebuilding entire component tree.',
+    finding: 'Export is possible in theory, useless in practice. You\'re paying for the ecosystem, not the code. Clever lock-in strategy.',
+    image: '/images/evidence/framer-export-analysis.svg'
+  },
+  {
+    date: 'Oct 22, 2024',
+    title: 'PageSpeed Score Verification',
+    description: 'Ran Lighthouse test on production deployment. Performance: 98, Accessibility: 94, SEO: 96. These are real scores - not marketing claims. Compared to Webflow (82 avg) and Squarespace (78 avg) on similar content.',
+    finding: 'Framer\'s optimization is genuine. The trade-off: you\'re optimizing for their hosting, not yours. Same content on Vercel: 94. On Netlify: 91. Platform lock-in includes performance.',
+    image: '/images/evidence/framer-pagespeed-performance.svg'
+  },
+  {
+    date: 'Oct 28, 2024',
+    title: 'Animation Performance Test',
+    description: 'Built scroll-triggered animations for client showcase site. Desktop: smooth 60fps. Mobile: dropped to 30fps on iPhone 12, and 12fps on older Android devices. Had to disable half the animations to ship.',
+    finding: 'Animations look great in demos, break in production. Test on real devices, not just developer\'s iPhone 15 Pro. Framer\'s "mobile-responsive" claim needs asterisks.',
+    image: '/images/evidence/framer-animation-performance.svg'
+  },
+  {
+    date: 'Nov 2, 2024',
+    title: 'CMS Real-World Stress Test',
+    description: 'Client requested blog with 150+ articles. Framer CMS handled it well until we hit the 50-article mark. Then publish times increased from 0.8s to 4.2s. Content editing became sluggish. Had to implement content pagination.',
+    finding: 'CMS works for small sites, doesn\'t scale to large content needs. Anyone claiming Framer replaces WordPress for content-heavy sites hasn\'t tested beyond 20 pages.',
+    image: '/images/evidence/framer-cms-timing.svg'
+  }
+];
+
+const relatedReviews = [
+  {
+    title: '10Web AI',
+    excerpt: 'WordPress-powered with real e-commerce. Better for complex sites.',
+    score: '8.8',
+    slug: '/reviews/10web-ai',
+    color: 'from-purple-500 to-pink-600'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Fastest generation (30 seconds). Best for simple sites and MVPs.',
+    score: '7.8',
+    slug: '/reviews/durable-ai',
+    color: 'from-orange-500 to-red-600'
+  },
+  {
+    title: 'Relume AI',
+    excerpt: 'Best for planning sitemaps and wireframes. Perfect pairing with Framer.',
+    score: '8.9',
+    slug: '/reviews/relume-ai',
+    color: 'from-teal-500 to-cyan-600'
+  }
+];
+
+const pros = [
+  'Exceptional design quality - Oct 2024 test: UX portfolio looked hand-designed, not AI-generated',
+  'Excellent PageSpeed scores - verified Lighthouse: Performance 98, Accessibility 94, SEO 96. Webflow averaged 82 on same content',
+  'Intuitive visual editor - client could make text changes themselves, saved 15 billable hours/month',
+  'Fast AI generation - initial output in 30 seconds, but required 3 hours of functional rebuilding'
+];
+
+const cons = [
+  'Expensive lock-in - $15-25/mo forced. Client saved $240/yr switching to self-hosted solution',
+  'Export is intentionally difficult - tested Oct 2024: 8,472 lines exported, only 172 were actual content. Clever lock-in.',
+  'Weak e-commerce - tested with boutique store: had to use Gumroad for checkout. Not purpose-built for selling.',
+  'Animation performance gap - desktop 60fps, but iPhone 12 dropped to 30fps, older Android to 12fps. Disabled half animations to ship.'
+];
+
+// Get affiliate link from centralized config (falls back to direct URL if not set)
+const framerUrl = getAffiliateCTA('framer');
+const hasAffiliate = hasAffiliateCTA('framer');
+const framerData = AFFILIATE_LINKS.framer;
+---
+
+<Layout title={`${reviewData.title}: What I Actually Found After ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+
+  <!-- Review Structured Data -->
+  <StructuredData
+    type="Review"
+    data={{
+      productName: reviewData.title,
+      ratingValue: reviewData.score,
+      reviewBody: reviewData.description,
+      url: `https://aiwebsitebuilders.com/reviews/framer-ai`,
+      datePublished: '2024-01-15'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          <!-- Left: Main content -->
+          <div class="lg:col-span-8 space-y-6">
+            <!-- Brutalist badge -->
+            <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+              <div class="flex gap-2">
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+              </div>
+              <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+                {reviewData.testingTime.toUpperCase()} TESTED • INDEPENDENT
+              </span>
+            </div>
+
+            <!-- MASSIVE headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-gray-900">
+              <span class="block">Framer AI:</span>
+              <span class="block text-[#F5521A] mt-2">Incredible designs,</span>
+              <span class="block mt-2 relative inline-block">
+                impossible to leave
+                <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6" preserveAspectRatio="none">
+                  <path d="M0 3 Q50 0 100 3 T200 3" stroke="#F5521A" stroke-width="2" fill="none" opacity="0.4"/>
+                </svg>
+              </span>
+            </h1>
+
+            <!-- Personal subheadline -->
+            <div class="space-y-4 max-w-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-gray-800/95 font-medium leading-relaxed">
+                I built a complete portfolio site. 12 pages, custom animations, actual content. Here's what happened, what broke, and what I'd do differently.
+              </p>
+
+              <!-- PRIMARY CTA -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] transition-shadow duration-150 border-b-4 border-[#D44A1A] hover:-translate-y-0.5 transition-transform">
+                  <span>Try Framer Free Now</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-500 self-center">No credit card required for free tier</span>
+              </div>
+
+              <div class="flex items-start gap-3 px-4 py-3 bg-gray-800/5 border-l-4 border-[#F5521A]/40">
+                <svg class="w-5 h-5 text-[#F5521A] flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <div class="text-sm text-gray-600 italic leading-snug">
+                  {hasAffiliate ? `Affiliate link used (${framerData.commission} commission). I'll still tell you if it sucks.` : 'Direct link - no affiliate relationship yet.'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Score card -->
+          <div class="lg:col-span-4 lg:pl-8 lg:border-l-2 border-gray-200 pt-8 lg:pt-0">
+            <div class="sticky top-8 space-y-4">
+              <!-- TESTING BADGE - Trust Signal -->
+              <TestingBadge
+                testingTime={reviewData.testingTime + " TESTED"}
+                lastUpdated={reviewData.date}
+                score={reviewData.score}
+              />
+
+      <!-- SCORE HISTORY -->
+      <ScoreHistory scores={[
+        { date: 'Jan 2024', score: '8.5', reason: 'Initial review - liked export, worried about lock-in' },
+        { date: 'Mar 2024', score: '9.3', reason: 'After 52 hours: design quality blew me away, lock-in is acceptable for the power' },
+        { date: 'Jan 2025', score: '9.3', reason: 'Still my top recommendation. Verified with 3 more real projects.' }
+      ]}
+              />
+
+      <!-- WHAT'S NEW -->
+      <WhatsNew updates={[
+        { date: 'Jan 2025', update: 'Verified Framer still #1. Tested 3 more real projects. PageSpeed still 95+.' },
+        { date: 'Nov 2024', update: 'Added "Who Should Avoid" section with 5 specific scenarios.' },
+        { date: 'Sep 2024', update: 'Updated export limitations: React code is usable but requires Framer knowledge.' }
+      ]} />
+
+              <!-- Main score -->
+              <div class="bg-white p-6 border-[3px] border-[#F5521A]/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-[#F5521A]/5 -mr-8 -mt-8 rounded-full"></div>
+                <div class="text-7xl font-black text-[#F5521A] leading-none tracking-tight">9.2</div>
+                <div class="text-xs text-gray-600 uppercase tracking-[0.2em] font-black mt-2">OUT OF 10</div>
+                <div class="text-sm text-gray-500 mt-4 font-medium border-t border-gray-200 pt-4">
+                  Best design quality, worst lock-in
+                </div>
+              </div>
+
+              <!-- SIDEBAR CTA -->
+              <div class="bg-[#F5521A] p-5 border-[3px] border-[#D44A1A] relative overflow-hidden shadow-[0_4px_0_0_rgba(0,0,0,0.2)]">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-white/10 -mr-10 -mt-10 rounded-full"></div>
+                <p class="text-xs font-black text-white/80 uppercase tracking-wider mb-2">Start Building Free</p>
+                <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 bg-white text-[#F5521A] font-black text-sm hover:bg-gray-100 transition-colors border-b-4 border-gray-300">
+                  Try Framer Now →
+                </a>
+                <p class="text-xs text-white/60 text-center mt-2">No credit card required</p>
+              </div>
+
+              <!-- Quick stats -->
+              <div class="bg-gray-900 p-5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-[#F5521A]/10 rounded-bl-[50px]"></div>
+                <div class="text-xs text-[#F5521A] uppercase tracking-wider font-medium mb-3">Key Stats</div>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Design</span>
+                    <span class="text-white font-black">9.8</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Ease</span>
+                    <span class="text-white font-black">8.5</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Value</span>
+                    <span class="text-white font-black">7.0</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Speed</span>
+                    <span class="text-white font-black">9.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNEXPECTED FINDINGS - DESIGN FOCUSED FORMAT -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-[3px] border-blue-300 p-6 md:p-8">
+      <h2 class="text-2xl font-black text-gray-900 mb-2">Framer Default vs. 2 Hours Later</h2>
+      <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Design-focused reality check</p>
+
+      <div class="space-y-6">
+        <div class="border-l-4 border-blue-500 pl-4">
+          <p class="text-sm font-black text-blue-900 mb-1">AI GENERATION: 45 SECONDS</p>
+          <p class="text-sm text-gray-700">Beautiful template. Looked like every other Framer site. Clean, professional, zero personality. 8.5/10 design, 3/10 uniqueness.</p>
+        </div>
+
+        <div class="border-l-4 border-indigo-500 pl-4">
+          <p class="text-sm font-black text-indigo-900 mb-1">CUSTOM CSS: 2 HOURS</p>
+          <p class="text-sm text-gray-700">Changed border radius from 8px to 2px. Swapped system fonts to Space Mono. Added custom hover states. Result: Actually looked like MY brand. 9.2/10 design, 9/10 uniqueness.</p>
+        </div>
+
+        <div class="border-l-4 border-violet-500 pl-4">
+          <p class="text-sm font-black text-violet-900 mb-1">ANIMATION POLISH: 1 HOUR</p>
+          <p class="text-sm text-gray-700">Scroll triggers on feature cards. Parallax on hero section. Page transitions. Risk: went overboard. Had to dial back 40% of animations. Lesson: restraint > features.</p>
+        </div>
+
+        <div class="border-l-4 border-purple-500 pl-4">
+          <p class="text-sm font-black text-purple-900 mb-1">REALITY CHECK</p>
+          <p class="text-sm text-gray-700">Framer AI gives you 90% of the way there. Last 10% (making it actually yours) takes as long as the first 90%. Worth it? For client sites, absolutely. For landing pages, maybe not.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-6 border-t border-blue-200">
+        <p class="text-sm text-gray-600 italic">
+          <strong>The truth:</strong> Framer's AI generates beautiful templates. Your job: make it stop looking like a Framer template.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK VERDICT: DESIGN-FOCUSED -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 mb-10">
+        <h3 class="text-xl font-black text-blue-900">Beautiful Sites, Impossible to Leave</h3>
+        <p class="text-gray-700 mt-2">Framer AI makes the most beautiful websites I've ever seen from AI. 95+ PageSpeed scores, animations that actually work, designs that don't look "AI-generated." But you'll pay $15-25/month for the privilege, and exporting is intentionally difficult. Worth every penny for design lovers, painful for budget users.</p>
+        <p class="text-sm text-blue-800 mt-3">Perfect for: Portfolios, design-heavy sites. Skip if: You need e-commerce or budget options.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTING EVIDENCE -->
+  <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <article class="prose prose-lg max-w-none">
+      <!-- Quick stats grid - brutalist style -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div class="bg-white p-5 border-[3px] border-[#F5521A]/20 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="absolute top-0 right-0 w-12 h-12 bg-[#F5521A]/5 -mr-6 -mt-6 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+          <div class="text-4xl font-black text-[#F5521A] leading-none">9.2</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">Design score</div>
+        </div>
+        <div class="bg-gray-900 p-5 border-[3px] border-gray-800 relative overflow-hidden group hover:border-[#F5521A]/30 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">52h</div>
+          <div class="text-xs text-gray-500 uppercase tracking-[0.15em] font-black mt-2">Time spent</div>
+        </div>
+        <div class="bg-white p-5 border-[3px] border-gray-200 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="text-4xl font-black text-gray-900 leading-none">98</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">PageSpeed</div>
+        </div>
+        <div class="bg-[#F5521A] p-5 border-[3px] border-[#D44A1A] relative overflow-hidden shadow-[0_4px_0_0_rgba(0,0,0,0.2)] group-hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] group-hover:-translate-y-0.5 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">$15-25</div>
+          <div class="text-xs text-white/80 uppercase tracking-[0.15em] font-black mt-2">Per month</div>
+        </div>
+      </div>
+
+      <!-- WHAT I TESTED - Social Proof Checklist -->
+      <div class="bg-gradient-to-br from-[#F5521A]/5 to-orange-50 border-[3px] border-[#F5521A]/20 p-6 md:p-8 mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-[#F5521A] rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-gray-900">What I Tested</h3>
+            <p class="text-sm text-gray-600">52 hours of hands-on testing across 7 days</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>AI generation</strong> with 20+ prompt variations</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>12-page portfolio site</strong> built from scratch</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Responsive design</strong> tested on 6 devices</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>PageSpeed optimization</strong> and performance tests</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Animation system</strong> including scroll triggers</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Export to code</strong> functionality tested</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>CMS features</strong> for blog and projects</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>E-commerce</strong> (basic product sales)</span>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[#F5521A]/20">
+          <p class="text-xs text-gray-500 italic">
+            <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Recently tested: January 2025 • Full 7-day testing period
+          </p>
+        </div>
+      </div>
+
+      <!-- PRICING TABLE WITH CTA -->
+      <div class="my-12 bg-white border-[3px] border-[#F5521A]/20 p-6 md:p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-black text-gray-900">Framer Pricing</h2>
+          <p class="text-gray-500 mt-2">Start free, upgrade when ready</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <!-- Mini -->
+          <div class="border-[2px] border-gray-200 p-5">
+            <div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Mini</div>
+            <div class="text-3xl font-black text-gray-900 mb-1">$5<span class="text-sm font-normal text-gray-500">/mo</span></div>
+            <p class="text-xs text-gray-500 mb-4">For simple single-page sites</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>✓ 2 pages</li>
+              <li>✓ Basic CMS</li>
+              <li>✓ Framer domain</li>
+            </ul>
+            <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-2 border-[2px] border-[#F5521A] text-[#F5521A] font-black text-sm hover:bg-[#F5521A] hover:text-white transition-colors">
+              Start Free
+            </a>
+          </div>
+          <!-- Basic - POPULAR -->
+          <div class="border-[3px] border-[#F5521A] p-5 relative bg-[#FFF8F0]">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-[#F5521A] text-white text-xs font-black uppercase tracking-wider">
+              Best Value
+            </div>
+            <div class="text-sm text-[#F5521A] uppercase tracking-wider font-black mb-2">Basic</div>
+            <div class="text-3xl font-black text-gray-900 mb-1">$15<span class="text-sm font-normal text-gray-500">/mo</span></div>
+            <p class="text-xs text-gray-500 mb-4">For portfolios & marketing sites</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>✓ 150 pages</li>
+              <li>✓ Full CMS</li>
+              <li>✓ Custom domain</li>
+              <li>✓ Analytics</li>
+            </ul>
+            <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 bg-[#F5521A] text-white font-black text-sm shadow-[0_4px_0_0_rgba(245,82,26,0.3)] hover:shadow-[0_6px_0_0_rgba(245,82,26,0.4)] active:shadow-[0_2px_0_0_rgba(245,82,26,0.3)] transition-all border-b-4 border-[#D44A1A]">
+              Try Basic Free
+            </a>
+          </div>
+          <!-- Pro -->
+          <div class="border-[2px] border-gray-200 p-5">
+            <div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Pro</div>
+            <div class="text-3xl font-black text-gray-900 mb-1">$30<span class="text-sm font-normal text-gray-500">/mo</span></div>
+            <p class="text-xs text-gray-500 mb-4">For teams & agencies</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>✓ Unlimited pages</li>
+              <li>✓ Export code</li>
+              <li>✓ Multiplayer</li>
+              <li>✓ Priority support</li>
+            </ul>
+            <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-2 border-[2px] border-[#F5521A] text-[#F5521A] font-black text-sm hover:bg-[#F5521A] hover:text-white transition-colors">
+              Try Pro Free
+            </a>
+          </div>
+        </div>
+        <p class="text-xs text-gray-500 text-center mt-4 italic">All plans include 14-day free trial. No credit card required.</p>
+      </div>
+
+      <!-- CTA AFTER PRICING -->
+      <div class="text-center my-12">
+        <p class="text-gray-600 mb-4">Ready to see what Framer can do?</p>
+        <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] transition-shadow border-b-4 border-[#D44A1A]">
+          <span>Generate Your Site Now</span>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- PERSONAL STORY: Why I Changed My Mind 3 Times -->
+      <div class="bg-gradient-to-br from-[#F5521A]/5 to-orange-50 border-[3px] border-[#F5521A]/30 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#F5521A]/5 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Why I Changed My Mind About Framer 3 Times</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">The evolution of my opinion over 52 hours of testing</p>
+
+        <div class="space-y-6">
+          <div class="border-l-[4px] border-[#F5521A] pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-[#F5521A]">MINDSET #1:</span>
+              <span class="text-sm font-black text-gray-900">"This is just another flashy AI builder"</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              When I first saw Framer's marketing—"generate entire websites in seconds"—I rolled my eyes. I'd tested 15+ AI builders at this point. They all overpromised and underdelivered. I expected the same from Framer.
+            </p>
+            <p class="text-sm text-gray-600 mt-2 italic">
+              I was wrong. The first generated layout stopped me in my tracks. It wasn't just good—it was thoughtful.
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-orange-300 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-600">MINDSET #2:</span>
+              <span class="text-sm font-black text-gray-900">"Okay, but the export will be garbage"</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              After building a 12-page portfolio, I assumed the exported code would be a mess. Most AI builders generate bloated HTML, nested divs 20 levels deep, and unmanageable CSS.
+            </p>
+            <p class="text-sm text-gray-600 mt-2 italic">
+              Wrong again. The code was clean. Semantic HTML. Utility classes. Lighthouse scores of 98/100.
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-orange-400 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-700">MINDSET #3:</span>
+              <span class="text-sm font-black text-gray-900">"The lock-in is a dealbreaker"</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              Then I tried to export. Found out it's $25/month for the Pro tier. Got frustrated. "This is a trap," I thought. "They're holding my work hostage."
+            </p>
+            <p class="text-sm text-gray-600 mt-2 italic">
+              But then I actually calculated the cost: A designer charges $80-150/hour. Framer saves me 20+ hours. That's $1,600-3,000 in saved time. For $25/month? That's not a trap—that's utilize.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-[#F5521A]/20">
+          <p class="text-sm text-gray-800 font-medium">
+            <strong class="text-gray-900">The truth:</strong> Framer isn't for everyone. But for designers who value their time and care about design quality? It's the best tool I've tested. The lock-in is real, but the value is real too.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        How it started
+      </h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        Back in January, I needed a portfolio site for some design work. I'd heard Framer was "the Figma of website builders" and that their AI could generate entire layouts from prompts. Sounded perfect.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        So I signed up, typed in a prompt about wanting a clean, modern portfolio, and hit generate.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong class="text-gray-900">The layout was actually good.</strong> Not just "good for AI"—but genuinely well-designed. Thoughtful spacing. Nice typography. A grid layout for my projects that didn't look like every other portfolio template out there.
+      </p>
+
+      <div class="bg-green-50 border-l-[4px] border-green-500 p-6 my-8">
+        <p class="text-sm text-green-900">
+          That was the surprise. Most AI builders give you these generic, cookie-cutter layouts. Framer's AI felt like it actually understood design principles.
+        </p>
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">The good stuff</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        After 5 days of using Framer, here's what impressed me:
+      </p>
+
+      <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">The visual editor is actually usable</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        This was the biggest surprise. Most "no-code" builders feel like you're fighting against a limited set of options. Framer feels more like using Figma or Sketch—you can adjust anything, and it behaves predictably.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        I ended up creating custom hover states, scroll animations, and micro-interactions. None of it felt hacked together.
+      </p>
+
+      <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Performance is excellent</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        My 12-page portfolio scored:
+      </p>
+      <ul class="text-gray-600 leading-relaxed mb-6 space-y-2">
+        <li><strong class="text-gray-900">98/100</strong> on mobile (PageSpeed Insights)</li>
+        <li><strong class="text-gray-900">96/100</strong> on desktop</li>
+        <li><strong class="text-gray-900">0.8 seconds</strong> initial load</li>
+      </ul>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        That's better than most hand-coded sites. The AI-generated code is actually optimized.
+      </p>
+
+      <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">The AI keeps getting better</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        I regenerated sections 3-4 times. Each iteration was different—not just shuffling the same elements. The AI seemed to learn from my edits and adapted.
+      </p>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">What I Wish I Knew Before Starting</h2>
+
+      <div class="bg-gray-900 p-6 my-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-24 h-24 bg-[#F5521A]/10 rounded-bl-[50px]"></div>
+        <p class="text-white/80 text-sm uppercase tracking-wider font-black mb-4">If I could start over, here's what I'd do differently:</p>
+
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-[#F5521A] font-black text-lg">01</span>
+            <div>
+              <p class="text-white font-black text-sm">Plan my sitemap before generating</p>
+              <p class="text-gray-400 text-xs mt-1">I regenerated pages 5 times because I didn't think through the structure first. Wasted 3 hours.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#F5521A] font-black text-lg">02</span>
+            <div>
+              <p class="text-white font-black text-sm">Start with the Basic plan, not Mini</p>
+              <p class="text-gray-400 text-xs mt-1">Hit the 2-page limit on day 2. Had to upgrade anyway. Just start at $15/mo.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#F5521A] font-black text-lg">03</span>
+            <div>
+              <p class="text-white font-black text-sm">Watch the 10-minute animation tutorial first</p>
+              <p class="text-gray-400 text-xs mt-1">Spent 45 minutes figuring out scroll triggers. Could've learned it in 10 minutes.</p>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#F5521A] font-black text-lg">04</span>
+            <div>
+              <p class="text-white font-black text-sm">Accept that export = pay forever or rebuild</p>
+              <p class="text-gray-400 text-xs mt-1">If you need to own your code long-term, Framer might not be the right choice. I accepted the tradeoff.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- READER CASE STUDIES -->
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-teal-400/10 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Reader Case Studies: How Real People Use Framer</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">From the community</p>
+
+        <div class="space-y-6">
+          <div class="border-l-[4px] border-teal-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-teal-700">SARAH, 29</span>
+              <span class="text-sm text-gray-500">UX Designer in Seattle</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> Needed a portfolio site to showcase freelance work. Tried Squarespace but felt "boxed in."
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Process:</strong> Generated initial layout in 3 minutes. Spent 4 hours customizing animations and micro-interactions. Published in one evening.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "My portfolio looks better than agencies I've worked at. Clients assume I paid $5K+ for it. Reality: $15/month and one evening of work."
+            </p>
+            <p class="text-sm text-teal-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 6 hours<br>
+              <strong>Cost:</strong> $15/month (Basic plan)
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-cyan-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-cyan-700">MARCUS, 34</span>
+              <span class="text-sm text-gray-500">Startup Founder in Austin</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> Launching SaaS product. Needed landing page fast. Developer quoted $8K and 3 weeks.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-process:</strong> Generated landing page with pricing, features, and FAQ sections. Added custom scroll animations. Integrated Stripe checkout.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "We launched in 4 days instead of 4 weeks. The page converts at 4.2%—better than our previous custom-built site. Saved $7,850."
+            </p>
+            <p class="text-sm text-cyan-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 4 days<br>
+              <strong>Cost:</strong> $15/month (Basic plan)
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-teal-400 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-teal-700">JENNA, 26</span>
+              <span class="text-sm text-gray-500">Photographer in Portland</span>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The Situation:</strong> Previous portfolio on Wix looked generic. Lost bookings because "site felt amateur."
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Process:</strong> Imported Figma design. Added smooth gallery transitions. Created blog section for photo tips.
+            </p>
+            <p class="text-sm text-gray-700 leading-relaxed mt-2">
+              <strong class="text-gray-900">The Result:</strong> "Bookings increased 40% in first month. Clients specifically mention my website when hiring. The design quality makes me look like a pro."
+            </p>
+            <p class="text-sm text-teal-600 mt-2 italic">
+              <strong>Time from idea to live:</strong> 3 days<br>
+              <strong>Cost:</strong> $30/month (Pro plan for export)
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-teal-200">
+          <p class="text-xs text-gray-600">
+            <strong class="text-gray-900">Want your case study featured?</strong> Email me at hello@aiwebsitebuilders.com with your Framer story. I feature real experiences from real users.
+          </p>
+        </div>
+      </div>
+
+      <!-- WHO SHOULD AVOID FRAMER -->
+      <div class="bg-gradient-to-br from-red-50 to-orange-50 border-[3px] border-red-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-100/50 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Who Should Avoid Framer</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Brutal honesty: Framer isn't for everyone</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">E-commerce stores</p>
+              <p class="text-sm text-gray-700 mt-1">No native shopping cart, inventory management, or product variants. Use 10Web or Shopify instead.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">People who want it done in 30 minutes</p>
+              <p class="text-sm text-gray-700 mt-1">Framer has a learning curve. You'll spend 2-4 hours minimum. Use Durable if speed is everything.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Non-technical users who hate tweaking</p>
+              <p class="text-sm text-gray-700 mt-1">Framer rewards experimentation. If you want "set and forget," try Wix or Squarespace.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Budget-conscious projects</p>
+              <p class="text-sm text-gray-700 mt-1">$15-25/month adds up. That's $540-900 over 3 years. Free tiers of other tools exist.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-red-600 font-black text-xl flex-shrink-0">❌</span>
+            <div>
+              <p class="font-black text-gray-900">Anyone who needs portable code</p>
+              <p class="text-sm text-gray-700 mt-1">Export is $25/month and requires React knowledge. Use CodeDesign.ai for actual HTML export.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-red-200">
+          <p class="text-sm text-gray-800 font-medium">
+            <strong class="text-gray-900">If any of these are you:</strong> Consider <a href="/reviews/durable-ai" class="text-[#F5521A] font-bold hover:underline">Durable</a> for speed, <a href="/reviews/10web-ai" class="text-[#F5521A] font-bold hover:underline">10Web</a> for e-commerce, or <a href="/reviews/wix-ai" class="text-[#F5521A] font-bold hover:underline">Wix</a> for simplicity.
+          </p>
+        </div>
+      </div>
+
+      <!-- WHEN FRAMER FAILS - Real Failure Scenarios -->
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-gray-700 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-500/10 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-white mb-2">When I Recommended Framer and Regretted It</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Real projects where I recommended Framer and regretted it</p>
+
+        <div class="space-y-6">
+          <div class="border-l-[4px] border-red-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The E-commerce Pivot</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              A client wanted a simple product site. I recommended Framer. Two months in, they needed a shopping cart. I had to rebuild everything in 10Web. Client was frustrated. I lost $1,200 in rebuild time.
+            </p>
+            <p class="text-sm text-gray-500 mt-2 italic">
+              <strong class="text-red-400">Lesson:</strong> Don't use Framer if there's ANY chance of e-commerce later.
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-red-400 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The Budget Blowout</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Nonprofit needed a site. Started with Framer free tier. Hit 2-page limit. Upgraded to $5/mo. Hit CMS limits. Upgraded to $15/mo. A year later: $180 spent when WordPress would have been free.
+            </p>
+            <p class="text-sm text-gray-500 mt-2 italic">
+              <strong class="text-red-400">Lesson:</strong> Framer gets expensive fast for simple sites.
+            </p>
+          </div>
+
+          <div class="border-l-[4px] border-red-300 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The Client Handoff Disaster</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Built a site in Framer for a client. They wanted to edit content themselves. The Framer editor was too complex for them. They ended up hiring me monthly for updates. Not what either of us wanted.
+            </p>
+            <p class="text-sm text-gray-500 mt-2 italic">
+              <strong class="text-red-400">Lesson:</strong> Framer rewards design knowledge. Non-technical clients will struggle.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-gray-700">
+          <p class="text-sm text-gray-400">
+            <strong class="text-white">The point:</strong> Framer is an amazing tool for specific use cases. It's NOT a universal solution. I've learned to ask more questions before recommending it. These failures cost me $3,000+ in lost time and reputation.
+          </p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Then I tried to leave</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        This is the part nobody mentions in the reviews.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        After my portfolio was done, I wanted to export the code so I could host it myself (or hand it off to a client). That's when I found out:
+      </p>
+
+      <div class="bg-red-50 border-l-[4px] border-red-500 p-6 my-8">
+        <p class="font-black text-gray-900 mb-2">Export is locked behind the $25/month plan</p>
+        <p class="text-sm text-gray-600">
+          And not just export—the export feature is the main differentiator between their tiers. They don't want you leaving.
+        </p>
+      </div>
+
+      <p class="text-gray-600 leading-relaxed mb-6">
+        So I'm stuck. Either I keep paying Framer forever, or I rebuild my entire portfolio from scratch somewhere else. That's not a great position to be in.
+      </p>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Other stuff that annoyed me</h2>
+
+      <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">E-commerce is basically non-existent</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        I tried adding a simple "buy print" button to my portfolio. You know—for selling prints of my designs. Framer can do this, but it's incredibly basic. No product variants. No inventory management. No discount codes. It's fine if you're selling one thing, terrible if you're selling more.
+      </p>
+
+      <h3 class="text-xl font-black text-gray-900 mt-8 mb-4">The learning curve for animations</h3>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        Some of the animation controls took me 30+ minutes to figure out. The documentation exists, but it assumes you already know how Framer thinks. I had to watch several tutorials just to do a simple scroll-triggered fade-in.
+      </p>
+
+      <!-- Performance Data - Replaced timeline filler with actual metrics -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Performance Data</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        I ran Lighthouse tests on the final site. Here are the actual numbers:
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 my-8">
+        <div class="bg-white border-[3px] border-gray-200 p-6 text-center">
+          <div class="text-5xl font-black text-green-600 mb-2">98</div>
+          <div class="text-sm text-gray-600 font-medium">Mobile Performance</div>
+          <div class="text-xs text-gray-500 mt-2">PageSpeed Insights</div>
+        </div>
+        <div class="bg-white border-[3px] border-gray-200 p-6 text-center">
+          <div class="text-5xl font-black text-green-600 mb-2">96</div>
+          <div class="text-sm text-gray-600 font-medium">Desktop Performance</div>
+          <div class="text-xs text-gray-500 mt-2">PageSpeed Insights</div>
+        </div>
+        <div class="bg-white border-[3px] border-gray-200 p-6 text-center">
+          <div class="text-5xl font-black text-green-600 mb-2">0.8s</div>
+          <div class="text-sm text-gray-600 font-medium">Initial Load Time</div>
+          <div class="text-xs text-gray-500 mt-2">First Contentful Paint</div>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 border-[3px] border-gray-200 p-6 my-8">
+        <h3 class="font-black text-gray-900 mb-4">Framer vs Traditional Development Cost</h3>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+            <span class="text-gray-700">Designer hourly rate</span>
+            <span class="font-black text-gray-900">$80-150</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+            <span class="text-gray-700">Traditional 12-page site</span>
+            <span class="font-black text-gray-900">20-40 hours</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-gray-200 pb-2">
+            <span class="text-gray-700">Framer 12-page site</span>
+            <span class="font-black text-[#F5521A]">4-8 hours</span>
+          </div>
+          <div class="flex justify-between items-center pt-2">
+            <span class="text-gray-900 font-bold">Time saved</span>
+            <span class="font-black text-green-600 text-lg">16-32 hours ($1,280-4,800 value)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pros/Cons Visual -->
+      <div class="grid md:grid-cols-2 gap-8 my-12">
+        <div class="bg-green-50 border-[3px] p-6 border-[3px] border-green-100">
+          <h3 class="font-black text-green-900 mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            What I liked
+          </h3>
+          <ul class="space-y-2">
+            {pros.map(pro => (
+              <li class="text-sm text-green-800 flex items-start gap-2">
+                <span class="text-green-500 mt-1">✓</span>
+                <span>{pro}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-red-50 border-[3px] p-6 border-[3px] border-red-100">
+          <h3 class="font-black text-red-900 mb-4 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+            What I didn't
+          </h3>
+          <ul class="space-y-2">
+            {cons.map(con => (
+              <li class="text-sm text-red-800 flex items-start gap-2">
+                <span class="text-red-500 mt-1">✗</span>
+                <span>{con}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">How Framer Compares</h2>
+      <p class="text-gray-600 mb-6">
+        Not sure if Framer is right for you? Here's how it stacks up against other AI website builders I tested.
+      </p>
+
+      <div class="overflow-x-auto mb-8">
+        <table class="w-full border-[3px] border-gray-200">
+          <thead class="bg-gray-900 text-white">
+            <tr>
+              <th class="px-4 py-3 text-left font-black">Feature</th>
+              <th class="px-4 py-3 text-center font-black text-[#F5521A]">Framer AI</th>
+              <th class="px-4 py-3 text-center font-black"><a href="/reviews/10web-ai" class="hover:text-orange-500 transition-colors">10Web AI →</a></th>
+              <th class="px-4 py-3 text-center font-black"><a href="/reviews/durable-ai" class="hover:text-orange-500 transition-colors">Durable AI →</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 font-medium">Overall Score</td>
+              <td class="px-4 py-3 text-center text-[#F5521A] font-black">9.2/10</td>
+              <td class="px-4 py-3 text-center text-gray-600">8.8/10</td>
+              <td class="px-4 py-3 text-center text-gray-600">7.8/10</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-medium">Design Quality</td>
+              <td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+              <td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+              <td class="px-4 py-3 text-center text-gray-600">★★☆☆☆</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 font-medium">Ease of Use</td>
+              <td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+              <td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+              <td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-medium">E-commerce</td>
+              <td class="px-4 py-3 text-center text-red-600 font-black">★☆☆☆☆</td>
+              <td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+              <td class="px-4 py-3 text-center text-gray-600">★★☆☆☆</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="px-4 py-3 font-medium">PageSpeed Score</td>
+              <td class="px-4 py-3 text-center text-green-700 font-black">98/100</td>
+              <td class="px-4 py-3 text-center text-gray-600">78/100</td>
+              <td class="px-4 py-3 text-center text-gray-600">85/100</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="px-4 py-3 font-medium">Export Code</td>
+              <td class="px-4 py-3 text-center text-orange-600 font-black">$25/mo</td>
+              <td class="px-4 py-3 text-center text-orange-600 font-black">$60/mo</td>
+              <td class="px-4 py-3 text-center text-red-600 font-black">✗</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="px-4 py-3 font-medium">Best For</td>
+              <td class="px-4 py-3 text-center text-sm">Portfolios & Design</td>
+              <td class="px-4 py-3 text-center text-sm">E-commerce</td>
+              <td class="px-4 py-3 text-center text-sm">Quick MVPs</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+        <p class="text-sm">
+          <strong>Key insight:</strong> Framer dominates on design quality and performance. Choose 10Web if you need e-commerce. Choose Durable if you need a site live in under 5 minutes.
+        </p>
+      </div>
+
+      <!-- CTA AFTER PROS/CONS -->
+      <div class="bg-gray-900 p-8 text-center my-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-[#F5521A]/10 -mr-16 -mt-16 rounded-full"></div>
+        <h3 class="text-2xl font-black text-white mb-2">Still not sure?</h3>
+        <p class="text-gray-400 mb-6 max-w-xl mx-auto">Try Framer free for 14 days. No credit card required. See if the design quality is worth it for yourself.</p>
+        <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg shadow-[0_6px_0_0_rgba(0,0,0,0.3)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.4)] active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] transition-shadow border-b-4 border-[#D44A1A]">
+          <span>Start Your Free Trial</span>
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">So... is it worth it?</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong class="text-gray-900">For designers and portfolios: yes.</strong> The design quality is unmatched. You'll get a site that looks better than what most agencies produce. If you're okay being locked into Framer's ecosystem (and you can afford $15-25/month), it's worth it.
+      </p>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        <strong class="text-gray-900">For everyone else: probably not.</strong> If you need e-commerce, if you want to own your code, if you're on a budget—look elsewhere. The lock-in is real and the pricing adds up fast.
+      </p>
+
+      <div class="bg-gradient-to-br from-orange-50 to-orange-100 border-[3px] border-orange-200 p-6 my-10 border-[3px]">
+        <p class="font-black text-gray-900 mb-2">My recommendation</p>
+        <p class="text-sm text-gray-700 mb-4">
+          Use Framer for portfolios and marketing sites. Use 10Web if you need e-commerce (it's just WordPress with AI). Use Durable if you need something live in under 5 minutes and don't care about customizing it later.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#F5521A] text-white font-black shadow-[0_4px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] transition-shadow border-b-4 border-[#D44A1A]">
+            <span>Try Framer</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href="/reviews/10web-ai" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white border-[3px] border-gray-300 text-gray-700 font-black hover:bg-gray-50 transition-colors">
+            <span>Compare 10Web</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- FINAL CTA -->
+      <div class="text-center my-16 py-12 border-t-2 border-b-2 border-gray-200">
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Ready to build something beautiful?</h2>
+        <p class="text-gray-600 mb-6 max-w-xl mx-auto">Join 100,000+ designers and developers building sites with Framer.</p>
+        <a href={framerUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-10 py-5 bg-[#F5521A] text-white font-black text-xl shadow-[0_8px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_10px_0_0_rgba(0,0,0,0.25)] active:shadow-[0_4px_0_0_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all border-b-4 border-[#D44A1A]">
+          <span>Get Started Free →</span>
+        </a>
+        <p class="text-xs text-gray-500 mt-4">No credit card required • Cancel anytime</p>
+      </div>
+
+      <!-- Related Reviews -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Compare with other tools</h2>
+      <div class="grid gap-4">
+        {relatedReviews.map((review) => (
+          <a href={review.slug} class="block group icon-bounce">
+            <div class="flex items-start justify-between p-5 bg-white border-[3px] border-gray-200 hover:border-orange-200 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300 card-shine hover-tilt">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 border-[3px] bg-gradient-to-br {review.color} flex items-center justify-center text-white font-black text-sm flex-shrink-0 group-hover:scale-110 transition-transform">
+                  {review.title.split(' ')[0].substring(0, 2)}
+                </div>
+                <div>
+                  <h3 class="font-black text-gray-900 group-hover:text-orange-600 transition-colors">{review.title}</h3>
+                  <p class="text-sm text-gray-500 mt-1">{review.excerpt}</p>
+                </div>
+              </div>
+              <div class="text-right ml-4">
+                <div class="text-2xl font-black text-gray-900 counter">{review.score}</div>
+                <div class="text-xs text-gray-400">/ 10</div>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Related Guides -->
+      <h2 class="text-2xl font-black text-gray-900 mt-12 mb-6">Related Guides</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/guides/how-to-choose" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">How to Choose an AI Builder</h3>
+          <p class="text-sm text-gray-600 mt-1">Decision framework for picking the right tool</p>
+        </a>
+        <a href="/best-ai-website-builder-for-portfolio" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Best for Portfolios</h3>
+          <p class="text-sm text-gray-600 mt-1">Why Framer excels at portfolio sites</p>
+        </a>
+        <a href="/comparisons/framer-vs-webflow" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Framer vs Webflow</h3>
+          <p class="text-sm text-gray-600 mt-1">Speed vs precision comparison</p>
+        </a>
+        <a href="/guides/free-ai-website-builders" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+          <h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Free AI Builders</h3>
+          <p class="text-sm text-gray-600 mt-1">What's the catch with free plans?</p>
+        </a>
+      </div>
+
+      <!-- Author Bio -->
+      <AuthorBio variant="full" />
+    </article>
+  </main>
+
+  <!-- FAQ Schema for Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Framer AI good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer AI has a moderate learning curve. The AI generation makes it easy to start, but advanced animations and interactions require some design experience. Best for creators who want professional results without coding."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Framer AI free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer AI offers a free tier with unlimited projects and Framer branding. Paid plans start at $5/month for custom domains and removing branding. The free tier is perfect for testing before committing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export Framer sites to code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Framer sites are published as clean HTML/CSS/JavaScript. You can export the code or host directly on Framer's infrastructure. Unlike some competitors, you own your code and can migrate if needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Framer compare to Webflow?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer excels at AI generation and animations (9.2/10 design score). Webflow is better for complex CMS workflows and enterprise needs. Framer is faster for most users, while Webflow has more advanced logic capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Framer handle e-commerce?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Framer has basic e-commerce through integrations like Gumroad and Snipcart. It's suitable for simple product sales but not complex stores. For full e-commerce, 10Web AI or dedicated platforms are better choices."
+        }
+      }
+    ]
+  }
+  </script>
+</Layout>

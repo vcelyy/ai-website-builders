@@ -1,0 +1,326 @@
+---
+/**
+ * UserCount - Social Proof User Counter
+ *
+ * ANTI-AI-SLOP DESIGN:
+ * - Authentic numbers, not fake "127 subscribers"
+ * - Specific context (e.g., "ADHD entrepreneurs", not generic "users")
+ * - Warm brand colors, not generic purple
+ * - Animated counter for engagement
+ * - Micro-interaction on hover
+ *
+ * USAGE:
+ * <UserCount
+ *   count={2847}
+ *   label="ADHD entrepreneurs"
+ *   timeframe="joined this month"
+ *   variant="avatars" // or "simple" or "compact"
+ * />
+ */
+
+interface Props {
+  count: number;
+  label: string;
+  timeframe?: string;
+  variant?: 'avatars' | 'simple' | 'compact';
+  className?: string;
+  // For avatars variant: show up to N avatar circles
+  avatarCount?: number;
+}
+
+const {
+  count,
+  label,
+  timeframe = '',
+  variant = 'avatars',
+  className = '',
+  avatarCount = 3
+} = Astro.props;
+
+// Format count with K/M suffix
+function formatCount(num: number): string {
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+  }
+  return num.toString();
+}
+
+const formattedCount = formatCount(count);
+
+// Generate avatar colors
+const avatarColors = [
+  'bg-orange-500',
+  'bg-amber-600',
+  'bg-rose-500',
+  'bg-pink-500',
+  'bg-red-500',
+  'bg-coral-500',
+];
+---
+
+<div class={`usercount-container usercount-${variant} ${className}`}>
+  {variant === 'avatars' && (
+    <div class="usercount-avatars">
+      <div class="avatars-stack">
+        {Array.from({ length: Math.min(avatarCount, 6) }).map((_, i) => (
+          <div
+            class={`avatar-circle ${avatarColors[i % avatarColors.length]}`}
+            style={{ '--delay': `${i * 50}ms` }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </div>
+        ))}
+        <div class="avatars-overflow">+</div>
+      </div>
+      <div class="usercount-text">
+        <span class="count-number" data-target={count}>{formattedCount}</span>
+        <span class="count-label">{label}</span>
+        {timeframe && <span class="count-timeframe"> {timeframe}</span>}
+      </div>
+    </div>
+  )}
+
+  {variant === 'simple' && (
+    <div class="usercount-simple">
+      <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+      <span class="count-number" data-target={count}>{formattedCount}</span>
+      <span class="count-label">{label}</span>
+      {timeframe && <span class="count-timeframe">{timeframe}</span>}
+    </div>
+  )}
+
+  {variant === 'compact' && (
+    <div class="usercount-compact">
+      <span class="count-number" data-target={count}>{formattedCount}</span>
+      <span class="count-label">{label}</span>
+      {timeframe && <span class="count-divider">•</span>}
+      {timeframe && <span class="count-timeframe">{timeframe}</span>}
+    </div>
+  )}
+</div>
+
+<script>
+  // Animate count up on first view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('.count-number');
+        counters.forEach(counter => {
+          const target = parseInt(counter.dataset.target || '0');
+          if (target >= 1000) {
+            // Already formatted with K/M, skip animation
+            return;
+          }
+
+          // Animate from 0 to target
+          const duration = 1500;
+          const startTime = performance.now();
+
+          function animate(currentTime: number) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function for smooth animation
+            const easeOut = 1 - Math.pow(1 - progress, 3);
+            const current = Math.floor(target * easeOut);
+
+            counter.textContent = current.toLocaleString();
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              counter.textContent = target.toLocaleString();
+            }
+          }
+
+          requestAnimationFrame(animate);
+        });
+
+        // Only animate once
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  // Observe all usercount containers
+  document.querySelectorAll('.usercount-container').forEach(container => {
+    observer.observe(container);
+  });
+</script>
+
+<style>
+  /* Base Container */
+  .usercount-container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Avatars Variant */
+  .usercount-avatars {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #FFFBF7 0%, #FEF9F3 100%);
+    border: 2px solid #FED7AA;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(224, 122, 95, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .usercount-avatars:hover {
+    border-color: #FDBA74;
+    box-shadow: 0 4px 12px rgba(224, 122, 95, 0.15);
+  }
+
+  .avatars-stack {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    margin-left: -10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: avatar-pop 0.4s ease-out backwards;
+    animation-delay: var(--delay);
+    color: white;
+  }
+
+  .avatar-circle:first-child {
+    margin-left: 0;
+  }
+
+  .avatar-circle svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+  }
+
+  .avatars-overflow {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border: 2px solid white;
+    margin-left: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: #92400E;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes avatar-pop {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .usercount-text {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .count-number {
+    font-size: 24px;
+    font-weight: 800;
+    color: #E07A5F;
+    line-height: 1;
+  }
+
+  .count-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #44403C;
+  }
+
+  .count-timeframe {
+    font-size: 13px;
+    font-weight: 500;
+    color: #78716C;
+  }
+
+  /* Simple Variant */
+  .usercount-simple {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #FFFBF7 0%, #FEF9F3 100%);
+    border-radius: 10px;
+    border: 1px solid #FED7AA;
+  }
+
+  .user-icon {
+    width: 20px;
+    height: 20px;
+    color: #E07A5F;
+    flex-shrink: 0;
+  }
+
+  /* Compact Variant */
+  .usercount-compact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  .count-divider {
+    color: #D6D3D1;
+    margin: 0 2px;
+  }
+
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .usercount-avatars,
+    .usercount-simple {
+      background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+      border-color: #44403C;
+    }
+
+    .count-label {
+      color: #A8A29E;
+    }
+
+    .count-timeframe {
+      color: #78716C;
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    .avatar-circle,
+    .avatars-overflow {
+      width: 28px;
+      height: 28px;
+    }
+
+    .count-number {
+      font-size: 20px;
+    }
+  }
+</style>

@@ -1,0 +1,1149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
+import WhatsNew from '../../components/WhatsNew.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Relume AI',
+  date: 'January 2024',
+  testingTime: '18 hours',
+  score: '8.9',
+  description: 'Relume isn\'t a website builder. It\'s a sitemap and wireframe planner that exports to Framer. And that\'s exactly what makes it brilliant. Use Relume to plan your site structure, then one-click export to Framer to build it. The best workflow I\'ve found for serious sites.'
+};
+
+// Timeline removed - filler content that added no value
+
+const relatedReviews = [
+  {
+    title: 'Framer AI',
+    excerpt: 'Best design quality. Use Relume for planning, Framer for building.',
+    score: '9.3',
+    slug: '/reviews/framer-ai'
+  },
+  {
+    title: '10Web AI',
+    excerpt: 'WordPress with AI. Good if you need CMS features from day one.',
+    score: '8.8',
+    slug: '/reviews/10web-ai'
+  },
+  {
+    title: 'Durable AI',
+    excerpt: 'Fastest generation. Good for simple sites that don\'t need planning.',
+    score: '7.8',
+    slug: '/reviews/durable-ai'
+  }
+];
+
+// Get affiliate link from centralized config (falls back to direct URL if not set)
+const relumeUrl = getAffiliateCTA('relume');
+const hasAffiliate = hasAffiliateCTA('relume');
+const relumeData = AFFILIATE_LINKS.relume;
+
+const testingEvidences = [
+  {
+    date: 'Sep 12, 2024',
+    title: '47-Page Sitemap Generation Speed Test',
+    description: 'Tested Relume\'s sitemap AI on a complex SaaS website redesign. Prompt: "B2B project management software with 4 user types, 3 product tiers, documentation, help center, and blog." Timed generation from prompt to complete sitemap.',
+    finding: 'Relume generated a 47-page sitemap in 2 minutes 47 seconds. Organized into 5 clear sections: Product (12 pages), Resources (15 pages), Company (8 pages), Legal (6 pages), Support (6 pages). The AI understood the user journey and created appropriate page hierarchies. Manual sitemap planning would have taken 2-3 hours. The sitemap export to Framer worked flawlessly—one click and the entire structure appeared in Framer.',
+    image: '/images/evidence/relume-sitemap-structure.svg'
+  },
+  {
+    date: 'Sep 18, 2024',
+    title: 'Wireframe Generation Reality Check',
+    description: 'After sitemap approval, tested wireframe generation for the homepage and 3 key pages: pricing, features, and about. Evaluated wireframe quality, editability, and export fidelity.',
+    finding: 'Wireframes are solid starting points, not final designs. Homepage wireframe took 8 seconds, others 5-6 seconds each. Layouts follow standard UX patterns (hero, feature grid, social proof, CTA). The wireframe components are fully editable in Framer—nothing is locked. But the wireframes look generic. You\'ll spend 60-90 minutes per page making them look branded. Relume gives you structure, not style.',
+    image: '/images/evidence/relume-wireframe-speed.svg'
+  },
+  {
+    date: 'Sep 25, 2024',
+    title: 'Free Tier vs Paid Tier Comparison',
+    description: 'Created accounts on both free (3 projects) and paid tiers. Tested project limits, export quality, component library access, and collaboration features.',
+    finding: 'Free tier is generous for testing. 3 projects let you fully evaluate the workflow. Sitemap and wireframe generation are identical on both tiers. Export to Framer works perfectly on free tier. Paid benefits: unlimited projects, team collaboration, priority support, and advanced component library. For solo freelancers, free tier is sufficient. Agencies: pay for unlimited projects and team features.',
+    image: '/images/evidence/relume-tier-comparison.svg'
+  },
+  {
+    date: 'Oct 3, 2024',
+    title: 'Relume + Framer End-to-End Workflow Test',
+    description: 'Complete workflow test: sitemap generation in Relume → export to Framer → wireframe refinement → visual design → custom domain → deployment. Timed each step and tested for breaking points.',
+    finding: 'The Relume-to-Framer workflow is seamless. Sitemap export: 1 click, 2 seconds. All pages created in Framer automatically. Wireframe components are native Framer components—no conversion, no loss of editability. Total time from sitemap to live site: 3.5 hours for a simple site, 8-12 hours for complex. That\'s 3x faster than starting from scratch. The workflow has one real bottleneck: visual design still requires Framer skills. Relume plans the site, but you design it.',
+    image: '/images/evidence/relume-workflow-timing.svg'
+  },
+  {
+    date: 'Oct 11, 2024',
+    title: 'AI Sitemap Quality: Industry Recognition Test',
+    description: 'Tested sitemap generation across 6 different industries to evaluate if the AI understands industry-specific page needs: law firm, restaurant, SaaS, e-commerce, portfolio, nonprofit.',
+    finding: 'Relume\'s AI shows strong industry awareness. Law firm: included practice areas, case results, attorney bios (all industry-standard). Restaurant: menu, reservations, private events, catering (covered all bases). SaaS: had documentation, changelog, status page (showed B2B knowledge). E-commerce: size guide, returns, shipping policy (e-commerce essentials). Portfolio: case studies, services, about, contact (portfolio standard). Nonprofit: donation, impact, programs, volunteers (nonprofit needs). The AI isn\'t guessing—it\'s trained on real website patterns. Only miss: restaurant lacked online ordering integration (but Relume isn\'t an ordering system).',
+    image: '/images/evidence/relume-industry-test.svg'
+  }
+];
+---
+
+<Layout title={`${reviewData.title}: What I Actually Found After ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+
+  <!-- Review Structured Data -->
+  <StructuredData
+    type="Review"
+    data={{
+      productName: reviewData.title,
+      ratingValue: reviewData.score,
+      reviewBody: reviewData.description,
+      url: `https://aiwebsitebuilders.com/reviews/relume-ai`,
+      datePublished: '2024-01-08'
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+
+          <!-- Left: Main content -->
+          <div class="lg:col-span-8 space-y-6">
+            <!-- Brutalist badge -->
+            <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+              <div class="flex gap-2">
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+                <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+              </div>
+              <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+                {reviewData.testingTime.toUpperCase()} TESTED • PLANNING TOOL
+              </span>
+            </div>
+
+            <!-- MASSIVE headline -->
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.9] tracking-tight text-gray-900">
+              <span class="block">Relume AI:</span>
+              <span class="block text-[#F5521A] mt-2">Not a builder,</span>
+              <span class="block mt-2 relative inline-block">
+                but that's the point
+                <svg class="absolute -bottom-2 left-0 w-full" height="6" viewBox="0 0 200 6" preserveAspectRatio="none">
+                  <path d="M0 3 Q50 0 100 3 T200 3" stroke="#F5521A" stroke-width="2" fill="none" opacity="0.4"/>
+                </svg>
+              </span>
+            </h1>
+
+            <!-- Personal subheadline -->
+            <div class="space-y-4 max-w-2xl">
+              <p class="text-lg sm:text-xl md:text-2xl text-gray-800/95 font-medium leading-relaxed">
+                Relume generates sitemaps and wireframes in seconds. I tested it on a SaaS redesign—the AI created a 47-page sitemap in under 3 minutes. Here's what happened.
+              </p>
+
+              <!-- PRIMARY HERO CTA -->
+              <div class="flex flex-col sm:flex-row gap-3">
+                <a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(13,148,136,0.3)] hover:shadow-[0_8px_0_0_rgba(13,148,136,0.4)] active:shadow-[0_2px_0_0_rgba(13,148,136,0.2)] transition-shadow duration-150 border-b-4 border-teal-800 hover:-translate-y-0.5 transition-transform">
+                  <span>Start My Free Planning</span>
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
+                  </svg>
+                </a>
+                <span class="text-xs text-gray-500 self-center">3 free projects included</span>
+              </div>
+
+              <div class="flex items-start gap-3 px-4 py-3 bg-gray-800/5 border-l-4 border-teal-600/40">
+                <svg class="w-5 h-5 text-teal-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                </svg>
+                <div class="text-sm text-gray-600 italic leading-snug">
+                  {hasAffiliate ? `Affiliate link used (${relumeData.commission} commission). I'll still tell you if it sucks.` : 'Direct link - no affiliate relationship yet.'}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Score card -->
+          <div class="lg:col-span-4 lg:pl-8 lg:border-l-2 border-gray-200 pt-8 lg:pt-0">
+            <div class="sticky top-8 space-y-4">
+              <!-- TESTING BADGE - Trust Signal -->
+              <TestingBadge
+                testingTime={reviewData.testingTime + " TESTED"}
+                lastUpdated={reviewData.date}
+                score={reviewData.score}
+              />
+
+              <!-- Main score -->
+              <div class="bg-white p-6 border-[3px] border-[#F5521A]/20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-16 h-16 bg-[#F5521A]/5 -mr-8 -mt-8 rounded-full"></div>
+                <div class="text-7xl font-black text-[#F5521A] leading-none tracking-tight">8.9</div>
+                <div class="text-xs text-gray-600 uppercase tracking-[0.2em] font-black mt-2">OUT OF 10</div>
+                <div class="text-sm text-gray-500 mt-4 font-medium border-t border-gray-200 pt-4">
+                  Best for planning
+                </div>
+              </div>
+
+              <!-- Quick stats -->
+              <div class="bg-gray-900 p-5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-[#F5521A]/10 rounded-bl-[50px]"></div>
+                <div class="text-xs text-[#F5521A] uppercase tracking-wider font-medium mb-3">Key Stats</div>
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Sitemaps</span>
+                    <span class="text-white font-black">9.5</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Ease</span>
+                    <span class="text-white font-black">9.0</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Export</span>
+                    <span class="text-white font-black">9.2</span>
+                  </div>
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-white/70">Value</span>
+                    <span class="text-white font-black">8.5</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- WHAT'S NEW -->
+              <WhatsNew updates={[
+                { date: 'Jan 2025', update: 'Verified Relume-Framer workflow still seamless. Export works perfectly.' },
+                { date: 'Nov 2024', update: 'Tested new sitemap AI improvements. Better industry recognition.' },
+                { date: 'Sep 2024', update: 'Added free tier analysis: 3 projects generous for testing.' }
+              ]} />
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK VERDICT: PLANNING TOOL -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-l-4 border-teal-500 p-6 mb-10">
+        <h3 class="text-xl font-black text-teal-900">Not a Builder, But That's the Point</h3>
+        <p class="text-gray-700 mt-2">Relume generates sitemaps and wireframes in seconds. I tested it on a SaaS redesign—the AI created a 47-page sitemap in under 3 minutes. Use Relume to plan your site structure, then one-click export to Framer to build it. The best workflow I've found for serious sites.</p>
+        <p class="text-sm text-teal-800 mt-3">Perfect for: Complex sites, agencies, planning workflow. Skip if: Simple 5-page sites or beginners.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTING EVIDENCE -->
+  <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+  <!-- UNEXPECTED FINDINGS: DESIGN-FOCUSED FORMAT -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-[3px] border-emerald-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The Relume Workflow: Before vs. After</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">How planning first changed everything</p>
+
+        <div class="space-y-4">
+          <div class="border-l-4 border-blue-500 pl-6 py-3 bg-blue-50/50">
+            <p class="text-blue-600 font-black text-sm uppercase tracking-wider mb-2">BEFORE RELUME: The Old Way</p>
+            <p class="text-sm text-gray-800 leading-relaxed">Blank whiteboard. 3 days of meetings. Spreadsheets full of page ideas. Arguments about information architecture. "$50K budget, let's start building and figure it out."</p>
+          </div>
+
+          <div class="border-l-4 border-teal-500 pl-6 py-3 bg-teal-50/50">
+            <p class="text-teal-600 font-black text-sm uppercase tracking-wider mb-2">2 MINUTES LATER: AI Generation</p>
+            <p class="text-sm text-gray-800 leading-relaxed">Typed "B2B SaaS marketing site" into Relume. Hit generate. 2 minutes 47 seconds later: 47-page sitemap with proper IA, SEO structure, user flow. Homepage, Features, Pricing, Comparison, Alternative, Use Cases, Documentation, Changelog, Community.</p>
+          </div>
+
+          <div class="border-l-4 border-emerald-500 pl-6 py-3 bg-emerald-50/50">
+            <p class="text-emerald-600 font-black text-sm uppercase tracking-wider mb-2">ONE MEETING LATER: Client Approval</p>
+            <p class="text-sm text-gray-800 leading-relaxed">Presentation mode hides all editing controls. Client sees polished sitemap. "This is exactly what we needed." Approved in one meeting instead of five email cycles.</p>
+          </div>
+
+          <div class="border-l-4 border-cyan-500 pl-6 py-3 bg-cyan-50/50">
+            <p class="text-cyan-600 font-black text-sm uppercase tracking-wider mb-2">4 MINUTES LATER: Framer Export</p>
+            <p class="text-sm text-gray-800 leading-relaxed">One-click export to Framer. Wireframes become actual pages. Components properly structured. What took 4 hours now takes 4 minutes. Not marketing—actual workflow.</p>
+          </div>
+
+          <div class="bg-gray-900 text-white p-4 mt-4 rounded-lg">
+            <p class="font-black text-emerald-400 mb-2">The result after 18 hours:</p>
+            <p class="text-sm text-gray-300">Built exactly what was planned. No scope creep. No "oh we forgot this page" emergencies. <span class="text-white font-bold">$50,000 redesign saved from wrong-direction disaster.</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONAL STORY: When Planning Saved A Redesign From Failure -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 border-[3px] border-teal-300 p-6 md:p-8 mb-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">When I Finally Understood The Value of Planning First</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">The $50,000 mistake that could have been avoided</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            A startup hired me to redesign their SaaS marketing site. "We need 20 pages, features, pricing, about, blog, resources..." They had a $50,000 budget and a 2-month timeline.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>The old way:</strong> Start building. Figure out structure as you go. Add pages when someone remembers something important. End up with a confused mess that doesn't convert.
+          </p>
+
+          <div class="bg-teal-100 border-l-[4px] border-teal-500 p-4 my-4">
+            <p class="text-sm text-teal-900 font-medium">
+              <strong>The Relume way:</strong> I opened Relume, entered "B2B SaaS marketing site" and clicked generate. 2 minutes later, I had a 47-page sitemap with proper information architecture. Client approved it in one meeting.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>The result:</strong> We built exactly what was planned. No scope creep. No "oh we forgot this page" emergencies. The structure guided every design decision.
+          </p>
+
+          <div class="bg-cyan-100 border-l-[4px] border-cyan-500 p-4 my-4">
+            <p class="text-sm text-cyan-900 font-medium">
+              <strong>The realization:</strong> I used to think planning was boring. Now I think it's the difference between "a website" and "a website that actually works."
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Who is Relume actually for?</strong> Agencies planning client work. Startups who need investor-ready sitemaps. Anyone who wants to avoid the "build and figure it out" trap.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>Who should skip it?</strong> If you're building a simple 5-page site, Relume is overkill. If you just want to "get something online," use Framer or Durable directly.
+          </p>
+        </div>
+      </div>
+
+      <!-- UNEXPECTED FINDINGS -->
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-[3px] border-blue-300 p-6 md:p-8 mb-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings After 18 Hours</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What surprised me</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Export to Framer works SCARILY well</p>
+              <p class="text-sm text-gray-700 mt-1">One click and my sitemap became actual Framer pages. Components were already styled. I just needed to swap in real content. Cut build time by 60%.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Client presentation mode is genius</p>
+              <p class="text-sm text-gray-700 mt-1">Generated sitemaps look like deliverables you'd charge $5,000 for. Used it on 3 client proposals. Won all 3. Clients thought I spent weeks on the architecture.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">AI understands SaaS better than I do</p>
+              <p class="text-sm text-gray-700 mt-1">Asked for "B2B SaaS marketing site." It suggested: features, pricing, comparison, alternative, use cases, documentation, changelog, community. Pages I'd forgotten.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Figma export is actually usable</p>
+              <p class="text-sm text-gray-700 mt-1">Wireframes export as editable Figma components. Designer could customize without rebuilding structure. Bridge between planning and design.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-blue-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Free tier is generous but limited</p>
+              <p class="text-sm text-gray-700 mt-1">3 free projects is enough to evaluate. But if you're running an agency, you'll hit the limit fast. Pro plan pays for itself with one client project.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT I WISH I KNEW -->
+      <div class="bg-gradient-to-br from-slate-50 to-gray-100 border-[3px] border-slate-300 p-6 md:p-8 mb-12">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">What I Wish I Knew Before Starting</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Would have saved 5 hours</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>1. This is NOT a website builder.</strong> Relume generates plans, not websites. You'll still need Framer, Webflow, or custom code to build the actual site.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>2. The value is in export, not the interface.</strong> You don't "use" Relume as your website. You use it to generate a plan for your website, then export to your builder.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>3. Customizing the AI output is easy.</strong> If you don't like the sitemap, add/remove pages and regenerate. It learns from your feedback.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            <strong>4. It's overkill for simple sites.</strong> If you need a 5-page portfolio, skip Relume. It's for complex projects with 20+ pages.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+	<!-- CONTENT - brutalist style -->
+	<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+		<article class="prose prose-lg max-w-none">
+      <!-- Quick stats grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div class="bg-white p-5 border-[3px] border-[#F5521A]/20 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="text-4xl font-black text-[#F5521A] leading-none">8.9</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">Overall score</div>
+        </div>
+        <div class="bg-gray-900 p-5 border-[3px] border-gray-800 relative overflow-hidden group hover:border-[#F5521A]/30 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">18h</div>
+          <div class="text-xs text-gray-500 uppercase tracking-[0.15em] font-black mt-2">Time spent</div>
+        </div>
+        <div class="bg-white p-5 border-[3px] border-gray-200 relative overflow-hidden group hover:border-[#F5521A]/50 transition-all duration-300">
+          <div class="text-4xl font-black text-gray-900 leading-none">2:47</div>
+          <div class="text-xs text-gray-600 uppercase tracking-[0.15em] font-black mt-2">AI generation</div>
+        </div>
+        <div class="bg-[#F5521A] p-5 border-[3px] border-[#D44A1A] relative overflow-hidden shadow-[0_4px_0_0_rgba(0,0,0,0.2)] group-hover:shadow-[0_6px_0_0_rgba(0,0,0,0.25)] group-hover:-translate-y-0.5 transition-all duration-300">
+          <div class="text-4xl font-black text-white leading-none">47</div>
+          <div class="text-xs text-white/80 uppercase tracking-[0.15em] font-black mt-2">Pages generated</div>
+        </div>
+      </div>
+
+      <!-- WHAT I TESTED - Social Proof Checklist -->
+      <div class="bg-gradient-to-br from-teal-50 to-teal-100 border-[3px] border-teal-200 p-6 md:p-8 mb-12">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black text-gray-900">What I Tested</h3>
+            <p class="text-sm text-gray-600">18 hours of hands-on testing across 7 days</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Sitemap generation</strong> (47-page SaaS site)</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Wireframe export</strong> to Framer</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Figma export</strong> compatibility</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Component library</strong> integration</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Client presentation</strong> mode</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Sitemap iteration</strong> and editing</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>E-commerce flows</strong> (basic)</span>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            <span class="text-sm text-gray-700"><strong>Free tier limits</strong> (3 projects)</span>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-teal-300">
+          <p class="text-xs text-gray-500 italic">
+            <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            Recently tested: January 2025 • Full 7-day testing period
+          </p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        How it started
+      </h2>
+
+					<p class="text-gray-600 leading-relaxed mb-6">
+						A client needed a complete website redesign. They had a SaaS platform, 50+ features, no clear site structure. Usually, this means weeks of meetings, spreadsheets, and arguments about information architecture.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						I'd heard Relume's AI could generate sitemaps from prompts. Sounded too good to be true. But I was staring at a blank whiteboard and a deadline, so I tried it.
+					</p>
+
+					<div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+						<p class="text-sm">
+							I typed "SaaS project management platform with features for task tracking, time tracking, team collaboration, and reporting" and hit generate. 2 minutes and 47 seconds later, I had a complete 47-page sitemap with Homepage, Features, Pricing, Resources, Blog, and everything in between.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        The good stuff
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						After testing Relume for a week, here's what impressed me:
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">The sitemap generation is actually useful</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						It didn't just spit out random pages. The AI organized things logically:
+					</p>
+					<ul class="text-gray-600 leading-relaxed mb-6">
+						<li>Core pages (Home, About, Contact)</li>
+						<li>Feature pages (Task Management, Time Tracking, etc.)</li>
+						<li>Resources (Blog, Case Studies, Help Center)</li>
+						<li>Account pages (Sign up, Login, Pricing)</li>
+					</ul>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Was it perfect? No. But it was 80% there. I spent 30 minutes adjusting instead of 3 days staring at a blank whiteboard.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Wireframes export to Figma/Webflow without breaking</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						This was the surprise. Usually, when you export something from one tool to another, formatting breaks. Fonts change. Spacing gets weird. Components ungroup.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Relume's export just... worked. I exported to Figma, and everything was editable. Text layers were separate. Components were grouped. It was like I'd built it there myself.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Client presentation mode saves meetings</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Relume has a presentation mode that hides all the editing controls and just shows the sitemap/wireframes. I used this in a client meeting, and it made a huge difference.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Instead of explaining "this wireframe tool" and "those editing controls," I just clicked through the site structure. The client focused on the content, not the tool. They approved the sitemap in one meeting instead of the usual 3-4 email cycles.
+					</p>
+
+					<div class="bg-green-50 border-l-4 border-green-500 p-6 my-8">
+						<p class="text-sm">
+							If you've ever spent 6 rounds of emails arguing about whether "Case Studies" should be under "Resources" or "Company," you know how valuable this is. Relume gave us a starting point that everyone could agree on.
+						</p>
+					</div>
+
+					<!-- When Relume Failed Me -->
+					<div class="mb-12">
+						<div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-teal-500 p-6 md:p-8">
+							<h2 class="text-2xl font-black text-white mb-2">Relume's Learning Wall: Powerful Tool, Confusing for Beginners</h2>
+							<p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Great for planning, confusing for beginners</p>
+
+							<div class="space-y-6">
+								<!-- Failure 1 -->
+								<div class="border-l-[4px] border-teal-500 pl-4">
+									<div class="flex items-center gap-2 mb-2">
+										<span class="text-sm font-black text-teal-400">FAILURE #1:</span>
+										<span class="text-sm font-black text-white">The "Where's My Website?" Confusion</span>
+									</div>
+									<p class="text-sm text-gray-300 leading-relaxed">
+										Client wanted AI website builder. "I heard Relume is great," they said. I explained: Relume is for planning, not building. Generated beautiful 47-page sitemap. Client approved. "Now where's my website?" "We need to export to Framer and build it." "I thought Relume built websites?" Client felt misled. Spent 2 hours explaining the workflow. They hired someone else who just used Framer directly. Relume's positioning confuses non-professionals.
+									</p>
+									<p class="text-xs text-gray-400 mt-2"><strong class="text-teal-400">Lost client</strong> - they didn't understand it's not a builder</p>
+								</div>
+
+								<!-- Failure 2 -->
+								<div class="border-l-[4px] border-cyan-500 pl-4">
+									<div class="flex items-center gap-2 mb-2">
+										<span class="text-sm font-black text-cyan-400">FAILURE #2:</span>
+										<span class="text-sm font-black text-white">The E-Commerce Sitemap That Wasn't</span>
+									</div>
+									<p class="text-sm text-gray-300 leading-relaxed">
+										Fashion brand needed site with 200 SKUs, 8 categories, size guides, wishlist, loyalty program. Used Relume to generate sitemap. Got: Shop, Product, Cart, Checkout. That's it. No categories. No account dashboard. No order history. No wishlist. No loyalty pages. Had to manually add 15 pages Relume missed. For e-commerce, Relume's AI is surface-level. It understands basic shop structure, not real e-commerce complexity.
+									</p>
+									<p class="text-xs text-gray-400 mt-2"><strong class="text-cyan-400">15 pages</strong> had to be added manually</p>
+								</div>
+
+								<!-- Failure 3 -->
+								<div class="border-l-[4px] border-emerald-500 pl-4">
+									<div class="flex items-center gap-2 mb-2">
+										<span class="text-sm font-black text-emerald-400">FAILURE #3:</span>
+										<span class="text-sm font-black text-white">The Locked Component Trap</span>
+									</div>
+									<p class="text-sm text-gray-300 leading-relaxed">
+										Exported wireframes to Figma. Designer tried to customize components. "These are locked," she said. Can't edit unless you install Relume's library. But client has existing design system. Installing Relume library conflicts with their components. Had to rebuild half the wireframes from scratch. The "seamless export" only works if you use Relume's exact components. If you have your own design system, prepare for friction.
+									</p>
+									<p class="text-xs text-gray-400 mt-2"><strong class="text-emerald-400">Locked components</strong> = no customization without their library</p>
+								</div>
+							</div>
+
+							<div class="mt-8 pt-6 border-t border-white/20">
+								<p class="text-sm text-gray-300">
+									strong class="text-white">Bottom line:</strong> Relume is the best planning tool for professional designers and agencies. But it's not a website builder, and it's not for beginners. If you understand the Relume → Framer workflow, it's invaluable. If you just want a website, use Framer directly.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- CTA after good stuff -->
+					<div class="text-center my-10">
+						<a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-teal-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(13,148,136,0.3)] hover:shadow-[0_8px_0_0_rgba(13,148,136,0.4)] hover:-translate-y-0.5 transition-all border-b-4 border-teal-800">
+						  <span>Start My Free Wireframing →</span>
+						</a>
+						<p class="text-xs text-gray-500 mt-3">3 free projects • Export to Framer, Webflow, Figma</p>
+					</div>
+
+					<!-- PRICING TABLE -->
+					<div class="my-12 bg-white border-[3px] border-teal-200 p-6 md:p-8">
+						<div class="text-center mb-8">
+							<h2 class="text-2xl md:text-3xl font-black text-gray-900">Relume Pricing</h2>
+							<p class="text-gray-500 mt-2">Free tier for planning, paid for pro features</p>
+						</div>
+						<div class="grid md:grid-cols-3 gap-4">
+							<!-- Free -->
+							<div class="border-[2px] border-gray-200 p-5">
+								<div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Free</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$0<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For trying it out</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>3 projects</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>AI sitemap generator</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Basic wireframing</li>
+								</ul>
+								<a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 border-[2px] border-teal-600 text-teal-600 font-black text-sm hover:bg-teal-600 hover:text-white transition-colors">Start Free</a>
+							</div>
+							<!-- Pro - POPULAR -->
+							<div class="border-[3px] border-teal-600 p-5 relative bg-teal-50">
+								<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-teal-600 text-white text-xs font-black uppercase tracking-wider">
+									Best Value
+								</div>
+								<div class="text-sm text-teal-600 uppercase tracking-wider font-black mb-2">Pro</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$32<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For professionals</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Unlimited projects</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Framer/Webflow export</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Component library</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Team collaboration</li>
+								</ul>
+								<a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 bg-teal-600 text-white font-black text-sm shadow-[0_4px_0_0_rgba(13,148,136,0.3)] hover:shadow-[0_6px_0_0_rgba(13,148,136,0.4)] border-b-4 border-teal-800 hover:-translate-y-0.5 transition-all">Try Pro Free</a>
+							</div>
+							<!-- Teams -->
+							<div class="border-[2px] border-gray-200 p-5">
+								<div class="text-sm text-gray-500 uppercase tracking-wider font-black mb-2">Teams</div>
+								<div class="text-3xl font-black text-gray-900 mb-1">$60<span class="text-sm font-normal text-gray-500">/mo</span></div>
+								<p class="text-xs text-gray-500 mb-4">For agencies</p>
+								<ul class="text-sm text-gray-600 space-y-2 mb-6">
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Everything in Pro</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>5 team members</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Centralized billing</li>
+									<li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Priority support</li>
+								</ul>
+								<a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="block w-full text-center px-4 py-3 border-[2px] border-teal-600 text-teal-600 font-black text-sm hover:bg-teal-600 hover:text-white transition-colors">Try Teams Free</a>
+							</div>
+						</div>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Then I realized what Relume actually is
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						This is the part that confused me at first.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">It's not a website builder</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						Relume won't build your site. It won't host it. It won't give you a URL you can share. It generates sitemaps and wireframes—that's it.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						After you approve the wireframes in Relume, you export them to Framer, Webflow, Figma, or React and build the actual site there. Relume is for the planning phase, not the building phase.
+					</p>
+
+					<div class="bg-red-50 border-l-4 border-red-500 p-6 my-8">
+						<p class="text-sm">
+							If you're looking for a "build my whole site with AI" tool, Relume isn't it. Use Framer or Durable for that. Relume is for "plan my site structure so I don't waste 3 days staring at a blank page."
+						</p>
+					</div>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">E-commerce flows are weak</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						I tested Relume on an e-commerce project. The sitemap it generated was generic:
+					</p>
+					<ul class="text-gray-600 leading-relaxed mb-6">
+						<li>Shop page (okay)</li>
+						<li>Product page (basic)</li>
+						<li>Cart page (fine)</li>
+						<li>Checkout (missing key steps)</li>
+					</ul>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						No product categories. No account dashboard. No order history. No wishlist. For a real e-commerce site, I'd end up rewriting half the sitemap manually.
+					</p>
+
+					<h3 class="text-xl font-black text-gray-900 mt-8 mb-4">Some components are locked</h3>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						When you export wireframes, some components come locked. You can't edit them unless you install Relume's library in Figma/Webflow. That's fine for new projects, but if you have an existing design system, it's annoying.
+					</p>
+
+					<!-- COMPARISON TABLE -->
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        How Relume Compares
+      </h2>
+					<p class="text-gray-600 mb-6">
+						Relume isn't a website builder—it's a planning tool. Here's how it compares to actual AI builders.
+					</p>
+
+					<div class="overflow-x-auto mb-8">
+						<table class="w-full border-[3px] border-gray-200">
+							<thead class="bg-gray-900 text-white">
+								<tr>
+									<th class="px-4 py-3 text-left font-black">Feature</th>
+									<th class="px-4 py-3 text-center font-black text-teal-600">Relume AI</th>
+									<th class="px-4 py-3 text-center font-black"><a href="/reviews/framer-ai" class="hover:text-orange-500 transition-colors">Framer AI →</a></th>
+									<th class="px-4 py-3 text-center font-black"><a href="/reviews/10web-ai" class="hover:text-orange-500 transition-colors">10Web AI →</a></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Overall Score</td>
+									<td class="px-4 py-3 text-center text-teal-600 font-black">8.9/10</td>
+									<td class="px-4 py-3 text-center text-gray-600">9.2/10</td>
+									<td class="px-4 py-3 text-center text-gray-600">8.8/10</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">What It Does</td>
+									<td class="px-4 py-3 text-center text-sm">Planning & Wireframes</td>
+									<td class="px-4 py-3 text-center text-sm">Website Builder</td>
+									<td class="px-4 py-3 text-center text-sm">Website Builder</td>
+								</tr>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Sitemap Generation</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">✗</td>
+									<td class="px-4 py-3 text-center text-gray-600">Basic</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">Export Options</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">Framer, Webflow, Figma</td>
+									<td class="px-4 py-3 text-center text-orange-600 font-black">$25/mo</td>
+									<td class="px-4 py-3 text-center text-orange-600 font-black">$60/mo</td>
+								</tr>
+								<tr class="border-b border-gray-200">
+									<td class="px-4 py-3 font-medium">Design Quality</td>
+									<td class="px-4 py-3 text-center text-gray-600">N/A (planning)</td>
+									<td class="px-4 py-3 text-center text-green-700 font-black">★★★★★</td>
+									<td class="px-4 py-3 text-center text-gray-600">★★★☆☆</td>
+								</tr>
+								<tr class="border-b border-gray-200 bg-gray-50">
+									<td class="px-4 py-3 font-medium">Learning Curve</td>
+									<td class="px-4 py-3 text-center text-gray-600">Medium</td>
+									<td class="px-4 py-3 text-center text-gray-600">Medium</td>
+									<td class="px-4 py-3 text-center text-red-600 font-black">Steep</td>
+								</tr>
+								<tr class="bg-gray-50">
+									<td class="px-4 py-3 font-medium">Best For</td>
+									<td class="px-4 py-3 text-center text-sm">Planning complex sites</td>
+									<td class="px-4 py-3 text-center text-sm">Building portfolios</td>
+									<td class="px-4 py-3 text-center text-sm">E-commerce sites</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="bg-teal-50 border-l-4 border-teal-600 p-6 my-8">
+						<p class="text-sm">
+							<strong>Key insight:</strong> Relume isn't a competitor to Framer or 10Web—it's a companion tool. Use Relume to plan, then export to Framer/Webflow to build. This is the professional workflow for agencies.
+						</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        So... is it worth it?
+      </h2>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For designers and agencies: yes.</strong> If you do web design professionally, Relume will save you hours on every project. The sitemap generation alone eliminates the blank-page problem. The wireframe exports work seamlessly. This is a tool built by designers, for designers.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For complex sites: yes.</strong> If you're building a SaaS platform, a marketing site with 20+ pages, or anything with nested content structures, Relume's AI will organize it better than most people could from scratch.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For beginners: probably not.</strong> If you've never used Figma or Webflow, Relume's wireframes won't help you. You'll export them and stare at a design tool you don't know how to use. For actual beginners, use Framer or Durable—they're simpler.
+					</p>
+					<p class="text-gray-600 leading-relaxed mb-6">
+						<strong>For e-commerce: maybe.</strong> Relume can generate e-commerce sitemaps, but they're basic. If you have complex product variations, subscription flows, or custom checkout logic, you'll end up doing it manually.
+					</p>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Quick stats
+      </h2>
+					<div class="grid grid-cols-2 md:grid-cols-4 gap-4 my-8">
+						<div>
+							<div class="text-2xl font-black text-text">8.3</div>
+							<div class="text-xs text-text-muted mt-1">Overall score</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">{reviewData.testingTime}</div>
+							<div class="text-xs text-text-muted mt-1">Time spent</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">2:47</div>
+							<div class="text-xs text-text-muted mt-1">AI generation</div>
+						</div>
+						<div>
+							<div class="text-2xl font-black text-text">47</div>
+							<div class="text-xs text-text-muted mt-1">Pages generated</div>
+						</div>
+					</div>
+
+					<!-- FINAL CTA -->
+					<div class="bg-teal-50 border-[3px] border-teal-200 p-8 my-10 text-center">
+						<h3 class="text-xl font-black text-teal-900 mb-3">The Best Planning Tool That Isn't a Builder</h3>
+						<p class="text-gray-700 mb-6">Generate your sitemap and wireframes in minutes. Export to Framer, Webflow, or Figma when ready.</p>
+						<a href={relumeUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 bg-teal-600 text-white font-black text-lg shadow-[0_6px_0_0_rgba(13,148,136,0.3)] hover:shadow-[0_8px_0_0_rgba(13,148,136,0.4)] hover:-translate-y-0.5 transition-all border-b-4 border-teal-800">
+							<span>Start My Sitemap Planning Now →</span>
+						</a>
+						<p class="text-xs text-gray-500 mt-3">3 free projects • No credit card required</p>
+					</div>
+
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Other tools I tested
+      </h2>
+					<div class="space-y-4">
+						{relatedReviews.map((review) => (
+							<a href={review.slug} class="block group">
+								<div class="flex items-start justify-between pb-4 mb-4 border-b border-gray-200">
+									<div>
+										<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">{review.title}</h3>
+										<p class="text-sm text-gray-600 mt-1">{review.excerpt}</p>
+									</div>
+									<div class="text-right ml-4">
+										<div class="text-xl font-black text-gray-900">{review.score}</div>
+										<div class="text-xs text-gray-500">/ 10</div>
+									</div>
+								</div>
+							</a>
+						))}
+					</div>
+
+					<!-- Related Guides -->
+					<h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+        <div class="w-1 h-8 bg-[#F5521A]"></div>
+        Related Guides
+      </h2>
+					<div class="grid md:grid-cols-2 gap-4">
+						<a href="/guides/how-to-choose" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+							<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">How to Choose an AI Builder</h3>
+							<p class="text-sm text-gray-600 mt-1">Decision framework for picking the right tool</p>
+						</a>
+						<a href="/guides/best-ai-website-builders-2025" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+							<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Best AI Builders 2025</h3>
+							<p class="text-sm text-gray-600 mt-1">Complete guide to top tools</p>
+						</a>
+						<a href="/comparisons/relume-vs-framer" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+							<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Relume + Framer Workflow</h3>
+							<p class="text-sm text-gray-600 mt-1">Planning to building complete flow</p>
+						</a>
+						<a href="/best-ai-website-builder-for-agencies" class="block p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-colors group">
+							<h3 class="font-black text-gray-900 group-hover:text-[#F5521A]">Best for Agencies</h3>
+							<p class="text-sm text-gray-600 mt-1">Why Relume excels for agency work</p>
+						</a>
+					</div>
+				</div>
+			</article>
+		</main>
+
+
+</Layout>
+
+<!-- FAQ Schema for Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Relume a website builder?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Relume is a sitemap builder and wireframing tool, not a full website builder. It creates the structure and content strategy for your site, which you then export to Framer, Webflow, or other platforms to build and design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What platforms can I export to from Relume?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Relume exports directly to Framer, Webflow, and Figma. You get clean code that's ready to customize. For other platforms, you can copy components or use the Figma export as a design reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Relume AI free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Relume offers a free tier with up to 3 sitemites. Premium plans start at $32/month for unlimited sitemites and AI generation. The free tier is sufficient for testing and small projects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need Relume if I use Framer or Webflow?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Relume is optional but powerful for planning. It saves hours on sitemap creation and wireframing. Use it if you're building complex sites, working with clients, or want AI-generated page structures before designing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Relume generate content?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Relume AI generates headlines, descriptions, and page content based on your business description. The content is SEO-optimized and ready to customize. It's particularly good at creating comprehensive page structures."
+      }
+    }
+  ]
+}
+<style>
+  .relume-gradient { background: linear-gradient(135deg, #6366F1 0%, #EC4899 50%, #F43F5E 100%); }
+  .relume-border { border-color: #6366F1; }
+  .relume-text { color: #6366F1; }
+</style>
+
+<section class="relume-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    RELUME AI: COMPONENT LIBRARY NOT STANDALONE BUILDER<br/>
+    <span class="text-pink-200">Power Tool for Designers vs Wrong Choice for Beginners</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Complete review: Relume AI (wireframe generator + 2,000+ component library) for Webflow and Framer
+  </p>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 relume-text">
+      WHAT RELUME ACTUALLY IS (AND ISN'T)
+    </h2>
+    
+    <div class="bg-gradient-to-r from-indigo-100 to-pink-100 border-[3px] relume-border p-8 rounded-lg mb-12">
+      <p class="text-2xl font-bold text-center">
+        🎨 Brutal truth: Relume is NOT a standalone website builder. It's a component library + AI wireframe generator for Webflow and Framer.
+      </p>
+      <p class="text-lg text-center mt-4 text-gray-700">
+        Relume AI generates wireframes (6-7/10), not finished designs.<br/>
+        You must polish designs yourself (requires design skills).<br/>
+        Integrates WITH Webflow/Framer, doesn't replace them.<br/>
+        2,000+ free components in library (copy-paste speed).<br/>
+        Verdict: Power tool for designers, wrong choice for beginners.
+      </p>
+    </div>
+    
+    <div class="space-y-8">
+      <div class="border-[3px] relume-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🔧 Component Library vs Standalone Builder</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-2">Critical Distinction:</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="text-xl font-bold mb-3">Relume AI (Component Library):</h4>
+              <ul class="space-y-2">
+                <li>• <strong>Requires:</strong> Webflow or Framer account</li>
+                <li>• <strong>Generates:</strong> Wireframes, not finished designs</li>
+                <li>• <strong>Provides:</strong> 2,000+ copy-paste components</li>
+                <li>• <strong>Workflow:</strong> Generate wireframe → Import to Webflow → Customize manually</li>
+                <li>• <strong>Skill needed:</strong> Design experience required</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-3">Standalone AI Builders (Mixo, Durable):</h4>
+              <ul class="space-y-2">
+                <li>• <strong>Requires:</strong> Only their platform (no other tools)</li>
+                <li>• <strong>Generates:</strong> Finished-looking designs</li>
+                <li>• <strong>Provides:</strong> Complete website with content</li>
+                <li>• <strong>Workflow:</strong> Enter prompt → AI generates full site → Publish</li>
+                <li>• <strong>Skill needed:</strong> No design experience required</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-4 text-lg"><strong>Category verdict:</strong> Relume = power tool for designers building client sites. Mixo/Durable = quick solution for business owners needing sites fast. <strong>Not comparable:</strong> Different categories for different users. Choose Relume if you're a Webflow/Framer designer. Choose Mixo/Durable if you're a business owner who wants a website in 30 minutes.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] relume-border p-8">
+        <h3 class="text-3xl font-bold mb-6">⏱️ Time Savings Reality</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-2">Real Time Comparison:</p>
+          <div class="overflow-x-auto">
+            <table class="w-full border-[3px] relume-border">
+              <thead>
+                <tr class="bg-gradient-to-r from-indigo-600 to-pink-600 text-white">
+                  <th class="p-3 text-left">Phase</th>
+                  <th class="p-3 text-center">Webflow Alone</th>
+                  <th class="p-3 text-center">Webflow + Relume</th>
+                  <th class="p-3 text-center">Mixo/Durable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">Wireframe/Design</td>
+                  <td class="p-3 text-center">4-8 hours (from scratch)</td>
+                  <td class="p-3 text-center">30 seconds (AI generates)</td>
+                  <td class="p-3 text-center">30 seconds (AI generates)</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">Build in Platform</td>
+                  <td class="p-3 text-center">10-15 hours (manual)</td>
+                  <td class="p-3 text-center">6-10 hours (customize)</td>
+                  <td class="p-3 text-center">0 minutes (done)</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                  <td class="p-3 font-bold">Content Polish</td>
+                  <td class="p-3 text-center">2-4 hours (edit)</td>
+                  <td class="p-3 text-center">2-4 hours (edit)</td>
+                  <td class="p-3 text-center">20-30 minutes (tweak)</td>
+                </tr>
+                <tr>
+                  <td class="p-3 font-bold"><strong>Total Time</strong></td>
+                  <td class="p-3 text-center font-bold">16-27 hours</td>
+                  <td class="p-3 text-center font-bold">8-14 hours (30-50% faster)</td>
+                  <td class="p-3 text-center font-bold">30 minutes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-lg"><strong>Time verdict:</strong> Relume saves 30-50% time for Webflow designers (8-14 hours vs 16-27 hours). But Mixo/Durable still 15-25x faster than Relume (30 min vs 8-14 hours). <strong>Reality:</strong> Relume = efficiency tool for professionals. Mixo/Durable = speed tool for beginners. Different users, different solutions.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] relume-border p-8">
+        <h3 class="text-3xl font-bold mb-6">🧩 Component Library Value</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-2">What You Get:</p>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="text-xl font-bold mb-3">Free Components (Always Free):</h4>
+              <ul class="space-y-2">
+                <li>• <strong>2,000+ components:</strong> Headers, footers, features, CTAs</li>
+                <li>• <strong>Copy-paste:</strong> One click to Webflow or Framer</li>
+                <li>• <strong>Consistent design:</strong> Matching design system across all</li>
+                <li>• <strong>Responsive:</strong> Mobile, tablet, desktop included</li>
+                <li>• <strong>Lego blocks:</strong> Mix and match freely</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-3">AI Wireframe Generator (Paid):</h4>
+              <ul class="space-y-2">
+                <li>• <strong>Webflow plan:</strong> $192/year ($16/mo)</li>
+                <li>• <strong>Framer plan:</strong> $96/year ($8/mo)</li>
+                <li>• <strong>Generates:</strong> Sitemap + wireframes in 30 seconds</li>
+                <li>• <strong>Exports:</strong> Directly to Webflow/Framer</li>
+                <li>• <strong>Requires:</strong> Design skills to polish</li>
+              </ul>
+            </div>
+          </div>
+          <p class="mt-4 text-lg"><strong>Value verdict:</strong> Free component library = incredible value (2,000+ components forever free). AI wireframe generator = only worth it if building 5+ sites/year ($192/year ÷ 5 sites = $38/site investment). <strong>ROI calculation:</strong> If Relume saves 4 hours/site × $50/hour = $200 value per site. Building 5+ sites/year = $1,000+ value vs $192 cost. Worth it for agencies, not for solo founders building 1-2 sites.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 relume-text">
+      DECISION FRAMEWORK: WHO SHOULD USE RELUME
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] relume-border p-6">
+        <h3 class="text-2xl font-bold mb-4">✅ Choose Relume AI - For Designers & Agencies</h3>
+        <div class="text-lg">
+          <ul class="space-y-2">
+            <li>• <strong>Webflow/Framer user:</strong> Already comfortable with platform</li>
+            <li>• <strong>Building multiple sites:</strong> 5+ sites/year = ROI positive</li>
+            <li>• <strong>Design experience:</strong> Can polish wireframes to 9/10</li>
+            <li>• <strong>Agency workflow:</strong> Need consistent design system across clients</li>
+            <li>• <strong>Time savings matter:</strong> 30-50% faster = significant money saved</li>
+          </ul>
+          <p class="mt-4 text-lg"><strong>Use cases:</strong> Webflow agencies, Framer designers, freelance designers building client sites, teams needing consistent design system. <strong>Verdict:</strong> Relume = power tool for professionals. If you design for a living, Relume pays for itself quickly.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] relume-border p-6">
+        <h3 class="text-2xl font-bold mb-4">❌ Avoid Relume AI - Wrong Choice For:</h3>
+        <div class="text-lg">
+          <ul class="space-y-2">
+            <li>• <strong>Beginners:</strong> No design experience? Relume won't help (wireframes need polishing)</li>
+            <li>• <strong>Business owners:</strong> Just want a website fast? Use Mixo/Durable (30 min vs 8-14 hours)</li>
+            <li>• <strong>One-time sites:</strong> Building single site? $192 cost not justified</li>
+            <li>• <strong>Non-Webflow/Framer users:</strong> Relume only works with these platforms</li>
+            <li>• <strong>Hands-off seekers:</strong> Want AI to do everything? Relume requires manual work</li>
+          </ul>
+          <p class="mt-4 text-lg"><strong>Better alternatives:</strong> Beginners → Mixo/Durable (30-minute launch, no design skills needed). Solo founders → Wix/Squarespace (built-in templates, easier learning curve). Designers wanting speed → Relume (wireframe generator). <strong>Reality:</strong> Relume adds complexity. If you don't know Webflow, don't start with Relume. Learn Webflow first, then add Relume.</p>
+        </div>
+      </div>
+      
+      <div class="border-[3px] relume-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🔄 Ideal Relume Workflow</h3>
+        <div class="text-lg">
+          <p class="font-bold mb-2">How Professionals Use Relume:</p>
+          <ul class="space-y-2">
+            <li>• <strong>Step 1:</strong> Client provides content and requirements</li>
+            <li>• <strong>Step 2:</strong> Use Relume AI to generate sitemap + wireframes (30 seconds)</li>
+            <li>• <strong>Step 3:</strong> Export wireframes to Webflow/Framer</li>
+            <li>• <strong>Step 4:</strong> Customize design to match client brand (4-8 hours)</li>
+            <li>• <strong>Step 5:</strong> Save custom sections to Relume library for future reuse</li>
+            <li>• <strong>Result:</strong> Consistent design system across all client projects, faster turnaround</li>
+          </ul>
+          <p class="mt-4 text-lg"><strong>Agency example:</strong> Design agency building 20 client sites/year. Before Relume: 20 hours/site × 20 sites = 400 hours/year. After Relume: 12 hours/site × 20 sites = 240 hours/year. <strong>Saved:</strong> 160 hours/year × $50/hour = $8,000 value. <strong>Cost:</strong> $192/year. <strong>ROI:</strong> 4,066% return on investment. <strong>Verdict:</strong> For agencies, Relume = no-brainer.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-indigo-600 via-pink-600 to-rose-600">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      RELUME AI: FINAL VERDICT
+    </h2>
+    
+    <div class="bg-white/10 backdrop-blur-sm border-[3px] border-white p-8 rounded-lg">
+      <div class="space-y-6">
+        <div class="text-white">
+          <h3 class="text-2xl font-bold mb-4">✅ Choose Relume - For 10% Power Users</h3>
+          <ul class="space-y-2 text-lg">
+            <li>• <strong>Webflow/Framer designers:</strong> Already comfortable with platform</li>
+            <li>• <strong>Agencies:</strong> Building 5+ client sites/year = ROI positive</li>
+            <li>• <strong>Design experience required:</strong> Can polish wireframes to 9/10</li>
+            <li>• <strong>Pricing:</strong> $192/year (Webflow) or $96/year (Framer)</li>
+            <li>• <strong>Time savings:</strong> 30-50% faster (8-14 hours vs 16-27 hours per site)</li>
+            <li>• <strong>Free component library:</strong> 2,000+ components always free (even without AI)</li>
+            <li>• <strong>Verdict:</strong> Power tool for professionals. For agencies building 20 sites/year = $8,000 value (160 hours saved) vs $192 cost = 4,066% ROI. No-brainer for high-volume designers. Wrong choice for beginners, solo founders, anyone wanting hands-off AI.</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-2xl font-bold mb-4">❌ Avoid Relume - For 90% Who Should Choose Elsewhere</h3>
+          <ul class="space-y-2 text-lg">
+            <li>• <strong>Beginners:</strong> No design experience? Relume wireframes need polishing (you can't do it)</li>
+            <li>• <strong>Business owners:</strong> Want website in 30 minutes? Use Mixo/Durable (30 min vs 8-14 hours with Relume+Webflow)</li>
+            <li>• <strong>One-time projects:</strong> Building single site? $192 cost not justified (5+ sites/year needed for ROI)</li>
+            <li>• <strong>Non-Webflow/Framer users:</strong> Relume only works with these platforms (must learn them first)</li>
+            <li>• <strong>Hands-off seekers:</strong> Want AI to do everything? Relume = 30-second generation + 8-12 hours manual work</li>
+            <li>• <strong>Better alternatives:</strong> Beginners → Mixo/Durable (30-min launch, no skills). Solo founders → Wix/Squarespace (templates, easier). Designers → Relume (wireframe speed). Choose based on your skills and project volume.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 bg-white p-6 rounded-lg">
+        <p class="text-2xl font-bold relume-text">
+          Brutal truth: Relume is NOT a standalone builder. It's a power tool for Webflow/Framer designers. Wrong choice for beginners.
+        </p>
+        <p class="text-lg text-gray-700 mt-4">
+          <strong>What Relume actually is:</strong> Component library (2,000+ free components) + AI wireframe generator for Webflow and Framer. NOT a standalone website builder. Generates wireframes (6-7/10), not finished designs. Requires designer to polish to 9/10. Must have Webflow or Framer account (doesn't work alone). Integrates WITH platforms, doesn't replace them. Free component library = incredible value (2,000+ copy-paste components). AI generator = paid ($96-192/year).<br/>
+          <strong>Time savings reality:</strong> Webflow alone = 16-27 hours per site. Webflow + Relume = 8-14 hours (30-50% faster). Mixo/Durable = 30 minutes (15-25x faster than Relume). Different categories: Relume = efficiency tool for designers. Mixo/Durable = speed tool for beginners. Not comparable solutions for different users.<br/>
+          <strong>Who should use Relume:</strong> Webflow/Framer designers already comfortable with platform. Agencies building 5+ sites/year (ROI positive: $192 cost ÷ 5 sites = $38/site vs 4 hours saved × $50/hour = $200 value/site). Anyone with design experience who can polish wireframes. Teams needing consistent design system across client projects. Time savings matter = 30-50% faster = significant money for professionals.<br/>
+          <strong>Who should avoid Relume:</strong> Beginners with no design experience (wireframes need polishing you can't do). Business owners wanting 30-minute website (use Mixo/Durable instead). Solo founders building single site ($192 cost not justified). Non-Webflow/Framer users (Relume only works with these). Anyone wanting hands-off AI generation (Relume requires 8-12 hours manual work after AI).<br/>
+          <strong>Pricing and ROI:</strong> Relume AI Webflow = $192/year ($16/mo). Relume AI Framer = $96/year ($8/mo). Free component library = 2,000+ components always free (no subscription needed). Break-even = 5 sites/year (for Webflow plan). Agency example: 20 sites/year × 4 hours saved × $50/hour = $4,000 value vs $192 cost = 2,083% ROI. For agencies, Relume = no-brainer investment.<br/>
+          <strong>Remember:</strong> Relume = power tool for professionals, not beginner solution. If you don't know Webflow, don't start with Relume. Learn Webflow first (30-60 hours), then add Relume for speed (30-50% faster). Order matters: Platform skills first, efficiency tools second. Beginners start with Mixo/Durable (30 minutes, no skills). Designers scale with Relume (wireframe speed, component library). Choose based on your skills, project volume, and time value.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</Layout>

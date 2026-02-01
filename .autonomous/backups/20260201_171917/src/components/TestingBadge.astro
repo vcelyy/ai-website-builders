@@ -1,0 +1,51 @@
+---
+/**
+ * TestingBadge - Displays testing stats and methodology for credibility
+ * Based on competitor research (WebsiteToolTester, Digital.com style badges)
+ */
+const { testingTime, lastUpdated, score = null, showMethodologyLink = true } = Astro.props;
+
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return '';
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+};
+---
+
+<div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border-[2px] border-gray-200 hover:border-[#F5521A]/30 transition-all duration-300 group">
+  <div class="flex items-center gap-2">
+    <svg class="w-5 h-5 text-[#F5521A] group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+    </svg>
+    <span class="text-xs font-black text-gray-700 uppercase tracking-wider">
+      {testingTime}
+    </span>
+  </div>
+  {lastUpdated && (
+    <>
+      <span class="text-gray-300">|</span>
+      <span class="text-xs text-gray-500">Updated: {formatDate(lastUpdated)}</span>
+    </>
+  )}
+  {score && (
+    <>
+      <span class="text-gray-300">|</span>
+      <span class="text-xs font-bold text-[#F5521A]">Score: {score}/10</span>
+    </>
+  )}
+  {showMethodologyLink && (
+    <>
+      <span class="text-gray-300">|</span>
+      <a href="/methodology" class="text-xs text-[#F5521A] font-bold hover:underline">
+        How I Test
+      </a>
+    </>
+  )}
+</div>
+
+<style>
+  /* Add subtle shine effect on hover */
+  .group:hover {
+    box-shadow: 0 2px 8px rgba(245, 82, 26, 0.1);
+  }
+</style>

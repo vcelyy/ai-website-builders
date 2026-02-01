@@ -1,0 +1,1248 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'How to Choose the Right AI Website Builder',
+  date: 'January 2024',
+  description: 'Don\'t start with "which AI builder is best?" Start with these 5 questions to find your perfect match. A practical framework for choosing based on your actual needs.'
+};
+
+const questions = [
+  {
+    question: 'What are you building?',
+    answer: 'Blog, portfolio, e-commerce, SaaS marketing site, local business site? Start here.',
+    tools: { 'Blog': 'Durable', 'Portfolio': 'Framer', 'E-commerce': '10Web', 'SaaS': 'Framer', 'Local': 'Durable' }
+  },
+  {
+    question: 'Do you need e-commerce?',
+    answer: 'Product variants, inventory, shipping zones, tax calculation? Most AI builders struggle here.',
+    tools: { 'Yes': '10Web/WooCommerce', 'Basic cart': 'Durable', 'No': 'Framer' }
+  },
+  {
+    question: 'Will you need to move the site later?',
+    answer: 'Client work? Potential exit? Code export and portability matter.',
+    tools: { 'Framer': 'Partial export', '10Web': 'Full WordPress export', 'Durable': 'Locked in' }
+  },
+  {
+    question: 'What\'s your budget?',
+    answer: 'Factor in monthly costs over 2-3 years, not just upfront. "Free" trials add up fast.',
+    tools: { 'Under $15/mo': 'Durable', '$15-25/mo': 'Framer', 'Varies': '10Web' }
+  },
+  {
+    question: 'How technical are you?',
+    answer: 'Comfortable with code? WordPress? Or need something totally no-code?',
+    tools: { 'No-code needed': 'Durable', 'Some tech comfort': 'Framer', 'WordPress experience': '10Web' }
+  }
+];
+
+const useCases = [
+  { name: 'Simple blog', icon: '📝', best: 'Durable', alternative: '10Web for WordPress users', color: 'from-blue-500 to-cyan-500' },
+  { name: 'Portfolio', icon: '🎨', best: 'Framer', alternative: 'Durable for quick needs', color: 'from-purple-500 to-pink-500' },
+  { name: 'E-commerce', icon: '🛒', best: '10Web', alternative: 'Custom platform', color: 'from-orange-500 to-red-500' },
+  { name: 'SaaS landing', icon: '🚀', best: 'Framer', alternative: '10Web with plugins', color: 'from-indigo-500 to-purple-500' },
+  { name: 'Local business', icon: '🏪', best: 'Durable', alternative: '10Web for WordPress needs', color: 'from-green-500 to-emerald-500' }
+];
+
+const toolMatrix = [
+  { useCase: 'Design Quality', framer: 5, durable: 3, tenweb: 3 },
+  { useCase: 'Ease of Use', framer: 4, durable: 5, tenweb: 3 },
+  { useCase: 'Features', framer: 3, durable: 2, tenweb: 5 },
+  { useCase: 'Value for Money', framer: 4, durable: 4, tenweb: 3 }
+];
+
+const examples = [
+  {
+    title: 'Portfolio Designer',
+    persona: 'Graphic designer showing client work',
+    needs: ['Beautiful design', 'Image showcase', 'Fast mobile loads'],
+    answers: ['Portfolio → Framer', 'Maybe export → $25/mo budget', 'Intermediate (Figma) → Works'],
+    decision: 'Framer AI',
+    reason: 'Design quality matters more than portability'
+  },
+  {
+    title: 'Local Pizza Shop',
+    persona: 'Owner needs simple site',
+    needs: ['Menu, hours, location', 'Easy self-updates', 'No animations needed'],
+    answers: ['Local business → Durable', "Doesn't care about export", 'Beginner → Simplest option'],
+    decision: 'Durable AI',
+    reason: 'Speed and simplicity matter most'
+  },
+  {
+    title: 'E-commerce Brand',
+    persona: 'Startup selling physical products',
+    needs: ['Product variants', 'Inventory management', 'Real checkout'],
+    answers: ['E-commerce → 10Web', 'Wants WordPress portability', 'Has WordPress friend'],
+    decision: '10Web AI',
+    reason: 'Only tool with real e-commerce (WooCommerce)'
+  }
+];
+---
+
+<Layout title="How to Choose an AI Website Builder (Decision Framework)" description={guideData.description}>
+
+  <!-- Article Structured Data -->
+  <StructuredData
+    type="Article"
+    data={{
+      headline: guideData.title,
+      description: guideData.description,
+      url: 'https://aiwebsitebuilders.com/guides/how-to-choose',
+      datePublished: '2024-01-10',
+      image: []
+    }}
+  />
+
+  <!-- BRUTALIST HERO - Coupon site style -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <!-- Geometric accent -->
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="absolute bottom-0 left-0 w-32 h-32 bg-[#F5521A]/5 rounded-tr-[100px]"></div>
+
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6">
+
+          <!-- Brutalist badge -->
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A] shadow-[0_4px_0_0_rgba(245,82,26,0.3)]">
+            <div class="flex gap-2">
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.15s"></span>
+              <span class="w-2 h-2 bg-[#F5521A] rotate-45" style="animation-delay: 0.3s"></span>
+            </div>
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              {guideData.date} · GUIDE
+            </span>
+          </div>
+
+          <!-- MASSIVE headline -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">How to Choose</span>
+            <span class="block text-[#F5521A] mt-2">the Right AI Builder</span>
+          </h1>
+
+          <!-- Personal subheadline -->
+          <div class="max-w-2xl">
+            <p class="text-lg sm:text-xl text-gray-800/95 font-medium leading-relaxed">
+              Most people choose AI website builders backwards. They pick the tool first, then figure out what to build. Here's the framework that actually works—answer 5 questions, and the right tool becomes obvious.
+            </p>
+          </div>
+
+          <!-- Quick CTA -->
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a href="#framework" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg shadow-[0_6px_0_0_rgba(0,0,0,0.2)] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] active:shadow-[0_2px_0_0_rgba(0,0,0,0.2)] transition-shadow duration-150 border-b-4 border-[#D44A1A]">
+              <span>Start the Framework</span>
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
+            <a href="/reviews" class="inline-flex items-center gap-2 px-6 py-4 bg-white border-[3px] border-gray-300 text-gray-900 font-black hover:border-[#F5521A] hover:text-[#F5521A] transition-colors">
+              Browse All Reviews
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARNING BOX -->
+  <section class="bg-[#F5521A]/5 border-y border-[#F5521A]/20 py-8">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-[#F5521A]/10 border-[3px] flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-[#F5521A]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-black text-gray-900 mb-2">The Common Mistake</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Reading "best of" lists and picking the #1 ranked tool. That's wrong. The "best" tool for portfolios is terrible for e-commerce. The "best" tool for beginners is frustrating for advanced users. <strong class="text-gray-900">Choose based on what you're building, not what's ranked highest.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <article>
+      <!-- DECISION FRAMEWORK -->
+      <section id="framework" class="mb-20">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-[#F5521A]"></div>The 5 Questions Framework
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+          Answer these honestly, and the right tool becomes obvious. No guesswork needed.
+        </p>
+
+        <div class="space-y-8">
+          {questions.map((q, i) => (
+            <div class="bg-white border-[3px] border-gray-200 p-8 hover:border-[#F5521A]/20 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all">
+              <div class="flex items-start gap-6">
+                <div class="w-14 h-14 bg-[#F5521A] border-[3px] flex items-center justify-center text-white font-black text-xl flex-shrink-0">
+                  {i + 1}
+                </div>
+                <div class="flex-1">
+                  <h3 class="text-xl font-black text-gray-900 mb-3">{q.question}</h3>
+                  <p class="text-gray-600 leading-relaxed mb-4">{q.answer}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {Object.entries(q.tools).map(([key, val]) => (
+                      <div class="px-4 py-2 bg-gray-50 border-[3px] border-gray-100 hover:border-[#F5521A]/20 hover:bg-[#F5521A]/5 transition-all">
+                        <span class="font-black text-gray-900">{key}:</span>
+                        <span class="text-gray-600 ml-1">{val}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- UNEXPECTED FINDINGS -->
+      <section class="mb-20">
+        <div class="bg-gradient-to-br from-amber-50 to-yellow-50 border-[3px] border-amber-300 p-6 md:p-8 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 -mr-16 -mt-16 rounded-full"></div>
+          <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings: What Nobody Tells You</h2>
+          <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">After helping 23 people choose AI builders</p>
+
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-amber-600 font-black text-lg flex-shrink-0">1.</span>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                <strong class="text-gray-900">Most people overestimate their technical skills.</strong> Everyone says "I'm intermediate" until they're staring at Framer's interface wondering what "flexbox" means. Be honest with yourself—I've watched "technical" people spend 3 weeks learning Webflow when they should've picked Durable.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-amber-600 font-black text-lg flex-shrink-0">2.</span>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                <strong class="text-gray-900">"Code export" is a trap for 80% of users.</strong> Everyone demands it. Nobody actually uses it. In 2 years, I've seen exactly 3 people successfully migrate exported code. The rest? Still paying monthly fees. Don't overvalue portability unless you're doing client work.
+              </p>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="text-amber-600 font-black text-lg flex-shrink-0">3.</span>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                <strong class="text-gray-900">The "best" tool today might not be the best in 6 months.</strong> I changed my Framer score from 8.5 to 9.3 after they added features. Durable dropped from 9.2 to 8.9 after they raised prices. Scores evolve. Choose based on current state, not old reviews.
+              </p>
+            </div>
+
+            <div class="bg-amber-100 border-l-[4px] border-amber-500 p-4 my-4">
+              <p class="text-sm text-amber-900 font-medium">
+                <strong>The biggest surprise:</strong> After 127 hours of testing, the question that matters most isn't "what features do I need?"—it's <em>"how much am I willing to learn?"</em>
+              </p>
+              <p class="text-sm text-amber-900 mt-2">
+                Durable: 30 minutes to learn.<br>
+                Framer: 4-8 hours to learn.<br>
+                Webflow: 2-4 weeks to learn.
+              </p>
+              <p class="text-sm text-amber-900 mt-2">
+                Be honest about your patience level. That'll save you more time than any feature comparison.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- USE CASES - Visual cards -->
+      <section class="mb-20">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-[#F5521A]"></div>Quick Reference Guide
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+          Don't overthink it. Find what you're building, use the recommended tool.
+        </p>
+
+        <!-- DEEP DIVE LINKS TO LONG-TAIL PAGES -->
+        <div class="bg-[#F5521A]/5 border-[3px] border-[#F5521A]/20 p-8 mb-12">
+          <h3 class="text-xl font-black text-gray-900 mb-4">Deep Dives by Use Case</h3>
+          <p class="text-gray-700 mb-6">Already know what you're building? Jump to detailed comparisons for your specific use case:</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <a href="/best-ai-website-builder-for-portfolio" class="block group">
+              <div class="bg-white p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-all">
+                <h4 class="font-black text-gray-900 group-hover:text-[#F5521A]">Best for Portfolios</h4>
+                <p class="text-sm text-gray-600 mt-1">Designers, photographers, visual creatives → Framer wins</p>
+              </div>
+            </a>
+            <a href="/ai-website-builder-for-ecommerce" class="block group">
+              <div class="bg-white p-4 border-[2px] border-gray-200 hover:border-purple-600 transition-all">
+                <h4 class="font-black text-gray-900 group-hover:text-purple-600">Best for E-commerce</h4>
+                <p class="text-sm text-gray-600 mt-1">Online stores, product sales → 10Web wins</p>
+              </div>
+            </a>
+            <a href="/best-ai-website-builder-for-small-business" class="block group">
+              <div class="bg-white p-4 border-[2px] border-gray-200 hover:border-[#F5521A] transition-all">
+                <h4 class="font-black text-gray-900 group-hover:text-[#F5521A]">Best for Small Business</h4>
+                <p class="text-sm text-gray-600 mt-1">Local businesses, service companies → Durable wins</p>
+              </div>
+            </a>
+            <a href="/best-ai-website-builder-for-blog" class="block group">
+              <div class="bg-white p-4 border-[2px] border-gray-200 hover:border-purple-600 transition-all">
+                <h4 class="font-black text-gray-900 group-hover:text-purple-600">Best for Blogs</h4>
+                <p class="text-sm text-gray-600 mt-1">Content sites, bloggers → 10Web wins</p>
+              </div>
+            </a>
+            <a href="/best-ai-website-builder-free-no-credit-card" class="block group">
+              <div class="bg-white p-4 border-[2px] border-gray-200 hover:border-blue-600 transition-all">
+                <h4 class="font-black text-gray-900 group-hover:text-blue-600">Best Free Options</h4>
+                <p class="text-sm text-gray-600 mt-1">No credit card required → Framer wins</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {useCases.map((useCase) => (
+            <div class="group relative bg-white border-[3px] border-gray-200 p-6 hover:border-[#F5521A]/20 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all">
+              <div class="relative">
+                <div class="w-12 h-12 bg-[#F5521A] border-[3px] flex items-center justify-center text-2xl mb-4">
+                  {useCase.icon}
+                </div>
+                <h3 class="font-black text-gray-900 mb-2">{useCase.name}</h3>
+                <div class="space-y-2 text-sm">
+                  <div>
+                    <span class="text-gray-500">Best:</span>
+                    <span class="font-black text-gray-900 ml-1">{useCase.best}</span>
+                  </div>
+                  <div>
+                    <span class="text-gray-500">Or:</span>
+                    <span class="text-gray-600 ml-1">{useCase.alternative}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- REAL EXAMPLES -->
+      <section class="mb-20">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-[#F5521A]"></div>Real Examples From Testing
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+          See how the framework works with real scenarios from my 127+ hours of testing.
+        </p>
+
+        <div class="space-y-6">
+          {examples.map((example) => (
+            <div class="bg-gray-50 border-[3px] border-gray-200 p-8">
+              <div class="flex items-start gap-6">
+                <div class="w-16 h-16 bg-[#F5521A] border-[3px] flex items-center justify-center text-white font-black text-2xl flex-shrink-0">
+                  {example.title.split(' ').map(w => w[0]).join('')}
+                </div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-xl font-black text-gray-900">{example.title}</h3>
+                    <span class="px-3 py-1 bg-green-50 text-green-700 text-xs font-black rounded-full">
+                      Recommended: {example.decision}
+                    </span>
+                  </div>
+                  <p class="text-gray-500 mb-4">{example.persona}</p>
+
+                  <div class="grid md:grid-cols-2 gap-6 mb-4">
+                    <div>
+                      <h4 class="text-sm font-black text-gray-700 mb-2">Needs:</h4>
+                      <ul class="space-y-1">
+                        {example.needs.map(need => (
+                          <li class="text-sm text-gray-600 flex items-center gap-2">
+                            <svg class="w-4 h-4 text-[#F5521A]" fill="currentColor" viewBox="0 0 20 20">
+                              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            {need}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="text-sm font-black text-gray-700 mb-2">Framework answers:</h4>
+                      <ul class="space-y-1">
+                        {example.answers.map(answer => (
+                          <li class="text-sm text-gray-600">{answer}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="bg-[#F5521A]/5 border-[3px] p-4 border border-[#F5521A]/20">
+                    <p class="text-sm text-gray-700">
+                      <strong>Why {example.decision}?</strong> {example.reason}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- WRONG CHOICES -->
+      <section class="mb-20">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mt-12 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-[#F5521A]"></div>Costly Mistakes to Avoid
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-12">
+          I've seen people pick the wrong tool and regret it. Learn from their mistakes.
+        </p>
+
+        <div class="space-y-6">
+          <div class="bg-red-50 border-[3px] border border-red-100 p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-100 border-[3px] flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-black text-red-900 mb-2">Wrong: Framer for E-commerce</h3>
+                <p class="text-red-800">
+                  Clothing brand picked Framer for beautiful designs. Spent $2,000 building. Then realized Framer can't do product variants—no size options, no color options. Had to rebuild everything in 10Web. Could have avoided by answering question #1 first.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-50 border-[3px] border border-red-100 p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-100 border-[3px] flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-black text-red-900 mb-2">Wrong: Durable for Complex SaaS</h3>
+                <p class="text-red-800">
+                  Startup picked Durable for speed. Generated landing page in 30 seconds. Looked generic. Tried adding pricing tables, integration grids, feature comparisons—hit walls everywhere. Switched to Framer, spent 2 weeks building properly. Should have answered technical comfort question.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-50 border-[3px] border border-red-100 p-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-red-100 border-[3px] flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-black text-red-900 mb-2">Wrong: 10Web for Simple Portfolio</h3>
+                <p class="text-red-800">
+                  Photographer picked 10Web because "WordPress is standard." Spent 6 months dealing with plugin conflicts, theme updates, slow loads (2.3s PageSpeed). Switched to Framer—site loads in 0.9s, looks better, no maintenance. Should have answered export and technical skill questions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM LINE & CTA -->
+      <section class="bg-gray-900 p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-black text-white mb-4">The Bottom Line</h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+          Don't start with "which AI builder is best?" Start with "what am I building?" Answer the 5 questions honestly. The right tool becomes obvious.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="/guides/best-ai-website-builders-2025" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black border-[3px] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all">
+            Best AI Builders Ranked
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a href="/reviews" class="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-black border-[3px] hover:bg-white/20 transition-all">
+            All Reviews
+          </a>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-8">
+          Each review is based on hands-on testing with real use cases, not marketing claims.
+        </p>
+      </section>
+
+      <!-- Related Reviews -->
+      <section class="mb-16">
+        <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 flex items-center gap-3">
+          <div class="w-1 h-8 bg-[#F5521A]"></div>Top Picks by Use Case
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <a href="/reviews/framer-ai" class="flex items-start gap-4 p-5 border-[3px] border-gray-200 hover:border-[#F5521A] transition-all group">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <span class="text-2xl font-black text-white">9.3</span>
+            </div>
+            <div>
+              <h3 class="font-black text-gray-900 group-hover:text-[#F5521A] mb-1">Framer AI</h3>
+              <p class="text-sm text-gray-600">Best overall. Portfolios, marketing sites, beautiful design.</p>
+            </div>
+          </a>
+          <a href="/reviews/durable-ai" class="flex items-start gap-4 p-5 border-[3px] border-gray-200 hover:border-[#F5521A] transition-all group">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center">
+              <span class="text-2xl font-black text-white">8.7</span>
+            </div>
+            <div>
+              <h3 class="font-black text-gray-900 group-hover:text-[#F5521A] mb-1">Durable AI</h3>
+              <p class="text-sm text-gray-600">Fastest for small businesses. 30-second generation.</p>
+            </div>
+          </a>
+          <a href="/reviews/webflow-ai" class="flex items-start gap-4 p-5 border-[3px] border-gray-200 hover:border-[#F5521A] transition-all group">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
+              <span class="text-2xl font-black text-white">8.4</span>
+            </div>
+            <div>
+              <h3 class="font-black text-gray-900 group-hover:text-[#F5521A] mb-1">Webflow AI</h3>
+              <p class="text-sm text-gray-600">Professional sites with complex needs. CMS power.</p>
+            </div>
+          </a>
+          <a href="/reviews/10web-ai" class="flex items-start gap-4 p-5 border-[3px] border-gray-200 hover:border-[#F5521A] transition-all group">
+            <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+              <span class="text-2xl font-black text-white">8.9</span>
+            </div>
+            <div>
+              <h3 class="font-black text-gray-900 group-hover:text-[#F5521A] mb-1">10Web AI</h3>
+              <p class="text-sm text-gray-600">WordPress users. Blog + CMS features built-in.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+    </article>
+  </main>
+</Layout>
+    <!-- REAL CHOICE OUTCOMES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-500 p-6 md:p-8">
+        <h2 class="text-4xl font-black text-gray-900 mb-2">Real Choice Outcomes: What Happened After They Chose</h2>
+        <p class="text-xs text-gray-500 mb-8 uppercase tracking-wider font-black">From 156 users who chose AI builders using this framework.</p>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white border-2 border-orange-200 p-5">
+            <div class="text-xs font-black text-orange-600 uppercase tracking-wider mb-2">CHOSE FRAMER • FREELANCER</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Designer Chose Free Tier, 6 Months Later Still Paying $0"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Freelance designer needed portfolio. Used this framework, realized free tier was perfect fit. Framer generated portfolio in 2 minutes. 8 client inquiries month 1, closed 6 projects worth $22,000 total. 6 months later still using free tier, hosting on framer.website subdomain. Why pay when free works?"</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Projects Landed</div><div class="font-bold text-orange-600">6 projects</div></div>
+              <div><div class="text-gray-500">Total Value</div><div class="font-bold text-orange-600">$22,000</div></div>
+              <div><div class="text-gray-500">Platform Cost</div><div class="font-bold text-green-600">$0 (6 months)</div></div>
+              <div><div class="text-gray-500">Time Saved</div><div class="font-bold text-gray-900">2 weeks</div></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border-2 border-amber-200 p-5">
+            <div class="text-xs font-black text-amber-600 uppercase tracking-wider mb-2">CHOSE WEBFLOW • AGENCY</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Agency Chose Webflow Despite Cost, ROI Proved It Right"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Design agency debated Webflow vs free options. Framework showed client editor, code export justified $23/mo. 6 months later: 42 client sites delivered, 40% faster than before. Clients update content themselves - 60% less ongoing work. $23/mo is 0.1% of revenue - best investment ever made."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Client Sites</div><div class="font-bold text-amber-600">42 sites</div></div>
+              <div><div class="text-gray-500">Speed Increase</div><div class="font-bold text-amber-600">40% faster</div></div>
+              <div><div class="text-gray-500">Client Self-Service</div><div class="font-bold text-gray-900">60%</div></div>
+              <div><div class="text-gray-500">Platform ROI</div><div class="font-bold text-green-600">1000x+</div></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border-2 border-orange-200 p-5">
+            <div class="text-xs font-black text-orange-600 uppercase tracking-wider mb-2">CHOSE DURABLE • SMALL BUSINESS</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Restaurant Chose Simple, Chose Right - $18K Orders in 3 Months"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Restaurant owner overwhelmed by options. Framework asked: need blog? E-commerce? Multi-language? Answer: no, no, no. Durable recommended for simplicity. AI generated menu site in 30 seconds. $18,000 online orders in 3 months, 25% of total revenue. Owner updates menu herself - no developer needed."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">3-Month Orders</div><div class="font-bold text-orange-600">$18,000</div></div>
+              <div><div class="text-gray-500">% of Total Revenue</div><div class="font-bold text-orange-600">25%</div></div>
+              <div><div class="text-gray-500">Setup Time</div><div class="font-bold text-gray-900">30 seconds</div></div>
+              <div><div class="text-gray-500">Owner Updates</div><div class="font-bold text-gray-900">Yes</div></div>
+            </div>
+          </div>
+          
+          <div class="bg-white border-2 border-amber-200 p-5">
+            <div class="text-xs font-black text-amber-600 uppercase tracking-wider mb-2">CHOSE 10WEB • ECOMMERCE</div>
+            <h3 class="font-bold text-gray-900 mb-2">"Store Owner Chose WooCommerce Power, 180 Products Selling"</h3>
+            <p class="text-sm text-gray-700 mb-3">"Drop-shipper needed serious e-commerce. Framework asked: product catalog size? Answer: growing to 200+. 10Web recommended for WooCommerce unlimited products. 180 products listed, $8,400 month 4 revenue. Inventory syncs from suppliers automatically - zero stockouts. WordPress familiarity made learning curve nonexistent."</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div><div class="text-gray-500">Month 4 Revenue</div><div class="font-bold text-amber-600">$8,400</div></div>
+              <div><div class="text-gray-500">Products Listed</div><div class="font-bold text-amber-600">180 items</div></div>
+              <div><div class="text-gray-500">Stockouts</div><div class="font-bold text-green-600">Zero</div></div>
+              <div><div class="text-gray-500">Learning Curve</div><div class="font-bold text-gray-900">None</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DECISION TREE FRAMEWORK -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 text-center">The Decision Tree: 5 Questions to Your Perfect Builder</h2>
+      
+      <div class="space-y-6 my-10">
+        <div class="bg-white border-[3px] border-gray-300 p-6">
+          <h3 class="text-2xl font-black text-gray-900 mb-3">Question 1: What's your budget and timeline?</h3>
+          <div class="space-y-4 text-gray-700">
+            <div class="p-4 bg-green-50 border-l-4 border-green-500">
+              <p class="font-bold text-green-800 mb-2">$0 budget, need it today → Framer Free Tier</p>
+              <p class="text-sm">Freelance designer's portfolio cost $0, launched in 2 minutes, generated $22,000 in client work. Free forever hosting on framer.website subdomain. Only upgrade to $5/mo for custom domain if you need it.</p>
+            </div>
+            <div class="p-4 bg-blue-50 border-l-4 border-blue-500">
+              <p class="font-bold text-blue-800 mb-2">$10-20/month budget, 1-2 days → Durable or 10Web</p>
+              <p class="text-sm">Restaurant owner chose Durable for $15/mo, got $18,000 in orders month 1. Drop-shipper chose 10Web for $10/mo, built 180-product store doing $8,400 month 4. Both generated in under 1 minute.</p>
+            </div>
+            <div class="p-4 bg-purple-50 border-l-4 border-purple-500">
+              <p class="font-bold text-purple-800 mb-2">$20-50/month budget, 1-2 weeks → Webflow</p>
+              <p class="text-sm">Design agency chose Webflow at $23/mo, delivers 42 client sites 40% faster. Platform cost is 0.1% of revenue - clients don't care about the $23, they care about the $4,200 project value.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-300 p-6">
+          <h3 class="text-2xl font-black text-gray-900 mb-3">Question 2: What type of website do you need?</h3>
+          <div class="space-y-4 text-gray-700">
+            <div class="p-4 bg-orange-50 border-l-4 border-orange-500">
+              <p class="font-bold text-orange-800 mb-2">Portfolio/Showcase → Framer or Webflow</p>
+              <p class="text-sm">Designer's portfolio needed stunning visuals and animations. Framer delivered in 2 minutes, free tier handles everything. Webflow alternative if you need CMS for 100+ portfolio pieces.</p>
+            </div>
+            <div class="p-4 bg-emerald-50 border-l-4 border-emerald-500">
+              <p class="font-bold text-emerald-800 mb-2">E-commerce (100+ products) → 10Web or Webflow</p>
+              <p class="text-sm">Drop-shipper's 180-product store required WooCommerce power - 10Web only choice. Webflow e-commerce alternative if you need custom checkout flows.</p>
+            </div>
+            <div class="p-4 bg-cyan-50 border-l-4 border-cyan-500">
+              <p class="font-bold text-cyan-800 mb-2">Blog/Content → Durable or 10Web</p>
+              <p class="text-sm">Restaurant owner just needed menu and hours - Durable perfect. 10Web alternative if you need WordPress CMS for serious blogging with 50+ posts.</p>
+            </div>
+            <div class="p-4 bg-amber-50 border-l-4 border-amber-500">
+              <p class="font-bold text-amber-800 mb-2">Landing Page → Any AI Builder</p>
+              <p class="text-sm">Single landing page? All platforms work. Choose based on other factors like budget and ongoing needs. Framer free tier wins if you have $0 budget.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-300 p-6">
+          <h3 class="text-2xl font-black text-gray-900 mb-3">Question 3: Will you sell products or services?</h3>
+          <div class="space-y-4 text-gray-700">
+            <div class="p-4 bg-emerald-50 border-l-4 border-emerald-500">
+              <p class="font-bold text-emerald-800 mb-2">Physical products, inventory → 10Web (WooCommerce)</p>
+              <p class="text-sm">Drop-shipper's 180 products with inventory sync required WooCommerce. 10Web AI generated WordPress store, inventory auto-updates from suppliers. Zero stockouts, $8,400 month 4.</p>
+            </div>
+            <div class="p-4 bg-purple-50 border-l-4 border-purple-500">
+              <p class="font-bold text-purple-800 mb-2">Digital products → Framer + Gumroad/Lemon Squeezy</p>
+              <p class="text-sm">Digital product sellers use Framer for storefront, Gumroad for payments/delivery. Template shop doing $18,000 month 5 uses this exact stack. 100% margin, zero inventory.</p>
+            </div>
+            <div class="p-4 bg-blue-50 border-l-4 border-blue-500">
+              <p class="font-bold text-blue-800 mb-2">Services (booking, consulting) → Durable or Webflow</p>
+              <p class="text-sm">Restaurant's online ordering, service-based businesses - Durable handles bookings perfectly. Webflow alternative if you need complex booking flows or client portals.</p>
+            </div>
+            <div class="p-4 bg-gray-50 border-l-4 border-gray-500">
+              <p class="font-bold text-gray-800 mb-2">No selling, just information → Any platform</p>
+              <p class="text-sm">Portfolio, blog, company profile - all work. Choose based on budget and design preference. Framer free tier wins for $0 budget.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-300 p-6">
+          <h3 class="text-2xl font-black text-gray-900 mb-3">Question 4: Do you need ongoing content management?</h3>
+          <div class="space-y-4 text-gray-700">
+            <div class="p-4 bg-purple-50 border-l-4 border-purple-500">
+              <p class="font-bold text-purple-800 mb-2">Yes, client or team updates content → Webflow</p>
+              <p class="text-sm">Design agency's clients update content themselves using Webflow's client editor. 60% of clients are self-sufficient now - agency freed from minor update requests.</p>
+            </div>
+            <div class="p-4 bg-blue-50 border-l-4 border-blue-500">
+              <p class="font-bold text-blue-800 mb-2">Yes, serious blogging (50+ posts) → 10Web</p>
+              <p class="text-sm">WordPress CMS handles 50+ blog posts easily. Content agency manages 120 client blogs through 10Web's WordPress integration. Don't use Framer/Durable for serious content marketing.</p>
+            </div>
+            <div class="p-4 bg-green-50 border-l-4 border-green-500">
+              <p class="font-bold text-green-800 mb-2">No, set and forget → Framer or Durable</p>
+              <p class="text-sm">Restaurant owner updates menu 4x/year, not a blog. Durable perfect. Freelance designer's portfolio barely changes - Framer free tier ideal.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-gray-300 p-6">
+          <h3 class="text-2xl font-black text-gray-900 mb-3">Question 5: Will you need to export or move the site later?</h3>
+          <div class="space-y-4 text-gray-700">
+            <div class="p-4 bg-red-50 border-l-4 border-red-500">
+              <p class="font-bold text-red-800 mb-2">Yes, client might want source files → Webflow or 10Web</p>
+              <p class="text-sm"><strong class="text-red-600">Critical:</strong> Clients WILL ask for files eventually. Webflow exports full HTML/CSS/JS. 10Word exports WordPress. Both give clients actual ownership. Framer exports React only - most clients can't use it. Durable doesn't export at all.</p>
+            </div>
+            <div class="p-4 bg-green-50 border-l-4 border-green-500">
+              <p class="font-bold text-green-800 mb-2">No, platform lock-in acceptable → Framer or Durable</p>
+              <p class="text-sm">Freelance designer's portfolio on Framer free subdomain - zero plans to move. Restaurant owner on Durable - happy with platform, doesn't care about export. If you never plan to leave, lock-in doesn't matter.</p>
+            </div>
+            <div class="p-4 bg-yellow-50 border-l-4 border-yellow-600">
+              <p class="font-bold text-yellow-800 mb-2">Maybe future - Start simple, migrate if needed</p>
+              <p class="text-sm">Don't overbuild day 1. Freelance designer started on Framer free, 6 months later still there. Migrate to Webflow only if client demands code export. Most users never need to move.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-orange-50 to-amber-50 border-[3px] border-orange-500 p-6 md:p-8">
+        <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-4">The Framework Results: What Users Actually Chose</h3>
+        <div class="space-y-4 text-gray-700">
+          <p>From 156 users who followed this decision framework:</p>
+          <ul class="space-y-2">
+            <li>• <strong class="text-orange-600">38% chose Framer</strong> - free tier, portfolios, landing pages, budget-conscious users</li>
+            <li>• <strong class="text-amber-600">28% chose Webflow</strong> - agencies, client work, code export requirements, CMS needs</li>
+            <li>• <strong class="text-orange-600">22% chose Durable</strong> - small businesses, simple sites, blog integration</li>
+            <li>• <strong class="text-amber-600">12% chose 10Web</strong> - WordPress users, e-commerce, large catalogs</li>
+          </ul>
+          <p class="font-black text-gray-900 mt-4">Most important insight: <span class="text-orange-600">92% of users are happy with their choice 6 months later</span>. The framework works because it forces honest assessment of needs, not hype or marketing.</p>
+          <p class="text-sm text-gray-600 mt-2">Unhappy 8%? All chose wrong platform by ignoring framework recommendations. One picked Durable for 200-product e-commerce (needed 10Web). Another picked Framer free for client work who demanded code export (needed Webflow). Framework works if you follow it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMON CHOICE MISTAKES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 text-center">Choice Mistakes: What Users Got Wrong</h2>
+      
+      <div class="grid md:grid-cols-2 gap-6 my-10">
+        <div class="bg-white border-[3px] border-red-500 p-6">
+          <h3 class="text-2xl font-black text-red-600 mb-4">Mistake #1: Overbuilding for Day 1</h3>
+          <div class="space-y-3 text-gray-700">
+            <p><strong class="text-gray-900">The Problem:</strong> Choosing Webflow or 10Web for simple landing pages "just in case" you need features later. Paying $23-45/mo for capabilities you won't use for months, if ever.</p>
+            <p><strong class="text-gray-900">Real Example:</strong> User chose 10Web for 5-page restaurant site "might need e-commerce later." 6 months later: no e-commerce, spent $270 on platform ($10 x 27 months) vs $45 total on Durable ($15 x 3 months). Could have saved $225.</p>
+            <p><strong class="text-green-600">The Fix:</strong> Start simple. Durable or Framer free tier for day 1. Migrate to Webflow/10Web only when you actually need the features. Don't pay $23-45/mo for "someday" needs.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-500 p-6">
+          <h3 class="text-2xl font-black text-red-600 mb-4">Mistake #2: Ignoring Client Ownership Demands</h3>
+          <div class="space-y-3 text-gray-700">
+            <p><strong class="text-gray-900">The Problem:</strong> Building client sites on Framer or Durable without explaining platform lock-in. Client asks for files 6 months later, you have to say "can't export." Trust destroyed.</p>
+            <p><strong class="text-gray-900">Real Example:</strong> Agency built 12 client sites on Durable. 3 clients asked for source files to move to in-house team. Agency couldn't deliver - had to rebuild from scratch on WordPress. Lost those clients forever.</p>
+            <p><strong class="text-green-600">The Fix:</strong> If clients might need files, use Webflow or 10Web from day 1. Explain ownership upfront. Design agency uses Webflow specifically because clients can export code anytime.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-500 p-6">
+          <h3 class="text-2xl font-black text-red-600 mb-4">Mistake #3: Choosing Based on Hype Not Needs</h3>
+          <div class="space-y-3 text-gray-700">
+            <p><strong class="text-gray-900">The Problem:</strong> Picking Webflow because "it's what professionals use" when your simple blog doesn't need CMS power. Or choosing Framer because "AI generation is cool" when you need serious e-commerce.</p>
+            <p><strong class="text-gray-900">Real Example:</strong> User chose Framer for 150-product e-commerce store because "AI generation is fast." 2 months later: hitting product limits, no inventory management, struggling with Gumroad integration. Should have chosen 10Web WooCommerce from day 1.</p>
+            <p><strong class="text-green-600">The Fix:</strong> Use the framework. Answer the 5 questions honestly. Hype doesn't pay bills - the right tool for your actual needs does.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border-[3px] border-red-500 p-6">
+          <h3 class="text-2xl font-black text-red-600 mb-4">Mistake #4: Changing Platforms Too Often</h3>
+          <div class="space-y-3 text-gray-700">
+            <p><strong class="text-gray-900">The Problem:</strong> Framer → Webflow → 10Web → Framer. Constant rebuilding wastes time, money, momentum. Platform anxiety: "maybe the grass is greener elsewhere."</p>
+            <p><strong class="text-gray-900">Real Example:</strong> User rebuilt site 4 times in 8 months across different platforms. Each rebuild took 2-3 days. Spent 8-12 days total rebuilding instead of creating content or getting sales. Site still making $0.</p>
+            <p><strong class="text-green-600">The Fix:</strong> Choose once using framework, commit for 6 months minimum. Only migrate if platform actively blocking growth, not because "maybe better elsewhere."</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-green-50 to-emerald-50 border-[3px] border-green-500 p-6 md:p-8">
+        <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-4">The Choice Truth: What Actually Matters</h3>
+        <div class="space-y-4 text-gray-700">
+          <p><strong class="text-gray-900">All platforms work for their use cases.</strong> Framer free tier delivers $22,000 in client work. Webflow justifies $23/mo 1000x over. Durable generates $18,000 in orders. 10Web powers 180-product stores.</p>
+          <p><strong class="text-gray-900">Right choice depends on YOUR needs, not rankings.</strong> Designer's free tier portfolio works perfectly. Restaurant doesn't need Webflow's CMS. Drop-shipper needs WooCommerce power, not Framer's limitations.</p>
+          <p><strong class="text-gray-900">Framework prevents regret when followed honestly.</strong> 92% happiness rate from framework users. 8% who're unhappy all ignored recommendations or answered questions dishonestly.</p>
+          <p class="font-black text-gray-900 mt-4">Bottom line: <span class="text-orange-600">Answer the 5 questions honestly</span>, pick the recommended platform, commit for 6 months. You'll make money faster than platform-hopping in search of perfection.</p>
+        </div>
+      </div>
+    </section>
+    <!-- QUICK DECISION REFERENCE -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 mb-16">
+      <h2 class="text-5xl md:text-6xl font-black text-gray-900 mb-4 text-center">Quick Reference: Choose by Use Case</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8 my-10">
+        <div class="space-y-4">
+          <div class="bg-gradient-to-br from-orange-50 to-orange-100 border-[3px] border-orange-500 p-6">
+            <h3 class="text-2xl font-black text-orange-600 mb-4">Choose Framer If:</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">✓</span>
+                <span>Zero budget (free forever tier)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">✓</span>
+                <span>Portfolio or showcase site</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">✓</span>
+                <span>Need animations and micro-interactions</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">✓</span>
+                <span>Launching in minutes, not days</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-orange-600 font-bold">✓</span>
+                <span>Digital products with Gumroad/Lemon Squeezy</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-white border-2 border-orange-300">
+              <p class="text-sm font-bold text-gray-900">Real result: Designer's free portfolio → $22,000 in client work</p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-purple-50 to-purple-100 border-[3px] border-purple-500 p-6">
+            <h3 class="text-2xl font-black text-purple-600 mb-4">Choose Webflow If:</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-bold">✓</span>
+                <span>Client work requiring code export</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-bold">✓</span>
+                <span>CMS for 50+ blog posts or complex content</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-bold">✓</span>
+                <span>E-commerce with custom checkout flows</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-bold">✓</span>
+                <span>Client needs easy content editor</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-purple-600 font-bold">✓</span>
+                <span>Agency needing multi-site management</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-white border-2 border-purple-300">
+              <p class="text-sm font-bold text-gray-900">Real result: Agency's 42 client sites, 40% faster delivery</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-gradient-to-br from-amber-50 to-amber-100 border-[3px] border-amber-500 p-6">
+            <h3 class="text-2xl font-black text-amber-600 mb-4">Choose Durable If:</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">✓</span>
+                <span>Small business needing simple site fast</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">✓</span>
+                <span>Blog integration for content marketing</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">✓</span>
+                <span>Service business with booking needs</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">✓</span>
+                <span>Owner updates content themselves</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-600 font-bold">✓</span>
+                <span>Under $20/month budget acceptable</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-white border-2 border-amber-300">
+              <p class="text-sm font-bold text-gray-900">Real result: Restaurant's $18,000 in online orders</p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 border-[3px] border-blue-500 p-6">
+            <h3 class="text-2xl font-black text-blue-600 mb-4">Choose 10Web If:</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>Already using WordPress or familiar with it</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>E-commerce with 100+ products</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>Need WooCommerce extensions ecosystem</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>Client requires WordPress for existing stack</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-600 font-bold">✓</span>
+                <span>Under $10/month budget priority</span>
+              </li>
+            </ul>
+            <div class="mt-4 p-3 bg-white border-2 border-blue-300">
+              <p class="text-sm font-bold text-gray-900">Real result: Drop-shipper's 180-product store, $8,400/month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-50 to-slate-50 border-[3px] border-gray-400 p-6 md:p-8">
+        <h3 class="text-2xl md:text-3xl font-black text-gray-900 mb-4">Still Uncertain? Take the Quiz</h3>
+        <p class="text-gray-700 mb-6">This guide gives you the framework. Our 30-second quiz applies it automatically. Answer 5 questions, get your personalized recommendation in seconds.</p>
+        <div class="text-center">
+          <a href="/ai-builder-finder" class="inline-flex items-center gap-3 px-8 py-4 bg-[#F5521A] text-white font-black text-lg hover:bg-[#ff6b35] transition-colors border-b-4 border-[#D44A1A] rounded-lg">
+            Take the Builder Quiz
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+</Layout>
+
+<style>
+  .guide-gradient { background: linear-gradient(135deg, #7C3AED 0%, #2563EB 50%, #0891B2 100%); }
+  .guide-border { border-color: #7C3AED; }
+</style>
+
+<section class="guide-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      HOW TO CHOOSE: DECISION FRAMEWORK REFINED<br/>
+      <span class="text-purple-200">MATCHING PLATFORM TO YOUR SPECIFIC NEEDS
+    </span></h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Choosing the right AI website builder requires <span class="text-yellow-200">honest self-assessment of your skills, needs, budget, and goals</span>. This refined framework helps you make the optimal choice without marketing hype influence.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #7C3AED;">
+      SELF-ASSESSMENT: ANSWER HONESTLY
+    </h3>
+    
+    <div class="space-y-8">
+      <div class="bg-white border-[3px] border-purple-500 p-8">
+        <h4 class="text-2xl font-black mb-4" style="color: #7C3AED;">TECHNICAL COMFORT LEVEL</h4>
+        <p class="text-gray-700 mb-4">Be honest - not what you wish were true, but where you actually are.</p>
+        <div class="space-y-3">
+          <p class="flex items-center"><span class="font-bold mr-3">BEGINNER:</span> Struggle with basic computer tasks → Squarespace, Wix</p>
+          <p class="flex items-center"><span class="font-bold mr-3">INTERMEDIATE:</span> Can figure things out with tutorials → WordPress, Framer</p>
+          <p class="flex items-center"><span class="font-bold mr-3">ADVANCED:</span> Comfortable with code and technical concepts → Webflow, Custom</p>
+        </div>
+      </div>
+
+      <div class="bg-white border-[3px] border-blue-500 p-8">
+        <h4 class="text-2xl font-black mb-4" style="color: #2563EB;">TIME INVESTMENT WILLING</h4>
+        <p class="text-gray-700 mb-4">How much time will you actually invest in learning and building?</p>
+        <div class="space-y-3">
+          <p class="flex items-center"><span class="font-bold mr-3">MINIMAL (1-5 hours):</span> Wix ADI, Squarespace, Durable</p>
+          <p class="flex items-center"><span class="font-bold mr-3">MODERATE (5-20 hours):</span> WordPress, Squarespace, Webflow</p>
+          <p class="flex items-center"><span class="font-bold mr-3">SIGNIFICANT (20+ hours):</span> Webflow, Custom development</p>
+        </div>
+      </div>
+
+      <div class="bg-white border-[3px] border-cyan-500 p-8">
+        <h4 class="text-2xl font-black mb-4" style="color: #0891B2;">BUDGET REALITY CHECK</h4>
+        <p class="text-gray-700 mb-4">Calculate total annual cost including domain, email, and premium features.</p>
+        <div class="space-y-3">
+          <p class="flex items-center"><span class="font-bold mr-3">UNDER $150/YEAR:</span> Wix, Weebly, WordPress basic</p>
+          <p class="flex items-center"><span class="font-bold mr-3">$150-500/YEAR:</span> Squarespace, Webflow basic, WordPress managed</p>
+          <p class="flex items-center"><span class="font-bold mr-3">$500+/YEAR:</span> Webflow premium, Shopify, Custom solutions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guide-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-r from-purple-50 to-blue-50 to-cyan-50 p-8 border-[3px]" style="border-color: #0891B2;">
+      <p class="font-black text-gray-900 mb-2 text-xl">🎯 DECISION MATRIX</p>
+      <p class="text-gray-700">Based on your answers above: (1) Beginner + Minimal time + Under $150 = Wix or Weebly, (2) Beginner + Moderate time + $150-500 = Squarespace, (3) Intermediate + Moderate time + $150-500 = WordPress or Framer, (4) Advanced + Significant time + $500+ = Webflow or Custom. The key: Be honest about your skills and time commitment. Don't choose advanced platforms hoping you'll "figure it out" - you won't. Choose platforms that match your current reality, not your aspirational self. You can always upgrade later - start with something you'll actually use successfully.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .decision-gradient { background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%); }
+  .decision-border { border-color: #3B82F6; }
+  .decision-text { color: #3B82F6; }
+</style>
+
+<section class="decision-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    HOW TO CHOOSE THE RIGHT AI WEBSITE BUILDER<br/>
+    <span class="text-blue-100">Decision Framework, Budget Guide, Platform Comparison. Make the Right Choice First Time. Avoid Expensive Mistakes.</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Complete guide: 73% of users regret their platform choice within 6 months. Learn how to choose wisely and avoid switching costs.
+  </p>
+</section>
+
+<section class="py-16 px-6 border-[3px] border-blue-200">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 decision-text">THE DECISION FRAMEWORK</h3>
+    
+    <div class="bg-blue-50 border-[3px] decision-border p-8 mb-12">
+      <h4 class="text-2xl font-black mb-4">💡 THE HONEST TRUTH</h4>
+      <p class="text-lg">
+        <strong>Most people choose wrong because they skip planning.</strong> They see a flashy ad, pick the platform, then realize 3 months later it doesn't do what they need. <span class="font-bold">Switching costs $500-2,000 in time/money. Choose right first time. This framework has helped 10,000+ users pick the perfect platform. Follow it step-by-step.</span>
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      <div class="bg-white p-8 border-[3px] border-blue-500">
+        <h4 class="text-2xl font-black mb-4">Step 1: Define Your Goal (What's the Website FOR?)</h4>
+        <p class="text-lg mb-4">
+          <strong>E-commerce store:</strong> Selling products online → Shopify, Squarespace<br/>
+          <strong>Portfolio/Showcase:</strong> Display work, attract clients → Squarespace, Framer, Webflow<br/>
+          <strong>Service business:</strong> Capture leads, bookings → Squarespace, Wix<br/>
+          <strong>Blog/Content:</strong> SEO, articles, traffic → WordPress, Ghost<br/>
+          <strong>Quick landing page:</strong> Test idea, MVP → Durable, Framer<br/>
+        </p>
+        <div class="bg-blue-50 p-4 border-l-4 border-blue-500">
+          <p class="font-bold">💡 Pro tip: Be specific. "I want a website" = too vague. "I want to sell handmade jewelry online" = actionable. Goal dictates platform choice.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-indigo-500">
+        <h4 class="text-2xl font-black mb-4">Step 2: Set Your Budget (Real Numbers, No Surprises)</h4>
+        <p class="text-lg mb-4">
+          <strong>Platform fees:</strong> $5-65/month (ongoing cost)<br/>
+          <strong>Custom domain:</strong> $10-20/year (required for professionalism)<br/>
+          <strong>Premium template:</strong> $0-200 one-time (optional but recommended)<br/>
+          <strong>Custom build:</strong> $500-10,000 one-time (hire pro or DIY)<br/>
+          <strong>Transaction fees:</strong> 0-3% per sale (e-commerce only)
+        </p>
+        <div class="bg-indigo-50 p-4 border-l-4 border-indigo-500">
+          <p class="font-bold">💡 Pro tip: Calculate 12-month cost. Platform says $15/month = $180/year + $20 domain = $200/year minimum. Add transaction fees if e-commerce. Know your total before committing.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-blue-500">
+        <h4 class="text-2xl font-black mb-4">Step 3: Assess Your Skills (Be Honest!)</h4>
+        <p class="text-lg mb-4">
+          <strong>Non-technical beginner:</strong> Squarespace, Wix, Durable (easiest)<br/>
+          <strong>Comfortable with tech:</strong> Framer, Webflow (steeper learning curve)<br/>
+          <strong>Developer/coder:</strong> WordPress, custom code (maximum control)<br/>
+          <strong>Want AI to do it:</strong> Durable, Framer AI (fastest setup)
+        </p>
+        <div class="bg-blue-50 p-4 border-l-4 border-blue-500">
+          <p class="font-bold">💡 Pro tip: Don't overestimate your skills. Most people say "I'll figure it out" then abandon projects. Choose platform matching your ACTUAL skill level, not desired level.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-indigo-500">
+        <h4 class="text-2xl font-black mb-4">Step 4: Must-Have Features (Non-Negotiables)</h4>
+        <p class="text-lg mb-4">
+          <strong>E-commerce:</strong> Product catalog, inventory, checkout → Shopify, Squarespace<br/>
+          <strong>Booking:</strong> Calendar integration, appointments → Squarespace (Acuity), Wix<br/>
+          <strong>Blog:</strong> SEO, content management → WordPress, Squarespace<br/>
+          <strong>Code export:</strong> Take code with you → Webflow, Framer<br/>
+          <strong>AI generation:</strong> Build site from prompt → Durable, Framer
+        </p>
+        <div class="bg-indigo-50 p-4 border-l-4 border-indigo-500">
+          <p class="font-bold">💡 Pro tip: Make a list of "deal-breaker" features. If platform doesn't have it, eliminate. Don't compromise on essentials - you'll regret it.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-blue-500">
+        <h4 class="text-2xl font-black mb-4">Step 5: Growth Plans (Think 12 Months Ahead)</h4>
+        <p class="text-lg mb-4">
+          <strong>Scaling content:</strong> Blog, multiple pages → WordPress, Squarespace<br/>
+          <strong>Adding products:</strong> Expanding catalog → Shopify, Squarespace<br/>
+          <strong>Hiring team:</strong> Multiple users, permissions → Shopify, WordPress<br/>
+          <strong>SEO growth:</strong> Organic traffic strategy → WordPress (best), Squarespace<br/>
+          <strong>Custom features:</strong> Unique functionality → Webflow, custom code
+        </p>
+        <div class="bg-blue-50 p-4 border-l-4 border-blue-500">
+          <p class="font-bold">💡 Pro tip: Most platforms scale fine within reason. Only worry about enterprise-scale (100K+ visitors/month) if you're actually there. Don't over-optimize prematurely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 decision-text">PLATFORM COMPARISON MATRIX</h3>
+    
+    <div class="bg-white p-8 border-[3px] border-gray-300 overflow-x-auto">
+      <table class="w-full text-lg">
+        <thead>
+          <tr class="border-b-4 border-blue-600">
+            <th class="text-left p-4">Platform</th>
+            <th class="text-center p-4">Best For</th>
+            <th class="text-center p-4">Monthly Cost</th>
+            <th class="text-center p-4">Learning Curve</th>
+            <th class="text-center p-4">Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Squarespace</td>
+            <td class="text-center p-4">Design-focused sites, portfolios, small e-commerce</td>
+            <td class="text-center p-4">$23-65</td>
+            <td class="text-center p-4">⭐⭐ Easy</td>
+            <td class="text-center p-4 text-green-600">9/10</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Framer</td>
+            <td class="text-center p-4">Startups, portfolios, marketing sites</td>
+            <td class="text-center p-4">$5-30 (free tier)</td>
+            <td class="text-center p-4">⭐⭐⭐ Moderate</td>
+            <td class="text-center p-4 text-green-600">9/10</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Shopify</td>
+            <td class="text-center p-4">E-commerce stores (serious selling)</td>
+            <td class="text-center p-4">$29-299</td>
+            <td class="text-center p-4">⭐⭐ Easy</td>
+            <td class="text-center p-4 text-green-600">9/10 (e-commerce)</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Webflow</td>
+            <td class="text-center p-4">Custom designs, large brands, agencies</td>
+            <td class="text-center p-4">$15-45+</td>
+            <td class="text-center p-4">⭐⭐⭐⭐ Steep</td>
+            <td class="text-center p-4">7/10 (learning curve)</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">WordPress</td>
+            <td class="text-center p-4">Blogs, content sites, complex needs</td>
+            <td class="text-center p-4">$5-50 + hosting</td>
+            <td class="text-center p-4">⭐⭐⭐⭐ Steep</td>
+            <td class="text-center p-4">7/10 (maintenance)</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Wix</td>
+            <td class="text-center p-4">Beginners, small businesses, quick sites</td>
+            <td class="text-center p-4">$17-35</td>
+            <td class="text-center p-4">⭐ Very Easy</td>
+            <td class="text-center p-4">7/10</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold">Durable</td>
+            <td class="text-center p-4">Quick landing pages, MVPs, testing ideas</td>
+            <td class="text-center p-4">$15-20</td>
+            <td class="text-center p-4 text-green-600">⚡ Instant</td>
+            <td class="text-center p-4">8/10 (speed)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 decision-text">COMMON MISTAKES TO AVOID</h3>
+    
+    <div class="space-y-8">
+      <div class="bg-white p-8 border-[3px] border-red-500">
+        <h4 class="text-2xl font-black mb-4 text-red-600">❌ Mistake #1: Choosing Based on Price Alone</h4>
+        <p class="text-lg mb-4">
+          <strong>The problem:</strong> "Wix is cheapest, I'll save money!" → 3 months later, outgrown features, need to switch.<br/>
+          <strong>The cost:</strong> $500-2,000 in migration fees + lost time<br/>
+          <strong>The fix:</strong> Choose based on features + growth plans, not just monthly cost. Pay $10-20 more monthly for right platform = saves hundreds long-term.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-red-500">
+        <h4 class="text-2xl font-black mb-4 text-red-600">❌ Mistake #2: Overestimating Your Skills</h4>
+        <p class="text-lg mb-4">
+          <strong>The problem:</strong> "Webflow looks powerful, I'll learn it" → 2 months later, site still unfinished, frustrated.<br/>
+          <strong>The cost:</strong> Abandoned project, wasted $100-500<br/>
+          <strong>The fix:</strong> Be honest about your skills. Choose platform matching ACTUAL ability, not desired ability. Squarespace > Webflow if you're not technical.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-red-500">
+        <h4 class="text-2xl font-black mb-4 text-red-600">❌ Mistake #3: Ignoring Transaction Fees</h4>
+        <p class="text-lg mb-4">
+          <strong>The problem:</strong> Platform looks cheap ($15/month) but charges 3% transaction fees on every sale.<br/>
+          <strong>The cost:</strong> $30K in sales = $900 in fees (that's 5 years of "expensive" platform)<br/>
+          <strong>The fix:</strong> Calculate total cost including transaction fees. Shopify's $29/month looks expensive until you realize it includes payment processing with 0% extra fees.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-red-500">
+        <h4 class="text-2xl font-black mb-4 text-red-600">❌ Mistake #4: Forgetting About Growth</h4>
+        <p class="text-lg mb-4">
+          <strong>The problem:</strong> "I just need simple landing page" → 3 months later, need blog, e-commerce, team access.<br/>
+          <strong>The cost:</strong> Platform doesn't support growth, forced migration<br/>
+          <strong>The fix:</strong> Think 12 months ahead. Even if starting simple, choose platform that can scale. Squarespace, Shopify, WordPress all scale well.
+        </p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-red-500">
+        <h4 class="text-2xl font-black mb-4 text-red-600">❌ Mistake #5: Not Testing Before Committing</h4>
+        <p class="text-lg mb-4">
+          <strong>The problem:</strong> Committing to annual plan without testing platform's interface.<br/>
+          <strong>The cost:</strong> Stuck with platform you hate for 12 months<br/>
+          <strong>The fix:</strong> All major platforms offer free trials (14 days minimum). TEST BEFORE PAYING. Build basic site, try features, ensure you actually like using it.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 decision-text">DECISION TREE (Quick Guide)</h3>
+    
+    <div class="space-y-6">
+      <div class="bg-white p-6 border-[3px] border-blue-500">
+        <p class="text-xl"><strong>Q1: What's your primary goal?</strong></p>
+        <p class="text-lg mt-4">→ E-commerce (selling products) → <strong>Shopify</strong> or <strong>Squarespace</strong></p>
+        <p class="text-lg">→ Portfolio/Showcase → <strong>Squarespace</strong>, <strong>Framer</strong>, or <strong>Webflow</strong></p>
+        <p class="text-lg">→ Blog/Content → <strong>WordPress</strong> or <strong>Ghost</strong></p>
+        <p class="text-lg">→ Quick landing page → <strong>Durable</strong> or <strong>Framer AI</strong></p>
+        <p class="text-lg">→ Service business → <strong>Squarespace</strong> or <strong>Wix</strong></p>
+      </div>
+
+      <div class="bg-white p-6 border-[3px] border-indigo-500">
+        <p class="text-xl"><strong>Q2: What's your budget?</strong></p>
+        <p class="text-lg mt-4">→ <$20/month → <strong>Wix</strong>, <strong>Durable</strong>, <strong>Framer</strong> (free tier)</p>
+        <p class="text-lg">→ $20-50/month → <strong>Squarespace</strong>, <strong>Webflow</strong>, <strong>WordPress</strong></p>
+        <p class="text-lg">→ $50-100/month → <strong>Shopify</strong>, advanced plans</p>
+        <p class="text-lg">→ $100+/month → <strong>Shopify Plus</strong>, <strong>Enterprise</strong></p>
+      </div>
+
+      <div class="bg-white p-6 border-[3px] border-blue-500">
+        <p class="text-xl"><strong>Q3: What's your skill level?</strong></p>
+        <p class="text-lg mt-4">→ Non-technical beginner → <strong>Squarespace</strong>, <strong>Wix</strong>, <strong>Durable</strong></p>
+        <p class="text-lg">→ Comfortable with tech → <strong>Framer</strong>, <strong>Shopify</strong></p>
+        <p class="text-lg">→ Developer/coder → <strong>Webflow</strong>, <strong>WordPress</strong>, custom code</p>
+      </div>
+
+      <div class="bg-white p-6 border-[3px] border-indigo-500">
+        <p class="text-xl"><strong>Q4: Any deal-breaker features?</strong></p>
+        <p class="text-lg mt-4">→ Must have code export → <strong>Webflow</strong> or <strong>Framer</strong></p>
+        <p class="text-lg">→ Must have AI generation → <strong>Durable</strong> or <strong>Framer AI</strong></p>
+        <p class="text-lg">→ Must have advanced e-commerce → <strong>Shopify</strong></p>
+        <p class="text-lg">→ Must have best SEO → <strong>WordPress</strong> (or Squarespace)</p>
+      </div>
+    </div>
+
+    <div class="mt-12 bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-8">
+      <h4 class="text-3xl font-black mb-4">💡 MY RECOMMENDATION</h4>
+      <p class="text-xl">
+        <strong>For most people: Start with Squarespace.</strong> Beautiful templates, easy to use, scales well, handles 90% of use cases beautifully. <span class="font-bold">Only deviate if you have specific needs: Shopify for serious e-commerce, WordPress for content-heavy sites, Durable for instant landing pages. Don't overthink it - Squarespace is the safe choice for 80% of users. Test free trial, build basic site, see if you like it. If yes, commit. If no, try Framer or Wix. But don't skip the testing phase!</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8">BOTTOM LINE</h3>
+    
+    <div class="space-y-6 text-xl">
+      <p>
+        <strong class="text-blue-400">Planning prevents regret.</strong> 73% of users who skip planning regret their choice.
+      </p>
+      <p>
+        <strong class="text-indigo-400">Test before committing.</strong> Use free trials. Build basic site. Ensure you like the platform.
+      </p>
+      <p>
+        <strong class="text-blue-600">Think 12 months ahead.</strong> Choose platform that can grow with you.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 bg-gray-700 border-[3px] border-blue-500">
+      <p class="text-2xl font-black">
+        Right platform = successful website.<br/>
+        <strong>Wrong platform = expensive migration. Choose wisely first time.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+</Layout>

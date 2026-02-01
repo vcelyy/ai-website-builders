@@ -1,0 +1,263 @@
+---
+/**
+ * Testimonials - Social Proof Component
+ *
+ * ANTI-AI-SLOP DESIGN:
+ * - Real names, not "John D." from templates
+ * - Specific results, not vague "great product"
+ * - Authentic voice, not marketing speak
+ * - Brand-specific warm coral/amber colors
+ * - Hand-crafted design, not Bootstrap default
+ *
+ * USAGE:
+ * <Testimonials
+ *   testimonials={[
+ *     {
+ *       name: "Sarah Chen",
+ *       role: "Freelance Developer",
+ *       avatar: "SC",
+ *       quote: "I went from 3 unfinished projects to 12 shipped in 6 months. The ADHD context awareness is real.",
+ *       result: "12 projects shipped"
+ *     }
+ *   ]}
+ * />
+ */
+
+interface Testimonial {
+  name: string;
+  role: string;
+  avatar: string; // 2-letter initials
+  quote: string;
+  result?: string; // Optional specific result
+  date?: string; // Optional "2 weeks ago" format
+}
+
+interface Props {
+  testimonials: Testimonial[];
+  layout?: 'grid' | 'stack';
+  className?: string;
+}
+
+const { testimonials, layout = 'stack', className = '' } = Astro.props;
+
+// Generate avatar colors based on initials (consistent but varied)
+function getAvatarColor(initials: string): string {
+  const colors = [
+    'bg-orange-500',
+    'bg-amber-600',
+    'bg-coral-500',
+    'bg-rose-500',
+    'bg-pink-500',
+    'bg-red-500',
+  ];
+  let hash = 0;
+  for (let i = 0; i < initials.length; i++) {
+    hash = initials.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return colors[Math.abs(hash) % colors.length];
+}
+
+const gridClasses = layout === 'grid'
+  ? 'grid grid-cols-1 md:grid-cols-2 gap-6'
+  : 'flex flex-col gap-6';
+---
+
+<div class={`testimonials-container ${gridClasses} ${className}`}>
+  {testimonials.map(testimonial => (
+    <div class="testimonial-card">
+      <div class="testimonial-quote">
+        <svg class="quote-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+        <p class="quote-text">{testimonial.quote}</p>
+      </div>
+
+      {testimonial.result && (
+        <div class="testimonial-result">
+          <svg class="result-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+          <span class="result-text">{testimonial.result}</span>
+        </div>
+      )}
+
+      <div class="testimonial-author">
+        <div class={`avatar ${getAvatarColor(testimonial.avatar)}`}>
+          {testimonial.avatar}
+        </div>
+        <div class="author-info">
+          <p class="author-name">{testimonial.name}</p>
+          <p class="author-role">{testimonial.role}</p>
+          {testimonial.date && (
+            <p class="testimonial-date">{testimonial.date}</p>
+          )}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  /* Testimonials Container */
+  .testimonials-container {
+    width: 100%;
+  }
+
+  /* Individual Testimonial Card */
+  .testimonial-card {
+    background: linear-gradient(135deg, #FFFBF7 0%, #FEF9F3 100%);
+    border: 2px solid #FED7AA;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(224, 122, 95, 0.08);
+  }
+
+  .testimonial-card:hover {
+    border-color: #FDBA74;
+    box-shadow: 0 4px 16px rgba(224, 122, 95, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Quote Section */
+  .testimonial-quote {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 16px;
+  }
+
+  .quote-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    color: #FED7AA;
+    opacity: 0.6;
+  }
+
+  .quote-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1C1917;
+    font-style: italic;
+    margin: 0;
+  }
+
+  /* Result Badge */
+  .testimonial-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border: 1px solid #FBBF24;
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #92400E;
+  }
+
+  .result-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .result-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #92400E;
+  }
+
+  /* Author Section */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1C1917;
+    margin: 0 0 2px 0;
+  }
+
+  .author-role {
+    font-size: 13px;
+    color: #78716C;
+    margin: 0;
+  }
+
+  .testimonial-date {
+    font-size: 11px;
+    color: #A8A29E;
+    margin: 4px 0 0 0;
+  }
+
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .testimonial-card {
+      background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+      border-color: #44403C;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-card:hover {
+      border-color: #57534E;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .quote-text {
+      color: #FAFAF9;
+    }
+
+    .author-name {
+      color: #FAFAF9;
+    }
+
+    .author-role {
+      color: #A8A29E;
+    }
+
+    .quote-icon {
+      color: #57534E;
+    }
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 640px) {
+    .testimonial-card {
+      padding: 20px;
+    }
+
+    .quote-text {
+      font-size: 15px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      font-size: 14px;
+    }
+  }
+</style>

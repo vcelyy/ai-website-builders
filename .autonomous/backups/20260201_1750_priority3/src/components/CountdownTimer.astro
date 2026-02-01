@@ -1,0 +1,242 @@
+---
+/**
+ * CountdownTimer - Live countdown timer for limited-time offers
+ *
+ * IMPORTANT: Use only for REAL deadlines with actual expiration
+ * This creates genuine urgency, not fake marketing tricks
+ *
+ * Features:
+ * - Live JavaScript countdown (HH:MM:SS)
+ * - Respects user's timezone
+ * - Shows "expired" state after deadline
+ * - Uses warm amber/orange colors (urgency, not generic purple)
+ */
+interface Props {
+  deadline: string; // ISO datetime string (e.g., "2026-01-26T23:59:59Z")
+  message?: string;
+  timezone?: string;
+}
+
+const { deadline, message = "Offer expires in:", timezone } = Astro.props;
+
+// Generate unique ID for this timer instance
+const timerId = `timer-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div id={timerId} class="countdown-timer" data-deadline={deadline} data-message={message}>
+  <div class="countdown-message">{message}</div>
+  <div class="countdown-display">
+    <span class="countdown-segment">
+      <span class="countdown-value" data-unit="hours">00</span>
+      <span class="countdown-label">hours</span>
+    </span>
+    <span class="countdown-separator">:</span>
+    <span class="countdown-segment">
+      <span class="countdown-value" data-unit="minutes">00</span>
+      <span class="countdown-label">min</span>
+    </span>
+    <span class="countdown-separator">:</span>
+    <span class="countdown-segment">
+      <span class="countdown-value" data-unit="seconds">00</span>
+      <span class="countdown-label">sec</span>
+    </span>
+  </div>
+  <div class="countdown-expiry" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+    <span>This offer has expired</span>
+  </div>
+</div>
+
+<script define:vars={{ timerId }}>
+  // Non-blocking, lightweight countdown timer
+  // Uses requestAnimationFrame for smooth updates
+  (function() {
+    const timer = document.getElementById(timerId);
+    if (!timer) return;
+
+    const deadline = new Date(timer.dataset.deadline);
+    const display = timer.querySelector('.countdown-display');
+    const expiry = timer.querySelector('.countdown-expiry');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = deadline - now;
+
+      if (diff <= 0) {
+        // Timer expired
+        if (display) display.style.display = 'none';
+        if (expiry) expiry.style.display = 'flex';
+        return;
+      }
+
+      // Calculate time remaining
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      // Update display
+      const hoursEl = timer.querySelector('[data-unit="hours"]');
+      const minutesEl = timer.querySelector('[data-unit="minutes"]');
+      const secondsEl = timer.querySelector('[data-unit="seconds"]');
+
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+
+      // Add urgency pulse when under 1 hour
+      if (hours === 0 && minutes < 60) {
+        timer.classList.add('urgent');
+      }
+
+      // Continue countdown
+      requestAnimationFrame(updateCountdown);
+    }
+
+    // Start countdown immediately
+    requestAnimationFrame(updateCountdown);
+  })();
+</script>
+
+<style>
+  .countdown-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%);
+    border: 2px solid #F97316;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .countdown-timer.urgent {
+    animation: urgent-pulse 1.5s ease-in-out infinite;
+    border-color: #DC2626;
+    background: linear-gradient(135deg, #FEF2F2 0%, #FEE2E2 100%);
+  }
+
+  @keyframes urgent-pulse {
+    0%, 100% {
+      box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.2);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 8px 12px -1px rgba(220, 38, 38, 0.4);
+      transform: scale(1.02);
+    }
+  }
+
+  .countdown-message {
+    font-size: 14px;
+    font-weight: 600;
+    color: #9A3412;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .countdown-display {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .countdown-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #FFF;
+    padding: 8px 12px;
+    border-radius: 8px;
+    min-width: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .countdown-value {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #EA580C;
+    line-height: 1;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #9A3412;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .countdown-separator {
+    font-size: 24px;
+    font-weight: 700;
+    color: #F97316;
+    margin: 0 4px;
+  }
+
+  .countdown-expiry {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #991B1B;
+    font-weight: 600;
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .countdown-timer {
+      background: linear-gradient(135deg, #431407 0%, #7C2D12 100%);
+      border-color: #EA580C;
+    }
+
+    .countdown-message {
+      color: #FED7AA;
+    }
+
+    .countdown-segment {
+      background: #1C1917;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .countdown-value {
+      color: #FB923C;
+    }
+
+    .countdown-label {
+      color: #FED7AA;
+    }
+
+    .countdown-separator {
+      color: #FB923C;
+    }
+
+    .countdown-timer.urgent {
+      background: linear-gradient(135deg, #450A0A 0%, #7F1D1D 100%);
+      border-color: #EF4444;
+    }
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 640px) {
+    .countdown-segment {
+      min-width: 50px;
+      padding: 6px 10px;
+    }
+
+    .countdown-value {
+      font-size: 22px;
+    }
+
+    .countdown-label {
+      font-size: 10px;
+    }
+
+    .countdown-separator {
+      font-size: 20px;
+    }
+  }
+</style>

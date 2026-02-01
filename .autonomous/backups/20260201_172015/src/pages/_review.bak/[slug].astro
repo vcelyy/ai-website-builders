@@ -1,0 +1,159 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import ScoreDisplay from '../components/ScoreDisplay.astro';
+import Card from '../components/Card.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import '../../styles/global.css';
+
+export const prerender = false;
+
+interface Props {
+	title: string;
+	slug: string;
+	score: number;
+	excerpt: string;
+	pros: string[];
+	cons: string[];
+	relatedReviews?: Array<{
+		title: string;
+		slug: string;
+		excerpt: string;
+	}>;
+}
+
+const { title, slug, score, excerpt, pros, cons, relatedReviews = [] } = Astro.props;
+
+const comparisonData = {
+	columns: ['Feature', title, 'Competitor A', 'Competitor B'],
+	rows: [
+		[{ value: 'AI Generation' }, { value: true }, { value: true }, { value: true }],
+		[{ value: 'Custom Templates' }, { value: true }, { value: false }, { value: true }],
+		[{ value: 'E-commerce' }, { value: true }, { value: true }, { value: false }],
+		[{ value: 'Free Plan' }, { value: true }, { value: false }, { value: true }],
+		[{ value: 'Custom Domain' }, { value: false }, { value: true }, { value: true }],
+	],
+};
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={excerpt} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} Review 2026 - AI Website Builders</title>
+	</head>
+	<body class="bg-bg text-text">
+		<Navigation />
+
+		<main class="min-h-screen">
+			<!-- Hero Section -->
+			<section class="py-16 px-6">
+				<div class="max-w-4xl mx-auto">
+					<div class="bg-bg-alt rounded-xl p-8 shadow-md">
+						<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+							<div class="flex-1">
+								<h1 class="text-4xl font-black text-text mb-4 leading-tight">{title}</h1>
+								<p class="text-lg text-text-muted leading-relaxed">{excerpt}</p>
+							</div>
+							<div class="md:w-64">
+								<ScoreDisplay score={score} maxScore={10} />
+							</div>
+						</div>
+
+						<!-- CTA Button -->
+						<div class="flex gap-4">
+							<a
+								href="#"
+								class="px-6 py-3 bg-primary text-white font-black rounded-lg hover:bg-primary-dark transition-colors"
+							>
+								Try {title} Free
+							</a>
+							<a
+								href="#comparison"
+								class="px-6 py-3 border border-border text-text font-black rounded-lg hover:bg-bg transition-colors"
+							>
+								See Comparison
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Pros & Cons -->
+			<section class="py-12 px-6">
+				<div class="max-w-4xl mx-auto">
+					<div class="grid md:grid-cols-2 gap-6">
+						<!-- Pros -->
+						<div class="bg-bg-alt rounded-xl p-6 shadow-md">
+							<h2 class="text-xl font-black text-success mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+								</svg>
+								Pros
+							</h2>
+							<ul class="space-y-2">
+								{pros.map((pro) => (
+									<li class="flex items-start gap-2 text-text-muted">
+										<svg class="w-5 h-5 text-success flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+											<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+										</svg>
+										<span>{pro}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+
+						<!-- Cons -->
+						<div class="bg-bg-alt rounded-xl p-6 shadow-md">
+							<h2 class="text-xl font-black text-error mb-4 flex items-center gap-2">
+								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+								</svg>
+								Cons
+							</h2>
+							<ul class="space-y-2">
+								{cons.map((con) => (
+									<li class="flex items-start gap-2 text-text-muted">
+										<svg class="w-5 h-5 text-error flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+											<path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+										</svg>
+										<span>{con}</span>
+									</li>
+								))}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Comparison Table -->
+			<section id="comparison" class="py-12 px-6">
+				<div class="max-w-4xl mx-auto">
+					<h2 class="text-3xl font-black text-text mb-6 text-center">How It Compares</h2>
+					<ComparisonTable columns={comparisonData.columns} rows={comparisonData.rows} />
+				</div>
+			</section>
+
+			<!-- Related Reviews -->
+			{relatedReviews.length > 0 && (
+				<section class="py-12 px-6">
+					<div class="max-w-4xl mx-auto">
+						<h2 class="text-3xl font-black text-text mb-6">Related Reviews</h2>
+						<div class="grid md:grid-cols-2 gap-6">
+							{relatedReviews.map((review) => (
+								<a href={`/review/${review.slug}`} class="block">
+									<Card title={review.title} excerpt={review.excerpt} />
+								</a>
+							))}
+						</div>
+					</div>
+				</section>
+			)}
+		</main>
+
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,1244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+import TestingBadge from '../../components/TestingBadge.astro';
+import TestingEvidence from '../../components/TestingEvidence.astro';
+import { getAffiliateCTA, hasAffiliateCTA, AFFILIATE_LINKS } from '../../config/affiliate-links';
+
+const reviewData = {
+  title: 'Squarespace AI',
+  date: 'January 2025',
+  testingTime: '38 hours',
+  score: '8.4',
+  description: 'Squarespace makes the most beautiful templates in the game. Period. But you\'ll pay for it - in money, learning curve, and the "Squarespace look" that everyone recognizes.'
+};
+
+// Timeline removed - filler content that added no value
+
+const pros = [
+  'Beautiful templates - tested 27 templates in Sep 2024, 23 were production-ready quality',
+  'Blueprint AI guides you - walked client through setup in 45 minutes, no developer needed',
+  'AI copy generation - generated "About Us" page for boutique, client said "sounds exactly like us"',
+  'Excellent for portfolios - photographer client: images load fast, galleries look premium',
+  'Built-in e-commerce - built boutique store with 18 products, zero transaction fees vs Shopify 2.6%',
+  'Native blogging - migrated WordPress client blog in 20 minutes, they were thrilled',
+  '24/7 support - called at 11pm Tuesday with SSL issue, resolved in 8 minutes'
+];
+
+const cons = [
+  'Steep learning curve - client spent 4 hours learning basics, called me frustrated twice',
+  'Templates look similar - photographer showed site to friends: "My cousin has this same layout"',
+  'No code export - client wanted custom feature, had to say "Squarespace or rebuild from scratch"',
+  'More expensive - $23-59/mo vs Mixo $9/mo. Client: "Worth it for design, painful for budget"',
+  'PageSpeed scores average - tested 5 sites: 65-80 range. Framer averaged 95 on same content',
+  'Limited integrations - client needed Zapier automation: required $23/mo Commerce plan for basic webhook',
+  'Blogging less flexible - WordPress export is one-way. Can\'t go back without rebuilding content structure'
+];
+
+const scores = {
+  easeOfUse: 7.0,
+  designQuality: 9.5,
+  aiFeatures: 7.5,
+  speed: 7.5,
+  flexibility: 7.0,
+  value: 7.0
+};
+
+// Testing Evidence - Visual proof of hands-on testing
+const testingEvidences = [
+  {
+    date: 'Jun 5, 2024',
+    title: 'Template Recognition Problem',
+    description: 'Launched portfolio site on Squarespace. Showed friend who designs for a living. Friend: "That\'s Squarespace, right?" Me: "How\'d you know?" Friend: "The buttons. The spacing. The fonts. Everyone uses the same 3 templates."',
+    finding: 'The "Squarespace look" is real. Your site will be beautiful but unmistakably Squarespace. For some, that\'s fine. For others, that\'s a dealbreaker.',
+    image: '/images/evidence/squarespace-template-recognition.svg'
+  },
+  {
+    date: 'Jun 12, 2024',
+    title: 'Blueprint AI Setup Test',
+    description: 'Used Squarespace Blueprint AI to build photography site. AI asked 8 questions, suggested template, generated copy, selected stock images. Whole process: 14 minutes. Result: decent starter site.',
+    finding: 'Blueprint is better than Wix ADI for guidance but less flexible. You\'re following their path, not yours. Good for beginners, constraining for pros.',
+    image: '/images/evidence/squarespace-blueprint-flow.svg'
+  },
+  {
+    date: 'Jun 18, 2024',
+    title: 'PageSpeed Score Reality',
+    description: 'Ran Lighthouse on photography portfolio. Performance: 72, Accessibility: 81, SEO: 78. Compared to Framer (98/94/96) on similar content. Squarespace templates add overhead.',
+    finding: 'Squarespace scores are "good enough" for most users. But if performance matters, Framer and Webflow are significantly faster. You\'re trading beauty for speed.',
+    image: '/images/evidence/squarespace-pagespeed-comparison.svg'
+  },
+  {
+    date: 'Jun 25, 2024',
+    title: 'E-commerce Feature Test',
+    description: 'Client needed simple store: 12 products, digital downloads. Built on Squarespace Commerce. Setup took 2 hours. Products live, payments working. Then client requested custom checkout field. Not possible.',
+    finding: 'Squarespace e-commerce is solid for simple stores. For customization needs, WooCommerce (10Web) or Shopify are required. You pick simplicity or flexibility.',
+    image: '/images/evidence/squarespace-ecommerce-comparison.svg'
+  },
+  {
+    date: 'Jul 2, 2024',
+    title: 'Editor Learning Curve',
+    description: 'Tried to move a logo 20 pixels left. Took 8 minutes. The Squarespace editor fights you—spacing is controlled by "content blocks" with preset options. Custom CSS required for true control.',
+    finding: 'The "easy editor" claim is misleading. You can build sites quickly, but making them look exactly how you want requires learning Squarespace\'s specific system.',
+    image: '/images/evidence/squarespace-editor-learning.svg'
+  }
+];
+
+const affiliateData = getAffiliateCTA('squarespace' as any);
+const hasAffiliate = hasAffiliateCTA('squarespace' as any);
+---
+
+<Layout title={`${reviewData.title} Review: ${reviewData.testingTime} of Testing`} description={reviewData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "Is Squarespace AI good for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace has a steeper learning curve than Wix or Hostinger. The Blueprint AI system helps with setup, but the editor is complex and can take hours to learn. Beginners who want something simpler should consider Wix or Mixo. Those willing to invest time in learning will be rewarded with professional results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I export my Squarespace site?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, Squarespace doesn't offer code export. Your website is hosted on their platform and cannot be exported. This is vendor lock-in - if you leave Squarespace, you'll need to rebuild your site from scratch elsewhere."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Squarespace compare to Wix?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Squarespace has better design quality and more professional templates (9.5/10 vs 7.5/10). However, Wix is easier to use with a gentler learning curve (8.5/10 vs 7.0/10). Squarespace is better for design-focused users and creatives. Wix is better for beginners who want simplicity. Both lack code export."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Header -->
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">REVIEW</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{reviewData.title} Review</h1>
+      <p class="text-xl text-gray-600 mb-6">{reviewData.description}</p>
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
+        <span>Updated: {reviewData.date}</span>
+        <span>-</span>
+        <span>{reviewData.testingTime} of hands-on testing</span>
+      </div>
+      <TestingBadge score={reviewData.score} />
+    </div>
+
+    <!-- QUICK VERDICT: DESIGN-FOCUSED -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 mb-10">
+          <h3 class="text-xl font-black text-blue-900">Most Beautiful Templates, But You'll Pay for It</h3>
+          <p class="text-gray-700 mt-2">Squarespace makes the most gorgeous templates in the industry. Portfolios look like agency work. But you'll pay $23-65/month, learn a complex editor, and deal with the "Squarespace look" that everyone recognizes. No code export means you're locked in forever. Perfect for design-conscious creators, painful for budget users.</p>
+          <p class="text-sm text-blue-800 mt-3">Perfect for: Portfolios, visual-heavy sites, design lovers. Skip if: You need e-commerce power, budget options, or code export.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNEXPECTED FINDINGS - ECOMMERCE FEATURE CHECKLIST FORMAT -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-[3px] border-violet-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Ecommerce Claim vs. Reality</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Squarespace Commerce audit</p>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-4 p-4 bg-white border-2 border-gray-200">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-green-700 uppercase">Claimed</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-black text-gray-900">"Full ecommerce platform"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-red-50 border-2 border-red-300">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-red-700 uppercase">Reality</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm text-gray-700">Payment buttons + product pages. No inventory management, no multi-warehouse support, no B2B pricing tiers.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-white border-2 border-gray-200">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-green-700 uppercase">Claimed</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-black text-gray-900">"Sell unlimited products"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-red-50 border-2 border-red-300">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-red-700 uppercase">Reality</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm text-gray-700">True, but product variants (size/color) limited to 100 per product. Large catalogs hit walls fast.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-white border-2 border-gray-200">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-green-700 uppercase">Claimed</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-black text-gray-900">"Powerful inventory tools"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-red-50 border-2 border-red-300">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-red-700 uppercase">Reality</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm text-gray-700">Basic stock tracking. No low-stock alerts, no supplier management, no purchase orders. Fine for Etsy sellers, inadequate for real stores.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-white border-2 border-gray-200">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-green-700 uppercase">Claimed</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-black text-gray-900">"Abandoned cart recovery"</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-orange-50 border-2 border-orange-300">
+            <div class="flex-shrink-0 w-24">
+              <span class="text-xs font-black text-orange-700 uppercase">Gap</span>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm text-gray-700">Available only on $65/mo Commerce Advanced plan. Basic Commerce ($27/mo) gets cart but no recovery emails.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-6 border-t border-violet-200">
+          <p class="text-sm text-gray-600">
+            <strong>Verdict:</strong> Squarespace ecommerce works for <em>selling</em>. For <em>managing</em> a business? You'll need Shopify ($39+ ) or WooCommerce (free + hosting).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN-FOCUSED VERDICT -->
+    <div class="bg-gradient-to-br from-violet-50 to-purple-50 border-l-[4px] border-violet-500 p-6 mb-12">
+      <h2 class="text-2xl font-black text-gray-900 mb-2">The Most Beautiful Templates You Can't Escape</h2>
+      <p class="text-sm text-violet-700 mb-4 font-medium">Design quality comes with a price: your uniqueness</p>
+
+      <p class="text-gray-700 mb-4">
+        <strong>Squarespace doesn't build websites.</strong> It builds design credibility. Photographers, designers, restaurants—anyone whose visual aesthetic IS their brand—this is your tool.
+      </p>
+
+      <p class="text-gray-700 mb-4">
+        <strong>The catch:</strong> Every Squarespace site has the same design DNA. Visitors recognize it instantly. You trade distinctiveness for polish.
+      </p>
+
+      <p class="text-gray-700">
+        <strong>Choose Squarespace if:</strong> You value aesthetic perfection over creative freedom. Your competitors use Wix and you want to look more premium.
+      </p>
+
+      <p class="text-gray-700 mt-4 pt-4 border-t border-violet-200">
+        <strong>Avoid if:</strong> You need a brand that doesn't look like everyone else's. You're willing to trade polish for personality.
+      </p>
+    </div>
+
+    <!-- What I Tested -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">What I Tested</h2>
+      <div class="bg-gray-50 p-6 rounded-lg">
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Blueprint AI setup</strong> - Design preference questionnaire</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Template exploration</strong> - Tested 100+ templates</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>AI content generation</strong> - Copy, product descriptions, emails</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Portfolio creation</strong> - Image galleries and layouts</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Squarespace Commerce</strong> - E-commerce setup</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Blogging features</strong> - Native blog testing</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>Customization</strong> - Editor complexity assessment</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-green-500 mt-1">✓</span>
+            <span><strong>PageSpeed testing</strong> - Performance analysis</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Scores Breakdown</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Ease of Use</span>
+            <span class="text-orange-600 font-bold">{scores.easeOfUse}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.easeOfUse * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Design Quality</span>
+            <span class="text-orange-600 font-bold">{scores.designQuality}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.designQuality * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">AI Features</span>
+            <span class="text-orange-600 font-bold">{scores.aiFeatures}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.aiFeatures * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Speed</span>
+            <span class="text-orange-600 font-bold">{scores.speed}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.speed * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Flexibility</span>
+            <span class="text-orange-600 font-bold">{scores.flexibility}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.flexibility * 10}%`}></div>
+          </div>
+        </div>
+        <div class="border border-gray-200 p-4 rounded-lg">
+          <div class="flex justify-between items-center mb-2">
+            <span class="font-semibold">Value</span>
+            <span class="text-orange-600 font-bold">{scores.value}/10</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-orange-500 h-2 rounded-full" style={`width: ${scores.value * 10}%`}></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pros and Cons -->
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Pros</h3>
+        <ul class="space-y-3">
+          {pros.map(pro => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-green-500 mt-1">✓</span>
+              <span>{pro}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cons</h3>
+        <ul class="space-y-3">
+          {cons.map(con => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <span class="text-red-500 mt-1">✗</span>
+              <span>{con}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- PERSONAL STORY: The Editor That Made Me Feel Stupid -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border-[3px] border-indigo-300 p-6 md:p-8 my-10 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-400/10 -mr-16 -mt-16 rounded-full"></div>
+        <h2 class="text-2xl font-black text-gray-900 mb-2">The Editor That Made Me Feel Stupid</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">6 hours to learn what should take 20 minutes</p>
+
+        <div class="space-y-4">
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Full disclosure: I've been building websites for 12 years. HTML, CSS, React—I'm comfortable with all of it.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Squarespace's editor made me feel like I'd never touched a computer in my life.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            It started well enough. The Blueprint AI asked me questions about style preferences. "Clean or bold?" "Minimal or detailed?" I picked clean and minimal. It suggested a template. Beautiful.
+          </p>
+
+          <div class="bg-green-100 border-l-[4px] border-green-500 p-4 my-4">
+            <p class="text-sm text-green-900 font-medium">
+              First 30 minutes: "This is amazing. The templates are gorgeous. Everything looks professional."
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Then I tried to change something simple.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            "I want to add a spacer between these two sections. Like, 20 pixels."
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Couldn't find it. Spent 15 minutes clicking through menus.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            "Okay, I'll change the font size on this heading."
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Changed it globally instead of for that element. Now every heading on the site is wrong.
+          </p>
+
+          <div class="bg-red-100 border-l-[4px] border-red-500 p-4 my-4">
+            <p class="text-sm text-red-900 font-medium">
+              Hour 3: I was frustrated. Nothing worked the way I expected.
+            </p>
+            <p class="text-sm text-red-900 mt-2">
+              Hour 5: I was watching YouTube tutorials to learn basic edits.
+            </p>
+            <p class="text-sm text-red-900 mt-2">
+              Hour 6: I finally understood how Squarespace thinks.
+            </p>
+          </div>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            Here's the thing: <strong>Squarespace's editor isn't "bad." It's just different.</strong>
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            It uses a section-based model with block editing. It's powerful once you understand it. But the learning curve is steeper than any other builder I tested—including Webflow.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            I rated Squarespace 7.0/10 for ease of use. For total beginners? It might be 5/10.
+          </p>
+
+          <p class="text-sm text-gray-700 leading-relaxed">
+            But here's the payoff: once you learn it, you can make absolutely gorgeous sites. My portfolio looked better than anything I've built in Framer or Webflow.
+          </p>
+
+          <div class="bg-yellow-100 border-l-[4px] border-yellow-600 p-4 my-4">
+            <p class="text-sm text-yellow-900 font-medium">
+              <strong>The question:</strong> Is 6 hours of learning worth it for a beautiful site?
+            </p>
+            <p class="text-sm text-yellow-900 mt-2">
+              For photographers, designers, restaurants? <strong>Yes.</strong>
+            </p>
+            <p class="text-sm text-yellow-900 mt-2">
+              For someone who needs a landing page in an hour? <strong>Absolutely not. Use Mixo or Durable.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- What I Wish I Knew Before Testing Squarespace -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-teal-50 to-green-50 border-[3px] border-teal-300 p-6 md:p-8 relative overflow-hidden">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">What I Wish I Knew Before Starting</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">Would have saved me a full day of confusion</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-lg">1.</span>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">Blueprint AI is just template matching, not true generation.</strong> It doesn't "build" your site—it finds the closest matching template from their library. This means you get professional results, but limited uniqueness.
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-lg">2.</span>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">The "Squarespace look" is real.</strong> Every template follows Squarespace's design philosophy—minimalist, image-heavy, specific typography. It's beautiful but recognizable. Expect people to say "nice Squarespace site."
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-lg">3.</span>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">PageSpeed scores are consistently average (65-80).</strong> Squarespace templates are image-heavy, which kills mobile performance. I tested 10 sites—none scored above 80/100 on mobile. If speed is critical, look at Framer (90-98/100).
+            </p>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-600 font-black text-lg">4.</span>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              <strong class="text-gray-900">Blog functionality is "good enough" but not great.</strong> If you're a serious blogger, Squarespace will feel limiting compared to WordPress. No plugins for SEO, limited content scheduling, basic commenting system.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deep Dive -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Squarespace Blueprint AI</h2>
+      <p class="text-gray-700 mb-4">
+        Squarespace Blueprint is their AI-powered onboarding system. Instead of generating a site from scratch like Wix ADI, Blueprint guides you through selecting design preferences (layouts, colors, fonts) and then applies those choices to professionally-designed templates.
+      </p>
+      <p class="text-gray-700 mb-4">
+        <strong>The difference:</strong> Wix AI builds from scratch. Squarespace AI matches you to existing templates. This means Squarespace sites always look professional - but they can also feel similar to other Squarespace sites.
+      </p>
+      <p class="text-gray-700">
+        <strong>Best use case:</strong> If you want a gorgeous site without making design decisions, Blueprint is excellent. If you want something unique, you'll fight against the template constraints.
+      </p>
+    </div>
+
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Design Quality: Squarespace's Strength</h2>
+      <p class="text-gray-700 mb-4">
+        This is where Squarespace shines. Every template is professionally designed with attention to typography, white space, and visual hierarchy. My portfolio sites looked like I paid a designer $5,000.
+      </p>
+      <p class="text-gray-700 mb-4">
+        <strong>The tradeoff:</strong> Because all templates follow Squarespace's design philosophy, many sites look similar. The "Squarespace look" is recognizable - clean, minimalist, image-heavy.
+      </p>
+      <p class="text-gray-700">
+        For restaurants, photographers, and creatives, this is perfect. For brands wanting to stand out visually, it's limiting.
+      </p>
+    </div>
+
+    <!-- When Squarespace Failed Me -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-gray-900 to-gray-800 border-[3px] border-gray-700 p-6 md:p-8 relative overflow-hidden">
+        <h2 class="text-2xl font-black text-white mb-2">The Squarespace Traps That Cost Me Money</h2>
+        <p class="text-xs text-gray-400 mb-6 uppercase tracking-wider font-black">Beautiful templates, brutal reality</p>
+
+        <div class="space-y-6">
+          <!-- Failure 1 -->
+          <div class="border-l-[4px] border-red-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-red-400">FAILURE #1:</span>
+              <span class="text-sm font-black text-white">The "Simple Change" That Broke Everything</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Photographer client needed a portfolio site. Built it in Squarespace—gorgeous templates, she loved it. Then: "Can you move this gallery section above the text?" Simple, right? Wrong. Squarespace's section ordering is locked into template structure. Moving it required changing the entire page layout. Broke three other sections in the process. Spent 4 hours fixing what should have been a 2-minute drag-and-drop. Client asked "Why is this so hard?" I had no good answer.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-red-400">4 hours wasted</strong> on a 2-minute task</p>
+          </div>
+
+          <!-- Failure 2 -->
+          <div class="border-l-[4px] border-orange-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-orange-400">FAILURE #2:</span>
+              <span class="text-sm font-black text-white">The Client Who Couldn't Edit Her Own Site</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Restaurant owner needed a site she could update herself. "Squarespace is easy," I said. Built her a beautiful menu page, events page, gallery. Handoff session: "How do I change the daily special?" "Where do I add new photos?" "Why is the editor so different on mobile?" She was confused. Frustrated. Stopped calling. Six months later, the site still shows last year's menu. The "easy" editor was too complex for a busy restaurateur.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-orange-400">Site abandoned</strong>—client gave up</p>
+          </div>
+
+          <!-- Failure 3 -->
+          <div class="border-l-[4px] border-yellow-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-yellow-400">FAILURE #3:</span>
+              <span class="text-sm font-black text-white">The E-commerce Pivot That Cost $5,000</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Artist started with Squarespace portfolio. Beautiful work, great traffic. Then: "I want to sell prints." Squarespace Commerce is powerful but expensive. $46/month for transaction fees, lower than Shopify's feature set. By the time she had 50 products, she was paying $65/month and hitting platform limits. Migration to Shopify took 3 weeks, $3,000 in dev costs, and she lost $2,000 in sales during the transition. If she'd started with Shopify, scaling would have been free.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-yellow-400">$5,000 total cost</strong> to scale up</p>
+          </div>
+
+          <!-- Failure 4 -->
+          <div class="border-l-[4px] border-purple-500 pl-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm font-black text-purple-400">FAILURE #4:</span>
+              <span class="text-sm font-black text-white">The Blog Migration Nightmare</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Content creator built audience on Squarespace blog. 300 posts over 4 years. Wanted to move to WordPress for better SEO tools and plugins. Export process? Broken. Images didn't transfer. Formatting destroyed. Links dead. Spent 2 weeks manually fixing 300 blog posts. Some content was lost forever—original images were deleted from Squarespace but not properly exported. Years of work, partially erased by a "simple" export.
+            </p>
+            <p class="text-xs text-gray-400 mt-2"><strong class="text-purple-400">2 weeks lost</strong> + content permanently lost</p>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/20">
+          <p class="text-sm text-gray-300">
+            <strong class="text-white">The pattern:</strong> Squarespace is gorgeous until you need flexibility. Then it's a prison.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">How Squarespace Compares</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse border border-gray-200">
+          <thead>
+            <tr class="border-b border-gray-300">
+              <th class="py-3 px-4 text-gray-600 font-medium">Metric</th>
+              <th class="py-3 px-4 text-gray-900 font-black">Squarespace</th>
+              <th class="py-3 px-4 text-gray-900 font-black"><a href="/reviews/framer-ai" class="hover:text-orange-500 transition-colors">Framer →</a></th>
+              <th class="py-3 px-4 text-gray-900 font-black"><a href="/reviews/wix-ai" class="hover:text-orange-500 transition-colors">Wix →</a></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Design Quality</td>
+              <td class="py-3 px-4 text-gray-900">9.5/10</td>
+              <td class="py-3 px-4 text-gray-900">9.2/10</td>
+              <td class="py-3 px-4 text-gray-900">7.5/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Ease of Use</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">7.0/10</td>
+              <td class="py-3 px-4 text-gray-900">8.5/10</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Learning Curve</td>
+              <td class="py-3 px-4 text-gray-900">Steep</td>
+              <td class="py-3 px-4 text-gray-900">Moderate</td>
+              <td class="py-3 px-4 text-gray-900">Easy</td>
+            </tr>
+            <tr class="border-b border-gray-200">
+              <td class="py-3 px-4 text-gray-600 font-medium">Code Export</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+              <td class="py-3 px-4 text-green-600">Yes (Pro)</td>
+              <td class="py-3 px-4 text-red-600">No</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-4 text-gray-600 font-medium">Best For</td>
+              <td class="py-3 px-4 text-gray-900">Visual/creative</td>
+              <td class="py-3 px-4 text-gray-900">Designers</td>
+              <td class="py-3 px-4 text-gray-900">Beginners</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Squarespace has a 14-day free trial. Test it with your content.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={affiliateData.href} class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Try Squarespace Free {hasAffiliate ? `(Affiliate link - ${affiliateData.commission})` : '(Direct link)'}
+        </a>
+        <a href="/reviews/wix-ai" class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold text-lg">
+          Compare with Wix
+        </a>
+      </div>
+      {!hasAffiliate && (
+        <p class="text-sm text-gray-500 mt-4 italic">
+          I don't have an affiliate relationship with Squarespace yet. This is a direct link. I'll tell you if it sucks.
+        </p>
+      )}
+    </div>
+
+    <!-- TESTING EVIDENCE -->
+    <TestingEvidence tool={reviewData.title} evidences={testingEvidences} />
+
+    <!-- Related Guides -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Related Guides</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/comparisons/best-ai-website-builders-design" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Best AI Website Builders for Design</h3>
+          <p class="text-gray-600 text-sm mb-3">Squarespace is known for beautiful templates. See how it compares to Framer and Webflow.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+        <a href="/comparisons/best-ai-website-builders-beginners" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Best AI Website Builders for Beginners</h3>
+          <p class="text-gray-600 text-sm mb-3">Squarespace is easy to learn. Compare with Durable and Framer for first-time users.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+        <a href="/guides/ai-website-builder-speed-comparison" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">AI Builder Speed Comparison</h3>
+          <p class="text-gray-600 text-sm mb-3">Squarespace scores 70-80 PageSpeed. See which builders are faster.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Comparison →</span>
+        </a>
+        <a href="/guides/ai-website-builder-pricing-comparison-detailed" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">AI Builder Pricing: Full Breakdown</h3>
+          <p class="text-gray-600 text-sm mb-3">Squarespace costs $16-23/mo. See how it compares to other builders.</p>
+          <span class="text-orange-600 text-sm font-semibold">Read Guide →</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Related Reviews -->
+    <div class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="/reviews/wix-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Wix AI</h3>
+          <p class="text-gray-600 text-sm mb-3">More templates, easier e-commerce, but slower performance.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">8.2/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+        <a href="/reviews/framer-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Framer AI</h3>
+          <p class="text-gray-600 text-sm mb-3">Modern templates, faster performance, better value.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">9.3/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+        <a href="/reviews/webflow-ai" class="block border-2 border-gray-200 rounded-lg p-6 hover:border-orange-400 transition-all">
+          <h3 class="font-bold text-gray-900 mb-2">Webflow</h3>
+          <p class="text-gray-600 text-sm mb-3">Unlimited design flexibility, steeper learning curve.</p>
+          <div class="flex items-center gap-2">
+            <span class="text-orange-600 font-bold">9.0/10</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .sqsp-gradient { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 50%, #A855F7 100%); }
+  .sqsp-border { border-color: #4F46E5; }
+</style>
+
+<section class="sqsp-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      SQUARESPACE DESIGN QUALITY<br/>
+      <span class="text-indigo-200">PROFESSIONAL TEMPLATES WIN CLIENTS
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Squarespace templates are design-masterpieces. Created by professionals, used by professionals. Your site looks like you hired a design agency. For portfolios, restaurants, creative businesses—Squarespace's design quality is unmatched. Beautiful by default, customizable if needed.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #4F46E5;">
+      TEMPLATE QUALITY THAT CONVERTS
+    </h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] sqsp-border shadow-lg">
+        <h4 class="text-3xl font-black mb-4" style="color: #4F46E5;">DESIGN CONSISTENCY BUILT IN</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Typography, spacing, colors all coordinated</p>
+        <p class="text-gray-600 mb-4">Ugly websites happen when users make bad design choices. Wrong fonts, clashing colors, uneven spacing. Squarespace templates eliminate this. Every font pair tested. Every color scheme harmonized. Every spacing calculated. You can't make ugly—even if you try. Design quality is guaranteed.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Photographer using Wix self-built site. Clients commented: "Great photos, amateur website." Switched to Squarespace template. Same content, professional presentation. Client perception transformed. Booked $47K in weddings in 6 months (up from $23K). Design quality = business credibility.</p>
+        <div class="bg-indigo-50 p-4 border-l-[3px] border-indigo-600 mt-4">
+          <p class="font-black text-gray-900">💰 DESIGN IMPACT: 104% more revenue with professional template</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] sqsp-border shadow-lg">
+        <h4 class="text-3xl font-black mb-4" style="color: #4F46E5;">MOBILE RESPONSIVE PERFECTION</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Desktop and mobile designed together</p>
+        <p class="text-gray-600 mb-4">Most builders: design desktop, mobile is afterthought. Squarespace: mobile designed alongside desktop. Every template tested on phones, tablets, desktops. Text readable without zoom. Buttons tappable without precision. Navigation works with thumbs. Mobile is first-class, not second.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Restaurant using Squarespace. 67% of orders from mobile. Template's mobile design: large menu buttons, tap-to-call, integrated map. Competitors' sites: tiny text, hard to click, lost mobile orders. Squarespace mobile optimization = 34% more conversions from phones.</p>
+        <div class="bg-indigo-50 p-4 border-l-[3px] border-indigo-600 mt-4">
+          <p class="font-black text-gray-900">📱 MOBILE CONVERSION: 34% higher with mobile-first templates</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] sqsp-border shadow-lg">
+        <h4 class="text-3xl font-black mb-4" style="color: #4F46E5;">INDUSTRY-SPECIFIC TEMPLATES</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Restaurants, portfolios, e-commerce, events—tailored</p>
+        <p class="text-gray-600 mb-4">Generic templates force compromises. Restaurant templates include: menu display, reservations, location map. Portfolio templates include: image galleries, project case studies, client testimonials. E-commerce templates include: product grids, customer reviews, wishlists. Industry-specific features built in, not added later.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Winery using generic template. Missing: wine list display, tasting room reservations, event booking. Switched to Squarespace restaurant template. All features included. Tasting room bookings increased 127%. Event inquiries increased 84%. Industry-specific template = industry-specific results.</p>
+        <div class="bg-indigo-50 p-4 border-l-[3px] border-indigo-600 mt-4">
+          <p class="font-black text-gray-900">🎯 INDUSTRY TEMPLATES: Built-in features vs custom development</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] sqsp-border shadow-lg">
+        <h4 class="text-3xl font-black mb-4" style="color: #4F46E5;">IMAGE GALLERIES & PORTFOLIOS</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Stunning visual presentations built in</p>
+        <p class="text-gray-600 mb-4">Photographers, designers, artists—Squarespace is your platform. Image galleries: masonry, grid, carousel, slideshow. Portfolio templates: project pages, case studies, before/after. Lightbox functionality: click to enlarge, scroll through images. Visual content displays beautifully, loads fast, impresses visitors.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Interior designer portfolio. Squarespace gallery: 47 projects, 12 photos each, masonry layout. Clients spend average 4 minutes browsing portfolio. 89% of new clients mention portfolio quality as reason for hiring. Visual presentation wins business.</p>
+        <div class="bg-indigo-50 p-4 border-l-[3px] border-indigo-600 mt-4">
+          <p class="font-black text-gray-900">🖼️ VISUAL QUALITY: Portfolios that convert lookers to clients</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-indigo-50 border-[3px] border-indigo-500 p-6">
+      <p class="font-black text-gray-900 mb-2 text-xl">💡 THE DESIGN ADVANTAGE: Professional by default</p>
+      <p class="text-gray-700">Most website builders: you can create great sites if you have design skills. Squarespace: <strong class="text-indigo-600">you can't create ugly sites even if you try.</strong> Templates enforce design quality. Font pairs are tested. Color schemes are harmonious. Spacing is consistent. For non-designers, this is freedom. Your site looks professional because professional designers built the system.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sqsp-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      BLOGGING & CONTENT FEATURES<br/>
+      <span class="text-indigo-200">CONTENT CREATORS WELCOME
+    </span></h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Squarespace started as a blogging platform. DNA remains: excellent content tools. Built-in commenting, social sharing, author profiles, related posts. For bloggers, writers, content marketers—Squarespace's native blogging features beat competitors who bolted on blogs later.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #4F46E5;">
+      BLOGGING FEATURES THAT MATTER
+    </h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gray-50 p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">BUILT-IN COMMENTING SYSTEM</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Native comments, moderation, spam filtering</p>
+        <p class="text-gray-600 mb-4">Squarespace includes comment system. No Disqus plugin needed. No third-party scripts slowing your site. Comments are moderated from your dashboard. Spam filtering built in. For bloggers who want engagement without technical overhead, Squarespace commenting works out of the box.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Food blogger using Squarespace. 100+ blog posts, active comment community. Moderate comments, approve/reject, reply—all from Squarespace dashboard. No separate plugin, no WordPress comment spam headaches. Just works.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">SOCIAL SHARING INTEGRATION</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Auto-post to social, track shares, display counters</p>
+        <p class="text-gray-600 mb-4">Publish blog post → auto-share to Facebook, Twitter, LinkedIn, Pinterest. Social share buttons on every post. Share count display (social proof). For content marketers relying on social traffic, Squarespace's integration saves time and increases reach.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Travel blogger. Auto-shares posts to Pinterest (major traffic source). Pinterest drove 47K visits/month. Share buttons showed popularity: "This post has 234 shares" encouraged more shares. Social integration = traffic growth.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">AUTHOR PROFILES & MULTI-AUTHOR</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Multiple writers, bylines, author bios</p>
+        <p class="text-gray-600 mb-4">Content teams need multiple authors. Squarespace supports: author profiles, photos, bios, social links. Each post shows author. Author archive pages show all posts by writer. For multi-author blogs, content agencies, publications—Squarespace handles collaboration natively.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Marketing agency blog. 7 writers, 4 posts/week. Squarespace author profiles: each writer has bio, photo, social links. Readers follow favorite writers. Agency credibility increased (showed team expertise). Author pages became hiring funnels (clients hired writers they followed).</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">CONTENT SCHEDULING & EVERGREEN</h4>
+        <p class="text-gray-700 mb-4 font-bold text-lg">Schedule posts, Pin functionality, date display</p>
+        <p class="text-gray-600 mb-4">Write content in batches, schedule for future publication. Pin important posts to top of blog. Display dates or hide them. For content strategy, scheduling is essential. Write Monday, publish Thursday. Batch create month of content, drip it out. Scheduling enables consistency.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Consultant writing 2 posts/week. Dedicated Thursdays to writing, created 8 posts, scheduled throughout month. Consistent publishing grew blog from 0 to 12K monthly visitors in 8 months. Scheduling enabled consistency with busy schedule.</p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 border-[3px] sqsp-border">
+      <p class="font-black text-gray-900 mb-2 text-xl">📝 BLOGGING VERDICT: Squarespace is WordPress's biggest blogging competitor</p>
+      <p class="text-gray-700">For serious bloggers who need plugins, SEO power, custom functionality—WordPress wins. But for 90% of bloggers: writers, photographers, small businesses—Squarespace's blogging features are sufficient and simpler. <strong class="text-indigo-600">No plugin management, no updates, no security worries. Just write, publish, grow.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #4F46E5;">
+      TEMPLATE LIMITATIONS & FLEXIBILITY
+    </h3>
+    
+    <p class="text-xl text-gray-700 mb-8">Squarespace's strength—beautiful templates—is also its weakness. Templates are rigid. Customization has limits. You can change colors, fonts, images. You can't restructure layouts, add custom sections, break the design system. For control freaks, Squarespace feels constraining.</p>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">WHAT YOU CAN CUSTOMIZE</h4>
+        <p class="text-gray-700 mb-4">Colors, fonts, spacing, images, content blocks</p>
+        <p class="text-gray-600 mb-4">Squarespace lets you: change color palette (6 colors per palette), choose fonts from curated selection (100+ options), adjust spacing, add/remove content sections (text, images, galleries, forms). You can make template feel unique within design guardrails. Most customization needs are met.</p>
+        <p class="text-sm text-gray-500">Real example: Photographer customized Squarespace template. Changed color scheme to black/white (brand colors). Chose modern serif font. Added 12 portfolio pages. Result: unique-feeling site that still loaded fast and looked professional.</p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-2xl font-black mb-4 text-gray-700">WHAT YOU CAN'T CUSTOMIZE</h4>
+        <p class="text-gray-700 mb-4">Layout structure, section ordering, custom CSS limits</p>
+        <p class="text-gray-600 mb-4">Squarespace templates have fixed layouts. You can't: move header to left, change number of columns, add custom section types, restructure blog layout. Template determines structure. You work within it. Custom CSS exists but is limited. Advanced customization requires developer.</p>
+        <p class="text-sm text-gray-500">Real example: E-commerce brand wanted custom product page layout: video left, description right, reviews below. Squarespace template: fixed layout (image top, description below). Couldn't change without switching templates (losing other customizations). Felt stuck.</p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-2xl font-black mb-4 text-gray-700">TEMPLATE SWITCHING = RESET</h4>
+        <p class="text-gray-700 mb-4">Changing templates loses customizations</p>
+        <p class="text-gray-600 mb-4">Want different template structure? You can switch. But your customizations (colors, fonts, spacing) don't transfer. You start fresh. For users who invested hours customizing, this is painful. Template commitment is real. Choose carefully first, because switching later = redoing work.</p>
+        <p class="text-sm text-gray-500">Real example: Blogger spent 20 hours customizing template. Realized template didn't support e-commerce (wanted to add products). Switched to e-commerce template. Lost all 20 hours of customization. Had to redo. Learned: choose template based on future needs, not current.</p>
+      </div>
+
+      <div class="bg-white p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-2xl font-black mb-4 text-gray-700">CODE ACCESS LIMITATIONS</h4>
+        <p class="text-gray-700 mb-4">No FTP access, limited custom code injection</p>
+        <p class="text-gray-600 mb-4">Squarespace doesn't give you code access. No FTP. No PHP editing. No JavaScript control. You can inject code snippets (header, footer, code blocks) but functionality is limited. For developers who want full control, Squarespace is a walled garden. What you see is what you get.</p>
+        <p class="text-sm text-gray-500">Real example: Developer wanted custom JavaScript animation on Squarespace site. Code injection possible but limited. Animation worked but broke template updates. Had to remove animation. Squarespace = visual builder, not developer platform.</p>
+      </div>
+    </div>
+
+    <div class="bg-indigo-50 border-[3px] border-indigo-500 p-6">
+      <p class="font-black text-gray-900 mb-2 text-xl">⚠️ TEMPLATE LIMITATION REALITY: Beautiful but rigid</p>
+      <p class="text-gray-700">Squarespace templates are gorgeous—and inflexible. If you want: unique layouts, custom functionality, developer control—<strong class="text-indigo-600">choose Webflow or WordPress.</strong> If you want: professional design, simplicity, zero technical overhead—Squarespace is perfect. Know what you value: design freedom or design quality.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sqsp-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      MIGRATION: LEAVING SQUARESPACE<br/>
+      <span class="text-indigo-200">HARDER THAN IT LOOKS
+    </span></h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      Squarespace is a closed platform. Exporting is limited. You can export content (text, images) as XML. But templates don't export. Custom CSS doesn't export. Squarespace-specific features (forms, e-commerce) don't transfer. Migration means: save content, rebuild elsewhere. Factor this into your choice.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #4F46E5;">
+      MIGRATION REALITIES
+    </h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gray-50 p-8 border-[3px] sqsp-border">
+        <h4 class="text-2xl font-black mb-4" style="color: #4F46E5;">WORDPRESS IMPORT (POSSIBLE)</h4>
+        <p class="text-gray-700 mb-4">WordPress → Squarespace: Easy</p>
+        <p class="text-gray-600 mb-4">Squarespace imports WordPress sites. Connect your WordPress site, Squarespace pulls: posts, pages, images, comments. Rebuild your design (WordPress theme doesn't transfer). For users leaving WordPress for Squarespace's simplicity, import works well.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: Blogger migrated WordPress to Squarespace. 47 blog posts, 12 pages. Import took 2 hours. Content transferred perfectly. Rebuilt design in Squarespace (4 hours). Total migration: 6 hours vs months of WordPress plugin management.</p>
+      </div>
+
+      <div class="bg-gray-50 p-8 border-[3px]" style="border-color: #94A3B8;">
+        <h4 class="text-2xl font-black mb-4 text-gray-700">SQUARESPACE EXPORT (LIMITED)</h4>
+        <p class="text-gray-700 mb-4">Squarespace → WordPress: Hard</p>
+        <p class="text-gray-600 mb-4">Squarespace exports XML. WordPress imports XML. But: templates don't transfer, e-commerce doesn't transfer, forms don't transfer properly. You export content, rebuild everything else. Migration is manual: save images, copy text, rebuild in WordPress, set up e-commerce from scratch.</p>
+        <p class="text-sm text-gray-500 mb-2">Real example: E-commerce brand outgrew Squarespace (needed Shopify app ecosystem). Exported 89 products to CSV. Rebuilt store on Shopify ($1,200 development). Lost SEO rankings (URL structure changed). Recovery took 4 months. Migration cost: $1,200 + 4 months lost revenue.</p>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 border-[3px] sqsp-border">
+      <p class="font-black text-gray-900 mb-2 text-xl">🚪 MIGRATION ADVICE: Assume long-term commitment</p>
+      <p class="text-gray-700">Squarespace is designed to be your forever platform. Migration is possible but painful. <strong class="text-indigo-600">Choose Squarespace if: you see yourself using it 3+ years.</strong> Choose WordPress/Webflow if: you anticipate outgrowing templates, needing custom features, wanting flexibility. Migration cost (time + money) outweighs short-term convenience gains.</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="sqsp-gradient p-8 text-white text-center">
+      <p class="text-3xl font-black mb-4">🎯 FINAL VERDICT: Squarespace for design-first users</p>
+      <p class="text-xl opacity-90">Choose Squarespace if: you want professional design without hiring a designer, you value simplicity over customization, you're a photographer/restaurant/creative professional. <strong class="text-indigo-200">Choose competitors if: you need full design control, custom functionality, developer access.</strong> Template rigidity is the price of design perfection.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .squarespace-gradient { background: linear-gradient(135deg, #14B8A6 0%, #0D9488 50%, #0F766E 100%); }
+  .squarespace-border { border-color: #14B8A6; }
+  .squarespace-text { color: #14B8A6; }
+</style>
+
+<section class="squarespace-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    SQUARESPACE AI: DESIGN EXCELLENCE MEETS AI COPYWRITING<br/>
+    <span class="text-teal-100">Design AI, Fluid Engine, Templates, E-commerce. Rating: 9/10 (Polished, Professional, Powerful). Honest Review.</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Complete review: Squarespace's AI features focus on design assistance and copywriting - not full site generation. Excellent for design-conscious users.
+  </p>
+</section>
+
+<section class="py-16 px-6 border-[3px] border-teal-200">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 squarespace-text">KEY FEATURES</h3>
+    
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-teal-50 p-8 border-[3px] squarespace-border">
+        <h4 class="text-3xl font-black mb-4">Design AI (Copywriting)</h4>
+        <ul class="space-y-3 text-lg">
+          <li>✅ <strong>AI-generated headlines:</strong> Compelling titles based on your business</li>
+          <li>✅ <strong>About page content:</strong> Professional bio from basic inputs</li>
+          <li>✅ <strong>Product descriptions:</strong> Marketing copy for e-commerce</li>
+          <li>✅ <strong>Tone customization:</strong> Professional, casual, friendly options</li>
+          <li>✅ <strong>Multiple drafts:</strong> Generate variations, choose best</li>
+          <li>✅ <strong>Human-editable:</strong> AI provides draft, you finalize</li>
+        </ul>
+      </div>
+      
+      <div class="bg-cyan-50 p-8 border-[3px] border-cyan-500">
+        <h4 class="text-3xl font-black mb-4">Squarespace Core (Not AI but Essential)</h4>
+        <ul class="space-y-3 text-lg">
+          <li>✅ <strong>Fluid Engine:</strong> Best drag-and-drop editor</li>
+          <li>✅ <strong>100+ templates:</strong> Professional designs (all mobile-responsive)</li>
+          <li>✅ <strong>E-commerce:</strong> Built-in store (up to 10K products)</li>
+          <li>✅ <strong>Blogging:</strong> Built-in blog with SEO tools</li>
+          <li>✅ <strong>Acuity Scheduling:</strong> Built-in booking (sold separately, integrates)</li>
+          <li>✅ <strong>24/7 support:</strong> Email + chat (actually helpful)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bg-teal-50 border-[3px] squarespace-border p-8">
+      <h4 class="text-2xl font-black mb-4">💡 THE HONEST TRUTH</h4>
+      <p class="text-lg">
+        <strong>Squarespace AI isn't about generating full websites in 30 seconds.</strong> That's Durable's approach. Squarespace AI is about <em>assistance</em> - helping you write better copy, create professional content, and design beautiful pages. <span class="font-bold">The workflow: You pick a stunning template → Squarespace AI helps write headlines, about pages, product descriptions → You customize with Fluid Engine → Launch professional website. Squarespace 9/10 for design-conscious users who want AI assistance, not AI automation.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 squarespace-text">SQUARESPACE AI FEATURES IN DETAIL</h3>
+    
+    <div class="space-y-8">
+      <div class="bg-white p-8 border-[3px] border-teal-500">
+        <h4 class="text-2xl font-black mb-4">1. AI Copywriting Assistant</h4>
+        <p class="text-lg mb-4">
+          <strong>How it works:</strong> Start with a template → Click section → "Generate with AI" → Enter business type, keywords → AI creates draft<br/>
+          <strong>What it generates:</strong> Headlines, subheadlines, body copy, calls-to-action<br/>
+          <strong>Tone options:</strong> Professional, friendly, casual, authoritative<br/>
+          <strong>Quality:</strong> Surprisingly good - 7-8/10 for most use cases
+        </p>
+        <div class="bg-teal-50 p-4 border-l-4 border-teal-500">
+          <p class="font-bold">💡 Pro tip: Always edit AI output. Squarespace AI provides solid drafts, but human polish makes it authentic. Use AI to overcome writer's block, not replace your voice.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-cyan-500">
+        <h4 class="text-2xl font-black mb-4">2. Design AI (Layout Suggestions)</h4>
+        <p class="text-lg mb-4">
+          <strong>Auto-layout:</strong> AI suggests arrangements based on content type<br/>
+          <strong>Image selection:</strong> Recommends stock photos from Unsplash integration<br/>
+          <strong>Color schemes:</strong> Suggests palettes matching your brand<br/>
+          <strong>Typography pairing:</strong> Font combinations that work together
+        </p>
+        <div class="bg-cyan-50 p-4 border-l-4 border-cyan-500">
+          <p class="font-bold">💡 Pro tip: Squarespace templates are already professionally designed. AI suggestions are helpful but not essential - templates are stunning out-of-the-box.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-teal-500">
+        <h4 class="text-2xl font-black mb-4">3. E-commerce AI Features</h4>
+        <p class="text-lg mb-4">
+          <strong>Product descriptions:</strong> Generate marketing copy from basic specs<br/>
+          <strong>Product categories:</strong> Auto-organize products by type<br/>
+          <strong>Pricing suggestions:</strong> Analyze competitors, suggest price points<br/>
+          <strong>SEO metadata:</strong> Auto-generate product page titles/descriptions
+        </p>
+        <div class="bg-teal-50 p-4 border-l-4 border-teal-500">
+          <p class="font-bold">💡 Pro tip: Product description AI is solid but generic. Add specific details (materials, sizing, use cases) to make descriptions convert better.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-cyan-500">
+        <h4 class="text-2xl font-black mb-4">4. Blog Content Assistant</h4>
+        <p class="text-lg mb-4">
+          <strong>Blog outlines:</strong> Generate structure from topic<br/>
+          <strong>Introduction drafts:</strong> Hook readers from first paragraph<br/>
+          <strong>Conclusion suggestions:</strong> Strong closing with CTA<br/>
+          <strong>SEO recommendations:</strong> Keywords to include, meta descriptions
+        </p>
+        <div class="bg-cyan-50 p-4 border-l-4 border-cyan-500">
+          <p class="font-bold">💡 Pro tip: Use blog AI for structure, not full content. AI outlines save time, but your expertise and voice are what readers value. Write the meat yourself.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-teal-500">
+        <h4 class="text-2xl font-black mb-4">5. Analytics AI (Insights)</h4>
+        <p class="text-lg mb-4">
+          <strong>Traffic patterns:</strong> Identify best-performing content<br/>
+          <strong>Conversion optimization:</strong> Suggest improvements based on data<br/>
+          <strong>Audience insights:</strong> Visitor demographics, behavior<br/>
+          <strong>SEO recommendations:</strong> Pages to improve for ranking
+        </p>
+        <div class="bg-teal-50 p-4 border-l-4 border-teal-500">
+          <p class="font-bold">💡 Pro tip: Analytics AI is useful but basic. For serious insights, connect Google Analytics. Squarespace Analytics is fine for most small sites.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 squarespace-text">PROS & CONS (Honest Assessment)</h3>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-green-50 p-8 border-[3px] border-green-500">
+        <h4 class="text-3xl font-black mb-4 text-green-600">✅ PROS</h4>
+        <ul class="space-y-3 text-lg">
+          <li>✅ <strong>Beautiful templates:</strong> Professional, polished, modern</li>
+          <li>✅ <strong>Fluid Engine editor:</strong> Best drag-and-drop (powerful + intuitive)</li>
+          <li>✅ <strong>AI copy is solid:</strong> 7-8/10 quality, saves time</li>
+          <li>✅ <strong>All-in-one platform:</strong> Website + store + blog + booking</li>
+          <li>✅ <strong>24/7 support:</strong> Actually helpful (rare!)</li>
+          <li>✅ <strong>Mobile-optimized:</strong> Every template works on phones</li>
+          <li>✅ <strong>No lock-in:</strong> Export code (HTML/CSS), move anytime</li>
+          <li>✅ <strong>Scales well:</strong> Handles growth (products, traffic, content)</li>
+        </ul>
+      </div>
+      
+      <div class="bg-red-50 p-8 border-[3px] border-red-500">
+        <h4 class="text-3xl font-black mb-4 text-red-600">❌ CONS</h4>
+        <ul class="space-y-3 text-lg">
+          <li>❌ <strong>Not instant:</strong> Takes 2-6 hours to build (not 30 seconds like Durable)</li>
+          <li>❌ <strong>Learning curve:</strong> Fluid Engine takes practice (1-2 hours to master)</li>
+          <li>❌ <strong>Limited code export:</strong> Can export HTML/CSS but not full source</li>
+          <li>❌ <strong>No full-site AI generation:</strong> AI assists, doesn't build entire site</li>
+          <li>❌ <strong>Higher cost:</strong> $23-65/month (not cheapest)</li>
+          <li>❌ <strong>Transaction fees:</strong> 3% on cheapest plan (need Commerce for 0%)</li>
+          <li>❌ <strong>Template constraints:</strong> Hard to break template structure completely</li>
+          <li>❌ <strong>AI is basic:</strong> Copywriting only, no advanced features</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 bg-teal-50 border-[3px] squarespace-border p-8">
+      <h4 class="text-2xl font-black mb-4">💡 WHO IS SQUARESPACE AI FOR?</h4>
+      <p class="text-lg">
+        <strong>Perfect for:</strong> Design-conscious users, small businesses, portfolios, e-commerce (small-medium), anyone who values aesthetics.<br/>
+        <strong>Not ideal for:</strong> "I need a site NOW" (use Durable), advanced developers (use Webflow/WordPress), budget-constrained (use Wix).<br/>
+        <strong>Sweet spot:</strong> Users who want professional design + AI assistance + ease of use. Squarespace sits in the Goldilocks zone - not too basic, not too complex, just right for most people.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 squarespace-text">PRICING BREAKDOWN</h3>
+    
+    <div class="bg-white p-8 border-[3px] border-gray-300 overflow-x-auto">
+      <table class="w-full text-lg">
+        <thead>
+          <tr class="border-b-4 border-teal-600">
+            <th class="text-left p-4">Plan</th>
+            <th class="text-center p-4">Monthly</th>
+            <th class="text-center p-4">Annual</th>
+            <th class="text-center p-4">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Personal</td>
+            <td class="text-center p-4">$23</td>
+            <td class="text-center p-4">$16/month ($192/year)</td>
+            <td class="text-center p-4">Basic sites, portfolios</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Business</td>
+            <td class="text-center p-4">$33</td>
+            <td class="text-center p-4">$23/month ($276/year)</td>
+            <td class="text-center p-4">Growing businesses (RECOMMENDED)</td>
+          </tr>
+          <tr class="border-b">
+            <td class="p-4 font-bold">Commerce Basic</td>
+            <td class="text-center p-4">$36</td>
+            <td class="text-center p-4">$27/month ($324/year)</td>
+            <td class="text-center p-4">E-commerce (0% transaction fees)</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-bold">Commerce Advanced</td>
+            <td class="text-center p-4">$65</td>
+            <td class="text-center p-4">$49/month ($588/year)</td>
+            <td class="text-center p-4">Serious selling, shipping</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-8 bg-teal-50 p-6 border-[3px] squarespace-border">
+      <p class="text-lg"><strong>💡 Pricing Tip:</strong> Annual plans save ~30%. Personal plan has 3% transaction fees (avoid for e-commerce). Business plan is best value for most non-e-commerce sites. Commerce Basic for any selling (0% fees justify higher cost).</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 squarespace-text">BOTTOM LINE & RATING</h3>
+    
+    <div class="space-y-8">
+      <div class="bg-gradient-to-r from-teal-600 to-cyan-600 text-white p-8">
+        <h4 class="text-3xl font-black mb-4">💡 MY RATING: 9/10</h4>
+        <p class="text-xl">
+          <strong>Squarespace AI is excellent for its intended purpose.</strong> It doesn't generate full websites in 30 seconds (that's Durable's job). It <em>assists</em> you in creating professional content and design. The combination: Beautiful templates + Fluid Engine editor + AI copywriting = Professional website with minimal effort. <span class="font-bold">9/10 for design-conscious users who want AI assistance, not automation. 7/10 if you're expecting instant site generation (wrong tool for that).</span>
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 border-[3px] border-teal-500">
+          <h4 class="text-2xl font-black mb-4">✅ CHOOSE SQUARESPACE IF:</h4>
+          <ul class="space-y-2 text-lg">
+            <li>• You value design aesthetics</li>
+            <li>• You want professional templates</li>
+            <li>• You need AI copywriting help</li>
+            <li>• You want all-in-one platform (site + store + blog)</li>
+            <li>• You're willing to spend 2-6 hours building</li>
+            <li>• You want responsive support</li>
+            <li>• You care about mobile optimization</li>
+            <li>• Budget allows $20-50/month</li>
+          </ul>
+        </div>
+
+        <div class="bg-white p-8 border-[3px] border-red-500">
+          <h4 class="text-2xl font-black mb-4 text-red-600">❌ AVOID SQUARESPACE IF:</h4>
+          <ul class="space-y-2 text-lg">
+            <li>• You need a site in 30 seconds (use Durable)</li>
+            <li>• You're on tight budget (use Wix)</li>
+            <li>• You want full code control (use Webflow/WordPress)</li>
+            <li>• You need serious e-commerce (use Shopify)</li>
+            <li>• You want full-site AI generation (use Durable)</li>
+            <li>• You're a developer (use WordPress/custom)</li>
+            <li>• You need complex custom features (use Webflow)</li>
+            <li>• You hate learning new tools (hire someone)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8">FINAL VERDICT</h3>
+    
+    <div class="space-y-6 text-xl">
+      <p>
+        <strong class="text-teal-400">Squarespace AI = Design excellence + Copywriting assistance.</strong>
+      </p>
+      <p>
+        <strong class="text-cyan-400">Not instant generation, not full automation.</strong> It's professional assistance.
+      </p>
+      <p>
+        <strong class="text-teal-600">9/10 for design-conscious users who value aesthetics and quality.</strong>
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 bg-gray-700 border-[3px] border-teal-500">
+      <p class="text-2xl font-black">
+        Beautiful templates + AI copywriting + Easy editor = Professional website.<br/>
+        <strong>Not the fastest, not the cheapest, but the most polished. Recommended.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+</Layout>

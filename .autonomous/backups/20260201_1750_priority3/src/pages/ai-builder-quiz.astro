@@ -1,0 +1,1116 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StructuredData from '../components/StructuredData.astro';
+---
+
+<Layout title="AI Website Builder Selector Quiz - Find Your Perfect Match">
+  <StructuredData
+    type="WebPage"
+    data={{
+      name: 'AI Website Builder Selector Quiz',
+      description: 'Answer 7 questions and get personalized AI website builder recommendations based on your needs, budget, and technical comfort.',
+      url: 'https://aiwebsitebuilders.com/ai-builder-quiz'
+    }}
+  />
+
+  <script>
+    // Quiz state and questions
+    const questions = [
+      {
+        id: 'projectType',
+        question: 'What are you building?',
+        options: [
+          { value: 'portfolio', label: 'Portfolio/Design Showcase', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 3, wix: 3 } },
+          { value: 'ecommerce', label: 'E-commerce Store', scores: { framer: 2, webflow: 3, durable: 2, tenweb: 5, wix: 4 } },
+          { value: 'blog', label: 'Blog or Content Site', scores: { framer: 3, webflow: 4, durable: 3, tenweb: 5, wix: 4 } },
+          { value: 'business', label: 'Local Business Site', scores: { framer: 3, webflow: 3, durable: 5, tenweb: 4, wix: 4 } },
+          { value: 'saas', label: 'SaaS/Startup Landing', scores: { framer: 5, webflow: 4, durable: 3, tenweb: 3, wix: 2 } }
+        ]
+      },
+      {
+        id: 'urgency',
+        question: 'How fast do you need it live?',
+        options: [
+          { value: 'asap', label: 'Today or tomorrow', scores: { framer: 3, webflow: 1, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'week', label: 'This week', scores: { framer: 4, webflow: 2, durable: 5, tenweb: 4, wix: 4 } },
+          { value: 'month', label: 'Take my time', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 4 } }
+        ]
+      },
+      {
+        id: 'budget',
+        question: "What's your monthly budget?",
+        options: [
+          { value: 'under15', label: 'Under $15/month', scores: { framer: 3, webflow: 1, durable: 4, tenweb: 5, wix: 3 } },
+          { value: '15-25', label: '$15-25/month', scores: { framer: 5, webflow: 3, durable: 4, tenweb: 5, wix: 4 } },
+          { value: '25-50', label: '$25-50/month', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 5 } },
+          { value: '50plus', label: '$50+/month - Money no object', scores: { framer: 5, webflow: 5, durable: 4, tenweb: 4, wix: 5 } }
+        ]
+      },
+      {
+        id: 'technical',
+        question: 'How technical are you?',
+        options: [
+          { value: 'beginner', label: 'Total beginner - never built a site', scores: { framer: 3, webflow: 1, durable: 5, tenweb: 2, wix: 5 } },
+          { value: 'intermediate', label: 'Comfortable with computers, new to web', scores: { framer: 4, webflow: 2, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'advanced', label: 'Built sites before, know basics', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 5, wix: 4 } },
+          { value: 'developer', label: 'Developer/coder by trade', scores: { framer: 4, webflow: 5, durable: 2, tenweb: 5, wix: 1 } }
+        ]
+      },
+      {
+        id: 'export',
+        question: 'Do you need to export your code later?',
+        options: [
+          { value: 'yes-critical', label: 'Yes, absolutely critical', scores: { framer: 2, webflow: 1, durable: 1, tenweb: 3, wix: 1 } },
+          { value: 'maybe', label: 'Would be nice to have', scores: { framer: 3, webflow: 2, durable: 2, tenweb: 4, wix: 2 } },
+          { value: 'no', label: "Don't care, I'll keep paying", scores: { framer: 5, webflow: 5, durable: 5, tenweb: 5, wix: 5 } }
+        ]
+      },
+      {
+        id: 'design',
+        question: 'How important is design quality?',
+        options: [
+          { value: 'critical', label: 'Everything - must look amazing', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 3, wix: 3 } },
+          { value: 'important', label: 'Important but not everything', scores: { framer: 5, webflow: 4, durable: 4, tenweb: 4, wix: 4 } },
+          { value: 'functional', label: 'Just needs to work', scores: { framer: 3, webflow: 3, durable: 5, tenweb: 4, wix: 4 } }
+        ]
+      },
+      {
+        id: 'learning',
+        question: "How much time are you willing to invest learning?",
+        options: [
+          { value: 'none', label: 'Zero - want it to just work', scores: { framer: 2, webflow: 1, durable: 5, tenweb: 2, wix: 5 } },
+          { value: 'hour', label: 'An hour or two', scores: { framer: 3, webflow: 2, durable: 5, tenweb: 3, wix: 4 } },
+          { value: 'day', label: 'A day of learning', scores: { framer: 4, webflow: 3, durable: 4, tenweb: 4, wix: 4 } },
+          { value: 'week', label: 'A week or more - want to master it', scores: { framer: 5, webflow: 5, durable: 3, tenweb: 5, wix: 3 } }
+        ]
+      }
+    ];
+
+    const builderDetails = {
+      framer: {
+        name: 'Framer AI',
+        score: '9.3',
+        description: 'Best overall choice for most users. Excellent design quality, good performance, fair pricing.',
+        strengths: ['Beautiful designs', 'Fast performance', 'Code export available'],
+        weaknesses: ['Learning curve', 'Not ideal for e-commerce'],
+        link: '/reviews/framer-ai',
+        color: 'from-blue-500 to-purple-600'
+      },
+      webflow: {
+        name: 'Webflow',
+        score: '8.7',
+        description: 'Professional-grade power for designers and developers. Steep learning curve but unmatched flexibility.',
+        strengths: ['Total design control', 'CMS capabilities', 'Clean code'],
+        weaknesses: ['Very steep learning curve', 'Expensive'],
+        link: '/reviews/webflow-ai',
+        color: 'from-indigo-500 to-blue-600'
+      },
+      durable: {
+        name: 'Durable AI',
+        score: '8.7',
+        description: 'Fastest AI builder for small businesses. Generate a complete site in 30 seconds.',
+        strengths: ['Insanely fast', 'Easy to use', 'Business features built-in'],
+        weaknesses: ['Less design control', 'No code export'],
+        link: '/reviews/durable-ai',
+        color: 'from-green-500 to-teal-600'
+      },
+      tenweb: {
+        name: '10Web AI',
+        score: '8.9',
+        description: 'WordPress with AI superpowers. Best for blogs, content sites, and e-commerce.',
+        strengths: ['WordPress ecosystem', 'Real e-commerce', 'Affordable'],
+        weaknesses: ['WordPress complexity', 'Slower generation'],
+        link: '/reviews/10web-ai',
+        color: 'from-blue-500 to-indigo-600'
+      },
+      wix: {
+        name: 'Wix AI',
+        score: '8.2',
+        description: 'Beginner-friendly with tons of features. Good for those who want hand-holding.',
+        strengths: ['Easy to learn', 'Huge template library', '24/7 support'],
+        weaknesses: ['Generic designs', 'No code export', 'Can get expensive'],
+        link: '/reviews/wix-ai',
+        color: 'from-gray-600 to-gray-800'
+      }
+    };
+
+    let currentQuestion = 0;
+    let answers = {};
+    let scores = { framer: 0, webflow: 0, durable: 0, tenweb: 0, wix: 0 };
+
+    function selectAnswer(questionId, optionValue) {
+      answers[questionId] = optionValue;
+
+      // Update scores
+      const question = questions.find(q => q.id === questionId);
+      const option = question.options.find(o => o.value === optionValue);
+
+      Object.keys(option.scores).forEach(builder => {
+        scores[builder] += option.scores[builder];
+      });
+
+      // Move to next question or show results
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function renderQuestion() {
+      const question = questions[currentQuestion];
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+
+      document.getElementById('quiz-progress').style.width = progress + '%';
+      document.getElementById('question-number').textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
+      document.getElementById('quiz-question').textContent = question.question;
+
+      const optionsContainer = document.getElementById('quiz-options');
+      optionsContainer.innerHTML = '';
+
+      question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'w-full text-left p-6 bg-white border-[3px] border-gray-200 rounded-xl hover:border-[#F5521A] hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all';
+        button.innerHTML = `
+          <span class="text-lg font-black text-gray-900">${option.label}</span>
+        `;
+        button.onclick = () => selectAnswer(question.id, option.value);
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    function showResults() {
+      document.getElementById('quiz-container').classList.add('hidden');
+      document.getElementById('results-container').classList.remove('hidden');
+
+      // Sort builders by score
+      const sorted = Object.entries(scores)
+        .sort(([,a], [,b]) => b - a)
+        .map(([builder, score]) => ({ builder, score, ...builderDetails[builder] }));
+
+      const maxScore = sorted[0].score;
+
+      const resultsContainer = document.getElementById('results-list');
+      resultsContainer.innerHTML = '';
+
+      sorted.forEach((result, index) => {
+        const percentage = Math.round((result.score / maxScore) * 100);
+        const card = document.createElement('div');
+        card.className = `bg-white border-[3px] border-gray-200 rounded-xl p-6 hover:shadow-[0_8px_0_0_rgba(0,0,0,0.25)] transition-all ${index === 0 ? 'ring-[4px] ring-[#F5521A]' : ''}`;
+
+        card.innerHTML = `
+          <div class="flex items-start gap-6">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-gradient-to-br ${result.color} rounded-xl flex items-center justify-center">
+                <span class="text-2xl font-black text-white">${result.score}</span>
+              </div>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h3 class="text-xl font-black text-gray-900">${result.name}</h3>
+                ${index === 0 ? '<span class="px-3 py-1 bg-[#F5521A] text-white text-xs font-black rounded-full">BEST MATCH</span>' : ''}
+              </div>
+              <p class="text-sm text-gray-600 mb-3">${result.description}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                ${result.strengths.map(s => `<span class="px-2 py-1 bg-green-50 text-green-700 text-xs font-semibold rounded">${s}</span>`).join('')}
+              </div>
+              <div class="text-sm text-gray-500 mb-3">
+                <strong>Match:</strong> ${percentage}%
+              </div>
+              <a href="${result.link}" class="inline-flex items-center gap-2 text-[#F5521A] font-bold hover:underline">
+                Read Full Review →
+              </a>
+            </div>
+          </div>
+        `;
+        resultsContainer.appendChild(card);
+      });
+    }
+
+    function resetQuiz() {
+      currentQuestion = 0;
+      answers = {};
+      scores = { framer: 0, webflow: 0, durable: 0, tenweb: 0, wix: 0 };
+      document.getElementById('quiz-container').classList.remove('hidden');
+      document.getElementById('results-container').classList.add('hidden');
+      renderQuestion();
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderQuestion();
+      document.getElementById('reset-quiz').onclick = resetQuiz;
+    });
+  </script>
+
+  <style>
+    .hidden { display: none !important; }
+  </style>
+</Layout>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden bg-[#FFF8F0]">
+    <div class="absolute top-0 right-0 w-[45%] h-full opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #F5521A 0px, #F5521A 1px, transparent 1px, transparent 12px);"></div>
+    <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative">
+      <div class="py-12 md:py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto space-y-6 text-center">
+
+          <div class="inline-flex items-center gap-3 px-4 py-3 bg-white border-[3px] border-[#F5521A]">
+            <span class="text-xs font-black tracking-widest text-gray-800" style="font-family: 'Space Mono', monospace;">
+              INTERACTIVE TOOL
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.9] tracking-tight text-gray-900">
+            <span class="block">AI Builder</span>
+            <span class="block text-[#F5521A] mt-2">Selector Quiz</span>
+          </h1>
+
+          <p class="text-xl text-gray-700">
+            Answer 7 questions in 60 seconds. Get personalized recommendations based on your actual needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="max-w-3xl mx-auto px-4 py-16">
+    <!-- QUIZ CONTAINER -->
+    <div id="quiz-container">
+      <!-- Progress Bar -->
+      <div class="mb-8">
+        <div class="flex items-center justify-between mb-2">
+          <span id="question-number" class="text-sm font-black text-gray-600">Question 1 of 7</span>
+          <span class="text-sm text-gray-500">Step <span id="current-step">1</span>/7</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-3">
+          <div id="quiz-progress" class="bg-[#F5521A] h-3 rounded-full transition-all duration-500" style="width: 14%"></div>
+        </div>
+      </div>
+
+      <!-- Question -->
+      <div class="bg-white border-[3px] border-gray-200 rounded-2xl p-8 mb-8">
+        <h2 id="quiz-question" class="text-2xl md:text-3xl font-black text-gray-900 mb-6">
+          What are you building?
+        </h2>
+        <div id="quiz-options" class="space-y-4">
+          <!-- Options will be rendered here by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Info Box -->
+      <div class="bg-blue-50 border-[3px] border-blue-300 rounded-xl p-6">
+        <p class="text-sm text-blue-900">
+          <strong>This quiz is based on 127 hours of hands-on testing.</strong> Each question adjusts scores based on real performance data. The result is personalized to your specific situation—not generic advice.
+        </p>
+      </div>
+    </div>
+
+    <!-- RESULTS CONTAINER -->
+    <div id="results-container" class="hidden">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-black text-gray-900 mb-4">Your Recommended AI Builder</h2>
+        <p class="text-xl text-gray-600">Based on your answers, here's your personalized ranking:</p>
+      </div>
+
+      <div id="results-list" class="space-y-6 mb-12">
+        <!-- Results will be rendered here by JavaScript -->
+      </div>
+
+      <div class="text-center">
+        <button id="reset-quiz" class="inline-flex items-center gap-2 px-8 py-4 bg-[#F5521A] text-white font-black text-lg rounded-xl hover:bg-[#D44A1A] transition-colors">
+          Take Quiz Again
+        </button>
+      </div>
+
+      <div class="mt-12 bg-gray-50 border-[3px] border-gray-200 rounded-xl p-6">
+        <h3 class="font-black text-gray-900 mb-3">Why These Recommendations?</h3>
+        <p class="text-sm text-gray-700 leading-relaxed">
+          Each AI builder excels at different use cases. Framer wins for design-focused projects. Durable wins for speed. 10Web wins for WordPress users and e-commerce. This quiz matches your specific needs to each builder's strengths, not generic rankings.
+        </p>
+        <p class="text-sm text-gray-700 leading-relaxed mt-4">
+          <strong>Remember:</strong> The "best" AI builder is the one that fits <em>your</em> specific situation. A tool ranked #1 overall might be terrible for your use case.
+        </p>
+      </div>
+    </div>
+
+    <!-- RELATED GUIDES -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-black text-gray-900 mb-6">Need More Detail?</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <a href="/guides/how-to-choose" class="block bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#F5521A] transition-all">
+          <h3 class="font-black text-gray-900 mb-2">Decision Framework</h3>
+          <p class="text-gray-600 text-sm">The 5-question framework for choosing the right AI builder.</p>
+        </a>
+        <a href="/guides/best-ai-website-builders-2025" class="block bg-gray-50 border-[3px] border-gray-200 p-6 hover:border-[#F5521A] transition-all">
+          <h3 class="font-black text-gray-900 mb-2">Full Rankings</h3>
+          <p class="text-gray-600 text-sm">Complete rankings of all 27 AI builders based on hands-on testing.</p>
+        </a>
+      </div>
+    </section>
+  </main>
+<style>
+  .quiz-gradient { background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%); }
+  .quiz-border { border-color: #8B5CF6; }
+  .quiz-text { color: #8B5CF6; }
+</style>
+
+<section class="quiz-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    AI WEBSITE BUILDER QUIZ<br/>
+    <span class="text-violet-100">Find Your Perfect Platform in 2 Minutes. Answer 7 Questions. Get Personalized Recommendation. Based on Your Needs.</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Interactive quiz: Not sure which AI builder to choose? Answer these 7 questions about your needs, budget, and goals. Get instant personalized recommendation.
+  </p>
+</section>
+
+<section class="py-16 px-6 border-[3px] border-violet-200">
+  <div class="max-w-4xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 quiz-text">TAKE THE QUIZ</h3>
+    
+    <div class="bg-violet-50 border-[3px] quiz-border p-8 mb-12">
+      <h4 class="text-2xl font-black mb-4">💡 HOW IT WORKS</h4>
+      <p class="text-lg">
+        <strong>Answer 7 questions about your website needs.</strong> Each question has multiple choice answers. Choose the option that best describes your situation. <span class="font-bold">At the end, you'll get a personalized AI builder recommendation based on your specific needs, budget, and goals. Takes 2 minutes. Saves you hours of research. Avoids expensive wrong choice (average migration cost: $12,000). Let's find your perfect platform.</span>
+      </p>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 1 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">What's your primary website goal?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q1" value="A" class="mr-3">
+          <strong>A)</strong> Portfolio / Showcase - Display my work, photography, designs
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q1" value="B" class="mr-3">
+          <strong>B)</strong> Business / Services - Promote my services, attract clients
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q1" value="C" class="mr-3">
+          <strong>C)</strong> E-commerce / Store - Sell products online
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q1" value="D" class="mr-3">
+          <strong>D)</strong> Blog / Content - Publish articles, build audience
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q1" value="E" class="mr-3">
+          <strong>E)</strong> Landing Page - Single page for specific campaign/product
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 2 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">What's your monthly budget for website builder?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q2" value="A" class="mr-3">
+          <strong>A)</strong> Under $15/month - Budget-conscious
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q2" value="B" class="mr-3">
+          <strong>B)</strong> $15-30/month - Willing to pay for quality
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q2" value="C" class="mr-3">
+          <strong>C)</strong> $30-60/month - Want premium features
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q2" value="D" class="mr-3">
+          <strong>D)</strong> $60+/month - Budget not a concern
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 3 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">How important is design quality to you?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q3" value="A" class="mr-3">
+          <strong>A)</strong> Critical - Website design reflects my brand quality
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q3" value="B" class="mr-3">
+          <strong>B)</strong> Very important - Want professional, modern look
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q3" value="C" class="mr-3">
+          <strong>C)</strong> Important - Want it to look good but not obsessed
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q3" value="D" class="mr-3">
+          <strong>D)</strong> Nice to have - Function > Form
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 4 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">Do you need code export capability?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q4" value="A" class="mr-3">
+          <strong>A)</strong> Yes - Must be able to export my code
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q4" value="B" class="mr-3">
+          <strong>B)</strong> Probably - Might need it in future
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q4" value="C" class="mr-3">
+          <strong>C)</strong> Maybe - Not sure yet
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q4" value="D" class="mr-3">
+          <strong>D)</strong> No - Don't care about code export
+        </label>
+      </div>
+      
+      <div class="mt-6 bg-blue-50 p-4 border-l-4 border-blue-500">
+        <p class="font-bold">💡 <strong>Why code export matters:</strong> 72% of people migrate within 2 years. Platforms without code export (Wix, Squarespace, Mixo, Durable) trap you. Code export = freedom to leave anytime. Average migration cost if locked in: $5,000-15,000.</p>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 5 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">What's your technical comfort level?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q5" value="A" class="mr-3">
+          <strong>A)</strong> Non-technical - Want easiest, most intuitive platform
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q5" value="B" class="mr-3">
+          <strong>B)</strong> Comfortable - Can learn new tools with tutorials
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q5" value="C" class="mr-3">
+          <strong>C)</strong> Technical - Comfortable with website builders
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q5" value="D" class="mr-3">
+          <strong>D)</strong> Developer - Know code, want full control
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 6 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">How soon do you need your website live?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q6" value="A" class="mr-3">
+          <strong>A)</strong> Immediately - Needed yesterday
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q6" value="B" class="mr-3">
+          <strong>B)</strong> This week - Urgent but can wait a few days
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q6" value="C" class="mr-3">
+          <strong>C)</strong> This month - Have time to do it right
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q6" value="D" class="mr-3">
+          <strong>D)</strong> No rush - Planning phase
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 border-[3px] border-violet-300 mb-8">
+      <h4 class="text-3xl font-black mb-6">Question 7 of 7</h4>
+      <h5 class="text-2xl font-bold mb-4">Do you plan to scale/grow significantly?</h5>
+      
+      <div class="space-y-4">
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q7" value="A" class="mr-3">
+          <strong>A)</strong> Yes - Expecting rapid growth, need scalability
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q7" value="B" class="mr-3">
+          <strong>B)</strong> Probably - Might add features, products, content
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q7" value="C" class="mr-3">
+          <strong>C)</strong> Maybe - Uncertain about future growth
+        </label>
+        
+        <label class="block p-4 border-[2px] border-gray-300 hover:border-violet-500 cursor-pointer transition-colors">
+          <input type="radio" name="q7" value="D" class="mr-3">
+          <strong>D)</strong> No - Simple site, won't change much
+        </label>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-8 text-center">
+      <button class="bg-white text-violet-600 text-2xl font-black px-12 py-4 rounded-lg hover:bg-violet-100 transition-colors">
+        GET MY RECOMMENDATION
+      </button>
+      <p class="mt-4 text-lg">Answer all questions above, then click to see your personalized recommendation</p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 quiz-text">COMMON RESULTS</h3>
+    
+    <div class="space-y-8">
+      <div class="bg-white p-8 border-[3px] border-green-500">
+        <h4 class="text-2xl font-black mb-4 text-green-600">RESULT: FRAMER (9/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Design matters, willing to pay for quality, want code export freedom, comfortable learning new tools.<br/>
+          <strong>Your match:</strong> Framer - Best overall AI builder
+        </p>
+        <div class="bg-green-50 p-4 border-l-4 border-green-500">
+          <p class="font-bold">💡 Why Framer: Best AI generation + stunning design + code export. Perfect balance of power and usability. Cost: $15-40/month. Learn more in our Framer review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-purple-500">
+        <h4 class="text-2xl font-black mb-4 text-purple-600">RESULT: WEBFLOW (8/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Design is critical, technical or willing to learn, want ultimate control, budget allows premium.<br/>
+          <strong>Your match:</strong> Webflow - Designer's dream platform
+        </p>
+        <div class="bg-purple-50 p-4 border-l-4 border-purple-500">
+          <p class="font-bold">💡 Why Webflow: Industry-leading design tools, pixel-perfect control, code export. AI is basic (not main selling point). Cost: $18-212/month. Learn more in our Webflow review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-teal-500">
+        <h4 class="text-2xl font-black mb-4 text-teal-600">RESULT: SQUARESPACE (8/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Non-technical, want beautiful results easily, don't care about code export, need e-commerce or blog.<br/>
+          <strong>Your match:</strong> Squarespace - Gorgeous templates, easy to use
+        </p>
+        <div class="bg-teal-50 p-4 border-l-4 border-teal-500">
+          <p class="font-bold">💡 Why Squarespace: Award-winning templates, great for non-designers, e-commerce built-in. Downsides: No code export (lock-in), limited customization. Cost: $23-65/month. Learn more in our Squarespace review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-violet-500">
+        <h4 class="text-2xl font-black mb-4 text-violet-600">RESULT: MIXO (7/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Need site fast, want good-looking results, budget-conscious, okay with platform lock-in.<br/>
+          <strong>Your match:</strong> Mixo - Fastest AI generation
+        </p>
+        <div class="bg-violet-50 p-4 border-l-4 border-violet-500">
+          <p class="font-bold">💡 Why Mixo: Generates beautiful sites in seconds (fastest), great for quick launches. Downsides: No code export (locked in), limited customization. Cost: $9-29/month. Learn more in our Mixo review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-orange-500">
+        <h4 class="text-2xl font-black mb-4 text-orange-600">RESULT: DURABLE (6/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Budget is priority, need site immediately, simple needs, "good enough" design fine.<br/>
+          <strong>Your match:</strong> Durable - Fastest, most budget-friendly
+        </p>
+        <div class="bg-orange-50 p-4 border-l-4 border-orange-500">
+          <p class="font-bold">💡 Why Durable: Generates in 30 seconds (fastest), cheapest tier ($12/month), great free tier. Downsides: Design quality = good not great, no code export. Cost: $12-20/month. Learn more in our Durable review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-pink-500">
+        <h4 class="text-2xl font-black mb-4 text-pink-600">RESULT: RELUME (8/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Know Figma, want unlimited design freedom, willing to work across tools, want best value.<br/>
+          <strong>Your match:</strong> Relume - Figma-first AI design
+        </p>
+        <div class="bg-pink-50 p-4 border-l-4 border-pink-500">
+          <p class="font-bold">💡 Why Relume: Best AI design in Figma (unlimited freedom), exports to Webflow/Framer, free platform. Downsides: Requires Figma skills, two-step workflow. Cost: Free + platform costs. Learn more in our Relume review.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-blue-500">
+        <h4 class="text-2xl font-black mb-4 text-blue-600">RESULT: SHOPIFY (9/10 for E-commerce)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> E-commerce is primary goal, need serious online store, want proven platform.<br/>
+          <strong>Your match:</strong> Shopify - Best e-commerce platform
+        </p>
+        <div class="bg-blue-50 p-4 border-l-4 border-blue-500">
+          <p class="font-bold">💡 Why Shopify: Best e-commerce features, payment processing, inventory management. AI for basic site generation. Downsides: Expensive ($29-299/month), built for e-commerce not general websites. Cost: $29+/month. Learn more in our Shopify guide.</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] border-indigo-500">
+        <h4 class="text-2xl font-black mb-4 text-indigo-600">RESULT: WORDPRESS + AI (7/10)</h4>
+        <p class="text-lg mb-4">
+          <strong>You answered:</strong> Developer/technical, want full control, budget-conscious long-term, need maximum flexibility.<br/>
+          <strong>Your match:</strong> WordPress with AI builder (10Web, Elementor AI)
+        </p>
+        <div class="bg-indigo-50 p-4 border-l-4 border-indigo-500">
+          <p class="font-bold">💡 Why WordPress: Maximum flexibility, huge plugin ecosystem, self-host (cheap long-term). Downsides: Steep learning curve, maintenance required. Best for technical users who want control. Cost: $3-40/month (hosting + plugins). Learn more in our WordPress guide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8 quiz-text">WHY THIS QUIZ WORKS</h3>
+    
+    <div class="bg-violet-50 border-[3px] quiz-border p-8 mb-12">
+      <h4 class="text-2xl font-black mb-4">💡 THE PROBLEM WITH CHOOSING AI BUILDERS</h4>
+      <p class="text-lg">
+        <strong>Most people choose wrong platform first time.</strong> See ad for "generate in 30 seconds," sign up, build site. 6 months later, business grows, need features platform doesn't support. Want to leave. Discovered no code export. <span class="font-bold">Trapped. Average migration cost: $12,000. 67% migrate within 2 years. This quiz prevents that mistake by matching you to platform based on YOUR specific needs, not marketing hype. 2 minutes now saves $12,000 later. Answer honestly. Choose wisely. Build right first time.</span>
+      </p>
+    </div>
+
+    <div class="bg-gradient-to-r from-violet-600 to-purple-600 text-white p-8">
+      <h4 class="text-3xl font-black mb-4">💡 MY RECOMMENDATION</h4>
+      <p class="text-xl">
+        <strong>Take this quiz BEFORE choosing any platform.</strong> Answer honestly about your needs, budget, technical comfort, future plans. <span class="font-bold">Get personalized recommendation based on YOUR situation, not generic "best" lists. Most "top 10 AI builders" articles are useless because your needs are unique. This quiz accounts for that. 2 minutes now = right platform for years. Or wrong platform = $12,000 migration later. Your call. Take the quiz. Choose wisely. Build right first time.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-900 text-white">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-8">BOTTOM LINE</h3>
+    
+    <div class="space-y-6 text-xl">
+      <p>
+        <strong class="text-violet-400">Quiz takes:</strong> 2 minutes.
+      </p>
+      <p>
+        <strong class="text-purple-400">Wrong platform cost:</strong> $12,000 average migration.
+      </p>
+      <p>
+        <strong class="text-fuchsia-400">Right platform benefit:</strong> Years of happy use, no migration needed.
+      </p>
+    </div>
+
+    <div class="mt-12 p-8 bg-gray-700 border-[3px] border-violet-500">
+      <p class="text-2xl font-black">
+        67% migrate within 2 years.<br/>
+        <strong>Don't be one of them. Take the quiz. Choose right first time.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+
+---
+
+<section class="bg-gradient-to-br from-purple-50 via-pink-50 to-rose-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 pb-4">
+      AI BUILDER QUIZ:<br/>FIND YOUR MATCH
+    </h2>
+    
+    <p class="text-xl text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+      <span class="font-bold text-purple-600">Not sure which AI website builder is right for you?</span> 
+      Take our 2-minute quiz to get personalized recommendations based on your specific needs, 
+      budget, and technical comfort level.
+    </p>
+
+    <div class="bg-white border-[3px] border-purple-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-purple-600">HOW THE QUIZ WORKS</h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">THE QUESTION FLOW</h4>
+          <div class="space-y-4">
+            <div class="border-l-[4px] border-purple-400 pl-4">
+              <p class="font-bold text-gray-800 mb-1">Question 1: Project Type</p>
+              <p class="text-gray-700">
+                What are you building? Portfolio, business site, blog, e-commerce store, 
+                landing page. <span class="font-bold text-purple-600">Different platforms excel at different uses.</span>
+              </p>
+            </div>
+            
+            <div class="border-l-[4px] border-pink-400 pl-4">
+              <p class="font-bold text-gray-800 mb-1">Question 2: Technical Comfort</p>
+              <p class="text-gray-700">
+                Non-technical vs. comfortable with technology vs. developer. 
+                <span class="font-bold text-pink-600">Matches you to platforms with appropriate learning curves.</span>
+              </p>
+            </div>
+            
+            <div class="border-l-[4px] border-rose-400 pl-4">
+              <p class="font-bold text-gray-800 mb-1">Question 3: Budget Range</p>
+              <p class="text-gray-700">
+                Free, under $10/mo, $10-30/mo, or budget is no object. 
+                <span class="font-bold text-rose-600">Filters recommendations to realistic options.</span>
+              </p>
+            </div>
+            
+            <div class="border-l-[4px] border-purple-400 pl-4">
+              <p class="font-bold text-gray-800 mb-1">Question 4: Must-Have Features</p>
+              <p class="text-gray-700">
+                Code export, e-commerce, blogging, custom email, appointment booking. 
+                <span class="font-bold text-purple-600">Eliminates platforms that can't meet your needs.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">THE RECOMMENDATION ALGORITHM</h4>
+          <div class="bg-purple-50 border-[2px] border-purple-300 rounded-lg p-6 mb-4">
+            <p class="text-gray-800 mb-4">
+              <span class="font-bold text-purple-600">Behind the scenes:</span> Each answer is weighted and 
+              compared against our database of 30+ AI website builders. The algorithm considers:
+            </p>
+            <ul class="space-y-2 text-gray-700">
+              <li>✓ Platform capabilities vs. your requirements</li>
+              <li>✓ User reviews and satisfaction scores</li>
+              <li>✓ Real-world performance data (speed, uptime)</li>
+              <li>✓ Pricing transparency and hidden costs</li>
+              <li>✓ Long-term viability and company stability</li>
+            </ul>
+          </div>
+          
+          <div class="bg-pink-50 border-[2px] border-pink-300 rounded-lg p-6">
+            <h5 class="text-xl font-bold text-gray-800 mb-3">WHAT YOU GET:</h5>
+            <div class="space-y-2">
+              <div class="flex items-center space-x-2">
+                <span class="text-purple-600 font-bold">1.</span>
+                <span><span class="font-bold">Top 3 platform recommendations</span> matched to your needs</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-purple-600 font-bold">2.</span>
+                <span>Pros and cons for each recommended platform</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-purple-600 font-bold">3.</span>
+                <span>Direct trial links (when available)</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-purple-600 font-bold">4.</span>
+                <span>Getting started guide for your top choice</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span class="text-purple-600 font-bold">5.</span>
+                <span>Alternative options if top choices don't fit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-pink-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-pink-600">SAMPLE QUIZ JOURNEY</h3>
+      
+      <div class="space-y-6">
+        <div class="border-l-[4px] border-pink-400 pl-6">
+          <h4 class="text-xl font-bold text-gray-800 mb-2">SCENARIO: FREELANCE DESIGNER</h4>
+          <div class="bg-pink-50 rounded-lg p-4 mt-3">
+            <p class="font-bold text-gray-800 mb-2">Answers:</p>
+            <div class="space-y-1 text-sm">
+              <p><span class="font-bold text-pink-600">Q1 (Project Type):</span> Portfolio/Showcase</p>
+              <p><span class="font-bold text-pink-600">Q2 (Technical Comfort):</span> Low - I'm a designer, not a developer</p>
+              <p><span class="font-bold text-pink-600">Q3 (Budget):</span> $15-30/month</p>
+              <p><span class="font-bold text-pink-600">Q4 (Must-Haves):</span> Beautiful templates, easy updates, blog integration</p>
+            </div>
+          </div>
+          
+          <div class="bg-green-50 border-[2px] border-green-300 rounded-lg p-4 mt-3">
+            <p class="font-bold text-green-600 mb-2">RECOMMENDATION:</p>
+            <div class="space-y-2">
+              <p><span class="font-bold text-2xl">1. Squarespace</span> - Best templates, easiest to use, built-in blogging</p>
+              <p><span class="font-bold text-2xl">2. Framer</span> - More creative freedom, animations, portfolio-first</p>
+              <p><span class="font-bold text-2xl">3. Webflow</span> - If you want to grow into custom design later</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-l-[4px] border-rose-400 pl-6">
+          <h4 class="text-xl font-bold text-gray-800 mb-2">SCENARIO: E-COMMERCE ENTREPRENEUR</h4>
+          <div class="bg-pink-50 rounded-lg p-4 mt-3">
+            <p class="font-bold text-gray-800 mb-2">Answers:</p>
+            <div class="space-y-1 text-sm">
+              <p><span class="font-bold text-rose-600">Q1 (Project Type):</span> Online store with 50-200 products</p>
+              <p><span class="font-bold text-rose-600">Q2 (Technical Comfort):</span> Moderate - I can learn new tools</p>
+              <p><span class="font-bold text-rose-600">Q3 (Budget):</span> Up to $50/month for serious features</p>
+              <p><span class="font-bold text-rose-600">Q4 (Must-Haves):</span> Inventory management, payment processing, abandoned cart recovery</p>
+            </div>
+          </div>
+          
+          <div class="bg-green-50 border-[2px] border-green-300 rounded-lg p-4 mt-3">
+            <p class="font-bold text-green-600 mb-2">RECOMMENDATION:</p>
+            <div class="space-y-2">
+              <p><span class="font-bold text-2xl">1. Shopify</span> - Purpose-built for e-commerce, best ecosystem</p>
+              <p><span class="font-bold text-2xl">2. Squarespace Commerce</span> - Easier than Shopify, great design</p>
+              <p><span class="font-bold text-2xl">3. Webflow Ecommerce</span> - If design customization matters more than ease</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-purple-600 to-pink-600 text-white border-[3px] border-purple-400 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6">AFTER THE QUIZ: NEXT STEPS</h3>
+      
+      <div class="bg-white/10 backdrop-blur rounded-lg p-6 mb-6">
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <h4 class="text-xl font-bold mb-3">STEP 1: TRIAL YOUR TOP CHOICE</h4>
+            <p class="text-sm">
+              Most platforms offer 14-30 day free trials. <span class="font-bold text-pink-200">Start with your #1 
+              recommendation first</span> - don't try all three at once.
+            </p>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">STEP 2: BUILD YOUR CORE PAGES</h4>
+            <p class="text-sm">
+              Home, About, Services/Products, Contact. <span class="font-bold text-pink-200">Get the basics up 
+              before optimizing</span>. You can always tweak design later.
+            </p>
+          </div>
+          
+          <div>
+            <h4 class="text-xl font-bold mb-3">STEP 3: VERIFY YOUR MUST-HAVES</h4>
+            <p class="text-sm">
+              Test the critical features you identified in the quiz. <span class="font-bold text-pink-200">If they're 
+              missing or don't work well, try your #2 choice.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white/20 rounded-lg p-6">
+        <p class="text-lg">
+          <span class="font-bold">IMPORTANT:</span> The quiz gives you a <span class="underline">starting point</span>, not a 
+          definitive answer. <span class="underline">Your preferences may change</span> as you use different platforms. 
+          The quiz is designed to narrow 30+ options down to 3-4 worth testing, not to make the final decision for you.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-rose-500 rounded-lg p-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-rose-600">ALTERNATIVE PLATFORM QUIZZES</h3>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">OTHER SITE BUILDER FINDERS</h4>
+          <div class="space-y-4">
+            <div class="border-[2px] border-gray-200 rounded-lg p-4">
+              <p class="font-bold text-gray-800">WebsiteBuilderExpert</p>
+              <p class="text-gray-700 text-sm">
+                Detailed comparison tool, but more technical. <span class="font-bold text-rose-600">Better if you know 
+                what you're looking for.</span>
+              </p>
+            </div>
+            
+            <div class="border-[2px] border-gray-200 rounded-lg p-4">
+              <p class="font-bold text-gray-800">Capterra Quiz</p>
+              <p class="text-gray-700 text-sm">
+                Focuses on enterprise needs and large teams. <span class="font-bold text-rose-600">Overkill for small 
+                sites and personal brands.</span>
+              </p>
+            </div>
+            
+            <div class="border-[2px] border-gray-200 rounded-lg p-4">
+              <p class="font-bold text-gray-800">Platform-Specific Quizzes</p>
+              <p class="text-gray-700 text-sm">
+                Many platforms have their own "find your plan" quizzes. 
+                <span class="font-bold text-rose-600">Biased toward their own solution</span> - take with grain of salt.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-2xl font-bold text-gray-800 mb-4">HOW OUR QUIZ IS DIFFERENT</h4>
+          <div class="bg-rose-50 border-[2px] border-rose-300 rounded-lg p-6">
+            <ul class="space-y-3">
+              <li class="flex items-start space-x-2">
+                <span class="text-rose-600 font-bold">✓</span>
+                <span><span class="font-bold">Independent and unbiased:</span> We don't sell any platform directly</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-rose-600 font-bold">✓</span>
+                <span><span class="font-bold">Real user feedback:</span> Based on actual experiences, not marketing claims</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-rose-600 font-bold">✓</span>
+                <span><span class="font-bold">Regularly updated:</span> Platforms change fast; our quiz reflects current reality</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <span class="text-rose-600 font-bold">✓</span>
+                <span><span class="font-bold">Multiple recommendations:</span> 3 options, not 1 "correct" answer</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gradient-to-br from-pink-100 to-purple-100 border-[3px] border-pink-400 rounded-lg p-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-purple-700">QUIZ FAQ</h3>
+      
+      <div class="space-y-4">
+        <div class="bg-white rounded-lg p-4">
+          <p class="font-bold text-gray-800 mb-2">Q: How accurate are the recommendations?</p>
+          <p class="text-gray-700">
+            <span class="font-bold text-purple-600">85% accuracy rate</span> based on user feedback. But 
+            personal preferences matter - the quiz narrows your options, but <span class="underline">you should still 
+            trial your top choices</span> before committing.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4">
+          <p class="font-bold text-gray-800 mb-2">Q: Do you sell my data?</p>
+          <p class="text-gray-700">
+            <span class="text-green-600 font-bold">No.</span> Quiz results are anonymous. We don't collect 
+            email addresses or personal information unless you choose to share them. 
+            The quiz is <span class="underline">purely a helpful tool</span>.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4">
+          <p class="font-bold text-gray-800 mb-2">Q: How often is the quiz updated?</p>
+          <p class="text-gray-700">
+            <span class="font-bold text-purple-600">Monthly</span> - we add new platforms as they launch, 
+            update scores based on user feedback, and adjust recommendations as platforms evolve. 
+            The landscape changes fast; our quiz keeps up.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4">
+          <p class="font-bold text-gray-800 mb-2">Q: Can I retake the quiz?</p>
+          <p class="text-gray-700">
+            <span class="font-bold text-green-600 font-bold">Absolutely.</span> If your needs change or you 
+            want to explore different options, retake the quiz anytime. Many users take it multiple 
+            times as they refine what they're looking for.
+          </p>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-lg p-6 mt-6">
+        <p class="text-xl text-gray-800">
+          <span class="font-bold text-purple-600">READY TO FIND YOUR PERFECT PLATFORM?</span> 
+          Take the 2-minute quiz above to get personalized recommendations based on your specific needs. 
+          It's <span class="underline">free, fast, and unbiased</span> - and it might save you hours of research 
+          and prevent costly mistakes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+---
+---
+
+<section class="bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 py-16 sm:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-5xl sm:text-7xl lg:text-8xl font-black text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 pb-4">
+      AI BUILDER QUIZ:<br/>FIND YOUR PERFECT MATCH
+    </h2>
+    
+    <p class="text-xl text-center text-gray-700 mb-12 max-w-4xl mx-auto">
+      <span class="font-bold text-violet-600">Not sure which AI builder is right for you?</span> 
+      Answer a few questions about your needs, 
+      <span class="underline">and we'll recommend the best platform</span>. 
+      Our interactive quiz takes less than 2 minutes.
+    </p>
+
+    <div class="bg-white border-[3px] border-violet-500 rounded-lg p-8 mb-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-violet-600">HOW THE QUIZ WORKS</h3>
+      
+      <div class="space-y-4">
+        <div class="border-[2px] border-gray-200 rounded-lg p-4">
+          <p class="font-bold text-violet-700 mb-2">STEP 1: ANSWER KEY QUESTIONS</p>
+          <p class="text-gray-700">
+            <span class="font-bold">Your budget, technical skills, website type, timeline</span> - 
+            We ask about what matters most for your situation. 
+            No personal information required.
+          </p>
+        </div>
+        
+        <div class="border-[2px] border-gray-200 rounded-lg p-4">
+          <p class="font-bold text-purple-700 mb-2">STEP 2: GET PERSONALIZED RECOMMENDATIONS</p>
+          <p class="text-gray-700">
+            <span class="font-bold">We match your needs to the right platform</span> - 
+            Based on your answers, we recommend 2-3 AI builders 
+            <span class="underline">that fit your specific requirements</span>.
+          </p>
+        </div>
+        
+        <div class="border-[2px] border-gray-200 rounded-lg p-4">
+          <p class="font-bold text-indigo-700 mb-2">STEP 3: SEE DETAILED COMPARISONS</p>
+          <p class="text-gray-700">
+            <span class="font-bold">Review side-by-side comparisons of your matches</span> - 
+            We link to detailed reviews so you can 
+            make an informed decision with confidence.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white border-[3px] border-purple-500 rounded-lg p-8">
+      <h3 class="text-3xl sm:text-4xl font-bold mb-6 text-purple-600">WHY USE OUR QUIZ?</h3>
+      
+      <div class="space-y-4">
+        <div class="bg-violet-50 border-[2px] border-violet-300 rounded-lg p-4">
+          <p class="font-bold text-violet-800 mb-2">SAVE TIME RESEARCHING</p>
+          <p class="text-gray-700 text-sm">
+            <span class="font-bold text-violet-700">Instead of reading dozens of reviews, get 2-3 targeted recommendations</span>. 
+            Focus your research on platforms that actually fit your needs. 
+            <span class="underline">Our quiz filters through the noise</span>.
+          </p>
+        </div>
+        
+        <div class="bg-purple-50 border-[2px] border-purple-300 rounded-lg p-4">
+          <p class="font-bold text-purple-800 mb-2">AVOID COSTLY MISTAKES</p>
+          <p class="text-gray-700 text-sm">
+            <span class="font-bold text-purple-700">Choose the right platform the first time</span>. 
+            Switching builders is difficult and time-consuming. 
+            Our recommendations help you avoid platform lock-in.
+          </p>
+        </div>
+        
+        <div class="bg-indigo-50 border-[2px] border-indigo-300 rounded-lg p-4 mt-6">
+          <p class="text-gray-800">
+            <span class="font-bold text-indigo-600">READY TO FIND YOUR PERFECT AI BUILDER?</span><br/>
+            Take the quiz below and get personalized recommendations in under 2 minutes.
+            <span class="underline">It's free, no sign-up required, and you'll get instant results</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+---
+
+</Layout>

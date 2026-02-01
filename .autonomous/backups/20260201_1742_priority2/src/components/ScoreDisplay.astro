@@ -1,0 +1,69 @@
+---
+/**
+ * Score Display Component
+ *
+ * Specs from research:
+ * - 48px font size for score number
+ * - Color coded (excellent/good/average/poor)
+ * - Stars display
+ * - Score meter
+ */
+const { score = 0, maxScore = 10, showStars = true, showMeter = true } = Astro.props;
+
+// Determine rating level and color
+function getRating(score: number, maxScore: number) {
+	const percentage = (score / maxScore) * 100;
+	if (percentage >= 90) return { label: 'Excellent', color: 'text-success', class: 'excellent' };
+	if (percentage >= 75) return { label: 'Good', color: 'text-primary', class: 'good' };
+	if (percentage >= 60) return { label: 'Average', color: 'text-warning', class: 'average' };
+	return { label: 'Poor', color: 'text-error', class: 'poor' };
+}
+
+const rating = getRating(score, maxScore);
+const percentage = Math.round((score / maxScore) * 100);
+const stars = Math.round(score / maxScore * 5);
+---
+
+<div class="flex items-baseline gap-3">
+	<!-- Score Number -->
+	<div class="text-5xl font-black leading-none {rating.color}">
+		{score}
+		<span class="text-2xl text-text-light">/{maxScore}</span>
+	</div>
+
+	<!-- Rating Label -->
+	<div class="flex flex-col gap-1">
+		<span class="text-lg font-black text-text">{rating.label}</span>
+
+		<!-- Stars -->
+		{showStars && (
+			<div class="flex gap-0.5">
+				{Array.from({ length: 5 }).map((_, i) => (
+					<svg
+						class={`w-5 h-5 ${i < stars ? 'text-warning' : 'text-gray-300'}`}
+						fill="currentColor"
+						viewBox="0 0 20 20"
+						aria-hidden="true"
+					>
+						<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+					</svg>
+				))}
+			</div>
+		)}
+	</div>
+</div>
+
+<!-- Score Meter -->
+{showMeter && (
+	<div class="w-full h-1.5 bg-border overflow-hidden mt-3">
+		<div
+			class={`h-full transition-all duration-300 ${
+				percentage >= 90 ? 'bg-success' :
+				percentage >= 75 ? 'bg-primary' :
+				percentage >= 60 ? 'bg-warning' :
+				'bg-error'
+			}`}
+			style={`width: ${percentage}%`}
+		></div>
+	</div>
+)}

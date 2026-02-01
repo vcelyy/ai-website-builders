@@ -1,0 +1,48 @@
+---
+/**
+ * Breadcrumbs Component
+ * Displays breadcrumb navigation with proper schema markup
+ */
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  breadcrumbs: BreadcrumbItem[];
+}
+
+const { breadcrumbs } = Astro.props;
+
+// Don't show breadcrumbs on homepage (only has Home breadcrumb)
+const showBreadcrumbs = breadcrumbs.length > 1;
+---
+
+{showBreadcrumbs && (
+  <nav aria-label="Breadcrumb" class="bg-gray-50 border-b border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
+      <ol class="flex items-center gap-2 text-sm flex-wrap">
+        {breadcrumbs.map((crumb, index) => (
+          <li class="flex items-center gap-2">
+            {index === 0 ? (
+              <a href={crumb.url} class="text-gray-600 hover:text-orange-600 transition-colors font-medium">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </a>
+            ) : index === breadcrumbs.length - 1 ? (
+              <span class="text-gray-900 font-semibold" aria-current="page">{crumb.name}</span>
+            ) : (
+              <>
+                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+                <a href={crumb.url} class="text-gray-600 hover:text-orange-600 transition-colors">{crumb.name}</a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </nav>
+)}

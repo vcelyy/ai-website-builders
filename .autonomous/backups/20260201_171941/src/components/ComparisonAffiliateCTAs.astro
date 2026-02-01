@@ -1,0 +1,188 @@
+---
+/**
+ * Comparison Affiliate CTAs Component
+ *
+ * Displays affiliate CTAs for both tools in a comparison.
+ * Handles tool name normalization and missing affiliate links gracefully.
+ */
+
+import AffiliateCTA from './AffiliateCTA.astro';
+import { getAffiliateLink, AFFILIATE_LINKS } from '../config/affiliate-links';
+
+interface Tool {
+  name: string;
+  score: number;
+  ease: number;
+  design: number;
+  features: number;
+  price: string;
+  aiFeatures: string[];
+  bestFor: string;
+  strengths: string[];
+  weaknesses: string[];
+}
+
+interface Props {
+  tools: [Tool, Tool];
+}
+
+const { tools } = Astro.props;
+
+/**
+ * Normalize tool name to affiliate link key
+ * Handles variations like "Framer AI" → "framer", "Wix Studio" → "wix"
+ */
+function normalizeToolName(name: string): string {
+  // Remove common suffixes and convert to lowercase
+  const normalized = name
+    .toLowerCase()
+    .replace(/\s+ai\s+(builder|website)?$/i, '')
+    .replace(/\s+ai$/i, '')
+    .replace(/\s+studio$/i, '')
+    .replace(/\s+website\s+builder$/i, '')
+    .trim();
+
+  // Special case mappings
+  const specialCases: Record<string, string> = {
+    '10web': '10web',
+    '10 web': '10web',
+    'wix': 'wix',
+    'squarespace': 'squarespace',
+    'webflow': 'webflow',
+    'framer': 'framer',
+    'durable': 'durable',
+    'relume': 'relume',
+    'dorik': 'dorik',
+    'mixo': 'mixo',
+    'hostinger': 'hostinger',
+    'jimdo': 'jimdo',
+    'ionos': 'ionos',
+    'teleporthq': 'teleporthq',
+    'teleport': 'teleporthq',
+    'b12': 'b12',
+    'bookmark': 'bookmark',
+    'codedesign': 'codedesign',
+    'code design': 'codedesign',
+    'pineapple': 'pineapple-builder',
+    'unicorn': 'unicorn',
+    'godaddy': 'godaddy',
+    'go daddy': 'godaddy',
+    'zyro': 'zyro',
+    'strikingly': 'strikingly',
+    'namecheap': 'namecheap',
+    'hostwinds': 'hostwinds',
+    'webnode': 'webnode',
+    'site123': 'site123',
+  };
+
+  // Check for special case match
+  for (const [key, value] of Object.entries(specialCases)) {
+    if (normalized.includes(key)) {
+      return value;
+    }
+  }
+
+  return normalized;
+}
+
+/**
+ * Get affiliate link for a tool, returns direct URL if no affiliate link exists
+ */
+function getToolAffiliateLink(toolName: string): { url: string; hasAffiliate: boolean; ctaText: string } {
+  const key = normalizeToolName(toolName) as keyof typeof AFFILIATE_LINKS;
+  const config = AFFILIATE_LINKS[key];
+
+  if (config) {
+    return {
+      url: config.affiliateUrl || config.url,
+      hasAffiliate: config.affiliateUrl.length > 0,
+      ctaText: config.ctaText || `Try ${toolName} Free`
+    };
+  }
+
+  // Fallback for unknown tools
+  return {
+    url: '#',
+    hasAffiliate: false,
+    ctaText: `Learn More`
+  };
+}
+
+// Get affiliate data for both tools
+const tool1Data = getToolAffiliateLink(tools[0].name);
+const tool2Data = getToolAffiliateLink(tools[1].name);
+---
+
+<section class="my-12">
+  <div class="bg-gradient-to-r from-orange-50 to-indigo-50 border-[3px] border-orange-400 p-6 md:p-8">
+    <h2 class="text-2xl md:text-3xl font-black text-gray-900 mb-6 text-center">
+      Try Both Builders Free
+    </h2>
+    <p class="text-gray-700 text-center mb-8 max-w-2xl mx-auto">
+      The best way to decide? Test each platform yourself. Both have free trials or free plans.
+      See which workflow fits your style.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+      <!-- Tool 1 CTA -->
+      <a
+        href={tool1Data.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group bg-white border-[3px] border-orange-400 p-6 hover:shadow-xl hover:border-orange-500 transition-all"
+        data-tool-name={tools[0].name}
+        data-affiliate-link={tool1Data.hasAffiliate ? 'true' : 'false'}
+        data-location="comparison-cta"
+        onclick={`gtag('event', 'affiliate_click', {tool_name: '${tools[0].name}', has_affiliate: '${tool1Data.hasAffiliate}', location: 'comparison_cta'});`}
+      >
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-black text-xl text-gray-900">{tools[0].name}</h3>
+          <div class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full font-black text-sm">
+            {tools[0].score}/10
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm mb-4">{tools[0].bestFor}</p>
+        <div class="bg-orange-500 text-white text-center px-4 py-3 font-black hover:bg-orange-600 transition-colors border-b-4 border-orange-700">
+          {tool1Data.ctaText} →
+        </div>
+        {tool1Data.hasAffiliate && (
+          <p class="text-xs text-gray-500 text-center mt-2 italic">
+            Affiliate link - helps support this site
+          </p>
+        )}
+      </a>
+
+      <!-- Tool 2 CTA -->
+      <a
+        href={tool2Data.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group bg-white border-[3px] border-indigo-400 p-6 hover:shadow-xl hover:border-indigo-500 transition-all"
+        data-tool-name={tools[1].name}
+        data-affiliate-link={tool2Data.hasAffiliate ? 'true' : 'false'}
+        data-location="comparison-cta"
+        onclick={`gtag('event', 'affiliate_click', {tool_name: '${tools[1].name}', has_affiliate: '${tool2Data.hasAffiliate}', location: 'comparison_cta'});`}
+      >
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="font-black text-xl text-gray-900">{tools[1].name}</h3>
+          <div class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full font-black text-sm">
+            {tools[1].score}/10
+          </div>
+        </div>
+        <p class="text-gray-600 text-sm mb-4">{tools[1].bestFor}</p>
+        <div class="bg-indigo-500 text-white text-center px-4 py-3 font-black hover:bg-indigo-600 transition-colors border-b-4 border-indigo-700">
+          {tool2Data.ctaText} →
+        </div>
+        {tool2Data.hasAffiliate && (
+          <p class="text-xs text-gray-500 text-center mt-2 italic">
+            Affiliate link - helps support this site
+          </p>
+        )}
+      </a>
+    </div>
+
+    <p class="text-xs text-gray-500 text-center mt-6">
+      Free trials mean no risk. Test both, pick the winner, cancel the loser.
+    </p>
+  </div>
+</section>

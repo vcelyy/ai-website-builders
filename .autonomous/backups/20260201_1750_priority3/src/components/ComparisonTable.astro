@@ -1,0 +1,48 @@
+---
+/**
+ * Comparison Table Component
+ *
+ * Supports two APIs:
+ * 1. Simple API: columns + rows (arrays of strings/objects)
+ * 2. Tools API: tools + categories (structured data with scores)
+ */
+const { columns, rows, tools, categories } = Astro.props;
+
+// Determine which API is being used
+const useToolsAPI = tools && categories;
+
+// Generate columns/rows from tools/categories if needed
+const finalColumns = columns || (useToolsAPI ? ['Metric', ...tools.map(t => t.name)] : []);
+const finalRows = rows || (useToolsAPI ? categories.map(cat => {
+  const row = [cat.name];
+  tools.forEach(tool => {
+    const toolKey = tool.name.toLowerCase();
+    const score = cat[toolKey] !== undefined ? cat[toolKey] : '-';
+    row.push(typeof score === 'number' ? score.toFixed(1) : score);
+  });
+  return row;
+}) : []);
+---
+
+<div class="overflow-x-auto">
+	<table class="w-full text-left border-collapse border border-gray-200">
+		<thead>
+			<tr class="border-b border-gray-300">
+				{finalColumns.map((col) => (
+					<th class="py-3 px-4 text-gray-600 font-medium">{col}</th>
+				))}
+			</tr>
+		</thead>
+		<tbody>
+			{finalRows.map((row) => (
+				<tr class="border-b border-gray-200">
+					{row.map((cell, i) => (
+						<td class={`py-3 px-4 ${i === 0 ? 'text-gray-600 font-medium' : 'text-gray-900'}`}>
+							{cell}
+						</td>
+					))}
+				</tr>
+			))}
+		</tbody>
+	</table>
+</div>

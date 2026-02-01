@@ -1,0 +1,227 @@
+---
+/**
+ * ABTest - A/B Testing Component for Conversion Optimization
+ *
+ * ANTI-AI-SLOP DESIGN:
+ * - NOT a generic purple/blue gradient component
+ * - Brand-specific warm coral/orange colors
+ * - Micro-interactions with personality
+ * - Tracks everything for GA4 analysis
+ *
+ * USAGE:
+ * <ABTest
+ *   testId="cta-button-text"
+ *   variants={[
+ *     { id: 'control', text: 'Try Claude Free', weight: 1 },
+ *     { id: 'variant-a', text: 'Get Claude Pro - $20/mo', weight: 1 },
+ *     { id: 'variant-b', text: 'Start Using Claude Now', weight: 1 },
+ *   ]}
+ *   href="/go/claude"
+ *   className="btn-primary"
+ * />
+ *
+ * FEATURES:
+ * - Consistent variant assignment per user (localStorage)
+ * - Weighted variants (control can get more traffic)
+ * - GA4 tracking for impressions and clicks
+ * - Fallback to control if JS fails
+ */
+
+interface Variant {
+  id: string;
+  text: string;
+  weight?: number; // Default: 1 (equal distribution)
+  subtext?: string; // Optional secondary text
+}
+
+interface Props {
+  testId: string;
+  variants: Variant[];
+  href: string;
+  className?: string;
+  // Optional: Force specific variant (for testing)
+  forceVariant?: string;
+}
+
+const { testId, variants, href, className = '', forceVariant } = Astro.props;
+
+// Validate variants
+if (variants.length < 2) {
+  throw new Error(`ABTest "${testId}": Need at least 2 variants`);
+}
+
+// Calculate weighted distribution
+const totalWeight = variants.reduce((sum, v) => sum + (v.weight || 1), 0);
+const ranges: { id: string; start: number; end: number }[] = [];
+let currentStart = 0;
+
+for (const variant of variants) {
+  const weight = variant.weight || 1;
+  const percentage = weight / totalWeight;
+  ranges.push({
+    id: variant.id,
+    start: currentStart,
+    end: currentStart + percentage,
+  });
+  currentStart += percentage;
+}
+
+// Generate unique instance ID
+const instanceId = `abtest-${testId}-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div
+  id={instanceId}
+  class="abtest-container"
+  data-test-id={testId}
+  data-ranges={JSON.stringify(ranges)}
+  data-force-variant={forceVariant || ''}
+>
+  <!-- Fallback: Show control variant if JS fails -->
+  <a
+    href={href}
+    class={`abtest-variant ${className}`}
+    data-variant="control"
+    data-test-id={testId}
+  >
+    {variants[0].text}
+  </a>
+</div>
+
+<script define:vars={{ instanceId }}>
+  (function() {
+    'use strict';
+
+    const container = document.getElementById(instanceId);
+    if (!container) return;
+
+    const testId = container.dataset.testId;
+    const ranges = JSON.parse(container.dataset.ranges || '[]');
+    const forceVariant = container.dataset.forceVariant;
+
+    // Get or assign variant for this user
+    function getVariant() {
+      // Forced variant (for testing)
+      if (forceVariant) return forceVariant;
+
+      // Check if user already has this variant assigned
+      const storageKey = `abtest_${testId}`;
+      const savedVariant = localStorage.getItem(storageKey);
+      if (savedVariant) return savedVariant;
+
+      // Assign new variant based on weighted random
+      const random = Math.random();
+      for (const range of ranges) {
+        if (random >= range.start && random < range.end) {
+          localStorage.setItem(storageKey, range.id);
+          return range.id;
+        }
+      }
+
+      // Fallback to first variant
+      return ranges[0]?.id || 'control';
+    }
+
+    const variantId = getVariant();
+
+    // Find variant data from all links
+    const links = container.querySelectorAll('a');
+    let selectedLink: HTMLAnchorElement | null = null;
+
+    for (const link of links) {
+      if (link.dataset.variant === variantId) {
+        selectedLink = link as HTMLAnchorElement;
+        break;
+      }
+    }
+
+    // If variant doesn't exist as a link, show the control
+    if (!selectedLink && links.length > 0) {
+      selectedLink = links[0] as HTMLAnchorElement;
+    }
+
+    // Hide all links, show selected variant
+    for (const link of links) {
+      (link as HTMLElement).style.display = 'none';
+    }
+
+    if (selectedLink) {
+      selectedLink.style.display = 'inline-block';
+      selectedLink.classList.add('abtest-assigned');
+
+      // Track impression with GA4
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'ab_test_impression', {
+          test_id: testId,
+          variant: variantId,
+          test_name: testId.replace(/-/g, '_'),
+          send_to: 'default'
+        });
+        console.log(`[ABTest] Impression: ${testId} = ${variantId}`);
+      }
+
+      // Track click
+      selectedLink.addEventListener('click', () => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'ab_test_click', {
+            test_id: testId,
+            variant: variantId,
+            test_name: testId.replace(/-/g, '_'),
+            link_url: selectedLink.href,
+            send_to: 'default'
+          });
+          console.log(`[ABTest] Click: ${testId} = ${variantId}`);
+        }
+      });
+    }
+  })();
+</script>
+
+<style>
+  /* A/B Test Container */
+  .abtest-container {
+    display: contents;
+  }
+
+  /* Variant Assignment Animation */
+  .abtest-variant.abtest-assigned {
+    animation: abtest-fade-in 0.3s ease-out;
+  }
+
+  @keyframes abtest-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Variant Badge (optional - for debugging) */
+  .abtest-variant::after {
+    content: attr(data-variant);
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 9px;
+    padding: 2px 6px;
+    background: rgba(224, 122, 95, 0.9);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  .abtest-variant:hover::after {
+    opacity: 0.7;
+  }
+
+  /* Performance: No layout shift */
+  .abtest-variant {
+    will-change: opacity, transform;
+  }
+</style>

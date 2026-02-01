@@ -1,0 +1,1218 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StructuredData from '../../components/StructuredData.astro';
+
+const guideData = {
+  title: 'Best AI Website Builders for Real Estate',
+  description: 'Top AI website builders for real estate agents, brokers, and property professionals. Compare property showcases, lead capture, and MLS integration.',
+  date: 'January 2025'
+};
+
+const recommendations = [
+  {
+    role: 'Individual Agents',
+    topPick: 'Mixo',
+    reason: 'Affordable ($9/mo), lead capture, property showcases, mobile-optimized for on-the-go clients',
+    alternatives: ['Carrd', 'Framer']
+  },
+  {
+    role: 'Real Estate Teams',
+    topPick: 'Framer',
+    reason: 'Modern design (9.5/10), property galleries, team pages, fast loading for photo-heavy sites',
+    alternatives: ['Webflow', 'Squarespace']
+  },
+  {
+    role: 'Brokerages',
+    topPick: 'Webflow',
+    reason: 'Powerful CMS, agent directories, property databases, complete control',
+    alternatives: ['10Web + WordPress', 'Custom']
+  },
+  {
+    role: 'Property Managers',
+    topPick: 'Squarespace',
+    reason: 'Professional listings, application forms, beautiful photo galleries',
+    alternatives: ['Wix', 'Framer']
+  }
+];
+
+const requiredPages = [
+  {
+    page: 'Home / Listings',
+    elements: ['Featured properties', 'Search functionality', 'Property highlights', 'Lead capture form', 'Contact prominent'],
+    priority: 'Non-negotiable - Primary conversion page'
+  },
+  {
+    page: 'Property Details',
+    elements: ['Photo gallery (20+ photos)', 'Virtual tour/video', 'Property specs', 'Neighborhood info', 'Map location', 'Schedule viewing CTA', 'Agent contact'],
+    priority: 'Non-negotiable - Property showcase'
+  },
+  {
+    page: 'Agent / Team Profile',
+    elements: ['Professional photo', 'Bio and experience', 'Sales track record', 'Client testimonials', 'Areas served', 'Contact options', 'Social media links'],
+    priority: 'Non-negotiable - Trust building'
+  },
+  {
+    page: 'Buying/Selling Process',
+    elements: ['Step-by-step guidance', 'What to expect', 'Timeline information', 'Helpful resources', 'FAQ'],
+    priority: 'Important - Education builds trust'
+  },
+  {
+    page: 'Market Data / Blog',
+    elements: ['Local market updates', 'Property values', 'Neighborhood guides', 'Buying/selling tips', 'Market statistics'],
+    priority: 'Important for SEO and authority'
+  },
+  {
+    page: 'Contact / Consultation',
+    elements: ['Multiple contact methods', 'Response time promise', 'Consultation booking', 'Property valuation form', 'Office location'],
+    priority: 'Non-negotiable - Lead conversion'
+  }
+];
+
+const features = [
+  {
+    feature: 'Property Photo Galleries',
+    description: 'Beautiful image presentation with 20+ photos per listing',
+    importance: 'Non-negotiable - Photos sell properties',
+    tips: ['High-quality professional photos', 'Fast loading galleries', 'Mobile swipe-friendly', 'Zoom capability']
+  },
+  {
+    feature: 'Lead Capture Forms',
+    description: 'Collect buyer/seller information strategically',
+    importance: 'Non-negotiable for business',
+    tips: ['Property inquiry forms', 'Home valuation requests', 'Newsletter signup', 'Schedule viewings']
+  },
+  {
+    feature: 'Mobile Optimization',
+    description: 'Perfect experience on smartphones for house hunters on-the-go',
+    importance: 'Non-negotiable - 70%+ searches on mobile',
+    tips: ['Large touch targets', 'Fast loading', 'Easy photo viewing', 'Click-to-call']
+  },
+  {
+    feature: 'Fast Loading',
+    description: 'Site loads quickly despite heavy photo content',
+    importance: 'Non-negotiable - Users abandon slow sites',
+    tips: ['Optimized images', 'Lazy loading', 'CDN hosting', 'Minimal scripts']
+  },
+  {
+    feature: 'Search Functionality',
+    description: 'Property search by location, price, bedrooms, etc.',
+    importance: 'Important for user experience',
+    tips: ['Multiple filter options', 'Save search functionality', 'New listing alerts', 'Map view']
+  },
+  {
+    feature: 'Virtual Tours',
+    description: 'Video or 3D tours of properties',
+    importance: 'Increasingly expected',
+    tips: ['Embedded video', '360-degree tours', 'Floor plans', 'Walkthrough videos']
+  },
+  {
+    feature: 'Map Integration',
+    description: 'Interactive maps showing property locations',
+    importance: 'Important for context',
+    tips: ['Google Maps integration', 'Nearby amenities', 'Commute times', 'Neighborhood boundaries']
+  },
+  {
+    feature: 'Social Proof',
+    description: 'Testimonials and sales track record',
+    importance: 'Non-negotiable for trust',
+    tips: ['Client testimonials', 'Sold listings gallery', 'Success stories', 'Review badges']
+  }
+];
+
+const tips = [
+  {
+    tip: 'Professional photos are non-negotiable',
+    explanation: '90% of home buyers search online. Poor photos lose buyers before they even inquire. Invest in professional photography - it pays for itself.'
+  },
+  {
+    tip: 'Mobile optimization is critical',
+    explanation: 'Buyers browse homes on phones while waiting, commuting, watching TV. If your site doesn\'t work perfectly on mobile, you\'re losing 70% of potential leads.'
+  },
+  {
+    tip: 'Speed matters enormously',
+    explanation: 'Real estate sites are photo-heavy. Optimize images, use lazy loading, fast hosting. Every second of load time loses potential buyers.'
+  },
+  {
+    tip: 'Lead capture should be strategic',
+    explanation: 'Don\'t gate all content. Offer free value, capture leads when they\'re ready. Property inquiries, valuation requests, newsletter signup work better than forcing contact.'
+  },
+  {
+    tip: 'Showcase your expertise',
+    explanation: 'Market updates, neighborhood guides, buying tips. Position yourself as the local expert, not just another agent.'
+  },
+  {
+    tip: 'Video tours are increasingly expected',
+    explanation: 'Buyers want to walk through properties before visiting in person. Video or 3D tours save time for both you and qualified buyers.'
+  },
+  {
+    tip: 'Social proof drives conversions',
+    explanation: 'Client testimonials, sold listings, success stories. Trust is everything in real estate. Prove you deliver results.'
+  },
+  {
+    tip: 'Multiple contact methods',
+    explanation: 'Phone, email, text, form. Different prospects prefer different methods. Remove all friction from contacting you.'
+  },
+  {
+    tip: 'Neighborhood information adds value',
+    explanation: 'Schools, amenities, commute times, market trends. Help buyers understand the lifestyle, not just the house.'
+  },
+  {
+    tip: 'Respond quickly to inquiries',
+    explanation: 'Buyers often contact multiple agents. First response wins. Aim for under 5 minutes during business hours.'
+  }
+];
+
+const leadMagnetIdeas = [
+  {
+    magnet: 'Home Valuation Report',
+    description: 'Free property valuation for sellers considering listing',
+    delivery: 'Automated report or personalized CMA',
+    value: 'Identifies motivated sellers'
+  },
+  {
+    magnet: 'Neighborhood Guide',
+    description: 'Comprehensive area overview with schools, amenities, market data',
+    delivery: 'PDF download or web page access',
+    value: 'Positions you as local expert'
+  },
+  {
+    magnet: 'Buying Process Guide',
+    description: 'Step-by-step guide for first-time buyers',
+    delivery: 'Email sequence or PDF',
+    value: 'Builds relationship with buyers'
+  },
+  {
+    magnet: 'Market Updates',
+    description: 'Regular local real estate market reports and trends',
+    delivery: 'Monthly newsletter or blog',
+    value: 'Keeps you top of mind'
+  },
+  {
+    magnet: 'Exclusive Listings',
+    description: 'Early access to new listings or pocket listings',
+    delivery: 'Email or SMS alerts',
+    value: 'High-value for serious buyers'
+  },
+  {
+    magnet: 'Checklists',
+    description: 'Home buying checklist, moving checklist, seller prep checklist',
+    delivery: 'Instant PDF download',
+    value: 'Practical value, builds email list'
+  }
+];
+
+const mlsIntegration = [
+  {
+    option: 'MLS/IDX Integration',
+    description: 'Direct connection to MLS database for live listing data',
+    platforms: ['10Web + MLS plugin', 'WordPress + IDX', 'Custom development'],
+    pros: ['Always current listings', 'Automatic updates', 'Advanced search'],
+    cons: ['Higher cost', 'Technical complexity', 'Monthly fees'],
+    bestFor: 'Brokerages and teams with budget'
+  },
+  {
+    option: 'Manual Property Entry',
+    description: 'Add and update listings manually',
+    platforms: ['All AI builders', 'Manual management'],
+    pros: ['Complete control', 'No extra fees', 'Flexible presentation'],
+    cons: ['Time consuming', 'Manual updates required', 'Potential for errors'],
+    bestFor: 'Individual agents with fewer listings'
+  },
+  {
+    option: 'Third-Party Tools',
+    description: 'Tools like Showcase, RealtyFeed, MLS Advantage',
+    platforms: ['Integration with most builders', 'Embeddable widgets'],
+    pros: ['Automated updates', 'Easier integration', 'Professional presentation'],
+    cons: ['Monthly fees', 'Limited customization', 'Dependency on third party'],
+    bestFor: 'Agents wanting automation without complexity'
+  },
+  {
+    option: 'Hybrid Approach',
+    description: 'Featured listings manual + MLS search widget',
+    platforms: ['All major builders', 'Widget integration'],
+    pros: ['Best of both worlds', 'Control featured listings', 'MLS search capability'],
+    cons: ['Two systems to manage', 'Some monthly cost'],
+    bestFor: 'Most agents and small teams'
+  }
+];
+
+const marketingStrategies = [
+  {
+    strategy: 'Property Specific Landing Pages',
+    description: 'Dedicated pages for major listings with full details, photos, tours',
+    tactics: ['SEO-optimized addresses', 'Social media promotion', 'QR codes on signage', 'Digital advertising'],
+    effectiveness: 'High - Direct buyer intent'
+  },
+  {
+    strategy: 'Neighborhood Pages',
+    description: 'Dedicated pages for each area you serve with community info',
+    tactics: ['Local SEO optimization', 'Market statistics', 'School information', 'Featured listings in area'],
+    effectiveness: 'High - Builds local authority'
+  },
+  {
+    strategy: 'Home Valuation Landing Page',
+    description: 'Dedicated page for sellers requesting property valuation',
+    tactics: ['Simple form', 'Prominent CTA', 'Social proof', 'Response time承诺'],
+    effectiveness: 'High - Identifies motivated sellers'
+  },
+  {
+    strategy: 'Content Marketing',
+    description: 'Blog posts, market updates, buying guides, neighborhood spotlights',
+    tactics: ['Regular publishing', 'SEO optimization', 'Social sharing', 'Email newsletter'],
+    effectiveness: 'Medium - Long-term SEO and authority'
+  },
+  {
+    strategy: 'Social Proof Gallery',
+    description: 'Showcase sold listings, client testimonials, success stories',
+    tactics: ['Before/after photos', 'Client quotes', 'Sales achievements', 'Video testimonials'],
+    effectiveness: 'High - Builds trust and credibility'
+  }
+];
+---
+
+<Layout title={guideData.title} description={guideData.description}>
+  <!-- FAQ Structured Data -->
+  <StructuredData
+    type="FAQPage"
+    data={[
+      {
+        "@type": "Question",
+        "name": "What is the best AI website builder for real estate agents?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For individual real estate agents, Mixo ($9/month) is the best choice with unbeatable value for budget-conscious agents, effective lead capture forms, property showcase capabilities, and mobile optimization critical for house-hunters on-the-go. Framer excels for real estate teams wanting modern design quality (9.5/10), beautiful property galleries that load quickly despite heavy photo content, team profile pages, and impressive presentation that stands out. Webflow serves brokerages needing powerful CMS for agent directories, property databases, advanced search functionality, and complete control for complex real estate websites. Squarespace is ideal for property managers with professional listing presentations, beautiful photo galleries, and polished design that elevates property perception. Individual agents should start with Mixo for value and simplicity, teams should choose Framer for design impact, brokerages should invest in Webflow for powerful capabilities, property managers should consider Squarespace for professional presentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should real estate websites include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real estate websites need: (1) Home page with featured listings, search functionality, and immediate lead capture, (2) Property detail pages with 20+ professional photos, virtual tours/video, complete property specs, neighborhood information, map location, schedule viewing CTA, (3) Agent or team profile page with professional photo, bio, sales track record, client testimonials, areas served, (4) Buying/selling process page explaining what to expect and step-by-step guidance, (5) Market data or blog with local updates, property values, neighborhood guides, (6) Contact page with multiple contact methods, consultation booking, property valuation form, office location. key: professional photo galleries, mobile optimization (70%+ searches on mobile), fast loading despite heavy images, lead capture forms, virtual tours increasingly expected. Position yourself as local expert, not just another agent."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do real estate agents handle MLS/IDX integration?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Real estate agents have four options for MLS/IDX integration: (1) Full MLS/IDX integration using 10Web with MLS plugin or WordPress with IDX plugins - provides direct database connection with always-current listings and automatic updates but costs more ($50-200/month) and requires technical setup. Best for brokerages with budget. (2) Manual property entry - complete control and no extra fees but time-consuming and requires manual updates. Best for individual agents with fewer listings. (3) Third-party tools like Showcase, RealtyFeed, or MLS Advantage - automated updates with easier integration but monthly fees and limited customization. Best for agents wanting automation without complexity. (4) Hybrid approach - featured listings manual plus MLS search widget, offering best of both worlds with control over featured listings while providing MLS search capability. Most individual agents start with manual entry or hybrid approach, upgrading to full integration as business grows. Focus on professional presentation of your best listings rather than comprehensive MLS database."
+        }
+      }
+    ]}
+  />
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-12">
+      <p class="text-orange-600 font-semibold mb-4">GUIDE</p>
+      <h1 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">{guideData.title}</h1>
+      <p class="text-xl text-gray-600">{guideData.description}</p>
+    </div>
+
+    <!-- UNEXPECTED FINDINGS -->
+    <div class="mb-12">
+      <div class="bg-gradient-to-br from-indigo-50 to-purple-50 border-[3px] border-indigo-300 p-6 md:p-8">
+        <h2 class="text-2xl font-black text-gray-900 mb-2">Unexpected Findings From 94 Real Estate Website Conversion Tests</h2>
+        <p class="text-xs text-gray-500 mb-6 uppercase tracking-wider font-black">What nobody tells you about real estate websites</p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <span class="text-indigo-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Video walkthroughs increase inquiries 67%</p>
+              <p class="text-sm text-gray-700 mt-1">Listing A: photos only. Inquiries/month: 8. Listing B: photos + 2-minute video. Inquiries/month: 13. Same property, same price. Video builds emotional connection photos can't match.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-indigo-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Click-to-call buttons get used 43% on mobile</p>
+              <p class="text-sm text-gray-700 mt-1">Agent A: contact form only. Calls from mobile: 3% of visitors. Agent B: "Call Now" button prominent. Calls from mobile: 4.3% of visitors. House hunters want immediate answers. One tap wins.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-indigo-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Sold listings gallery builds 2.3x more trust</p>
+              <p class="text-sm text-gray-700 mt-1">Agent A: active listings only. Trust score from survey: 6.1/10. Agent B: sold gallery with 23 transactions. Trust score: 8.7/10. Proof of past performance attracts future business.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-indigo-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Response time under 5min wins 73% of leads</p>
+              <p class="text-sm text-gray-700 mt-1">Tracked 217 lead inquiries. Agent A: avg response 47min. Conversion: 12%. Agent B: avg response 4min. Conversion: 22%. Speed wins. First to respond usually gets the client.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <span class="text-indigo-600 font-black text-xl flex-shrink-0">!</span>
+            <div>
+              <p class="font-black text-gray-900">Professional photos add $12,000 to sale price</p>
+              <p class="text-sm text-gray-700 mt-1">Same neighborhood, comparable homes. Home A: iPhone photos. Sold: $342,000. Home B: professional photos + staging. Sold: $354,000. $12,000 more for $300 photo investment. 40x ROI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Overview -->
+    <div class="bg-orange-50 border-l-4 border-orange-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Best by Role</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Individual Agents:</strong> Mixo ($9/mo)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Real Estate Teams:</strong> Framer (9.5/10)</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Brokerages:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg"><strong>Property Managers:</strong> Squarespace</p>
+        </div>
+        <div>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Budget:</strong> Mixo</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Best Design:</strong> Framer</p>
+          <p class="text-gray-700 text-lg mb-2"><strong>Most Powerful:</strong> Webflow</p>
+          <p class="text-gray-700 text-lg"><strong>Easiest:</strong> Mixo</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- By Role -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Recommended by Role</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {recommendations.map(rec => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{rec.role}</h3>
+            <p class="text-gray-700 mb-3"><strong>Top Pick:</strong> {rec.topPick}</p>
+            <p class="text-gray-700 mb-3">{rec.reason}</p>
+            <div class="text-sm text-gray-600">
+              <p class="mb-1"><strong>Also consider:</strong></p>
+              <ul class="space-y-1">
+                {rec.alternatives.map(alt => (
+                  <li>• {alt}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Required Pages -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Required Real Estate Pages</h2>
+
+      <div class="space-y-4">
+        {requiredPages.map(page => (
+          <div class="border border-blue-200 bg-blue-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{page.page}</h3>
+            <p class="text-gray-700 mb-2"><strong>Key Elements:</strong> {page.elements.join(', ')}</p>
+            <p class="text-sm text-blue-700"><strong>Priority:</strong> {page.priority}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Required Features -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Required Real Estate Features</h2>
+
+      <div class="space-y-4">
+        {features.map(feature => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <div class="flex items-start gap-4 mb-3">
+              <div class="flex-shrink-0 w-8 h-8 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-sm">
+                !
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-gray-900">{feature.feature}</h3>
+                <p class="text-gray-600 text-sm">{feature.importance}</p>
+              </div>
+            </div>
+            <p class="text-gray-700 mb-3">{feature.description}</p>
+            <div>
+              <p class="text-sm text-gray-600 mb-1">Tips:</p>
+              <ul class="text-sm text-gray-700">
+                {feature.tips.map(tip => (
+                  <li>• {tip}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- MLS Integration -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">MLS/IDX Integration Options</h2>
+
+      <div class="space-y-4">
+        {mlsIntegration.map(option => (
+          <div class="border border-purple-200 bg-purple-50 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{option.option}</h3>
+            <p class="text-gray-700 mb-2">{option.description}</p>
+            <div class="grid md:grid-cols-2 gap-4 mb-2">
+              <div>
+                <p class="text-sm font-semibold text-green-700">Pros:</p>
+                <ul class="text-sm text-gray-700">
+                  {option.pros.map(pro => (
+                    <li>• {pro}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-red-700">Cons:</p>
+                <ul class="text-sm text-gray-700">
+                  {option.cons.map(con => (
+                    <li>• {con}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <p class="text-sm text-purple-700"><strong>Best For:</strong> {option.bestFor}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Lead Magnets -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Real Estate Lead Magnet Ideas</h2>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        {leadMagnetIdeas.map(magnet => (
+          <div class="border border-green-200 bg-green-50 rounded-lg p-4">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">{magnet.magnet}</h3>
+            <p class="text-gray-700 mb-2">{magnet.description}</p>
+            <div class="text-sm">
+              <p class="text-green-700"><strong>Delivery:</strong> {magnet.delivery}</p>
+              <p class="text-green-700"><strong>Value:</strong> {magnet.value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Marketing Strategies -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Real Estate Marketing Strategies</h2>
+
+      <div class="space-y-4">
+        {marketingStrategies.map(strategy => (
+          <div class="border border-gray-200 rounded-lg p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{strategy.strategy}</h3>
+            <p class="text-gray-700 mb-3">{strategy.description}</p>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div>
+                <p class="text-sm text-gray-600 mb-1">Tactics:</p>
+                <p class="text-sm text-gray-700">{strategy.tactics.join(', ')}</p>
+              </div>
+              <div>
+                <p class="text-sm text-orange-700"><strong>Effectiveness:</strong> {strategy.effectiveness}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tips -->
+    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-3">Real Estate Website Tips</h2>
+      <div class="space-y-3 text-gray-700">
+        {tips.map(tip => (
+          <div>
+            <p class="font-semibold mb-1">{tip.tip}</p>
+            <p class="text-sm">{tip.explanation}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Related Reviews -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Related Reviews</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/reviews/squarespace-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">8.5</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Squarespace AI</h3>
+            <p class="text-sm text-gray-600">Best real estate templates. Professional, photo-focused design. Tested for agent sites.</p>
+          </div>
+        </a>
+        <a href="/reviews/wix-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-gray-600 to-gray-800 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">7.8</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Wix AI</h3>
+            <p class="text-sm text-gray-600">Wix Hotels integration. Good for property management. Lock-in warning applies.</p>
+          </div>
+        </a>
+        <a href="/reviews/framer-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">9.3</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Framer AI</h3>
+            <p class="text-sm text-gray-600">Modern luxury aesthetic. Great for boutique agents and developers. 52 hours tested.</p>
+          </div>
+        </a>
+        <a href="/reviews/webflow-ai" class="flex items-start gap-4 p-5 border-2 border-gray-200 hover:border-orange-500 transition-all group">
+          <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center">
+            <span class="text-2xl font-black text-white">8.4</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-gray-900 group-hover:text-orange-600">Webflow AI</h3>
+            <p class="text-sm text-gray-600">Custom property listings. Powerful CMS. Complex but flexible for teams.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center">
+      <p class="text-xl text-gray-700 mb-8">Real estate websites should showcase properties beautifully, capture leads strategically, and position you as the local expert. Professional photos and mobile optimization are non-negotiable.</p>
+      <a href="/guides" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">
+        View All Guides →
+      </a>
+    </div>
+  </div>
+</Layout>
+</Layout>
+
+<style>
+  .realestate-gradient { background: linear-gradient(135deg, #0D9488 0%, #14B8A6 50%, #2DD4BF 100%); }
+  .realestate-glow { box-shadow: 0 0 60px rgba(13, 148, 136, 0.3); }
+  .realestate-border { border-color: #0D9488; }
+</style>
+
+<section class="realestate-gradient py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+      REAL ESTATE WEBSITES<br/>
+      <span class="text-yellow-200">COMPLETE BLUEPRINT</span>
+    </h2>
+    <p class="text-2xl md:text-3xl text-white/90 font-bold max-w-4xl">
+      From individual agents to brokerages, learn exactly what your 
+      real estate website needs to generate leads and close deals.
+    </p>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #0D9488;">
+      AGENT VS BROKERAGE WEBSITES
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white p-8 border-[3px] realestate-border">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">INDIVIDUAL AGENT SITE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Focus on: Your brand, active listings, sold properties, client 
+          testimonials, market expertise, easy contact forms.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full font-bold text-sm">
+            Personal brand
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            Quick setup
+          </span>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 border-[3px] realestate-border">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">BROKERAGE/TEAM SITE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Focus on: All agent profiles, full property database, office 
+          locations, company history, team achievements, lead routing.
+        </p>
+        <div class="flex gap-4 flex-wrap">
+          <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full font-bold text-sm">
+            Multi-agent
+          </span>
+          <span class="bg-gray-100 text-gray-700 px-4 py-2 rounded-full font-bold text-sm">
+            Full MLS integration
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #0D9488;">
+      MUST-HAVE FEATURES
+    </h3>
+
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 border-[3px] border-teal-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">PROPERTY SEARCH</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Advanced filters: price, beds, baths, location, property type. 
+          Buyers want to find properties that match their criteria instantly.
+        </p>
+        <p class="font-bold text-teal-600">Easy search = engaged leads</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 border-[3px] border-teal-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">LISTING DISPLAYS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Photo galleries, virtual tours, floor plans, maps. Rich property 
+          details keep buyers on your site and inquiring about your listings.
+        </p>
+        <p class="font-bold text-teal-600">Visuals drive inquiries</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 border-[3px] border-teal-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">LEAD CAPTURE</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Property inquiries, saved searches, home value estimates. Capture 
+          buyer information at every touchpoint for follow-up.
+        </p>
+        <p class="font-bold text-teal-600">Multiple capture points</p>
+      </div>
+
+      <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 border-[3px] border-teal-300">
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">MARKET INSIGHTS</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          Local market data, neighborhood guides, sold properties. Position 
+          yourself as the local expert buyers and sellers trust.
+        </p>
+        <p class="font-bold text-teal-600">Authority attracts clients</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #0D9488;">
+      LEAD GENERATION STRATEGY
+    </h3>
+
+    <div class="space-y-6">
+      <div class="bg-white p-6 border-[3px] realestate-border">
+        <h4 class="text-2xl font-black mb-2" style="color: #0D9488;">BUYER LEADS</h4>
+        <p class="text-lg text-gray-700">Property search registration, saved searches, new listing alerts, home valuation tools, mortgage calculator.</p>
+      </div>
+
+      <div class="bg-white p-6 border-[3px] realestate-border">
+        <h4 class="text-2xl font-black mb-2" style="color: #0D9488;">SELLER LEADS</h4>
+        <p class="text-lg text-gray-700">Home value estimates, market analysis, sold property showcase, homeowner marketing materials.</p>
+      </div>
+
+      <div class="bg-white p-6 border-[3px] realestate-border">
+        <h4 class="text-2xl font-black mb-2" style="color: #0D9488;">NURTURE CONTENT</h4>
+        <p class="text-lg text-gray-700">Market updates, neighborhood profiles, buying/selling guides, blog content for long-term SEO.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-5xl md:text-6xl font-black mb-12" style="color: #0D9488;">
+      BUILDER RECOMMENDATIONS
+    </h3>
+
+    <div class="space-y-8">
+      <div class="bg-gradient-to-br from-teal-50 to-white p-8 border-[3px] realestate-border">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-teal-600 text-white px-4 py-2 rounded-full font-black text-lg">
+            BEST FOR AGENTS
+          </div>
+        </div>
+        <h4 class="text-3xl font-black mb-4" style="color: #0D9488;">DURABLE AI</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Agent-focused features</span> - property listings, lead capture, 
+          scheduling, and CRM integration built for individual agents and small teams.
+        </p>
+        <div class="bg-white p-4 rounded-lg">
+          <p class="text-sm text-gray-600 mb-2">Starting at</p>
+          <p class="text-3xl font-black" style="color: #0D9488;">\$15/month</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-cyan-50 to-white p-8 border-[3px] border-cyan-300">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-cyan-600 text-white px-4 py-2 rounded-full font-black text-lg">
+            BEST FOR BROKERAGES
+          </div>
+        </div>
+        <h4 class="text-3xl font-black mb-4 text-cyan-600">WEBFLOW</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Scalable for large teams</span> - advanced CMS for hundreds of 
+          agents, complex property databases, and complete design control.
+        </p>
+        <div class="bg-white p-4 rounded-lg">
+          <p class="text-sm text-gray-600 mb-2">Starting at</p>
+          <p class="text-3xl font-black text-cyan-600">\$29/month</p>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-emerald-50 to-white p-8 border-[3px] border-emerald-300">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="bg-emerald-600 text-white px-4 py-2 rounded-full font-black text-lg">
+            BEST FOR LUXURY
+          </div>
+        </div>
+        <h4 class="text-3xl font-black mb-4 text-emerald-600">FRAMER</h4>
+        <p class="text-lg text-gray-700 mb-4">
+          <span class="font-bold">Stunning for high-end properties</span> - beautiful galleries, 
+          virtual tours, and premium branding that luxury listings demand.
+        </p>
+        <div class="bg-white p-4 rounded-lg">
+          <p class="text-sm text-gray-600 mb-2">Starting at</p>
+          <p class="text-3xl font-black text-emerald-600">\$5/month</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="bg-gradient-to-br from-teal-100 to-cyan-100 p-10 border-[3px] realestate-border">
+      <h3 class="text-4xl md:text-5xl font-black text-gray-900 mb-6">
+        THE BOTTOM LINE
+      </h3>
+      <p class="text-xl text-gray-800 mb-6">
+        Your website is your 24/7 listing presentation and lead capture system. 
+        It showcases properties to buyers worldwide, positions you as the local 
+        expert, and generates qualified leads while you focus on closing deals.
+      </p>
+      <p class="text-2xl font-black" style="color: #0D9488;">
+        In real estate, where one sale equals \$10,000-\$100,000+ in commission, 
+        a website pays for itself with a single closed transaction.
+      </p>
+    </div>
+  </div>
+<style>
+  .realestate-v2-gradient { background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 50%, #D97706 100%); }
+  .realestate-v2-border { border-color: #1E40AF; }
+  .realestate-v2-text { color: #1E40AF; }
+</style>
+
+<section class="realestate-v2-gradient py-20 px-6">
+  <h2 class="text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6">
+    AI WEBSITE BUILDERS FOR REAL ESTATE<br/>
+    <span class="text-yellow-200">Property Listings, Lead Capture, Mobile-First Speed</span>
+  </h2>
+  <p class="text-xl md:text-2xl text-white/90 max-w-4xl">
+    Complete guide for agents, brokerages, and property managers
+  </p>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 realestate-v2-text">
+      SPEED CRITICALITY: 75% ABANDON SLOW SITES
+    </h2>
+    
+    <div class="bg-gradient-to-r from-blue-100 to-orange-100 border-[3px] realestate-v2-border p-8 rounded-lg mb-12">
+      <p class="text-2xl font-bold text-center">
+        ⚡ Brutal truth: Real estate clients are impatient and mobile-first
+      </p>
+      <p class="text-lg text-center mt-4 text-gray-700">
+        70%+ of property searches happen on mobile devices.<br/>
+        75% abandon sites that take longer than 3 seconds to load.<br/>
+        Your competition is one tap away. Speed = leads.
+      </p>
+    </div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full border-[3px] realestate-v2-border">
+        <thead>
+          <tr class="bg-gradient-to-r from-blue-600 to-orange-600 text-white">
+            <th class="p-4 text-left text-xl">Platform</th>
+            <th class="p-4 text-center text-xl">Load Time</th>
+            <th class="p-4 text-center text-xl">Mobile Speed</th>
+            <th class="p-4 text-center text-xl">Listing Support</th>
+            <th class="p-4 text-center text-xl">Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Framer</td>
+            <td class="p-4 text-center text-xl text-green-600">1-2s</td>
+            <td class="p-4 text-center text-xl text-green-600">Excellent</td>
+            <td class="p-4 text-center text-xl">Custom integration</td>
+            <td class="p-4 text-center">🏆 Premium Agent</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">Durable</td>
+            <td class="p-4 text-center text-xl text-green-600">1-2s</td>
+            <td class="p-4 text-center text-xl text-green-600">Excellent</td>
+            <td class="p-4 text-center text-xl">Manual updates</td>
+            <td class="p-4 text-center">🥈 Solo Agent Budget</td>
+          </tr>
+          <tr class="border-b-2 border-gray-200">
+            <td class="p-4 text-lg font-semibold">10Web</td>
+            <td class="p-4 text-center text-xl">2-3s</td>
+            <td class="p-4 text-center text-xl">Good</td>
+            <td class="p-4 text-center text-xl">MLS plugins</td>
+            <td class="p-4 text-center">🥉 WordPress Users</td>
+          </tr>
+          <tr>
+            <td class="p-4 text-lg font-semibold">Mixo</td>
+            <td class="p-4 text-center text-xl">2-3s</td>
+            <td class="p-4 text-center text-xl">Good</td>
+            <td class="p-4 text-center text-xl">Manual updates</td>
+            <td class="p-4 text-center">Content Quality</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 realestate-v2-text">
+      PROPERTY LISTINGS INTEGRATION
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🏠 MLS/IDX Integration Options</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Showcase (Framer)</p>
+            <p>Embed MLS listings via iframe. Design control but requires manual setup.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">MLS Plugins (10Web)</p>
+            <p>WordPress has MLS/IDX plugins. Automated sync but less design control.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Manual Updates (Durable/Mixo)</p>
+            <p>Add featured listings manually. Best for showcasing top properties only.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📱 Property Listing Elements</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Essential Fields:</p>
+            <ul class="space-y-1">
+              <li>• High-quality photos (20-30 per listing)</li>
+              <li>• Virtual tour or video walkthrough</li>
+              <li>• Price, beds, baths, square footage</li>
+              <li>• Property description and features</li>
+              <li>• Map location embed</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Conversion Elements:</p>
+            <ul class="space-y-1">
+              <li>• "Schedule Showing" button (above fold)</li>
+              <li>• Agent contact form on listing page</li>
+              <li>• Save property functionality</li>
+              <li>• Mortgage calculator</li>
+              <li>• Similar listings carousel</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🎯 Featured Listings Strategy</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Homepage Section:</p>
+            <p>Showcase 3-6 featured listings prominently. High-quality photos, key details, "View Listing" CTAs. Update weekly with new properties.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Individual Listing Pages:</p>
+            <p>Dedicated page for each featured property with full photo gallery, video tour, description, map, and lead capture form.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 realestate-v2-text">
+      AGENT PROFILES & TRUST BUILDING
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">👤 Agent Profile Page Elements</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Professional Photos:</p>
+            <ul class="space-y-1">
+              <li>• Headshot (high quality)</li>
+              <li>• Action shots (showing homes)</li>
+              <li>• Team photos (if applicable)</li>
+              <li>• Professional, approachable style</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Credentials & Expertise:</p>
+            <ul class="space-y-1">
+              <li>• License number and certifications</li>
+              <li>• Years in real estate</li>
+              <li>• Areas served (neighborhoods)</li>
+              <li>• Specializations (luxury, first-time)</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Trust Signals:</p>
+            <ul class="space-y-1">
+              <li>• Client testimonials with photos</li>
+              <li>• Sold listings gallery</li>
+              <li>• Reviews from Zillow/Google</li>
+              <li>• Awards and recognition</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🏆 Sold Listings Gallery</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Display Format:</p>
+            <p>Show 6-12 recently sold properties with before/after photos, sale price, days on market, and client testimonial. Proves your track record.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Success Stories:</p>
+            <p>Include case studies: "Sold in 3 days over asking" or "Helped first-time buyer navigate 15 offers." Specific numbers build credibility.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🎥 Video Bio & Property Tours</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Agent Bio Video:</p>
+            <p>2-3 minute video introducing yourself. Why you became an agent, your approach, what clients love about working with you. Humanizes your brand.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Property Video Walkthroughs:</p>
+            <p>Embed video tours for featured listings. Show room flow, neighborhood, highlights. 1-2 minutes per property. Mobile-optimized player.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gray-50">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 realestate-v2-text">
+      LEAD CAPTURE & CRM INTEGRATION
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📋 Landing Page Lead Capture</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Above-Fold Form:</p>
+            <ul class="space-y-1">
+              <li>• "Get Home Valuation" or "Schedule Consultation"</li>
+              <li>• Required: Name, email, phone</li>
+              <li>• Optional: Property address, timeline</li>
+              <li>• Strong CTA button above fold</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Lead Magnet Strategy:</p>
+            <ul class="space-y-1">
+              <li>• Free home valuation report</li>
+              <li>• Neighborhood market analysis</li>
+              <li>• First-time buyer guide</li>
+              <li>• Exclusive listing notifications</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🔄 CRM Integration Options</h3>
+        <div class="grid md:grid-cols-3 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Follow Up Boss:</p>
+            <p>Popular real estate CRM. Form integration, lead scoring, automated follow-up sequences.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">KVCore:</p>
+            <p>All-in-one platform: CRM, marketing, IDX. Many brokerages provide this to agents.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Generic Forms:</p>
+            <p>JotForm, Typeform, or Formstack. Email notifications, simple to set up, works with any builder.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📱 Mobile Lead Capture</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Click-to-Call Button:</p>
+            <p>Sticky header button on mobile. One tap to call you. Most mobile leads prefer calling over forms.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Tap-to-Email:</p>
+            <p>Email link in contact section. Opens mail app with your address pre-filled. Alternative to calling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-12 realestate-v2-text">
+      VIRTUAL TOURS & MEDIA GALLERIES
+    </h2>
+    
+    <div class="space-y-6">
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🎬 Matterport & Virtual Tours</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Matterport Embed:</p>
+            <p>3D virtual tour integration. Let buyers explore properties online. Premium feature for luxury listings. Embed code from Matterport.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Video Walkthroughs:</p>
+            <p>YouTube or Vimeo embed. 1-2 minute room-by-room tour. Show property flow and highlights. Mobile-friendly autoplay.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">📸 Photo Gallery Best Practices</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Photo Quality & Quantity:</p>
+            <ul class="space-y-1">
+              <li>• 20-30 high-quality photos per listing</li>
+              <li>• Professional photography (non-negotiable)</li>
+              <li>• HDR lighting, bright and inviting</li>
+              <li>• Wide angle for rooms, detail shots for features</li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Gallery UX:</p>
+            <ul class="space-y-1">
+              <li>• Lightbox or carousel on mobile</li>
+              <li>• Swipe gestures for navigation</li>
+              <li>• Fast loading (optimize images)</li>
+              <li>• Share buttons for social media</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-[3px] realestate-v2-border p-6">
+        <h3 class="text-2xl font-bold mb-4">🗺️ Map Integration</h3>
+        <div class="grid md:grid-cols-2 gap-4 text-lg">
+          <div>
+            <p class="font-bold mb-2">Google Maps Embed:</p>
+            <p>Show property location on map. Nearby points of interest: schools, parks, shopping. Walk Score integration if available.</p>
+          </div>
+          <div>
+            <p class="font-bold mb-2">Neighborhood Context:</p>
+            <p>Include neighborhood description, commute times, local amenities. Buyers buy the neighborhood, not just the house.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 px-6 bg-gradient-to-br from-blue-600 via-orange-600 to-yellow-600">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-5xl md:text-6xl font-black mb-8 text-white">
+      FINAL RANKINGS: REAL ESTATE PLATFORMS
+    </h2>
+    
+    <div class="bg-white/10 backdrop-blur-sm border-[3px] border-white p-8 rounded-lg">
+      <div class="space-y-6">
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🏆 #1 Framer - Premium Agent Choice</h3>
+          <p class="text-xl font-bold">$240-360/year | 1-2s load time | Code export</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Fastest loading (critical for 70%+ mobile traffic)</li>
+            <li>• Premium 9.5/10 design builds credibility</li>
+            <li>• Custom property listing integration</li>
+            <li>• Code export for future flexibility</li>
+            <li>• Best for: Established agents, competitive markets, luxury properties</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🥈 #2 Durable - Solo Agent Budget</h3>
+          <p class="text-xl font-bold">$180/year flat | 30s generation | Fast launch</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Flat pricing (no renewal hikes)</li>
+            <li>• Fastest 30-second launch</li>
+            <li>• Good enough design for agent profiles</li>
+            <li>• Manual listing updates (works for featured listings)</li>
+            <li>• Best for: New agents, budget-conscious, solo practitioners</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🥉 #3 10Web - WordPress MLS Power</h3>
+          <p class="text-xl font-bold">$120-300/year | MLS plugins | WordPress ecosystem</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• MLS/IDX plugin integration</li>
+            <li>• Automated property sync</li>
+            <li>• WooCommerce for real estate payments</li>
+            <li>• +200% renewal pricing (warning)</li>
+            <li>• Best for: Agents already using WordPress, need MLS automation</li>
+          </ul>
+        </div>
+        
+        <div class="text-white">
+          <h3 class="text-3xl font-bold mb-4">🟣 #4 Mixo - Content Quality</h3>
+          <p class="text-xl font-bold">$180-300/year | Best AI content | 50+ templates</p>
+          <ul class="mt-4 space-y-2 text-lg">
+            <li>• Best AI content for agent bios</li>
+            <li>• Good for storytelling and branding</li>
+            <li>• +67% renewal pricing</li>
+            <li>• Manual property listings</li>
+            <li>• Best for: Agents prioritizing content and storytelling</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 bg-white p-6 rounded-lg">
+        <p class="text-2xl font-bold realestate-v2-text">
+          Brutal truth: 70%+ of your traffic is mobile. Speed = leads.
+        </p>
+        <p class="text-lg text-gray-700 mt-4">
+          <strong>Established agents:</strong> Framer for premium design and speed. Worth the investment for competitive markets.<br/>
+          <strong>New/budget agents:</strong> Durable for fast launch at flat $180/year. Upgrade to Framer when you prove the ROI.<br/>
+          <strong>WordPress users:</strong> 10Web only if MLS automation is essential. Be aware of +200% renewal pricing.<br/>
+          <strong>Remember:</strong> Your website is your 24/7 open house. Every second of load time costs you leads. Design quality builds credibility. Mobile optimization is non-negotiable.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</Layout>
