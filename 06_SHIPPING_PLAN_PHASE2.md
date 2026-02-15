@@ -12,10 +12,11 @@
 
 | What Old Plan Said | Current Reality |
 |--------------------|-----------------|
-| 307 pages, not deployed | 468 pages, LIVE on GitHub Pages |
+| 307 pages, not deployed | **474 pages**, LIVE on GitHub Pages |
 | Homepage shows 4 tools | Homepage shows full content discovery |
 | Missing sitemap/robots.txt | Complete SEO infrastructure |
 | Content not audited | 5 reviews validated as high quality |
+| Orphaned markdown files | **INTEGRATED as /blog/ section** |
 
 **New Focus:** This is no longer a "fix broken stuff" phase. This is "optimize live site for revenue."
 
@@ -30,24 +31,27 @@
 
 ### What's Working
 - ✅ Site LIVE at https://vcelyy.github.io/ai-website-builders/
-- ✅ 468 pages built successfully (0 errors)
+- ✅ **474 pages** built successfully (0 errors)
 - ✅ 27 builders reviewed, 127 hours tested documented
 - ✅ Domain migration complete (all URLs fixed)
 - ✅ Internal linking audit done (82% improvement)
 - ✅ SEO infrastructure in place (sitemap, schema, meta)
 - ✅ Content quality: 9/10 on validated samples
+- ✅ **Blog section integrated** with 5 in-depth reviews
+- ✅ **Navigation complete** (desktop + mobile + footer)
 
 ### What's Blocking Revenue
 | Blocker | Severity | Owner | Time to Fix |
 |---------|----------|-------|-------------|
 | 22 placeholder affiliate codes | CRITICAL | USER | 1-2 hours |
-| 5 orphaned markdown reviews | HIGH | DEV | 2-3 hours |
+| ~~5 orphaned markdown reviews~~ | ~~HIGH~~ | ~~DEV~~ | **DONE** |
+| 100+ placeholder links (`href="#"`) | MEDIUM | DEV | 3-4 hours |
 | Site not indexed by Google | MEDIUM | DEV | 30 minutes |
 | No traffic yet | MEDIUM | BOTH | Ongoing |
 
 ### What's Unknown
 - Mobile experience quality (not tested)
-- Content consistency across all 468 pages
+- Content consistency across all 474 pages
 - Actual conversion rate (no traffic yet)
 
 ---
@@ -82,44 +86,65 @@
 
 ---
 
-## Priority 2: Orphaned Content Integration (HIGH)
+## Priority 2: Orphaned Content Integration (HIGH) - ✅ COMPLETED
 
 ### The Problem
 5 high-quality markdown reviews exist in `content/posts/` but are NOT part of the build:
 
 | File | Status | Quality |
 |------|--------|---------|
-| dorik-ai-review.md | Orphaned | Validated - Excellent |
-| framer-ai-review.md | Orphaned | Validated - Excellent |
-| durable-ai-review.md | Orphaned | Validated - Excellent |
-| relume-ai-review.md | Orphaned | Validated - Excellent |
-| 10web-ai-review.md | Orphaned | Validated - Excellent |
+| dorik-ai-review.md | ✅ Integrated | Validated - Excellent |
+| framer-ai-review.md | ✅ Integrated | Validated - Excellent |
+| durable-ai-review.md | ✅ Integrated | Validated - Excellent |
+| relume-ai-review.md | ✅ Integrated | Validated - Excellent |
+| 10web-ai-review.md | ✅ Integrated | Validated - Excellent |
 
-These are DIFFERENT content from the existing .astro review pages - they're alternative long-form reviews (~2,000 words each).
-
-### The Solution
-**Option A: Create Astro Content Collections**
-- Add content collection config to `astro.config.mjs`
-- Create `src/content/config.ts`
-- Create blog post template
+### The Solution - IMPLEMENTED
+- Created Astro Content Collections (`src/content/config.ts`)
+- Created blog listing page (`src/pages/blog/index.astro`)
+- Created blog post template (`src/pages/blog/[slug].astro`)
 - Routes: `/blog/dorik-ai-review/`, etc.
+- Added Blog link to main navigation (desktop + mobile)
+- Added "In-Depth" section to footer with all 5 blog posts
 
-**Option B: Convert to .astro Format**
-- Manually convert to .astro pages
-- Match existing component structure
-- Routes: `/reviews/dorik-ai-long-form/`, etc.
-
-**Recommendation:** Option A is cleaner for future content. Option B is faster for immediate integration.
-
-### Why This Matters for Revenue
-- 10,000+ words of content sitting unused
+### Revenue Impact
+- 10,000+ words of content now live
 - Each review has affiliate disclosures ready
 - Long-form content ranks better for long-tail keywords
 - More entry points = more affiliate clicks
 
 ---
 
-## Priority 3: Traffic Generation (MEDIUM)
+## Priority 3: Placeholder Link Cleanup (MEDIUM) - NEW
+
+### The Problem
+Quality audit revealed **100+ placeholder links** (`href="#"`) across many pages:
+- "Read X Guide →" links that go nowhere
+- CTA buttons that don't link to anything
+- Comparison cards without destinations
+
+### Affected Pages (Sample)
+- `best-ai-website-builder-for-gyms.astro`
+- `best-ai-website-builder-for-roofers.astro`
+- `best-ai-website-builder-for-museums.astro`
+- And 60+ more "best-ai-website-builder-for-X" pages
+
+### The Solution
+Two approaches:
+1. **Remove broken links** - Delete placeholder CTAs entirely
+2. **Link to existing content** - Point to relevant guides/pages
+
+### Why This Matters
+- Broken links hurt SEO
+- Users clicking "Read Guide" and getting nowhere damages trust
+- Professional appearance requires working navigation
+
+### Estimated Time
+3-4 hours to audit and fix all placeholder links
+
+---
+
+## Priority 4: Traffic Generation (MEDIUM)
 
 ### The Problem
 Site is live but not indexed. Web search returned zero results for the site URL.
@@ -147,10 +172,10 @@ Site is live but not indexed. Web search returned zero results for the site URL.
 
 ---
 
-## Priority 4: Quality Verification (MEDIUM)
+## Priority 5: Quality Verification (MEDIUM)
 
 ### The Problem
-468 pages exist. We've validated 5 markdown files + spot-checked the live site. But what about the other 463 pages?
+474 pages exist. We've validated 5 markdown files + spot-checked the live site. But what about the other 469 pages?
 
 ### The Solution
 **Random Sample Audit:**
