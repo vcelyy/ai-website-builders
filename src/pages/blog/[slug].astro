@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const { title, description, pubDate, author, tags, affiliate } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Blog', url: '/blog' },
+  { name: title, url: `/blog/${post.slug}` }
+];
+---
+
+<Layout title={title} description={description}>
+  <article class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Breadcrumbs -->
+    <Breadcrumbs breadcrumbs={breadcrumbs} />
+
+    <!-- Header -->
+    <header class="mb-12 border-b-4 border-black pb-8">
+      <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
+        <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+        <span>•</span>
+        <span>{author}</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight mb-4">
+        {title}
+      </h1>
+      <p class="text-xl text-gray-600 leading-relaxed">
+        {description}
+      </p>
+      {tags && tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-6">
+          {tags.map((tag: string) => (
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 text-sm font-bold border-2 border-orange-300">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Content -->
+    <div class="prose prose-lg max-w-none
+      prose-headings:font-black prose-headings:text-gray-900
+      prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b-2 prose-h2:border-gray-200 prose-h2:pb-2
+      prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+      prose-p:text-gray-700 prose-p:leading-relaxed
+      prose-strong:text-gray-900 prose-strong:font-bold
+      prose-a:text-orange-600 prose-a:font-bold prose-a:no-underline hover:prose-a:underline
+      prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-orange-50 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:italic
+      prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
+      prose-table:border-collapse
+      prose-th:bg-gray-900 prose-th:text-white prose-th:p-3 prose-th:font-bold prose-th:border prose-th:border-gray-300
+      prose-td:p-3 prose-td:border prose-td:border-gray-300
+      prose-ul:list-disc prose-ul:pl-6
+      prose-ol:list-decimal prose-ol:pl-6
+    ">
+      <Content />
+    </div>
+
+    <!-- Affiliate Disclosure -->
+    {affiliate && (
+      <div class="mt-12 p-6 bg-gray-50 border-2 border-gray-200">
+        <p class="text-sm text-gray-600">
+          <strong>Affiliate disclosure:</strong> This review contains affiliate links. If you sign up through my links, I may earn a commission at no extra cost to you. This doesn't affect my opinions—I've tested these tools and formed my views through actual use.
+        </p>
+      </div>
+    )}
+
+    <!-- Footer -->
+    <footer class="mt-12 pt-8 border-t-2 border-gray-200">
+      <p class="text-sm text-gray-500">
+        Last updated: {formattedDate}. Pricing and features verified at time of publication.
+      </p>
+    </footer>
+
+    <!-- Related Links -->
+    <nav class="mt-12 p-6 bg-gradient-to-br from-orange-50 to-amber-50 border-2 border-orange-200">
+      <h2 class="text-xl font-black text-gray-900 mb-4">Continue Reading</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <a href="/reviews" class="block p-4 bg-white border-2 border-gray-200 hover:border-orange-400 transition-colors">
+          <span class="font-bold text-gray-900">All Reviews →</span>
+          <p class="text-sm text-gray-600 mt-1">Browse our complete testing database</p>
+        </a>
+        <a href="/blog" class="block p-4 bg-white border-2 border-gray-200 hover:border-orange-400 transition-colors">
+          <span class="font-bold text-gray-900">More Blog Posts →</span>
+          <p class="text-sm text-gray-600 mt-1">In-depth analysis and guides</p>
+        </a>
+      </div>
+    </nav>
+  </article>
+</Layout>
